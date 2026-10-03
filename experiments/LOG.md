@@ -29,3 +29,15 @@ Copy entries into the team's Google Sheet when ready.
 - **Setup:** compared NYC, Chicago, Ohio/Columbus, FARS and Montgomery County with server-side SoQL/ArcGIS aggregation and FARS header reads; collected real public vague questions; built a unified trap catalog (`docs/scenario-data-v1.md`). Re-checked the two most consequential new traps on our snapshot.
 - **Result:** NYC wins on trap richness and relatability; MVP bundle = crashes + injured/killed persons + East River bridge bike counts (~4–6 DE hours). Ohio has no scriptable public bulk download. Two earlier claims were wrong: Person/Vehicles start 2012-07-01 (sparse before Apr 2016), and the freeze is worse than "pending". Verified: killed count NULL in 87.8% of May-2026 and 100% of June-2026 rows (TR08); hidden e-rider injuries outside all mode columns since 2021, 2,132 → 1,405 per year (TR03). E001 (Codex) missed both.
 - **Next:** team decision on Monday; fetch persons + bike_monthly once the bundle is agreed; run E002 when the clean Codex profile exists.
+
+## 2026-10-03 — E003-smoke: Can OpenCode free models serve as the baseline subject?
+
+- **Setup:** OpenCode 1.18.34, no account or API key. `opencode models` lists 8 free Zen models (big-pickle, nemotron-3-ultra-free, mimo-v2.6-flash-free, …; `jev-1.13-free` is not listed without a Zen key). Hello test with `opencode run --pure --format json`. Then Q02 with the plain prompt in a sandbox outside the repo, with a project `opencode.json` that allows only python/ls/cat/head/mkdir and denies web fetch and external directories (OpenCode has no OS-level sandbox, unlike Codex).
+- **Result:** hello test passed on big-pickle (25 s) and nemotron-3-ultra-free (4 s), cost $0, token counts present in `step_finish` events, so JSON events work as traces. Running two `opencode run` processes in parallel failed: one died with "database is locked" (shared SQLite state in `~/.local/share/opencode`) and the other hung with no events for 10 min. Sequential runs work.
+- **Next:** run subjects sequentially (or give each run its own `XDG_DATA_HOME`); finish the Q02 comparison and write an OpenCode subject runner.
+
+## 2026-10-03 — E003-smoke result: two free OpenCode models on Q02
+
+- **Setup:** sequential runs of nemotron-3-ultra-free and big-pickle on Q02 ("Are cyclists safer in NYC than they used to be?"), plain prompt, restricted sandbox. Details in `experiments/E003-opencode-smoke/REPORT.md`.
+- **Result:** both PROCEEDed with one reading, never asked or enumerated, flagged 0 of 4 answer-key traps, and made misleading claims. nemotron "proved" cyclists are less safe by dividing by total crashes, whose count collapsed after the 2020 NYPD recording change (TR01). big-pickle compared against half-year 2012 (TR09). ~2 min and $0 per run.
+- **Next:** make OpenCode free models the main baseline (B1-open); Codex stays as a frontier reference. Write an OpenCode subject runner (sequential, per-run data dir), then run all 8 questions × 2–3 free models.
