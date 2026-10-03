@@ -1,0 +1,21 @@
+scope,factor,crashes
+all_crashes,Driver Inattention/Distraction,462105
+all_crashes,Failure to Yield Right-of-Way,136046
+all_crashes,Following Too Closely,121711
+all_crashes,Backing Unsafely,82577
+all_crashes,Other Vehicular,71429
+all_crashes,Passing or Lane Usage Improper,65544
+all_crashes,Passing Too Closely,58028
+all_crashes,Turning Improperly,55751
+all_crashes,Fatigued/Drowsy,47599
+all_crashes,Unsafe Lane Changing,44743
+fatal_crashes,Driver Inattention/Distraction,434
+fatal_crashes,Unsafe Speed,414
+fatal_crashes,Failure to Yield Right-of-Way,312
+fatal_crashes,Traffic Control Disregarded,279
+fatal_crashes,Alcohol Involvement,111
+fatal_crashes,Pedestrian/Bicyclist/Other Pedestrian Error/Confusion,107
+fatal_crashes,Driver Inexperience,68
+fatal_crashes,Lost Consciousness,60
+fatal_crashes,Illnes,56
+fatal_crashes,Passenger Distraction,48

@@ -1,0 +1,57 @@
+column_name,value,occurrences,pct
+borough,[NULL],691375,30.468
+borough,BROOKLYN,506806,22.3343
+borough,QUEENS,422409,18.615
+borough,MANHATTAN,348485,15.3573
+borough,BRONX,234088,10.3159
+borough,STATEN ISLAND,66024,2.9096
+contributing_factor_vehicle_1,Unspecified,756643,33.3442
+contributing_factor_vehicle_1,Driver Inattention/Distraction,462105,20.3643
+contributing_factor_vehicle_1,Failure to Yield Right-of-Way,136046,5.9954
+contributing_factor_vehicle_1,Following Too Closely,121711,5.3636
+contributing_factor_vehicle_1,Backing Unsafely,82577,3.6391
+contributing_factor_vehicle_1,Other Vehicular,71429,3.1478
+contributing_factor_vehicle_1,Passing or Lane Usage Improper,65544,2.8884
+contributing_factor_vehicle_1,Passing Too Closely,58028,2.5572
+contributing_factor_vehicle_1,Turning Improperly,55751,2.4569
+contributing_factor_vehicle_1,Fatigued/Drowsy,47599,2.0976
+contributing_factor_vehicle_1,Unsafe Lane Changing,44743,1.9718
+contributing_factor_vehicle_1,Traffic Control Disregarded,41898,1.8464
+contributing_factor_vehicle_1,Driver Inexperience,36928,1.6274
+contributing_factor_vehicle_1,Unsafe Speed,35562,1.5672
+contributing_factor_vehicle_1,Alcohol Involvement,26503,1.168
+contributing_factor_vehicle_1,Reaction to Uninvolved Vehicle,22133,0.9754
+contributing_factor_vehicle_1,Pavement Slippery,21280,0.9378
+contributing_factor_vehicle_1,Lost Consciousness,20904,0.9212
+contributing_factor_vehicle_1,View Obstructed/Limited,15682,0.6911
+contributing_factor_vehicle_1,Prescription Medication,15438,0.6803
+contributing_factor_vehicle_1,Oversized Vehicle,13326,0.5873
+contributing_factor_vehicle_1,Outside Car Distraction,13230,0.583
+contributing_factor_vehicle_1,Pedestrian/Bicyclist/Other Pedestrian Error/Confusion,12156,0.5357
+contributing_factor_vehicle_1,Aggressive Driving/Road Rage,11501,0.5068
+contributing_factor_vehicle_1,Physical Disability,9443,0.4161
+vehicle_type_code1,Sedan,660172,29.0929
+vehicle_type_code1,Station Wagon/Sport Utility Vehicle,518578,22.853
+vehicle_type_code1,PASSENGER VEHICLE,416206,18.3416
+vehicle_type_code1,SPORT UTILITY / STATION WAGON,180291,7.9452
+vehicle_type_code1,Taxi,57275,2.524
+vehicle_type_code1,4 dr sedan,43871,1.9333
+vehicle_type_code1,Pick-up Truck,39455,1.7387
+vehicle_type_code1,TAXI,31911,1.4063
+vehicle_type_code1,Box Truck,27179,1.1977
+vehicle_type_code1,VAN,25266,1.1134
+vehicle_type_code1,Bus,25192,1.1102
+vehicle_type_code1,OTHER,22968,1.0122
+vehicle_type_code1,UNKNOWN,19941,0.8788
+vehicle_type_code1,Bike,18674,0.8229
+vehicle_type_code1,[NULL],17081,0.7527
+vehicle_type_code1,LARGE COM VEH(6 OR MORE TIRES),14397,0.6345
+vehicle_type_code1,BUS,13993,0.6167
+vehicle_type_code1,SMALL COM VEH(4 TIRES) ,13216,0.5824
+vehicle_type_code1,Tractor Truck Diesel,11585,0.5105
+vehicle_type_code1,PICK-UP TRUCK,11505,0.507
+vehicle_type_code1,LIVERY VEHICLE,10481,0.4619
+vehicle_type_code1,Van,10350,0.4561
+vehicle_type_code1,Motorcycle,10285,0.4532
+vehicle_type_code1,Ambulance,5357,0.2361
+vehicle_type_code1,Dump,4426,0.195

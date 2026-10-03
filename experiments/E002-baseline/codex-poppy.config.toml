@@ -1,0 +1,9 @@
+# Minimal, clean Codex profile for Poppy subject runs.
+# Install: copy to ~/.codex-poppy/config.toml, then log in once with
+#   CODEX_HOME=~/.codex-poppy /Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex login
+# Why: the default ~/.codex profile loads a personal global AGENTS.md, MCP servers and plugins,
+# which change the behaviors we measure (see experiments/LOG.md, E000).
+
+model = "gpt-6-luna"
+model_reasoning_effort = "high"
+web_search = "disabled"

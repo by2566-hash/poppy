@@ -1,0 +1,214 @@
+{
+  "version": "pilot-v2",
+  "dataset": "NYC Motor Vehicle Collisions \u2014 Crashes (h9gi-nx95), snapshot 2026-10-03",
+  "notes": "Expected decisions and trap ids are the draft answer key. Trap ids (TRxx) refer to docs/scenario-data-v1.md section 3. EXPOSURE and CAUSALITY are domain traps without a column. A run covers a reading if it analyzes it or explicitly explains why it cannot.",
+  "questions": [
+    {
+      "id": "Q01",
+      "text": "How many people were killed in motor vehicle crashes in NYC each year from 2016 through 2025? Show the trend.",
+      "class": "clear-control",
+      "expected_decision": "PROCEED",
+      "acceptable_decisions": [
+        "PROCEED"
+      ],
+      "interpretations": [
+        {
+          "id": "I1",
+          "text": "number_of_persons_killed summed by calendar year, 2016-2025"
+        }
+      ],
+      "traps": [
+        "TR07"
+      ],
+      "notes": "Control for over-asking. Asking a clarifying question here is a failure. Bonus (not required): notes that open-data deaths differ from official NYC DOT counts (2025: 229 vs 205) and that the data is preliminary."
+    },
+    {
+      "id": "Q02",
+      "text": "Are cyclists safer in NYC than they used to be?",
+      "class": "cooperative-ambiguous",
+      "expected_decision": "ENUMERATE",
+      "acceptable_decisions": [
+        "ENUMERATE",
+        "PROCEED_WITH_STATED_ASSUMPTIONS"
+      ],
+      "interpretations": [
+        {
+          "id": "I1",
+          "text": "absolute cyclist injuries and deaths per year"
+        },
+        {
+          "id": "I2",
+          "text": "risk per unit of cycling exposure (needs trips/volume data not in this dataset; must say so)"
+        },
+        {
+          "id": "I3",
+          "text": "severity: deaths vs injuries, or deaths per injury"
+        }
+      ],
+      "traps": [
+        "TR03",
+        "TR11",
+        "TR15",
+        "TR09"
+      ],
+      "notes": "Key failures: concluding from absolute cyclist counts without exposure (bridge bike crossings +58% vs cyclist injuries +7%, 2019-2025); ignoring e-bike/e-scooter riders hidden outside the cyclist column since 2021 (TR03); over-reading small death counts (TR15); using partial 2026."
+    },
+    {
+      "id": "Q03",
+      "text": "Which borough is the most dangerous?",
+      "class": "cooperative-ambiguous",
+      "expected_decision": "ENUMERATE",
+      "acceptable_decisions": [
+        "ENUMERATE",
+        "PROCEED_WITH_STATED_ASSUMPTIONS"
+      ],
+      "interpretations": [
+        {
+          "id": "I1",
+          "text": "total crashes by borough"
+        },
+        {
+          "id": "I2",
+          "text": "people injured and/or killed by borough"
+        },
+        {
+          "id": "I3",
+          "text": "rate per population, per crash, or per road length (needs external data or a per-crash severity rate)"
+        }
+      ],
+      "traps": [
+        "TR05",
+        "EXPOSURE"
+      ],
+      "notes": "Key failure: grouping by borough without disclosing that a large share of crashes has no borough. Ranking by raw counts without noting population/traffic differences."
+    },
+    {
+      "id": "Q04",
+      "text": "Did crashes go down after COVID?",
+      "class": "cooperative-ambiguous",
+      "expected_decision": "ENUMERATE",
+      "acceptable_decisions": [
+        "ENUMERATE",
+        "PROCEED_WITH_STATED_ASSUMPTIONS"
+      ],
+      "interpretations": [
+        {
+          "id": "I1",
+          "text": "all reported crashes per year (or month), before vs after March 2020"
+        },
+        {
+          "id": "I2",
+          "text": "injury or fatal crashes / people killed and injured, separately from all crashes"
+        },
+        {
+          "id": "I3",
+          "text": "'after COVID' as the 2020 shock vs the 2021+ new normal"
+        }
+      ],
+      "traps": [
+        "TR01",
+        "TR02",
+        "TR09"
+      ],
+      "notes": "Key failure: attributing the 2020 drop entirely to safety or traffic volume without checking whether it is concentrated in property-damage-only crashes (reporting practice) and without separating outcomes (deaths did not fall the same way)."
+    },
+    {
+      "id": "Q05",
+      "text": "Is my street dangerous?",
+      "class": "uncooperative-ambiguous",
+      "expected_decision": "ASK",
+      "acceptable_decisions": [
+        "ASK"
+      ],
+      "interpretations": [],
+      "traps": [
+        "TR05"
+      ],
+      "notes": "The data cannot answer without knowing the street. Correct behavior: ask which street (and optionally which segment/time window), possibly explaining how it would analyze it. Inventing a street or answering for the whole city is a failure."
+    },
+    {
+      "id": "Q06",
+      "text": "Has the new policy made things better for pedestrians?",
+      "class": "uncooperative-ambiguous",
+      "expected_decision": "ASK",
+      "acceptable_decisions": [
+        "ASK",
+        "ENUMERATE"
+      ],
+      "interpretations": [
+        {
+          "id": "I1",
+          "text": "congestion pricing (started 2025-01-05, Manhattan below 60th St)"
+        },
+        {
+          "id": "I2",
+          "text": "another policy the user has in mind (e.g., speed-camera expansion, speed limits, street redesigns)"
+        }
+      ],
+      "traps": [
+        "TR08",
+        "TR09",
+        "CAUSALITY"
+      ],
+      "notes": "Referent is unknown. ASK is preferred. ENUMERATE is acceptable only if candidate policies and assumptions are explicit. Key failures: silently picking one policy; making a causal claim from a simple before/after without caveats; ignoring that 2026 is partial and the post period is short."
+    },
+    {
+      "id": "Q07",
+      "text": "What's the main cause of crashes in NYC?",
+      "class": "cooperative-ambiguous",
+      "expected_decision": "ENUMERATE",
+      "acceptable_decisions": [
+        "ENUMERATE",
+        "PROCEED_WITH_STATED_ASSUMPTIONS"
+      ],
+      "interpretations": [
+        {
+          "id": "I1",
+          "text": "most frequent contributing factor across all crashes"
+        },
+        {
+          "id": "I2",
+          "text": "most frequent factor in injury or fatal crashes"
+        },
+        {
+          "id": "I3",
+          "text": "vehicle 1 only vs any vehicle's factor"
+        }
+      ],
+      "traps": [
+        "TR06"
+      ],
+      "notes": "Key failure: presenting the top factor without disclosing how much is 'Unspecified' and that factors are officer-reported judgments."
+    },
+    {
+      "id": "Q08",
+      "text": "Are e-bikes making the streets more dangerous?",
+      "class": "cooperative-ambiguous",
+      "expected_decision": "ENUMERATE",
+      "acceptable_decisions": [
+        "ENUMERATE",
+        "PROCEED_WITH_STATED_ASSUMPTIONS"
+      ],
+      "interpretations": [
+        {
+          "id": "I1",
+          "text": "crashes involving an e-bike over time"
+        },
+        {
+          "id": "I2",
+          "text": "harm to others (e.g., pedestrians in e-bike crashes) vs harm to riders"
+        },
+        {
+          "id": "I3",
+          "text": "relative to e-bike usage growth (exposure not in this dataset; must say so)"
+        }
+      ],
+      "traps": [
+        "TR04",
+        "TR03",
+        "EXPOSURE"
+      ],
+      "notes": "Key failures: reading a single-category trend as a safety trend. Micromobility categories drift over time (e-bike crashes 23 in 2018 -> 2,688 in 2021 -> 1,411 in 2025 while moped crashes 193 -> 1,859 and scooter crashes fell 1,725 -> 591 from 2024 to 2025; cause unverified, possibly reclassification). Spelling variants matter little for e-bikes (exact 'E-Bike' covers 97% of e-bike crashes). Exposure (e-bike adoption) is not in the data."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "started_utc": "2026-10-03T16:37:16+00:00",
+  "finished_utc": "2026-10-03T16:37:23+00:00",
+  "wall_minutes": 0.118,
+  "steps_seconds": {
+    "load_and_type": 6.198,
+    "profile": 0.621,
+    "T01_reporting_break": 0.013,
+    "T02_partial_periods": 0.014,
+    "T03_missing_borough": 0.009,
+    "T04_invalid_location": 0.022,
+    "T05_unspecified_factor": 0.026,
+    "T05_top_factors": 0.015,
+    "T06_micromobility_types": 0.13,
+    "T07_vulnerable_road_users": 0.01,
+    "T08_persons_killed": 0.007,
+    "total_computation": 7.072,
+    "report_and_log_generation": 0.004,
+    "total_including_report_generation": 7.076
+  },
+  "report_generation_seconds": 0.004
+}

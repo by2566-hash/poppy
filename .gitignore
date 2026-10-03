@@ -1,0 +1,24 @@
+# Data (large, re-downloadable)
+data/raw/
+data/processed/
+*.parquet
+*.duckdb
+*.duckdb.wal
+
+# Agent sandboxes and credentials — never commit
+.codex*/
+**/auth.json
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store
+
+# Local agent stderr (contains machine-specific setup)
+*_stderr.log
+stderr.log
