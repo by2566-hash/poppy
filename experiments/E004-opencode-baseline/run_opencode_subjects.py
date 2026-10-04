@@ -86,7 +86,7 @@ def run_one(model: str, q: dict, args: argparse.Namespace) -> dict:
     dest = HERE / "runs" / args.arm / model / q["id"]
     if dest.exists():
         shutil.rmtree(dest)
-    shutil.copytree(sandbox, dest, ignore=shutil.ignore_patterns("data", ".ocdata", "stderr.log"))
+    shutil.copytree(sandbox, dest, ignore=shutil.ignore_patterns("data", ".ocdata", "stderr.log", "*.parquet", "*.duckdb"))
     (dest / "final.md").write_text(summary.pop("final_text"))
     meta = {"model": model, "qid": q["id"], "arm": args.arm, "question": q["text"],
             "elapsed_s": elapsed, "exit_code": code, "timed_out": timed_out, **summary}
