@@ -1,0 +1,386 @@
+[
+  {
+    "model": "nemotron-3-ultra-free",
+    "qid": "Q01",
+    "arm": "plain",
+    "question": "How many people were killed in motor vehicle crashes in NYC each year from 2016 through 2025? Show the trend.",
+    "elapsed_s": 41.2,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 26405,
+      "output": 831,
+      "reasoning": 192
+    },
+    "tool_calls": 3,
+    "errors": []
+  },
+  {
+    "model": "nemotron-3-ultra-free",
+    "qid": "Q02",
+    "arm": "plain",
+    "question": "Are cyclists safer in NYC than they used to be?",
+    "elapsed_s": 142.0,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 51774,
+      "output": 3618,
+      "reasoning": 602
+    },
+    "tool_calls": 4,
+    "errors": []
+  },
+  {
+    "model": "nemotron-3-ultra-free",
+    "qid": "Q03",
+    "arm": "plain",
+    "question": "Which borough is the most dangerous?",
+    "elapsed_s": 53.1,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 37717,
+      "output": 1424,
+      "reasoning": 346
+    },
+    "tool_calls": 4,
+    "errors": []
+  },
+  {
+    "model": "nemotron-3-ultra-free",
+    "qid": "Q04",
+    "arm": "plain",
+    "question": "Did crashes go down after COVID?",
+    "elapsed_s": 99.4,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 57196,
+      "output": 1520,
+      "reasoning": 271
+    },
+    "tool_calls": 6,
+    "errors": []
+  },
+  {
+    "model": "nemotron-3-ultra-free",
+    "qid": "Q05",
+    "arm": "plain",
+    "question": "Is my street dangerous?",
+    "elapsed_s": 12.3,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 16513,
+      "output": 82,
+      "reasoning": 110
+    },
+    "tool_calls": 1,
+    "errors": []
+  },
+  {
+    "model": "nemotron-3-ultra-free",
+    "qid": "Q06",
+    "arm": "plain",
+    "question": "Has the new policy made things better for pedestrians?",
+    "elapsed_s": 900.0,
+    "exit_code": null,
+    "timed_out": true,
+    "tokens": {
+      "input": 0,
+      "output": 0,
+      "reasoning": 0
+    },
+    "tool_calls": 0,
+    "errors": []
+  },
+  {
+    "model": "nemotron-3-ultra-free",
+    "qid": "Q07",
+    "arm": "plain",
+    "question": "What's the main cause of crashes in NYC?",
+    "elapsed_s": 154.8,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 46815,
+      "output": 1069,
+      "reasoning": 329
+    },
+    "tool_calls": 4,
+    "errors": []
+  },
+  {
+    "model": "nemotron-3-ultra-free",
+    "qid": "Q08",
+    "arm": "plain",
+    "question": "Are e-bikes making the streets more dangerous?",
+    "elapsed_s": 526.0,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 225603,
+      "output": 13240,
+      "reasoning": 703
+    },
+    "tool_calls": 11,
+    "errors": []
+  },
+  {
+    "model": "big-pickle",
+    "qid": "Q01",
+    "arm": "plain",
+    "question": "How many people were killed in motor vehicle crashes in NYC each year from 2016 through 2025? Show the trend.",
+    "elapsed_s": 114.7,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 14386,
+      "output": 3341,
+      "reasoning": 951
+    },
+    "tool_calls": 9,
+    "errors": []
+  },
+  {
+    "model": "big-pickle",
+    "qid": "Q02",
+    "arm": "plain",
+    "question": "Are cyclists safer in NYC than they used to be?",
+    "elapsed_s": 196.1,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 46631,
+      "output": 18914,
+      "reasoning": 0
+    },
+    "tool_calls": 23,
+    "errors": []
+  },
+  {
+    "model": "big-pickle",
+    "qid": "Q03",
+    "arm": "plain",
+    "question": "Which borough is the most dangerous?",
+    "elapsed_s": 190.6,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 31569,
+      "output": 8035,
+      "reasoning": 2902
+    },
+    "tool_calls": 20,
+    "errors": []
+  },
+  {
+    "model": "big-pickle",
+    "qid": "Q04",
+    "arm": "plain",
+    "question": "Did crashes go down after COVID?",
+    "elapsed_s": 318.3,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 36041,
+      "output": 13867,
+      "reasoning": 7639
+    },
+    "tool_calls": 24,
+    "errors": []
+  },
+  {
+    "model": "big-pickle",
+    "qid": "Q05",
+    "arm": "plain",
+    "question": "Is my street dangerous?",
+    "elapsed_s": 224.0,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 33037,
+      "output": 11950,
+      "reasoning": 2770
+    },
+    "tool_calls": 27,
+    "errors": []
+  },
+  {
+    "model": "big-pickle",
+    "qid": "Q06",
+    "arm": "plain",
+    "question": "Has the new policy made things better for pedestrians?",
+    "elapsed_s": 161.9,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 29481,
+      "output": 5051,
+      "reasoning": 3169
+    },
+    "tool_calls": 17,
+    "errors": []
+  },
+  {
+    "model": "big-pickle",
+    "qid": "Q07",
+    "arm": "plain",
+    "question": "What's the main cause of crashes in NYC?",
+    "elapsed_s": 116.4,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 17236,
+      "output": 5297,
+      "reasoning": 997
+    },
+    "tool_calls": 16,
+    "errors": []
+  },
+  {
+    "model": "big-pickle",
+    "qid": "Q08",
+    "arm": "plain",
+    "question": "Are e-bikes making the streets more dangerous?",
+    "elapsed_s": 900.2,
+    "exit_code": null,
+    "timed_out": true,
+    "tokens": {
+      "input": 16870,
+      "output": 7796,
+      "reasoning": 3474
+    },
+    "tool_calls": 21,
+    "errors": []
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "qid": "Q01",
+    "arm": "plain",
+    "question": "How many people were killed in motor vehicle crashes in NYC each year from 2016 through 2025? Show the trend.",
+    "elapsed_s": 71.6,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 15890,
+      "output": 2449,
+      "reasoning": 1072
+    },
+    "tool_calls": 10,
+    "errors": []
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "qid": "Q02",
+    "arm": "plain",
+    "question": "Are cyclists safer in NYC than they used to be?",
+    "elapsed_s": 446.0,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 41043,
+      "output": 9086,
+      "reasoning": 8088
+    },
+    "tool_calls": 22,
+    "errors": []
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "qid": "Q03",
+    "arm": "plain",
+    "question": "Which borough is the most dangerous?",
+    "elapsed_s": 900.1,
+    "exit_code": null,
+    "timed_out": true,
+    "tokens": {
+      "input": 42633,
+      "output": 12930,
+      "reasoning": 12647
+    },
+    "tool_calls": 33,
+    "errors": []
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "qid": "Q04",
+    "arm": "plain",
+    "question": "Did crashes go down after COVID?",
+    "elapsed_s": 239.6,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 26595,
+      "output": 6087,
+      "reasoning": 5682
+    },
+    "tool_calls": 28,
+    "errors": []
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "qid": "Q05",
+    "arm": "plain",
+    "question": "Is my street dangerous?",
+    "elapsed_s": 900.1,
+    "exit_code": null,
+    "timed_out": true,
+    "tokens": {
+      "input": 46740,
+      "output": 11970,
+      "reasoning": 13976
+    },
+    "tool_calls": 42,
+    "errors": []
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "qid": "Q06",
+    "arm": "plain",
+    "question": "Has the new policy made things better for pedestrians?",
+    "elapsed_s": 900.1,
+    "exit_code": null,
+    "timed_out": true,
+    "tokens": {
+      "input": 252184,
+      "output": 18299,
+      "reasoning": 19451
+    },
+    "tool_calls": 59,
+    "errors": []
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "qid": "Q07",
+    "arm": "plain",
+    "question": "What's the main cause of crashes in NYC?",
+    "elapsed_s": 117.2,
+    "exit_code": 0,
+    "timed_out": false,
+    "tokens": {
+      "input": 10285,
+      "output": 3323,
+      "reasoning": 1151
+    },
+    "tool_calls": 12,
+    "errors": []
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "qid": "Q08",
+    "arm": "plain",
+    "question": "Are e-bikes making the streets more dangerous?",
+    "elapsed_s": 900.0,
+    "exit_code": null,
+    "timed_out": true,
+    "tokens": {
+      "input": 125676,
+      "output": 18004,
+      "reasoning": 14419
+    },
+    "tool_calls": 51,
+    "errors": []
+  }
+]

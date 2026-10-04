@@ -1,0 +1,16 @@
+{
+  "model": "mimo-v2.6-flash-free",
+  "qid": "Q04",
+  "arm": "plain",
+  "question": "Did crashes go down after COVID?",
+  "elapsed_s": 239.6,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 26595,
+    "output": 6087,
+    "reasoning": 5682
+  },
+  "tool_calls": 28,
+  "errors": []
+}

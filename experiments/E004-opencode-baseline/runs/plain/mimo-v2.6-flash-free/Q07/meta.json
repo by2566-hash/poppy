@@ -1,0 +1,16 @@
+{
+  "model": "mimo-v2.6-flash-free",
+  "qid": "Q07",
+  "arm": "plain",
+  "question": "What's the main cause of crashes in NYC?",
+  "elapsed_s": 117.2,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 10285,
+    "output": 3323,
+    "reasoning": 1151
+  },
+  "tool_calls": 12,
+  "errors": []
+}

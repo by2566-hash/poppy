@@ -1,0 +1,16 @@
+{
+  "model": "big-pickle",
+  "qid": "Q06",
+  "arm": "plain",
+  "question": "Has the new policy made things better for pedestrians?",
+  "elapsed_s": 161.9,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 29481,
+    "output": 5051,
+    "reasoning": 3169
+  },
+  "tool_calls": 17,
+  "errors": []
+}

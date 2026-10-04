@@ -12,3 +12,9 @@ Codex produced a clean, well-sourced data card in 12 minutes (E001), and the cor
 
 **2026-10-03 — In NYC open data, total crash counts are not a safety series.**
 After the NYPD stopped recording most property-damage-only crashes (pilot 2019, citywide April 2020), property-damage-only crashes fell 71% from 2019 to 2025 while injury crashes fell 18% and deaths did not fall the same way. Any vague "is it getting safer?" question needs outcome-based measures and an exposure denominator, not crash counts.
+
+**2026-10-04 — For vague questions, free models differ more in *when* they decide than in *whether* they can.**
+Across 24 runs (E004), the best free model made acceptable ask / enumerate / proceed decisions on every question it finished, but often only after 20+ tool calls; another explored until timeout and never asked. Measure time and tool calls until the decision, not just the final answer, and run each cell several times: one model reversed its conclusion on the same question between runs.
+
+**2026-10-04 — Denying web access does not stop agents from using outside numbers.**
+With web fetch disabled, models still computed per-capita and per-trip rates from population and city statistics recalled from memory, without saying so. Treat any number not derivable from the provided data as a finding to flag, and score it.

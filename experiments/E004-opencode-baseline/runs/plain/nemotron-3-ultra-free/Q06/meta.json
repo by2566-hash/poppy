@@ -1,0 +1,16 @@
+{
+  "model": "nemotron-3-ultra-free",
+  "qid": "Q06",
+  "arm": "plain",
+  "question": "Has the new policy made things better for pedestrians?",
+  "elapsed_s": 900.0,
+  "exit_code": null,
+  "timed_out": true,
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "reasoning": 0
+  },
+  "tool_calls": 0,
+  "errors": []
+}

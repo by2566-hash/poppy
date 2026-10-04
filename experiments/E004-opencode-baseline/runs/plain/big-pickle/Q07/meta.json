@@ -1,0 +1,16 @@
+{
+  "model": "big-pickle",
+  "qid": "Q07",
+  "arm": "plain",
+  "question": "What's the main cause of crashes in NYC?",
+  "elapsed_s": 116.4,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 17236,
+    "output": 5297,
+    "reasoning": 997
+  },
+  "tool_calls": 16,
+  "errors": []
+}

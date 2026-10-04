@@ -1,0 +1,16 @@
+{
+  "model": "nemotron-3-ultra-free",
+  "qid": "Q07",
+  "arm": "plain",
+  "question": "What's the main cause of crashes in NYC?",
+  "elapsed_s": 154.8,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 46815,
+    "output": 1069,
+    "reasoning": 329
+  },
+  "tool_calls": 4,
+  "errors": []
+}

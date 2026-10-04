@@ -1,0 +1,16 @@
+{
+  "model": "big-pickle",
+  "qid": "Q03",
+  "arm": "plain",
+  "question": "Which borough is the most dangerous?",
+  "elapsed_s": 190.6,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 31569,
+    "output": 8035,
+    "reasoning": 2902
+  },
+  "tool_calls": 20,
+  "errors": []
+}

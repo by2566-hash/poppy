@@ -1,0 +1,16 @@
+{
+  "model": "big-pickle",
+  "qid": "Q08",
+  "arm": "plain",
+  "question": "Are e-bikes making the streets more dangerous?",
+  "elapsed_s": 900.2,
+  "exit_code": null,
+  "timed_out": true,
+  "tokens": {
+    "input": 16870,
+    "output": 7796,
+    "reasoning": 3474
+  },
+  "tool_calls": 21,
+  "errors": []
+}

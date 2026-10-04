@@ -1,0 +1,16 @@
+{
+  "model": "nemotron-3-ultra-free",
+  "qid": "Q08",
+  "arm": "plain",
+  "question": "Are e-bikes making the streets more dangerous?",
+  "elapsed_s": 526.0,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 225603,
+    "output": 13240,
+    "reasoning": 703
+  },
+  "tool_calls": 11,
+  "errors": []
+}

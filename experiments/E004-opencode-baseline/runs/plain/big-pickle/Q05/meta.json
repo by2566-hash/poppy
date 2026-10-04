@@ -1,0 +1,16 @@
+{
+  "model": "big-pickle",
+  "qid": "Q05",
+  "arm": "plain",
+  "question": "Is my street dangerous?",
+  "elapsed_s": 224.0,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 33037,
+    "output": 11950,
+    "reasoning": 2770
+  },
+  "tool_calls": 27,
+  "errors": []
+}

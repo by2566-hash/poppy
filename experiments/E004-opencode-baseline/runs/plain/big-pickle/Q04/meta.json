@@ -1,0 +1,16 @@
+{
+  "model": "big-pickle",
+  "qid": "Q04",
+  "arm": "plain",
+  "question": "Did crashes go down after COVID?",
+  "elapsed_s": 318.3,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 36041,
+    "output": 13867,
+    "reasoning": 7639
+  },
+  "tool_calls": 24,
+  "errors": []
+}

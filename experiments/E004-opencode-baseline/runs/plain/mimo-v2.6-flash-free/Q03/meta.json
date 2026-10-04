@@ -1,0 +1,16 @@
+{
+  "model": "mimo-v2.6-flash-free",
+  "qid": "Q03",
+  "arm": "plain",
+  "question": "Which borough is the most dangerous?",
+  "elapsed_s": 900.1,
+  "exit_code": null,
+  "timed_out": true,
+  "tokens": {
+    "input": 42633,
+    "output": 12930,
+    "reasoning": 12647
+  },
+  "tool_calls": 33,
+  "errors": []
+}

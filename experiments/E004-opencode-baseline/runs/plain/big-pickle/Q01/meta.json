@@ -1,0 +1,16 @@
+{
+  "model": "big-pickle",
+  "qid": "Q01",
+  "arm": "plain",
+  "question": "How many people were killed in motor vehicle crashes in NYC each year from 2016 through 2025? Show the trend.",
+  "elapsed_s": 114.7,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 14386,
+    "output": 3341,
+    "reasoning": 951
+  },
+  "tool_calls": 9,
+  "errors": []
+}

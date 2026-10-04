@@ -1,0 +1,16 @@
+{
+  "model": "mimo-v2.6-flash-free",
+  "qid": "Q01",
+  "arm": "plain",
+  "question": "How many people were killed in motor vehicle crashes in NYC each year from 2016 through 2025? Show the trend.",
+  "elapsed_s": 71.6,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 15890,
+    "output": 2449,
+    "reasoning": 1072
+  },
+  "tool_calls": 10,
+  "errors": []
+}

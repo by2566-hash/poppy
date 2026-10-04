@@ -1,0 +1,16 @@
+{
+  "model": "mimo-v2.6-flash-free",
+  "qid": "Q05",
+  "arm": "plain",
+  "question": "Is my street dangerous?",
+  "elapsed_s": 900.1,
+  "exit_code": null,
+  "timed_out": true,
+  "tokens": {
+    "input": 46740,
+    "output": 11970,
+    "reasoning": 13976
+  },
+  "tool_calls": 42,
+  "errors": []
+}

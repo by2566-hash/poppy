@@ -1,0 +1,16 @@
+{
+  "model": "mimo-v2.6-flash-free",
+  "qid": "Q06",
+  "arm": "plain",
+  "question": "Has the new policy made things better for pedestrians?",
+  "elapsed_s": 900.1,
+  "exit_code": null,
+  "timed_out": true,
+  "tokens": {
+    "input": 252184,
+    "output": 18299,
+    "reasoning": 19451
+  },
+  "tool_calls": 59,
+  "errors": []
+}

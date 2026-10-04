@@ -1,0 +1,16 @@
+{
+  "model": "big-pickle",
+  "qid": "Q02",
+  "arm": "plain",
+  "question": "Are cyclists safer in NYC than they used to be?",
+  "elapsed_s": 196.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 46631,
+    "output": 18914,
+    "reasoning": 0
+  },
+  "tool_calls": 23,
+  "errors": []
+}

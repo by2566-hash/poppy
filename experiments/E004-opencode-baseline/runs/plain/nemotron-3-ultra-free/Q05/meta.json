@@ -1,0 +1,16 @@
+{
+  "model": "nemotron-3-ultra-free",
+  "qid": "Q05",
+  "arm": "plain",
+  "question": "Is my street dangerous?",
+  "elapsed_s": 12.3,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 16513,
+    "output": 82,
+    "reasoning": 110
+  },
+  "tool_calls": 1,
+  "errors": []
+}

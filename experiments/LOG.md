@@ -41,3 +41,9 @@ Copy entries into the team's Google Sheet when ready.
 - **Setup:** sequential runs of nemotron-3-ultra-free and big-pickle on Q02 ("Are cyclists safer in NYC than they used to be?"), plain prompt, restricted sandbox. Details in `experiments/E003-opencode-smoke/REPORT.md`.
 - **Result:** both PROCEEDed with one reading, never asked or enumerated, flagged 0 of 4 answer-key traps, and made misleading claims. nemotron "proved" cyclists are less safe by dividing by total crashes, whose count collapsed after the 2020 NYPD recording change (TR01). big-pickle compared against half-year 2012 (TR09). ~2 min and $0 per run.
 - **Next:** make OpenCode free models the main baseline (B1-open); Codex stays as a frontier reference. Write an OpenCode subject runner (sequential, per-run data dir), then run all 8 questions × 2–3 free models.
+
+## 2026-10-04 — E004: OpenCode free-model baseline, 8 questions × 3 models
+
+- **Setup:** nemotron-3-ultra-free, big-pickle, mimo-v2.6-flash-free; plain prompt; per-run sandbox and `XDG_DATA_HOME` (parallel works), 900 s timeout. 24 runs + 1 retry, ~50 min, $0.
+- **Result:** 18 answered, 5 timeouts (mimo 4, big-pickle 1), 1 infra failure (NVIDIA upstream 503, retry hung). Acceptable decision: big-pickle 7/7, mimo 4/4, nemotron 4/7. big-pickle asked on both ASK questions but only after long exploration; mimo timed out on both without asking. nemotron's Q02 conclusion flipped between E003 and E004 runs. New failure mode: unsourced numbers from model memory (population, DOT mode data). Scores in `experiments/E004-opencode-baseline/SCORES.md` (Claude-scored, needs human check).
+- **Next:** 3 repeats per cell; run the B2 policy prompt on the same models; add decision-latency, timeout, unsourced-number and consistency metrics; credit valid unlisted traps.

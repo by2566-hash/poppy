@@ -1,0 +1,16 @@
+{
+  "model": "mimo-v2.6-flash-free",
+  "qid": "Q08",
+  "arm": "plain",
+  "question": "Are e-bikes making the streets more dangerous?",
+  "elapsed_s": 900.0,
+  "exit_code": null,
+  "timed_out": true,
+  "tokens": {
+    "input": 125676,
+    "output": 18004,
+    "reasoning": 14419
+  },
+  "tool_calls": 51,
+  "errors": []
+}

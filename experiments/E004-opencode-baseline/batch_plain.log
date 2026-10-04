@@ -1,0 +1,25 @@
+[nemotron-3-ultra-free Q01] exit=0 timeout=False 41.2s tools=3
+[nemotron-3-ultra-free Q03] exit=0 timeout=False 53.1s tools=4
+[nemotron-3-ultra-free Q05] exit=0 timeout=False 12.3s tools=1
+[nemotron-3-ultra-free Q04] exit=0 timeout=False 99.4s tools=6
+[nemotron-3-ultra-free Q02] exit=0 timeout=False 142.0s tools=4
+[nemotron-3-ultra-free Q06] exit=1 timeout=False 125.6s tools=5
+[nemotron-3-ultra-free Q07] exit=0 timeout=False 154.8s tools=4
+[big-pickle Q01] exit=0 timeout=False 114.7s tools=9
+[big-pickle Q02] exit=0 timeout=False 196.1s tools=23
+[big-pickle Q03] exit=0 timeout=False 190.6s tools=20
+[nemotron-3-ultra-free Q08] exit=0 timeout=False 526.0s tools=11
+[big-pickle Q05] exit=0 timeout=False 224.0s tools=27
+[big-pickle Q04] exit=0 timeout=False 318.3s tools=24
+[big-pickle Q06] exit=0 timeout=False 161.9s tools=17
+[big-pickle Q07] exit=0 timeout=False 116.4s tools=16
+[mimo-v2.6-flash-free Q01] exit=0 timeout=False 71.6s tools=10
+[mimo-v2.6-flash-free Q02] exit=0 timeout=False 446.0s tools=22
+[mimo-v2.6-flash-free Q04] exit=0 timeout=False 239.6s tools=28
+[big-pickle Q08] exit=None timeout=True 900.2s tools=21
+[mimo-v2.6-flash-free Q03] exit=None timeout=True 900.1s tools=33
+[mimo-v2.6-flash-free Q07] exit=0 timeout=False 117.2s tools=12
+[mimo-v2.6-flash-free Q05] exit=None timeout=True 900.1s tools=42
+[mimo-v2.6-flash-free Q06] exit=None timeout=True 900.1s tools=59
+[mimo-v2.6-flash-free Q08] exit=None timeout=True 900.0s tools=51
+done: 24 runs -> /Users/yubo/Documents/Honda/poppy/experiments/E004-opencode-baseline/runs/plain/_batch_summary.json

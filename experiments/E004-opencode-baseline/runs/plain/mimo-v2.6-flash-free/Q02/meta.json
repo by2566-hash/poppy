@@ -1,0 +1,16 @@
+{
+  "model": "mimo-v2.6-flash-free",
+  "qid": "Q02",
+  "arm": "plain",
+  "question": "Are cyclists safer in NYC than they used to be?",
+  "elapsed_s": 446.0,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 41043,
+    "output": 9086,
+    "reasoning": 8088
+  },
+  "tool_calls": 22,
+  "errors": []
+}

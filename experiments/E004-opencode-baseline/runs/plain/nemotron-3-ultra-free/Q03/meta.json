@@ -1,0 +1,16 @@
+{
+  "model": "nemotron-3-ultra-free",
+  "qid": "Q03",
+  "arm": "plain",
+  "question": "Which borough is the most dangerous?",
+  "elapsed_s": 53.1,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 37717,
+    "output": 1424,
+    "reasoning": 346
+  },
+  "tool_calls": 4,
+  "errors": []
+}

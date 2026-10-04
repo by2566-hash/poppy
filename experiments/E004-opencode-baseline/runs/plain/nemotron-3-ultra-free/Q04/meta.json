@@ -1,0 +1,16 @@
+{
+  "model": "nemotron-3-ultra-free",
+  "qid": "Q04",
+  "arm": "plain",
+  "question": "Did crashes go down after COVID?",
+  "elapsed_s": 99.4,
+  "exit_code": 0,
+  "timed_out": false,
+  "tokens": {
+    "input": 57196,
+    "output": 1520,
+    "reasoning": 271
+  },
+  "tool_calls": 6,
+  "errors": []
+}
