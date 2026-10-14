@@ -12,7 +12,9 @@ Environment:
 
 Arms
   A, C  one analysis run: the model writes and executes its own code (config/opencode.analysis.json).
-  B     review run on A's saved output (config/opencode.review.json: no code execution; the chart is
+  B     reads A's output from the repo: experiments/E007-pilot-prompts/results/<A_label>/<qid>-r<rep>/.
+        A's results must be collected and committed first (scripts/collect_runs.py <A_label>), so
+        anyone who clones the repo runs B on the same A outputs. Then a review run on A's output (config/opencode.review.json: no code execution; the chart is
         attached, values/answer/code are embedded in the prompt), then a revise run with the analysis
         config. If the review says `ISSUES: NONE`, A's outputs are carried forward unchanged and no
         revise run is made (repair only when a problem was reported).
@@ -32,6 +34,7 @@ from common import DATA_DICTIONARY, PARQUET, MODEL  # noqa: E402
 from run_screen import call_model  # noqa: E402
 
 SANDBOX = ROOT.parent / "poppy-sandbox" / "E007"
+RESULTS = HERE / "results"   # committed runs (scripts/collect_runs.py)
 CONFIG_ANALYSIS = HERE / "config" / "opencode.analysis.json"
 CONFIG_REVIEW = HERE / "config" / "opencode.review.json"
 STEPS = json.loads(CONFIG_ANALYSIS.read_text())["agent"]["build"]["steps"]
@@ -128,12 +131,17 @@ def run_analysis(job):
 
 def run_B(job):
     label, q, rep, a_label, crit_file, rev_file = job
-    src = SANDBOX / a_label / f"{q}-r{rep}"
+    src = RESULTS / a_label / f"{q}-r{rep}"   # A's committed result in the repo, not the local sandbox
+    if not (src / "meta.json").exists():
+        raise SystemExit(f"A result not found in the repo: {src.relative_to(ROOT)}\n"
+                         f"Collect A's results first: python3 scripts/collect_runs.py {a_label}")
     a_meta = json.loads((src / "meta.json").read_text())
     sb = SANDBOX / label / f"{q}-r{rep}"
     shutil.rmtree(sb, ignore_errors=True)
-    shutil.copytree(src, sb, symlinks=True,
-                    ignore=shutil.ignore_patterns(".ocdata", "events*.jsonl", "stderr.log", "response.md", "meta.json"))
+    shutil.copytree(src, sb, ignore=shutil.ignore_patterns("events*.jsonl", "response.md", "meta.json", "critique.md"))
+    (sb / "data").mkdir(exist_ok=True)
+    (sb / "out").mkdir(exist_ok=True)
+    os.symlink(PARQUET, sb / "data" / "crashes.parquet")   # results in the repo carry no data link
     shutil.copy(CONFIG_ANALYSIS, sb / "opencode.json")
     question = QS[q]["text"]
     values_path = sb / "out" / "values.csv"
@@ -188,6 +196,8 @@ def run_B(job):
         final_answer = answer_of(r3_text)
     (sb / "response.md").write_text(r3_text)
     meta = {"q": q, "rep": rep, "label": label, "a_label": a_label, "type": QS[q]["type"],
+            "a_source": str(src.relative_to(ROOT)),
+            "a_git_commit": (a_meta.get("env") or {}).get("git_commit"),   # None for runs made before env logging
             "a_complete": a_complete, **review, **rev,
             "revised_png": (sb / "out" / "revised.png").exists(),
             "revised_values": (sb / "out" / "revised_values.csv").exists(),
