@@ -1,0 +1,1 @@
+ANSWER: Pedestrian deaths in NYC crashes declined from 176 in 2013 to a low of 101 in 2020, but have hovered around 100–135 per year since; 2025 recorded 119 fatalities.
