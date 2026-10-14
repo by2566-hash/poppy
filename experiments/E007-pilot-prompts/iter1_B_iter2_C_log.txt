@@ -1,0 +1,14 @@
+[B-v1-v1 K2 r1] critique_ok=False revised_png=False ans=True 283.5s
+[B-v1-v1 K1 r1] critique_ok=False revised_png=True ans=True 362.3s
+[B-v1-v1 K3 r1] critique_ok=False revised_png=False ans=False 600.1s
+[B-v1-v1 I1 r1] critique_ok=True revised_png=False ans=True 394.1s
+[B-v1-v1 A1 r1] critique_ok=True revised_png=False ans=False 600.0s
+[B-v1-v1 A2 r1] critique_ok=False revised_png=False ans=True 472.5s
+saved B-v1-v1
+[C-v2 K2 r1] ok=False ans=False png=False 600.1s tools=4 steps=3
+[C-v2 K1 r1] ok=False ans=False png=False 600.1s tools=6 steps=5
+[C-v2 K3 r1] ok=False ans=False png=False 600.1s tools=3 steps=2
+[C-v2 I1 r1] ok=False ans=False png=False 600.1s tools=0 steps=0
+[C-v2 A1 r1] ok=False ans=False png=False 600.1s tools=0 steps=0
+[C-v2 A2 r1] ok=False ans=False png=False 600.1s tools=0 steps=0
+saved C-v2

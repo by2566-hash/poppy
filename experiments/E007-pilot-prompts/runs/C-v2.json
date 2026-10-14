@@ -1,0 +1,122 @@
+[
+ {
+  "call_ok": false,
+  "timed_out": true,
+  "secs": 600.1,
+  "tool_calls": 6,
+  "steps": 5,
+  "hit_step_limit": false,
+  "errors": [],
+  "answer": null,
+  "answer_ok": false,
+  "tokens": {
+   "input": 6103,
+   "output": 1042
+  },
+  "q": "K1",
+  "rep": 1,
+  "label": "C-v2",
+  "png": false,
+  "values": false
+ },
+ {
+  "call_ok": false,
+  "timed_out": true,
+  "secs": 600.1,
+  "tool_calls": 4,
+  "steps": 3,
+  "hit_step_limit": false,
+  "errors": [],
+  "answer": null,
+  "answer_ok": false,
+  "tokens": {
+   "input": 3320,
+   "output": 353
+  },
+  "q": "K2",
+  "rep": 1,
+  "label": "C-v2",
+  "png": false,
+  "values": false
+ },
+ {
+  "call_ok": false,
+  "timed_out": true,
+  "secs": 600.1,
+  "tool_calls": 3,
+  "steps": 2,
+  "hit_step_limit": false,
+  "errors": [],
+  "answer": null,
+  "answer_ok": false,
+  "tokens": {
+   "input": 2077,
+   "output": 157
+  },
+  "q": "K3",
+  "rep": 1,
+  "label": "C-v2",
+  "png": false,
+  "values": false
+ },
+ {
+  "call_ok": false,
+  "timed_out": true,
+  "secs": 600.1,
+  "tool_calls": 0,
+  "steps": 0,
+  "hit_step_limit": false,
+  "errors": [],
+  "answer": null,
+  "answer_ok": false,
+  "tokens": {
+   "input": 0,
+   "output": 0
+  },
+  "q": "A1",
+  "rep": 1,
+  "label": "C-v2",
+  "png": false,
+  "values": false
+ },
+ {
+  "call_ok": false,
+  "timed_out": true,
+  "secs": 600.1,
+  "tool_calls": 0,
+  "steps": 0,
+  "hit_step_limit": false,
+  "errors": [],
+  "answer": null,
+  "answer_ok": false,
+  "tokens": {
+   "input": 0,
+   "output": 0
+  },
+  "q": "A2",
+  "rep": 1,
+  "label": "C-v2",
+  "png": false,
+  "values": false
+ },
+ {
+  "call_ok": false,
+  "timed_out": true,
+  "secs": 600.1,
+  "tool_calls": 0,
+  "steps": 0,
+  "hit_step_limit": false,
+  "errors": [],
+  "answer": null,
+  "answer_ok": false,
+  "tokens": {
+   "input": 0,
+   "output": 0
+  },
+  "q": "I1",
+  "rep": 1,
+  "label": "C-v2",
+  "png": false,
+  "values": false
+ }
+]

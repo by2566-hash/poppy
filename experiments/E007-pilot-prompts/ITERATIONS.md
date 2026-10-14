@@ -23,3 +23,14 @@ Failures that motivated the C edit: (1) C adds ~60% more steps on clear question
 Observations (informational): K2 gold coverage 0.93 is a weekday-index offset (Mon=1 vs Sun=0), not an error. A2 answers differ on the night window (9pm–6am vs 10pm–6am vs 7am–6pm day) and none mentioned time-of-day data quality.
 
 C edit for iteration 2 (`C_selfcheck.v2.md`): replace the single generic sentence by three generic review questions (does the chart answer the question; do the answer's numbers match values.csv; are labels, units and time range correct) placed after the files are saved. No domain content, no efficiency advice.
+
+## Attempt log — 2026-10-14, after iteration 1
+
+| Run | Result | Status |
+|---|---|---|
+| B.v1 critique + revise on A-v1 r1 (6 items, 12 calls) | 4 / 6 critiques empty (agent spent 11 steps scripting PIL pixel analysis and wrote no text); 1 revised chart; 3 items with no answer | **Not scored.** Free endpoint was degraded: a trivial "reply OK" call timed out at 120 s minutes later. Cannot separate prompt effect from service effect. Kept as `runs/B-v1-v1.json` |
+| C.v2 (6 items) | 6 / 6 timed out at 600 s; 3 of them never started a step | **Invalid (infrastructure).** Kept as `runs/C-v2.json`, to be re-run, not counted toward C's 3-iteration budget |
+
+Rule applied: protocol section 6 of `phase1-abc-design.md` (call failures are retried, not scored). Liveness is checked with a trivial call before every batch from now on.
+
+Design observation worth keeping (not an iteration result): the B critique step, as an agent run with tools, will use its budget to *re-derive* the chart from pixels. The original ③ is a review, not a re-execution. A critique prompt may state that this step reviews the saved artifacts and does not run code (allowed under the protocol: it says which artifacts to look at).
