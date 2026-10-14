@@ -1,6 +1,6 @@
 # Phase 1 — Experiments A, B, C: "fix it in the prompt, or build a step?"
 
-- **Status:** agreed scope for phase 1 (v1.2, 2026-10-13). A and B are the team's design; C added by Bo. Phase 1 runs **A, B and C only**.
+- **Status:** agreed scope for phase 1 (v1.3, 2026-10-14). A and B are the team's design; C added by Bo; pilot round and failure handling (sections 8–9) added from teammate suggestions. Phase 1 runs **A, B and C only**.
 
 ## 1. The story
 
@@ -85,3 +85,34 @@ Summary table per arm: gate pass rate, mean 0–12, Δ vs A, improved/same/worse
 - Clear questions contain few traps, so B's reviewer has little to find and flips are the main risk. Questions 7–10 (ambiguous / insufficient evidence) are where review should matter; include them when possible.
 - B spends 3× the calls of A and C; part of any gain may come from extra compute.
 - Not in phase 1: a variant that merges ③ and ④ into one call. It would separate "sees execution results" from "separate calls", and can be added later from A's saved outputs without re-running anything.
+
+## 8. Pilot round before the formal runs (teammate suggestion)
+
+Run a few questions first and use the outcomes to write the critique/revise prompt (B) and the self-check prompt (C).
+
+Rules that keep this from contaminating the result:
+
+1. **Disjoint questions.** Pilot questions must not be among the formal questions. Tuning prompts on the questions you then score inflates B and C relative to A. Use a separate pilot set (for example the E002 questions in `experiments/E002-baseline/questions.json`, or 2 held-out questions of the same types).
+2. **Equal tuning budget for B and C.** Same number of pilot questions, same number of prompt iterations (suggest at most 3 each). Otherwise B vs C measures tuning effort, not design.
+3. **Freeze before the formal run.** Record prompt text and hash in the run metadata; no edits after the first formal call.
+4. **Generic wording stays generic.** Outcome-informed edits may fix format, clarity and which artifacts to look at. They must not add trap-specific checklists (denominator, partial years, unknown borough). If domain notes are added, add them to B and C alike and report that run as a different lever.
+5. **Log the pilot.** Each prompt version, the failures it fixed, and what it did not fix, in `experiments/LOG.md`.
+
+## 9. Failure handling (teammate question: if A errors, does B continue?)
+
+Classify the failure first; the treatment depends on its kind. Decide the rules now, before seeing data.
+
+| Failure kind | Evidence in the log | Handling | Counts as |
+|---|---|---|---|
+| **Call failure** (HTTP error, timeout, empty reply) | API error text, no model output | Retry the same call up to 2 times | Not a model result. Report retries and unrecoverable failures per arm; exclude symmetrically |
+| **Format failure** (reply has no code block or no answer section) | model output exists, parser fails | No retry | Model non-compliance: a failed item for that arm |
+| **Execution failure** (code errors, no chart) | traceback in the run log | **B continues**: ③ gets the question, the traceback and the values/log it has (no image) | A fails the item; B's outcome is a *recovery* |
+| **Wrong but runs** | gate fails on values | B continues as designed | normal paired item |
+
+How to report:
+
+- **Intention-to-treat first:** every item is counted in every arm; a failed item scores as gate-fail with 0 points. This is the headline table.
+- **Stratified second:** (i) A executable → B vs A quality change and correct → wrong flips; (ii) A not executable → B **recovery rate**. Do not average recoveries into the quality-change mean.
+- C has no repair step, so a C execution failure stays a failure. That is part of what the prompt-only design buys.
+- The diagnosis the teammate asked for ("model call problem or model capability problem?") is exactly the first three rows. Log `failure_kind` for every failed call so it can be answered from data, not memory.
+- The stability screen (`experiments/E006-mimo-screen`) keeps call and format failures small before the formal runs.
