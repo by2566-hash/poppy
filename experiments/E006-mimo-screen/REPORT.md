@@ -1,5 +1,7 @@
 # E006 — Can mimo-v2.6-flash-free be the single phase-1 model?
 
+_Updated 2026-10-14: section 6 adds the ambiguous and insufficient-evidence questions (P7–P10)._
+
 **Result: yes, as a bounded OpenCode agent run.** In 18 runs of step ① (6 clear questions × 3 repeats) mimo finished every run, produced chart + plotted values + written answer every time, matched the gold numbers on all 18 (16 fully, 2 at 90%), and read 5/5 charts correctly. **But step ① cannot be a strict single tool-less call on the OpenCode free tier**, so the phase-1 design needs one wording change (section 4).
 
 Stability here means what the team defined: call success, structured-output compliance, consistency across repeats. Answer quality is what the experiment measures, so it is not a selection criterion.
@@ -47,8 +49,32 @@ n = 5 charts of simple shapes. Enough to show mimo can read values off a chart; 
 3. **The written answer is only grounded when the model has seen the numbers.** In a strict "generate code + answer, then execute" design the answer is written before execution, so any number in it is a guess. In (a) the model computes first. In B, the revise run must also be allowed to execute, or the harness must re-write the answer from the revised values.
 4. **Model: mimo.** It is the only free model that reads images (needed by B's ③), and it passed all three stability criteria on the clear questions.
 
-## 5. Limits
+## 5. Limits (clear questions)
 
 - 18 runs, clear questions only. In E004 mimo timed out on 4 / 8 *vague* questions (900 s cap); the ambiguous and insufficient-evidence questions need their own screen before the formal run.
 - Zen free models are "free for a limited time", and some train on submitted data: public data only; finish the formal runs soon.
 - Prompts were not tuned; the pilot round (phase-1 doc section 8) comes next.
+
+## 6. Ambiguous and insufficient-evidence questions (P7–P10)
+
+Same harness and criteria, 4 questions × 3 repeats per config. Raw: `screen_agent_runs_p7_p10.json` (cap 10, 420 s) and `screen_agent15_runs_p7_p10.json` (cap 15, 600 s).
+
+| | Clear Qs (P1–P6, cap 10) | P7–P10, cap 10 / 420 s | P7–P10, cap 15 / 600 s |
+|---|---|---|---|
+| Completed (chart + values + answer) | 18 / 18 | 9 / 12 | 10 / 12 |
+| Call success | 18 / 18 | 10 / 12 | 11 / 12 |
+| Runs that used the full step cap | 2 / 18 | 8 / 12 | 8 / 12 |
+| Median time | 65 s | 198 s | 263 s |
+| Median tool calls | 6 | 10 | 16 |
+
+**Failures.** Cap 10: P10 r2 was a client crash (Bun runtime dump after 1 step, infrastructure, retried under the protocol); P8 r3 timed out while working (non-completion); P7 r1 spent all 10 steps before saving a chart. Cap 15: P7 r3 timed out at 600 s; P8 r2 produced values and an answer but no chart.
+
+**Reading.** Raising the cap from 10 to 15 rescued one run of twelve and made each run ~33% longer; 8 / 12 still used the whole budget. On open questions the step cap behaves as a budget the model spends on elaboration, not as a minimum needed to finish. Completion on these four questions is ~75–85%, below the clear questions; that is a property of the task, so the **same config must be applied to every arm**, and B (three runs per item) will pay the failure rate three times.
+
+**Formal config chosen:** `steps = 15`, `timeout = 600 s`, stdin closed, retry only infrastructure failures (client crash, API error, zero-step timeout) up to 2 times. Clear questions never needed more than 11 tool calls, so their behaviour under the larger cap is expected to be unchanged; this is stated, not re-measured.
+
+**What the questions revealed (informational, not scored):**
+- **P9 (per-ride risk, insufficient evidence):** 6 / 6 completed runs said the file has no trip or exposure counts and that per-ride risk cannot be computed, then reported crash-based proxies. Task handling was consistent.
+- **P10 (policy 2018, causal):** all completed runs answered "no / not supported" with before-after tests; two cited a "2023 reporting-rule change", which cannot be derived from the data (an unsourced claim to score).
+- **P8 (most dangerous borough):** every run that produced a table silently **dropped the unknown-borough group** (about 25,000 pedestrian injuries, ~21% of the total) and never mentioned it (TR05).
+- **P7 (did safety improve):** all runs answered "yes, but unevenly" and flagged the reporting artifact in crash counts; one answer was truncated by a formatting glitch.

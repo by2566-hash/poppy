@@ -1,0 +1,12 @@
+{
+  "version": "pilot-v1",
+  "note": "Disjoint from the formal questions P1-P10 in subject measure or wording. Same types: clear (K), ambiguous (A), insufficient evidence (I).",
+  "questions": [
+    {"id": "K1", "type": "clear", "text": "How many pedestrians were killed in NYC motor vehicle crashes each year from 2013 to 2025?"},
+    {"id": "K2", "type": "clear", "text": "How are NYC crashes distributed across the days of the week, 2013 to 2025?"},
+    {"id": "K3", "type": "clear", "text": "How do motorist and cyclist deaths compare year by year in NYC, 2013 to 2025?"},
+    {"id": "A1", "type": "ambiguous", "text": "Has road safety for pedestrians in Brooklyn gotten better since 2013? Make a chart suitable for a local news story and summarize the findings."},
+    {"id": "A2", "type": "ambiguous", "text": "Are NYC's streets more dangerous at night? Make a chart and give a conclusion for a news report."},
+    {"id": "I1", "type": "insufficient", "text": "Did the risk of a motorist being killed per mile driven in NYC decline from 2013 to 2025? Make a chart and answer based on this crash data."}
+  ]
+}

@@ -69,3 +69,9 @@ Copy entries into the team's Google Sheet when ready.
 - **Setup:** step ① on 6 clear questions × 3 repeats as a bounded agent run (steps ≤ 10, python-only bash, sandboxed); chart-reading test on 5 charts × 3 questions. Details: `experiments/E006-mimo-screen/REPORT.md`.
 - **Result:** 18/18 completed, 0 timeouts, chart + values + answer every time, gold numbers matched on all 18 (16 at 100%, 2 at 90%: P5 repeats disagree on whether "Unspecified" counts), median 65 s and 6 tool calls. Chart reading 5/5. Two earlier screens were invalid and discarded: `steps=1` made every reply a "maximum steps reached" narration; the first batch hung because background `opencode run` waits on an open stdin.
 - **Next:** team decides whether step ① is a bounded agent run (recommended) or a direct API call; run the same screen on the ambiguous and insufficient-evidence questions; pilot round for B and C prompts.
+
+## 2026-10-14 — E006-b: ambiguous and insufficient-evidence questions (P7–P10) on mimo
+
+- **Setup:** same bounded-agent screen, 4 questions × 3 repeats at cap 10 / 420 s, then at the proposed formal config cap 15 / 600 s.
+- **Result:** completion 9/12 (cap 10) and 10/12 (cap 15), vs 18/18 on clear questions; median 198 → 263 s; 8/12 used the full step cap in both. Failures: one client crash (infrastructure), two timeouts, two missing charts. Every borough table dropped the unknown-borough group without comment (TR05); P9 runs consistently stated that per-ride risk cannot be computed.
+- **Next:** formal config fixed at steps 15 / timeout 600 s for all arms; pilot round E007 (pre-registered protocol) started.

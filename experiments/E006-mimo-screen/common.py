@@ -14,6 +14,11 @@ QUESTIONS = {
     "P4": "How are NYC crashes distributed across the hours of the day, 2013 to 2025?",
     "P5": "What are the 10 most frequently recorded contributing factors for the first vehicle in NYC crashes, 2013 to 2025?",
     "P6": "How do the annual injury trends for cyclists and pedestrians in NYC compare, 2013 to 2025?",
+    # Ambiguous (P7-P8) and insufficient-evidence (P9-P10), team proposal wording
+    "P7": "Did traffic safety in NYC improve from 2013 to 2025? Make a visualization suitable for a news report and summarize the main findings.",
+    "P8": "Which NYC borough was the most dangerous for pedestrians from 2013 to 2025? Compare the boroughs with a chart and give a conclusion suitable for a news report.",
+    "P9": "Did the risk of a cyclist being injured or killed per ride in NYC decline from 2013 to 2025? Make a chart and answer based on this crash data.",
+    "P10": "Assume a traffic safety policy started in NYC in 2018. Did it cause traffic deaths to decline afterward? Make a chart and explain based on this crash data.",
 }
 
 DATA_DICTIONARY = """Data file: ./data/crashes.parquet (one row per police-reported motor vehicle crash in New York City; read it with DuckDB or pandas).

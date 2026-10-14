@@ -1,0 +1,13 @@
+[P7 r3] ok=True timeout=False answer=True png=True values=True gold=1.0 197.6s tools=10 steps=10
+[P7 r1] ok=True timeout=False answer=True png=False values=False gold=None 264.9s tools=13 steps=10
+[P8 r1] ok=True timeout=False answer=True png=True values=True gold=0.833 76.4s tools=4 steps=5
+[P7 r2] ok=True timeout=False answer=True png=True values=True gold=1.0 302.3s tools=13 steps=10
+[P9 r1] ok=True timeout=False answer=True png=True values=True gold=1.0 89.8s tools=5 steps=5
+[P8 r2] ok=True timeout=False answer=True png=True values=True gold=0.833 201.6s tools=10 steps=10
+[P9 r2] ok=True timeout=False answer=True png=True values=True gold=1.0 190.7s tools=12 steps=10
+[P9 r3] ok=True timeout=False answer=True png=True values=True gold=1.0 145.7s tools=11 steps=10
+[P10 r2] ok=False timeout=False answer=False png=False values=False gold=None 4.2s tools=0 steps=1
+[P8 r3] ok=False timeout=True answer=False png=False values=False gold=None 420.0s tools=10 steps=7
+[P10 r3] ok=True timeout=False answer=True png=True values=True gold=1.0 189.2s tools=10 steps=10
+[P10 r1] ok=True timeout=False answer=True png=True values=True gold=1.0 244.2s tools=13 steps=10
+done 12
