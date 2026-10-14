@@ -104,7 +104,8 @@ Classify the failure first; the treatment depends on its kind. Decide the rules 
 
 | Failure kind | Evidence in the log | Handling | Counts as |
 |---|---|---|---|
-| **Call failure** (HTTP error, timeout, empty reply) | API error text, no model output | Retry the same call up to 2 times | Not a model result. Report retries and unrecoverable failures per arm; exclude symmetrically |
+| **Call failure** (HTTP error, client crash, empty reply, or timeout with **no completed step**) | API error text or crash dump; no model output | Retry the same call up to 2 times | Not a model result. Report retries and unrecoverable failures per arm; exclude symmetrically |
+| **Non-completion** (timeout or step cap reached after ≥ 1 completed step, no chart or no answer) | steps and tool calls logged, artifacts missing | No retry | A failed item for that arm (the model was working but did not finish) |
 | **Format failure** (reply has no code block or no answer section) | model output exists, parser fails | No retry | Model non-compliance: a failed item for that arm |
 | **Execution failure** (code errors, no chart) | traceback in the run log | **B continues**: ③ gets the question, the traceback and the values/log it has (no image) | A fails the item; B's outcome is a *recovery* |
 | **Wrong but runs** | gate fails on values | B continues as designed | normal paired item |
@@ -122,3 +123,8 @@ How to report:
 E006 found that the OpenCode free tier cannot give a strict tool-less single call: removing the shell or read tool returns HTTP 403, and forcing one step makes the model narrate instead of answer. The screen that worked (mimo-v2.6-flash-free, 18/18 runs, gold numbers matched, 5/5 chart reads) ran step ① as **one bounded agent run in which the model writes and executes its own code** (≤ 10 steps).
 
 Proposal for the team to confirm: ① = one bounded run (A and C: 1 run; B: 3 runs), the harness collects chart, plotted values, run log and the model's code; the written answer is produced after the model has seen its numbers. Alternative: call a free chat-completions endpoint directly (needs keys, leaves OpenCode). See `experiments/E006-mimo-screen/REPORT.md`.
+
+### Amendment 2026-10-14 (from E006, ambiguous and insufficient-evidence questions)
+
+- A client crash (Bun runtime dump after 1 step, P10 r2) and a long run that times out while still working (P8 r3, 420 s, 7 steps) are different failures. The first is infrastructure and is retried; the second is non-completion and counts against the arm.
+- The 10-step cap and 420 s timeout that sufficed for clear questions were tight for ambiguous ones (8 / 12 runs hit the cap; median 198 s vs 65 s). The formal config is set from the E006 re-screen, and applies to **all** arms and questions alike.
