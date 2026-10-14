@@ -4,12 +4,16 @@ NYU Center for Data Science × Honda Research Institute (99P Labs) capstone, Fal
 
 Poppy is an agent that receives a **vague analytical question** over public data, decides whether to **ask** a clarifying question, **enumerate** legitimate interpretations, or **proceed**, then produces visualizations with rationale and flags data traps that would mislead the answer. About 80% of the work is evaluation.
 
-**Status:** early exploration. Direction and scenario are proposals pending team agreement.
+**Status:** phase 1 — experiments A, B and C: *fix it in the prompt, or build a step?* See [`docs/phase1-abc-design.md`](docs/phase1-abc-design.md).
+
+![Phase 1 workflow](docs/figures/phase1-workflow.svg)
 
 ## Start here
 
 | Document | What it holds |
 |---|---|
+| [`docs/phase1-abc-design.md`](docs/phase1-abc-design.md) | **Current phase:** experiments A (baseline), B (add a review step), C (self-check prompt) — story, workflow, controls, evaluation, predictions |
+| [`docs/mentor-brief-2026-10-09.md`](docs/mentor-brief-2026-10-09.md) | Brief prepared for the 2026-10-09 mentor meeting |
 | [`docs/direction-v1.md`](docs/direction-v1.md) | Core research question, agent behavior, evaluation layers, baselines |
 | [`docs/scenario-data-v1.md`](docs/scenario-data-v1.md) | Scenario (NYC traffic safety, journalist / fact-checker persona), data bundle, trap catalog TR01–TR17 |
 | [`docs/decide-layer-v1.md`](docs/decide-layer-v1.md) | Decision layer (`decide()`) backends: local LLM logprobs, Jev, Clef-flash |

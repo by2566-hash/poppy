@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 880" width="1800" height="880" font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4A4A4A"/>
+    </marker>
+    <marker id="arrowGhost" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#B5B5B5"/>
+    </marker>
+    <style>
+      .title { font-size: 28px; font-weight: 700; fill: #1F1F1F; }
+      .subtitle { font-size: 15px; fill: #5A5A5A; }
+      .laneLetter { font-size: 34px; font-weight: 800; fill: #1F1F1F; }
+      .laneName { font-size: 17px; font-weight: 700; fill: #1F1F1F; }
+      .laneMeta { font-size: 13px; fill: #5A5A5A; }
+      .boxTitle { font-size: 16px; font-weight: 700; fill: #1F1F1F; }
+      .boxMeta { font-size: 12.5px; fill: #4A4A4A; }
+      .ghostText { font-size: 16px; font-weight: 700; fill: #A8A8A8; }
+      .ghostMeta { font-size: 12.5px; fill: #B0B0B0; }
+      .edge { font-size: 12px; fill: #3A3A3A; }
+      .accent { font-size: 13px; font-weight: 700; fill: #6B3FC4; }
+      .note { font-size: 12.5px; fill: #8A8A8A; font-style: italic; }
+      .chipTitle { font-size: 16px; font-weight: 700; fill: #1F1F1F; }
+      .chipText { font-size: 13px; fill: #4A4A4A; }
+      .legend { font-size: 13px; fill: #3A3A3A; }
+      .model { fill: #E8F0FE; stroke: #3B6FD8; stroke-width: 1.6; }
+      .python { fill: #EDF5E8; stroke: #4F8A2E; stroke-width: 1.6; }
+      .human { fill: #FFF3E3; stroke: #D9822B; stroke-width: 1.6; }
+      .ghost { fill: #F6F6F6; stroke: #C4C4C4; stroke-width: 1.4; stroke-dasharray: 6 4; }
+      .changed { stroke: #6B3FC4; stroke-width: 3; }
+      .line { stroke: #4A4A4A; stroke-width: 1.8; fill: none; }
+      .lineGhost { stroke: #B5B5B5; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+    </style>
+  </defs>
+
+  <rect width="1800" height="880" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text class="title" x="40" y="56">Phase 1 — Fix it in the prompt, or build a step?</text>
+  <text class="subtitle" x="40" y="88">Same model, data snapshot, questions and rubric in every arm. Boxes are steps; arrows carry the artifact passed to the next step.</text>
+
+  <!-- Lane backgrounds -->
+  <rect x="30" y="130" width="1540" height="160" rx="10" fill="#FAFAFA" stroke="#E6E6E6"/>
+  <rect x="30" y="310" width="1540" height="160" rx="10" fill="#FAFAFA" stroke="#E6E6E6"/>
+  <rect x="30" y="490" width="1540" height="160" rx="10" fill="#FAFAFA" stroke="#E6E6E6"/>
+
+  <!-- Lane labels -->
+  <text class="laneLetter" x="52" y="208">A</text>
+  <text class="laneName" x="92" y="196">Baseline</text>
+  <text class="laneMeta" x="92" y="218">1 model call</text>
+
+  <text class="laneLetter" x="52" y="388">B</text>
+  <text class="laneName" x="92" y="376">Add a review step</text>
+  <text class="laneMeta" x="92" y="398">3 model calls</text>
+
+  <text class="laneLetter" x="52" y="568">C</text>
+  <text class="laneName" x="92" y="556">Self-check prompt</text>
+  <text class="laneMeta" x="92" y="578">1 model call</text>
+
+  <!-- ===== Lane A ===== -->
+  <rect class="model" x="280" y="165" width="160" height="90" rx="8"/>
+  <text class="boxTitle" x="360" y="200" text-anchor="middle">① Generate</text>
+  <text class="boxMeta" x="360" y="221" text-anchor="middle">model · call 1</text>
+  <text class="boxMeta" x="360" y="238" text-anchor="middle">plain prompt</text>
+
+  <line class="line" x1="440" y1="210" x2="526" y2="210" marker-end="url(#arrow)"/>
+  <text class="edge" x="485" y="190" text-anchor="middle">code +</text>
+  <text class="edge" x="485" y="203" text-anchor="middle">answer</text>
+
+  <rect class="python" x="530" y="165" width="160" height="90" rx="8"/>
+  <text class="boxTitle" x="610" y="200" text-anchor="middle">② Execute</text>
+  <text class="boxMeta" x="610" y="221" text-anchor="middle">Python</text>
+  <text class="boxMeta" x="610" y="238" text-anchor="middle">initial.png</text>
+
+  <line class="line" x1="690" y1="210" x2="1596" y2="210" marker-end="url(#arrow)"/>
+  <text class="edge" x="1145" y="202" text-anchor="middle">chart · plotted values · answer</text>
+
+  <!-- ===== Lane B ===== -->
+  <text class="accent" x="780" y="330">Added in B: 2 extra model calls + 1 execution</text>
+  <line x1="780" y1="337" x2="1440" y2="337" stroke="#6B3FC4" stroke-width="2"/>
+  <line x1="780" y1="333" x2="780" y2="341" stroke="#6B3FC4" stroke-width="2"/>
+  <line x1="1440" y1="333" x2="1440" y2="341" stroke="#6B3FC4" stroke-width="2"/>
+
+  <rect class="ghost" x="280" y="345" width="160" height="90" rx="8"/>
+  <text class="ghostText" x="360" y="382" text-anchor="middle">① Generate</text>
+  <text class="ghostMeta" x="360" y="403" text-anchor="middle">same output as A</text>
+
+  <line class="lineGhost" x1="440" y1="390" x2="526" y2="390" marker-end="url(#arrowGhost)"/>
+
+  <rect class="ghost" x="530" y="345" width="160" height="90" rx="8"/>
+  <text class="ghostText" x="610" y="382" text-anchor="middle">② Execute</text>
+  <text class="ghostMeta" x="610" y="403" text-anchor="middle">same output as A</text>
+  <text class="note" x="485" y="456" text-anchor="middle">reused from A, so every B item is a before/after pair</text>
+
+  <line class="line" x1="690" y1="390" x2="776" y2="390" marker-end="url(#arrow)"/>
+  <text class="edge" x="735" y="370" text-anchor="middle">chart +</text>
+  <text class="edge" x="735" y="383" text-anchor="middle">values</text>
+
+  <rect class="model changed" x="780" y="345" width="160" height="90" rx="8"/>
+  <text class="boxTitle" x="860" y="380" text-anchor="middle">③ Critique</text>
+  <text class="boxMeta" x="860" y="401" text-anchor="middle">model · call 2</text>
+  <text class="boxMeta" x="860" y="418" text-anchor="middle">"what is wrong?"</text>
+
+  <line class="line" x1="940" y1="390" x2="1026" y2="390" marker-end="url(#arrow)"/>
+  <text class="edge" x="985" y="370" text-anchor="middle">numbered</text>
+  <text class="edge" x="985" y="383" text-anchor="middle">issues</text>
+
+  <rect class="model changed" x="1030" y="345" width="160" height="90" rx="8"/>
+  <text class="boxTitle" x="1110" y="380" text-anchor="middle">④ Revise</text>
+  <text class="boxMeta" x="1110" y="401" text-anchor="middle">model · call 3</text>
+  <text class="boxMeta" x="1110" y="418" text-anchor="middle">issues + ①'s code</text>
+
+  <line class="line" x1="1190" y1="390" x2="1276" y2="390" marker-end="url(#arrow)"/>
+  <text class="edge" x="1235" y="370" text-anchor="middle">revised</text>
+  <text class="edge" x="1235" y="383" text-anchor="middle">code + answer</text>
+
+  <rect class="python changed" x="1280" y="345" width="160" height="90" rx="8"/>
+  <text class="boxTitle" x="1360" y="380" text-anchor="middle">⑤ Execute</text>
+  <text class="boxMeta" x="1360" y="401" text-anchor="middle">Python</text>
+  <text class="boxMeta" x="1360" y="418" text-anchor="middle">revised.png</text>
+
+  <line class="line" x1="1440" y1="390" x2="1596" y2="390" marker-end="url(#arrow)"/>
+  <text class="edge" x="1520" y="370" text-anchor="middle">revised chart</text>
+  <text class="edge" x="1520" y="383" text-anchor="middle">+ answer</text>
+
+  <!-- ===== Lane C ===== -->
+  <rect class="model changed" x="280" y="525" width="160" height="90" rx="8"/>
+  <text class="boxTitle" x="360" y="558" text-anchor="middle">①′ Generate</text>
+  <text class="boxMeta" x="360" y="579" text-anchor="middle">model · call 1</text>
+  <text class="boxMeta" x="360" y="596" text-anchor="middle">+ self-check prompt</text>
+  <text class="accent" x="360" y="637" text-anchor="middle">only the prompt changes</text>
+
+  <line class="line" x1="440" y1="570" x2="526" y2="570" marker-end="url(#arrow)"/>
+  <text class="edge" x="485" y="550" text-anchor="middle">code +</text>
+  <text class="edge" x="485" y="563" text-anchor="middle">answer</text>
+
+  <rect class="python" x="530" y="525" width="160" height="90" rx="8"/>
+  <text class="boxTitle" x="610" y="560" text-anchor="middle">② Execute</text>
+  <text class="boxMeta" x="610" y="581" text-anchor="middle">Python</text>
+  <text class="boxMeta" x="610" y="598" text-anchor="middle">initial.png</text>
+
+  <line class="line" x1="690" y1="570" x2="1596" y2="570" marker-end="url(#arrow)"/>
+  <text class="edge" x="1145" y="562" text-anchor="middle">chart · plotted values · answer</text>
+
+  <!-- ===== Shared evaluation ===== -->
+  <rect class="human" x="1600" y="150" width="170" height="480" rx="10"/>
+  <text class="boxTitle" x="1685" y="190" text-anchor="middle">⑥ Evaluate</text>
+  <text class="boxMeta" x="1685" y="212" text-anchor="middle">code + humans</text>
+  <text class="boxMeta" x="1685" y="229" text-anchor="middle">blind, same rubric</text>
+  <line x1="1620" y1="250" x2="1750" y2="250" stroke="#E2B47A" stroke-width="1"/>
+  <text class="boxMeta" x="1685" y="292" text-anchor="middle">correctness gate</text>
+  <text class="boxMeta" x="1685" y="312" text-anchor="middle">(pass / fail)</text>
+  <text class="boxMeta" x="1685" y="368" text-anchor="middle">alignment · design ·</text>
+  <text class="boxMeta" x="1685" y="388" text-anchor="middle">readability (0–12)</text>
+  <text class="boxMeta" x="1685" y="444" text-anchor="middle">B only:</text>
+  <text class="boxMeta" x="1685" y="464" text-anchor="middle">issues found / fixed,</text>
+  <text class="boxMeta" x="1685" y="484" text-anchor="middle">correct → wrong flips</text>
+  <text class="boxMeta" x="1685" y="540" text-anchor="middle">calls · tokens · time</text>
+
+  <rect class="human" x="1600" y="680" width="170" height="80" rx="8"/>
+  <text class="boxTitle" x="1685" y="712" text-anchor="middle">0. Gold answers</text>
+  <text class="boxMeta" x="1685" y="734" text-anchor="middle">human-written SQL, once</text>
+  <line class="line" x1="1685" y1="680" x2="1685" y2="634" marker-end="url(#arrow)"/>
+
+  <!-- ===== Comparisons ===== -->
+  <rect x="40" y="690" width="490" height="70" rx="8" fill="#F4F0FC" stroke="#CDBDF0"/>
+  <text class="chipTitle" x="60" y="718">A → C · prompt change</text>
+  <text class="chipText" x="60" y="742">What a self-check instruction buys, at no extra cost</text>
+
+  <rect x="555" y="690" width="490" height="70" rx="8" fill="#F4F0FC" stroke="#CDBDF0"/>
+  <text class="chipTitle" x="575" y="718">A → B · pipeline change</text>
+  <text class="chipText" x="575" y="742">What a review step with execution evidence buys, and its cost</text>
+
+  <rect x="1070" y="690" width="490" height="70" rx="8" fill="#F4F0FC" stroke="#CDBDF0"/>
+  <text class="chipTitle" x="1090" y="718">B vs C · two complete designs</text>
+  <text class="chipText" x="1090" y="742">Build a step, or prompt a self-check? Quality per unit of cost</text>
+
+  <!-- ===== Legend ===== -->
+  <rect class="model" x="40" y="810" width="22" height="16" rx="3"/>
+  <text class="legend" x="72" y="823">model call</text>
+  <rect class="python" x="180" y="810" width="22" height="16" rx="3"/>
+  <text class="legend" x="212" y="823">Python execution</text>
+  <rect class="human" x="365" y="810" width="22" height="16" rx="3"/>
+  <text class="legend" x="397" y="823">evaluation / human</text>
+  <rect x="555" y="810" width="22" height="16" rx="3" fill="#FFFFFF" stroke="#6B3FC4" stroke-width="3"/>
+  <text class="legend" x="587" y="823">differs from A</text>
+  <rect class="ghost" x="710" y="810" width="22" height="16" rx="3"/>
+  <text class="legend" x="742" y="823">reused from A (paired)</text>
+  <text class="legend" x="935" y="823">6 questions × 3 runs = 18 items per arm · 72 model calls in total</text>
+</svg>
