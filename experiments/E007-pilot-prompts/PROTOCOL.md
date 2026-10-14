@@ -55,3 +55,9 @@ Every iteration: prompt file (versioned `B_critique.v1.md` …), run outputs, sc
 - 6 pilot items, one repeat: enough to catch format and instruction problems, not to estimate effect sizes.
 - Tuning on mimo may overfit to mimo; acceptable, since phase 1 uses one model.
 - Claude scoring is a convenience; the formal evaluation uses the team's blind human scoring.
+
+## Amendments
+
+- **2026-10-14 (before iteration 1 was scored):** a run that reaches the step cap ends with a narration produced by the step-limit message ("maximum steps reached… recommended next step"). Such a reply is **not an answer**: the item counts as non-completion (gate fail under intention-to-treat), even if the text contains an `ANSWER:` token. Raw runs are kept.
+- **2026-10-14:** unsourced numbers (figures not derivable from the data file, e.g. recalled mileage series) are recorded as a separate flag per item and make the gate fail if they carry the conclusion.
+- **2026-10-14:** C is allowed to vary only in the self-check instruction (wording, the generic categories it asks to review, and where it sits). Step-economy or ordering advice outside that instruction is not allowed, because the A prompt does not have it.

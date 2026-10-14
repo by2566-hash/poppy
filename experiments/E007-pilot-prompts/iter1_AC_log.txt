@@ -1,0 +1,20 @@
+[A-v1 K1 r2] ok=True ans=True png=True 64.3s tools=8 steps=7
+[A-v1 K1 r1] ok=True ans=True png=True 64.3s tools=6 steps=6
+[A-v1 K2 r1] ok=True ans=True png=True 86.5s tools=8 steps=7
+[A-v1 K3 r1] ok=True ans=True png=True 78.7s tools=6 steps=6
+[A-v1 K3 r2] ok=True ans=True png=True 87.4s tools=6 steps=6
+[A-v1 K2 r2] ok=True ans=True png=True 168.1s tools=7 steps=7
+[A-v1 A2 r1] ok=True ans=True png=True 114.0s tools=7 steps=7
+[A-v1 A1 r1] ok=True ans=True png=False 305.5s tools=17 steps=15
+[A-v1 A2 r2] ok=True ans=True png=False 395.7s tools=17 steps=15
+[A-v1 A1 r2] ok=False ans=False png=False 600.0s tools=14 steps=13
+[A-v1 I1 r1] ok=True ans=True png=False 340.6s tools=19 steps=15
+[A-v1 I1 r2] ok=True ans=True png=False 511.8s tools=25 steps=15
+saved A-v1
+[C-v1 K1 r1] ok=True ans=True png=True 123.8s tools=9 steps=10
+[C-v1 K3 r1] ok=True ans=True png=True 155.7s tools=9 steps=9
+[C-v1 K2 r1] ok=True ans=True png=True 405.7s tools=16 steps=15
+[C-v1 A2 r1] ok=True ans=True png=True 445.0s tools=17 steps=14
+[C-v1 A1 r1] ok=False ans=False png=False 600.0s tools=16 steps=11
+[C-v1 I1 r1] ok=False ans=False png=True 600.1s tools=17 steps=14
+saved C-v1
