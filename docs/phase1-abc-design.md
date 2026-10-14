@@ -128,3 +128,10 @@ Proposal for the team to confirm: ① = one bounded run (A and C: 1 run; B: 3 ru
 
 - A client crash (Bun runtime dump after 1 step, P10 r2) and a long run that times out while still working (P8 r3, 420 s, 7 steps) are different failures. The first is infrastructure and is retried; the second is non-completion and counts against the arm.
 - The 10-step cap and 420 s timeout that sufficed for clear questions were tight for ambiguous ones (8 / 12 runs hit the cap; median 198 s vs 65 s). The formal config is set from the E006 re-screen, and applies to **all** arms and questions alike.
+
+### Amendment 2026-10-14 (pilot scope and B review design)
+
+- The pilot round now tunes **A and B only**. A is frozen at its first prompt. C's self-check prompt is written by Bo after A and B are frozen, checked once for format, and not tuned; the final report states this asymmetry.
+- B's review step (③) is a **review, not a re-analysis**: it runs without code execution, sees A's chart (attached) and A's values, answer and code (embedded), and returns a numbered list of issues or `ISSUES: NONE`. The revise step (④) runs only if issues were reported, lists how it handled each one, and keeps everything not flagged unchanged.
+- Step budget: 15 steps **per run**, the same for every run. B makes up to three runs per item, so it spends more in total; that spend is reported as B's cost next to its effect.
+- Details and acceptance criteria: `experiments/E007-pilot-prompts/PROTOCOL.md`.

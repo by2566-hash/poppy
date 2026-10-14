@@ -1,0 +1,21 @@
+{
+ "call_ok": false,
+ "timed_out": true,
+ "secs": 600.0,
+ "tool_calls": 16,
+ "steps": 11,
+ "hit_step_limit": false,
+ "errors": [],
+ "answer": null,
+ "answer_ok": false,
+ "tokens": {
+  "input": 17948,
+  "output": 3208
+ },
+ "q": "A1",
+ "rep": 1,
+ "label": "C-v1",
+ "png": false,
+ "values": false,
+ "collected_by": "by2566-hash"
+}

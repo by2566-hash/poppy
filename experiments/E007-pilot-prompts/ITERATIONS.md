@@ -45,3 +45,18 @@ The "stalled endpoint" was **rate limiting**: `AI_RetryError: Failed after 3 att
 - Iteration 1 (A baseline, C v1) completed before the limit and stands.
 
 Volume so far on mimo today: E006 ≈ 66 agent runs + 5 vision + E007 iteration 1 = 18 runs + 12 B calls. The free tier's limit is undocumented; plan for lower throughput.
+
+## Scope v2 and B v2 (2026-10-14)
+
+Scope narrowed to A and B (see PROTOCOL amendment). A frozen at v1. C v2 run is void (rate limited) and C is now written after the freeze.
+
+B v2 prompts, and the failure each change targets:
+
+| Change | Failure it targets |
+|---|---|
+| Review run cannot execute code (`opencode.review.json`) | B v1 reviews spent 11 steps scripting pixel analysis and wrote no review |
+| Chart attached; values, answer and code embedded in the prompt | B v1 told the model where the files were, which invited re-analysis |
+| `ISSUES:` numbered list or `ISSUES: NONE`; "do not invent problems; say when you cannot verify" | Need a parseable, honest review |
+| Revise lists each change; "keep everything not flagged unchanged"; skipped when no issues | Protect correct outputs from being changed (flips) |
+
+Mechanics test on one item with nemotron passed (see PROTOCOL). Next: B v2 iteration on mimo when its quota allows.

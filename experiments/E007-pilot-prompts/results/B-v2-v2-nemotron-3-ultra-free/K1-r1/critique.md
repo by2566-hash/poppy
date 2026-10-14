@@ -1,0 +1,3 @@
+ISSUES:
+1. Written answer states "fell from a 13-year high of 176 in 2013 to 119 in 2025" — this phrasing implies a steady decline, but the data shows multiple increases (e.g., 133→149 in 2015–2016, 101→132 in 2020–2021, 107→124 in 2023–2024). The overall trend is downward, but "fell from X to Y" misrepresents the non-monotonic path.
+2. Written answer calls 176 a "13-year high" — since the dataset only spans 13 years (2013–2025), this is tautological (it's the highest in the period studied). It could mislead readers into thinking this is a high relative to a longer history.

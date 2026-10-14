@@ -1,0 +1,5 @@
+# Pinned to the versions used for E001-E007 (Python 3.13.5).
+duckdb==1.4.4
+pandas==2.2.3
+pyarrow==19.0.0
+matplotlib==3.10.0

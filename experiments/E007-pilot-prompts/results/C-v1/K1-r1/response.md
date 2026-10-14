@@ -1,0 +1,4 @@
+Data checks out — all years 2013–2025 are complete, no nulls, pedestrian killed never exceeds total killed. Now generating the chart and CSV.
+Checks passed: all 13 years are complete in the data (365/366 days each), no null dates or null values in `number_of_pedestrians_killed`, and no row where pedestrian deaths exceed total deaths. Chart and CSV saved to `./out/`.
+
+ANSWER: Pedestrian deaths in NYC fell from a 13-year high of 176 in 2013 to 119 in 2025, averaging 130 per year. The decline was uneven: 2016 saw a rebound to 149, 2020 was the lowest year at 101 (101 deaths, ~29% below the 2013 peak), and the count has hovered in the 107–135 range since 2021.

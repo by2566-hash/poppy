@@ -1,0 +1,2 @@
+Data QC looks clean (no duplicate `collision_id`, no null dates, full 2013–2025 years; 2026 is partial and must be excluded). Now the analysis script:
+Fixing annotation overlap, hardcoded footnote values, and adding the break-even threshold:

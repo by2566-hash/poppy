@@ -1,0 +1,3 @@
+Checks: all 13 years have full 12-month coverage (data runs to 2026-06, so 2025 is complete); no null/negative death values; collision_ids unique; bar labels legible and match `values.csv`.
+
+ANSWER: Motorist deaths outnumber cyclist deaths every year, roughly 5 to 1 on average (106 vs 21 per year, 2013-2025). Motorist deaths fell from 110 (2013) to a low of 72 (2016), then spiked to 139 in 2020 and stayed elevated (111-134) through 2024 before dropping to 81 in 2025. Cyclist deaths trended the other way overall — 11 in 2013 to 23 in 2025, with peaks of 31 in 2019 and 2023 and a low of 10 in 2018 — so the gap has narrowed in recent years, though motorist deaths still exceed cyclist deaths by about 4-5x.

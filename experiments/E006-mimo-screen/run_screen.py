@@ -14,7 +14,7 @@ CONFIG = {"$schema": "https://opencode.ai/config.json",
           "agent": {"build": {"steps": 1}}}
 gold = json.loads((HERE / "gold.json").read_text())
 
-def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240)):
+def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files=()):
     """One `opencode run`. Detects the free tier's rate limiting (which otherwise looks like a hang:
     OpenCode retries 3 times, then waits, with an empty event stream), stops immediately, and retries with
     backoff when no step had started. Returns the final attempt plus `rate_limited` / `attempts`."""
@@ -23,7 +23,7 @@ def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240)):
         t0 = time.time(); code = None; timed_out = False; rate_limited = False
         with open(sb / "events.jsonl", "w") as out, open(sb / "stderr.log", "w") as err:
             proc = subprocess.Popen(["opencode", "run", "--pure", "--print-logs", "--log-level", "ERROR", "--format", "json",
-                                     "-m", f"opencode/{MODEL}", "--dir", str(sb), "--", prompt],
+                                     "-m", f"opencode/{MODEL}", "--dir", str(sb)] + [a for f in files for a in ("-f", str(f))] + ["--", prompt],
                                     stdout=out, stderr=err, env=env, cwd=sb, stdin=subprocess.DEVNULL)
             while proc.poll() is None:
                 if time.time() - t0 > timeout:

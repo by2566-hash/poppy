@@ -62,3 +62,28 @@ Every iteration: prompt file (versioned `B_critique.v1.md` …), run outputs, sc
 - **2026-10-14:** unsourced numbers (figures not derivable from the data file, e.g. recalled mileage series) are recorded as a separate flag per item and make the gate fail if they carry the conclusion.
 - **2026-10-14:** C is allowed to vary only in the self-check instruction (wording, the generic categories it asks to review, and where it sits). Step-economy or ordering advice outside that instruction is not allowed, because the A prompt does not have it.
 - **2026-10-14:** rate limiting ("Rate limit exceeded") is an infrastructure failure. A run that was rate limited before its first step is retried with backoff and is not scored; a rate-limited batch is not an iteration. Batches are started only after a liveness check, with concurrency ≤ 2.
+
+## Amendment 2026-10-14 (scope v2, agreed with Bo before any B v2 run)
+
+**Purpose, narrowed:** make B's two steps work as designed — the critique is an honest review, the revision changes only what was flagged — then freeze the A and B prompts. C is out of the pilot.
+
+| Arm | Plan |
+|---|---|
+| A | Frozen at `A.v1.md` (12 valid runs). Failures on ambiguous items are part of the baseline and are not tuned away. |
+| B | Up to 3 iterations on the 6 pilot items, 1 run each. Prompts edited only by Bo; each edit must cite an observed failure in `ITERATIONS.md`. |
+| C | Written by Bo after A and B are frozen, informed by what B's reviews found. One format check (chart + values + answer) on the pilot items; no effect tuning. The report states this asymmetry (B tuned up to 3 rounds, C written once). |
+
+**B design v2.** The review run cannot execute code (`config/opencode.review.json`); A's chart is attached, and its values, written answer and code are embedded in the prompt, so the reviewer judges what was produced instead of redoing the analysis. The review must return `ISSUES:` with a numbered list, or `ISSUES: NONE`. The revise run is made only if issues were reported; it must list how each issue was handled and keep everything not flagged unchanged. If the review says none, A's outputs are carried forward and no third run is made (repair only when a problem was reported).
+
+**Acceptance (all on the 6 pilot items, one iteration):**
+
+| Step | Pass if |
+|---|---|
+| Review | ≥ 5/6 return a parseable `ISSUES:` block; ≥ 5/6 use ≤ 2 tool calls; on items where A was wrong (gold available), at least half name the real error; on items where A was right, no invented substantive error (one cosmetic remark allowed) |
+| Revise | ≥ 5/6 produce `revised.png` and `revised_values.csv` (or are correctly skipped); every number A had right is unchanged; zero correct → incorrect flips |
+
+**Freeze when:** an iteration meets acceptance; or 3 iterations are used; or an iteration's edit removed none of the failures it targeted.
+
+**Not acceptance items (recorded automatically):** steps, requests, time per run.
+
+**Mechanics test (not a result):** B v2 was run once on A-v1 K1 with `nemotron-3-ultra-free` (mimo was rate-limited) to check the pipeline: review 1 step, 0 tool calls, 2 specific wording issues, no invented numbers; revise kept every number and changed only the text, listing each change. Stored under `results/B-v2-v2-nemotron-3-ultra-free/`.

@@ -1,0 +1,41 @@
+{
+ "q": "K1",
+ "rep": 1,
+ "label": "B-v2-v2-nemotron-3-ultra-free",
+ "a_label": "A-v1",
+ "type": "clear",
+ "a_complete": true,
+ "review_ok": true,
+ "review_rate_limited": false,
+ "review_secs": 70.2,
+ "review_steps": 1,
+ "review_tool_calls": 0,
+ "n_issues": 2,
+ "says_none": false,
+ "revise_skipped": false,
+ "revise_ok": true,
+ "revise_rate_limited": false,
+ "revise_secs": 46.1,
+ "revise_steps": 5,
+ "revise_tool_calls": 3,
+ "changes_listed": true,
+ "revised_png": true,
+ "revised_values": true,
+ "answer": "Pedestrian deaths in NYC peaked at 176 in 2013 and reached 119 in 2025, averaging ~130 per year (1,690 total). The trend is downward overall but non-monotonic: notable increases occurred in 2015\u20132016 (133\u2192149), 2020\u20132021 (101\u2192132), and 2023\u20132024 (107\u2192124), with a pandemic low of 101 in 2020 and a recent low of 107 in 2023.",
+ "answer_ok": true,
+ "env": {
+  "model": "nemotron-3-ultra-free",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "1841464",
+  "prompt_sha": {
+   "B_critique.v2.md": "9a15fd17aad323b8",
+   "B_revise.v2.md": "21b29bb2097e08a5"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "93f72e580602faf0",
+   "opencode.review.json": "5a5a4cb0705b0689"
+  }
+ },
+ "collected_by": "by2566-hash"
+}

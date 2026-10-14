@@ -82,3 +82,9 @@ Copy entries into the team's Google Sheet when ready.
 - **Result:** A 7/12 gate pass (clear 6/6; ambiguous 1/4; insufficient 0/2), C v1 4/6 with no flips; C used ~60% more steps on clear questions with no gate change. On the insufficient-evidence item both arms imported recalled mileage numbers (unsourced), and runs that reached the step cap ended in "maximum steps reached" narration (counted as non-completion).
 - **Failure:** B v1 and C v2 produced empty critiques and 6/6 timeouts. Cause: free-tier rate limiting (`Rate limit exceeded`), invisible in the event stream because OpenCode retries silently; mimo and big-pickle limited for ≥ 45 min, nemotron still served. Batch discarded, harness fixed to detect it.
 - **Next:** wait for mimo's quota or switch the single model after a stability screen (decision for the team); then re-run B v1 and C v2.
+
+## 2026-10-14 — E007 scope v2, B v2 and team setup
+
+- **Setup:** pilot narrowed to A and B (C written after the freeze); A frozen at v1. B v2: the review run cannot execute code and gets A's chart attached plus values, answer and code embedded; it returns a numbered `ISSUES:` list or `ISSUES: NONE`; the revise run happens only if issues were reported and must keep unflagged parts unchanged. Team tooling: `requirements.txt`, `scripts/check_env.py` (OpenCode 1.18.34, data content fingerprint), config templates in `experiments/E007-pilot-prompts/config/`, `scripts/collect_runs.py` (runs into the repo via PR), concurrency default 1.
+- **Result:** pipeline test on one item with nemotron (mimo rate-limited): review used 1 step and 0 tool calls and raised 2 specific, verifiable wording issues; revise kept every number and listed each change. Not a pilot result. A-v1 and C-v1 runs collected into `results/`.
+- **Next:** B v2 iteration on mimo when quota allows; one teammate checks whether the rate limit is per machine.
