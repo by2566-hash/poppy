@@ -12,6 +12,7 @@ Poppy is an agent that receives a **vague analytical question** over public data
 
 | Document | What it holds |
 |---|---|
+| [`docs/status-2026-10-14.md`](docs/status-2026-10-14.md) | **Latest status**, how one run works, why runs got stuck, how to try it yourself |
 | [`docs/phase1-abc-design.md`](docs/phase1-abc-design.md) | **Current phase:** experiments A (baseline), B (add a review step), C (self-check prompt) — story, workflow, controls, evaluation, predictions |
 | [`docs/mentor-brief-2026-10-09.md`](docs/mentor-brief-2026-10-09.md) | Brief prepared for the 2026-10-09 mentor meeting |
 | [`docs/direction-v1.md`](docs/direction-v1.md) | Core research question, agent behavior, evaluation layers, baselines |

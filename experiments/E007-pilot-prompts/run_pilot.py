@@ -19,6 +19,7 @@ CONFIG = {"$schema": "https://opencode.ai/config.json",
                          "bash": {"*": "deny", "python3 *": "allow", "python *": "allow", "ls": "allow",
                                   "ls *": "allow", "mkdir *": "allow", "head *": "allow", "cat *": "allow"}},
           "agent": {"build": {"steps": STEPS}}}
+SUFFIX = "" if MODEL == "mimo-v2.6-flash-free" else f"-{MODEL}"  # keep other models' runs separate
 QS = {q["id"]: q for q in json.loads((HERE / "pilot_questions.json").read_text())["questions"]}
 
 def prep(sb):
@@ -80,17 +81,18 @@ def run_B(job):
     return meta
 
 if __name__ == "__main__":
-    mode = sys.argv[1]; qids = list(QS)
+    mode = sys.argv[1]
+    qids = [q for q in os.environ.get("PILOT_QIDS", "").split(",") if q] or list(QS)  # e.g. PILOT_QIDS=K1
     with ThreadPoolExecutor(3) as ex:
         if mode in ("A", "C"):
             ver, reps = sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 1
             f = HERE / "prompts" / (f"A.{ver}.md" if mode == "A" else f"C_selfcheck.{ver}.md")
-            label = f"{mode}-{ver}"; tmpl = f.read_text()
+            label = f"{mode}-{ver}{SUFFIX}"; tmpl = f.read_text()
             res = list(ex.map(run_A_or_C, [(label, q, r, tmpl) for q in qids for r in range(1, reps + 1)]))
         else:
             cv, rv, a_label = sys.argv[2], sys.argv[3], sys.argv[4]
             crit = (HERE / "prompts" / f"B_critique.{cv}.md").read_text(); rev = (HERE / "prompts" / f"B_revise.{rv}.md").read_text()
-            label = f"B-{cv}-{rv}"
+            label = f"B-{cv}-{rv}{SUFFIX}"
             res = list(ex.map(run_B, [(label, q, 1, a_label, crit, rev) for q in qids]))
     out = HERE / "runs"; out.mkdir(exist_ok=True)
     (out / f"{label}.json").write_text(json.dumps(res, indent=1)); print("saved", label)

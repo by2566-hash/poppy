@@ -4,7 +4,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 PROJECT = HERE.parents[1]
 PARQUET = PROJECT / "data" / "processed" / "nyc_crashes.parquet"
-MODEL = "mimo-v2.6-flash-free"
+import os
+MODEL = os.environ.get("POPPY_MODEL", "mimo-v2.6-flash-free")  # override: POPPY_MODEL=nemotron-3-ultra-free
 
 # The team's six clear questions (phase-1 proposal), window 2013-2025.
 QUESTIONS = {
