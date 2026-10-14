@@ -18,3 +18,15 @@ Across 24 runs (E004), the best free model made acceptable ask / enumerate / pro
 
 **2026-10-04 — Denying web access does not stop agents from using outside numbers.**
 With web fetch disabled, models still computed per-capita and per-trip rates from population and city statistics recalled from memory, without saying so. Treat any number not derivable from the provided data as a finding to flag, and score it.
+
+**2026-10-14 — "One model call" is a harness property, not a prompt property.**
+A free-tier agent model told to answer in a fixed format still made 13 tool calls, explored the filesystem outside its sandbox and read other experiments' logs. Enforce single-call behaviour in the harness (a step limit), not in the prompt, and record tool-call counts as a data-quality field. Also check the access path: the free-tier gateway returned 403 whenever the shell or read tool was removed, which silently invalidated a whole batch until we looked at the error text.
+
+**2026-10-14 — Background `opencode run` hangs unless stdin is closed.**
+`opencode run` appends piped stdin to the message and waits for EOF. A batch started in the background inherited an open pipe and all 18 calls stalled to the timeout with zero output. Always pass `stdin=DEVNULL`; a harness that reports "timeout" without checking this will blame the model.
+
+**2026-10-14 — A forced-stop prompt contaminates the output you are trying to measure.**
+Limiting an agent to one step made every reply a narration of what it would do ("maximum steps reached; recommended next step…"), and a lenient parser scored some of them as compliant. Read raw outputs before trusting a screening metric, and flag known artifact phrases in the harness.
+
+**2026-10-14 — In a "generate code and answer, then execute" design, the written answer is a guess.**
+The answer is produced before any number exists. Either let the model execute and read its own results, or write the answer after execution from the plotted values.

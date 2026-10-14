@@ -1,0 +1,87 @@
+[
+ {
+  "chart": "c1.png",
+  "gold_max": 2013,
+  "gold_value": 244.0,
+  "gold_top_tick": 300.0,
+  "answer": {
+   "highest_category": "2021",
+   "value_at_2019": 244,
+   "top_y_tick": 300
+  },
+  "raw": "```json\n{\"highest_category\": \"2021\", \"value_at_2019\": 244, \"top_y_tick\": 300}\n```",
+  "secs": 36.1,
+  "max_ok": false,
+  "value_rel_err": 0.0,
+  "value_ok": true,
+  "tick_ok": true
+ },
+ {
+  "chart": "c2.png",
+  "gold_max": 2020,
+  "gold_value": 5027.0,
+  "gold_top_tick": 5600.0,
+  "answer": {
+   "highest_category": "2020",
+   "value_at_2022": 5025,
+   "top_y_tick": 5600
+  },
+  "raw": "{\"highest_category\": \"2020\", \"value_at_2022\": 5025, \"top_y_tick\": 5600}",
+  "secs": 7.7,
+  "max_ok": true,
+  "value_rel_err": 0.0,
+  "value_ok": true,
+  "tick_ok": true
+ },
+ {
+  "chart": "c3.png",
+  "gold_max": "16",
+  "gold_value": 148818.0,
+  "gold_top_tick": 140000.0,
+  "answer": {
+   "highest_category": "16",
+   "value_at_17": 148000,
+   "top_y_tick": 140000
+  },
+  "raw": "{\"highest_category\": \"16\", \"value_at_17\": 148000, \"top_y_tick\": 140000}",
+  "secs": 6.2,
+  "max_ok": true,
+  "value_rel_err": 0.005,
+  "value_ok": true,
+  "tick_ok": true
+ },
+ {
+  "chart": "c4.png",
+  "gold_max": "BROOKLYN",
+  "gold_value": 24711.0,
+  "gold_top_tick": 35000.0,
+  "answer": {
+   "highest_category": "BROOKLYN",
+   "value_at_QUEENS": 24800,
+   "top_y_tick": 35000
+  },
+  "raw": "{\"highest_category\": \"BROOKLYN\", \"value_at_QUEENS\": 24800, \"top_y_tick\": 35000}",
+  "secs": 9.3,
+  "max_ok": true,
+  "value_rel_err": 0.004,
+  "value_ok": true,
+  "tick_ok": true
+ },
+ {
+  "chart": "c5.png",
+  "gold_max": 2013,
+  "gold_value": 6692.0,
+  "gold_top_tick": 12000.0,
+  "answer": {
+   "highest_category": "2013",
+   "value_at_2020": 6700,
+   "top_y_tick": 12000
+  },
+  "raw": "{\"highest_category\": \"2013\", \"value_at_2020\": 6700, \"top_y_tick\": 12000}",
+  "secs": 32.8,
+  "max_ok": true,
+  "value_rel_err": 0.001,
+  "value_ok": true,
+  "tick_ok": true
+ }
+]

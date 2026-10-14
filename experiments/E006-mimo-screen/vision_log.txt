@@ -1,0 +1,5 @@
+c1.png {'max_ok': False, 'value_ok': True, 'value_rel_err': 0.0, 'tick_ok': True, 'secs': 36.1}
+c2.png {'max_ok': True, 'value_ok': True, 'value_rel_err': 0.0, 'tick_ok': True, 'secs': 7.7}
+c3.png {'max_ok': True, 'value_ok': True, 'value_rel_err': 0.005, 'tick_ok': True, 'secs': 6.2}
+c4.png {'max_ok': True, 'value_ok': True, 'value_rel_err': 0.004, 'tick_ok': True, 'secs': 9.3}
+c5.png {'max_ok': True, 'value_ok': True, 'value_rel_err': 0.001, 'tick_ok': True, 'secs': 32.8}

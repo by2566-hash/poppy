@@ -1,0 +1,19 @@
+[P1 r1] call_ok=True format=False exec=False png=False gold=None 10.8s tools=0
+[P1 r2] call_ok=True format=False exec=True png=True gold=1.0 25.5s tools=0
+[P1 r3] call_ok=True format=True exec=True png=True gold=1.0 26.5s tools=0
+[P2 r1] call_ok=True format=False exec=False png=False gold=None 27.2s tools=0
+[P2 r2] call_ok=True format=False exec=False png=False gold=None 13.2s tools=0
+[P2 r3] call_ok=True format=False exec=False png=False gold=None 16.5s tools=0
+[P3 r1] call_ok=True format=False exec=False png=False gold=None 11.8s tools=0
+[P3 r3] call_ok=True format=False exec=False png=False gold=None 13.0s tools=0
+[P3 r2] call_ok=True format=True exec=True png=True gold=1.0 19.1s tools=0
+[P4 r1] call_ok=True format=False exec=True png=True gold=1.0 13.6s tools=0
+[P4 r2] call_ok=True format=False exec=False png=False gold=None 14.7s tools=0
+[P4 r3] call_ok=True format=False exec=False png=False gold=None 12.2s tools=0
+[P5 r1] call_ok=True format=False exec=False png=False gold=None 12.3s tools=0
+[P5 r3] call_ok=True format=False exec=False png=False gold=None 17.8s tools=0
+[P6 r1] call_ok=True format=False exec=False png=False gold=None 15.4s tools=0
+[P5 r2] call_ok=True format=True exec=True png=True gold=0.9 20.6s tools=0
+[P6 r3] call_ok=True format=False exec=True png=False gold=None 11.3s tools=0
+[P6 r2] call_ok=True format=False exec=False png=False gold=None 16.8s tools=0
+calls ok 18 / 18 | format ok 3 | exec ok 6 | png 5

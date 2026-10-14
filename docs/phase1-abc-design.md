@@ -116,3 +116,9 @@ How to report:
 - C has no repair step, so a C execution failure stays a failure. That is part of what the prompt-only design buys.
 - The diagnosis the teammate asked for ("model call problem or model capability problem?") is exactly the first three rows. Log `failure_kind` for every failed call so it can be answered from data, not memory.
 - The stability screen (`experiments/E006-mimo-screen`) keeps call and format failures small before the formal runs.
+
+## 10. Open implementation issue: what "one call" means on OpenCode (E006)
+
+E006 found that the OpenCode free tier cannot give a strict tool-less single call: removing the shell or read tool returns HTTP 403, and forcing one step makes the model narrate instead of answer. The screen that worked (mimo-v2.6-flash-free, 18/18 runs, gold numbers matched, 5/5 chart reads) ran step ① as **one bounded agent run in which the model writes and executes its own code** (≤ 10 steps).
+
+Proposal for the team to confirm: ① = one bounded run (A and C: 1 run; B: 3 runs), the harness collects chart, plotted values, run log and the model's code; the written answer is produced after the model has seen its numbers. Alternative: call a free chat-completions endpoint directly (needs keys, leaves OpenCode). See `experiments/E006-mimo-screen/REPORT.md`.

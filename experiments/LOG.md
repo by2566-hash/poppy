@@ -53,3 +53,19 @@ Copy entries into the team's Google Sheet when ready.
 - **Setup:** one existing 4-panel matplotlib chart, renamed to a neutral `chart.png`, attached with `opencode run -f chart.png -- "<question>"`. Asked three details only visible in the pixels (top-right panel title, bottom-right line color, highest y-axis tick bottom-left), with an explicit `NO_IMAGE` escape. Note: `-f` is an array option, so the message must follow `--`.
 - **Result:** big-pickle → `NO_IMAGE`; nemotron-3-ultra-free → `NO_IMAGE`; mimo-v2.6-flash-free → all three correct. In E004 every model's `read` tool reported "Image read successfully" on PNGs, which only means the file loaded, not that the model saw it. n = 1 image: a capability check, not an accuracy estimate.
 - **Next:** with big-pickle as the single model, any critique step must work on text (analysis plan, chart spec, computed result table), not pixels. Pixel critique is only possible as a separate mimo variant, which would change the model and confound comparisons.
+
+## 2026-10-14 — E006-setup: Can a free OpenCode model be run as a single tool-less call?
+
+- **Setup:** wanted step ① of phase 1 as one call, no tools. Tried `opencode run` with permission and tool configs on mimo-v2.6-flash-free (trivial and real prompts, 2 repeats each).
+- **Result:**
+  1. **With the default config mimo is an agent even when told to reply in a fixed format**: 13 tool calls in 99 s, including `find` outside its sandbox and reading other runs' logs. "Single call" cannot be enforced by the prompt.
+  2. **Free-tier gateway rejects requests with HTTP 403 ("free tier can only be used from within OpenCode") when `bash` or `read` is disabled** (`permission.bash: "deny"` or `tools.bash/read: false`). Disabling any other tool, or restricting bash with command patterns (as in E004), is fine. So tools cannot be removed.
+  3. **`agent.build.steps: 1` works**: one step, 0 tool calls, 14 s, code block and `ANSWER:` present. (`maxSteps: 1` behaved the same in this version.)
+  4. A first screening batch ran with the all-deny config and every call stalled to the 300 s timeout or returned 403; it was invalid and discarded.
+- **Next:** rerun the mimo stability screen with `steps: 1` (call success, format compliance, code execution, repeat consistency) and the image-reading test.
+
+## 2026-10-14 — E006: mimo-v2.6-flash-free as the single phase-1 model
+
+- **Setup:** step ① on 6 clear questions × 3 repeats as a bounded agent run (steps ≤ 10, python-only bash, sandboxed); chart-reading test on 5 charts × 3 questions. Details: `experiments/E006-mimo-screen/REPORT.md`.
+- **Result:** 18/18 completed, 0 timeouts, chart + values + answer every time, gold numbers matched on all 18 (16 at 100%, 2 at 90%: P5 repeats disagree on whether "Unspecified" counts), median 65 s and 6 tool calls. Chart reading 5/5. Two earlier screens were invalid and discarded: `steps=1` made every reply a "maximum steps reached" narration; the first batch hung because background `opencode run` waits on an open stdin.
+- **Next:** team decides whether step ① is a bounded agent run (recommended) or a direct API call; run the same screen on the ambiguous and insufficient-evidence questions; pilot round for B and C prompts.
