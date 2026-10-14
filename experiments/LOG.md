@@ -75,3 +75,10 @@ Copy entries into the team's Google Sheet when ready.
 - **Setup:** same bounded-agent screen, 4 questions × 3 repeats at cap 10 / 420 s, then at the proposed formal config cap 15 / 600 s.
 - **Result:** completion 9/12 (cap 10) and 10/12 (cap 15), vs 18/18 on clear questions; median 198 → 263 s; 8/12 used the full step cap in both. Failures: one client crash (infrastructure), two timeouts, two missing charts. Every borough table dropped the unknown-borough group without comment (TR05); P9 runs consistently stated that per-ride risk cannot be computed.
 - **Next:** formal config fixed at steps 15 / timeout 600 s for all arms; pilot round E007 (pre-registered protocol) started.
+
+## 2026-10-14 — E007 iteration 1, and the rate limit
+
+- **Setup:** pilot round per `experiments/E007-pilot-prompts/PROTOCOL.md` (pre-registered, commit a1f89a9): 6 pilot questions disjoint from the 10 formal ones, mimo, bounded agent run (15 steps, 600 s). Iteration 1: A baseline (2 repeats) and C v1.
+- **Result:** A 7/12 gate pass (clear 6/6; ambiguous 1/4; insufficient 0/2), C v1 4/6 with no flips; C used ~60% more steps on clear questions with no gate change. On the insufficient-evidence item both arms imported recalled mileage numbers (unsourced), and runs that reached the step cap ended in "maximum steps reached" narration (counted as non-completion).
+- **Failure:** B v1 and C v2 produced empty critiques and 6/6 timeouts. Cause: free-tier rate limiting (`Rate limit exceeded`), invisible in the event stream because OpenCode retries silently; mimo and big-pickle limited for ≥ 45 min, nemotron still served. Batch discarded, harness fixed to detect it.
+- **Next:** wait for mimo's quota or switch the single model after a stability screen (decision for the team); then re-run B v1 and C v2.

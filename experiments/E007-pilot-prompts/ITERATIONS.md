@@ -34,3 +34,14 @@ C edit for iteration 2 (`C_selfcheck.v2.md`): replace the single generic sentenc
 Rule applied: protocol section 6 of `phase1-abc-design.md` (call failures are retried, not scored). Liveness is checked with a trivial call before every batch from now on.
 
 Design observation worth keeping (not an iteration result): the B critique step, as an agent run with tools, will use its budget to *re-derive* the chart from pixels. The original ③ is a review, not a re-execution. A critique prompt may state that this step reviews the saved artifacts and does not run code (allowed under the protocol: it says which artifacts to look at).
+
+### Root cause found (same day, later)
+
+The "stalled endpoint" was **rate limiting**: `AI_RetryError: Failed after 3 attempts. Last error: Rate limit exceeded. Please try again later.` OpenCode retries and then keeps waiting, so from outside the run looks hung and the JSON event stream stays empty; the error is visible only with `--print-logs`. mimo and big-pickle were limited for ≥ 45 min; nemotron-3-ultra-free still answered (4.8 s).
+
+- **C.v2 (6/6 timeouts, 3 with 0 steps)**: rate limited, not a prompt result. Re-run; does not count toward C's budget.
+- **B.v1**: calls were made while the quota was being exhausted; the 4 empty critiques cannot be separated from rate limiting. Re-run.
+- The harness now detects the limit (stderr, within seconds), stops the call, and retries with 90 s / 240 s backoff only if no step had started; the result carries `rate_limited` and `attempts`.
+- Iteration 1 (A baseline, C v1) completed before the limit and stands.
+
+Volume so far on mimo today: E006 ≈ 66 agent runs + 5 vision + E007 iteration 1 = 18 runs + 12 B calls. The free tier's limit is undocumented; plan for lower throughput.

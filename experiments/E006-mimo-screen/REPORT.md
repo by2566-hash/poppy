@@ -78,3 +78,7 @@ Same harness and criteria, 4 questions × 3 repeats per config. Raw: `screen_age
 - **P10 (policy 2018, causal):** all completed runs answered "no / not supported" with before-after tests; two cited a "2023 reporting-rule change", which cannot be derived from the data (an unsourced claim to score).
 - **P8 (most dangerous borough):** every run that produced a table silently **dropped the unknown-borough group** (about 25,000 pedestrian injuries, ~21% of the total) and never mentioned it (TR05).
 - **P7 (did safety improve):** all runs answered "yes, but unevenly" and flagged the reporting artifact in crash counts; one answer was truncated by a formatting glitch.
+
+## 7. Rate limiting (added later on 2026-10-14)
+
+After ≈ 90 runs on mimo-v2.6-flash-free in about a day the endpoint answered every call with `Rate limit exceeded` for ≥ 45 min (big-pickle too; nemotron-3-ultra-free still worked). This was invisible in the JSON event stream and looked like a hang. `call_model` now detects it and backs off. **Implication: the single-model plan needs a throughput budget, and a fallback.** A one-run check of nemotron on a pilot question: 50 s, chart + values + answer, gold numbers matched; it cannot read images (E005), so B's review step would use values, code and answer only.

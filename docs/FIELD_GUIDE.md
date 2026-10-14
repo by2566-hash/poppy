@@ -30,3 +30,6 @@ Limiting an agent to one step made every reply a narration of what it would do (
 
 **2026-10-14 — In a "generate code and answer, then execute" design, the written answer is a guess.**
 The answer is produced before any number exists. Either let the model execute and read its own results, or write the answer after execution from the plotted values.
+
+**2026-10-14 — On a free tier, a "hang" is usually rate limiting; make the harness say so.**
+OpenCode retries a rate-limited call three times and then waits, with an empty event stream. Our batch spent 600 s per item and logged six "timeouts" that were not model behaviour; two earlier batches had also been polluted. Run with `--print-logs --log-level ERROR`, match "Rate limit exceeded", stop at once and back off. Budget free-tier throughput before designing the number of runs (here: 3 arms × 10 questions × 3 repeats plus review calls ≈ 120+ runs).
