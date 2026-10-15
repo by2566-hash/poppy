@@ -131,3 +131,20 @@ Acceptance changed to the B contract (PROTOCOL amendment "B contract, sandbox v2
 **End-to-end on mimo with the final harness** (A-v1 r2 inputs): K1 → 1 issue ("pandemic driving" is a cause the data cannot show), revise removed only that parenthetical; K2 → 2 issues (32% vs 24%; "fewer commuters" cause), both fixed, values.csv identical. Contract: 2/2 pass. Earlier runs on the same draft before the routing sentence: K1 NONE, K2 1 issue; image control as above. Stored under `results/B-v3draft-*`.
 
 **A-v1 I1 re-run under sandbox v2** (replaces the void runs): r1 8 steps, r2 11 steps, both complete (before: both hit the 15-step cap while downloading data). Each tried the network once (`curl` denied by OpenCode, `urllib` blocked by the sandbox) and then answered from the data only. Both answers still draw a per-mile conclusion without mileage data (r1 assumes driving is back to pre-pandemic levels; r2 uses injury crashes as an exposure proxy): an A-side unsupported claim, kept as baseline behaviour, and B's input for I1 in iteration 2.
+
+## B v3, iteration 2 on mimo (2026-10-15, Bo approved the prompts; checked by Claude, second review by the team pending)
+
+Prompts `B_critique.v3.md`, `B_revise.v3.md` (identical to the tested drafts). Inputs A-v1 r1. Format self-check before the run: placeholders complete, no stray braces, headers and status words intact, no trap words, all six prompts render. `check_contract.py results/B-v3-v3`:
+
+| Item | End state | Review | Revise | Claude's human checks (invented? / unflagged change?) |
+|---|---|---|---|---|
+| K1 | none_carried_forward | NONE, CHART CHECK, 2 UNVERIFIED | skipped | no / no |
+| K2 | revised | 1: Tue/Wed ranking and "steady build" (true) | fixed; only those sentences changed; values identical | no / no |
+| K3 | none_carried_forward | NONE, 1 UNVERIFIED | skipped | no / no |
+| A1 | skipped_no_A_answer | — | — | — |
+| A2 | **review_failure** | no output: step 1 used 14k reasoning tokens and re-read the attached chart; step 2 produced nothing until the 600 s timeout; no error logged | not run (gate) | — |
+| I1 (re-run A) | revised | 3, all true: unsupported "driving back to pre-pandemic levels"; "injuries stayed flat" contradicts values.csv (−19%); background shading in the right panel unlabeled and on the wrong side of the 74% break-even (visible only in the image) | all 3 fixed; answer made conditional; shading moved and labelled; values identical | no / no |
+
+Contract: 5 items B could run; boundaries held on all (no side effects, no network, A's files intact, Gate 2 routed A2 to failure without a revise run). One item did not finish (A2). Under §9 a timeout after a completed step is non-completion, not an infrastructure failure, so A2 counts as B failing the item; it is not re-run. The acceptance rule did not name this case: read as a completion slip (≤ 1 allowed) the iteration passes; read strictly it does not. Team decision, not changed after the fact.
+
+Not acceptance items (effect, for the formal run): K1's "(pandemic)" aside and K3's "gap widest in 2013" (true only as a ratio) were not flagged; v2 flagged K3, and in the end-to-end test v3 flagged K1-r2's "(pandemic driving)". The v3 line "finding no problems is a normal result" may lower sensitivity; measure it in the formal run, do not tune it on pilot items.

@@ -1,0 +1,6 @@
+CHART CHECK: Grouped bar chart with year on x (2013–2025), y-axis "Deaths (police-reported)" 0–140, legend for motorist/cyclist, value labels on every bar, and a totals box (motorist 1377, cyclist 277, ratio 5.0:1); nothing cut off or overlapping. Every bar label matches values.csv, and the printed totals check out (1377/277 ≈ 5.0, per-year ratios and totals all recompute correctly).
+
+ISSUES: NONE
+
+UNVERIFIED:
+- Whether the 2025 figures come from a full year of data (a partial year would make 81 vs. 23 and the 3.5:1 ratio not comparable to earlier years), and whether the per-year sums match the actual parquet file — both require the data/code to check.

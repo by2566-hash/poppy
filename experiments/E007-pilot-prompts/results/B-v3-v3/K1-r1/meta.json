@@ -1,0 +1,55 @@
+{
+ "q": "K1",
+ "rep": 1,
+ "label": "B-v3-v3",
+ "a_label": "A-v1",
+ "type": "clear",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/K1-r1",
+ "a_git_commit": null,
+ "a_complete": true,
+ "review_ok": true,
+ "review_call_ok": true,
+ "review_parsed": true,
+ "review_rate_limited": false,
+ "review_secs": 16.0,
+ "review_tokens": {
+  "input": 4633,
+  "output": 271
+ },
+ "review_steps": 1,
+ "review_tool_calls": 0,
+ "review_side_effects": [],
+ "review_dir": "/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/B-v3-v3/K1-r1",
+ "chart_attached": true,
+ "n_issues": 0,
+ "says_none": true,
+ "chart_check": "Bar chart with Year (2013\u20132025) on x-axis, \"Pedestrians killed\" (0\u2013200) on y-axis, clear title, no legend needed, nothing cut off or overlapping; all 13 bar labels match values.csv exactly (176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, 119).",
+ "n_unverified": 2,
+ "revise_skipped": true,
+ "revise_secs": 0,
+ "revise_steps": 0,
+ "revise_tool_calls": 0,
+ "revise_rate_limited": false,
+ "revised_png": true,
+ "revised_values": true,
+ "values_changed_cols": [],
+ "a_outputs_intact": true,
+ "answer": "Pedestrian deaths in NYC fell from a 13-year high of 176 in 2013 to 119 in 2025, averaging ~130 per year (1,690 total). The series trends down overall, with a low of 101 in 2020 (pandemic) and a recent low of 107 in 2023, then 124 in 2024 and 119 in 2025.",
+ "answer_ok": true,
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "84387b7",
+  "prompt_sha": {
+   "B_critique.v3.md": "32467d01d0871899",
+   "B_revise.v3.md": "38af1935bf2f386e"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "b_state": "none_carried_forward",
+ "collected_by": "by2566-hash"
+}

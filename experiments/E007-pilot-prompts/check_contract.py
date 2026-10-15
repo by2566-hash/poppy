@@ -3,12 +3,13 @@
 
   python3 check_contract.py <dir> [--issues-csv out.csv]
       <dir>: results/<B_label>  or  ../../../poppy-sandbox/E007/<B_label>
+  python3 check_contract.py <dir> --show     material for the two human checks, item by item
 
 One row per item. Machine checks are decided here; the two human checks (invented issue? unflagged
 change?) are left for the scorer. --issues-csv writes one row per review issue / UNVERIFIED item from
 review.json, with empty label columns, so the review step (③) can be scored on its own.
 """
-import csv, json, sys
+import csv, difflib, json, re, sys
 from pathlib import Path
 
 STEPS, SECS = 15, 600
@@ -32,11 +33,43 @@ def checks(m):
     return c
 
 
+def sentences(t):
+    return [x.strip() for x in re.split(r"(?<=[.;:])\s+|\s+—\s+", t or "") if x.strip()]
+
+
+def show(item):
+    """Everything needed for the two human checks on one item."""
+    m = json.loads((item / "meta.json").read_text())
+    print(f"\n==================== {item.name}   {m.get('b_state')}")
+    rv = json.loads((item / "review.json").read_text()) if (item / "review.json").exists() else None
+    if not rv:
+        return
+    print("CHART CHECK:", rv["chart_check"])
+    print("ISSUES (check each against review_prompt.md and the chart: is what it says about A's output true?)")
+    for i in rv["issues"] or [{"n": "-", "text": "NONE"}]:
+        print(f"  {i['n']}. {i['text']}")
+    print("UNVERIFIED (recorded only):", *(f"\n  - {u}" for u in rv["unverified"] or ["none"]))
+    resp = (item / "response.md").read_text() if (item / "response.md").exists() else ""
+    if "CHANGES:" in resp:
+        print("CHANGES:", resp.split("CHANGES:", 1)[1].split("ANSWER:", 1)[0].strip())
+    before = json.loads((item / "review_input.json").read_text())["answer"]
+    after = m.get("answer") or ""
+    print("ANSWER, sentence diff (every - / + line must trace to an issue number):")
+    diff = [d for d in difflib.ndiff(sentences(before), sentences(after)) if d[:1] in "-+"]
+    print("  (no change)" if not diff else "\n".join("  " + d for d in diff))
+    print("values.csv columns changed:", m.get("values_changed_cols"), "  (each must trace to an issue)")
+    print("charts to compare:", item / "out" / "initial.png", "|", item / "out" / "revised.png")
+
+
 def main():
     root = Path(sys.argv[1])
     rows = sorted(root.glob("*/meta.json"))
     if not rows:
         sys.exit(f"no */meta.json under {root}")
+    if "--show" in sys.argv:
+        for p in rows:
+            show(p.parent)
+        return
     bad_items = 0
     for p in rows:
         m = json.loads(p.read_text())

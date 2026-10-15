@@ -1,0 +1,52 @@
+{
+ "q": "A2",
+ "rep": 1,
+ "label": "B-v3-v3",
+ "a_label": "A-v1",
+ "type": "ambiguous",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/A2-r1",
+ "a_git_commit": null,
+ "a_complete": true,
+ "review_ok": false,
+ "review_call_ok": false,
+ "review_parsed": false,
+ "review_rate_limited": false,
+ "review_secs": 601.3,
+ "review_tokens": {
+  "input": 7177,
+  "output": 44
+ },
+ "review_steps": 2,
+ "review_tool_calls": 1,
+ "review_side_effects": [],
+ "review_dir": "/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/B-v3-v3/A2-r1",
+ "chart_attached": true,
+ "n_issues": 0,
+ "says_none": false,
+ "chart_check": null,
+ "n_unverified": 0,
+ "revise_skipped": true,
+ "b_failure": "review call failed",
+ "revised_png": false,
+ "revised_values": false,
+ "values_changed_cols": null,
+ "a_outputs_intact": true,
+ "answer": null,
+ "answer_ok": false,
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "84387b7",
+  "prompt_sha": {
+   "B_critique.v3.md": "32467d01d0871899",
+   "B_revise.v3.md": "38af1935bf2f386e"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "b_state": "review_failure",
+ "collected_by": "by2566-hash"
+}

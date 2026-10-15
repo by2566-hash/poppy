@@ -1,0 +1,68 @@
+{
+ "q": "I1",
+ "rep": 1,
+ "label": "B-v3-v3",
+ "a_label": "A-v1",
+ "type": "insufficient",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/I1-r1",
+ "a_git_commit": "48c00b2",
+ "a_complete": true,
+ "review_ok": true,
+ "review_call_ok": true,
+ "review_parsed": true,
+ "review_rate_limited": false,
+ "review_secs": 196.4,
+ "review_tokens": {
+  "input": 7091,
+  "output": 753
+ },
+ "review_steps": 1,
+ "review_tool_calls": 0,
+ "review_side_effects": [],
+ "review_dir": "/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/B-v3-v3/I1-r1",
+ "chart_attached": true,
+ "n_issues": 3,
+ "says_none": false,
+ "chart_check": "Two panels \u2014 left: bars for motorist deaths (110 in 2013, 81 in 2025 labeled) plus a red line for all road-user deaths, y \"Deaths per year\", rotated year labels, no cut-offs or overlaps; right: risk curve with y \"Risk per mile, 2025 = % of 2013\", x \"Miles driven in 2025 as % of 2013\", black break-even dot at (74, 100) and red dot at (100, 74), legend readable. Bars/line match values.csv; annotations check out (81/110 = 73.6% \u2192 \"74\", \"\u221226%\"); the green/red background shading has no label.",
+ "n_unverified": 3,
+ "revise_skipped": false,
+ "revise_ok": true,
+ "revise_rate_limited": false,
+ "revise_secs": 93.1,
+ "revise_tokens": {
+  "input": 11013,
+  "output": 2360
+ },
+ "revise_steps": 5,
+ "revise_tool_calls": 4,
+ "revise_net_calls": 0,
+ "changes_listed": true,
+ "changes": {
+  "1": "fixed",
+  "2": "fixed",
+  "3": "fixed"
+ },
+ "changes_match_issues": true,
+ "revised_png": true,
+ "revised_values": true,
+ "values_changed_cols": [],
+ "a_outputs_intact": true,
+ "answer": "Yes \u2014 motorist (vehicle-occupant) deaths fell from 110 in 2013 to 81 in 2025, a 26% drop, and since the file has no miles-driven data I solved for it: per-mile risk only fails to decline if 2025 driving was below ~74% of 2013's mileage. So if 2025 miles driven are similar to 2013's, the risk of a motorist being killed per mile is ~26% lower \u2014 but the driving assumption cannot be verified from this data (as the right panel shows). Caveats: the 2020\u201321 spike, and post-2019 reported crashes fell 60% (211,486 \u2192 85,546) while injuries fell far less \u2014 persons_injured \u221219% (61,391 \u2192 49,634) and motorist_injured \u221226% (45,836 \u2192 33,737).",
+ "answer_ok": true,
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "84387b7",
+  "prompt_sha": {
+   "B_critique.v3.md": "32467d01d0871899",
+   "B_revise.v3.md": "38af1935bf2f386e"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "b_state": "revised",
+ "collected_by": "by2566-hash"
+}

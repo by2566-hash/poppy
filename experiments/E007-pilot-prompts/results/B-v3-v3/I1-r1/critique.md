@@ -1,0 +1,11 @@
+CHART CHECK: Two panels — left: bars for motorist deaths (110 in 2013, 81 in 2025 labeled) plus a red line for all road-user deaths, y "Deaths per year", rotated year labels, no cut-offs or overlaps; right: risk curve with y "Risk per mile, 2025 = % of 2013", x "Miles driven in 2025 as % of 2013", black break-even dot at (74, 100) and red dot at (100, 74), legend readable. Bars/line match values.csv; annotations check out (81/110 = 73.6% → "74", "−26%"); the green/red background shading has no label.
+
+ISSUES:
+1. Written answer: "with NYC driving roughly back to pre-pandemic levels the risk ... is about a quarter lower than in 2013" — the file contains no mileage, so the driving-level claim is unsupported by the allowed data; moreover "pre-pandemic" (≈2019) is not the same as 2013, which is what the break-even (74%) compares against. Should be conditional: "if 2025 miles driven are similar to 2013's, risk per mile is ~26% lower," with the driving assumption flagged as unverifiable from this data (as the right panel already does).
+2. Caveat sentence: "injury counts stayed flat" while reports halved — values.csv shows persons_injured fell 61,391 (2019) → 49,634 (2025), −19%, and motorist_injured 45,836 → 33,737, −26%; reported crashes fell 60% (211,486 → 85,546), not merely halved. Should say injuries fell far less than crash reports (−19% vs −60%).
+3. Right panel background shading is unlabeled and, read conventionally (green = better), backwards: the green region (60–100% of 2013 miles) includes values below 74% where risk is *higher* than 2013, while the red region (100–120%) is where risk is lowest (74→61). If the shading marks the risk-increase/risk-decrease split, the boundary should be at the break-even 74%, not 100%; otherwise the shading needs a legend saying what it encodes.
+
+UNVERIFIED:
+- Whether the 2025 rows in crashes.parquet cover a full year (a partial year would understate 2025 deaths and bias the 110→81 comparison).
+- Reproduction of the aggregate counts and the persons_killed line directly from the parquet (several years' pedestrian+cyclist+motorist sums don't equal persons_killed in values.csv, e.g. 2017: 127+27+107=261 vs 256 — a data-side quirk, not checkable further from this material).
+- Actual NYC miles-driven trends 2013→2025 (not in the allowed data; needed to convert the break-even into a point estimate).

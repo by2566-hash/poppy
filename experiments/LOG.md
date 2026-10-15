@@ -100,3 +100,9 @@ Copy entries into the team's Google Sheet when ready.
 - **Setup:** acceptance redefined as the B contract (inputs, outputs, boundaries, end states), checked by `check_contract.py`. Audited every committed trace for out-of-folder access; red-teamed OpenCode tools and the OS sandbox with nemotron; ran B v3 draft end-to-end on mimo (A-v1 K1-r2, K2-r2) and re-ran the void A-v1 I1 under the new sandbox.
 - **Result:** boundary gaps found and closed: python could read gold answers and write into the repo, the review folder inherited the analysis permissions, C-v1 I1 listed the repo root. Sandbox v2 (all commands under sandbox-exec, own data copy, isolated review folder) blocks every tested escape. B v3 draft: 2/2 items pass the contract; unsupported causal claims now routed to ISSUES and removed by revise without touching numbers. I1 re-runs complete in 8 and 11 steps without network but still claim a per-mile decline from crash data alone.
 - **Next:** Bo finalizes v3 prompts; B iteration 2 on the six pilot items (A-v1 r1 inputs) under the contract.
+
+## 2026-10-15 — E007: B v3 iteration 2 on mimo
+
+- **Setup:** B v3 prompts (Bo approved), A-v1 r1 inputs (I1 re-run under sandbox v2), six items, contract check plus Claude's human checks; team second review pending.
+- **Result:** K1, K3 NONE (A carried forward); K2 one real issue fixed; I1 three real issues fixed, one visible only in the chart; A1 skipped (no A answer); A2 review timed out after one step with no output (B fails the item). No boundary violation, no invented issue, no unflagged change, values.csv unchanged everywhere. Whether A2's non-completion counts as the one allowed slip is a team decision.
+- **Next:** team second review (`check_contract.py results/B-v3-v3 --show`); decide on A2; freeze B v3 or run iteration 3.

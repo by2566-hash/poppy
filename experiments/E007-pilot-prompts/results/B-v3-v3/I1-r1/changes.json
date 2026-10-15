@@ -1,0 +1,12 @@
+{
+ "issues_sent": [
+  1,
+  2,
+  3
+ ],
+ "changes": {
+  "1": "fixed",
+  "2": "fixed",
+  "3": "fixed"
+ }
+}

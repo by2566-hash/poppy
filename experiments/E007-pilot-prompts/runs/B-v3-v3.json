@@ -1,0 +1,327 @@
+[
+ {
+  "q": "K1",
+  "rep": 1,
+  "label": "B-v3-v3",
+  "a_label": "A-v1",
+  "type": "clear",
+  "a_source": "experiments/E007-pilot-prompts/results/A-v1/K1-r1",
+  "a_git_commit": null,
+  "a_complete": true,
+  "review_ok": true,
+  "review_call_ok": true,
+  "review_parsed": true,
+  "review_rate_limited": false,
+  "review_secs": 16.0,
+  "review_tokens": {
+   "input": 4633,
+   "output": 271
+  },
+  "review_steps": 1,
+  "review_tool_calls": 0,
+  "review_side_effects": [],
+  "review_dir": "/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/B-v3-v3/K1-r1",
+  "chart_attached": true,
+  "n_issues": 0,
+  "says_none": true,
+  "chart_check": "Bar chart with Year (2013\u20132025) on x-axis, \"Pedestrians killed\" (0\u2013200) on y-axis, clear title, no legend needed, nothing cut off or overlapping; all 13 bar labels match values.csv exactly (176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, 119).",
+  "n_unverified": 2,
+  "revise_skipped": true,
+  "revise_secs": 0,
+  "revise_steps": 0,
+  "revise_tool_calls": 0,
+  "revise_rate_limited": false,
+  "revised_png": true,
+  "revised_values": true,
+  "values_changed_cols": [],
+  "a_outputs_intact": true,
+  "answer": "Pedestrian deaths in NYC fell from a 13-year high of 176 in 2013 to 119 in 2025, averaging ~130 per year (1,690 total). The series trends down overall, with a low of 101 in 2020 (pandemic) and a recent low of 107 in 2023, then 124 in 2024 and 119 in 2025.",
+  "answer_ok": true,
+  "env": {
+   "model": "mimo-v2.6-flash-free",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "84387b7",
+   "prompt_sha": {
+    "B_critique.v3.md": "32467d01d0871899",
+    "B_revise.v3.md": "38af1935bf2f386e"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "b_state": "none_carried_forward"
+ },
+ {
+  "q": "K2",
+  "rep": 1,
+  "label": "B-v3-v3",
+  "a_label": "A-v1",
+  "type": "clear",
+  "a_source": "experiments/E007-pilot-prompts/results/A-v1/K2-r1",
+  "a_git_commit": null,
+  "a_complete": true,
+  "review_ok": true,
+  "review_call_ok": true,
+  "review_parsed": true,
+  "review_rate_limited": false,
+  "review_secs": 30.1,
+  "review_tokens": {
+   "input": 6138,
+   "output": 435
+  },
+  "review_steps": 1,
+  "review_tool_calls": 0,
+  "review_side_effects": [],
+  "review_dir": "/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/B-v3-v3/K2-r1",
+  "chart_attached": true,
+  "n_issues": 1,
+  "says_none": false,
+  "chart_check": "Two panels of bar charts \u2014 left shows total crashes per weekday with count and % labels, right shows crashes per occurrence of that weekday; y-axes are labelled with units and start at 0, nothing is cut off or overlapping, and every plotted label matches values.csv (304,518/14.3% \u2026 257,544/12.1%; 449, 462, 458, 470, 500, 425, 380). Shares sum to 100%, n = 2,132,218 matches the sum of the seven counts, n_days sums to 4,748 days (2013-01-01 to 2025-12-31), and all avg_crashes_per_day values recompute correctly.",
+  "n_unverified": 2,
+  "revise_skipped": false,
+  "revise_ok": true,
+  "revise_rate_limited": false,
+  "revise_secs": 402.9,
+  "revise_tokens": {
+   "input": 12029,
+   "output": 1969
+  },
+  "revise_steps": 9,
+  "revise_tool_calls": 10,
+  "revise_net_calls": 0,
+  "changes_listed": true,
+  "changes": {
+   "1": "fixed"
+  },
+  "changes_match_issues": true,
+  "revised_png": true,
+  "revised_values": true,
+  "values_changed_cols": [],
+  "a_outputs_intact": true,
+  "answer": "Across 2013\u20132025 NYC recorded 2,132,218 crashes, and the weekly pattern climbs to Friday \u2014 Wed (311,111) dipping just below Tue (313,488) along the way \u2014 then drops over the weekend: Fri is the peak (338,800; 15.9%; ~500/day), Thu next (318,376; 470/day), then Tue (313,488), Wed (311,111) and Mon the softest weekday (304,518; 449/day), while Sat falls to 288,381 (425/day) and Sunday is the clear low at 257,544 (12.1%; ~380/day) \u2014 Friday sees 32% more crashes than Sunday, and weekdays (5 of 7 days) carry 74.4% of all crashes.",
+  "answer_ok": true,
+  "env": {
+   "model": "mimo-v2.6-flash-free",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "84387b7",
+   "prompt_sha": {
+    "B_critique.v3.md": "32467d01d0871899",
+    "B_revise.v3.md": "38af1935bf2f386e"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "b_state": "revised"
+ },
+ {
+  "q": "K3",
+  "rep": 1,
+  "label": "B-v3-v3",
+  "a_label": "A-v1",
+  "type": "clear",
+  "a_source": "experiments/E007-pilot-prompts/results/A-v1/K3-r1",
+  "a_git_commit": null,
+  "a_complete": true,
+  "review_ok": true,
+  "review_call_ok": true,
+  "review_parsed": true,
+  "review_rate_limited": false,
+  "review_secs": 62.1,
+  "review_tokens": {
+   "input": 9974,
+   "output": 202
+  },
+  "review_steps": 1,
+  "review_tool_calls": 0,
+  "review_side_effects": [],
+  "review_dir": "/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/B-v3-v3/K3-r1",
+  "chart_attached": true,
+  "n_issues": 0,
+  "says_none": true,
+  "chart_check": "Grouped bar chart with year on x (2013\u20132025), y-axis \"Deaths (police-reported)\" 0\u2013140, legend for motorist/cyclist, value labels on every bar, and a totals box (motorist 1377, cyclist 277, ratio 5.0:1); nothing cut off or overlapping. Every bar label matches values.csv, and the printed totals check out (1377/277 \u2248 5.0, per-year ratios and totals all recompute correctly).",
+  "n_unverified": 1,
+  "revise_skipped": true,
+  "revise_secs": 0,
+  "revise_steps": 0,
+  "revise_tool_calls": 0,
+  "revise_rate_limited": false,
+  "revised_png": true,
+  "revised_values": true,
+  "values_changed_cols": [],
+  "a_outputs_intact": true,
+  "answer": "Motorist deaths exceed cyclist deaths every year from 2013\u20132025, roughly 5 to 1 overall (1,377 motorists vs. 277 cyclists killed over the 13 years). Motorist deaths ranged from a low of 72 (2016) and 81 (2025) to a peak of 139 in 2020 and 134 in 2021, then generally declined to 81 by 2025. Cyclist deaths were far smaller and flatter, ranging from 10 (2018) and 11 (2013) to 31 in 2019 and 2023. The gap was widest in 2013 (110 vs. 11, 10:1) and narrowest in 2019 (82 vs. 31, 2.6:1); notably, cyclist deaths nearly tripled from 10 in 2018 to 31 in 2019 while motorist deaths fell, and by 2025 the ratio stood at 3.5:1 (81 vs. 23).",
+  "answer_ok": true,
+  "env": {
+   "model": "mimo-v2.6-flash-free",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "84387b7",
+   "prompt_sha": {
+    "B_critique.v3.md": "32467d01d0871899",
+    "B_revise.v3.md": "38af1935bf2f386e"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "b_state": "none_carried_forward"
+ },
+ {
+  "q": "A1",
+  "rep": 1,
+  "label": "B-v3-v3",
+  "a_label": "A-v1",
+  "type": "ambiguous",
+  "a_source": "experiments/E007-pilot-prompts/results/A-v1/A1-r1",
+  "a_git_commit": null,
+  "a_complete": false,
+  "b_skipped": "A produced no answer (step cap, timeout or format); B not applicable",
+  "b_state": "skipped_no_A_answer",
+  "review_ok": false,
+  "n_issues": 0,
+  "says_none": false,
+  "revise_skipped": true,
+  "revised_png": false,
+  "revised_values": false,
+  "answer": null,
+  "answer_ok": false,
+  "env": {
+   "model": "mimo-v2.6-flash-free",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "84387b7",
+   "prompt_sha": {
+    "B_critique.v3.md": "32467d01d0871899",
+    "B_revise.v3.md": "38af1935bf2f386e"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  }
+ },
+ {
+  "q": "A2",
+  "rep": 1,
+  "label": "B-v3-v3",
+  "a_label": "A-v1",
+  "type": "ambiguous",
+  "a_source": "experiments/E007-pilot-prompts/results/A-v1/A2-r1",
+  "a_git_commit": null,
+  "a_complete": true,
+  "review_ok": false,
+  "review_call_ok": false,
+  "review_parsed": false,
+  "review_rate_limited": false,
+  "review_secs": 601.3,
+  "review_tokens": {
+   "input": 7177,
+   "output": 44
+  },
+  "review_steps": 2,
+  "review_tool_calls": 1,
+  "review_side_effects": [],
+  "review_dir": "/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/B-v3-v3/A2-r1",
+  "chart_attached": true,
+  "n_issues": 0,
+  "says_none": false,
+  "chart_check": null,
+  "n_unverified": 0,
+  "revise_skipped": true,
+  "b_failure": "review call failed",
+  "revised_png": false,
+  "revised_values": false,
+  "values_changed_cols": null,
+  "a_outputs_intact": true,
+  "answer": null,
+  "answer_ok": false,
+  "env": {
+   "model": "mimo-v2.6-flash-free",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "84387b7",
+   "prompt_sha": {
+    "B_critique.v3.md": "32467d01d0871899",
+    "B_revise.v3.md": "38af1935bf2f386e"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "b_state": "review_failure"
+ },
+ {
+  "q": "I1",
+  "rep": 1,
+  "label": "B-v3-v3",
+  "a_label": "A-v1",
+  "type": "insufficient",
+  "a_source": "experiments/E007-pilot-prompts/results/A-v1/I1-r1",
+  "a_git_commit": "48c00b2",
+  "a_complete": true,
+  "review_ok": true,
+  "review_call_ok": true,
+  "review_parsed": true,
+  "review_rate_limited": false,
+  "review_secs": 196.4,
+  "review_tokens": {
+   "input": 7091,
+   "output": 753
+  },
+  "review_steps": 1,
+  "review_tool_calls": 0,
+  "review_side_effects": [],
+  "review_dir": "/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/B-v3-v3/I1-r1",
+  "chart_attached": true,
+  "n_issues": 3,
+  "says_none": false,
+  "chart_check": "Two panels \u2014 left: bars for motorist deaths (110 in 2013, 81 in 2025 labeled) plus a red line for all road-user deaths, y \"Deaths per year\", rotated year labels, no cut-offs or overlaps; right: risk curve with y \"Risk per mile, 2025 = % of 2013\", x \"Miles driven in 2025 as % of 2013\", black break-even dot at (74, 100) and red dot at (100, 74), legend readable. Bars/line match values.csv; annotations check out (81/110 = 73.6% \u2192 \"74\", \"\u221226%\"); the green/red background shading has no label.",
+  "n_unverified": 3,
+  "revise_skipped": false,
+  "revise_ok": true,
+  "revise_rate_limited": false,
+  "revise_secs": 93.1,
+  "revise_tokens": {
+   "input": 11013,
+   "output": 2360
+  },
+  "revise_steps": 5,
+  "revise_tool_calls": 4,
+  "revise_net_calls": 0,
+  "changes_listed": true,
+  "changes": {
+   "1": "fixed",
+   "2": "fixed",
+   "3": "fixed"
+  },
+  "changes_match_issues": true,
+  "revised_png": true,
+  "revised_values": true,
+  "values_changed_cols": [],
+  "a_outputs_intact": true,
+  "answer": "Yes \u2014 motorist (vehicle-occupant) deaths fell from 110 in 2013 to 81 in 2025, a 26% drop, and since the file has no miles-driven data I solved for it: per-mile risk only fails to decline if 2025 driving was below ~74% of 2013's mileage. So if 2025 miles driven are similar to 2013's, the risk of a motorist being killed per mile is ~26% lower \u2014 but the driving assumption cannot be verified from this data (as the right panel shows). Caveats: the 2020\u201321 spike, and post-2019 reported crashes fell 60% (211,486 \u2192 85,546) while injuries fell far less \u2014 persons_injured \u221219% (61,391 \u2192 49,634) and motorist_injured \u221226% (45,836 \u2192 33,737).",
+  "answer_ok": true,
+  "env": {
+   "model": "mimo-v2.6-flash-free",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "84387b7",
+   "prompt_sha": {
+    "B_critique.v3.md": "32467d01d0871899",
+    "B_revise.v3.md": "38af1935bf2f386e"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "b_state": "revised"
+ }
+]

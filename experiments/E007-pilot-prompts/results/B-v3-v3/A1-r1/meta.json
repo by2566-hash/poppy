@@ -1,0 +1,35 @@
+{
+ "q": "A1",
+ "rep": 1,
+ "label": "B-v3-v3",
+ "a_label": "A-v1",
+ "type": "ambiguous",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/A1-r1",
+ "a_git_commit": null,
+ "a_complete": false,
+ "b_skipped": "A produced no answer (step cap, timeout or format); B not applicable",
+ "b_state": "skipped_no_A_answer",
+ "review_ok": false,
+ "n_issues": 0,
+ "says_none": false,
+ "revise_skipped": true,
+ "revised_png": false,
+ "revised_values": false,
+ "answer": null,
+ "answer_ok": false,
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "84387b7",
+  "prompt_sha": {
+   "B_critique.v3.md": "32467d01d0871899",
+   "B_revise.v3.md": "38af1935bf2f386e"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "collected_by": "by2566-hash"
+}
