@@ -1,0 +1,43 @@
+{
+ "q": "K1",
+ "rep": 1,
+ "label": "B-v2-v2",
+ "a_label": "A-v1",
+ "type": "clear",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/K1-r1",
+ "a_git_commit": null,
+ "a_complete": true,
+ "review_ok": true,
+ "review_rate_limited": false,
+ "review_secs": 64.3,
+ "review_steps": 1,
+ "review_tool_calls": 0,
+ "n_issues": 2,
+ "says_none": false,
+ "revise_skipped": false,
+ "revise_ok": true,
+ "revise_rate_limited": false,
+ "revise_secs": 102.4,
+ "revise_steps": 7,
+ "revise_tool_calls": 7,
+ "changes_listed": true,
+ "revised_png": true,
+ "revised_values": true,
+ "answer": "Pedestrians killed in NYC motor vehicle crashes, by year: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119. Total 1,690 over the 13 years (average ~130/year). The series trends down overall from a high of 176 in 2013 to 119 in 2025, with a low of 101 in 2020 (pandemic) and a recent low of 107 in 2023. These counts are verified against the source: the parquet covers 2012-07-01 to 2026-06-11 (2,269,187 rows, no NULL dates), every year 2013\u20132025 contains all 12 months of data (Jan 1\u2013Dec 31, so 2025 is a full year), and the per-year sums recomputed from the raw records match these values exactly.",
+ "answer_ok": true,
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.13",
+  "git_commit": "be48b01",
+  "prompt_sha": {
+   "B_critique.v2.md": "9a15fd17aad323b8",
+   "B_revise.v2.md": "21b29bb2097e08a5"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "93f72e580602faf0",
+   "opencode.review.json": "5a5a4cb0705b0689"
+  }
+ },
+ "collected_by": "Chloe_He"
+}

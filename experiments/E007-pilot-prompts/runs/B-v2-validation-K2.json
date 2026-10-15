@@ -1,0 +1,44 @@
+[
+ {
+  "q": "K2",
+  "rep": 1,
+  "label": "B-v2-v2",
+  "a_label": "A-v1",
+  "type": "clear",
+  "a_source": "experiments/E007-pilot-prompts/results/A-v1/K2-r1",
+  "a_git_commit": null,
+  "a_complete": true,
+  "review_ok": true,
+  "review_rate_limited": false,
+  "review_secs": 58.1,
+  "review_steps": 1,
+  "review_tool_calls": 0,
+  "n_issues": 2,
+  "says_none": false,
+  "revise_skipped": false,
+  "revise_ok": true,
+  "revise_rate_limited": false,
+  "revise_secs": 48.1,
+  "revise_steps": 4,
+  "revise_tool_calls": 4,
+  "changes_listed": true,
+  "revised_png": true,
+  "revised_values": true,
+  "answer": "Across 2013\u20132025 NYC recorded 2,132,218 crashes, with the weekly pattern peaking on Friday and hitting its low on Sunday: Fri is the peak (338,800; 15.9%; ~500/day), Thu next (318,376; 470/day), then Tue (313,488) slightly ahead of Wed (311,111) \u2014 a mild mid-week dip rather than a monotonic rise \u2014 with Mon the softest weekday (304,518; 449/day); Sat falls to 288,381 (425/day) and Sunday is the clear low (257,544; 12.1%; ~380/day). Friday sees 32% more crashes than Sunday, and weekdays (5 of 7 days) carry 74.4% of all crashes.",
+  "answer_ok": true,
+  "env": {
+   "model": "mimo-v2.6-flash-free",
+   "opencode": "1.18.34",
+   "python": "3.13.13",
+   "git_commit": "be48b01",
+   "prompt_sha": {
+    "B_critique.v2.md": "9a15fd17aad323b8",
+    "B_revise.v2.md": "21b29bb2097e08a5"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "93f72e580602faf0",
+    "opencode.review.json": "5a5a4cb0705b0689"
+   }
+  }
+ }
+]

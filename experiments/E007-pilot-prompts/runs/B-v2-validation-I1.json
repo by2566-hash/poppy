@@ -1,0 +1,19 @@
+{
+ "_label": "PREFLIGHT DIAGNOSTIC — NOT A RUN RESULT",
+ "status": "blocked_before_execution",
+ "q": "I1",
+ "a_label": "A-v1",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/I1-r1",
+ "reason": "Source A result (A-v1/I1-r1) is incomplete: no out/initial.png, no out/values.csv, and its response.md is a step-cap narration ('Maximum steps for this agent have been reached'), which the current run_pilot.py answer_of() logic (re-applied directly) maps to no answer (None). This is an unfinished run, not a valid insufficiency-of-evidence conclusion: the model never stated that the question could not be answered; it was mid-way through sourcing an external VMT denominator (via real, verified network calls to NYC Open Data and FHWA, evidenced in events.jsonl) when it ran out of steps. As with A1, PROTOCOL.md does not explicitly state how the B runner should handle an incomplete/non-answering A input; only run_pilot.py's own code has a graceful fallback (embeds placeholder text and marks a_complete:false) rather than a cited protocol rule. Per task instruction, execution was not attempted and no model request was made.",
+ "mimo_checked": false,
+ "model_requests_made": false,
+ "env_verified": true,
+ "env_verification_summary": "check_env.py READY; B prompt hashes match all prior items; PATH fix re-verified per-invocation and working. Environment was not the blocker.",
+ "repo_commit_at_check": "be48b01",
+ "runner_file": "experiments/E007-pilot-prompts/run_pilot.py",
+ "runner_file_sha256": "6497d593891a2b9ccf73213d833889832fe0937e6b32832020a834dbc1ee8c05",
+ "a_source_commit": "6c4f6df",
+ "a_source_session_id": "ses_ec6d05b8cffe2zS4R5lXBhlXQw",
+ "checked_utc": "2026-10-15T03:53:39Z",
+ "note": "See REPORT.md in the same directory for full reasoning, artifact inventory, hashes, and a significant secondary finding (real, verified external network calls succeeded inside the supposedly network-denied A sandbox). No session IDs, step counts, tool-call counts, or answer text in this file describe an actual B run — none occurred."
+}

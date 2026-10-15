@@ -1,0 +1,43 @@
+{
+ "q": "K3",
+ "rep": 1,
+ "label": "B-v2-v2",
+ "a_label": "A-v1",
+ "type": "clear",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/K3-r1",
+ "a_git_commit": null,
+ "a_complete": true,
+ "review_ok": true,
+ "review_rate_limited": false,
+ "review_secs": 66.1,
+ "review_steps": 1,
+ "review_tool_calls": 0,
+ "n_issues": 1,
+ "says_none": false,
+ "revise_skipped": false,
+ "revise_ok": true,
+ "revise_rate_limited": false,
+ "revise_secs": 78.2,
+ "revise_steps": 6,
+ "revise_tool_calls": 5,
+ "changes_listed": true,
+ "revised_png": true,
+ "revised_values": true,
+ "answer": "Motorist deaths exceed cyclist deaths every year from 2013\u20132025, roughly 5 to 1 overall (1,377 motorists vs. 277 cyclists killed over the 13 years). Motorist deaths ranged from a low of 72 (2016) and 81 (2025) to a peak of 139 in 2020 and 134 in 2021, then generally declined to 81 by 2025. Cyclist deaths were far smaller and flatter, ranging from 10 (2018) and 11 (2013) to 31 in 2019 and 2023. The largest *ratio* occurred in 2013 (110 vs. 11, 10:1), but the largest absolute gap was in 2021 (134 vs. 19, a difference of 115), with 2020 close behind (139 vs. 29, difference of 110); the gap was narrowest in 2019 (82 vs. 31, difference of 51, ratio 2.6:1), the smallest under either reading. Notably, cyclist deaths nearly tripled from 10 in 2018 to 31 in 2019 while motorist deaths fell, and by 2025 the ratio stood at 3.5:1 (81 vs. 23).",
+ "answer_ok": true,
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.13",
+  "git_commit": "be48b01",
+  "prompt_sha": {
+   "B_critique.v2.md": "9a15fd17aad323b8",
+   "B_revise.v2.md": "21b29bb2097e08a5"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "93f72e580602faf0",
+   "opencode.review.json": "5a5a4cb0705b0689"
+  }
+ },
+ "collected_by": "Chloe_He"
+}
