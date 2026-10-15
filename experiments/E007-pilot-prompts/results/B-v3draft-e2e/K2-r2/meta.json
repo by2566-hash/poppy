@@ -1,0 +1,67 @@
+{
+ "q": "K2",
+ "rep": 2,
+ "label": "B-v3draft-e2e",
+ "a_label": "A-v1",
+ "type": "clear",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/K2-r2",
+ "a_git_commit": null,
+ "a_complete": true,
+ "review_ok": true,
+ "review_call_ok": true,
+ "review_parsed": true,
+ "review_rate_limited": false,
+ "review_secs": 42.1,
+ "review_tokens": {
+  "input": 6509,
+  "output": 429
+ },
+ "review_steps": 1,
+ "review_tool_calls": 0,
+ "review_side_effects": [],
+ "review_dir": "/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/B-v3draft-e2e/K2-r2",
+ "chart_attached": true,
+ "n_issues": 2,
+ "says_none": false,
+ "chart_check": "Bar chart with x-axis \"Day of week\" (Mon\u2013Sun), y-axis \"Number of crashes\" (0\u2013400,000), weekday/weekend legend, total annotation 2,132,218, and per-bar labels showing count, % share, and per-day average; nothing is cut off or overlapping. Every label matches values.csv (counts identical, shares rounded to one decimal, avgs rounded to whole), and the seven counts sum to 2,132,218.",
+ "n_unverified": 2,
+ "revise_skipped": false,
+ "revise_ok": true,
+ "revise_rate_limited": false,
+ "revise_secs": 56.1,
+ "revise_tokens": {
+  "input": 8057,
+  "output": 2269
+ },
+ "revise_steps": 4,
+ "revise_tool_calls": 3,
+ "revise_net_calls": 0,
+ "changes_listed": true,
+ "changes": {
+  "1": "fixed",
+  "2": "fixed"
+ },
+ "changes_match_issues": true,
+ "revised_png": true,
+ "revised_values": true,
+ "values_changed_cols": [],
+ "a_outputs_intact": true,
+ "answer": "Across 2013\u20132025 NYC logged 2,132,218 crashes, and they are not evenly spread over the week \u2014 weekday volume is consistently higher than weekend. Friday is the peak day (338,800 crashes, 15.9% of the total, ~500/day), followed by Thursday (318,376; 14.9%), Tuesday (313,488; 14.7%), Wednesday (311,111; 14.6%) and Monday (304,518; 14.3%); Monday\u2013Friday together account for 74.4% of all crashes. Saturday falls to 288,381 (13.5%, ~425/day) and Sunday is the lowest at 257,544 (12.1%, ~380/day) \u2014 about 24% fewer crashes on Sundays than Fridays.",
+ "answer_ok": true,
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "48c00b2",
+  "prompt_sha": {
+   "B_critique.v3.draft.md": "32467d01d0871899",
+   "B_revise.v3.draft.md": "38af1935bf2f386e"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "b_state": "revised",
+ "collected_by": "by2566-hash"
+}

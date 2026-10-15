@@ -2,6 +2,7 @@
 6 questions x 3 repeats. Records call success, format compliance, code execution, gold agreement,
 and consistency of plotted values across repeats."""
 import csv, json, os, re, shutil, subprocess, sys, time
+from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 from common import HERE, MODEL, PARQUET, QUESTIONS, DATA_DICTIONARY, PROMPT_A
 
@@ -13,25 +14,45 @@ CONFIG = {"$schema": "https://opencode.ai/config.json",
           "permission": {"external_directory": "deny"},
           "agent": {"build": {"steps": 1}}}
 gold = json.loads((HERE / "gold.json").read_text())
-# macOS sandbox profile for the model's own python: everything allowed except outbound IP traffic.
-NO_NET = "(version 1)(allow default)(deny network-outbound (remote ip))"
+REPO = HERE.parents[1]
+SANDBOX_ROOT = REPO.parent / "poppy-sandbox"
+SANDBOXED = {"python": sys.executable, "python3": sys.executable,
+             "ls": "/bin/ls", "cat": "/bin/cat", "head": "/usr/bin/head", "mkdir": "/bin/mkdir"}
 
-def python_shims(sb):
-    """`python`/`python3` inside the run resolve to this interpreter (the pinned venv) wrapped in
-    sandbox-exec without network. OpenCode's `webfetch: deny` does not stop python's urllib (E007 I1)."""
+
+def sandbox_profile(sb, protect=()):
+    """macOS sandbox for every command the model can run: no network; no reading the repo (gold answers,
+    docs, other results) or other runs; writing only inside its own folder; `protect` paths are read-only.
+    Later rules override earlier ones."""
+    q = lambda p: '"' + str(p).replace('"', '') + '"'
+    py = {sys.prefix, sys.base_prefix}
+    return ("(version 1)(allow default)(deny network-outbound (remote ip))"
+            f"(deny file-read* (subpath {q(REPO)}) (subpath {q(SANDBOX_ROOT)}))"
+            f"(allow file-read* (subpath {q(sb)}) {' '.join(f'(subpath {q(p)})' for p in py)})"
+            f"(deny file-write* (subpath {q(Path.home())}) (subpath \"/private/tmp\") (subpath \"/private/var/folders\")"
+            f" (subpath {q(SANDBOX_ROOT)}))"
+            f"(allow file-write* (subpath {q(sb)}))"
+            + "".join(f"(deny file-write* (literal {q(p)}))" for p in protect))
+
+
+def sandbox_shims(sb, protect=()):
+    """Put sandboxed wrappers for the allowed commands first on PATH. `python` is this interpreter (the pinned
+    environment). OpenCode's own permissions do not cover what a command does inside (E007: urllib, repo reads)."""
     d = sb / ".bin"; d.mkdir(exist_ok=True)
-    for name in ("python", "python3"):
-        p = d / name
-        p.write_text(f"#!/bin/sh\nexec /usr/bin/sandbox-exec -p '{NO_NET}' '{sys.executable}' \"$@\"\n")
-        p.chmod(0o755)
+    prof = sandbox_profile(sb.resolve(), [Path(p).resolve() for p in protect]).replace("'", "")
+    for name, exe in SANDBOXED.items():
+        (d / name).write_text(f"#!/bin/sh\nexport MPLCONFIGDIR='{sb.resolve()}/.mpl'\n"
+                              f"exec /usr/bin/sandbox-exec -p '{prof}' '{exe}' \"$@\"\n")
+        (d / name).chmod(0o755)
     return d
 
-def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files=()):
+
+def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files=(), protect=()):
     """One `opencode run`. Detects the free tier's rate limiting (which otherwise looks like a hang:
     OpenCode retries 3 times, then waits, with an empty event stream), stops immediately, and retries with
     backoff when no step had started. Returns the final attempt plus `rate_limited` / `attempts`."""
     env = dict(os.environ, XDG_DATA_HOME=str(sb / ".ocdata"),
-               PATH=os.pathsep.join([str(python_shims(sb)), os.environ.get("PATH", "")]))
+               PATH=os.pathsep.join([str(sandbox_shims(sb, protect)), os.environ.get("PATH", "")]))
     for attempt in range(1, max_attempts + 1):
         t0 = time.time(); code = None; timed_out = False; rate_limited = False
         with open(sb / "events.jsonl", "w") as out, open(sb / "stderr.log", "w") as err:

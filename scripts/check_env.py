@@ -40,6 +40,13 @@ try:
 except FileNotFoundError:
     fail("/usr/bin/sandbox-exec not found (macOS only)")
 
+# A global OpenCode config with permissions or agent settings would merge into every run.
+for g in (Path.home() / ".config" / "opencode" / "opencode.json", Path.home() / ".config" / "opencode" / "opencode.jsonc"):
+    if g.exists():
+        text = "\n".join(l for l in g.read_text().splitlines() if not l.strip().startswith("//"))
+        extra = [k for k in ("permission", "agent", "tools", "model", "provider", "mcp", "plugin") if f'"{k}"' in text]
+        (fail if extra else ok)(f"global {g.name}" + (f" sets {extra}: move them out, they apply to every run" if extra else " has no run settings"))
+
 print("Python")
 py = platform.python_version()
 (ok if tuple(map(int, py.split(".")[:2])) >= tuple(map(int, EXP["python_min"].split("."))) else fail)(

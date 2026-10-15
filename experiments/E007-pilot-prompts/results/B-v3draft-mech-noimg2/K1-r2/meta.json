@@ -1,0 +1,54 @@
+{
+ "q": "K1",
+ "rep": 2,
+ "label": "B-v3draft-mech-noimg2",
+ "a_label": "A-v1",
+ "type": "clear",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/K1-r2",
+ "a_git_commit": null,
+ "a_complete": true,
+ "review_ok": true,
+ "review_call_ok": true,
+ "review_parsed": true,
+ "review_rate_limited": false,
+ "review_secs": 44.1,
+ "review_tokens": {
+  "input": 4169,
+  "output": 173
+ },
+ "review_steps": 2,
+ "review_tool_calls": 2,
+ "review_side_effects": [
+  "bash"
+ ],
+ "chart_attached": false,
+ "n_issues": 0,
+ "says_none": true,
+ "chart_check": "no chart",
+ "n_unverified": 2,
+ "revise_skipped": true,
+ "revise_secs": 0,
+ "revise_steps": 0,
+ "revise_tool_calls": 0,
+ "revise_rate_limited": false,
+ "revised_png": true,
+ "revised_values": true,
+ "values_changed_cols": [],
+ "answer": "Pedestrian deaths in NYC fell from a 13-year high of 176 in 2013 to 119 in 2025, averaging 130 per year (1,690 total). After the 2013 peak, deaths settled into a 101-149 band \u2014 the low was 101 in 2020 (pandemic driving) and 107 in 2023, with a slight rebound to 135 in 2022; the last three years (2023-2025: 107, 124, 119) are all below average.",
+ "answer_ok": true,
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "48c00b2",
+  "prompt_sha": {
+   "B_critique.v3.draft.md": "269a13dc3e3799f5",
+   "B_revise.v3.draft.md": "38af1935bf2f386e"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "collected_by": "by2566-hash"
+}

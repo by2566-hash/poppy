@@ -1,0 +1,3 @@
+Both outputs saved (`./out/initial.png`, `./out/values.csv`).
+
+ANSWER: Yes — motorist deaths fell 26% (110 in 2013 → 81 in 2025), while exposure fell far less: injury-involved crashes (a reporting-stable proxy for miles driven, since the file has no VMT field) dropped only 7% (40,062 → 37,248), so motorist deaths per 1,000 injury crashes fell ~21% (2.75 → 2.17), with the 2020–21 spike unwinding by 2025. For per-mile risk to have risen instead, NYC driving would have had to fall more than 26% since 2013, which the data's stable injury-crash counts rule out; the apparent rise in deaths per *all* reported crashes (0.54 → 0.95) is an artifact of post-2020 minor-crash under-reporting (total crashes -58%), not a real risk increase.

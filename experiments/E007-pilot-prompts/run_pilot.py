@@ -22,7 +22,9 @@ Arms
         arms and meta.json records `b_skipped` (PROTOCOL amendment 2026-10-15).
 
 The model's `python` runs this interpreter under macOS sandbox-exec with no network
-(run_screen.python_shims); `websearch` and `webfetch` are denied in both configs.
+(run_screen.sandbox_shims): no network, no reading the repo or other runs, writing only in its own folder.
+`websearch` and `webfetch` are denied in both configs. The review runs in its own folder tree
+(_review/...) so it cannot inherit the analysis config. Every B item ends in one of B_STATES.
 
 Sandboxes: ../../../poppy-sandbox/E007/<label>/<qid>-r<rep>/ ; collect them into the repo with
 scripts/collect_runs.py. Every meta.json records model, OpenCode/Python versions, git commit,
@@ -48,6 +50,7 @@ CONCURRENCY = int(os.environ.get("PILOT_CONCURRENCY", "1"))
 SUFFIX = "" if MODEL == "mimo-v2.6-flash-free" else f"-{MODEL}"   # keep other models' runs separate
 QS = {q["id"]: q for q in json.loads((HERE / "pilot_questions.json").read_text())["questions"]}
 MAX_EMBED = 6000  # characters of values / code embedded in a prompt
+ATTACH_CHART = os.environ.get("PILOT_NO_IMAGE") != "1"   # control run only
 
 
 def sha(path):
@@ -66,11 +69,19 @@ def environment(prompt_files):
             "config_sha": {CONFIG_ANALYSIS.name: sha(CONFIG_ANALYSIS), CONFIG_REVIEW.name: sha(CONFIG_REVIEW)}}
 
 
+def link_data(sb):
+    """Own copy of the data file (APFS clone: no extra disk). A symlink would point into the repo, which the
+    sandbox does not let the model read."""
+    dst = sb / "data" / "crashes.parquet"
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    if subprocess.run(["cp", "-c", str(PARQUET), str(dst)], capture_output=True).returncode != 0:
+        shutil.copy(PARQUET, dst)
+
+
 def prep(sb, config):
     shutil.rmtree(sb, ignore_errors=True)
-    (sb / "data").mkdir(parents=True)
-    (sb / "out").mkdir()
-    os.symlink(PARQUET, sb / "data" / "crashes.parquet")
+    (sb / "out").mkdir(parents=True)
+    link_data(sb)
     shutil.copy(config, sb / "opencode.json")
 
 
@@ -103,6 +114,87 @@ def net_calls(path):
                                                 or NET.search(json.dumps(st.get("input", {})))):
             n += 1
     return n
+
+
+CHANGE_STATUS = ("fixed", "kept", "cannot address")
+SECTION = re.compile(r"(?im)^\W*(CHART CHECK|ISSUES|UNVERIFIED)\W*:")
+WRITE_TOOLS = ("edit", "write", "patch", "task", "webfetch", "websearch")
+
+
+def parse_review(text):
+    """Review reply -> sections. v2 replies (ISSUES only) parse too. `parsed` = an ISSUES section exists and it is
+    either NONE or a numbered list; numbered lines under UNVERIFIED are never counted as issues."""
+    parts, marks = {}, list(SECTION.finditer(text))
+    for i, m in enumerate(marks):
+        body = text[m.end(): marks[i + 1].start() if i + 1 < len(marks) else len(text)]
+        parts.setdefault(m.group(1).upper(), re.sub(r"^[\s*_`]+", "", body).strip())
+    body = parts.get("ISSUES")
+    issues = [(int(n), t.strip()) for n, t in re.findall(r"(?m)^\s*(\d+)[.)]\s+(.+)", body or "")]
+    none = body is not None and bool(re.match(r"\W*NONE\b", body, re.I)) and not issues
+    unverified = [l.strip(" -*") for l in (parts.get("UNVERIFIED") or "").splitlines()
+                  if l.strip(" -*") and l.strip(" -*").lower() not in ("none", "none.")]
+    return {"parsed": body is not None and (none or bool(issues)), "issues": issues, "none": none,
+            "chart_check": parts.get("CHART CHECK"), "unverified": unverified}
+
+
+def parse_changes(text):
+    """CHANGES block -> {issue number: status}; status is one of CHANGE_STATUS or 'other'."""
+    block = text.split("CHANGES:", 1)[1].split("ANSWER:", 1)[0] if "CHANGES:" in text else ""
+    out = {}
+    for n, rest in re.findall(r"(?m)^\s*(\d+)[.)]\s+(.+)", block):
+        word = rest.strip(" *`<").lower()
+        out[int(n)] = next((st for st in CHANGE_STATUS if word.startswith(st)), "other")
+    return out
+
+
+def side_effects(path):
+    """Tool calls in the review run that could change files, execute or fetch (should be none)."""
+    hits = []
+    for line in (Path(path).read_text().splitlines() if Path(path).exists() else []):
+        try:
+            p = json.loads(line).get("part", {})
+        except json.JSONDecodeError:
+            continue
+        if p.get("type") != "tool" or p.get("state", {}).get("status") != "completed":
+            continue
+        cmd = (p["state"].get("input") or {}).get("command", "")
+        if p.get("tool") in WRITE_TOOLS or (p.get("tool") == "bash" and cmd.strip() != "true"):
+            hits.append(p.get("tool"))
+    return hits
+
+
+def changed_columns(before, after):
+    """Columns of values.csv whose values differ after revision (audit for "nothing unflagged changed")."""
+    if not (Path(before).exists() and Path(after).exists()):
+        return None
+    import csv
+    a, b = list(csv.DictReader(open(before))), list(csv.DictReader(open(after)))
+    cols = set(a[0] if a else {}) | set(b[0] if b else {})
+    if len(a) != len(b):
+        return sorted(cols) + ["<row count>"]
+    return sorted(c for c in cols if any(r.get(c) != t.get(c) for r, t in zip(a, b)))
+
+
+B_STATES = {   # every B item ends in exactly one of these
+    "skipped_no_A_answer": "A has no answer: B not run; both arms fail the item",
+    "review_infra_failure": "review call failed before a step (rate limit, crash): retry, not scored",
+    "review_failure": "review ran but gave no parseable ISSUES block: B fails the item, no revise",
+    "none_carried_forward": "review said NONE: A's outputs are B's outputs",
+    "revise_infra_failure": "revise call failed before a step: retry, not scored",
+    "revise_incomplete": "revise ran but no ANSWER or no revised files (step cap, timeout): B fails the item",
+    "revised": "review listed issues and revise finished",
+}
+
+
+def b_state(m, r2, review_steps):
+    if not m.get("review_ok"):
+        return "review_infra_failure" if review_steps == 0 and not r2["text"].strip() else "review_failure"
+    if m.get("says_none"):
+        return "none_carried_forward"
+    if m.get("revise_rate_limited") and not m.get("revise_steps"):
+        return "revise_infra_failure"
+    done = m.get("answer_ok") and m.get("revised_png") and m.get("revised_values")
+    return "revised" if done else "revise_incomplete"
 
 
 def clip(s, n=MAX_EMBED):
@@ -165,7 +257,7 @@ def run_B(job):
     shutil.copytree(src, sb, ignore=shutil.ignore_patterns("events*.jsonl", "response.md", "meta.json", "critique.md"))
     (sb / "data").mkdir(exist_ok=True)
     (sb / "out").mkdir(exist_ok=True)
-    os.symlink(PARQUET, sb / "data" / "crashes.parquet")   # results in the repo carry no data link
+    link_data(sb)   # results in the repo carry no data file
     shutil.copy(CONFIG_ANALYSIS, sb / "opencode.json")
     question = QS[q]["text"]
     values_path = sb / "out" / "values.csv"
@@ -180,6 +272,7 @@ def run_B(job):
         meta = {"q": q, "rep": rep, "label": label, "a_label": a_label, "type": QS[q]["type"],
                 "a_source": str(src.relative_to(ROOT)), "a_git_commit": (a_meta.get("env") or {}).get("git_commit"),
                 "a_complete": False, "b_skipped": "A produced no answer (step cap, timeout or format); B not applicable",
+                "b_state": "skipped_no_A_answer",
                 "review_ok": False, "n_issues": 0, "says_none": False, "revise_skipped": True,
                 "revised_png": False, "revised_values": False, "answer": None, "answer_ok": False,
                 "env": environment([crit_file, rev_file])}
@@ -189,30 +282,58 @@ def run_B(job):
     answer = a_answer
     code = clip(code_of(src))
 
-    # Run 2: review only (no execution). Chart attached; everything else embedded.
-    rd = sb / "review"
-    rd.mkdir()
+    # Run 2: review only. Read-only by config (no edits, no execution, no network); its output is text.
+    # OpenCode also loads opencode.json from parent folders, so a review folder inside A's sandbox would inherit
+    # the analysis config (python allowed). The review runs in its own tree and is copied into sb/review afterwards.
+    rd = SANDBOX / "_review" / label / f"{q}-r{rep}"
+    shutil.rmtree(rd, ignore_errors=True)
+    rd.mkdir(parents=True)
     shutil.copy(CONFIG_REVIEW, rd / "opencode.json")
+    inherited = [str(d) for d in rd.parents for n in ("opencode.json", "opencode.jsonc", ".opencode") if (d / n).exists()]
+    if inherited:
+        raise SystemExit(f"review folder would inherit OpenCode config from: {inherited}")
     files = []
-    if chart.exists():
+    if chart.exists() and ATTACH_CHART:   # PILOT_NO_IMAGE=1: same prompt, image withheld and not on disk (control)
         shutil.copy(chart, rd / "chart.png")
         files = [rd / "chart.png"]
-    chart_note = "attached as an image" if files else "no chart was produced"
-    crit_prompt = Path(crit_file).read_text().format(question=question, chart_note=chart_note,
+    chart_note = "attached as an image" if chart.exists() else "no chart was produced"
+    crit_prompt = Path(crit_file).read_text().format(question=question, dictionary=DATA_DICTIONARY, chart_note=chart_note,
                                                       values=values, answer=answer, code=code)
+    # Typed record of exactly what the reviewer received, so the review can be evaluated on its own.
+    (sb / "review_prompt.md").write_text(crit_prompt)
+    (sb / "review_input.json").write_text(json.dumps({
+        "item": f"{q}-r{rep}", "a_source": str(src.relative_to(ROOT)), "question": question,
+        "chart": {"attached": bool(files), "sha": sha(chart) if chart.exists() else None},
+        "values_sha": sha(values_path) if values_path.exists() else None, "answer": answer,
+        "code_sha": hashlib.sha256(code.encode()).hexdigest()[:16],
+        "dictionary_sha": hashlib.sha256(DATA_DICTIONARY.encode()).hexdigest()[:16],
+        "prompt_file": Path(crit_file).name, "prompt_sha": sha(crit_file),
+        "rendered_prompt_sha": hashlib.sha256(crit_prompt.encode()).hexdigest()[:16]}, indent=1))
     r2 = call_model(rd, crit_prompt, timeout=TIMEOUT, files=files)
     critique = r2["text"].strip()
     (sb / "critique.md").write_text(critique)
-    body = critique.split("ISSUES:", 1)[1] if "ISSUES:" in critique else critique
-    issues = re.findall(r"(?m)^\s*(\d+)[.)]\s+(.+)", body)
-    says_none = bool(re.search(r"ISSUES:\s*NONE", critique, re.I)) and not issues
-    review = {"review_ok": r2["exit"] == 0 and not r2["timed_out"] and not r2["errors"] and (bool(issues) or says_none),
-              "review_rate_limited": r2["rate_limited"], "review_secs": r2["secs"],
+    shutil.copytree(rd, sb / "review", ignore=shutil.ignore_patterns(".ocdata", ".bin"), dirs_exist_ok=True)
+    parsed = parse_review(critique)
+    (sb / "review.json").write_text(json.dumps({
+        "verdict": "none" if parsed["none"] else "issues" if parsed["issues"] else "unparseable",
+        "chart_check": parsed["chart_check"],
+        "issues": [{"n": n, "text": t} for n, t in parsed["issues"]],   # routed to revise
+        "unverified": parsed["unverified"]}, indent=1))                 # recorded only
+    call_ok = r2["exit"] == 0 and not r2["timed_out"] and not r2["errors"]
+    review = {"review_ok": call_ok and parsed["parsed"], "review_call_ok": call_ok, "review_parsed": parsed["parsed"],
+              "review_rate_limited": r2["rate_limited"], "review_secs": r2["secs"], "review_tokens": r2["tokens"],
               "review_steps": steps_in(rd / "events.jsonl"), "review_tool_calls": r2["tool_calls"],
-              "n_issues": len(issues), "says_none": says_none}
+              "review_side_effects": side_effects(rd / "events.jsonl"), "review_dir": str(rd), "chart_attached": bool(files),
+              "n_issues": len(parsed["issues"]), "says_none": parsed["none"],
+              "chart_check": parsed["chart_check"], "n_unverified": len(parsed["unverified"])}
 
-    # Run 3: revise, only if problems were reported.
-    if says_none:
+    # Run 3: revise, only if the review is usable and listed issues. Only the ISSUES list is passed on:
+    # CHART CHECK and UNVERIFIED are records for us, not instructions for the reviser.
+    if not review["review_ok"]:
+        # Unusable review (format failure, or a call failure left after retries): no revise; B fails the item.
+        r3_text, final_answer = "", None
+        rev = {"revise_skipped": True, "b_failure": "review call failed" if not call_ok else "review format failure"}
+    elif parsed["none"]:
         if chart.exists():
             shutil.copy(chart, sb / "out" / "revised.png")
         if values_path.exists():
@@ -221,15 +342,23 @@ def run_B(job):
                             "revise_rate_limited": False}
         final_answer = a_answer
     else:
-        rev_prompt = Path(rev_file).read_text().format(question=question, code=code, values=values,
-                                                       answer=answer, critique=critique)
-        r3 = call_model(sb, rev_prompt, timeout=TIMEOUT)
+        issues_text = "\n".join(f"{n}. {t}" for n, t in parsed["issues"])
+        rev_prompt = Path(rev_file).read_text().format(question=question, dictionary=DATA_DICTIONARY, code=code,
+                                                       values=values, answer=answer, critique=issues_text)
+        (sb / "revise_prompt.md").write_text(rev_prompt)
+        r3 = call_model(sb, rev_prompt, timeout=TIMEOUT,
+                        protect=[sb / "out" / "initial.png", sb / "out" / "values.csv"])   # A's "before" stays intact
         r3_text = r3["text"]
+        changes = parse_changes(r3_text)
+        (sb / "changes.json").write_text(json.dumps({"issues_sent": [n for n, _ in parsed["issues"]],
+                                                     "changes": changes}, indent=1))
         rev = {"revise_skipped": False, "revise_ok": r3["exit"] == 0 and not r3["timed_out"] and not r3["errors"],
-               "revise_rate_limited": r3["rate_limited"], "revise_secs": r3["secs"],
+               "revise_rate_limited": r3["rate_limited"], "revise_secs": r3["secs"], "revise_tokens": r3["tokens"],
                "revise_steps": steps_in(sb / "events.jsonl"), "revise_tool_calls": r3["tool_calls"],
                "revise_net_calls": net_calls(sb / "events.jsonl"),
-               "changes_listed": "CHANGES:" in r3_text}
+               "changes_listed": "CHANGES:" in r3_text, "changes": changes,
+               "changes_match_issues": sorted(changes) == sorted(n for n, _ in parsed["issues"]) and
+                                       all(v in CHANGE_STATUS for v in changes.values())}
         final_answer = answer_of(r3_text)
     (sb / "response.md").write_text(r3_text)
     meta = {"q": q, "rep": rep, "label": label, "a_label": a_label, "type": QS[q]["type"],
@@ -238,11 +367,15 @@ def run_B(job):
             "a_complete": a_complete, **review, **rev,
             "revised_png": (sb / "out" / "revised.png").exists(),
             "revised_values": (sb / "out" / "revised_values.csv").exists(),
+            "values_changed_cols": changed_columns(src / "out" / "values.csv", sb / "out" / "revised_values.csv"),
+            "a_outputs_intact": all(not (src / "out" / n).exists() or sha(src / "out" / n) == sha(sb / "out" / n)
+                                    for n in ("initial.png", "values.csv")),
             "answer": final_answer, "answer_ok": final_answer is not None,
             "env": environment([crit_file, rev_file])}
+    meta["b_state"] = b_state(meta, r2, steps_in(rd / "events.jsonl"))
     (sb / "meta.json").write_text(json.dumps(meta, indent=1))
-    print(f"[{label} {q} r{rep}] review_ok={meta['review_ok']} issues={meta['n_issues']} none={says_none} "
-          f"review_tools={meta['review_tool_calls']} revised_png={meta['revised_png']} answer={meta['answer_ok']}", flush=True)
+    print(f"[{label} {q} r{rep}] {meta['b_state']} review_ok={meta['review_ok']} issues={meta['n_issues']} none={meta['says_none']} "
+          f"chart_check={bool(meta['chart_check'])} revised_png={meta['revised_png']} answer={meta['answer_ok']}", flush=True)
     return meta
 
 
@@ -264,5 +397,6 @@ if __name__ == "__main__":
             sys.exit("mode must be A, B or C")
     out = HERE / "runs"
     out.mkdir(exist_ok=True)
-    (out / f"{label}.json").write_text(json.dumps(res, indent=1))
+    name = label if not os.environ.get("PILOT_QIDS") else f"{label}-{'-'.join(qids)}"   # a subset never overwrites the full summary
+    (out / f"{name}.json").write_text(json.dumps(res, indent=1))
     print("saved", label)

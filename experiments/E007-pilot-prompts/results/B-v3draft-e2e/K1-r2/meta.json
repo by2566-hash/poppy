@@ -1,0 +1,66 @@
+{
+ "q": "K1",
+ "rep": 2,
+ "label": "B-v3draft-e2e",
+ "a_label": "A-v1",
+ "type": "clear",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/K1-r2",
+ "a_git_commit": null,
+ "a_complete": true,
+ "review_ok": true,
+ "review_call_ok": true,
+ "review_parsed": true,
+ "review_rate_limited": false,
+ "review_secs": 28.1,
+ "review_tokens": {
+  "input": 5291,
+  "output": 348
+ },
+ "review_steps": 1,
+ "review_tool_calls": 0,
+ "review_side_effects": [],
+ "review_dir": "/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/B-v3draft-e2e/K1-r2",
+ "chart_attached": true,
+ "n_issues": 1,
+ "says_none": false,
+ "chart_check": "The chart has a clear title, labeled x-axis (Year) and y-axis (Pedestrians killed, 0-200), a dashed mean line with legend \"Mean 2013-2025 = 130\", and no cut-off or overlapping elements; all 13 bar annotations (176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, 119) match values.csv exactly. Arithmetic checks: total = 1,690 and mean = 1,690/13 = 130, both as stated.",
+ "n_unverified": 2,
+ "revise_skipped": false,
+ "revise_ok": true,
+ "revise_rate_limited": false,
+ "revise_secs": 38.1,
+ "revise_tokens": {
+  "input": 4867,
+  "output": 951
+ },
+ "revise_steps": 7,
+ "revise_tool_calls": 7,
+ "revise_net_calls": 0,
+ "changes_listed": true,
+ "changes": {
+  "1": "fixed"
+ },
+ "changes_match_issues": true,
+ "revised_png": true,
+ "revised_values": true,
+ "values_changed_cols": [],
+ "a_outputs_intact": true,
+ "answer": "Pedestrian deaths in NYC fell from a 13-year high of 176 in 2013 to 119 in 2025, averaging 130 per year (1,690 total). After the 2013 peak, deaths settled into a 101-149 band \u2014 the low was 101 in 2020 and 107 in 2023, with a slight rebound to 135 in 2022; the last three years (2023-2025: 107, 124, 119) are all below average.",
+ "answer_ok": true,
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "48c00b2",
+  "prompt_sha": {
+   "B_critique.v3.draft.md": "32467d01d0871899",
+   "B_revise.v3.draft.md": "38af1935bf2f386e"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "b_state": "revised",
+ "collected_by": "by2566-hash"
+}

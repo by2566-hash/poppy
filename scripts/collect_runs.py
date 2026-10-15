@@ -37,7 +37,8 @@ def main():
         dst = TARGET / label / run.name
         shutil.rmtree(dst, ignore_errors=True)
         (dst / "out").mkdir(parents=True)
-        for name in ("meta.json", "response.md", "critique.md", "opencode.json", "events.jsonl"):
+        for name in ("meta.json", "response.md", "critique.md", "opencode.json", "events.jsonl",
+                     "review_input.json", "review_prompt.md", "review.json", "revise_prompt.md", "changes.json"):
             if (run / name).exists():
                 shutil.copy(run / name, dst / name)
         if (run / "review" / "events.jsonl").exists():

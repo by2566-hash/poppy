@@ -1,0 +1,5 @@
+Sunday's `dow_num` came out as 0 (strftime `%w`), leaving a NaN merge — the original `values.csv` has `7` for Sun, so I'll use `isodow` to reproduce the exact same values:
+CHANGES:
+1. fixed: Reworded the last sentence to "~24% fewer crashes on Sundays than Fridays" ((338,800 − 257,544)/338,800 = 24.0%), since the 32% figure was Friday relative to Sunday, not Sunday relative to Friday. All numbers, data, filters and chart unchanged; outputs saved to ./out/revised.png and ./out/revised_values.csv.
+
+ANSWER: Across 2013–2025 NYC logged 2,132,218 crashes, and they are not evenly spread over the week — weekday volume is consistently higher than weekend. Friday is the peak day (338,800 crashes, 15.9% of the total, ~500/day), followed by Thursday (318,376; 14.9%), Tuesday (313,488; 14.7%), Wednesday (311,111; 14.6%) and Monday (304,518; 14.3%); Monday–Friday together account for 74.4% of all crashes. Saturday falls to 288,381 (13.5%, ~425/day) and Sunday is the lowest at 257,544 (12.1%, ~380/day) — about 24% fewer crashes on Sundays than Fridays, consistent with lighter traffic and fewer commuters on weekends.

@@ -1,0 +1,5 @@
+CHANGES:
+1. fixed: Corrected the comparison to 24.0% fewer (81,256 fewer Sunday crashes out of Friday's 338,800 = 24.0%); the old 32% came from the reverse (Friday vs. Sunday) comparison.
+2. fixed: Removed the causal claim about lighter traffic and fewer commuters, since the crash-only data has no traffic-volume or commuter variables to support it.
+
+ANSWER: Across 2013–2025 NYC logged 2,132,218 crashes, and they are not evenly spread over the week — weekday volume is consistently higher than weekend. Friday is the peak day (338,800 crashes, 15.9% of the total, ~500/day), followed by Thursday (318,376; 14.9%), Tuesday (313,488; 14.7%), Wednesday (311,111; 14.6%) and Monday (304,518; 14.3%); Monday–Friday together account for 74.4% of all crashes. Saturday falls to 288,381 (13.5%, ~425/day) and Sunday is the lowest at 257,544 (12.1%, ~380/day) — about 24% fewer crashes on Sundays than Fridays.

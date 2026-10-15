@@ -90,3 +90,44 @@ Iteration 1 recorded that A "imports recalled mileage numbers on I1". That is wr
 A-v1 I1 r1/r2 are void and moved to `results/A-v1/_void/`; I1 is re-run with the unchanged A.v1 prompt. The same check over every committed trace found two more cases, in E004 (big-pickle Q02, Q03 used `websearch`; corrected in E004's REPORT and SCORES).
 
 Harness fix (not yet in any scored run): `websearch: deny` in both configs, and the model's `python`/`python3` now run the runner's own interpreter under `sandbox-exec` with outbound network denied (`run_screen.python_shims`). Tested on mimo: no 403, `websearch` absent from the tool list, `urllib` → `Operation not permitted`, duckdb works. This also fixes the teammate PATH issue (sandbox `python3` resolving to a host interpreter without the pinned packages).
+
+## B v3 draft: mechanics test on mimo (2026-10-15, not an iteration)
+
+Inputs: A-v1 **r2** of K1 and K2 (not the iteration's r1 inputs). Prompts `B_critique.v3.draft.md`, `B_revise.v3.draft.md`. Purpose: does the v3 format work, and is the chart actually used.
+
+| Run | Result |
+|---|---|
+| K1-r2 (A correct), chart attached | `ISSUES: NONE`; CHART CHECK filled; 2 UNVERIFIED (the "pandemic driving" aside; source coverage); 0 tool calls; revise skipped. The v2 false trigger did not recur |
+| K2-r2 (A wrote "32% fewer on Sundays than Fridays"; true: 24% fewer, or Fridays 32% more), chart attached | 1 issue, exactly that error, with arithmetic; 1 UNVERIFIED; revise 8 steps: `1. fixed`, only that phrase changed, values.csv identical |
+| K1-r2, image withheld, `chart.png` still on disk | The model searched the folder, found `chart.png`, read it: control invalid (harness fixed: the file is no longer written) |
+| K1-r2, image withheld and absent | `CHART CHECK: no chart`; "the chart itself" moved to UNVERIFIED. It did **not** describe the chart from the code |
+
+Image evidence: first-step input ≈ 9.3k tokens with the chart, ≈ 7.6k without (the image is sent), and with no image the reviewer says so instead of inventing a chart description. Caveat: every detail in K1's CHART CHECK is also in the code, so a single CHART CHECK is not proof; the control is.
+
+**Boundary defect found (harness):** OpenCode merges `opencode.json` from parent folders. The review folder sat inside A's sandbox, so it inherited the analysis config: in a test it ran `python3` and wrote a file. B v2 reviews made 0 tool calls, so no result is affected. Fix: the review runs in `poppy-sandbox/E007/_review/<label>/<item>/` and is copied into the item's `review/` afterwards; `run_B` refuses to start if any parent folder has an OpenCode config; `check_env.py` fails if the global config sets permissions. Re-tested: `ls` and `python3` denied, no file written.
+
+Open logic point: unsupported claims (K1 "pandemic driving", K2 "fewer commuters") went to UNVERIFIED or were not mentioned. For insufficient-evidence questions an unsupported claim must be an issue, not UNVERIFIED. Decided by Bo: fix the routing definition only (which list a finding goes to), not push the review to find more; see below.
+
+## Contract verification and B v3 draft end-to-end (2026-10-15, not an iteration)
+
+Acceptance changed to the B contract (PROTOCOL amendment "B contract, sandbox v2"). This round tested the contract, not B's effect.
+
+**Boundary audit (all committed traces + red-team).** Beyond the I1 web leak: C-v1 I1 listed the repo root with `ls` and tried to `cat` `AGENTS.md` and list `docs/` (denied); python could read `gold_pilot.json` and write into the repo; the review folder inherited the analysis config. Sandbox v2 closes all of these (PROTOCOL). Red-team with nemotron in both folders: every escape blocked, DuckDB works.
+
+**Harness changes.** Review output parsed by section into `review.json`; revise receives the ISSUES list only; unparseable review → B fails, no revise; `review_input.json` / `review_prompt.md` / `revise_prompt.md` / `changes.json` saved; A's files read-only during revise and compared with the repo copy; each item ends in one of `B_STATES`; `check_contract.py` prints the contract per item and writes a labelling sheet for scoring the review on its own. A subset run (`PILOT_QIDS`) no longer overwrites the full run summary.
+
+**Prompt changes in the v3 draft, each tied to a failure or a logic gap:**
+
+| Change | Why |
+|---|---|
+| `{dictionary}` in review and revise | design §2 gives ③ the data dictionary; v2 omitted it |
+| "do not redo the analysis; you may check arithmetic on the values shown" (was "do not recompute anything") | v2 forbade the arithmetic that found A2's bug and asked "what it should be" |
+| judge chart, values and answer together; text need not repeat plotted numbers unless explicitly asked | K1 v2 false trigger |
+| `CHART CHECK:` line | no v2 critique said anything about the image |
+| ISSUES = shown from the material, **including statements the data cannot support**; UNVERIFIED = only checks that need the data file or code | "cannot verify" numbered as issues (K1, K2, A2); unsupported causes went to UNVERIFIED; routing must be unambiguous because the list decides the path |
+| "only ISSUES is passed on and each will be acted on; no problems is a normal result" | v2 never said NONE |
+| revise: fixed / kept / cannot address per issue; keep unflagged wording; save both files even if only text changes | K2 v2 omitted an issue; no exit for a wrong issue |
+
+**End-to-end on mimo with the final harness** (A-v1 r2 inputs): K1 → 1 issue ("pandemic driving" is a cause the data cannot show), revise removed only that parenthetical; K2 → 2 issues (32% vs 24%; "fewer commuters" cause), both fixed, values.csv identical. Contract: 2/2 pass. Earlier runs on the same draft before the routing sentence: K1 NONE, K2 1 issue; image control as above. Stored under `results/B-v3draft-*`.
+
+**A-v1 I1 re-run under sandbox v2** (replaces the void runs): r1 8 steps, r2 11 steps, both complete (before: both hit the 15-step cap while downloading data). Each tried the network once (`curl` denied by OpenCode, `urllib` blocked by the sandbox) and then answered from the data only. Both answers still draw a per-mile conclusion without mileage data (r1 assumes driving is back to pre-pandemic levels; r2 uses injury crashes as an exposure proxy): an A-side unsupported claim, kept as baseline behaviour, and B's input for I1 in iteration 2.
