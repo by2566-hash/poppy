@@ -18,6 +18,11 @@ Arms
         attached, values/answer/code are embedded in the prompt), then a revise run with the analysis
         config. If the review says `ISSUES: NONE`, A's outputs are carried forward unchanged and no
         revise run is made (repair only when a problem was reported).
+        If A produced no `ANSWER:` (step cap, timeout, format), B is not run: the item fails in both
+        arms and meta.json records `b_skipped` (PROTOCOL amendment 2026-10-15).
+
+The model's `python` runs this interpreter under macOS sandbox-exec with no network
+(run_screen.python_shims); `websearch` and `webfetch` are denied in both configs.
 
 Sandboxes: ../../../poppy-sandbox/E007/<label>/<qid>-r<rep>/ ; collect them into the repo with
 scripts/collect_runs.py. Every meta.json records model, OpenCode/Python versions, git commit,
@@ -82,6 +87,24 @@ def steps_in(path):
     return sum('"type":"step_start"' in l for l in Path(path).read_text().splitlines()) if Path(path).exists() else 0
 
 
+NET = re.compile(r"urlopen|urllib|requests\.(get|post)|http\.client|socket\.|curl |wget ")
+
+
+def net_calls(path):
+    """Completed tool calls that tried to reach the internet (audit; the sandbox should block them all)."""
+    n = 0
+    for line in (Path(path).read_text().splitlines() if Path(path).exists() else []):
+        try:
+            p = json.loads(line).get("part", {})
+        except json.JSONDecodeError:
+            continue
+        st = p.get("state", {}) if p.get("type") == "tool" else {}
+        if st.get("status") == "completed" and (p.get("tool") in ("websearch", "webfetch")
+                                                or NET.search(json.dumps(st.get("input", {})))):
+            n += 1
+    return n
+
+
 def clip(s, n=MAX_EMBED):
     return s if len(s) <= n else s[:n] + f"\n... [truncated, {len(s) - n} more characters]"
 
@@ -118,6 +141,7 @@ def run_analysis(job):
             "call_ok": r["exit"] == 0 and not r["timed_out"] and not r["errors"], "timed_out": r["timed_out"],
             "rate_limited": r["rate_limited"], "attempts": r["attempts"], "secs": r["secs"],
             "steps": steps, "hit_step_limit": steps >= STEPS, "tool_calls": r["tool_calls"], "tokens": r["tokens"],
+            "net_calls": net_calls(sb / "events.jsonl"),
             "png": (sb / "out" / "initial.png").exists(), "values": (sb / "out" / "values.csv").exists(),
             "answer": ans, "answer_ok": ans is not None, "errors": r["errors"],
             "env": environment([prompt_file])}
@@ -149,9 +173,21 @@ def run_B(job):
     a_text = (src / "response.md").read_text() if (src / "response.md").exists() else ""
     a_answer = answer_of(a_text) if a_text else a_meta.get("answer")   # re-judge with current rules
     a_complete = bool(a_answer) and (src / "out" / "initial.png").exists() and values_path.exists()
-    answer = a_answer or "(no written answer was produced)"
-    code = clip(code_of(src))
     chart = sb / "out" / "initial.png"
+    if not a_answer:
+        # Rule (PROTOCOL amendment 2026-10-15): B needs a "before". With no answer from A there is nothing to
+        # review, and a revise run would just be a second analysis with 15 more steps. Both arms fail the item.
+        meta = {"q": q, "rep": rep, "label": label, "a_label": a_label, "type": QS[q]["type"],
+                "a_source": str(src.relative_to(ROOT)), "a_git_commit": (a_meta.get("env") or {}).get("git_commit"),
+                "a_complete": False, "b_skipped": "A produced no answer (step cap, timeout or format); B not applicable",
+                "review_ok": False, "n_issues": 0, "says_none": False, "revise_skipped": True,
+                "revised_png": False, "revised_values": False, "answer": None, "answer_ok": False,
+                "env": environment([crit_file, rev_file])}
+        (sb / "meta.json").write_text(json.dumps(meta, indent=1))
+        print(f"[{label} {q} r{rep}] skipped: A has no answer", flush=True)
+        return meta
+    answer = a_answer
+    code = clip(code_of(src))
 
     # Run 2: review only (no execution). Chart attached; everything else embedded.
     rd = sb / "review"
@@ -192,6 +228,7 @@ def run_B(job):
         rev = {"revise_skipped": False, "revise_ok": r3["exit"] == 0 and not r3["timed_out"] and not r3["errors"],
                "revise_rate_limited": r3["rate_limited"], "revise_secs": r3["secs"],
                "revise_steps": steps_in(sb / "events.jsonl"), "revise_tool_calls": r3["tool_calls"],
+               "revise_net_calls": net_calls(sb / "events.jsonl"),
                "changes_listed": "CHANGES:" in r3_text}
         final_answer = answer_of(r3_text)
     (sb / "response.md").write_text(r3_text)

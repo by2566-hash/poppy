@@ -30,3 +30,7 @@
 - Next baseline round: 3 repeats per cell, the `policy` prompt arm (B2) on the same models, and a human check of these scores.
 
 Scored by Claude; needs a human check before any number is quoted outside the team.
+
+## Correction (2026-10-15)
+
+Point 4 above is partly wrong. The sandbox denied `webfetch` but not the `websearch` tool. big-pickle used `websearch` on Q02 (2 searches: NYC DOT cycling reports and bike-trip estimates) and Q03 (1 search: NYC borough population estimates), so those numbers came from search results, not from memory. They are still unsourced with respect to the data provided. No other E004 run made an external call. Found by re-scanning every committed event trace after E007 (see `experiments/E007-pilot-prompts/PROTOCOL.md`, amendment 2026-10-15); `websearch` is now denied.

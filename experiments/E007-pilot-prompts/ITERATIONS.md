@@ -60,3 +60,33 @@ B v2 prompts, and the failure each change targets:
 | Revise lists each change; "keep everything not flagged unchanged"; skipped when no issues | Protect correct outputs from being changed (flips) |
 
 Mechanics test on one item with nemotron passed (see PROTOCOL). Next: B v2 iteration on mimo when its quota allows.
+
+## B v2, iteration 1 on mimo (run by Chloe, 2026-10-15; checked by Claude)
+
+Results: `results/B-v2-validation/` (commit c72142f), prompts B_critique.v2 / B_revise.v2, A input = A-v1 r1.
+
+| Item | A-v1 r1 | Review issues | Real errors found | Revise | Values flipped |
+|---|---|---|---|---|---|
+| K1 | correct | 2 | 0 (1 "prose doesn't list every year", 1 "cannot verify") | ran, 7 steps, numbers unchanged | 0 |
+| K2 | prose ranks Wed above Tue | 2 | 1 (+1 "cannot verify") | fixed sentence | 0 |
+| K3 | "gap widest in 2013" true only as ratio | 1 | 1 | fixed sentence | 0 |
+| A2 | `harmed` = SUM(injured+killed) drops rows with NULL killed | 5 | 3 (+1 minor rounding, +1 "cannot verify") | fixed all; only `harmed` changed | 0 |
+| A1, I1 | step cap, no answer | not run | — | — | — |
+
+Checked independently: A2's corrected `harmed` matches DuckDB (hour 0: 29,606; hour 16: 50,492); K2 / K3 corrections match `values.csv`. Review used 0 tool calls on all 4.
+
+Observed failures (inputs to B v3):
+1. "Cannot verify" statements are numbered as issues (K1 #2, K2 #2, A2 #5). They inflate `n_issues`, make `ISSUES: NONE` impossible, and trigger a revise run: on K1, where A was correct, revise spent 7 steps / 102 s re-verifying.
+2. K1 #1 flags that the prose does not repeat every yearly number, although the chart and values answer "each year".
+3. No critique says anything about the chart image itself, so we cannot tell whether the image was inspected.
+4. K2's `CHANGES:` omits issue 2 (no change needed), so the handling of that issue is not recorded.
+
+Not run: A1 and I1, because A did not finish (step cap). Decided 2026-10-15 (Bo): B runs only when A produced an `ANSWER:`; otherwise the item fails in both arms (PROTOCOL amendment, `run_B` records `b_skipped`).
+
+### Correction: I1 used the internet (found by Chloe)
+
+Iteration 1 recorded that A "imports recalled mileage numbers on I1". That is wrong for A: A-v1 I1 r1 and r2 **downloaded** them. The `websearch` tool was not denied, and `python` scripts called `urllib` (13 and 19 completed external calls; data.cityofnewyork.us, data.ny.gov, fhwa.dot.gov, dot.ny.gov). `webfetch: deny` covers neither. No other committed run made external calls (checked all `results/*/events.jsonl`). C-v1's I1 numbers were recalled, not fetched.
+
+A-v1 I1 r1/r2 are void and moved to `results/A-v1/_void/`; I1 is re-run with the unchanged A.v1 prompt. The same check over every committed trace found two more cases, in E004 (big-pickle Q02, Q03 used `websearch`; corrected in E004's REPORT and SCORES).
+
+Harness fix (not yet in any scored run): `websearch: deny` in both configs, and the model's `python`/`python3` now run the runner's own interpreter under `sandbox-exec` with outbound network denied (`run_screen.python_shims`). Tested on mimo: no 403, `websearch` absent from the tool list, `urllib` → `Operation not permitted`, duckdb works. This also fixes the teammate PATH issue (sandbox `python3` resolving to a host interpreter without the pinned packages).

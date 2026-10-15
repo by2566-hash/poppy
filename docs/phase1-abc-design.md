@@ -107,13 +107,15 @@ Classify the failure first; the treatment depends on its kind. Decide the rules 
 | **Call failure** (HTTP error, client crash, empty reply, or timeout with **no completed step**) | API error text or crash dump; no model output | Retry the same call up to 2 times | Not a model result. Report retries and unrecoverable failures per arm; exclude symmetrically |
 | **Non-completion** (timeout or step cap reached after ≥ 1 completed step, no chart or no answer) | steps and tool calls logged, artifacts missing | No retry | A failed item for that arm (the model was working but did not finish) |
 | **Format failure** (reply has no code block or no answer section) | model output exists, parser fails | No retry | Model non-compliance: a failed item for that arm |
-| **Execution failure** (code errors, no chart) | traceback in the run log | **B continues**: ③ gets the question, the traceback and the values/log it has (no image) | A fails the item; B's outcome is a *recovery* |
+| **Execution failure** (code errors, no chart) — *superseded 2026-10-15, see below* | traceback in the run log | ~~B continues~~ | ~~recovery~~ |
 | **Wrong but runs** | gate fails on values | B continues as designed | normal paired item |
+
+**Amendment 2026-10-15 (agreed by Bo): B runs only when A produced an `ANSWER:`.** On OpenCode the model fixes its own tracebacks inside the run, so a separate "execution failure" never appears; what appears is non-completion (step cap or timeout, no answer). In that case B is **not run** and the item fails in both arms (ITT, 0 points), recorded as `b_skipped` with the reason. If A has an answer but no chart, B still runs (the review sees the values and answer, with "no chart was produced"). Reasons: B needs a "before" to be a paired design; a revise run on an empty input is a second analysis with 15 more steps, which would measure budget, not review; and C gets no second chance either. The report lists the "A incomplete, B not applicable" count per question type.
 
 How to report:
 
 - **Intention-to-treat first:** every item is counted in every arm; a failed item scores as gate-fail with 0 points. This is the headline table.
-- **Stratified second:** (i) A executable → B vs A quality change and correct → wrong flips; (ii) A not executable → B **recovery rate**. Do not average recoveries into the quality-change mean.
+- **Stratified second:** (i) A has an answer → B vs A quality change and correct → wrong flips; (ii) A has no answer → counted as "B not applicable", shown per question type, never averaged into the quality-change mean.
 - C has no repair step, so a C execution failure stays a failure. That is part of what the prompt-only design buys.
 - The diagnosis the teammate asked for ("model call problem or model capability problem?") is exactly the first three rows. Log `failure_kind` for every failed call so it can be answered from data, not memory.
 - The stability screen (`experiments/E006-mimo-screen`) keeps call and format failures small before the formal runs.

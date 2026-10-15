@@ -3,6 +3,7 @@
   "permission": {
     "external_directory": "deny",
     "webfetch": "deny",
+    "websearch": "deny",
     "edit": "allow",
     "bash": {"*": "deny", "python3 *": "allow", "python *": "allow", "ls": "allow", "ls *": "allow",
              "mkdir *": "allow", "head *": "allow", "cat *": "allow"}

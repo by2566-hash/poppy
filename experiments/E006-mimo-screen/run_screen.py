@@ -13,12 +13,25 @@ CONFIG = {"$schema": "https://opencode.ai/config.json",
           "permission": {"external_directory": "deny"},
           "agent": {"build": {"steps": 1}}}
 gold = json.loads((HERE / "gold.json").read_text())
+# macOS sandbox profile for the model's own python: everything allowed except outbound IP traffic.
+NO_NET = "(version 1)(allow default)(deny network-outbound (remote ip))"
+
+def python_shims(sb):
+    """`python`/`python3` inside the run resolve to this interpreter (the pinned venv) wrapped in
+    sandbox-exec without network. OpenCode's `webfetch: deny` does not stop python's urllib (E007 I1)."""
+    d = sb / ".bin"; d.mkdir(exist_ok=True)
+    for name in ("python", "python3"):
+        p = d / name
+        p.write_text(f"#!/bin/sh\nexec /usr/bin/sandbox-exec -p '{NO_NET}' '{sys.executable}' \"$@\"\n")
+        p.chmod(0o755)
+    return d
 
 def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files=()):
     """One `opencode run`. Detects the free tier's rate limiting (which otherwise looks like a hang:
     OpenCode retries 3 times, then waits, with an empty event stream), stops immediately, and retries with
     backoff when no step had started. Returns the final attempt plus `rate_limited` / `attempts`."""
-    env = dict(os.environ, XDG_DATA_HOME=str(sb / ".ocdata"))
+    env = dict(os.environ, XDG_DATA_HOME=str(sb / ".ocdata"),
+               PATH=os.pathsep.join([str(python_shims(sb)), os.environ.get("PATH", "")]))
     for attempt in range(1, max_attempts + 1):
         t0 = time.time(); code = None; timed_out = False; rate_limited = False
         with open(sb / "events.jsonl", "w") as out, open(sb / "stderr.log", "w") as err:

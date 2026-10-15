@@ -24,3 +24,5 @@ Decision codes: P = PROCEED, PA = PROCEED_WITH_STATED_ASSUMPTIONS, E = ENUMERATE
 | Asked on ASK questions (Q05, Q06) | 1 / 1 (Q06 infra failure) | 2 / 2 | 0 / 2 (both timed out) |
 | Misleading claim | 3 / 7 | 1 / 7 + unsourced external numbers in 2 | 0–1 / 4 |
 | Median time (answered) | 99 s | 191 s | 179 s |
+
+**Correction (2026-10-15):** big-pickle Q02 and Q03 took their external numbers from the `websearch` tool (not denied at the time), not from memory; "network was disabled" was wrong for that tool. See REPORT.md, Correction.

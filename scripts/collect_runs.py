@@ -42,6 +42,8 @@ def main():
                 shutil.copy(run / name, dst / name)
         if (run / "review" / "events.jsonl").exists():
             shutil.copy(run / "review" / "events.jsonl", dst / "events_review.jsonl")
+        if (run / "review" / "opencode.json").exists():
+            shutil.copy(run / "review" / "opencode.json", dst / "opencode_review.json")
         for f in list(run.glob("*.py")) + list((run / "out").glob("*.py")):
             shutil.copy(f, dst / f.name)
         for f in list((run / "out").glob("*.csv")) + list((run / "out").glob("*.png")):

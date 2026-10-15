@@ -27,6 +27,19 @@ try:
 except FileNotFoundError:
     fail("opencode not found on PATH (install it: https://opencode.ai)")
 
+print("Sandbox")
+# Same profile as run_screen.NO_NET: the model's python must not reach the network.
+NO_NET = "(version 1)(allow default)(deny network-outbound (remote ip))"
+try:
+    probe = subprocess.run(["/usr/bin/sandbox-exec", "-p", NO_NET, sys.executable, "-c",
+                            "import socket; socket.create_connection(('1.1.1.1', 53), 3)"],
+                           capture_output=True, text=True, timeout=20)
+    blocked = probe.returncode != 0 and "not permitted" in probe.stderr
+    (ok if blocked else fail)("sandbox-exec blocks the model's python from the network"
+                              + ("" if blocked else f" (probe: {probe.stderr.strip()[-120:] or 'connected'})"))
+except FileNotFoundError:
+    fail("/usr/bin/sandbox-exec not found (macOS only)")
+
 print("Python")
 py = platform.python_version()
 (ok if tuple(map(int, py.split(".")[:2])) >= tuple(map(int, EXP["python_min"].split("."))) else fail)(
