@@ -1,0 +1,4 @@
+CHANGES:
+1. fixed: Corrected the ranking order (after Thu it is Tue 313,488 then Wed 311,111) and replaced "a steady build to Friday" with wording reflecting the non-monotone weekday pattern (rise Mon→Tue, slight dip Wed, rise Thu, peak Fri).
+
+ANSWER: Across 2013–2025 NYC recorded 2,132,218 crashes, and the weekly pattern rises from Monday into Tuesday, dips slightly on Wednesday, climbs again through Thursday to a Friday peak, then falls sharply over the weekend: Fri is the peak (338,800; 15.9%; ~500/day), Thu next (318,376; 470/day), then Tue (313,488), Wed (311,111) and Mon the softest weekday (304,518; 449/day), while Sat falls to 288,381 (425/day) and Sunday is the clear low at 257,544 (12.1%; ~380/day) — Friday sees 32% more crashes than Sunday, and weekdays (5 of 7 days) carry 74.4% of all crashes.

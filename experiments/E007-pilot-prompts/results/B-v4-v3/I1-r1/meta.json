@@ -1,0 +1,80 @@
+{
+ "q": "I1",
+ "rep": 1,
+ "label": "B-v4-v3",
+ "a_label": "A-v1",
+ "type": "insufficient",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/I1-r1",
+ "a_git_commit": "48c00b2",
+ "a_complete": true,
+ "review_ok": true,
+ "review_call_ok": true,
+ "review_parsed": true,
+ "review_rate_limited": false,
+ "review_stalled": false,
+ "review_attempts": 1,
+ "review_zero_output_retries": 0,
+ "review_secs_total": 192.7,
+ "review_secs": 192.7,
+ "review_tokens": {
+  "input": 11090,
+  "output": 877
+ },
+ "review_steps": 1,
+ "review_tool_calls": 0,
+ "review_side_effects": [],
+ "review_dir": "/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/B-v4-v3/I1-r1",
+ "chart_attached": true,
+ "n_issues": 4,
+ "says_none": false,
+ "chart_check": "Left panel: blue bars of motorist (occupant) deaths 2013\u20132025 (labeled 110 and 81) with a red line of all road-user deaths, y-axis \"Deaths per year\" 0\u2013300; right panel: hyperbolic curve of the 2025-vs-2013 risk index against miles-driven assumption (x 60\u2013120%, y 55\u2013180) with a black break-even dot at 74%/100, a red dot at 100%/74 labeled \"miles flat: 74 (risk -26%)\", and unlabeled green (60\u2013100) / red (100\u2013120) shading. Every value I could read matches values.csv: bars 110\u202681, line endpoints 297 and 229, curve \u2248123 at 60%, 74 at 100%, \u224861 at 120%, break-even 81/110 = 73.6% \u2248 74%, drop \u221226.4% \u2248 \u221226%.",
+ "n_unverified": 4,
+ "revise_skipped": false,
+ "revise_ok": true,
+ "revise_rate_limited": false,
+ "revise_stalled": false,
+ "revise_attempts": 1,
+ "revise_zero_output_retries": 0,
+ "revise_secs_total": 168.6,
+ "revise_secs": 168.6,
+ "revise_tokens": {
+  "input": 14079,
+  "output": 3773
+ },
+ "revise_steps": 9,
+ "revise_tool_calls": 9,
+ "revise_net_calls": 0,
+ "changes_listed": true,
+ "changes": {
+  "1": "fixed",
+  "2": "fixed",
+  "3": "fixed",
+  "4": "fixed"
+ },
+ "changes_match_issues": true,
+ "revised_png": true,
+ "revised_values": true,
+ "values_changed_cols": [
+  "motorist_deaths_index_flat_vmt",
+  "motorist_deaths_per_mile_index"
+ ],
+ "a_outputs_intact": true,
+ "answer": "Motorist (vehicle-occupant) deaths fell from 110 in 2013 to 81 in 2025, a 26% drop. Because the data has no miles-driven column, the per-mile question is answered by break-even: the risk of a motorist being killed per mile driven fell if 2025 mileage was at least ~74% of 2013's \u2014 in that case risk per mile is about 26% lower than in 2013 (it would rise only if 2025 driving fell below ~74% of 2013 levels). Caveats: the 2020\u201321 spike in deaths per crash, and the post-2019 halving of minor-crash reports (injuries fell only ~19\u201320% from 2018\u201319, far less than the 60% drop in reported crashes), so trends in reports alone overstate the change in exposure.",
+ "answer_ok": true,
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "281692d",
+  "prompt_sha": {
+   "B_critique.v4.md": "f8bfefe032067c9d",
+   "B_revise.v3.md": "38af1935bf2f386e"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "b_state": "revised",
+ "collected_by": "by2566-hash"
+}

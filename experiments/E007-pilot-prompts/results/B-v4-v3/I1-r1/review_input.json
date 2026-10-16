@@ -1,0 +1,16 @@
+{
+ "item": "I1-r1",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/I1-r1",
+ "question": "Did the risk of a motorist being killed per mile driven in NYC decline from 2013 to 2025? Make a chart and answer based on this crash data.",
+ "chart": {
+  "attached": true,
+  "sha": "0e7c41c1dd29aa0c"
+ },
+ "values_sha": "a11708919a537d89",
+ "answer": "Yes \u2014 motorist (vehicle-occupant) deaths fell from 110 in 2013 to 81 in 2025, a 26% drop, and since the file has no miles-driven data I solved for it: per-mile risk only fails to decline if 2025 driving was below ~74% of 2013's mileage, so with NYC driving roughly back to pre-pandemic levels the risk of a motorist being killed per mile is about a quarter lower than in 2013 (the 2020\u201321 spike and the post-2019 halving of minor-crash reports \u2014 injury counts stayed flat \u2014 are the caveats).",
+ "code_sha": "6ee9ebd14f6c203d",
+ "dictionary_sha": "b208381a6a6226f2",
+ "prompt_file": "B_critique.v4.md",
+ "prompt_sha": "f8bfefe032067c9d",
+ "rendered_prompt_sha": "4eed1b1f09de177b"
+}

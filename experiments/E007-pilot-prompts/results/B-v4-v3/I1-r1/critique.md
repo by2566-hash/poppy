@@ -1,0 +1,13 @@
+CHART CHECK: Left panel: blue bars of motorist (occupant) deaths 2013–2025 (labeled 110 and 81) with a red line of all road-user deaths, y-axis "Deaths per year" 0–300; right panel: hyperbolic curve of the 2025-vs-2013 risk index against miles-driven assumption (x 60–120%, y 55–180) with a black break-even dot at 74%/100, a red dot at 100%/74 labeled "miles flat: 74 (risk -26%)", and unlabeled green (60–100) / red (100–120) shading. Every value I could read matches values.csv: bars 110…81, line endpoints 297 and 229, curve ≈123 at 60%, 74 at 100%, ≈61 at 120%, break-even 81/110 = 73.6% ≈ 74%, drop −26.4% ≈ −26%.
+
+ISSUES:
+1. Right-panel shading is misleading: the green span (60–100% miles) and red span (100–120%) are unlabeled, and they do not track the risk outcome — risk index ≤ 100 only for miles ≥ 74%, so the green zone contains the 60–74% range where risk rises (up to ~123), while the entire red zone is risk-decline. Either move the boundary to 74% (if colors mean risk up/down) or add a legend saying the colors mean miles below/above 2013.
+2. Written answer's conclusion rests on "with NYC driving roughly back to pre-pandemic levels" — no column in crashes.parquet measures miles driven, so the material cannot support that claim about NYC driving; it should be worded as an explicit assumption ("if 2025 mileage is at least ~74% of 2013, risk per mile fell ~26%"), which the break-even framing already provides.
+3. values.csv column `motorist_deaths_per_mile_index` is misnamed: the code computes `motorist_killed / motorist_killed_2013 * 100`, i.e. a deaths index holding VMT flat, not a per-mile quantity; the name asserts a per-mile risk the data cannot produce (e.g. 2016 = 65.45 is "deaths index under flat miles", not deaths per mile).
+4. Answer's caveat "injury counts stayed flat" is contradicted by values.csv: persons_injured falls from 61,391 (2019) / 61,940 (2018) to 49,634 (2025), about −19–20%; what is true is that injuries fell far less than crash reports (211,486 → 85,546, −60%), so "stayed flat" should be reworded.
+
+UNVERIFIED:
+- Whether the yearly aggregates match crashes.parquet (needs running the query).
+- Whether 2025 is a complete year in the source file (a partial 2025 would change 81, the −26% drop and the 74% break-even).
+- The internal inconsistency visible in values.csv for 2017 — 107 + 127 + 27 = 261 > persons_killed 256 — whether that comes from the source data or the aggregation (all other years have subcategory sums ≤ total).
+- What actual NYC miles driven did 2013→2025 do (needed to turn the break-even into a definitive yes; outside the allowed data).

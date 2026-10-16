@@ -106,3 +106,9 @@ Copy entries into the team's Google Sheet when ready.
 - **Setup:** B v3 prompts (Bo approved), A-v1 r1 inputs (I1 re-run under sandbox v2), six items, contract check plus Claude's human checks; team second review pending.
 - **Result:** K1, K3 NONE (A carried forward); K2 one real issue fixed; I1 three real issues fixed, one visible only in the chart; A1 skipped (no A answer); A2 review timed out after one step with no output (B fails the item). No boundary violation, no invented issue, no unflagged change, values.csv unchanged everywhere. Whether A2's non-completion counts as the one allowed slip is a team decision.
 - **Next:** team second review (`check_contract.py results/B-v3-v3 --show`); decide on A2; freeze B v3 or run iteration 3.
+
+## 2026-10-16 — E007: B v4 iteration 3; prompts frozen
+
+- **Setup:** Bo's decisions after iteration 2: two critique edits (removed "finding no problems is a normal result…"; CHART CHECK asks what is seen, not overlap checks), zero-output timeout retried once, iteration 3 is the last. Prompts committed before the run (281692d). Six pilot items, A-v1 r1 inputs.
+- **Result:** contract passes on all 5 runnable items (A1 skipped): no boundary violation, no invented issue, no unflagged change, no stall, no retry, every review one step. K1, K2, A2, I1 revised with real issues; K3 NONE. A2's review finished in 164 s. B frozen: critique v4 + revise v3 (`FROZEN.md` with SHA-256).
+- **Next:** team second review of the records; Bo writes C; formal run plan (10 questions × 3 repeats, split across three machines).

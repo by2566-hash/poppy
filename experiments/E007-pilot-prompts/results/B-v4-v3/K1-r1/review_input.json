@@ -1,0 +1,16 @@
+{
+ "item": "K1-r1",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/K1-r1",
+ "question": "How many pedestrians were killed in NYC motor vehicle crashes each year from 2013 to 2025?",
+ "chart": {
+  "attached": true,
+  "sha": "be2d701e0e80243d"
+ },
+ "values_sha": "92dec926d2351cac",
+ "answer": "Pedestrian deaths in NYC fell from a 13-year high of 176 in 2013 to 119 in 2025, averaging ~130 per year (1,690 total). The series trends down overall, with a low of 101 in 2020 (pandemic) and a recent low of 107 in 2023, then 124 in 2024 and 119 in 2025.",
+ "code_sha": "8d65d45448dcba50",
+ "dictionary_sha": "b208381a6a6226f2",
+ "prompt_file": "B_critique.v4.md",
+ "prompt_sha": "f8bfefe032067c9d",
+ "rendered_prompt_sha": "56c328532efc10f9"
+}

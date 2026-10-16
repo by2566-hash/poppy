@@ -1,0 +1,74 @@
+{
+ "q": "K2",
+ "rep": 1,
+ "label": "B-v4-v3",
+ "a_label": "A-v1",
+ "type": "clear",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/K2-r1",
+ "a_git_commit": null,
+ "a_complete": true,
+ "review_ok": true,
+ "review_call_ok": true,
+ "review_parsed": true,
+ "review_rate_limited": false,
+ "review_stalled": false,
+ "review_attempts": 1,
+ "review_zero_output_retries": 0,
+ "review_secs_total": 62.1,
+ "review_secs": 62.1,
+ "review_tokens": {
+  "input": 6105,
+  "output": 475
+ },
+ "review_steps": 1,
+ "review_tool_calls": 0,
+ "review_side_effects": [],
+ "review_dir": "/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/B-v4-v3/K2-r1",
+ "chart_attached": true,
+ "n_issues": 1,
+ "says_none": false,
+ "chart_check": "Two bar panels share weekday x-axis labels (Mon\u2013Sun): left shows total crashes with value + share% labels (304,518/14.3% \u2026 338,800/15.9%, weekend bars in red), right shows average crashes per day (449, 462, 458, 470, 500, 425, 380). All chart labels match values.csv after rounding, and the title total n = 2,132,218 equals the sum of the seven counts (I checked: 304,518+313,488+311,111+318,376+338,800+288,381+257,544 = 2,132,218; shares, averages, 4,748 total days, Fri/Sun ratio 1.3155 \u2248 \"32% more\", and weekday share 74.4% all check out arithmetically).",
+ "n_unverified": 1,
+ "revise_skipped": false,
+ "revise_ok": true,
+ "revise_rate_limited": false,
+ "revise_stalled": false,
+ "revise_attempts": 1,
+ "revise_zero_output_retries": 0,
+ "revise_secs_total": 36.1,
+ "revise_secs": 36.1,
+ "revise_tokens": {
+  "input": 4522,
+  "output": 1510
+ },
+ "revise_steps": 4,
+ "revise_tool_calls": 3,
+ "revise_net_calls": 0,
+ "changes_listed": true,
+ "changes": {
+  "1": "fixed"
+ },
+ "changes_match_issues": true,
+ "revised_png": true,
+ "revised_values": true,
+ "values_changed_cols": [],
+ "a_outputs_intact": true,
+ "answer": "Across 2013\u20132025 NYC recorded 2,132,218 crashes, and the weekly pattern rises from Monday into Tuesday, dips slightly on Wednesday, climbs again through Thursday to a Friday peak, then falls sharply over the weekend: Fri is the peak (338,800; 15.9%; ~500/day), Thu next (318,376; 470/day), then Tue (313,488), Wed (311,111) and Mon the softest weekday (304,518; 449/day), while Sat falls to 288,381 (425/day) and Sunday is the clear low at 257,544 (12.1%; ~380/day) \u2014 Friday sees 32% more crashes than Sunday, and weekdays (5 of 7 days) carry 74.4% of all crashes.",
+ "answer_ok": true,
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "281692d",
+  "prompt_sha": {
+   "B_critique.v4.md": "f8bfefe032067c9d",
+   "B_revise.v3.md": "38af1935bf2f386e"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "b_state": "revised",
+ "collected_by": "by2566-hash"
+}

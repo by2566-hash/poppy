@@ -182,3 +182,20 @@ Two diagnostic re-runs, same prompt and input: both finished in one step with 0 
 Known trade-off: edit 1 may bring back some v2-style false triggers on correct answers; edit 2 may lose chart-only findings such as I1's misplaced shading. Both are effects, observed in the formal run, not tuned here.
 
 Harness for iteration 3: zero-output timeout retried once (unit-tested with a fake `opencode`: silent run retried once, run with partial text not retried); review timeout 420 s; reviser isolation fix in place.
+
+## B v4 + v3, iteration 3 on mimo (2026-10-16): contract passes; B frozen
+
+`check_contract.py results/B-v4-v3`: 6 items, 0 machine-checked contract failures; no zero-output retry needed; no reviser read review files (scanned); every review 1 step, 0 tool calls.
+
+| Item | End state | Review (claims checked by Claude against the material) | Revise | Invented? / unflagged change? |
+|---|---|---|---|---|
+| K1 | revised | 1: "(pandemic)" is a cause the data cannot show (true) | removed the parenthetical only | no / no |
+| K2 | revised | 1: Tue/Wed order and "steady build" (true) | those two sentences only | no / no |
+| K3 | none_carried_forward | NONE ("gap widest in 2013", ratio only, still not flagged) | — | no / no |
+| A1 | skipped_no_A_answer | — | — | — |
+| A2 | revised (164 s review) | 2: `harmed` NULL-sum (true, matches DuckDB); "8× the midday rate" should be 4 pm (true) | `harmed` column and one answer phrase; chart unchanged | no / no |
+| I1 | revised | 4: unlabeled shading on the wrong side of the 74% break-even (true, image); "driving back to pre-pandemic levels" unsupported (true); column `motorist_deaths_per_mile_index` is a deaths index, not per mile (true, code line 30); "injuries stayed flat" contradicts values.csv (true) | shading moved and labelled; answer made conditional; column renamed with identical values; caveat corrected | no / no |
+
+What the two v4 edits did (observations, not acceptance): K1's "(pandemic)" is flagged again and A2's review finished in one 164 s step without pixel-geometry reasoning; K3's "gap" is still missed; no false trigger on a correct item appeared in this run. A2 needed 2 issues where v2 listed 5: v4's review no longer reports the 6.3 vs 6.4 rounding or the legend hour labels.
+
+Decision (PROTOCOL 2026-10-16): iteration 3 is the last; B is frozen at critique v4 + revise v3 (`FROZEN.md`). Team second review of iteration 2 and 3 records is still welcome and is logged here; it can correct a score but not the prompt.

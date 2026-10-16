@@ -1,0 +1,59 @@
+{
+ "q": "K3",
+ "rep": 1,
+ "label": "B-v4-v3",
+ "a_label": "A-v1",
+ "type": "clear",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/K3-r1",
+ "a_git_commit": null,
+ "a_complete": true,
+ "review_ok": true,
+ "review_call_ok": true,
+ "review_parsed": true,
+ "review_rate_limited": false,
+ "review_stalled": false,
+ "review_attempts": 1,
+ "review_zero_output_retries": 0,
+ "review_secs_total": 80.2,
+ "review_secs": 80.2,
+ "review_tokens": {
+  "input": 5909,
+  "output": 220
+ },
+ "review_steps": 1,
+ "review_tool_calls": 0,
+ "review_side_effects": [],
+ "review_dir": "/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/B-v4-v3/K3-r1",
+ "chart_attached": true,
+ "n_issues": 0,
+ "says_none": true,
+ "chart_check": "Grouped bar chart with years 2013\u20132025 on x-axis, deaths (police-reported) on y-axis (0\u2013140+), legend distinguishing motorist (blue) and cyclist (orange) deaths, every bar labeled with its value, and a box showing 13-yr totals (motorist 1377, cyclist 277, ratio 5.0:1). All 26 bar labels match values.csv exactly; the totals box matches the column sums (1377 and 277) and 1377/277 \u2248 5.0.",
+ "n_unverified": 2,
+ "revise_skipped": true,
+ "revise_secs": 0,
+ "revise_steps": 0,
+ "revise_tool_calls": 0,
+ "revise_rate_limited": false,
+ "revised_png": true,
+ "revised_values": true,
+ "values_changed_cols": [],
+ "a_outputs_intact": true,
+ "answer": "Motorist deaths exceed cyclist deaths every year from 2013\u20132025, roughly 5 to 1 overall (1,377 motorists vs. 277 cyclists killed over the 13 years). Motorist deaths ranged from a low of 72 (2016) and 81 (2025) to a peak of 139 in 2020 and 134 in 2021, then generally declined to 81 by 2025. Cyclist deaths were far smaller and flatter, ranging from 10 (2018) and 11 (2013) to 31 in 2019 and 2023. The gap was widest in 2013 (110 vs. 11, 10:1) and narrowest in 2019 (82 vs. 31, 2.6:1); notably, cyclist deaths nearly tripled from 10 in 2018 to 31 in 2019 while motorist deaths fell, and by 2025 the ratio stood at 3.5:1 (81 vs. 23).",
+ "answer_ok": true,
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "281692d",
+  "prompt_sha": {
+   "B_critique.v4.md": "f8bfefe032067c9d",
+   "B_revise.v3.md": "38af1935bf2f386e"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "b_state": "none_carried_forward",
+ "collected_by": "by2566-hash"
+}

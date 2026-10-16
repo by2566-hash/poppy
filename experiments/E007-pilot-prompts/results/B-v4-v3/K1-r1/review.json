@@ -1,0 +1,14 @@
+{
+ "verdict": "issues",
+ "chart_check": "Bar chart titled \"Pedestrians Killed in NYC Motor Vehicle Crashes, 2013\u20132025\" with x-axis Year (2013\u20132025, all ticks shown) and y-axis \"Pedestrians killed\" (0\u2013200, starts at zero); each bar is labeled and all 13 labels match values.csv exactly (176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, 119). Arithmetic checks: total = 1,690 and 1,690/13 = 130, so the written answer's total and average are correct; 176 is the max, 101 the min.",
+ "issues": [
+  {
+   "n": 1,
+   "text": "Written answer: \"a low of 101 in 2020 (pandemic)\" attributes the 2020 drop to the pandemic, a causal claim the crash data itself cannot support; it should be dropped or marked as outside the data."
+  }
+ ],
+ "unverified": [
+  "Whether the per-year sums, the 2013\u20132025 date filtering, and the handling of any NULL crash_date rows actually match the data file (would require running the query).",
+  "Whether the data contains no missing years or other edge cases masked by the left-join/fillna(0) step."
+ ]
+}

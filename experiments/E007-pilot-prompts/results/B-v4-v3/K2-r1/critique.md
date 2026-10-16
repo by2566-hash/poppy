@@ -1,0 +1,7 @@
+CHART CHECK: Two bar panels share weekday x-axis labels (Mon–Sun): left shows total crashes with value + share% labels (304,518/14.3% … 338,800/15.9%, weekend bars in red), right shows average crashes per day (449, 462, 458, 470, 500, 425, 380). All chart labels match values.csv after rounding, and the title total n = 2,132,218 equals the sum of the seven counts (I checked: 304,518+313,488+311,111+318,376+338,800+288,381+257,544 = 2,132,218; shares, averages, 4,748 total days, Fri/Sun ratio 1.3155 ≈ "32% more", and weekday share 74.4% all check out arithmetically).
+
+ISSUES:
+1. Written answer, ranking sentence: it says "...Thu next (318,376; 470/day), then Wed (311,111), Tue (313,488)..." in what reads as descending order, but Tue (313,488) > Wed (311,111); the correct order after Thu is Tue then Wed. Relatedly, the claim of "a steady build to Friday" is not what the numbers show — Tue (313,488) dips below... rather Tue exceeds Wed (311,111), so the pattern is not monotone across weekdays.
+
+UNVERIFIED:
+- Whether the parquet actually contains data for all of 2013-01-01 to 2025-12-31 (no missing dates/under-count), and whether DuckDB's `%u` weekday mapping behaves as assumed — both would need the data file or running code.

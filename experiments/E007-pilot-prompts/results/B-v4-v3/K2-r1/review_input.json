@@ -1,0 +1,16 @@
+{
+ "item": "K2-r1",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/K2-r1",
+ "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+ "chart": {
+  "attached": true,
+  "sha": "3a387d55ef1f2a73"
+ },
+ "values_sha": "895f9b269ba87793",
+ "answer": "Across 2013\u20132025 NYC recorded 2,132,218 crashes, and the weekly pattern is a steady build to Friday followed by a weekend drop: Fri is the peak (338,800; 15.9%; ~500/day), Thu next (318,376; 470/day), then Wed (311,111), Tue (313,488) and Mon the softest weekday (304,518; 449/day), while Sat falls to 288,381 (425/day) and Sunday is the clear low at 257,544 (12.1%; ~380/day) \u2014 Friday sees 32% more crashes than Sunday, and weekdays (5 of 7 days) carry 74.4% of all crashes.",
+ "code_sha": "deeb327359010c37",
+ "dictionary_sha": "b208381a6a6226f2",
+ "prompt_file": "B_critique.v4.md",
+ "prompt_sha": "f8bfefe032067c9d",
+ "rendered_prompt_sha": "d96c3226616ae8e6"
+}

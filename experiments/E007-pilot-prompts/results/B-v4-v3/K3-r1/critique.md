@@ -1,0 +1,7 @@
+CHART CHECK: Grouped bar chart with years 2013–2025 on x-axis, deaths (police-reported) on y-axis (0–140+), legend distinguishing motorist (blue) and cyclist (orange) deaths, every bar labeled with its value, and a box showing 13-yr totals (motorist 1377, cyclist 277, ratio 5.0:1). All 26 bar labels match values.csv exactly; the totals box matches the column sums (1377 and 277) and 1377/277 ≈ 5.0.
+
+ISSUES: NONE
+
+UNVERIFIED:
+- Whether the yearly sums in values.csv match the actual crashes.parquet contents (would need the data file / code run).
+- Whether the data actually covers the full years 2013–2025 (e.g., a partial 2025 or missing rows), which the chart and values alone cannot show.

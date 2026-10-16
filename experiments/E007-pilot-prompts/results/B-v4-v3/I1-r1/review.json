@@ -1,0 +1,28 @@
+{
+ "verdict": "issues",
+ "chart_check": "Left panel: blue bars of motorist (occupant) deaths 2013\u20132025 (labeled 110 and 81) with a red line of all road-user deaths, y-axis \"Deaths per year\" 0\u2013300; right panel: hyperbolic curve of the 2025-vs-2013 risk index against miles-driven assumption (x 60\u2013120%, y 55\u2013180) with a black break-even dot at 74%/100, a red dot at 100%/74 labeled \"miles flat: 74 (risk -26%)\", and unlabeled green (60\u2013100) / red (100\u2013120) shading. Every value I could read matches values.csv: bars 110\u202681, line endpoints 297 and 229, curve \u2248123 at 60%, 74 at 100%, \u224861 at 120%, break-even 81/110 = 73.6% \u2248 74%, drop \u221226.4% \u2248 \u221226%.",
+ "issues": [
+  {
+   "n": 1,
+   "text": "Right-panel shading is misleading: the green span (60\u2013100% miles) and red span (100\u2013120%) are unlabeled, and they do not track the risk outcome \u2014 risk index \u2264 100 only for miles \u2265 74%, so the green zone contains the 60\u201374% range where risk rises (up to ~123), while the entire red zone is risk-decline. Either move the boundary to 74% (if colors mean risk up/down) or add a legend saying the colors mean miles below/above 2013."
+  },
+  {
+   "n": 2,
+   "text": "Written answer's conclusion rests on \"with NYC driving roughly back to pre-pandemic levels\" \u2014 no column in crashes.parquet measures miles driven, so the material cannot support that claim about NYC driving; it should be worded as an explicit assumption (\"if 2025 mileage is at least ~74% of 2013, risk per mile fell ~26%\"), which the break-even framing already provides."
+  },
+  {
+   "n": 3,
+   "text": "values.csv column `motorist_deaths_per_mile_index` is misnamed: the code computes `motorist_killed / motorist_killed_2013 * 100`, i.e. a deaths index holding VMT flat, not a per-mile quantity; the name asserts a per-mile risk the data cannot produce (e.g. 2016 = 65.45 is \"deaths index under flat miles\", not deaths per mile)."
+  },
+  {
+   "n": 4,
+   "text": "Answer's caveat \"injury counts stayed flat\" is contradicted by values.csv: persons_injured falls from 61,391 (2019) / 61,940 (2018) to 49,634 (2025), about \u221219\u201320%; what is true is that injuries fell far less than crash reports (211,486 \u2192 85,546, \u221260%), so \"stayed flat\" should be reworded."
+  }
+ ],
+ "unverified": [
+  "Whether the yearly aggregates match crashes.parquet (needs running the query).",
+  "Whether 2025 is a complete year in the source file (a partial 2025 would change 81, the \u221226% drop and the 74% break-even).",
+  "The internal inconsistency visible in values.csv for 2017 \u2014 107 + 127 + 27 = 261 > persons_killed 256 \u2014 whether that comes from the source data or the aggregation (all other years have subcategory sums \u2264 total).",
+  "What actual NYC miles driven did 2013\u21922025 do (needed to turn the break-even into a definitive yes; outside the allowed data)."
+ ]
+}
