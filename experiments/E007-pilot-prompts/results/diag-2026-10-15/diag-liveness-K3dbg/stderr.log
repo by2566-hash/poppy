@@ -1,0 +1,28 @@
+timestamp=2026-10-16T03:25:36.265Z level=INFO run=fc4c2ff8 message="creating instance" directory=/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/diag-liveness/K3dbg
+timestamp=2026-10-16T03:25:36.266Z level=INFO run=fc4c2ff8 message=fromDirectory directory=/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/diag-liveness/K3dbg
+timestamp=2026-10-16T03:25:36.273Z level=INFO run=fc4c2ff8 message=bootstrapping directory=/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/diag-liveness/K3dbg
+timestamp=2026-10-16T03:25:36.276Z level=INFO run=fc4c2ff8 message=loading path=/Users/yubo/.config/opencode/config.json
+timestamp=2026-10-16T03:25:36.276Z level=INFO run=fc4c2ff8 message=loading path=/Users/yubo/.config/opencode/opencode.json
+timestamp=2026-10-16T03:25:36.276Z level=INFO run=fc4c2ff8 message=loading path=/Users/yubo/.config/opencode/opencode.jsonc
+timestamp=2026-10-16T03:25:36.279Z level=INFO run=fc4c2ff8 message=loading path=/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/diag-liveness/K3dbg/opencode.json
+timestamp=2026-10-16T03:25:36.312Z level=INFO run=fc4c2ff8 message="all LSPs are disabled"
+timestamp=2026-10-16T03:25:36.313Z level=INFO run=fc4c2ff8 message="all formatters are disabled"
+timestamp=2026-10-16T03:25:36.313Z level=INFO run=fc4c2ff8 message=init
+timestamp=2026-10-16T03:25:36.376Z level=INFO run=fc4c2ff8 message=created id=ses_ebd419b08ffer0h5Z26b2SEGg5 slug=hidden-pixel version=1.18.34 projectID=global directory=/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/diag-liveness/K3dbg path=Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/diag-liveness/K3dbg workspaceID=undefined parentID=undefined title="New session - 2026-10-16T03:25:36.376Z" agent=undefined model=undefined metadata=undefined permission="[{\"permission\":\"question\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"plan_enter\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"plan_exit\",\"pattern\":\"*\",\"action\":\"deny\"}]" cost=0 tokens.input=0 tokens.output=0 tokens.reasoning=0 tokens.cache.read=0 tokens.cache.write=0 time.created=1792121136376 time.updated=1792121136376
+timestamp=2026-10-16T03:25:36.382Z level=INFO run=fc4c2ff8 message="event connected"
+timestamp=2026-10-16T03:25:36.401Z level=INFO run=fc4c2ff8 message=file mime=text/plain
+timestamp=2026-10-16T03:25:36.402Z level=INFO run=fc4c2ff8 message="shell tool using shell" shell=/bin/zsh
+timestamp=2026-10-16T03:25:36.635Z level=INFO run=fc4c2ff8 message=loop session.id=ses_ebd419b08ffer0h5Z26b2SEGg5 step=0
+timestamp=2026-10-16T03:25:36.642Z level=INFO run=fc4c2ff8 message=init count=1
+timestamp=2026-10-16T03:25:36.649Z level=INFO run=fc4c2ff8 message=stream providerID=opencode modelID=mimo-v2.6-flash-free session.id=ses_ebd419b08ffer0h5Z26b2SEGg5 small=true agent=title mode=primary
+timestamp=2026-10-16T03:25:36.657Z level=INFO run=fc4c2ff8 message="llm runtime selected" llm.runtime=ai-sdk llm.provider=opencode llm.model=mimo-v2.6-flash-free
+timestamp=2026-10-16T03:25:36.963Z level=INFO run=fc4c2ff8 message="watcher backend" directory=/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/diag-liveness/K3dbg platform=darwin backend=fs-events
+timestamp=2026-10-16T03:25:36.969Z level=INFO run=fc4c2ff8 message="project copy refresh started" projectID=global
+timestamp=2026-10-16T03:25:36.970Z level=INFO run=fc4c2ff8 message="project copy refresh done" projectID=global updated=[] removed=[]
+timestamp=2026-10-16T03:25:36.980Z level=INFO run=fc4c2ff8 message="booting location services" directory=/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/diag-liveness/K3dbg workspaceID=undefined
+timestamp=2026-10-16T03:25:37.112Z level=INFO run=fc4c2ff8 message=process session.id=ses_ebd419b08ffer0h5Z26b2SEGg5 messageID=msg_142be65fc001cQ3ipWvyEQgPOa
+timestamp=2026-10-16T03:25:37.113Z level=INFO run=fc4c2ff8 message=stream providerID=opencode modelID=mimo-v2.6-flash-free session.id=ses_ebd419b08ffer0h5Z26b2SEGg5 small=false agent=build mode=primary
+timestamp=2026-10-16T03:25:37.119Z level=INFO run=fc4c2ff8 message="llm runtime selected" llm.runtime=ai-sdk llm.provider=opencode llm.model=mimo-v2.6-flash-free
+timestamp=2026-10-16T03:28:53.211Z level=INFO run=fc4c2ff8 message=loop session.id=ses_ebd419b08ffer0h5Z26b2SEGg5 step=1
+timestamp=2026-10-16T03:28:53.213Z level=INFO run=fc4c2ff8 message="exiting loop" session.id=ses_ebd419b08ffer0h5Z26b2SEGg5
+timestamp=2026-10-16T03:28:53.218Z level=INFO run=fc4c2ff8 message="disposing instance" directory=/Users/yubo/Documents/Honda/poppy-sandbox/E007/_review/diag-liveness/K3dbg

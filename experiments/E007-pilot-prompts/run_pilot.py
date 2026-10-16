@@ -46,6 +46,7 @@ CONFIG_ANALYSIS = HERE / "config" / "opencode.analysis.json"
 CONFIG_REVIEW = HERE / "config" / "opencode.review.json"
 STEPS = json.loads(CONFIG_ANALYSIS.read_text())["agent"]["build"]["steps"]
 TIMEOUT = 600
+REVIEW_TIMEOUT = 420   # every finished review took < 400 s; the review has no code to run
 CONCURRENCY = int(os.environ.get("PILOT_CONCURRENCY", "1"))
 SUFFIX = "" if MODEL == "mimo-v2.6-flash-free" else f"-{MODEL}"   # keep other models' runs separate
 QS = {q["id"]: q for q in json.loads((HERE / "pilot_questions.json").read_text())["questions"]}
@@ -177,10 +178,10 @@ def changed_columns(before, after):
 
 B_STATES = {   # every B item ends in exactly one of these
     "skipped_no_A_answer": "A has no answer: B not run; both arms fail the item",
-    "review_infra_failure": "review call failed before a step (rate limit, crash): retry, not scored",
+    "review_infra_failure": "review call failed before a step, or its stream stalled twice (rate limit, crash, stall): not scored",
     "review_failure": "review ran but gave no parseable ISSUES block: B fails the item, no revise",
     "none_carried_forward": "review said NONE: A's outputs are B's outputs",
-    "revise_infra_failure": "revise call failed before a step: retry, not scored",
+    "revise_infra_failure": "revise call failed before a step, or its stream stalled twice: not scored",
     "revise_incomplete": "revise ran but no ANSWER or no revised files (step cap, timeout): B fails the item",
     "revised": "review listed issues and revise finished",
 }
@@ -188,10 +189,11 @@ B_STATES = {   # every B item ends in exactly one of these
 
 def b_state(m, r2, review_steps):
     if not m.get("review_ok"):
-        return "review_infra_failure" if review_steps == 0 and not r2["text"].strip() else "review_failure"
+        infra = (review_steps == 0 and not r2["text"].strip()) or r2.get("stalled")
+        return "review_infra_failure" if infra else "review_failure"
     if m.get("says_none"):
         return "none_carried_forward"
-    if m.get("revise_rate_limited") and not m.get("revise_steps"):
+    if (m.get("revise_rate_limited") and not m.get("revise_steps")) or m.get("revise_stalled"):
         return "revise_infra_failure"
     done = m.get("answer_ok") and m.get("revised_png") and m.get("revised_values")
     return "revised" if done else "revise_incomplete"
@@ -231,7 +233,7 @@ def run_analysis(job):
     ans = answer_of(r["text"])
     meta = {"q": q, "rep": rep, "label": label, "type": QS[q]["type"],
             "call_ok": r["exit"] == 0 and not r["timed_out"] and not r["errors"], "timed_out": r["timed_out"],
-            "rate_limited": r["rate_limited"], "attempts": r["attempts"], "secs": r["secs"],
+            "rate_limited": r["rate_limited"], "stalled": r["stalled"], "attempts": r["attempts"], "secs": r["secs"],
             "steps": steps, "hit_step_limit": steps >= STEPS, "tool_calls": r["tool_calls"], "tokens": r["tokens"],
             "net_calls": net_calls(sb / "events.jsonl"),
             "png": (sb / "out" / "initial.png").exists(), "values": (sb / "out" / "values.csv").exists(),
@@ -300,8 +302,11 @@ def run_B(job):
     crit_prompt = Path(crit_file).read_text().format(question=question, dictionary=DATA_DICTIONARY, chart_note=chart_note,
                                                       values=values, answer=answer, code=code)
     # Typed record of exactly what the reviewer received, so the review can be evaluated on its own.
-    (sb / "review_prompt.md").write_text(crit_prompt)
-    (sb / "review_input.json").write_text(json.dumps({
+    # Review records are written next to the review run (outside the revise sandbox) and copied into the item
+    # folder after revise: the reviser must only see the ISSUES list, not critique.md / UNVERIFIED (E007 iteration 2:
+    # K2's reviser read critique.md from its folder).
+    (rd / "review_prompt.md").write_text(crit_prompt)
+    (rd / "review_input.json").write_text(json.dumps({
         "item": f"{q}-r{rep}", "a_source": str(src.relative_to(ROOT)), "question": question,
         "chart": {"attached": bool(files), "sha": sha(chart) if chart.exists() else None},
         "values_sha": sha(values_path) if values_path.exists() else None, "answer": answer,
@@ -309,19 +314,19 @@ def run_B(job):
         "dictionary_sha": hashlib.sha256(DATA_DICTIONARY.encode()).hexdigest()[:16],
         "prompt_file": Path(crit_file).name, "prompt_sha": sha(crit_file),
         "rendered_prompt_sha": hashlib.sha256(crit_prompt.encode()).hexdigest()[:16]}, indent=1))
-    r2 = call_model(rd, crit_prompt, timeout=TIMEOUT, files=files)
+    r2 = call_model(rd, crit_prompt, timeout=REVIEW_TIMEOUT, files=files)
     critique = r2["text"].strip()
-    (sb / "critique.md").write_text(critique)
-    shutil.copytree(rd, sb / "review", ignore=shutil.ignore_patterns(".ocdata", ".bin"), dirs_exist_ok=True)
+    (rd / "critique.md").write_text(critique)
     parsed = parse_review(critique)
-    (sb / "review.json").write_text(json.dumps({
+    (rd / "review.json").write_text(json.dumps({
         "verdict": "none" if parsed["none"] else "issues" if parsed["issues"] else "unparseable",
         "chart_check": parsed["chart_check"],
         "issues": [{"n": n, "text": t} for n, t in parsed["issues"]],   # routed to revise
         "unverified": parsed["unverified"]}, indent=1))                 # recorded only
     call_ok = r2["exit"] == 0 and not r2["timed_out"] and not r2["errors"]
     review = {"review_ok": call_ok and parsed["parsed"], "review_call_ok": call_ok, "review_parsed": parsed["parsed"],
-              "review_rate_limited": r2["rate_limited"], "review_secs": r2["secs"], "review_tokens": r2["tokens"],
+              "review_rate_limited": r2["rate_limited"], "review_stalled": r2["stalled"], "review_attempts": r2["attempts"],
+              "review_secs": r2["secs"], "review_tokens": r2["tokens"],
               "review_steps": steps_in(rd / "events.jsonl"), "review_tool_calls": r2["tool_calls"],
               "review_side_effects": side_effects(rd / "events.jsonl"), "review_dir": str(rd), "chart_attached": bool(files),
               "n_issues": len(parsed["issues"]), "says_none": parsed["none"],
@@ -345,7 +350,7 @@ def run_B(job):
         issues_text = "\n".join(f"{n}. {t}" for n, t in parsed["issues"])
         rev_prompt = Path(rev_file).read_text().format(question=question, dictionary=DATA_DICTIONARY, code=code,
                                                        values=values, answer=answer, critique=issues_text)
-        (sb / "revise_prompt.md").write_text(rev_prompt)
+        (rd / "revise_prompt.md").write_text(rev_prompt)
         r3 = call_model(sb, rev_prompt, timeout=TIMEOUT,
                         protect=[sb / "out" / "initial.png", sb / "out" / "values.csv"])   # A's "before" stays intact
         r3_text = r3["text"]
@@ -353,7 +358,8 @@ def run_B(job):
         (sb / "changes.json").write_text(json.dumps({"issues_sent": [n for n, _ in parsed["issues"]],
                                                      "changes": changes}, indent=1))
         rev = {"revise_skipped": False, "revise_ok": r3["exit"] == 0 and not r3["timed_out"] and not r3["errors"],
-               "revise_rate_limited": r3["rate_limited"], "revise_secs": r3["secs"], "revise_tokens": r3["tokens"],
+               "revise_rate_limited": r3["rate_limited"], "revise_stalled": r3["stalled"], "revise_attempts": r3["attempts"],
+               "revise_secs": r3["secs"], "revise_tokens": r3["tokens"],
                "revise_steps": steps_in(sb / "events.jsonl"), "revise_tool_calls": r3["tool_calls"],
                "revise_net_calls": net_calls(sb / "events.jsonl"),
                "changes_listed": "CHANGES:" in r3_text, "changes": changes,
@@ -361,6 +367,10 @@ def run_B(job):
                                        all(v in CHANGE_STATUS for v in changes.values())}
         final_answer = answer_of(r3_text)
     (sb / "response.md").write_text(r3_text)
+    for name in ("critique.md", "review_prompt.md", "review_input.json", "review.json", "revise_prompt.md"):
+        if (rd / name).exists():
+            shutil.copy(rd / name, sb / name)
+    shutil.copytree(rd, sb / "review", ignore=shutil.ignore_patterns(".ocdata", ".bin", "critique.md", "review_*", "revise_prompt.md"), dirs_exist_ok=True)
     meta = {"q": q, "rep": rep, "label": label, "a_label": a_label, "type": QS[q]["type"],
             "a_source": str(src.relative_to(ROOT)),
             "a_git_commit": (a_meta.get("env") or {}).get("git_commit"),   # None for runs made before env logging

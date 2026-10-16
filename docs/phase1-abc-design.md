@@ -85,6 +85,7 @@ Summary table per arm: gate pass rate, mean 0–12, Δ vs A, improved/same/worse
 - 18 items detect only large effects. B vs A: paired tests (McNemar on gate pass, sign test on score change). C vs A: compare pass rates descriptively. Phase 1 is a pilot.
 - Clear questions contain few traps, so B's reviewer has little to find and flips are the main risk. Questions 7–10 (ambiguous / insufficient evidence) are where review should matter; include them when possible. Items where A gives no answer do not reach B (§9), so report A's completion rate per question type.
 - B spends up to 3× the runs of A and C; part of any gain may come from extra compute.
+- Not in phase 1 (recorded 2026-10-15, Bo: do not change B's architecture now): a revise step that first declares its scope (text only / code) and copies the chart when only the text changes. In the pilot, text-only fixes still re-ran the full analysis (K2: 9 steps). Report B's cost split into review cost and re-run cost so readers can see which part is engineering overhead. Candidate for the next phase.
 - Not in phase 1: a variant that merges ③ and ④ into one run. It would separate "independent review" from "separate runs", and can be added later from A's saved outputs without re-running anything.
 
 ## 8. Pilot round before the formal runs (teammate suggestion)

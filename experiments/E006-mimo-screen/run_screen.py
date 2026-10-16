@@ -47,14 +47,22 @@ def sandbox_shims(sb, protect=()):
     return d
 
 
-def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files=(), protect=()):
+# Stall detection is OFF by default. OpenCode's JSON stream (and its DB and logs, even at DEBUG) emit nothing while
+# the model reasons, and a single review step on mimo was silent for up to 400 s, so "no event for N seconds" cannot
+# tell a stuck stream from a long thought (E007, 2026-10-15: a 120 s rule killed two legitimate runs). Opt in per call.
+STALL = None
+
+
+def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files=(), protect=(), stall=STALL):
     """One `opencode run`. Detects the free tier's rate limiting (which otherwise looks like a hang:
     OpenCode retries 3 times, then waits, with an empty event stream), stops immediately, and retries with
-    backoff when no step had started. Returns the final attempt plus `rate_limited` / `attempts`."""
+    backoff when no step had started. Optional `stall` (seconds without an event) kills and retries once;
+    off by default, see STALL. Returns the final attempt plus `rate_limited` / `stalled` / `attempts`."""
     env = dict(os.environ, XDG_DATA_HOME=str(sb / ".ocdata"),
                PATH=os.pathsep.join([str(sandbox_shims(sb, protect)), os.environ.get("PATH", "")]))
     for attempt in range(1, max_attempts + 1):
-        t0 = time.time(); code = None; timed_out = False; rate_limited = False
+        t0 = time.time(); code = None; timed_out = False; rate_limited = False; stalled = False
+        last_size, last_change = 0, t0
         with open(sb / "events.jsonl", "w") as out, open(sb / "stderr.log", "w") as err:
             proc = subprocess.Popen(["opencode", "run", "--pure", "--print-logs", "--log-level", "ERROR", "--format", "json",
                                      "-m", f"opencode/{MODEL}", "--dir", str(sb)] + [a for f in files for a in ("-f", str(f))] + ["--", prompt],
@@ -65,6 +73,11 @@ def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files
                 time.sleep(2)
                 if "Rate limit exceeded" in (sb / "stderr.log").read_text(errors="ignore"):
                     proc.kill(); rate_limited = True; break
+                size = (sb / "events.jsonl").stat().st_size
+                if size != last_size:
+                    last_size, last_change = size, time.time()
+                elif stall and time.time() - last_change > stall:
+                    proc.kill(); stalled = True; break
             code = proc.wait()
         text, tools, tok, errors, steps = [], 0, {"input": 0, "output": 0}, [], 0
         for l in (sb / "events.jsonl").read_text().splitlines():
@@ -79,10 +92,14 @@ def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files
             elif e.get("type") == "error": errors.append(str(e)[:300])
         if rate_limited:
             errors.append("RATE_LIMITED: Rate limit exceeded")
+        if stalled:
+            errors.append(f"STALLED: no event for {stall} s after {steps} step(s)")
         if rate_limited and steps == 0 and attempt < max_attempts:
             time.sleep(backoff[min(attempt - 1, len(backoff) - 1)]); continue
+        if stalled and attempt < 2:
+            time.sleep(30); continue
         break
-    return {"text": "\n".join(text), "exit": code, "timed_out": timed_out, "secs": round(time.time() - t0, 1),
+    return {"text": "\n".join(text), "exit": code, "timed_out": timed_out, "secs": round(time.time() - t0, 1), "stalled": stalled,
             "tool_calls": tools, "tokens": tok, "errors": errors, "rate_limited": rate_limited, "attempts": attempt}
 
 def parse(text):
