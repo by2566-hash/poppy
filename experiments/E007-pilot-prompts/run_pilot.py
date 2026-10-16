@@ -234,6 +234,7 @@ def run_analysis(job):
     meta = {"q": q, "rep": rep, "label": label, "type": QS[q]["type"],
             "call_ok": r["exit"] == 0 and not r["timed_out"] and not r["errors"], "timed_out": r["timed_out"],
             "rate_limited": r["rate_limited"], "stalled": r["stalled"], "attempts": r["attempts"], "secs": r["secs"],
+            "zero_output_retries": r["zero_output_retries"], "secs_total": r["secs_total"],
             "steps": steps, "hit_step_limit": steps >= STEPS, "tool_calls": r["tool_calls"], "tokens": r["tokens"],
             "net_calls": net_calls(sb / "events.jsonl"),
             "png": (sb / "out" / "initial.png").exists(), "values": (sb / "out" / "values.csv").exists(),
@@ -326,6 +327,7 @@ def run_B(job):
     call_ok = r2["exit"] == 0 and not r2["timed_out"] and not r2["errors"]
     review = {"review_ok": call_ok and parsed["parsed"], "review_call_ok": call_ok, "review_parsed": parsed["parsed"],
               "review_rate_limited": r2["rate_limited"], "review_stalled": r2["stalled"], "review_attempts": r2["attempts"],
+              "review_zero_output_retries": r2["zero_output_retries"], "review_secs_total": r2["secs_total"],
               "review_secs": r2["secs"], "review_tokens": r2["tokens"],
               "review_steps": steps_in(rd / "events.jsonl"), "review_tool_calls": r2["tool_calls"],
               "review_side_effects": side_effects(rd / "events.jsonl"), "review_dir": str(rd), "chart_attached": bool(files),
@@ -359,6 +361,7 @@ def run_B(job):
                                                      "changes": changes}, indent=1))
         rev = {"revise_skipped": False, "revise_ok": r3["exit"] == 0 and not r3["timed_out"] and not r3["errors"],
                "revise_rate_limited": r3["rate_limited"], "revise_stalled": r3["stalled"], "revise_attempts": r3["attempts"],
+               "revise_zero_output_retries": r3["zero_output_retries"], "revise_secs_total": r3["secs_total"],
                "revise_secs": r3["secs"], "revise_tokens": r3["tokens"],
                "revise_steps": steps_in(sb / "events.jsonl"), "revise_tool_calls": r3["tool_calls"],
                "revise_net_calls": net_calls(sb / "events.jsonl"),

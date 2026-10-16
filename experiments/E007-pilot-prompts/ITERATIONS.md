@@ -169,3 +169,16 @@ Two diagnostic re-runs, same prompt and input: both finished in one step with 0 
 - Conclusion: detector off by default; steps stay 15; review timeout 420 s is the only safe cost cap. Evidence under `results/diag-2026-10-15/`.
 - Variance note: the same K3 review took 62 s in iteration 2 and 198 s in the probe; A2 reviews took 164–399 s. Review time on mimo varies 3× for identical input.
 
+
+## B v4: prompt for iteration 3 (2026-10-16, decided by Bo)
+
+`B_critique.v4.md` = v3 with two edits; `B_revise.v3.md` unchanged. Diff against v3:
+
+| Edit | Observed failure it targets |
+|---|---|
+| Removed "Only the ISSUES list is passed on … Finding no problems is a normal result; do not list something just to have an issue." | Iteration 2: K1 "(pandemic)" and K3 "gap widest in 2013" (ratio only) not flagged; v2 and the v3 end-to-end test flagged the same kind. Bo: on ambiguous / insufficient-evidence questions this sentence suppresses exactly the findings we need |
+| CHART CHECK: "write down what you see: axes and units, labels and legend, and whether the numbers shown match values.csv. If a part of the image is unclear to you, say so under UNVERIFIED." (dropped "cut-off or overlapping elements") | Iteration 2 A2: pixel-geometry reasoning on overlap (37k characters), a second image read, then a stalled second request |
+
+Known trade-off: edit 1 may bring back some v2-style false triggers on correct answers; edit 2 may lose chart-only findings such as I1's misplaced shading. Both are effects, observed in the formal run, not tuned here.
+
+Harness for iteration 3: zero-output timeout retried once (unit-tested with a fake `opencode`: silent run retried once, run with partial text not retried); review timeout 420 s; reviser isolation fix in place.

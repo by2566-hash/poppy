@@ -60,7 +60,8 @@ def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files
     off by default, see STALL. Returns the final attempt plus `rate_limited` / `stalled` / `attempts`."""
     env = dict(os.environ, XDG_DATA_HOME=str(sb / ".ocdata"),
                PATH=os.pathsep.join([str(sandbox_shims(sb, protect)), os.environ.get("PATH", "")]))
-    for attempt in range(1, max_attempts + 1):
+    zero_output_retries = 0; t_first = time.time()
+    for attempt in range(1, max_attempts + 2):
         t0 = time.time(); code = None; timed_out = False; rate_limited = False; stalled = False
         last_size, last_change = 0, t0
         with open(sb / "events.jsonl", "w") as out, open(sb / "stderr.log", "w") as err:
@@ -98,8 +99,14 @@ def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files
             time.sleep(backoff[min(attempt - 1, len(backoff) - 1)]); continue
         if stalled and attempt < 2:
             time.sleep(30); continue
+        # Zero-output timeout (E007 PROTOCOL 2026-10-16): the run hit the timeout without producing any text.
+        # Client-side it cannot be told apart from a stalled provider stream, so it is retried once from scratch;
+        # if the retry also times out with no text, the result is returned as is and scored under section 9.
+        if timed_out and not "".join(text).strip() and zero_output_retries < 1:
+            zero_output_retries += 1; time.sleep(30); continue
         break
     return {"text": "\n".join(text), "exit": code, "timed_out": timed_out, "secs": round(time.time() - t0, 1), "stalled": stalled,
+            "zero_output_retries": zero_output_retries, "secs_total": round(time.time() - t_first, 1),
             "tool_calls": tools, "tokens": tok, "errors": errors, "rate_limited": rate_limited, "attempts": attempt}
 
 def parse(text):
