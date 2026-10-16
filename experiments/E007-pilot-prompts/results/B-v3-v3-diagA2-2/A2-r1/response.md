@@ -1,0 +1,6 @@
+Confirmed root cause of issue 2: `number_of_persons_injured` has 18 NULLs and `number_of_persons_killed` has 8,913 NULLs, so `SUM(injured + killed)` silently drops those rows while `SUM(injured)`/`SUM(killed)` don't. Now the revised script:
+CHANGES:
+1. fixed: Recomputed the multiplier from values — 4 am peak 6.35 vs midday mean (hours 12–13) 0.99 = 6.41×, so the answer now says "~6.4× the midday rate" (the chart's "8× the 4 pm rate" annotation was already correct and is unchanged).
+2. fixed: Root cause was NULLs (18 injured, 8,913 killed rows): `SUM(injured + killed)` dropped rows where either field was NULL while `SUM(injured)`/`SUM(killed)` treated them as 0. Changed the query to `SUM(COALESCE(number_of_persons_injured,0) + COALESCE(number_of_persons_killed,0))`; `harmed` now equals injured + killed for all 24 hours (e.g. hour 8: 36,443, hour 0: 29,606).
+
+ANSWER: Yes — daytime (7am–6pm) has the most crashes (~1.54M), but night crashes are far deadlier: 0.39 injuries/crash vs 0.30 by day, and ~28 fatalities per 10,000 night crashes vs ~10 by day; 4 am is the most dangerous hour, with ~6.4 deaths per 1,000 crashes, ~6.4× the midday rate.

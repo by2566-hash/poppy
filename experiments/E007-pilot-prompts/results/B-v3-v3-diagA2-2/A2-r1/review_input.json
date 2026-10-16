@@ -1,0 +1,16 @@
+{
+ "item": "A2-r1",
+ "a_source": "experiments/E007-pilot-prompts/results/A-v1/A2-r1",
+ "question": "Are NYC's streets more dangerous at night? Make a chart and give a conclusion for a news report.",
+ "chart": {
+  "attached": true,
+  "sha": "2247ebbcca9be544"
+ },
+ "values_sha": "37398d73b8cb03da",
+ "answer": "Yes \u2014 daytime (7am\u20136pm) has the most crashes (~1.54M), but night crashes are far deadlier: 0.39 injuries/crash vs 0.30 by day, and ~28 fatalities per 10,000 night crashes vs ~10 by day; 4 am is the most dangerous hour, with ~6.4 deaths per 1,000 crashes, 8\u00d7 the midday rate.",
+ "code_sha": "a65dd6261b28be5f",
+ "dictionary_sha": "b208381a6a6226f2",
+ "prompt_file": "B_critique.v3.md",
+ "prompt_sha": "32467d01d0871899",
+ "rendered_prompt_sha": "a5e3118738fb6346"
+}
