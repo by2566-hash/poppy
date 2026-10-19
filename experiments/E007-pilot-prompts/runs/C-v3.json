@@ -1,0 +1,248 @@
+[
+ {
+  "q": "K1",
+  "rep": 1,
+  "label": "C-v3",
+  "type": "clear",
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 42.1,
+  "zero_output_retries": 0,
+  "secs_total": 42.1,
+  "steps": 7,
+  "hit_step_limit": false,
+  "tool_calls": 8,
+  "tokens": {
+   "input": 8923,
+   "output": 1392
+  },
+  "net_calls": 0,
+  "png": true,
+  "values": true,
+  "answer": "Pedestrian deaths in NYC crashes fell from 176 in 2013 (the period high) to 119 in 2025, a drop of 57 (-32%). Yearly totals were 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, 119 for 2013 through 2025 (total 1,690; average ~130/year). The low was 101 in 2020; since 2020 every year has stayed between 101 and 135, below the 2013 level.",
+  "answer_ok": true,
+  "errors": [],
+  "env": {
+   "model": "mimo-v2.6-flash-free",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "12d0cf6",
+   "prompt_sha": {
+    "C_selfcheck.v3.md": "96250d0fc29b340f"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": true
+ },
+ {
+  "q": "K2",
+  "rep": 1,
+  "label": "C-v3",
+  "type": "clear",
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 164.3,
+  "zero_output_retries": 0,
+  "secs_total": 164.3,
+  "steps": 15,
+  "hit_step_limit": true,
+  "tool_calls": 18,
+  "tokens": {
+   "input": 18016,
+   "output": 3953
+  },
+  "net_calls": 0,
+  "png": true,
+  "values": true,
+  "answer": null,
+  "answer_ok": false,
+  "errors": [],
+  "env": {
+   "model": "mimo-v2.6-flash-free",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "e124332",
+   "prompt_sha": {
+    "C_selfcheck.v3.md": "96250d0fc29b340f"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": false
+ },
+ {
+  "q": "K3",
+  "rep": 1,
+  "label": "C-v3",
+  "type": "clear",
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 54.1,
+  "zero_output_retries": 0,
+  "secs_total": 54.1,
+  "steps": 8,
+  "hit_step_limit": false,
+  "tool_calls": 12,
+  "tokens": {
+   "input": 7995,
+   "output": 1578
+  },
+  "net_calls": 0,
+  "png": true,
+  "values": true,
+  "answer": "Motorist deaths exceeded cyclist deaths in every year from 2013 to 2025 \u2014 1,377 motorists vs 277 cyclists killed over the period, about 5 times as many. Motorist deaths ranged from a low of 72 (2016) to a peak of 139 (2020), ending at 81 in 2025 \u2014 26% below 2013's 110. Cyclist deaths moved the other way, roughly doubling from 11 in 2013 to 23 in 2025, with peaks of 31 in 2019 and 2023 and a low of 10 in 2018. Consequently the gap narrowed: motorists outnumbered cyclists 10-to-1 in 2013 but only about 3.5-to-1 by 2025. These are counts of people killed in police-reported crashes, not risk rates (no exposure/population data).",
+  "answer_ok": true,
+  "errors": [],
+  "env": {
+   "model": "mimo-v2.6-flash-free",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "e124332",
+   "prompt_sha": {
+    "C_selfcheck.v3.md": "96250d0fc29b340f"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": true
+ },
+ {
+  "q": "A1",
+  "rep": 1,
+  "label": "C-v3",
+  "type": "ambiguous",
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 315.1,
+  "zero_output_retries": 0,
+  "secs_total": 315.1,
+  "steps": 15,
+  "hit_step_limit": true,
+  "tool_calls": 15,
+  "tokens": {
+   "input": 17857,
+   "output": 4403
+  },
+  "net_calls": 0,
+  "png": false,
+  "values": false,
+  "answer": null,
+  "answer_ok": false,
+  "errors": [],
+  "env": {
+   "model": "mimo-v2.6-flash-free",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "e124332",
+   "prompt_sha": {
+    "C_selfcheck.v3.md": "96250d0fc29b340f"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": false
+ },
+ {
+  "q": "A2",
+  "rep": 1,
+  "label": "C-v3",
+  "type": "ambiguous",
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 405.5,
+  "zero_output_retries": 0,
+  "secs_total": 405.5,
+  "steps": 15,
+  "hit_step_limit": true,
+  "tool_calls": 20,
+  "tokens": {
+   "input": 42092,
+   "output": 6888
+  },
+  "net_calls": 0,
+  "png": true,
+  "values": true,
+  "answer": null,
+  "answer_ok": false,
+  "errors": [],
+  "env": {
+   "model": "mimo-v2.6-flash-free",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "e124332",
+   "prompt_sha": {
+    "C_selfcheck.v3.md": "96250d0fc29b340f"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": false
+ },
+ {
+  "q": "I1",
+  "rep": 1,
+  "label": "C-v3",
+  "type": "insufficient",
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 122.5,
+  "zero_output_retries": 0,
+  "secs_total": 122.5,
+  "steps": 15,
+  "hit_step_limit": true,
+  "tool_calls": 18,
+  "tokens": {
+   "input": 16446,
+   "output": 3450
+  },
+  "net_calls": 0,
+  "png": true,
+  "values": true,
+  "answer": null,
+  "answer_ok": false,
+  "errors": [],
+  "env": {
+   "model": "mimo-v2.6-flash-free",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "e124332",
+   "prompt_sha": {
+    "C_selfcheck.v3.md": "96250d0fc29b340f"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": false
+ }
+]

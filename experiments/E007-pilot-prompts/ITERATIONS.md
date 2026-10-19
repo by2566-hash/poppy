@@ -199,3 +199,20 @@ Harness for iteration 3: zero-output timeout retried once (unit-tested with a fa
 What the two v4 edits did (observations, not acceptance): K1's "(pandemic)" is flagged again and A2's review finished in one 164 s step without pixel-geometry reasoning; K3's "gap" is still missed; no false trigger on a correct item appeared in this run. A2 needed 2 issues where v2 listed 5: v4's review no longer reports the 6.3 vs 6.4 rounding or the legend hour labels.
 
 Decision (PROTOCOL 2026-10-16): iteration 3 is the last; B is frozen at critique v4 + revise v3 (`FROZEN.md`). Team second review of iteration 2 and 3 records is still welcome and is logged here; it can correct a score but not the prompt.
+
+## C v3: the one format check (mimo, 6 pilot questions, 2026-10-19)
+
+Decided by Bo: C = `C_selfcheck.v3.md` (A.v1 plus one self-check sentence whose categories mirror the review's: chart, values and answer agree; numbers traceable to values.csv; every statement something the data can show). Per PROTOCOL scope v2, C gets one format check and no effect tuning.
+
+| Item | Chart + values | ANSWER | Steps | Verdict (step-cap narration = not an answer) |
+|---|---|---|---|---|
+| K1 | yes | yes | 7 | complete |
+| K2 | yes | present but after narration | 15 | not complete: spent the last steps on an extra pandas re-check |
+| K3 | yes | yes | 8 | complete |
+| A1 | no | no | 15 | not complete (same as A: exploration drift) |
+| A2 | yes | after narration | 15 | not complete |
+| I1 | yes | after narration | 15 | not complete |
+
+2/6 complete under the strict rule; 5/6 produced chart and values; no network calls; sandbox held. For comparison, A-v1 r1: K1–K3 and A2 complete in 6–7 steps, A1 and I1 at the cap; C-v1 (pre-freeze draft): 4/6 at 9–15 steps.
+
+Reading: the self-check sentence makes mimo spend its budget on verification passes; on clear questions it roughly doubles the step count (6–7 → 7–15). That is C's cost on this model, and under the fixed 15-step budget it shows up as non-completion. This is a result, not a format defect: the format (chart, values, ANSWER line) was followed whenever the run finished. No edit is made to C (protocol). Expectation for GPT-6 Luna (teammates' E008-lite): faster, fewer steps, so C should complete where mimo did not.

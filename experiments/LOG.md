@@ -112,3 +112,9 @@ Copy entries into the team's Google Sheet when ready.
 - **Setup:** Bo's decisions after iteration 2: two critique edits (removed "finding no problems is a normal result…"; CHART CHECK asks what is seen, not overlap checks), zero-output timeout retried once, iteration 3 is the last. Prompts committed before the run (281692d). Six pilot items, A-v1 r1 inputs.
 - **Result:** contract passes on all 5 runnable items (A1 skipped): no boundary violation, no invented issue, no unflagged change, no stall, no retry, every review one step. K1, K2, A2, I1 revised with real issues; K3 NONE. A2's review finished in 164 s. B frozen: critique v4 + revise v3 (`FROZEN.md` with SHA-256).
 - **Next:** team second review of the records; Bo writes C; formal run plan (10 questions × 3 repeats, split across three machines).
+
+## 2026-10-19 — E007: C fixed (v3) and format-checked; phase-1 comparison set decided; harness for Luna and arm D
+
+- **Setup:** team decided the phase-1 comparison set is the 6 pilot questions (P1–P10 held out for phase 2). Bo fixed C at v3 (A + one self-check sentence mirroring the review's categories); one format-check run on mimo, no tuning. Harness: provider-qualified model ids, `.env` key loading, `POPPY_EXP`/`POPPY_QSET` switches, arm D (`run_pilot.py D`), `check_model_vision.py`.
+- **Result:** C-v3 on mimo: 2/6 complete under the strict rule (K1, K3); K2, A2, I1 produced chart and values but hit the 15-step cap on extra verification passes; A1 drifted like A. The self-check sentence roughly doubles steps on clear questions. No boundary violation. The step cost is C's result on this model, not a format defect.
+- **Next:** teammates run A/B/C on GPT-6 Luna (E008-lite); Bo measures D's step need on K1 and A2 with Luna, sets the cap, then tunes the D prompt on the 6 pilot questions (E009-lite); slides updated to frozen-version outputs.

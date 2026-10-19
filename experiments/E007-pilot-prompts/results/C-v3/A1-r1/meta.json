@@ -1,0 +1,42 @@
+{
+ "q": "A1",
+ "rep": 1,
+ "label": "C-v3",
+ "type": "ambiguous",
+ "call_ok": true,
+ "timed_out": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 315.1,
+ "zero_output_retries": 0,
+ "secs_total": 315.1,
+ "steps": 15,
+ "hit_step_limit": true,
+ "tool_calls": 15,
+ "tokens": {
+  "input": 17857,
+  "output": 4403
+ },
+ "net_calls": 0,
+ "png": false,
+ "values": false,
+ "answer": null,
+ "answer_ok": false,
+ "errors": [],
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "e124332",
+  "prompt_sha": {
+   "C_selfcheck.v3.md": "96250d0fc29b340f"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "complete": false,
+ "collected_by": "by2566-hash"
+}

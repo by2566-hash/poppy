@@ -1,0 +1,42 @@
+{
+ "q": "K3",
+ "rep": 1,
+ "label": "C-v3",
+ "type": "clear",
+ "call_ok": true,
+ "timed_out": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 54.1,
+ "zero_output_retries": 0,
+ "secs_total": 54.1,
+ "steps": 8,
+ "hit_step_limit": false,
+ "tool_calls": 12,
+ "tokens": {
+  "input": 7995,
+  "output": 1578
+ },
+ "net_calls": 0,
+ "png": true,
+ "values": true,
+ "answer": "Motorist deaths exceeded cyclist deaths in every year from 2013 to 2025 \u2014 1,377 motorists vs 277 cyclists killed over the period, about 5 times as many. Motorist deaths ranged from a low of 72 (2016) to a peak of 139 (2020), ending at 81 in 2025 \u2014 26% below 2013's 110. Cyclist deaths moved the other way, roughly doubling from 11 in 2013 to 23 in 2025, with peaks of 31 in 2019 and 2023 and a low of 10 in 2018. Consequently the gap narrowed: motorists outnumbered cyclists 10-to-1 in 2013 but only about 3.5-to-1 by 2025. These are counts of people killed in police-reported crashes, not risk rates (no exposure/population data).",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "mimo-v2.6-flash-free",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "e124332",
+  "prompt_sha": {
+   "C_selfcheck.v3.md": "96250d0fc29b340f"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "complete": true,
+ "collected_by": "by2566-hash"
+}
