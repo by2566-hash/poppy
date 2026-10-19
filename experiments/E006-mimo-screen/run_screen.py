@@ -80,7 +80,10 @@ def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files
                 elif stall and time.time() - last_change > stall:
                     proc.kill(); stalled = True; break
             code = proc.wait()
-        text, tools, tok, errors, steps = [], 0, {"input": 0, "output": 0}, [], 0
+        # All token fields per step, summed. Providers report most of the prompt as cache reads/writes (GPT-6 Luna:
+        # "input" ~ 30 tokens per run, cache_read ~ 100k), so input/output alone understate the cost badly.
+        text, tools, errors, steps = [], 0, [], 0
+        tok = {"input": 0, "output": 0, "reasoning": 0, "cache_read": 0, "cache_write": 0, "total": 0}
         for l in (sb / "events.jsonl").read_text().splitlines():
             try: e = json.loads(l)
             except json.JSONDecodeError: continue
@@ -89,7 +92,11 @@ def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files
             elif e.get("type") == "tool_use": tools += 1
             elif e.get("type") == "step_start": steps += 1
             elif e.get("type") == "step_finish":
-                for k in tok: tok[k] += (p.get("tokens") or {}).get(k, 0)
+                t = p.get("tokens") or {}
+                for k in ("input", "output", "reasoning", "total"):
+                    tok[k] += t.get(k, 0) or 0
+                tok["cache_read"] += (t.get("cache") or {}).get("read", 0) or 0
+                tok["cache_write"] += (t.get("cache") or {}).get("write", 0) or 0
             elif e.get("type") == "error": errors.append(str(e)[:300])
         if rate_limited:
             errors.append("RATE_LIMITED: Rate limit exceeded")

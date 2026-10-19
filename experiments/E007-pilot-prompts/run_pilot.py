@@ -421,7 +421,7 @@ def parse_options(sb):
     opts = raw.get("options") if isinstance(raw, dict) else raw
     if not isinstance(opts, list) or not opts:
         return {"parsed": False, "options": [], "reason": "no options list"}
-    out, framings = [], set()
+    out, framings, analytic = [], set(), set()
     for i, o in enumerate(opts, 1):
         o = o if isinstance(o, dict) else {}
         oid = o.get("id", i)
@@ -432,9 +432,10 @@ def parse_options(sb):
                     "fields_ok": all(o.get(k) not in (None, "") for k in OPTION_FIELDS if k != "id"),
                     "duplicate_framing": framing in framings})
         framings.add(framing)
+        analytic.add(framing[:3])   # metric x denominator x grouping, ignoring chart type
     rec = raw.get("recommended") if isinstance(raw, dict) else None
     return {"parsed": True, "options": out, "recommended": rec, "n_distinct": len(framings),
-            "reason": None}
+            "n_distinct_analytic": len(analytic), "reason": None}
 
 
 def run_enumerate(job):
@@ -457,7 +458,8 @@ def run_enumerate(job):
             "tool_calls": r["tool_calls"], "tokens": r["tokens"], "net_calls": net_calls(sb / "events.jsonl"),
             "options_parsed": po["parsed"], "options_reason": po["reason"], "n_options": len(opts),
             "n_complete_options": sum(o["png"] and o["values"] and o["fields_ok"] for o in opts),
-            "n_distinct_framings": po.get("n_distinct", 0), "recommended": po.get("recommended"),
+            "n_distinct_framings": po.get("n_distinct", 0), "n_distinct_analytic": po.get("n_distinct_analytic", 0),
+            "recommended": po.get("recommended"),
             "options": opts, "answer": ans, "answer_ok": ans is not None, "errors": r["errors"],
             "env": environment([prompt_file])}
     meta["complete"] = (meta["call_ok"] and po["parsed"] and meta["n_complete_options"] == k

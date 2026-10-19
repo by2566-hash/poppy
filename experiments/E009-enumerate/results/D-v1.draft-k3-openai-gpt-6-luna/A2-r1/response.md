@@ -1,0 +1,3 @@
+ANSWER: From 06:00–17:59 there were 1,455,425 reported crashes versus 813,762 from 18:00–05:59, but crash counts alone cannot show which time is riskier per trip or mile.
+Injury-or-fatal crashes made up 28.09% of nighttime reports versus 22.86% of daytime reports, suggesting more harm per reported crash at night, though exposure data is needed to compare travel risk.
+There were 39.29 people injured or killed per 100 nighttime crashes versus 30.25 per 100 daytime crashes, indicating a higher casualty burden per nighttime crash but not establishing greater per-trip risk.

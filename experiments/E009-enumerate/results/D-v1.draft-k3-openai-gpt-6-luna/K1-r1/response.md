@@ -1,0 +1,5 @@
+The file covers all years from 2013 through 2025 in the requested interval. I’ve computed annual totals; I’m preparing three chart forms of the same direct count so each year remains easy to read and compare.
+ANSWER:
+The vertical bar chart shows 176 pedestrian deaths in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.
+The line chart shows 176 pedestrian deaths in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.
+The dot plot shows 176 pedestrian deaths in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.
