@@ -5,7 +5,28 @@ HERE = Path(__file__).resolve().parent
 PROJECT = HERE.parents[1]
 PARQUET = PROJECT / "data" / "processed" / "nyc_crashes.parquet"
 import os
-MODEL = os.environ.get("POPPY_MODEL", "mimo-v2.6-flash-free")  # override: POPPY_MODEL=nemotron-3-ultra-free
+
+
+def load_env_file():
+    """Load KEY=VALUE lines from poppy/.env (git-ignored) into the environment, without overriding
+    variables already set. Used for provider API keys (e.g. OPENAI_API_KEY for gpt-6-luna). The key value
+    never appears in the repo, in logs or in meta.json."""
+    f = PROJECT / ".env"
+    if f.exists():
+        for line in f.read_text().splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+
+load_env_file()
+# Model id as OpenCode names it: "<provider>/<model>". A bare name means the free OpenCode Zen provider.
+#   POPPY_MODEL=mimo-v2.6-flash-free      -> opencode/mimo-v2.6-flash-free   (default)
+#   POPPY_MODEL=openai/gpt-6-luna          -> openai/gpt-6-luna (needs OPENAI_API_KEY, see .env)
+MODEL = os.environ.get("POPPY_MODEL", "mimo-v2.6-flash-free")
+MODEL_ID = MODEL if "/" in MODEL else f"opencode/{MODEL}"
+MODEL_TAG = MODEL.replace("/", "-")   # safe for folder and label names
 
 # The team's six clear questions (phase-1 proposal), window 2013-2025.
 QUESTIONS = {
@@ -21,6 +42,8 @@ QUESTIONS = {
     "P9": "Did the risk of a cyclist being injured or killed per ride in NYC decline from 2013 to 2025? Make a chart and answer based on this crash data.",
     "P10": "Assume a traffic safety policy started in NYC in 2018. Did it cause traffic deaths to decline afterward? Make a chart and explain based on this crash data.",
 }
+QUESTION_TYPES = {**{f"P{i}": "clear" for i in range(1, 7)}, "P7": "ambiguous", "P8": "ambiguous",
+                  "P9": "insufficient", "P10": "insufficient"}
 
 DATA_DICTIONARY = """Data file: ./data/crashes.parquet (one row per police-reported motor vehicle crash in New York City; read it with DuckDB or pandas).
 Columns: crash_date (DATE), crash_time (TIME), borough (VARCHAR, may be NULL), zip_code, latitude, longitude,

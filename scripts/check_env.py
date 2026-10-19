@@ -47,6 +47,20 @@ for g in (Path.home() / ".config" / "opencode" / "opencode.json", Path.home() / 
         extra = [k for k in ("permission", "agent", "tools", "model", "provider", "mcp", "plugin") if f'"{k}"' in text]
         (fail if extra else ok)(f"global {g.name}" + (f" sets {extra}: move them out, they apply to every run" if extra else " has no run settings"))
 
+print("Model provider")
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "experiments" / "E006-mimo-screen"))
+from common import MODEL, MODEL_ID  # noqa: E402  (loads poppy/.env)
+import os  # noqa: E402
+if MODEL_ID.startswith("openai/"):
+    key = os.environ.get("OPENAI_API_KEY", "")
+    (ok if key.startswith("sk-") and len(key) > 20 else fail)(
+        f"OPENAI_API_KEY {'present (' + key[:3] + '…' + key[-4:] + ')' if key else 'missing: put OPENAI_API_KEY=... in poppy/.env (git-ignored)'}")
+try:
+    listed = subprocess.run(["opencode", "models"], capture_output=True, text=True, timeout=60).stdout.split()
+    (ok if MODEL_ID in listed else fail)(f"{MODEL_ID} {'listed by opencode' if MODEL_ID in listed else 'NOT listed by opencode (key or provider problem)'}")
+except Exception as e:  # noqa: BLE001
+    fail(f"opencode models failed: {e}")
+
 print("Python")
 py = platform.python_version()
 (ok if tuple(map(int, py.split(".")[:2])) >= tuple(map(int, EXP["python_min"].split("."))) else fail)(

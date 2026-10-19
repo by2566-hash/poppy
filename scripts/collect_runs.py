@@ -14,9 +14,11 @@ Not copied: the data link, OpenCode's private data dir, stderr logs (machine-spe
 import json, shutil, subprocess, sys
 from pathlib import Path
 
+import os
 ROOT = Path(__file__).resolve().parents[1]
-SANDBOX = ROOT.parent / "poppy-sandbox" / "E007"
-TARGET = ROOT / "experiments" / "E007-pilot-prompts" / "results"
+EXP = os.environ.get("POPPY_EXP", "E007-pilot-prompts")   # same switch as run_pilot.py
+SANDBOX = ROOT.parent / "poppy-sandbox" / EXP.split("-")[0]
+TARGET = ROOT / "experiments" / EXP / "results"
 
 
 def main():
@@ -38,7 +40,7 @@ def main():
         shutil.rmtree(dst, ignore_errors=True)
         (dst / "out").mkdir(parents=True)
         for name in ("meta.json", "response.md", "critique.md", "opencode.json", "events.jsonl",
-                     "review_input.json", "review_prompt.md", "review.json", "revise_prompt.md", "changes.json"):
+                     "review_input.json", "review_prompt.md", "review.json", "revise_prompt.md", "changes.json", "prompt.md"):
             if (run / name).exists():
                 shutil.copy(run / name, dst / name)
         if (run / "review" / "events.jsonl").exists():
@@ -47,7 +49,7 @@ def main():
             shutil.copy(run / "review" / "opencode.json", dst / "opencode_review.json")
         for f in list(run.glob("*.py")) + list((run / "out").glob("*.py")):
             shutil.copy(f, dst / f.name)
-        for f in list((run / "out").glob("*.csv")) + list((run / "out").glob("*.png")):
+        for f in list((run / "out").glob("*.csv")) + list((run / "out").glob("*.png")) + list((run / "out").glob("*.json")):
             shutil.copy(f, dst / "out" / f.name)
         meta = json.loads((dst / "meta.json").read_text())
         meta["collected_by"] = who
@@ -57,7 +59,7 @@ def main():
     print(f"{n} run(s) -> {TARGET / label}")
     if n:
         print(f"next: git checkout -b runs/{label}-{who.split()[0].lower()} && git add {TARGET.relative_to(ROOT) / label} "
-              f"&& git commit -m 'E007 runs {label}' && git push -u origin HEAD   # then open a PR")
+              f"&& git commit -m '{EXP} runs {label}' && git push -u origin HEAD   # then open a PR")
 
 
 if __name__ == "__main__":

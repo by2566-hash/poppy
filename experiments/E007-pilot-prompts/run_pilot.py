@@ -4,9 +4,13 @@
   python3 run_pilot.py A <A_version> [repeats]                 e.g. A v1 1
   python3 run_pilot.py C <C_version>                           e.g. C v1
   python3 run_pilot.py B <critique_version> <revise_version> <A_label>   e.g. B v2 v2 A-v1
+  python3 run_pilot.py D <D_version> [repeats]                 e.g. D v1 1   (PILOT_K=3 framings per run)
 
 Environment:
-  POPPY_MODEL         model id (default mimo-v2.6-flash-free)
+  POPPY_MODEL         model id (default mimo-v2.6-flash-free; "openai/gpt-6-luna" needs OPENAI_API_KEY in poppy/.env)
+  POPPY_EXP           experiment folder for sandbox + results (default E007-pilot-prompts; e.g. E008-model-contrast)
+  POPPY_QSET          pilot (6 pilot questions, default) or formal (P1-P10)
+  PILOT_K             arm D: framings per run (default 3)
   PILOT_QIDS          comma-separated pilot question ids (default: all six)
   PILOT_CONCURRENCY   parallel runs (default 1; the free tier rate-limits)
 
@@ -37,19 +41,28 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE.parent / "E006-mimo-screen"))
-from common import DATA_DICTIONARY, PARQUET, MODEL  # noqa: E402
+from common import DATA_DICTIONARY, PARQUET, MODEL, MODEL_TAG, QUESTIONS, QUESTION_TYPES  # noqa: E402
 from run_screen import call_model  # noqa: E402
 
-SANDBOX = ROOT.parent / "poppy-sandbox" / "E007"
-RESULTS = HERE / "results"   # committed runs (scripts/collect_runs.py)
+# Which experiment folder the runs belong to (sandbox + committed results), and which question set.
+#   POPPY_EXP=E007-pilot-prompts (default)  POPPY_QSET=pilot (default: the 6 pilot questions)
+#   POPPY_EXP=E008-model-contrast POPPY_QSET=formal  -> P1-P10 from E006/common.py, results under experiments/E008-model-contrast/results
+EXP = os.environ.get("POPPY_EXP", HERE.name)
+QSET = os.environ.get("POPPY_QSET", "pilot")
+SANDBOX = ROOT.parent / "poppy-sandbox" / EXP.split("-")[0]
+RESULTS = ROOT / "experiments" / EXP / "results"   # committed runs (scripts/collect_runs.py)
 CONFIG_ANALYSIS = HERE / "config" / "opencode.analysis.json"
 CONFIG_REVIEW = HERE / "config" / "opencode.review.json"
+CONFIG_ENUMERATE = HERE / "config" / "opencode.enumerate.json"   # arm D: k charts in one run, larger step cap
 STEPS = json.loads(CONFIG_ANALYSIS.read_text())["agent"]["build"]["steps"]
 TIMEOUT = 600
 REVIEW_TIMEOUT = 420   # every finished review took < 400 s; the review has no code to run
 CONCURRENCY = int(os.environ.get("PILOT_CONCURRENCY", "1"))
-SUFFIX = "" if MODEL == "mimo-v2.6-flash-free" else f"-{MODEL}"   # keep other models' runs separate
-QS = {q["id"]: q for q in json.loads((HERE / "pilot_questions.json").read_text())["questions"]}
+SUFFIX = "" if MODEL == "mimo-v2.6-flash-free" else f"-{MODEL_TAG}"   # keep other models' runs separate
+if QSET == "formal":
+    QS = {k: {"id": k, "type": QUESTION_TYPES[k], "text": v} for k, v in QUESTIONS.items()}
+else:
+    QS = {q["id"]: q for q in json.loads((HERE / "pilot_questions.json").read_text())["questions"]}
 MAX_EMBED = 6000  # characters of values / code embedded in a prompt
 ATTACH_CHART = os.environ.get("PILOT_NO_IMAGE") != "1"   # control run only
 
@@ -392,6 +405,70 @@ def run_B(job):
     return meta
 
 
+OPTION_FIELDS = ("id", "metric", "denominator", "grouping", "chart_type", "reason", "probability", "answer")
+
+
+def parse_options(sb):
+    """out/options.json -> list of options with the files they point to. Distinctness is judged on the
+    framing fields only (metric, denominator, grouping, chart_type), never on wording."""
+    f = sb / "out" / "options.json"
+    if not f.exists():
+        return {"parsed": False, "options": [], "reason": "no options.json"}
+    try:
+        raw = json.loads(f.read_text())
+    except json.JSONDecodeError as e:
+        return {"parsed": False, "options": [], "reason": f"invalid JSON: {e}"}
+    opts = raw.get("options") if isinstance(raw, dict) else raw
+    if not isinstance(opts, list) or not opts:
+        return {"parsed": False, "options": [], "reason": "no options list"}
+    out, framings = [], set()
+    for i, o in enumerate(opts, 1):
+        o = o if isinstance(o, dict) else {}
+        oid = o.get("id", i)
+        framing = tuple(str(o.get(k, "")).strip().lower() for k in ("metric", "denominator", "grouping", "chart_type"))
+        out.append({**{k: o.get(k) for k in OPTION_FIELDS}, "id": oid,
+                    "png": (sb / "out" / f"option_{oid}.png").exists(),
+                    "values": (sb / "out" / f"values_{oid}.csv").exists(),
+                    "fields_ok": all(o.get(k) not in (None, "") for k in OPTION_FIELDS if k != "id"),
+                    "duplicate_framing": framing in framings})
+        framings.add(framing)
+    rec = raw.get("recommended") if isinstance(raw, dict) else None
+    return {"parsed": True, "options": out, "recommended": rec, "n_distinct": len(framings),
+            "reason": None}
+
+
+def run_enumerate(job):
+    """Arm D: one run, k framings of the same question, each with its own chart and values (E009, simplified)."""
+    label, q, rep, prompt_file, k = job
+    sb = SANDBOX / label / f"{q}-r{rep}"
+    prep(sb, CONFIG_ENUMERATE)
+    prompt = Path(prompt_file).read_text().format(dictionary=DATA_DICTIONARY, question=QS[q]["text"], k=k)
+    (sb / "prompt.md").write_text(prompt)
+    r = call_model(sb, prompt, timeout=TIMEOUT)
+    steps = steps_in(sb / "events.jsonl")
+    ans = answer_of(r["text"])
+    po = parse_options(sb)
+    opts = po["options"]
+    meta = {"q": q, "rep": rep, "label": label, "type": QS[q]["type"], "k": k,
+            "call_ok": r["exit"] == 0 and not r["timed_out"] and not r["errors"], "timed_out": r["timed_out"],
+            "rate_limited": r["rate_limited"], "stalled": r["stalled"], "attempts": r["attempts"], "secs": r["secs"],
+            "zero_output_retries": r["zero_output_retries"], "secs_total": r["secs_total"],
+            "steps": steps, "hit_step_limit": steps >= json.loads(CONFIG_ENUMERATE.read_text())["agent"]["build"]["steps"],
+            "tool_calls": r["tool_calls"], "tokens": r["tokens"], "net_calls": net_calls(sb / "events.jsonl"),
+            "options_parsed": po["parsed"], "options_reason": po["reason"], "n_options": len(opts),
+            "n_complete_options": sum(o["png"] and o["values"] and o["fields_ok"] for o in opts),
+            "n_distinct_framings": po.get("n_distinct", 0), "recommended": po.get("recommended"),
+            "options": opts, "answer": ans, "answer_ok": ans is not None, "errors": r["errors"],
+            "env": environment([prompt_file])}
+    meta["complete"] = (meta["call_ok"] and po["parsed"] and meta["n_complete_options"] == k
+                        and meta["n_distinct_framings"] == k and meta["answer_ok"])
+    (sb / "response.md").write_text(r["text"])
+    (sb / "meta.json").write_text(json.dumps(meta, indent=1))
+    print(f"[{label} {q} r{rep}] complete={meta['complete']} options={meta['n_complete_options']}/{k} "
+          f"distinct={meta['n_distinct_framings']} {meta['secs']}s steps={steps}", flush=True)
+    return meta
+
+
 if __name__ == "__main__":
     mode = sys.argv[1]
     qids = [q for q in os.environ.get("PILOT_QIDS", "").split(",") if q] or list(QS)
@@ -406,8 +483,14 @@ if __name__ == "__main__":
             cf, rf = HERE / "prompts" / f"B_critique.{cv}.md", HERE / "prompts" / f"B_revise.{rv}.md"
             label = f"B-{cv}-{rv}{SUFFIX}"
             res = list(ex.map(run_B, [(label, q, 1, a_label, cf, rf) for q in qids]))
+        elif mode == "D":
+            ver, reps = sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 1
+            k = int(os.environ.get("PILOT_K", "3"))
+            pf = HERE / "prompts" / f"D_enumerate.{ver}.md"
+            label = f"D-{ver}-k{k}{SUFFIX}"
+            res = list(ex.map(run_enumerate, [(label, q, r, pf, k) for q in qids for r in range(1, reps + 1)]))
         else:
-            sys.exit("mode must be A, B or C")
+            sys.exit("mode must be A, B, C or D")
     out = HERE / "runs"
     out.mkdir(exist_ok=True)
     name = label if not os.environ.get("PILOT_QIDS") else f"{label}-{'-'.join(qids)}"   # a subset never overwrites the full summary

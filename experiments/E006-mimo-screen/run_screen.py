@@ -4,7 +4,7 @@ and consistency of plotted values across repeats."""
 import csv, json, os, re, shutil, subprocess, sys, time
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
-from common import HERE, MODEL, PARQUET, QUESTIONS, DATA_DICTIONARY, PROMPT_A
+from common import HERE, MODEL, MODEL_ID, PARQUET, QUESTIONS, DATA_DICTIONARY, PROMPT_A
 
 REPEATS = 3
 SANDBOX = HERE.parents[2] / "poppy-sandbox" / "E006"
@@ -66,7 +66,7 @@ def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files
         last_size, last_change = 0, t0
         with open(sb / "events.jsonl", "w") as out, open(sb / "stderr.log", "w") as err:
             proc = subprocess.Popen(["opencode", "run", "--pure", "--print-logs", "--log-level", "ERROR", "--format", "json",
-                                     "-m", f"opencode/{MODEL}", "--dir", str(sb)] + [a for f in files for a in ("-f", str(f))] + ["--", prompt],
+                                     "-m", MODEL_ID, "--dir", str(sb)] + [a for f in files for a in ("-f", str(f))] + ["--", prompt],
                                     stdout=out, stderr=err, env=env, cwd=sb, stdin=subprocess.DEVNULL)
             while proc.poll() is None:
                 if time.time() - t0 > timeout:
