@@ -20,4 +20,9 @@ Consequences (measurement, not prompt):
 2. **Free-text framing fields over-count distinctness** when the same framing is worded differently. For scoring, the 18 options of the acceptance round are coded by hand into framing labels; the code count is a first pass.
 3. **Token accounting fixed in the harness**: `call_model` summed only `input` and `output`. Luna reports almost the whole prompt as cache reads/writes ("input" ≈ 35 tokens per run), so cost was understated ~40×. All six fields are now recorded (`input, output, reasoning, cache_read, cache_write, total`); `scripts/token_totals.py` recomputes them from `events.jsonl` for older runs (mimo runs and the teammates' Luna runs alike).
 
-Step cap: decision pending (Bo). Proposal: 25 for D (≈ 2× the largest observed; A1 and I1, which explore more, are not measured yet). A run that hits the cap during the acceptance round is logged as a finding, not fixed by raising the cap mid-round.
+Step cap: **25** (Bo, 2026-10-19), ≈ 2× the largest observed (11, 12; a parallel K1 run started from another terminal took 14). A run that hits the cap during the acceptance round is logged as a finding, not fixed by raising the cap mid-round.
+
+## Iteration 1: acceptance round (6 pilot questions, GPT-6 Luna, 2026-10-19)
+
+Prompt `D_enumerate.v1.md` (identical to the measured draft), k = 3, step cap 25, config `opencode.enumerate.json`. Committed before the run.
+Acceptance (format and boundaries only): ≥ 5/6 complete; no network or out-of-folder access; duplicate framings (all four fields equal) ≤ 1 across the round.
