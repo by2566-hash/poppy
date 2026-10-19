@@ -1,0 +1,182 @@
+[
+ {
+  "q": "K1",
+  "rep": 1,
+  "label": "D-v1.draft-k3-openai-gpt-6-luna",
+  "type": "clear",
+  "k": 3,
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 76.2,
+  "zero_output_retries": 0,
+  "secs_total": 76.2,
+  "steps": 11,
+  "hit_step_limit": false,
+  "tool_calls": 18,
+  "tokens": {
+   "input": 33,
+   "output": 3083
+  },
+  "net_calls": 0,
+  "options_parsed": true,
+  "options_reason": null,
+  "n_options": 3,
+  "n_complete_options": 3,
+  "n_distinct_framings": 3,
+  "recommended": null,
+  "options": [
+   {
+    "id": 1,
+    "metric": "Sum of number_of_pedestrians_killed",
+    "denominator": "None (absolute annual count)",
+    "grouping": "Calendar year of crash_date",
+    "chart_type": "Vertical bar chart",
+    "reason": "A bar chart makes comparisons between discrete annual totals straightforward.",
+    "probability": 0.55,
+    "answer": "Annual totals: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+    "png": true,
+    "values": true,
+    "fields_ok": true,
+    "duplicate_framing": false
+   },
+   {
+    "id": 2,
+    "metric": "Sum of number_of_pedestrians_killed",
+    "denominator": "None (absolute annual count)",
+    "grouping": "Calendar year of crash_date",
+    "chart_type": "Line chart",
+    "reason": "A line chart emphasizes how the yearly total changes over time.",
+    "probability": 0.3,
+    "answer": "Annual totals: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+    "png": true,
+    "values": true,
+    "fields_ok": true,
+    "duplicate_framing": false
+   },
+   {
+    "id": 3,
+    "metric": "Sum of number_of_pedestrians_killed",
+    "denominator": "None (absolute annual count)",
+    "grouping": "Calendar year of crash_date",
+    "chart_type": "Dot plot",
+    "reason": "A dot plot presents each year's count on one common scale without bars connecting the values.",
+    "probability": 0.15,
+    "answer": "Annual totals: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+    "png": true,
+    "values": true,
+    "fields_ok": true,
+    "duplicate_framing": false
+   }
+  ],
+  "answer": "The vertical bar chart shows 176 pedestrian deaths in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.\nThe line chart shows 176 pedestrian deaths in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.\nThe dot plot shows 176 pedestrian deaths in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.",
+  "answer_ok": true,
+  "errors": [],
+  "env": {
+   "model": "openai/gpt-6-luna",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "add1068",
+   "prompt_sha": {
+    "D_enumerate.v1.draft.md": "a18643123c55bfd0"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": true
+ },
+ {
+  "q": "A2",
+  "rep": 1,
+  "label": "D-v1.draft-k3-openai-gpt-6-luna",
+  "type": "ambiguous",
+  "k": 3,
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 108.3,
+  "zero_output_retries": 0,
+  "secs_total": 108.3,
+  "steps": 12,
+  "hit_step_limit": false,
+  "tool_calls": 20,
+  "tokens": {
+   "input": 36,
+   "output": 4377
+  },
+  "net_calls": 0,
+  "options_parsed": true,
+  "options_reason": null,
+  "n_options": 3,
+  "n_complete_options": 3,
+  "n_distinct_framings": 3,
+  "recommended": null,
+  "options": [
+   {
+    "id": 1,
+    "metric": "Police-reported crash count",
+    "denominator": "None; total crashes in each of two equal 12-hour windows",
+    "grouping": "Day (06:00\u201317:59) versus night (18:00\u201305:59)",
+    "chart_type": "Bar chart",
+    "reason": "A careful analyst may start with the simplest citywide comparison of how many crashes are recorded in each equal-length time window.",
+    "probability": 0.2,
+    "answer": "The records show 1,455,425 crashes from 06:00\u201317:59 versus 813,762 from 18:00\u201305:59, but they cannot establish which period is riskier per trip or mile because traffic exposure is absent.",
+    "png": true,
+    "values": true,
+    "fields_ok": true,
+    "duplicate_framing": false
+   },
+   {
+    "id": 2,
+    "metric": "Share of crashes with at least one person injured or killed",
+    "denominator": "All crashes with a recorded crash time in that period",
+    "grouping": "Day (06:00\u201317:59) versus night (18:00\u201305:59)",
+    "chart_type": "Dot plot",
+    "reason": "A careful analyst may compare the fraction of crashes involving harm to distinguish crash frequency from crash severity.",
+    "probability": 0.4,
+    "answer": "Injury-or-fatal crashes made up 28.09% of nighttime reports (228,562 of 813,762), compared with 22.86% of daytime reports (332,652 of 1,455,425); the data suggest greater harm per reported crash at night but cannot establish per-trip or per-mile danger without exposure data.",
+    "png": true,
+    "values": true,
+    "fields_ok": true,
+    "duplicate_framing": false
+   },
+   {
+    "id": 3,
+    "metric": "People injured or killed per 100 reported crashes",
+    "denominator": "All crashes with a recorded crash time in that period, scaled to 100 crashes",
+    "grouping": "Day (06:00\u201317:59) versus night (18:00\u201305:59)",
+    "chart_type": "Horizontal bar chart",
+    "reason": "A careful analyst may use total casualties per crash to reflect the burden of injuries and deaths, including multiple people harmed in one collision.",
+    "probability": 0.4,
+    "answer": "There were 39.29 people injured or killed per 100 nighttime crashes versus 30.25 per 100 daytime crashes, indicating a higher casualty burden per reported nighttime crash; without traffic exposure data, this cannot show whether an individual's travel risk is higher at night.",
+    "png": true,
+    "values": true,
+    "fields_ok": true,
+    "duplicate_framing": false
+   }
+  ],
+  "answer": "From 06:00\u201317:59 there were 1,455,425 reported crashes versus 813,762 from 18:00\u201305:59, but crash counts alone cannot show which time is riskier per trip or mile.\nInjury-or-fatal crashes made up 28.09% of nighttime reports versus 22.86% of daytime reports, suggesting more harm per reported crash at night, though exposure data is needed to compare travel risk.\nThere were 39.29 people injured or killed per 100 nighttime crashes versus 30.25 per 100 daytime crashes, indicating a higher casualty burden per nighttime crash but not establishing greater per-trip risk.",
+  "answer_ok": true,
+  "errors": [],
+  "env": {
+   "model": "openai/gpt-6-luna",
+   "opencode": "1.18.34",
+   "python": "3.13.5",
+   "git_commit": "add1068",
+   "prompt_sha": {
+    "D_enumerate.v1.draft.md": "a18643123c55bfd0"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": true
+ }
+]

@@ -493,7 +493,7 @@ if __name__ == "__main__":
             res = list(ex.map(run_enumerate, [(label, q, r, pf, k) for q in qids for r in range(1, reps + 1)]))
         else:
             sys.exit("mode must be A, B, C or D")
-    out = HERE / "runs"
+    out = RESULTS.parent / "runs"   # summaries live next to the experiment's results
     out.mkdir(exist_ok=True)
     name = label if not os.environ.get("PILOT_QIDS") else f"{label}-{'-'.join(qids)}"   # a subset never overwrites the full summary
     (out / f"{name}.json").write_text(json.dumps(res, indent=1))
