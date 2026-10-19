@@ -1,0 +1,5 @@
+The file covers 2013–2025, and the pedestrian-fatality field supports both annual totals and useful breakdowns. I’m creating three views of those same annual totals: a direct yearly chart, a borough breakdown, and a month-by-year heatmap.
+ANSWER:
+The annual counts are 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.
+Summing borough segments gives the same annual totals: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.
+Summing the monthly counts gives the same annual totals: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.

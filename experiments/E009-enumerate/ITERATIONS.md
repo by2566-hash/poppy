@@ -26,3 +26,24 @@ Step cap: **25** (Bo, 2026-10-19), ≈ 2× the largest observed (11, 12; a paral
 
 Prompt `D_enumerate.v1.md` (identical to the measured draft), k = 3, step cap 25, config `opencode.enumerate.json`. Committed before the run.
 Acceptance (format and boundaries only): ≥ 5/6 complete; no network or out-of-folder access; duplicate framings (all four fields equal) ≤ 1 across the round.
+
+**Result: acceptance met in iteration 1; D v1 frozen.**
+
+| Item | Complete | Steps | Time | Distinct (4 fields) | Distinct analytic | Duplicates | Network | Hit cap |
+|---|---|---|---|---|---|---|---|---|
+| K1 | yes | 12 | 92 s | 3 | 3 | 0 | 0 | no |
+| K2 | yes | 14 | 80 s | 3 | 3 | 0 | 0 | no |
+| K3 | yes | 13 | 84 s | 3 | 3 | 0 | 0 | no |
+| A1 | yes | 10 | 128 s | 3 | 3 | 0 | 0 | no |
+| A2 | yes | 13 | 124 s | 3 | 3 | 0 | 0 | no |
+| I1 | yes | 11 | 96 s | 3 | 3 | 0 | 0 | no |
+
+6/6 complete (≥ 5/6 required), no boundary violation, 0 duplicate framings, steps 10–14 under the cap of 25. Frozen: `prompts/frozen/D_enumerate.v1.md` SHA-256 `a18643123c55bfd00cabea8dcbb4f806463a50d79723d3e5e42ef355e3b14e19`; config `opencode.enumerate.json` SHA-256 `49a78d1b921d89e93cb3b046d05ca74ef72464357764467bc3822ff5979fc69f`. No prompt edit was needed, so iterations 2–3 are not used.
+
+Spot checks against DuckDB (Claude): K2 shares 15.89% / 12.08%; K3 gap 51 (2019) to 115 (2021); I1 54.0 → 94.7 motorist deaths per 100k crashes and motorist share 37.0% → 35.4%; A1 Brooklyn pedestrians injured 3,641 → 2,835, killed 30 → 39; A2 injured per 100 crashes night 40.45 / day 31.01, fatal crashes per 1,000 2.90 / 1.08. All match.
+
+Observations (effect, not acceptance; inputs for phase 2):
+1. Clear questions also got analytic variety on Luna (K1: totals, by borough incl. unknown, month × year heatmap; K2: counts, shares, per-year shares; K3: counts, difference, shares). The measurement run's K1 varied only the chart type; the same prompt gives different kinds of variety from run to run.
+2. Every answer on A1, A2 and I1 states that per-trip / per-mile risk cannot be judged without exposure data. The unsupported per-mile claim of A (mimo and Luna-free runs) does not appear.
+3. **Silent framing errors remain** and are not caught by the in-run self-check: A1 filters `borough = 'BROOKLYN'`, dropping the 20–23% of crashes with no borough (TR05), without saying so; A1 option 3 (pedestrian casualties per 1,000 crashes, +51.5%) and I1 option 2 (deaths per 100k crashes, "did not decline") divide by total reported crashes, whose count collapsed after the 2020 reporting change (TR01), without a caveat. Numbers are computed correctly; the framings mislead. This is the class of error the phase-2 evaluation layer targets (claim checks and gold plans), and a case for B's reviewer on top of D.
+4. Probabilities: the plain count framing is usually ranked first on clear questions (0.45–0.5) and not on ambiguous ones (A2: 0.3, ties at 0.3/0.4). Ordinal only.

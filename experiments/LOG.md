@@ -124,3 +124,9 @@ Copy entries into the team's Google Sheet when ready.
 - **Setup:** Luna pre-checks passed (key from git-ignored `.env`, model listed, reads an attached chart). Arm D draft prompt (C v3 + "give 3 framings", options.json + 3 charts and value files) on K1 and A2, step cap 30 only to measure.
 - **Result:** both complete in 11–12 steps, 76–108 s. K1: three chart types of the same correct series (only encoding varies, as expected for a clear count question). A2: three different analytic framings (counts, share of harmful crashes, people harmed per 100 crashes), each stating that exposure data is missing; the harm rate matches DuckDB and avoids the NULL-sum error mimo's A made in iteration 1. Found a harness defect: only input/output tokens were summed; Luna reports ~99% of input as cache, so costs were understated ~40×. Fixed; older runs recomputable from events.
 - **Next:** Bo sets D's step cap; acceptance round on the 6 pilot questions; distinctness reported with and without chart type; framings coded by hand for scoring.
+
+## 2026-10-19 — E009-lite: arm D acceptance on GPT-6 Luna; D v1 frozen
+
+- **Setup:** D v1 (C v3 + three framings with probabilities, options.json + three charts and value files), step cap 25, six pilot questions, one run each, GPT-6 Luna. Prompt and cap committed before the run.
+- **Result:** 6/6 complete in 10–14 steps (80–128 s), 0 network calls, 0 duplicate framings, three analytically distinct framings on every item; spot-checked numbers match DuckDB. Every ambiguous / insufficient answer states that exposure-based risk cannot be judged. Remaining silent framing errors: A1 drops crashes with no borough without saying so; two options divide by total reported crashes across the 2020 reporting change without a caveat.
+- **Next:** D results join the teammates' Luna A/B/C for the phase-1 comparison; the framing errors seed the phase-2 claim checks and gold plans.

@@ -1,0 +1,34 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of pedestrians injured",
+      "denominator": "None (annual count)",
+      "grouping": "Crash year in Brooklyn, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "A count directly communicates how many reported pedestrian injury casualties occurred each year.",
+      "probability": 0.4,
+      "answer": "Whether pedestrian safety per trip improved cannot be determined because the data has no pedestrian-exposure measure; as a reported-outcome indicator, annual pedestrian injuries fell from 3,641 in 2013 to 2,835 in 2025 (-22.1%), after reaching a low of 1,781 in 2020 and then rising."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of pedestrians killed",
+      "denominator": "None (annual count)",
+      "grouping": "Crash year in Brooklyn, 2013\u20132025",
+      "chart_type": "Bar chart",
+      "reason": "Showing deaths separately makes the most severe pedestrian outcome visible without combining it with nonfatal injuries.",
+      "probability": 0.3,
+      "answer": "Whether pedestrian safety per trip improved cannot be determined because the data has no pedestrian-exposure measure; reported pedestrian deaths rose from 30 in 2013 to 39 in 2025 (30.0%), with substantial year-to-year variation."
+    },
+    {
+      "id": 3,
+      "metric": "Pedestrian injuries plus deaths per 1,000 reported crashes",
+      "denominator": "All police-reported Brooklyn crashes in the same year, scaled to 1,000",
+      "grouping": "Crash year in Brooklyn, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "Normalizing combined pedestrian casualties by total crashes helps distinguish casualty burden from changes in overall crash volume.",
+      "probability": 0.3,
+      "answer": "Whether pedestrian safety per trip improved cannot be determined because the data has no pedestrian-exposure measure; the per-crash indicator increased from 78.1 pedestrian injuries or deaths per 1,000 reported crashes in 2013 to 118.3 in 2025 (51.5%)."
+    }
+  ]
+}

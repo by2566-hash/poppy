@@ -1,0 +1,96 @@
+{
+ "q": "K1",
+ "rep": 1,
+ "label": "D-v1-k3-openai-gpt-6-luna",
+ "type": "clear",
+ "k": 3,
+ "call_ok": true,
+ "timed_out": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 92.3,
+ "zero_output_retries": 0,
+ "secs_total": 92.3,
+ "steps": 12,
+ "hit_step_limit": false,
+ "tool_calls": 20,
+ "tokens": {
+  "input": 36,
+  "output": 6471,
+  "reasoning": 2760,
+  "cache_read": 114833,
+  "cache_write": 25655,
+  "total": 149755
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 3,
+ "n_complete_options": 3,
+ "n_distinct_framings": 3,
+ "n_distinct_analytic": 3,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Pedestrians killed",
+   "denominator": "None; annual count",
+   "grouping": "Crash year",
+   "chart_type": "Vertical bar chart",
+   "reason": "A direct annual bar chart makes year-to-year differences and individual totals easy to compare.",
+   "probability": 0.45,
+   "answer": "Pedestrians killed by year: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Pedestrians killed",
+   "denominator": "None; annual count",
+   "grouping": "Crash year and recorded borough (including not recorded)",
+   "chart_type": "Stacked bar chart",
+   "reason": "The borough stacks show each annual total while revealing how recorded locations contribute to it.",
+   "probability": 0.3,
+   "answer": "Summing the borough segments gives these annual totals: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119; the chart also shows the recorded-borough composition, with missing boroughs retained as Not recorded.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 3,
+   "metric": "Pedestrians killed",
+   "denominator": "None; monthly counts summed to annual totals",
+   "grouping": "Crash year and crash month",
+   "chart_type": "Annotated heatmap",
+   "reason": "Monthly shading preserves the requested annual totals while showing how pedestrian deaths vary within each year.",
+   "probability": 0.25,
+   "answer": "Summing the monthly cells gives these annual totals: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119; the heatmap also displays their month-by-month distribution.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "The annual counts are 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.\nSumming borough segments gives the same annual totals: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.\nSumming the monthly counts gives the same annual totals: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "4a68c92",
+  "prompt_sha": {
+   "D_enumerate.v1.md": "a18643123c55bfd0"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

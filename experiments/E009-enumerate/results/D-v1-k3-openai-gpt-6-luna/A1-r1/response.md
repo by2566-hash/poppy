@@ -1,0 +1,5 @@
+I’ll compare complete calendar years 2013–2025. This file records reported crash outcomes, but has no measure of how many people walked or how much they walked, so I’ll treat injury counts, deaths, and casualties per reported crash as indicators—not exposure-adjusted pedestrian risk.
+ANSWER:
+The data cannot determine whether pedestrian safety per trip improved, but annual pedestrian injuries fell from 3,641 in 2013 to 2,835 in 2025 (22.1%), after a low of 1,781 in 2020.
+The data cannot determine whether pedestrian safety per trip improved, but reported pedestrian deaths rose from 30 in 2013 to 39 in 2025 (30.0%), with year-to-year variation.
+The data cannot determine whether pedestrian safety per trip improved, but pedestrian injuries and deaths per 1,000 reported crashes increased from 78.1 in 2013 to 118.3 in 2025 (51.5%).

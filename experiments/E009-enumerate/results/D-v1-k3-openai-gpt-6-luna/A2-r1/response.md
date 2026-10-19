@@ -1,0 +1,5 @@
+I’ll compare nighttime and daytime crash outcomes using several defensible measures, create the charts and data files, then check that each short conclusion matches its saved values.
+The file contains crash times with no missing values, plus injury and fatality counts. I’m using 20:00–05:59 as night and 06:00–19:59 as day; because there’s no traffic or trip-volume denominator, the comparisons can describe reported crash frequency and outcomes, but not risk per trip.
+ANSWER: Across 5,094 observed dates, nighttime hours averaged 10.97 reported crashes per hour, compared with 23.98 during daytime hours; these are crash counts, not risk per trip.
+Nighttime crashes involved 40.45 reported injuries per 100 crashes, versus 31.01 for daytime crashes.
+Fatal crashes occurred at 2.90 per 1,000 nighttime crashes, compared with 1.08 per 1,000 daytime crashes.

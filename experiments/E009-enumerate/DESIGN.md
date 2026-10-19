@@ -1,6 +1,6 @@
 # E009 — Arm D: enumerate framings with verbalized probabilities (simplified, phase-1 add-on)
 
-- **Status:** design fixed with Bo on 2026-10-19 for the phase-1 add-on: **k = 3**, **neutral ANSWER (no recommendation inside the run)**, **GPT-6 Luna only** (D is not run on mimo), **prompt tuned on the 6 pilot questions**, **step cap set from one K1 and one A2 run before scored runs**. The formal version (selection step, judge, P1–P10) is a phase-2 decision.
+- **Status:** D v1 frozen 2026-10-19 after acceptance in iteration 1 (6/6 complete, see ITERATIONS.md). Design fixed with Bo on 2026-10-19 for the phase-1 add-on: **k = 3**, **neutral ANSWER (no recommendation inside the run)**, **GPT-6 Luna only** (D is not run on mimo), **prompt tuned on the 6 pilot questions**, **step cap set from one K1 and one A2 run before scored runs**. The formal version (selection step, judge, P1–P10) is a phase-2 decision.
 - **Origin:** Ryan (2026-10-16): once a chart is accurate, widen the options; ask for 3–5 ways to visualize with probabilities (Verbalized Sampling, Zhang et al., ICML 2026, arXiv 2510.01171), render them, let the reflective loop choose.
 
 ## 1. What D is

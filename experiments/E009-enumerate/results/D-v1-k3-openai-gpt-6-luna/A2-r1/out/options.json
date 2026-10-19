@@ -1,0 +1,34 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Average reported crash count per clock-hour per observed calendar date",
+      "denominator": "Observed calendar dates multiplied by the number of hours in each period (10 night hours; 14 day hours)",
+      "grouping": "Hour of day, highlighting night (20:00\u201305:59) versus day (06:00\u201319:59)",
+      "chart_type": "24-hour line chart",
+      "reason": "A by-hour view shows when reported crashes are concentrated while accounting for the unequal numbers of clock hours in day and night.",
+      "probability": 0.3,
+      "answer": "Across the observed dates, the average was 10.97 reported crashes per nighttime clock-hour, versus 23.98 per daytime clock-hour. This measures crash frequency, not risk per trip, because traffic exposure is not in the data."
+    },
+    {
+      "id": 2,
+      "metric": "Reported people injured per 100 crashes",
+      "denominator": "All reported crashes in the corresponding time period",
+      "grouping": "Night (20:00\u201305:59) versus day (06:00\u201319:59)",
+      "chart_type": "Two-bar comparison",
+      "reason": "Injuries per crash directly compares the recorded human harm associated with crashes in each period, independent of the number of crashes overall.",
+      "probability": 0.4,
+      "answer": "There were 40.45 people reported injured per 100 nighttime crashes, compared with 31.01 per 100 daytime crashes. This indicates greater injury burden per reported crash at night, but not greater risk per trip without traffic-exposure data."
+    },
+    {
+      "id": 3,
+      "metric": "Crashes with at least one reported death per 1,000 crashes",
+      "denominator": "All reported crashes in the corresponding time period",
+      "grouping": "Night (20:00\u201305:59) versus day (06:00\u201319:59)",
+      "chart_type": "Two-bar comparison",
+      "reason": "The fatal-crash share isolates the most severe recorded outcome and avoids treating multiple deaths in one crash as separate fatal crashes.",
+      "probability": 0.3,
+      "answer": "Crashes with at least one reported death occurred at 2.90 per 1,000 nighttime crashes, versus 1.08 per 1,000 daytime crashes. The fatal-crash share is higher at night, but the dataset cannot establish risk per trip without traffic-exposure data."
+    }
+  ]
+}
