@@ -1,0 +1,17 @@
+{
+ "verdict": "issues",
+ "chart_check": "The chart shows crashes by day of week on the x-axis and crash counts on the y-axis, with ticks in thousands; the title gives 2013\u20132025. The bar labels match the values.csv counts rounded to the nearest thousand; weekdays are blue and weekends orange, but there is no legend.",
+ "issues": [
+  {
+   "n": 1,
+   "text": "The written answer says counts \u201crise through the workweek,\u201d but Wednesday\u2019s count (311,111) is lower than Tuesday\u2019s (313,488). Say they generally rise, with a dip on Wednesday, before peaking Friday."
+  },
+  {
+   "n": 2,
+   "text": "The chart uses different colors for weekdays and weekends without explaining that distinction. Add a legend or label the color groups."
+  }
+ ],
+ "unverified": [
+  "The actual counts and whether the parquet data covers the stated dates and records cannot be checked without the data file or running the code."
+ ]
+}

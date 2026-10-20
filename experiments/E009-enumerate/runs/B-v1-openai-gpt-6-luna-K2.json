@@ -1,0 +1,84 @@
+[
+ {
+  "q": "K2",
+  "rep": 1,
+  "label": "B-v1-openai-gpt-6-luna",
+  "a_label": "A-v1-openai-gpt-6-luna",
+  "type": "clear",
+  "a_source": "experiments/E009-enumerate/results/A-v1-openai-gpt-6-luna/K2-r1",
+  "a_git_commit": "dbce6ec",
+  "a_complete": true,
+  "review_ok": true,
+  "review_call_ok": true,
+  "review_parsed": true,
+  "review_rate_limited": false,
+  "review_stalled": false,
+  "review_attempts": 1,
+  "review_zero_output_retries": 0,
+  "review_secs_total": 16.0,
+  "review_secs": 16.0,
+  "review_tokens": {
+   "input": 3,
+   "output": 180,
+   "reasoning": 991,
+   "cache_read": 0,
+   "cache_write": 11463,
+   "total": 12637
+  },
+  "review_steps": 1,
+  "review_tool_calls": 0,
+  "review_side_effects": [],
+  "review_dir": "/Users/chloehe/poppy-sandbox/E009/_review/B-v1-openai-gpt-6-luna/K2-r1",
+  "chart_attached": true,
+  "n_issues": 2,
+  "says_none": false,
+  "chart_check": "The chart shows crashes by day of week on the x-axis and crash counts on the y-axis, with ticks in thousands; the title gives 2013\u20132025. The bar labels match the values.csv counts rounded to the nearest thousand; weekdays are blue and weekends orange, but there is no legend.",
+  "n_unverified": 1,
+  "revise_skipped": false,
+  "revise_ok": true,
+  "revise_rate_limited": false,
+  "revise_stalled": false,
+  "revise_attempts": 1,
+  "revise_zero_output_retries": 0,
+  "revise_secs_total": 36.1,
+  "revise_secs": 36.1,
+  "revise_tokens": {
+   "input": 12,
+   "output": 845,
+   "reasoning": 533,
+   "cache_read": 29719,
+   "cache_write": 10838,
+   "total": 41947
+  },
+  "revise_steps": 4,
+  "revise_tool_calls": 3,
+  "revise_net_calls": 0,
+  "changes_listed": true,
+  "changes": {
+   "1": "fixed",
+   "2": "fixed"
+  },
+  "changes_match_issues": true,
+  "revised_png": true,
+  "revised_values": true,
+  "values_changed_cols": [],
+  "a_outputs_intact": true,
+  "answer": "Friday had the most crashes (338,800; 15.9%), while Sunday had the fewest (257,544; 12.1%). Counts generally rise through the workweek, dip on Wednesday, peak Friday, then drop over the weekend. Chart: `./out/revised.png` \u00b7 Plotted data: `./out/revised_values.csv`",
+  "answer_ok": true,
+  "env": {
+   "model": "openai/gpt-6-luna",
+   "opencode": "1.18.34",
+   "python": "3.13.13",
+   "git_commit": "dbce6ec",
+   "prompt_sha": {
+    "B_critique.v4.md": "f8bfefe032067c9d",
+    "B_revise.v3.md": "38af1935bf2f386e"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "b_state": "revised"
+ }
+]

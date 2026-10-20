@@ -1,0 +1,3 @@
+Chart: [./out/initial.png](./out/initial.png) · Plotted data: [./out/values.csv](./out/values.csv)
+
+ANSWER: Among police-reported crashes from July 2012 through June 2026, nighttime crashes (8pm–5:59am) were more severe: 283 per 1,000 involved an injury, versus 234 by day, and the fatal-crash rate was 2.7 times higher (2.92 vs. 1.08 per 1,000). Crash counts averaged about 11 per nighttime clock-hour per day, compared with 24 during daytime hours. This points to worse outcomes per reported crash at night; without traffic or travel exposure data, it cannot establish that an individual trip is riskier.

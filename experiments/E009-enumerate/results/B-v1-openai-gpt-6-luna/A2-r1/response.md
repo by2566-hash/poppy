@@ -1,0 +1,6 @@
+I’ve confirmed the original rates use only crashes with nonmissing times and known outcome fields. I’m keeping the same filters, bar-chart design, and plotted values while making those exclusions explicit and correcting the fatal-rate comparison wording.
+CHANGES:
+1. fixed: The chart note and answer now disclose that crashes missing `crash_time` are excluded and each rate uses crashes with a recorded outcome. Saved the chart to `out/revised.png` and data to `out/revised_values.csv`.
+2. fixed: Changed “2.7 times higher” to “2.7 times as high,” consistent with the computed 2.69 ratio.
+
+ANSWER: Among police-reported crashes with recorded times and recorded outcomes from July 2012 through June 2026, nighttime crashes (8pm–5:59am) were more severe: 283 per 1,000 involved an injury, versus 234 by day, and the fatal-crash rate was 2.7 times as high (2.92 vs. 1.08 per 1,000). Crash counts averaged about 11 per nighttime clock-hour per day, compared with 24 during daytime hours. This points to worse outcomes per reported crash at night; without traffic or travel exposure data, it cannot establish that an individual trip is riskier.

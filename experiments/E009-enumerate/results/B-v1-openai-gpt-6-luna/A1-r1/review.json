@@ -1,0 +1,8 @@
+{
+ "verdict": "none",
+ "chart_check": "The chart uses year on the x-axis and counts of people injured or killed on separate panels, labeled INJURED and KILLED; there is no legend. The endpoint labels shown\u20143,641 and 2,835 injured, 30 and 39 killed\u2014match `values.csv`; the other annual bars are not numerically labeled.",
+ "issues": [],
+ "unverified": [
+  "Whether the counts and Brooklyn/year filtering accurately reflect the underlying Parquet data; that requires checking the data file."
+ ]
+}

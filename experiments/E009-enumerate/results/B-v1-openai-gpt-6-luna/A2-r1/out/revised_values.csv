@@ -1,0 +1,5 @@
+period,outcome,events,denominator_crashes_with_known_outcome,rate_per_1000_crashes
+Day (6am–7:59pm),Crashes with at least one person injured,400420,1710168,234.14073938934655
+Day (6am–7:59pm),Crashes with at least one person killed,1847,1703940,1.0839583553411505
+Night (8pm–5:59am),Crashes with at least one person injured,158183,559001,282.97444906180846
+Night (8pm–5:59am),Crashes with at least one person killed,1622,556334,2.915514780689298

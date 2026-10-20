@@ -1,0 +1,16 @@
+{
+ "item": "K1-r1",
+ "a_source": "experiments/E009-enumerate/results/A-v1-openai-gpt-6-luna/K1-r1",
+ "question": "How many pedestrians were killed in NYC motor vehicle crashes each year from 2013 to 2025?",
+ "chart": {
+  "attached": true,
+  "sha": "3b95d8142d33a794"
+ },
+ "values_sha": "92dec926d2351cac",
+ "answer": "Pedestrian deaths by year were 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; and 2025: 119. The count peaked in 2013 and was lowest in 2020.\n\nChart: `./out/initial.png` \u00b7 Data: `./out/values.csv`",
+ "code_sha": "6188756a42c134f1",
+ "dictionary_sha": "b208381a6a6226f2",
+ "prompt_file": "B_critique.v4.md",
+ "prompt_sha": "f8bfefe032067c9d",
+ "rendered_prompt_sha": "6f5cf5f504d31e90"
+}

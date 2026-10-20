@@ -1,0 +1,86 @@
+[
+ {
+  "q": "A2",
+  "rep": 1,
+  "label": "B-v1-openai-gpt-6-luna",
+  "a_label": "A-v1-openai-gpt-6-luna",
+  "type": "ambiguous",
+  "a_source": "experiments/E009-enumerate/results/A-v1-openai-gpt-6-luna/A2-r1",
+  "a_git_commit": "dbce6ec",
+  "a_complete": true,
+  "review_ok": true,
+  "review_call_ok": true,
+  "review_parsed": true,
+  "review_rate_limited": false,
+  "review_stalled": false,
+  "review_attempts": 1,
+  "review_zero_output_retries": 0,
+  "review_secs_total": 20.0,
+  "review_secs": 20.0,
+  "review_tokens": {
+   "input": 3,
+   "output": 266,
+   "reasoning": 1454,
+   "cache_read": 0,
+   "cache_write": 12815,
+   "total": 14538
+  },
+  "review_steps": 1,
+  "review_tool_calls": 0,
+  "review_side_effects": [],
+  "review_dir": "/Users/chloehe/poppy-sandbox/E009/_review/B-v1-openai-gpt-6-luna/A2-r1",
+  "chart_attached": true,
+  "n_issues": 2,
+  "says_none": false,
+  "chart_check": "The image shows two bar charts with Day and Night on the x-axes and \u201cCrashes per 1,000 crashes\u201d on the y-axes: injury crashes (234.1 day, 283.0 night) and crashes involving a death (1.1 day, 2.9 night). The numerator/denominator labels match `values.csv` when rounded; there is no legend, and the bars are labeled directly.",
+  "n_unverified": 2,
+  "revise_skipped": false,
+  "revise_ok": true,
+  "revise_rate_limited": false,
+  "revise_stalled": false,
+  "revise_attempts": 1,
+  "revise_zero_output_retries": 0,
+  "revise_secs_total": 108.3,
+  "revise_secs": 108.3,
+  "revise_tokens": {
+   "input": 33,
+   "output": 2988,
+   "reasoning": 1696,
+   "cache_read": 212608,
+   "cache_write": 28547,
+   "total": 245872
+  },
+  "revise_steps": 11,
+  "revise_tool_calls": 15,
+  "revise_net_calls": 0,
+  "changes_listed": true,
+  "changes": {
+   "1": "fixed",
+   "2": "fixed"
+  },
+  "changes_match_issues": true,
+  "revised_png": true,
+  "revised_values": true,
+  "values_changed_cols": [
+   "denominator_crashes_with_known_outcome"
+  ],
+  "a_outputs_intact": true,
+  "answer": "Among police-reported crashes with recorded times and recorded outcomes from July 2012 through June 2026, nighttime crashes (8pm\u20135:59am) were more severe: 283 per 1,000 involved an injury, versus 234 by day, and the fatal-crash rate was 2.7 times as high (2.92 vs. 1.08 per 1,000). Crash counts averaged about 11 per nighttime clock-hour per day, compared with 24 during daytime hours. This points to worse outcomes per reported crash at night; without traffic or travel exposure data, it cannot establish that an individual trip is riskier.",
+  "answer_ok": true,
+  "env": {
+   "model": "openai/gpt-6-luna",
+   "opencode": "1.18.34",
+   "python": "3.13.13",
+   "git_commit": "dbce6ec",
+   "prompt_sha": {
+    "B_critique.v4.md": "f8bfefe032067c9d",
+    "B_revise.v3.md": "38af1935bf2f386e"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "b_state": "revised"
+ }
+]
