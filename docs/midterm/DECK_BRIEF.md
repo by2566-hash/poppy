@@ -1,80 +1,92 @@
 # Midterm deck brief (for the slide builder)
 
-You are building the team's midterm presentation deck for **Poppy** (NYU CDS × Honda Research Institute / 99P Labs). Audience: mentors Ryan Lingo (Applied AI Research Engineer, cares about evaluation, context engineering, agentic systems) and Rajeev Chhajer, possibly an NYU faculty member. In person, Friday 2026-10-23; Ryan reviews the slides on Thursday 2026-10-22 5 pm ET.
+Build the team's midterm presentation: **one title slide + four content slides**, delivered as a PDF. Read the course rules (§0) and the content rules (§1) before writing anything.
 
-## 0. Rules for you (read first)
+## 0. Course rules (verbatim requirements, 2026-10-20)
 
-1. **Every number on a slide must come from a file listed below.** Open the file and check it. If you cannot find a number, write `[TBD]`. Never invent, round up, or "estimate" a result.
-2. **Teammates' parts are not finished.** Slides marked **PLACEHOLDER** must contain the layout, the title, the axis/column headers and `[TBD: <owner> – <what>]` boxes, nothing else. Do not fill them with guesses.
-3. Language: English. Short slide text (≤ 25 words of body text per slide where possible); detail goes into speaker notes.
-4. Output: a `.pptx` (python-pptx) at `docs/midterm/poppy-midterm.pptx`, 16:9, plus `docs/midterm/speaker-notes.md`. The team's existing deck is Google Slides; the `.pptx` must import cleanly into Google Slides (standard fonts, no SmartArt, images as PNG).
-5. Visual style: white background, one accent colour, large charts, one idea per slide. Reuse the colours of `docs/figures/phase1-workflow.png` (blue = model run, green = harness check, orange = evaluation, purple border = differs from A).
-6. Presentation rules from the course: **[TBD: Bo to paste the official midterm rules here: time limit, required sections, grading rubric]**. Until then assume **12 minutes + Q&A, ~14 slides**; adjust the slide count when the rules arrive.
+- PDF with **one title slide and up to four content slides**.
+- **Title slide: only the project title and the group number.** No project code name (do not write "Poppy"), no sponsor or team names, no logos, no other identifiers.
+- Cover, in this order: **Problem and data** (goals, understanding of the data); **Progress and findings** (exploratory work, what we learned, initial results, current approach); **Next steps** (plans for the rest of the semester and **how responsibilities are divided** in the group).
+- Finalized results are not expected; focus on what we learned and how it shapes the next steps.
+- Audience with **varied technical backgrounds**.
+- Slide design: **one main idea per slide, supported by evidence**; visuals, diagrams and figures over text; explain what the results reveal. Use the **assertion–evidence** style: the slide title is a full-sentence claim (≤ 2 lines); the body is visual evidence for that claim, with minimal text.
+- Graded on Presentation (structure, visual effectiveness, easy to follow; 5 pts) and Content (well scoped, meaningful exploratory checks and results, clear and appropriate approach; 5 pts).
+- Presenting time is not stated; write speaker notes for **about 1 minute per content slide** (each slide may be presented by a different member).
 
-## 1. Story in one paragraph (the spine of the deck)
+## 1. Rules for you
 
-An analyst hands a question about NYC crash data to an AI agent and takes its chart and answer. The agent fixes errors that crash its code, but not errors that run silently. Phase 1 asks: when the output is not good enough, do you **fix it in the prompt** (C: self-check instruction) or **build a step** (B: independent read-only review + revision)? We added D at Ryan's request (Verbalized Sampling: ask for three framings with probabilities) and a second model (GPT-6 Luna vs the free mimo model). Before any formal comparison we built and verified the harness, because the first runs showed the agent could reach the internet and read our answer key. Key findings so far: an independent reviewer catches silent errors the agent does not; a self-check in the prompt mostly costs steps; asking for three framings gives real alternatives but the model's first choice is still the typical answer; and **numbers can be right while the framing misleads**, which no current check catches. Phase 2 builds the evaluation layer that does.
+1. **Every number on a slide must come from a file listed in §3.** Open the file and check it. If you cannot find it, write `[TBD]`. Never invent, estimate or round up a result. Results are pilot-scale: say "in pilot runs", never "significant".
+2. **Teammates' parts are not finished.** Cells or boxes marked **[TBD: …]** stay as visible placeholders; do not fill them with guesses.
+3. Plain language for a mixed audience. Avoid: SHA-256, sandbox-exec, OpenCode internals, "contract", "harness", TR codes, model-internal jargon. Say instead: "locked prompts", "isolated workspace with no internet", "automatic checks", "known data pitfalls".
+4. Output: `docs/midterm/midterm-deck.pptx` (16:9, python-pptx, standard fonts, images as PNG so it imports into Google Slides) **and** `docs/midterm/midterm-deck.pdf`. If you cannot export PDF locally, say so; the team will export from Google Slides. Also `docs/midterm/speaker-notes.md` with ~120–150 words per content slide and, next to every number, the file it came from.
+5. Visual style: white background, one accent colour plus the workflow figure's palette (blue = model run, green = automatic check, orange = evaluation, purple = differs from the baseline). Large figures; titles ≥ 28 pt; body ≥ 16 pt; no paragraph text blocks.
+6. When done, render every slide to PNG, look at each one, and fix overlaps, cut-off text and unreadable images.
 
-## 2. Sources (read these; they hold every number)
+## 2. The story (one paragraph)
+
+An analyst gives a question about NYC crash data to an AI agent and takes its chart and answer. The agent fixes errors that crash its code, but not errors that run silently and give wrong or misleading results. We ask which remedy helps: **changing the prompt** (a self-check instruction, or asking for three alternative framings), or **adding a step** (an independent reviewer that sees the chart and a revision step). Before comparing anything we locked the setup down, because the first runs showed the agent downloading outside data and able to read our answer key. In pilot runs, the separate reviewer caught silent errors the agent had missed; the self-check prompt mostly spent budget; asking for alternatives produced real alternatives but did not catch misleading framings, which happen even when every number is correct. Next we build an automatic evaluation layer that checks each step against the data's known pitfalls, and finish the stronger-model comparison.
+
+## 3. Sources (every number is in one of these)
 
 | Topic | File |
 |---|---|
-| Design A/B/C, workflow, predictions | `docs/phase1-abc-design.md`, figure `docs/figures/phase1-workflow.png` |
-| Data and trap catalog (TR01–TR17) | `docs/scenario-data-v1.md` |
-| Model screen (why mimo) and vision test | `experiments/E006-mimo-screen/REPORT.md`, `experiments/LOG.md` (E005 entry) |
-| Pilot protocol, amendments, contract acceptance | `experiments/E007-pilot-prompts/PROTOCOL.md` |
-| Pilot iterations, every result and correction | `experiments/E007-pilot-prompts/ITERATIONS.md` |
-| Frozen prompts with hashes | `experiments/E007-pilot-prompts/FROZEN.md`, `prompts/frozen/` |
-| Scoring rules, per-question trap sheet | `experiments/E007-pilot-prompts/SCORING.md` |
-| Luna A/B runs (teammates) | `experiments/E008-model-contrast/README.md`, `results/`, `experiments/LOG.md` (2026-10-19 "arms A and B on GPT-6 Luna") |
-| Arm D design and results | `experiments/E009-enumerate/DESIGN.md`, `ITERATIONS.md`, `results/D-v1-k3-openai-gpt-6-luna/` |
+| Design of the arms, workflow figure | `docs/phase1-abc-design.md`, `docs/figures/phase1-workflow.png` |
+| Data, data pitfalls (trap catalog) | `docs/scenario-data-v1.md`; per-question pitfalls `experiments/E007-pilot-prompts/SCORING.md` §4; fingerprint `scripts/env_expected.json` |
+| Why the free model (only one that reads images) | `experiments/E006-mimo-screen/REPORT.md`, `experiments/LOG.md` (E005) |
+| Pilot rules, lock-down findings | `experiments/E007-pilot-prompts/PROTOCOL.md` (amendments 2026-10-15/16), `experiments/LOG.md` |
+| Pilot results A/B/C on the free model | `experiments/E007-pilot-prompts/ITERATIONS.md` ("iteration 3", "C v3: the one format check", I1 re-run), `results/` |
+| Stronger model (GPT-6 Luna) A/B | `experiments/E008-model-contrast/README.md`, `results/`, `experiments/LOG.md` (2026-10-19, "arms A and B on GPT-6 Luna") |
+| Alternatives arm D | `experiments/E009-enumerate/DESIGN.md`, `ITERATIONS.md`, `results/D-v1-k3-openai-gpt-6-luna/` |
+| Next phase | `docs/v2-eval-layer-architecture.md` |
 | Mentor asks | `docs/mentor-meeting-2026-10-16.md` |
-| Phase 2 architecture | `docs/v2-eval-layer-architecture.md`, `docs/direction-v2-candidates-2026-10-18.md` |
-| The full experiment log | `experiments/LOG.md` |
 
-## 3. Slide plan (~14 slides)
+## 4. The five slides
 
-Each entry: title · on-slide content · visual · speaker-note points · source.
+### Title slide
+"Fix It in the Prompt or Add a Step? Catching Silent Errors in an AI Data-Analysis Agent" · **Group [TBD: group number]**. Nothing else.
 
-**1. Title.** "Fix it in the prompt, or build a step? Evaluating an AI data-analysis agent on NYC crash data". Team names [TBD: names], NYU CDS × HRI / 99P Labs, Midterm, 2026-10-23.
+### Slide 1 — Problem and data
+**Assertion (title):** "AI analysis agents fix code that crashes, but not answers that are silently wrong."
+**Evidence (two panels):**
+- Left, "The data": NYC Motor Vehicle Collisions, **2,269,187** police-reported crashes, July 2012 – June 2026, pinned snapshot. Three pitfalls an analyst must know, each one line with its number: borough missing for **19.9–38.1%** of crashes per year (2013–2025); minor crashes stopped being recorded in **2020** (crashes **211,486** in 2019 → **85,546** in 2025); **no traffic volume or miles driven** in the data, so "risk per mile" cannot be computed.
+- Right, "Silent errors from our pilot runs" (three callouts, real examples): "Sunday has 32% fewer crashes than Friday" (data: 24%); a "people harmed" column that silently dropped rows with missing values; "risk per mile fell 26%" from data with no mileage.
+- Bottom strip, goal: "Which remedy helps: change the prompt, or add a review step?"
+**Notes:** in 10 baseline runs the agent fixed 6 crashing errors itself and none of the silent ones.
+**Sources:** `SCORING.md` §4, `docs/scenario-data-v1.md`, `ITERATIONS.md` (B v2/v3 records), `docs/phase1-abc-design.md` §1.
 
-**2. The problem.** One line: agents fix errors that crash, not errors that run silently. Three real examples from our runs, one line each: a sum that silently dropped rows with missing values (mimo, A2); "32% fewer crashes on Sunday" when the data says 24% (mimo, K2); "risk per mile fell 26%" from a dataset with no mileage (I1). Visual: three small callouts. Notes: in 10 baseline runs the agent fixed 6 crashing errors itself; none of the silent ones. Source: `ITERATIONS.md`, `LOG.md`, `docs/phase1-abc-design.md` §1.
+### Slide 2 — Approach and exploratory checks
+**Assertion:** "We compare four agent designs under identical, locked-down conditions."
+**Evidence:**
+- Main visual: the four designs as lanes, using `docs/figures/phase1-workflow.png` for A/B/C and adding a fourth lane D in the same style. One-line labels: **A** baseline agent (writes and runs its own code, ≤ 15 steps); **B** + independent reviewer that sees the chart, then a revision of only what it flagged; **C** same agent, prompt adds "check your own work"; **D** same agent, prompt asks for **3 framings**, each with chart and a probability (Verbalized Sampling, suggested by our mentor).
+- Side strip "Same for every design": same data and questions; two models (a free model and GPT-6 Luna); isolated workspace with **no internet**; prompts **locked** before comparison; 6 practice questions kept separate from the 10 test questions.
+- Small callout "Exploratory checks that changed our setup": the agent searched the web and downloaded outside data; it could read our answer key; the reviewer silently inherited the analyst's permissions; the free service sometimes stalls silently. All four found in our own logs and fixed before results counted.
+**Sources:** `docs/phase1-abc-design.md`, `E009 DESIGN.md`, `PROTOCOL.md` amendments, `LOG.md` 2026-10-15/16.
 
-**3. Setup.** Data: NYC Motor Vehicle Collisions, 2,269,187 crashes, snapshot pinned (fingerprint in `scripts/env_expected.json`). Agent: OpenCode, one bounded run (≤ 15 steps, 600 s), writes and runs its own code, outputs chart + plotted values + written answer. Models: mimo-v2.6-flash-free (free, the only free model that reads images) and GPT-6 Luna (Ryan's key). Sandbox: own folder and data copy only, no internet. Visual: simple left-to-right strip (question → agent run → chart/values/answer). Source: `docs/phase1-abc-design.md` §2, §10; `E006 REPORT.md`; `PROTOCOL.md` sandbox v2.
+### Slide 3 — Progress and findings
+**Assertion:** "In pilot runs, a separate reviewer caught silent errors; prompt changes added cost or options, not correctness."
+**Evidence (left: one example; right: one table):**
+- Left: before/after of one chart: `experiments/E007-pilot-prompts/results/B-v4-v3/I1-r1/out/initial.png` → `.../revised.png`. Caption (one line): "Reviewer flagged unlabelled shading on the wrong side of the break-even and an unsupported 'driving recovered' claim; revision fixed them without changing a plotted value."
+- Right: table, rows = designs, columns = free model | GPT-6 Luna, 6 practice questions:
+  - A: free model 5/6 completed (one ran out of steps exploring) | Luna 6/6 completed.
+  - B: free model: real errors fixed on 4 questions, none invented, none of A's correct numbers changed | Luna: issues flagged and fixed on 2 questions, 4 judged correct as is.
+  - C: free model 2/6 completed: the self-check roughly doubled the steps | Luna **[TBD: teammate – C runs]**.
+  - D (Luna only): 18/18 runs completed with 3 genuinely different framings in 17; the top-ranked option was still the plain count on 5 of 6 questions.
+  - Footer: "Single pilot runs on practice questions; blind scoring with our 8-point rubric **[TBD: team – scores]**."
+**Notes:** explain why the reviewer helps (a fresh context judges the output as someone else's work) and why the self-check costs (the same agent re-checks inside the same budget).
+**Sources:** `ITERATIONS.md` (iteration 3; C v3 format check; I1 re-run), `E008-model-contrast/results/` + `LOG.md` 2026-10-19, `E009 ITERATIONS.md`.
 
-**4. The four arms.** Use `docs/figures/phase1-workflow.png` (A/B/C). Add D as a fourth lane in the same style: "C + produce 3 framings, each with chart, values and a probability". One sentence per arm under the figure. Notes: B is paired with A (reviews A's exact output); C and D change only the prompt. Source: `docs/phase1-abc-design.md`, `E009 DESIGN.md`.
+### Slide 4 — Next steps and roles
+**Assertion:** "Numbers can be correct while the framing misleads, so next we build an evaluation layer that checks every step."
+**Evidence (left: the finding; middle: the plan; right: roles):**
+- Left, small table "Correct numbers, misleading framing" (arm D, 3 runs each): Brooklyn question: drops the 19.9–38.1% of crashes with no borough without saying so, **3 of 3 runs**; Brooklyn and per-mile questions: "per reported crash" across the 2020 recording change with no warning, **3 of 3** and **2 of 3** runs. Every number checked against the data and correct.
+- Middle, simple diagram: agent steps (plan → compute → chart → answer) with one automatic check under each: plan vs known data pitfalls; values vs reference queries; every number in the answer recomputed; claims the data cannot support flagged; chart rubric. Loop arrow: run test set → find failures → change one thing → re-run.
+- Right, roles table: **[TBD: Member 1]** evaluation layer and automatic checks, alternatives arm D; **[TBD: Member 2]** stronger-model comparison runs and analysis; **[TBD: Member 3]** self-check runs, scoring and write-up. (Bo to confirm names and split.)
+- Footer timeline: finish Luna runs and blind scoring → build checks on the 10 untouched test questions → final report, blog post, demo video.
+**Sources:** `E009 ITERATIONS.md` (trap incidence), `docs/v2-eval-layer-architecture.md` §1–§3.
 
-**5. How we kept it honest.** Pilot on 6 questions disjoint from the 10 formal ones; protocol pre-registered and committed before results; at most 3 prompt iterations; prompts frozen with SHA-256; acceptance = **contract** (inputs, outputs, boundaries, end states), not effect, so we do not tune B to win. Visual: a 4-step timeline (pilot → iterate ≤ 3 → freeze + hash → compare). Notes: why contract acceptance (tuning on effect would favour B). Source: `PROTOCOL.md` (scope v2 and the 2026-10-15 B contract amendment), `FROZEN.md`.
+## 5. Checks before you finish
 
-**6. What the harness caught before any result counted.** Four findings, one line each, with how each was fixed: (1) the agent searched the web and downloaded vehicle-mile data (web search + Python `urllib` bypassed "webfetch: deny") → OS-level sandbox; (2) the agent's Python could read our gold answers and docs → repo reads denied; (3) the read-only reviewer silently inherited the analyst's permissions from a parent config → isolated folder + guard; (4) the free gateway stalls silently; a client cannot tell long reasoning from a stall → timeout rule, zero-output retry. Visual: 2×2 grid. Notes: all four verified by red-team tests; this is what an applied/FDE team does before trusting any number. Source: `PROTOCOL.md` amendments 2026-10-15/16, `ITERATIONS.md` (stall analysis), `LOG.md`.
-
-**7. Pilot results on mimo (A, B, C).** Small table, one row per arm, 6 pilot questions, single runs:
-- A (A-v1, r1): complete on K1, K2, K3, A2, I1 (I1 re-run under the fixed sandbox); A1 hit the step cap. Check `results/A-v1/*-r1/meta.json` and the I1 re-run note in `ITERATIONS.md`.
-- B (critique v4 + revise v3, iteration 3): contract met on all 5 runnable items; real issues fixed on K1, K2, A2, I1; K3 returned NONE; A1 not run (A had no answer). Check `ITERATIONS.md` "iteration 3".
-- C (v3): 2/6 complete; the self-check roughly doubled steps on clear questions and hit the 15-step cap. Check `ITERATIONS.md` "C v3: the one format check".
-Notes: state single runs; B tuned on these 6 questions. Source: as listed.
-
-**8. What the reviewer caught (example).** Before/after images: `experiments/E007-pilot-prompts/results/B-v4-v3/I1-r1/out/initial.png` and `.../revised.png`. Caption: the review flagged unlabelled shading on the wrong side of the 74% break-even (visible only in the image), an unsupported "driving back to pre-pandemic levels" claim, and an "injuries stayed flat" sentence contradicted by the values (−19%); the revision fixed all four issues without changing a plotted value. Second small callout: A2's NULL-dropping `harmed` column found and fixed. Source: `ITERATIONS.md` iteration 3 table.
-
-**9. PLACEHOLDER — mimo vs GPT-6 Luna (A, B, C).** Layout: a table with rows A, B, C and columns mimo | Luna, per cell "complete x/6, [TBD: score]". Already known for Luna (fill these): A 6/6 complete (11–13 steps); B: K2 and A2 revised (2 issues each), K1, K3, A1, I1 returned NONE. Everything else `[TBD: teammates – Luna C runs, repeats r2/r3, blind scores (8 criteria)]`. Source: `experiments/E008-model-contrast/results/`, `LOG.md` 2026-10-19.
-
-**10. D: three framings with probabilities (Verbalized Sampling).** Left: what D asks (3 framings that each answer correctly; differ in metric, denominator, grouping or chart type; probability = how likely a careful analyst picks it). Right: the three A2 option charts side by side from `experiments/E009-enumerate/results/D-v1-k3-openai-gpt-6-luna/A2-r1/out/option_1.png`, `option_2.png`, `option_3.png`. Key numbers: 18/18 runs complete (6 questions × 3 runs, Luna), 3 analytically distinct framings in 17 of 18 runs, every ambiguous/insufficient answer states that per-trip/per-mile risk cannot be judged without exposure data. Source: `E009 ITERATIONS.md`.
-
-**11. The model's first choice is still the typical answer.** One statement + small table: on 5 of 6 questions the highest-probability option is the plain count in all 3 runs (only A2 ranks a rate first). Notes: matches the Verbalized Sampling claim that alignment favours the typical answer; the alternatives exist but come second and third. Source: `E009 ITERATIONS.md` "Repeats r2, r3".
-
-**12. Right numbers, misleading framing.** Table from `E009 ITERATIONS.md` (trap incidence): A1 filters Brooklyn and silently drops the 19.9–38.1% of crashes with no borough, in 3/3 runs; A1 and I1 use "per reported crash" across the 2020 recording change without a caveat (3/3 and 2/3). Every number was checked against DuckDB and is correct. Message: the in-run self-check does not catch this; it needs an evaluation layer that knows the data's traps. Source: `E009 ITERATIONS.md`, `SCORING.md` §4, `docs/scenario-data-v1.md` (TR01, TR05).
-
-**13. PLACEHOLDER — trade-offs (Ryan's arrows table).** Rows: B, C, D vs A; columns: quality ↑/↓/→, cost ↑/↓/→, time ↑/↓/→; one row per model. Cost and time directions can be read from recorded steps/time (`meta.json`), but quality needs the blind scores: `[TBD: team – after scoring]`. Notes: cost and time are reported as direction only, as Ryan asked. Source: `SCORING.md` §3.
-
-**14. Evaluation plan and limits.** Left: blind scoring with the team's 8 binary criteria; D compared as D-top (headline), D-best, D-all; per-question trap sheet for criterion 6. Right (limits): 6 pilot questions; B tuned on them; mimo arms single runs; small n, no significance claims. Source: `SCORING.md`, `PROTOCOL.md`.
-
-**15. Phase 2: the evaluation layer.** Draw two layers: (1) the agent workflow, unchanged except for a short plan declaration; (2) the evaluation layer with one check per step: contract, plan vs gold plan + trap catalog, values vs gold SQL, numbers in the answer recomputed, claims the data cannot support, chart rubric. Silent error = unsourced number ∨ unsupported claim ∨ gold mismatch ∨ misleading framing (the fourth found by D). Loop: run regression set → per-step checks → failure taxonomy → one change → re-run → keep/revert. Notes: P1–P10 kept untouched as the held-out set. Source: `docs/v2-eval-layer-architecture.md` §1–§3.
-
-**16. Next steps and asks.** Next: finish Luna C and repeats; blind scoring; phase-2 build (recompute oracle, claim judge calibrated on human labels, framing check, regression suite). Asks for the mentors (from `docs/v2-eval-layer-architecture.md` §5 and `mentor-meeting-2026-10-16.md`): feedback on the four-part silent-error definition; how 99P calibrates LLM judges; whether to show one chart or a set in a product. [TBD: Bo to confirm the asks].
-
-## 4. Checks before you finish
-
-- Every number on slides 2, 3, 6, 7, 8, 10, 11, 12 traced to a file; list the file next to it in `speaker-notes.md`.
-- Placeholders 9 and 13 contain only structure and `[TBD]` text.
-- No mention of results that are not in the repo (no Luna C, no scores, no significance).
-- The deck runs ~12 minutes at ~50 s per slide; trim slides 5 and 14 first if the rules give less time.
+- Exactly 5 slides; title slide has only the title and the group number.
+- Each content slide title is a full-sentence claim; the body is mostly visual.
+- Every number traced to a file in `speaker-notes.md`; no Luna C results, no scores, no significance claims.
+- All `[TBD: …]` placeholders visible and unfilled.
