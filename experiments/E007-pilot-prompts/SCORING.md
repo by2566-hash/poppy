@@ -20,9 +20,9 @@ Score each D option as its own chart + values + `answer` field. D's `ANSWER:` li
 
 Luna: each arm 3 runs per question (r1–r3), so differences can be told from run-to-run variation; report per-question pass counts out of 3 (pass^3 = all three pass). mimo: the existing single runs (A-v1, B-v4-v3, C-v3); state that they are single runs. Runner: `PILOT_REPS=2,3 … run_pilot.py <arm> …` adds repeats without touching r1.
 
-## 3. Cost
+## 3. Cost (not scored in phase 1)
 
-Use the full token fields (`input, output, reasoning, cache_read, cache_write, total`). Runs recorded before 2026-10-19 kept only input/output in `meta.json`; recompute with `python3 scripts/token_totals.py <results dir>`. Luna reports almost all input as cache (≈ 99%), so input/output alone understates cost about 40×. Report direction arrows (cost ↑↓→, quality ↑↓→) with the numbers beneath, as Ryan asked.
+Ryan (2026-10-16): do not optimize or weigh cost now. Scorers do not report cost. The harness still records all token fields (`input, output, reasoning, cache_read, cache_write, total`) and `scripts/token_totals.py` recomputes them for runs recorded before 2026-10-19, in case the arrows table or phase 2 needs them.
 
 ## 4. Known traps per question (for criterion 6, "evidence-aware presentation", and criterion 2)
 
