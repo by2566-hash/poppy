@@ -1,0 +1,96 @@
+{
+ "q": "K1",
+ "rep": 2,
+ "label": "D-v1-k3-openai-gpt-6-luna",
+ "type": "clear",
+ "k": 3,
+ "call_ok": true,
+ "timed_out": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 78.2,
+ "zero_output_retries": 0,
+ "secs_total": 78.2,
+ "steps": 14,
+ "hit_step_limit": false,
+ "tool_calls": 20,
+ "tokens": {
+  "input": 42,
+  "output": 3463,
+  "reasoning": 1603,
+  "cache_read": 146950,
+  "cache_write": 21560,
+  "total": 173618
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 3,
+ "n_complete_options": 3,
+ "n_distinct_framings": 3,
+ "n_distinct_analytic": 2,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Annual number of pedestrians killed",
+   "denominator": "None (raw count)",
+   "grouping": "Crash year, 2013\u20132025",
+   "chart_type": "Line chart",
+   "reason": "A line chart makes year-to-year changes in the annual fatality count easy to follow.",
+   "probability": 0.4,
+   "answer": "Pedestrians killed by crash year: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Annual number of pedestrians killed",
+   "denominator": "None (raw count)",
+   "grouping": "Crash year, 2013\u20132025",
+   "chart_type": "Vertical bar chart",
+   "reason": "Bars emphasize the absolute number in each distinct calendar year and support direct comparisons between years.",
+   "probability": 0.35,
+   "answer": "The yearly counts are: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 3,
+   "metric": "Annual number of pedestrians killed, partitioned by recorded borough",
+   "denominator": "None (raw counts; borough stacks sum to the annual citywide count)",
+   "grouping": "Crash year and borough, with missing borough recorded as Unknown / missing",
+   "chart_type": "Stacked vertical bar chart",
+   "reason": "The borough stacks retain the annual citywide totals while showing how the recorded geography contributes to each total.",
+   "probability": 0.25,
+   "answer": "Summing the borough segments gives these NYC annual totals (including crashes with unknown or missing borough): 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "1. The line-chart framing shows pedestrians killed by year: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.\n2. The bar-chart framing shows annual counts of 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, and 119 for 2013 through 2025, respectively.\n3. Summing the borough segments, including unknown or missing borough, gives annual totals of 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, and 119 for 2013 through 2025, respectively.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "edfac3f",
+  "prompt_sha": {
+   "D_enumerate.v1.md": "a18643123c55bfd0"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

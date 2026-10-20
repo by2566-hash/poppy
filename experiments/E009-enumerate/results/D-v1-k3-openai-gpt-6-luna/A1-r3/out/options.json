@@ -1,0 +1,34 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of pedestrians injured in reported crashes",
+      "denominator": "None; count",
+      "grouping": "Brooklyn by calendar year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "Injury counts give readers a direct measure of the reported nonfatal harm to pedestrians over time.",
+      "probability": 0.4,
+      "answer": "Reported pedestrian injuries were lower in 2025 than in 2013 (2,835 vs. 3,641; down 22%), although they rose from 1,781 in 2020. The data cannot establish whether risk per walking trip improved because it contains no pedestrian-exposure measure."
+    },
+    {
+      "id": 2,
+      "metric": "Annual count of pedestrians killed in reported crashes",
+      "denominator": "None; count",
+      "grouping": "Brooklyn by calendar year (2013–2025)",
+      "chart_type": "Bar chart",
+      "reason": "Fatality counts isolate the most severe outcome and make clear that an injury-count decline need not mean fewer deaths.",
+      "probability": 0.25,
+      "answer": "Pedestrian deaths were higher in 2025 than in 2013 (39 vs. 30; up 30%), with substantial year-to-year variation. The data cannot establish whether risk per walking trip improved because it contains no pedestrian-exposure measure."
+    },
+    {
+      "id": 3,
+      "metric": "Share of Brooklyn crash records with at least one pedestrian injured or killed",
+      "denominator": "All police-reported Brooklyn crash records in that year",
+      "grouping": "Brooklyn by calendar year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "A share of reported crashes adds context when the overall number of crash records changes substantially over time.",
+      "probability": 0.35,
+      "answer": "Crashes with a pedestrian injury or death rose from 7.4% of Brooklyn crash records in 2013 to 11.4% in 2025. The data cannot establish whether risk per walking trip improved because it contains no pedestrian-exposure measure."
+    }
+  ]
+}

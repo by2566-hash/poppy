@@ -47,3 +47,31 @@ Observations (effect, not acceptance; inputs for phase 2):
 2. Every answer on A1, A2 and I1 states that per-trip / per-mile risk cannot be judged without exposure data. The unsupported per-mile claim of A (mimo and Luna-free runs) does not appear.
 3. **Silent framing errors remain** and are not caught by the in-run self-check: A1 filters `borough = 'BROOKLYN'`, dropping the 20–23% of crashes with no borough (TR05), without saying so; A1 option 3 (pedestrian casualties per 1,000 crashes, +51.5%) and I1 option 2 (deaths per 100k crashes, "did not decline") divide by total reported crashes, whose count collapsed after the 2020 reporting change (TR01), without a caveat. Numbers are computed correctly; the framings mislead. This is the class of error the phase-2 evaluation layer targets (claim checks and gold plans), and a case for B's reviewer on top of D.
 4. Probabilities: the plain count framing is usually ranked first on clear questions (0.45–0.5) and not on ambiguous ones (A2: 0.3, ties at 0.3/0.4). Ordinal only.
+
+## Repeats r2, r3 (D v1 frozen, GPT-6 Luna, 2026-10-19)
+
+Added with `PILOT_REPS=2,3`, so every question has 3 runs (SCORING.md §2).
+
+| Q | Complete | Steps (r1, r2, r3) | Distinct analytic framings | Top-probability framing (all 3 runs) |
+|---|---|---|---|---|
+| K1 | 3/3 | 12, 14, 14 | 3, 2, 3 | annual count of pedestrians killed |
+| K2 | 3/3 | 14, 14, 12 | 3, 3, 3 | crash count by weekday |
+| K3 | 3/3 | 13, 18, 22 | 3, 3, 3 | annual deaths per road-user group |
+| A1 | 3/3 | 10, 16, 13 | 3, 3, 3 | annual count of pedestrians injured (Brooklyn) |
+| A2 | 3/3 | 13, 19, 19 | 3, 3, 3 | a per-crash severity rate (injured per 100 / any death / harmed per crash) |
+| I1 | 3/3 | 11, 18, 15 | 3, 3, 3 | annual count of motorist deaths |
+
+18/18 complete; steps 10–22 (one run ≥ 20: K3 r3 at 22, under the cap of 25); no network calls.
+
+**Mode share:** on 5 of 6 questions the top-probability option is the plain count, in all three runs: the framing a single-answer run gives first. Only A2 ranks a rate first. This matches the "the model's first choice is the typical answer" prediction; the alternatives come second and third.
+
+**Trap incidence, confirmed by hand (heuristic scan over-flagged three I1 options that use deaths or crash counts, not per-crash rates):**
+
+| Trap | Where | Runs affected | Note |
+|---|---|---|---|
+| TR05 undisclosed borough filter | A1, all options | 3/3 (9/9 options) | none mentions the 19.9–38.1% of crashes per year with no borough |
+| TR01 per-reported-crash denominator across 2020, no caveat | A1 option 3 | 3/3 | 78.1 → 118.3 per 1,000 crashes, or 7.4% → 11.4% of crash records; largely the 2020 recording change |
+| TR01 same | I1 option with a per-crash rate | 2/3 | r2 chose crash counts instead |
+| Exposure disclaimer (no per-trip / per-mile risk) | A1, I1, A2 | 9/9 runs, every option | consistent |
+
+These are systematic, not run-to-run noise: the in-run self-check does not catch them. They are the phase-2 fourth silent-error component (misleading framing).

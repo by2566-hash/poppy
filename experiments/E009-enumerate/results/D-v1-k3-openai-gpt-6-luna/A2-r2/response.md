@@ -1,0 +1,5 @@
+I’m comparing 8 p.m.–5:59 a.m. with 6 a.m.–7:59 p.m. The records can show crash frequency and reported injury/fatality outcomes, but they do not include traffic exposure, so they cannot measure risk per trip.
+ANSWER:
+1. Police-reported crashes averaged 10.97 per nighttime clock-hour versus 23.98 per daytime clock-hour, but crash counts alone cannot establish per-trip danger without traffic-exposure data.
+2. Among crashes with complete injury and death counts, 291.6 of every 100,000 nighttime crashes involved a death versus 108.4 daytime crashes, a comparison of crash severity rather than risk per trip.
+3. Complete records show 40.65 people injured or killed per 100 nighttime crashes versus 31.00 per 100 daytime crashes, but this does not establish risk per trip without traffic-exposure data.

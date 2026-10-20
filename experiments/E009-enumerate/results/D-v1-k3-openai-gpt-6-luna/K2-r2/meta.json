@@ -1,0 +1,96 @@
+{
+ "q": "K2",
+ "rep": 2,
+ "label": "D-v1-k3-openai-gpt-6-luna",
+ "type": "clear",
+ "k": 3,
+ "call_ok": true,
+ "timed_out": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 96.2,
+ "zero_output_retries": 0,
+ "secs_total": 96.2,
+ "steps": 14,
+ "hit_step_limit": false,
+ "tool_calls": 21,
+ "tokens": {
+  "input": 42,
+  "output": 3492,
+  "reasoning": 1888,
+  "cache_read": 136058,
+  "cache_write": 18377,
+  "total": 159857
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 3,
+ "n_complete_options": 3,
+ "n_distinct_framings": 3,
+ "n_distinct_analytic": 3,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Number of police-reported crashes",
+   "denominator": "None; total crashes accumulated over the period",
+   "grouping": "Weekday (Monday through Sunday)",
+   "chart_type": "Bar chart",
+   "reason": "Raw totals give a direct view of how many reported crashes occurred on each weekday over the requested period.",
+   "probability": 0.38,
+   "answer": "Across 2013\u20132025, Friday had the most reported crashes (338,800) and Sunday the fewest (257,544).",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Share of all police-reported crashes",
+   "denominator": "All 2,132,218 crashes dated 2013\u20132025",
+   "grouping": "Weekday (Monday through Sunday)",
+   "chart_type": "Pie chart",
+   "reason": "Shares make each weekday's contribution to the full 13-year crash total easy to compare as parts of one whole.",
+   "probability": 0.32,
+   "answer": "Friday accounted for the largest share, 15.89% of crashes, while Sunday accounted for the smallest, 12.08%.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 3,
+   "metric": "Average police-reported crashes per calendar occurrence of the weekday",
+   "denominator": "Calendar dates of that weekday from 2013-01-01 through 2025-12-31 (678 or 679 dates, depending on weekday)",
+   "grouping": "Weekday (Monday through Sunday)",
+   "chart_type": "Line chart",
+   "reason": "Normalizing by the number of calendar occurrences accounts for the small differences in how often each weekday falls in the 13-year span.",
+   "probability": 0.3,
+   "answer": "The average was highest on Friday at 499.7 crashes per Friday and lowest on Sunday at 379.9 per Sunday.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "Total crash counts were highest on Friday (338,800) and lowest on Sunday (257,544).  \nBy share of all 2,132,218 crashes, Friday accounted for the largest share (15.89%) and Sunday the smallest (12.08%).  \nNormalized by calendar occurrences, Friday averaged 499.7 crashes per Friday, the highest rate, while Sunday averaged 379.9, the lowest.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "3234e7f",
+  "prompt_sha": {
+   "D_enumerate.v1.md": "a18643123c55bfd0"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

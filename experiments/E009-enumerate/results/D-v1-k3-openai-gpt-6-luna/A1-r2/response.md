@@ -1,0 +1,4 @@
+ANSWER:
+[Pedestrian injuries](out/option_1.png): Reported injuries fell 22%, from 3,641 in 2013 to 2,835 in 2025, but rose from the 2020 low of 1,781; these counts aren’t adjusted for walking volume.
+[Pedestrian deaths](out/option_2.png): Reported deaths rose 30%, from 30 in 2013 to 39 in 2025, so this measure shows no improvement; it isn’t adjusted for pedestrian exposure.
+[Share of Brooklyn crash records with a pedestrian casualty](out/option_3.png): The share increased from 7.4% in 2013 to 11.4% in 2025, indicating a larger share of recorded crashes involved a pedestrian injured or killed, not exposure-adjusted risk.

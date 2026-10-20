@@ -1,0 +1,34 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Reported crash frequency",
+      "denominator": "Total clock-hours across the 5,094 calendar days from 2012-07-01 through 2026-06-11 (10 night or 14 daytime hours per date)",
+      "grouping": "Night (8pm–5:59am) versus day (6am–7:59pm)",
+      "chart_type": "Bar chart",
+      "reason": "A careful analyst may choose this framing to compare collision frequency while accounting for the unequal lengths of the night and daytime periods.",
+      "probability": 0.34,
+      "answer": "These records cannot establish whether night is more dangerous per trip or mile because traffic exposure is not recorded; they show 10.97 reported crashes per clock-hour during night versus 23.98 during daytime, averaged across the date range."
+    },
+    {
+      "id": 2,
+      "metric": "People injured and killed per reported crash",
+      "denominator": "Total reported crashes in each period, expressed per 100 crashes",
+      "grouping": "Night (8pm–5:59am) versus day (6am–7:59pm)",
+      "chart_type": "Two-panel horizontal bar chart",
+      "reason": "A careful analyst may choose this framing to compare the human toll per collision, including both nonfatal injuries and deaths.",
+      "probability": 0.38,
+      "answer": "These records cannot establish whether night is more dangerous per trip or mile because traffic exposure is not recorded; per 100 reported crashes, night had 40.45 people injured and 0.308 killed, compared with 31.01 injured and 0.111 killed by day."
+    },
+    {
+      "id": 3,
+      "metric": "Share of reported crashes with injured or killed people",
+      "denominator": "Total reported crashes in each period",
+      "grouping": "Night (8pm–5:59am) versus day (6am–7:59pm)",
+      "chart_type": "Two-panel horizontal bar chart",
+      "reason": "A careful analyst may choose this framing to show how often a reported crash involved casualties, independently of how many people were harmed in each crash.",
+      "probability": 0.28,
+      "answer": "These records cannot establish whether night is more dangerous per trip or mile because traffic exposure is not recorded; 28.51% of night crashes involved at least one injury or death versus 23.50% of daytime crashes, while fatal crashes were 0.290% versus 0.108%."
+    }
+  ]
+}

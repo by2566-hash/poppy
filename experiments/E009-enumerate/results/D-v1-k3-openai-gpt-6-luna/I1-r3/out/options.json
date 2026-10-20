@@ -1,0 +1,34 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of motorist deaths",
+      "denominator": "None (count)",
+      "grouping": "Crash year",
+      "chart_type": "Line chart",
+      "reason": "A count directly shows how many motorists died in crashes each year without introducing an unavailable exposure estimate.",
+      "probability": 0.38,
+      "answer": "This crash data cannot establish deaths per mile because it contains no miles-driven denominator. Recorded motorist deaths went from 110 in 2013 to 81 in 2025, a lower annual count in 2025."
+    },
+    {
+      "id": 2,
+      "metric": "Number of crashes with at least one motorist death",
+      "denominator": "None (count of crash records meeting the condition)",
+      "grouping": "Crash year",
+      "chart_type": "Bar chart",
+      "reason": "Counting fatal crashes rather than individual deaths avoids letting crashes with multiple motorist deaths count as multiple fatal events.",
+      "probability": 0.32,
+      "answer": "This crash data cannot establish deaths per mile because it contains no miles-driven denominator. Crashes with at least one motorist death declined from 102 in 2013 to 75 in 2025."
+    },
+    {
+      "id": 3,
+      "metric": "Motorist deaths per 1,000 reported crashes",
+      "denominator": "All police-reported crash records in the year",
+      "grouping": "Crash year",
+      "chart_type": "Line chart",
+      "reason": "Scaling deaths by the number of reported crashes offers a crash-volume-adjusted comparison that the available columns support.",
+      "probability": 0.3,
+      "answer": "This crash data cannot establish deaths per mile because it contains no miles-driven denominator. Motorist deaths per 1,000 reported crashes rose from 0.540 in 2013 to 0.947 in 2025."
+    }
+  ]
+}

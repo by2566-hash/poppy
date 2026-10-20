@@ -1,0 +1,34 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of pedestrians killed",
+      "denominator": "None (raw count)",
+      "grouping": "Crash year, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "A line chart makes year-to-year changes in the annual fatality count easy to follow.",
+      "probability": 0.4,
+      "answer": "Pedestrians killed by crash year: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of pedestrians killed",
+      "denominator": "None (raw count)",
+      "grouping": "Crash year, 2013\u20132025",
+      "chart_type": "Vertical bar chart",
+      "reason": "Bars emphasize the absolute number in each distinct calendar year and support direct comparisons between years.",
+      "probability": 0.35,
+      "answer": "The yearly counts are: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119."
+    },
+    {
+      "id": 3,
+      "metric": "Annual number of pedestrians killed, partitioned by recorded borough",
+      "denominator": "None (raw counts; borough stacks sum to the annual citywide count)",
+      "grouping": "Crash year and borough, with missing borough recorded as Unknown / missing",
+      "chart_type": "Stacked vertical bar chart",
+      "reason": "The borough stacks retain the annual citywide totals while showing how the recorded geography contributes to each total.",
+      "probability": 0.25,
+      "answer": "Summing the borough segments gives these NYC annual totals (including crashes with unknown or missing borough): 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119."
+    }
+  ]
+}

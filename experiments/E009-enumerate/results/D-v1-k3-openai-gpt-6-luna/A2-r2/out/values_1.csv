@@ -1,0 +1,3 @@
+period,crash_count,observed_dates,hours_per_day,elapsed_hours,crashes_per_elapsed_hour
+Night (8pm–5:59am),559004,5094,10,50940,10.973773
+Day (6am–7:59pm),1710183,5094,14,71316,23.980355

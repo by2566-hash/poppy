@@ -138,3 +138,9 @@ Copy entries into the team's Google Sheet when ready.
 - **Reproduce:** API key in the git-ignored `.env` (`scripts/check_openai_api.py` checks it without printing it); then, per question, A before B: `<external-venv>/bin/python experiments/E009-enumerate/run_ab_luna.py A <qid>` and `… run_ab_luna.py B <qid>` (qid K1, K2, K3, A1, A2 or I1; default K1). Needs `data/processed/nyc_crashes.parquet` and a writable `../poppy-sandbox/`.
 - **Result:** 6/6 A complete (11–13 steps, 130–275 s, 0 network calls); values match gold on K1, K2, K3, A1, I1; A2 used its own framing (night 8pm–5:59am, crash-level injury/fatal rates), reproduced exactly by DuckDB. 6/6 B workflows ran to a defined end state: K2 and A2 `revised` (2 issues each, all marked fixed; changes to wording, a legend, a disclosure note; no plotted value changed); K1, K3, A1, I1 `none_carried_forward` (A's outputs kept by protocol). Not scored: whether B improved anything needs the team's evaluation. Unflagged by the reviewer: A1's 2013-vs-2025 headline on noisy death counts; I1's y-axis starting at 70.
 - **Next:** score A vs B with the team's protocol alongside the teammates' Luna runs; D results join the phase-1 comparison.
+
+## 2026-10-19 — E009-lite: D v1 repeats on Luna (3 runs per question)
+
+- **Setup:** r2 and r3 for the six pilot questions, frozen D v1, step cap 25; scoring rules, trap sheet and the fourth silent-error component written beforehand (`E007-pilot-prompts/SCORING.md`, `docs/v2-eval-layer-architecture.md`).
+- **Result:** 18/18 complete, 10–22 steps, no network. The top-probability option is the plain count on 5 of 6 questions in all three runs. Systematic framing errors: A1 drops crashes with no borough in 3/3 runs (all options) and uses a per-reported-crash share across the 2020 recording change in 3/3; I1 does the latter in 2/3. Exposure limits are stated in every A1/A2/I1 option.
+- **Next:** blind scoring with the team (D-top / D-best / D-all); slides for 10-23.

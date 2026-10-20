@@ -1,0 +1,34 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Police-reported crash frequency",
+      "denominator": "Elapsed clock hours in each time band over all 5,094 dates",
+      "grouping": "Night (8pm–5:59am) vs day (6am–7:59pm)",
+      "chart_type": "Bar chart",
+      "reason": "A careful analyst may choose this framing to compare the volume of crashes while accounting for the different number of hours in the two time bands.",
+      "probability": 0.34,
+      "answer": "Police-reported crashes averaged 10.97 per elapsed nighttime clock-hour, compared with 23.98 per daytime clock-hour. These counts do not establish per-trip danger because the data contain no traffic-exposure measure."
+    },
+    {
+      "id": 2,
+      "metric": "Crashes with at least one person killed per 100,000 complete-record crashes",
+      "denominator": "Crashes with nonmissing person-injury and person-killed counts",
+      "grouping": "Night (8pm–5:59am) vs day (6am–7:59pm)",
+      "chart_type": "Dot plot",
+      "reason": "A careful analyst may choose fatal-crash incidence to focus on the most severe reported outcome while normalizing for the number of crashes in each time band.",
+      "probability": 0.36,
+      "answer": "Among complete records, 291.6 of every 100,000 nighttime crashes involved at least one death, versus 108.4 daytime crashes. This compares fatal outcomes among reported crashes, not risk per trip, which the data cannot determine without traffic exposure."
+    },
+    {
+      "id": 3,
+      "metric": "People injured plus people killed per 100 complete-record crashes",
+      "denominator": "Crashes with nonmissing person-injury and person-killed counts",
+      "grouping": "Night (8pm–5:59am) vs day (6am–7:59pm)",
+      "chart_type": "Stacked bar chart",
+      "reason": "A careful analyst may choose casualty counts per crash to capture the total reported human toll, including multiple people harmed in a single crash.",
+      "probability": 0.30,
+      "answer": "Complete records show 40.65 people injured or killed per 100 nighttime crashes, compared with 31.00 per 100 daytime crashes. This is the reported casualty burden per crash and cannot establish risk per trip without traffic-exposure data."
+    }
+  ]
+}

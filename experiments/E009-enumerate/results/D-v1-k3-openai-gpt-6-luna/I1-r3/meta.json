@@ -1,0 +1,96 @@
+{
+ "q": "I1",
+ "rep": 3,
+ "label": "D-v1-k3-openai-gpt-6-luna",
+ "type": "insufficient",
+ "k": 3,
+ "call_ok": true,
+ "timed_out": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 94.4,
+ "zero_output_retries": 0,
+ "secs_total": 94.4,
+ "steps": 15,
+ "hit_step_limit": false,
+ "tool_calls": 24,
+ "tokens": {
+  "input": 45,
+  "output": 4295,
+  "reasoning": 3410,
+  "cache_read": 163663,
+  "cache_write": 23288,
+  "total": 194701
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 3,
+ "n_complete_options": 3,
+ "n_distinct_framings": 3,
+ "n_distinct_analytic": 3,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Annual count of motorist deaths",
+   "denominator": "None (count)",
+   "grouping": "Crash year",
+   "chart_type": "Line chart",
+   "reason": "A count directly shows how many motorists died in crashes each year without introducing an unavailable exposure estimate.",
+   "probability": 0.38,
+   "answer": "This crash data cannot establish deaths per mile because it contains no miles-driven denominator. Recorded motorist deaths went from 110 in 2013 to 81 in 2025, a lower annual count in 2025.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Number of crashes with at least one motorist death",
+   "denominator": "None (count of crash records meeting the condition)",
+   "grouping": "Crash year",
+   "chart_type": "Bar chart",
+   "reason": "Counting fatal crashes rather than individual deaths avoids letting crashes with multiple motorist deaths count as multiple fatal events.",
+   "probability": 0.32,
+   "answer": "This crash data cannot establish deaths per mile because it contains no miles-driven denominator. Crashes with at least one motorist death declined from 102 in 2013 to 75 in 2025.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 3,
+   "metric": "Motorist deaths per 1,000 reported crashes",
+   "denominator": "All police-reported crash records in the year",
+   "grouping": "Crash year",
+   "chart_type": "Line chart",
+   "reason": "Scaling deaths by the number of reported crashes offers a crash-volume-adjusted comparison that the available columns support.",
+   "probability": 0.3,
+   "answer": "This crash data cannot establish deaths per mile because it contains no miles-driven denominator. Motorist deaths per 1,000 reported crashes rose from 0.540 in 2013 to 0.947 in 2025.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "The crash data cannot determine deaths per mile, but annual motorist deaths fell from 110 in 2013 to 81 in 2025.\nThe crash data cannot determine deaths per mile, but crashes with at least one motorist death fell from 102 to 75.\nThe crash data cannot determine deaths per mile; motorist deaths per 1,000 reported crashes rose from 0.540 in 2013 to 0.947 in 2025.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "3234e7f",
+  "prompt_sha": {
+   "D_enumerate.v1.md": "a18643123c55bfd0"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

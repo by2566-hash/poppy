@@ -1,0 +1,34 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of pedestrians killed",
+      "denominator": "None; count of recorded pedestrian deaths",
+      "grouping": "Crash year (2013–2025)",
+      "chart_type": "Bar chart",
+      "reason": "A yearly count gives the most direct answer and makes year-to-year differences easy to compare.",
+      "probability": 0.55,
+      "answer": "Pedestrians killed by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025)."
+    },
+    {
+      "id": 2,
+      "metric": "Pedestrian deaths as a percentage of all people killed in crashes",
+      "denominator": "Sum of recorded number_of_persons_killed in each year",
+      "grouping": "Crash year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "The share contextualizes pedestrian fatalities within the annual toll across all road users despite changes in overall fatalities.",
+      "probability": 0.2,
+      "answer": "Pedestrian deaths were 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, and 119 from 2013 through 2025, respectively. Their share of all recorded deaths ranged from 37.5% in 2020 to 60.6% in 2016, and was 52.0% in 2025."
+    },
+    {
+      "id": 3,
+      "metric": "Annual number of pedestrians killed, split by recorded borough",
+      "denominator": "None; count of recorded pedestrian deaths",
+      "grouping": "Crash year and borough (missing borough labeled Unknown)",
+      "chart_type": "Stacked bar chart",
+      "reason": "The borough split preserves the yearly citywide totals while showing how recorded deaths are distributed geographically and where borough information is missing.",
+      "probability": 0.25,
+      "answer": "The stacked bars show annual NYC totals of 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, and 119 from 2013 through 2025, respectively. Across the period, deaths were assigned to Unknown (567), Brooklyn (378), Queens (298), Manhattan (255), the Bronx (147), and Staten Island (45)."
+    }
+  ]
+}

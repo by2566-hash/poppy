@@ -1,0 +1,5 @@
+The data covers the full 2013–2025 range, and the pedestrian-fatality field is populated for these years. I’m using three supported views: yearly counts, pedestrians’ share of all recorded deaths, and yearly counts split by borough (with missing boroughs shown explicitly).
+All three charts match their CSV values: the yearly count bars total 1,690 pedestrian deaths over the period; the percentage chart uses recorded deaths of all persons as its denominator; and the stacked borough chart reconciles to the yearly totals while keeping missing boroughs in an explicit “Unknown” group.
+ANSWER: Annual pedestrian deaths were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).
+The annual counts were 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, and 119 from 2013 through 2025, representing 37.5% to 60.6% of all recorded deaths each year.
+The same yearly totals, split by recorded borough, were 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, and 119, with 567 deaths assigned to Unknown across the period.

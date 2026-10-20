@@ -1,0 +1,5 @@
+Brooklyn’s reported pedestrian injuries have declined from 2013, but the series turned upward after 2020; fatalities and the share of crashes with a pedestrian casualty tell different stories. I’m comparing complete calendar years (2013–2025) and will note that these crash records do not include walking exposure, so they cannot establish risk per trip.
+ANSWER:
+Reported pedestrian injuries were 22% lower in 2025 than in 2013 (2,835 vs. 3,641), though they have risen since 2020; the data cannot establish risk per walking trip because it lacks pedestrian-exposure measures.
+Pedestrian deaths were 30% higher in 2025 than in 2013 (39 vs. 30), with substantial year-to-year variation; the data cannot establish risk per walking trip because it lacks pedestrian-exposure measures.
+Crashes with a pedestrian injury or death rose from 7.4% of Brooklyn crash records in 2013 to 11.4% in 2025; the data cannot establish risk per walking trip because it lacks pedestrian-exposure measures.

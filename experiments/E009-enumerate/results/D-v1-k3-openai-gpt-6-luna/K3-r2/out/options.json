@@ -1,0 +1,34 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual deaths among motorists and cyclists",
+      "denominator": "None; counts of reported deaths",
+      "grouping": "Year and road-user type",
+      "chart_type": "Grouped bar chart",
+      "reason": "Side-by-side bars make the yearly absolute difference between the two groups easy to compare.",
+      "probability": 0.38,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year; the largest gap was 110 deaths in 2020 (139 vs. 29), and the smallest was 51 in 2019 (82 vs. 31)."
+    },
+    {
+      "id": 2,
+      "metric": "Annual deaths among motorists and cyclists",
+      "denominator": "None; counts of reported deaths",
+      "grouping": "Year, with separate series for motorists and cyclists",
+      "chart_type": "Two-series line chart",
+      "reason": "Lines emphasize how each group's annual death count changed over time.",
+      "probability": 0.34,
+      "answer": "Motorist deaths peaked at 139 in 2020 and were lowest at 72 in 2016, while cyclist deaths peaked at 31 in both 2019 and 2023 and were lowest at 10 in 2018."
+    },
+    {
+      "id": 3,
+      "metric": "Motorist deaths minus cyclist deaths",
+      "denominator": "None; difference in reported death counts",
+      "grouping": "Year",
+      "chart_type": "Bar chart of annual differences",
+      "reason": "The difference directly quantifies how many more motorist than cyclist deaths were recorded each year.",
+      "probability": 0.28,
+      "answer": "Motorist deaths were higher every year, with the annual excess ranging from 51 in 2019 to 110 in 2020; it was 58 in 2025 (81 motorist deaths versus 23 cyclist deaths)."
+    }
+  ]
+}

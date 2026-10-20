@@ -1,0 +1,34 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Total police-reported crashes",
+      "denominator": "None; raw counts aggregated over 2013–2025",
+      "grouping": "Weekday",
+      "chart_type": "Vertical bar chart",
+      "reason": "Raw counts give a direct view of how many recorded crashes fell on each weekday over the full period.",
+      "probability": 0.45,
+      "answer": "Across 2,132,218 recorded crashes, Friday had the most (338,800) and Sunday the fewest (257,544)."
+    },
+    {
+      "id": 2,
+      "metric": "Share of all police-reported crashes",
+      "denominator": "All crashes recorded from 2013 through 2025",
+      "grouping": "Weekday",
+      "chart_type": "Pie chart",
+      "reason": "A percentage breakdown emphasizes each weekday's contribution to the total rather than its raw volume.",
+      "probability": 0.3,
+      "answer": "Friday accounted for the largest share at 15.9% of crashes, while Sunday had the smallest share at 12.1%."
+    },
+    {
+      "id": 3,
+      "metric": "Annual police-reported crash count",
+      "denominator": "None; raw counts within each calendar year",
+      "grouping": "Calendar year × weekday (2013–2025)",
+      "chart_type": "Heatmap",
+      "reason": "Breaking counts out by year shows whether the weekday pattern persisted across the full period.",
+      "probability": 0.25,
+      "answer": "Friday had the most crashes in each of the 13 years from 2013 through 2025, and Sunday had the fewest in each year."
+    }
+  ]
+}

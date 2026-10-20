@@ -1,0 +1,96 @@
+{
+ "q": "K1",
+ "rep": 3,
+ "label": "D-v1-k3-openai-gpt-6-luna",
+ "type": "clear",
+ "k": 3,
+ "call_ok": true,
+ "timed_out": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 84.2,
+ "zero_output_retries": 0,
+ "secs_total": 84.2,
+ "steps": 14,
+ "hit_step_limit": false,
+ "tool_calls": 21,
+ "tokens": {
+  "input": 42,
+  "output": 4172,
+  "reasoning": 2318,
+  "cache_read": 146423,
+  "cache_write": 20525,
+  "total": 173480
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 3,
+ "n_complete_options": 3,
+ "n_distinct_framings": 3,
+ "n_distinct_analytic": 3,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Annual number of pedestrians killed",
+   "denominator": "None; count of recorded pedestrian deaths",
+   "grouping": "Crash year (2013\u20132025)",
+   "chart_type": "Bar chart",
+   "reason": "A yearly count gives the most direct answer and makes year-to-year differences easy to compare.",
+   "probability": 0.55,
+   "answer": "Pedestrians killed by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Pedestrian deaths as a percentage of all people killed in crashes",
+   "denominator": "Sum of recorded number_of_persons_killed in each year",
+   "grouping": "Crash year (2013\u20132025)",
+   "chart_type": "Line chart",
+   "reason": "The share contextualizes pedestrian fatalities within the annual toll across all road users despite changes in overall fatalities.",
+   "probability": 0.2,
+   "answer": "Pedestrian deaths were 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, and 119 from 2013 through 2025, respectively. Their share of all recorded deaths ranged from 37.5% in 2020 to 60.6% in 2016, and was 52.0% in 2025.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 3,
+   "metric": "Annual number of pedestrians killed, split by recorded borough",
+   "denominator": "None; count of recorded pedestrian deaths",
+   "grouping": "Crash year and borough (missing borough labeled Unknown)",
+   "chart_type": "Stacked bar chart",
+   "reason": "The borough split preserves the yearly citywide totals while showing how recorded deaths are distributed geographically and where borough information is missing.",
+   "probability": 0.25,
+   "answer": "The stacked bars show annual NYC totals of 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, and 119 from 2013 through 2025, respectively. Across the period, deaths were assigned to Unknown (567), Brooklyn (378), Queens (298), Manhattan (255), the Bronx (147), and Staten Island (45).",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "Annual pedestrian deaths were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).\nThe annual counts were 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, and 119 from 2013 through 2025, representing 37.5% to 60.6% of all recorded deaths each year.\nThe same yearly totals, split by recorded borough, were 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, and 119, with 567 deaths assigned to Unknown across the period.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "git_commit": "3234e7f",
+  "prompt_sha": {
+   "D_enumerate.v1.md": "a18643123c55bfd0"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

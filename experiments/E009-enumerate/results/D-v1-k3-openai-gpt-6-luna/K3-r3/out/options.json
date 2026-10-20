@@ -1,0 +1,34 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of persons killed, separately for motorists and cyclists",
+      "denominator": "None; absolute death counts",
+      "grouping": "Year × road-user type",
+      "chart_type": "Grouped bar chart",
+      "reason": "Absolute counts make the year-by-year size of the mortality gap and changes in each group easy to compare.",
+      "probability": 0.48,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year from 2013 through 2025; in 2025, the counts were 81 motorists and 23 cyclists."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist-to-cyclist death-count ratio",
+      "denominator": "Cyclist deaths in the same year",
+      "grouping": "Year",
+      "chart_type": "Line chart",
+      "reason": "The ratio expresses the relative gap as a single value for each year, making changes in the gap easy to follow.",
+      "probability": 0.28,
+      "answer": "Motorist deaths were 10.0 times cyclist deaths in 2013, the largest annual ratio, and 3.52 times cyclist deaths in 2025; the ratio stayed above 1 in every year."
+    },
+    {
+      "id": 3,
+      "metric": "Each road-user type’s percentage share of the combined motorist and cyclist deaths",
+      "denominator": "Motorist deaths plus cyclist deaths in the same year",
+      "grouping": "Year, partitioned by road-user type",
+      "chart_type": "100% stacked bar chart",
+      "reason": "A within-year percentage view highlights how the mix of motorist and cyclist deaths shifts independently of the combined total.",
+      "probability": 0.24,
+      "answer": "Cyclists accounted for the highest share of combined motorist and cyclist deaths in 2019, at 27.4%; their share in 2025 was 22.1%."
+    }
+  ]
+}
