@@ -11,6 +11,7 @@ Environment:
   POPPY_EXP           experiment folder for sandbox + results (default E007-pilot-prompts; e.g. E008-model-contrast)
   POPPY_QSET          pilot (6 pilot questions, default) or formal (P1-P10)
   PILOT_K             arm D: framings per run (default 3)
+  PILOT_REPS          comma-separated repeat numbers to run (e.g. 2,3), leaving existing repeats untouched
   PILOT_QIDS          comma-separated pilot question ids (default: all six)
   PILOT_CONCURRENCY   parallel runs (default 1; the free tier rate-limits)
 
@@ -474,12 +475,14 @@ def run_enumerate(job):
 if __name__ == "__main__":
     mode = sys.argv[1]
     qids = [q for q in os.environ.get("PILOT_QIDS", "").split(",") if q] or list(QS)
+    # PILOT_REPS=2,3 runs only those repeats (A, C, D), so existing r1 results are never overwritten
+    only_reps = [int(r) for r in os.environ.get("PILOT_REPS", "").split(",") if r]
     with ThreadPoolExecutor(CONCURRENCY) as ex:
         if mode in ("A", "C"):
             ver, reps = sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 1
             pf = HERE / "prompts" / (f"A.{ver}.md" if mode == "A" else f"C_selfcheck.{ver}.md")
             label = f"{mode}-{ver}{SUFFIX}"
-            res = list(ex.map(run_analysis, [(label, q, r, pf) for q in qids for r in range(1, reps + 1)]))
+            res = list(ex.map(run_analysis, [(label, q, r, pf) for q in qids for r in (only_reps or range(1, reps + 1))]))
         elif mode == "B":
             cv, rv, a_label = sys.argv[2], sys.argv[3], sys.argv[4]
             cf, rf = HERE / "prompts" / f"B_critique.{cv}.md", HERE / "prompts" / f"B_revise.{rv}.md"
@@ -490,11 +493,13 @@ if __name__ == "__main__":
             k = int(os.environ.get("PILOT_K", "3"))
             pf = HERE / "prompts" / f"D_enumerate.{ver}.md"
             label = f"D-{ver}-k{k}{SUFFIX}"
-            res = list(ex.map(run_enumerate, [(label, q, r, pf, k) for q in qids for r in range(1, reps + 1)]))
+            res = list(ex.map(run_enumerate, [(label, q, r, pf, k) for q in qids for r in (only_reps or range(1, reps + 1))]))
         else:
             sys.exit("mode must be A, B, C or D")
     out = RESULTS.parent / "runs"   # summaries live next to the experiment's results
     out.mkdir(exist_ok=True)
     name = label if not os.environ.get("PILOT_QIDS") else f"{label}-{'-'.join(qids)}"   # a subset never overwrites the full summary
+    if only_reps:
+        name += "-r" + "-".join(map(str, only_reps))
     (out / f"{name}.json").write_text(json.dumps(res, indent=1))
     print("saved", label)
