@@ -74,3 +74,7 @@ Against our own failure log:
 | Reviewer/agent reading files it should not | same sandbox v2; review material not written into the run folder (not applicable to D, which has no review run) |
 | Prompt tuned on effect rather than contract | acceptance is format + boundaries only; one edit per iteration, logged |
 | A silently re-tuned | A.v1 and C.v3 untouched; D is a separate prompt file |
+
+## 8. Scoring and repeats (decided 2026-10-19, before any scoring)
+
+D is compared with the single-answer arms in three readings: **D-top** (highest-probability option, tie → lowest id; headline), D-best (best of the three), D-all (mean over the three). Each option is scored as its own chart + values + `answer`; the neutral `ANSWER:` line is not scored. D on Luna runs 3 repeats per question (r2, r3 added with `PILOT_REPS=2,3`). Full rules, cost accounting and the per-question trap sheet: `experiments/E007-pilot-prompts/SCORING.md`.

@@ -1,6 +1,6 @@
 # Phase 2 architecture — the evaluation layer (record, not yet decided)
 
-- **Status (2026-10-18):** recorded after a team meeting where the team agreed with the overall idea and chose not to go deeper until phase 1 is closed. Nothing in this document is frozen. Decisions are listed at the end and will be taken after the midterm (2026-10-23).
+- **Status (2026-10-18; amended 2026-10-19 with the fourth silent-error component):** recorded after a team meeting where the team agreed with the overall idea and chose not to go deeper until phase 1 is closed. Nothing in this document is frozen. Decisions are listed at the end and will be taken after the midterm (2026-10-23).
 - **Related:** `docs/direction-v2-candidates-2026-10-18.md` (evidence and candidates), `docs/pipeline-v2-design.md` (Bo's earlier design; its "every step is a tool-less call" premise is superseded by §1 below), `docs/phase1-abc-design.md` (phase 1).
 
 ## 1. Two layers
@@ -31,7 +31,7 @@ Layer 2  the evaluation layer (what phase 2 builds)
 | Stage | Artifact | Check | Grader | Ground truth | Status |
 |---|---|---|---|---|---|
 | Whole run | meta, events | budget, sandbox, format, end state (the contract) | code | config | have (`check_contract.py`) |
-| Plan | `plan.json` | denominator, grouping, answerable match the gold plan | code | gold plan (human, one per question) | to build; needs the plan declaration |
+| Plan | `plan.json` | denominator, grouping, answerable match the gold plan; **framing check**: rows excluded (e.g. a borough filter that drops records with no borough) and denominators whose definition changes inside the window (e.g. reported crashes across the 2020 recording change) are disclosed | code + trap catalog | gold plan (human, one per question) + trap catalog (TR01–TR17) | to build; needs the plan declaration |
 | Compute | `values.csv` | plotted numbers match gold SQL | code | gold SQL | half (`gold_cover`) |
 | Narrate: numbers | numbers in ANSWER | each derivable from values / gold (direct, sum, mean, ratio, % change) within tolerance; otherwise "unsourced number" | code | values + gold SQL | to build (recompute oracle) |
 | Narrate: claims | sentences in ANSWER | asserts something the data cannot show (cause, exposure, external number) | LLM judge, binary, calibrated on human labels | data dictionary + human labels | to build (claim judge) |
@@ -40,9 +40,11 @@ Layer 2  the evaluation layer (what phase 2 builds)
 | Revise (B) | `changes.json`, diff | only flagged parts changed; flips | code diff + human | before/after | have |
 | Options (D) | `options.json`, k artifacts | each option passes the oracle; framings distinct; coverage of an expert framing list | code + human list | expert framing list | to build (only with E009) |
 
-**Silent-error rate** of a run = unsourced number ∨ unsupported claim ∨ gold mismatch. This is the primary new metric; the team's 8 criteria stay the final-view rubric.
+**Silent-error rate** of a run = unsourced number ∨ unsupported claim ∨ gold mismatch ∨ **misleading framing**. This is the primary new metric; the team's 8 criteria stay the final-view rubric.
 
-**Must build:** recompute oracle, claim judge with human labels, failure taxonomy, regression-set runner, arrows report. **Should:** plan declaration + gold plans. **Optional:** selection step for D, trace viewer, oracle substitution (replace one step with gold and replay).
+*Why the fourth component (added 2026-10-19, from E009-lite):* arm D on GPT-6 Luna produced options whose numbers were all correct and traceable and whose sentences were supported by those numbers, yet the framing misled: A1 filtered `borough = 'BROOKLYN'` and silently dropped the 19.9–38.1% of crashes per year with no borough (TR05); A1 option 3 and I1 option 2 divided by total reported crashes, a count that collapsed after the 2020 recording change (TR01), and reported "+51.5%" and "did not decline" without a caveat. None of the first three components fires on these. **Misleading framing** = an exclusion of rows, or a denominator whose definition or coverage changes inside the analysis window, that the output does not disclose. It is checked at the plan step (plan.json vs gold plan and the trap catalog), not at the number level. The trap catalog belongs to the evaluation layer only; prompts never contain it (phase-1 protocol rule 4).
+
+**Must build:** recompute oracle, claim judge with human labels, framing check (plan vs gold plan + trap catalog), failure taxonomy, regression-set runner, arrows report. **Should:** plan declaration + gold plans. **Optional:** selection step for D, trace viewer, oracle substitution (replace one step with gold and replay).
 
 ## 3. The loop
 
@@ -63,7 +65,7 @@ Layer 2  the evaluation layer (what phase 2 builds)
 
 1. Build list in §2 as stated (five must, one should, three optional).
 2. Plan declaration added to A → A becomes a new version under a phase-2 protocol; A-v1 stays the phase-1 baseline.
-3. Definition of silent error (three components) accepted or extended.
+3. Definition of silent error: four components (unsourced number, unsupported claim, gold mismatch, misleading framing; the fourth added 2026-10-19 from E009-lite evidence) — to confirm.
 4. One judge only (unsupported claims), calibrated on 60–80 labelled sentences; fall back to human labels if TPR/TNR are poor.
 5. E009 v1 without a selection step; wording D2 (accuracy-conditioned) first.
 6. Retire the Jev/CLM decide-layer plan (agreed 2026-10-18).

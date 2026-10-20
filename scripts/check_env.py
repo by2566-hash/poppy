@@ -47,6 +47,23 @@ for g in (Path.home() / ".config" / "opencode" / "opencode.json", Path.home() / 
         extra = [k for k in ("permission", "agent", "tools", "model", "provider", "mcp", "plugin") if f'"{k}"' in text]
         (fail if extra else ok)(f"global {g.name}" + (f" sets {extra}: move them out, they apply to every run" if extra else " has no run settings"))
 
+# The model's python is this interpreter under sandbox-exec. Start it there once and import the packages, so a
+# setup the sandbox cannot run (E009, 2026-10-19: a venv whose start-up path the sandbox refuses) fails here,
+# not as a wasted model run.
+try:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "experiments" / "E006-mimo-screen"))
+    from run_screen import sandbox_shims  # noqa: E402
+    probe = Path(__file__).resolve().parents[2] / "poppy-sandbox" / "_probe" / "envcheck"
+    probe.mkdir(parents=True, exist_ok=True)
+    shim = sandbox_shims(probe) / "python3"
+    r = subprocess.run([str(shim), "-c", "import duckdb, pandas, matplotlib; print('ok')"],
+                       capture_output=True, text=True, timeout=60, cwd=probe)
+    (ok if r.stdout.strip() == "ok" else fail)(
+        "python starts inside the sandbox and imports duckdb/pandas/matplotlib"
+        + ("" if r.stdout.strip() == "ok" else f" (error: {r.stderr.strip()[-160:]}; use a virtual environment outside the repo)"))
+except Exception as e:  # noqa: BLE001
+    fail(f"sandboxed python probe failed: {e}")
+
 print("Model provider")
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "experiments" / "E006-mimo-screen"))
 from common import MODEL, MODEL_ID  # noqa: E402  (loads poppy/.env)
