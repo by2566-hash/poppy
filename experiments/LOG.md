@@ -144,3 +144,9 @@ Copy entries into the team's Google Sheet when ready.
 - **Setup:** r2 and r3 for the six pilot questions, frozen D v1, step cap 25; scoring rules, trap sheet and the fourth silent-error component written beforehand (`E007-pilot-prompts/SCORING.md`, `docs/v2-eval-layer-architecture.md`).
 - **Result:** 18/18 complete, 10–22 steps, no network. The top-probability option is the plain count on 5 of 6 questions in all three runs. Systematic framing errors: A1 drops crashes with no borough in 3/3 runs (all options) and uses a per-reported-crash share across the 2020 recording change in 3/3; I1 does the latter in 2/3. Exposure limits are stated in every A1/A2/I1 option.
 - **Next:** blind scoring with the team (D-top / D-best / D-all); slides for 10-23.
+
+## 2026-10-20 — Housekeeping: Luna A/B runs filed under E008; one team environment
+
+- **Setup:** Chloe's 12 Luna runs (A-v1, B critique v4 + revise v3, 6 pilot questions) were committed under `E009-enumerate/` with the B folder named `B-v1-…`. Verified: prompt and config hashes in every `meta.json` equal the frozen ones. Moved with `git mv` to `experiments/E008-model-contrast/` (model contrast), B renamed `B-v4-v3-openai-gpt-6-luna`; stored paths inside the moved `meta.json` and run summaries updated; her launcher moved and pointed at E008 with a `PILOT_REP` switch for repeats. Her LOG entry above stands as written.
+- **Result:** the sandbox start-up failure she hit (venv inside the repo) is explained by the read deny on repo directories during path resolution; the profile now allows metadata on the interpreter's ancestors, and a team venv at `~/.poppy/venv` (`scripts/setup_env.sh`) plus `check_env.py` checks make the interpreter location, Python minor version and packages the same on all machines.
+- **Next:** Luna C runs; repeats r2/r3 per `SCORING.md`; blind scoring.

@@ -1,4 +1,4 @@
-# Pinned to the versions used for E001-E007 (Python 3.13.5).
+# Pinned to the versions used for E001-E007. Python 3.13.x; install with scripts/setup_env.sh into ~/.poppy/venv.
 duckdb==1.4.4
 pandas==2.2.3
 pyarrow==19.0.0

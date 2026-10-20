@@ -80,6 +80,15 @@ except Exception as e:  # noqa: BLE001
 
 print("Python")
 py = platform.python_version()
+std = Path(EXP["venv_path"]).expanduser()
+pfx = Path(sys.prefix).resolve()
+if pfx == std.resolve():
+    ok(f"interpreter is the team venv {std}")
+elif pfx.is_relative_to(Path(__file__).resolve().parents[1]):
+    fail(f"interpreter {sys.executable} is inside the repository: run scripts/setup_env.sh and use ~/.poppy/venv/bin/python")
+else:
+    warn(f"interpreter {sys.executable} is not the team venv {std} (allowed if the pinned packages match; run scripts/setup_env.sh to standardize)")
+(ok if py.rsplit(".", 1)[0] == EXP["python_minor"] else warn)(f"Python {py} (team: {EXP['python_minor']}.x)")
 (ok if tuple(map(int, py.split(".")[:2])) >= tuple(map(int, EXP["python_min"].split("."))) else fail)(
     f"python {py} (need >= {EXP['python_min']})")
 for line in (ROOT / "requirements.txt").read_text().splitlines():

@@ -11,5 +11,7 @@
     "sum_injured": 756353
   },
   "raw_csv_sha256": "c8bb9f62ec42a71e8c76682fa190cb0044473541d7d6fa84a7d415e3f1be61c3",
-  "raw_csv_downloaded": "2026-10-03"
+  "raw_csv_downloaded": "2026-10-03",
+  "python_minor": "3.13",
+  "venv_path": "~/.poppy/venv"
 }

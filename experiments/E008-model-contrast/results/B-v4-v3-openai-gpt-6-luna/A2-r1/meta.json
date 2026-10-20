@@ -1,10 +1,10 @@
 {
  "q": "A2",
  "rep": 1,
- "label": "B-v1-openai-gpt-6-luna",
+ "label": "B-v4-v3-openai-gpt-6-luna",
  "a_label": "A-v1-openai-gpt-6-luna",
  "type": "ambiguous",
- "a_source": "experiments/E009-enumerate/results/A-v1-openai-gpt-6-luna/A2-r1",
+ "a_source": "experiments/E008-model-contrast/results/A-v1-openai-gpt-6-luna/A2-r1",
  "a_git_commit": "dbce6ec",
  "a_complete": true,
  "review_ok": true,

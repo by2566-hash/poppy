@@ -25,9 +25,14 @@ def sandbox_profile(sb, protect=()):
     docs, other results) or other runs; writing only inside its own folder; `protect` paths are read-only.
     Later rules override earlier ones."""
     q = lambda p: '"' + str(p).replace('"', '') + '"'
-    py = {sys.prefix, sys.base_prefix}
+    py = {sys.prefix, sys.base_prefix, str(Path(os.path.realpath(sys.executable)).parent.parent)}
+    # Path resolution needs stat() on every ancestor of the interpreter; if the venv lives inside the repo those
+    # ancestors are under the read deny (E008, Chloe, 2026-10-19: "realpath …/.venv/bin/: Operation not permitted").
+    # Metadata on those directories only: no listing, no contents.
+    ancestors = {str(a) for base in py for a in Path(base).parents} | {str(Path(os.path.realpath(sys.executable)).parent)}
     return ("(version 1)(allow default)(deny network-outbound (remote ip))"
             f"(deny file-read* (subpath {q(REPO)}) (subpath {q(SANDBOX_ROOT)}))"
+            f"(allow file-read-metadata {' '.join(f'(literal {q(a)})' for a in sorted(ancestors))})"
             f"(allow file-read* (subpath {q(sb)}) {' '.join(f'(subpath {q(p)})' for p in py)})"
             f"(deny file-write* (subpath {q(Path.home())}) (subpath \"/private/tmp\") (subpath \"/private/var/folders\")"
             f" (subpath {q(SANDBOX_ROOT)}))"

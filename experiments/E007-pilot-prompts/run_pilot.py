@@ -79,6 +79,7 @@ def environment(prompt_files):
         except Exception:  # noqa: BLE001
             return "?"
     return {"model": MODEL, "opencode": run(["opencode", "--version"]), "python": platform.python_version(),
+            "python_prefix": sys.prefix, "python_executable": os.path.realpath(sys.executable),
             "git_commit": run(["git", "-C", str(ROOT), "rev-parse", "--short", "HEAD"]),
             "prompt_sha": {Path(p).name: sha(p) for p in prompt_files},
             "config_sha": {CONFIG_ANALYSIS.name: sha(CONFIG_ANALYSIS), CONFIG_REVIEW.name: sha(CONFIG_REVIEW)}}
