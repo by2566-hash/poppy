@@ -1,0 +1,2 @@
+The data includes all 13 requested calendar years. I’ve computed annual sums from `number_of_pedestrians_killed` and am saving those values alongside a labeled chart for review.
+ANSWER: Pedestrians killed per year were: 2013—176; 2014—133; 2015—133; 2016—149; 2017—127; 2018—123; 2019—131; 2020—101; 2021—132; 2022—135; 2023—107; 2024—124; 2025—119. Chart: `out/initial.png`; values: `out/values.csv`.

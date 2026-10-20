@@ -1,0 +1,2 @@
+The comparison shows a higher share of injury-or-death crashes at night, and a higher fatal-crash share too. I’m making the chart’s percentage axis explicit, then I’ll do the final consistency check.
+ANSWER: By crash severity, yes: 28.5% of reported nighttime crashes involved an injury or death, compared with 23.5% during the day; fatal crashes were 0.29% versus 0.11%. This comparison is among reported crashes and is not adjusted for traffic volume, so it doesn’t establish risk per trip or mile. Chart: `out/initial.png`; plotted data: `out/values.csv`.

@@ -1,0 +1,48 @@
+{
+ "q": "I1",
+ "rep": 1,
+ "label": "C-v3-openai-gpt-6-luna",
+ "type": "insufficient",
+ "call_ok": true,
+ "timed_out": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 52.1,
+ "zero_output_retries": 0,
+ "secs_total": 52.1,
+ "steps": 11,
+ "hit_step_limit": false,
+ "tool_calls": 14,
+ "tokens": {
+  "input": 33,
+  "output": 2073,
+  "reasoning": 1254,
+  "cache_read": 77793,
+  "cache_write": 13242,
+  "total": 94395
+ },
+ "net_calls": 0,
+ "png": true,
+ "values": true,
+ "answer": "This crash data cannot establish whether motorists\u2019 **risk per mile** declined because it contains no miles-driven measure. It shows the annual motorist death count fell from 110 in 2013 to 81 in 2025 (about 26% lower), but that alone does not show a lower per-mile risk. Chart: `./out/initial.png`; plotted values: `./out/values.csv`.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.16",
+  "python_prefix": "/Users/jamie/.poppy/venv",
+  "python_executable": "/opt/homebrew/Cellar/python@3.13/3.13.16/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+  "git_commit": "7b9049b",
+  "prompt_sha": {
+   "C_selfcheck.v3.md": "96250d0fc29b340f"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "complete": true,
+ "collected_by": "jamieli-ds"
+}

@@ -1,0 +1,48 @@
+{
+ "q": "K2",
+ "rep": 1,
+ "label": "C-v3-openai-gpt-6-luna",
+ "type": "clear",
+ "call_ok": true,
+ "timed_out": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 50.1,
+ "zero_output_retries": 0,
+ "secs_total": 50.1,
+ "steps": 10,
+ "hit_step_limit": false,
+ "tool_calls": 11,
+ "tokens": {
+  "input": 30,
+  "output": 1660,
+  "reasoning": 1269,
+  "cache_read": 63394,
+  "cache_write": 11707,
+  "total": 78060
+ },
+ "net_calls": 0,
+ "png": true,
+ "values": true,
+ "answer": "From 2013\u20132025, Friday had the most reported crashes (338,800; 15.89%); Sunday had the fewest (257,544; 12.08%). The chart and values are saved as `./out/initial.png` and `./out/values.csv`.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.16",
+  "python_prefix": "/Users/jamie/.poppy/venv",
+  "python_executable": "/opt/homebrew/Cellar/python@3.13/3.13.16/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+  "git_commit": "7b9049b",
+  "prompt_sha": {
+   "C_selfcheck.v3.md": "96250d0fc29b340f"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "complete": true,
+ "collected_by": "jamieli-ds"
+}

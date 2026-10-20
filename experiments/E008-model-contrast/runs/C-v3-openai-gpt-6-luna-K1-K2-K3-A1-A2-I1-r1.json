@@ -1,0 +1,284 @@
+[
+ {
+  "q": "K1",
+  "rep": 1,
+  "label": "C-v3-openai-gpt-6-luna",
+  "type": "clear",
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 44.1,
+  "zero_output_retries": 0,
+  "secs_total": 44.1,
+  "steps": 11,
+  "hit_step_limit": false,
+  "tool_calls": 12,
+  "tokens": {
+   "input": 33,
+   "output": 1553,
+   "reasoning": 700,
+   "cache_read": 69105,
+   "cache_write": 10873,
+   "total": 82264
+  },
+  "net_calls": 0,
+  "png": true,
+  "values": true,
+  "answer": "Pedestrians killed per year were: 2013\u2014176; 2014\u2014133; 2015\u2014133; 2016\u2014149; 2017\u2014127; 2018\u2014123; 2019\u2014131; 2020\u2014101; 2021\u2014132; 2022\u2014135; 2023\u2014107; 2024\u2014124; 2025\u2014119. Chart: `out/initial.png`; values: `out/values.csv`.",
+  "answer_ok": true,
+  "errors": [],
+  "env": {
+   "model": "openai/gpt-6-luna",
+   "opencode": "1.18.34",
+   "python": "3.13.16",
+   "python_prefix": "/Users/jamie/.poppy/venv",
+   "python_executable": "/opt/homebrew/Cellar/python@3.13/3.13.16/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+   "git_commit": "7b9049b",
+   "prompt_sha": {
+    "C_selfcheck.v3.md": "96250d0fc29b340f"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": true
+ },
+ {
+  "q": "K2",
+  "rep": 1,
+  "label": "C-v3-openai-gpt-6-luna",
+  "type": "clear",
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 50.1,
+  "zero_output_retries": 0,
+  "secs_total": 50.1,
+  "steps": 10,
+  "hit_step_limit": false,
+  "tool_calls": 11,
+  "tokens": {
+   "input": 30,
+   "output": 1660,
+   "reasoning": 1269,
+   "cache_read": 63394,
+   "cache_write": 11707,
+   "total": 78060
+  },
+  "net_calls": 0,
+  "png": true,
+  "values": true,
+  "answer": "From 2013\u20132025, Friday had the most reported crashes (338,800; 15.89%); Sunday had the fewest (257,544; 12.08%). The chart and values are saved as `./out/initial.png` and `./out/values.csv`.",
+  "answer_ok": true,
+  "errors": [],
+  "env": {
+   "model": "openai/gpt-6-luna",
+   "opencode": "1.18.34",
+   "python": "3.13.16",
+   "python_prefix": "/Users/jamie/.poppy/venv",
+   "python_executable": "/opt/homebrew/Cellar/python@3.13/3.13.16/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+   "git_commit": "7b9049b",
+   "prompt_sha": {
+    "C_selfcheck.v3.md": "96250d0fc29b340f"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": true
+ },
+ {
+  "q": "K3",
+  "rep": 1,
+  "label": "C-v3-openai-gpt-6-luna",
+  "type": "clear",
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 46.1,
+  "zero_output_retries": 0,
+  "secs_total": 46.1,
+  "steps": 11,
+  "hit_step_limit": false,
+  "tool_calls": 12,
+  "tokens": {
+   "input": 33,
+   "output": 1608,
+   "reasoning": 635,
+   "cache_read": 64493,
+   "cache_write": 10582,
+   "total": 77351
+  },
+  "net_calls": 0,
+  "png": true,
+  "values": true,
+  "answer": "Motorist deaths were higher than cyclist deaths in every year from 2013\u20132025. Motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in both 2019 and 2023. In 2025, the counts were 81 motorists and 23 cyclists.\n\nChart: `./out/initial.png` \u00b7 Plotted data: `./out/values.csv`",
+  "answer_ok": true,
+  "errors": [],
+  "env": {
+   "model": "openai/gpt-6-luna",
+   "opencode": "1.18.34",
+   "python": "3.13.16",
+   "python_prefix": "/Users/jamie/.poppy/venv",
+   "python_executable": "/opt/homebrew/Cellar/python@3.13/3.13.16/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+   "git_commit": "7b9049b",
+   "prompt_sha": {
+    "C_selfcheck.v3.md": "96250d0fc29b340f"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": true
+ },
+ {
+  "q": "A1",
+  "rep": 1,
+  "label": "C-v3-openai-gpt-6-luna",
+  "type": "ambiguous",
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 98.2,
+  "zero_output_retries": 0,
+  "secs_total": 98.2,
+  "steps": 15,
+  "hit_step_limit": true,
+  "tool_calls": 18,
+  "tokens": {
+   "input": 208,
+   "output": 5031,
+   "reasoning": 2455,
+   "cache_read": 136141,
+   "cache_write": 22780,
+   "total": 166615
+  },
+  "net_calls": 0,
+  "png": true,
+  "values": true,
+  "answer": "The trend is mixed, not a clear overall improvement: pedestrian injuries fell from 3,641 in 2013 to 2,835 in 2025 (22% lower), while pedestrian deaths rose from 30 to 39 (30% higher). These are annual counts, not rates.",
+  "answer_ok": true,
+  "errors": [],
+  "env": {
+   "model": "openai/gpt-6-luna",
+   "opencode": "1.18.34",
+   "python": "3.13.16",
+   "python_prefix": "/Users/jamie/.poppy/venv",
+   "python_executable": "/opt/homebrew/Cellar/python@3.13/3.13.16/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+   "git_commit": "7b9049b",
+   "prompt_sha": {
+    "C_selfcheck.v3.md": "96250d0fc29b340f"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": true
+ },
+ {
+  "q": "A2",
+  "rep": 1,
+  "label": "C-v3-openai-gpt-6-luna",
+  "type": "ambiguous",
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 80.2,
+  "zero_output_retries": 0,
+  "secs_total": 80.2,
+  "steps": 13,
+  "hit_step_limit": false,
+  "tool_calls": 15,
+  "tokens": {
+   "input": 39,
+   "output": 3027,
+   "reasoning": 2246,
+   "cache_read": 109137,
+   "cache_write": 16816,
+   "total": 131265
+  },
+  "net_calls": 0,
+  "png": true,
+  "values": true,
+  "answer": "By crash severity, yes: 28.5% of reported nighttime crashes involved an injury or death, compared with 23.5% during the day; fatal crashes were 0.29% versus 0.11%. This comparison is among reported crashes and is not adjusted for traffic volume, so it doesn\u2019t establish risk per trip or mile. Chart: `out/initial.png`; plotted data: `out/values.csv`.",
+  "answer_ok": true,
+  "errors": [],
+  "env": {
+   "model": "openai/gpt-6-luna",
+   "opencode": "1.18.34",
+   "python": "3.13.16",
+   "python_prefix": "/Users/jamie/.poppy/venv",
+   "python_executable": "/opt/homebrew/Cellar/python@3.13/3.13.16/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+   "git_commit": "7b9049b",
+   "prompt_sha": {
+    "C_selfcheck.v3.md": "96250d0fc29b340f"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": true
+ },
+ {
+  "q": "I1",
+  "rep": 1,
+  "label": "C-v3-openai-gpt-6-luna",
+  "type": "insufficient",
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 52.1,
+  "zero_output_retries": 0,
+  "secs_total": 52.1,
+  "steps": 11,
+  "hit_step_limit": false,
+  "tool_calls": 14,
+  "tokens": {
+   "input": 33,
+   "output": 2073,
+   "reasoning": 1254,
+   "cache_read": 77793,
+   "cache_write": 13242,
+   "total": 94395
+  },
+  "net_calls": 0,
+  "png": true,
+  "values": true,
+  "answer": "This crash data cannot establish whether motorists\u2019 **risk per mile** declined because it contains no miles-driven measure. It shows the annual motorist death count fell from 110 in 2013 to 81 in 2025 (about 26% lower), but that alone does not show a lower per-mile risk. Chart: `./out/initial.png`; plotted values: `./out/values.csv`.",
+  "answer_ok": true,
+  "errors": [],
+  "env": {
+   "model": "openai/gpt-6-luna",
+   "opencode": "1.18.34",
+   "python": "3.13.16",
+   "python_prefix": "/Users/jamie/.poppy/venv",
+   "python_executable": "/opt/homebrew/Cellar/python@3.13/3.13.16/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+   "git_commit": "7b9049b",
+   "prompt_sha": {
+    "C_selfcheck.v3.md": "96250d0fc29b340f"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "complete": true
+ }
+]

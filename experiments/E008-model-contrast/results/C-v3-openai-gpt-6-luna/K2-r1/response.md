@@ -1,0 +1,1 @@
+ANSWER: From 2013–2025, Friday had the most reported crashes (338,800; 15.89%); Sunday had the fewest (257,544; 12.08%). The chart and values are saved as `./out/initial.png` and `./out/values.csv`.
