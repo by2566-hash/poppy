@@ -52,7 +52,7 @@ Layer 2  the evaluation layer (what phase 2 builds)
 2. Score every run with the checks above; produce the per-step pass/fail record.
 3. Open-code failures by hand (≥ 30 traces), group into a taxonomy, count; draw the transition matrix (last step passed × first step failed).
 4. Pick one change (a prompt line, what goes into a step's context, a harness rule), tied to the top failure class.
-5. Re-run the regression set; diff per item and per step; keep or revert; report as an arrows table (cost ↑↓→, quality ↑↓→, numbers beneath).
+5. Re-run the regression set; diff per item and per step; keep or revert; report as an arrows table (quality ↑↓→, cost and time ↑↓→ as direction only: Ryan asked for the trade-off trajectory, not optimization or precise cost).
 6. Write the finding into the field guide; freeze the prompt version with its hash.
 
 ## 4. How the three experiments use the layer

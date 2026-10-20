@@ -41,7 +41,7 @@ On the 6 pilot questions, GPT-6 Luna, one run each: ≥ 5/6 runs `complete`; no 
 | Distinct framings | from `options.json` fields | code |
 | Framing coverage | share of an expert list of legitimate framings per question (3–5 per ambiguous question, written by a teammate who does not tune prompts) that the k options cover | human list, code match |
 | Mode share | is the highest-probability option's framing the same as A's (and C's) single framing? A/C framings are read off their code and answer by hand (mimo A-v1, C-v3; Luna A/C when the teammates' runs land) | code (framing fields) + human check |
-| Cost | steps, tokens, time vs C | code |
+| Cost and time (direction only, not scored) | steps, tokens, time vs C, reported as ↑ / ↓ / → (Ryan: no cost optimization now) | code |
 
 Predictions, recorded before the first scored run (Luna): ≥ 5/6 runs complete within the measured step cap; framings are distinct by the four fields in most runs, with at least one cosmetic-duplicate case; the highest-probability option's framing equals A's single framing (mimo A-v1 and, when available, Luna A) in most clear questions; on the insufficient-evidence item (I1) at least one framing's answer states that the per-mile question cannot be answered from this data.
 
