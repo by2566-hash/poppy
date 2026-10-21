@@ -1,0 +1,3 @@
+# Prototypes (not wired into the harness)
+
+`figure_introspect_sitecustomize.py` (2026-10-21): a `sitecustomize.py` that, when placed on the model's `PYTHONPATH` by the sandbox shim, makes every `matplotlib` `savefig` also write `<file>.figure.json`: per axes the title, labels, limits, scale, tick labels, legend entries, bar centres and heights, line series, and overlapping text boxes. Tested on a synthetic bar chart: bar heights equal `values.csv`, a y-axis starting at 70 is flagged, label overlaps are listed. Purpose: code-based checks for chart type, faithful encoding and readability (criteria 3, 5, 7) without pixels or a judge. Candidate for the phase-2 evaluation layer; no model run uses it yet.
