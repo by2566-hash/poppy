@@ -1,0 +1,33 @@
+id,arm,q,label_claude,judge_luna,sentence
+0,mA,A1,U,S,"` stating the mixed finding: safety improved vs 2013 on average (~22% fewer pedestrian injuries and deaths, using 3-year windows), but the trend reversed after 2020, with 2025 injuries up ~59% from the 2020 low and 39 pedestrian deaths, the most since 2015 and above 2013."
+1,mA,A2,U,S,"Yes — daytime (7am–6pm) has the most crashes (~1.54M), but night crashes are far deadlier: 0.39 injuries/crash vs 0.30 by day, and ~28 fatalities per 10,000 night crashes vs ~10 by day; 4 am is the most dangerous hour, with ~6.4 deaths per 1,000 crashes, 8× the midday rate."
+2,mA,K1,U,U,"The series trends down overall, with a low of 101 in 2020 (pandemic) and a recent low of 107 in 2023, then 124 in 2024 and 119 in 2025."
+3,mB,A2,U,S,"Yes — daytime (7am–6pm) has the most crashes (~1.54M), but night crashes are far deadlier: 0.39 injuries/crash vs 0.30 by day, and ~28 fatalities per 10,000 night crashes vs ~10 by day; 4 am is the most dangerous hour, with ~6.4 deaths per 1,000 crashes, 8× the 4 pm rate."
+4,mB,I1,S,S,"Because the data has no miles-driven column, the per-mile question is answered by break-even: the risk of a motorist being killed per mile driven fell if 2025 mileage was at least ~74% of 2013's — in that case risk per mile is about 26% lower than in 2013 (it would rise only if 2025 driving fell below ~74% of 2013 levels)."
+5,mB,I1,S,S,"Caveats: the 2020–21 spike in deaths per crash, and the post-2019 halving of minor-crash reports (injuries fell only ~19–20% from 2018–19, far less than the 60% drop in reported crashes), so trends in reports alone overstate the change in exposure."
+6,mB,K1,S,S,"The series trends down overall, with a low of 101 in 2020 and a recent low of 107 in 2023, then 124 in 2024 and 119 in 2025."
+7,mC,K3,S,S,"These are counts of people killed in police-reported crashes, not risk rates (no exposure/population data)."
+8,LA,A1,S,S,Brooklyn’s pedestrian-safety picture is mixed.
+9,LA,A2,S,S,"This points to worse outcomes per reported crash at night; without traffic or travel exposure data, it cannot establish that an individual trip is riskier."
+10,LA,I1,S,S,The data can’t tell us whether the risk per mile declined because it has no miles-driven measure.
+11,LB,A1,S,S,Brooklyn’s pedestrian-safety picture is mixed.
+12,LB,A2,S,S,"This points to worse outcomes per reported crash at night; without traffic or travel exposure data, it cannot establish that an individual trip is riskier."
+13,LB,I1,S,S,The data can’t tell us whether the risk per mile declined because it has no miles-driven measure.
+14,LC,A1,S,S,"The trend is mixed, not a clear overall improvement: pedestrian injuries fell from 3,641 in 2013 to 2,835 in 2025 (22% lower), while pedestrian deaths rose from 30 to 39 (30% higher)."
+15,LC,A2,S,S,"This comparison is among reported crashes and is not adjusted for traffic volume, so it doesn’t establish risk per trip or mile."
+16,LC,I1,S,S,This crash data cannot establish whether motorists’ **risk per mile** declined because it contains no miles-driven measure.
+17,LC,I1,S,S,"It shows the annual motorist death count fell from 110 in 2013 to 81 in 2025 (about 26% lower), but that alone does not show a lower per-mile risk."
+18,LD,A1,S,S,"Whether pedestrian safety per trip improved cannot be determined because the data has no pedestrian-exposure measure; as a reported-outcome indicator, annual pedestrian injuries fell from 3,641 in 2013 to 2,835 in 2025 (-22.1%), after reaching a low of 1,781 in 2020 and then rising."
+19,LD,A1,S,S,"Whether pedestrian safety per trip improved cannot be determined because the data has no pedestrian-exposure measure; reported pedestrian deaths rose from 30 in 2013 to 39 in 2025 (30.0%), with substantial year-to-year variation."
+20,LD,A1,S,S,"Whether pedestrian safety per trip improved cannot be determined because the data has no pedestrian-exposure measure; the per-crash indicator increased from 78.1 pedestrian injuries or deaths per 1,000 reported crashes in 2013 to 118.3 in 2025 (51.5%)."
+21,LD,A2,S,S,"This measures crash frequency, not risk per trip, because traffic exposure is not in the data."
+22,LD,A2,S,S,"This indicates greater injury burden per reported crash at night, but not greater risk per trip without traffic-exposure data."
+23,LD,A2,S,S,"The fatal-crash share is higher at night, but the dataset cannot establish risk per trip without traffic-exposure data."
+24,LD,I1,S,S,This data cannot establish whether risk per mile driven declined because it contains no miles-driven measure.
+25,LD,I1,S,S,"Annual motorist fatalities fell from 110 in 2013 to 81 in 2025 (-26.4%), which is a decline in count, not necessarily in per-mile risk."
+26,LD,I1,S,S,This data cannot establish per-mile risk because miles driven are absent.
+27,LD,I1,S,S,"Fatalities per 100,000 reported crashes increased from 54.0 in 2013 to 94.7 in 2025 (up 40.7), so this crash-normalized measure did not decline."
+28,LD,I1,S,S,This data cannot establish whether per-mile risk declined because it does not measure miles driven.
+29,mA,I1,U,U,"Yes — motorist (vehicle-occupant) deaths fell from 110 in 2013 to 81 in 2025, a 26% drop, and since the file has no miles-driven data I solved for it: per-mile risk only fails to decline if 2025 driving was below ~74% of 2013's mileage, so with NYC driving roughly back to pre-pandemic levels the risk of a motorist being killed per mile is about a quarter lower than in 2013 (the 2020–21 spike and the post-2019 halving of minor-crash reports — injury counts stayed flat — are the caveats)."
+30,mA,K2,U,U,"Saturday falls to 288,381 (13.5%, ~425/day) and Sunday is the lowest at 257,544 (12.1%, ~380/day) — about 32% fewer crashes on Sundays than Fridays, consistent with lighter traffic and fewer commuters on weekends."
+31,mA,K1,U,U,"After the 2013 peak, deaths settled into a 101-149 band — the low was 101 in 2020 (pandemic driving) and 107 in 2023, with a slight rebound to 135 in 2022;"
