@@ -144,3 +144,16 @@ Sources are linked; [?] = not verified. Local tests: `experiments/E007-pilot-pro
 3. Comparison protocol: K ≥ 5, paired per item, Wilson / Beta-Binomial intervals, pass@5 and pass^5, MDE stated; screens on dev, confirmation on held-out once per freeze candidate.
 4. Judge rule: no judge scores anything until TPR and TNR are measured on ≥ 60 human labels (test split untouched); agreeable-validator failure mode handled by minority veto.
 5. The four builds, in order: claim-level checker (P1), framing assertions on plan + code (P2), figure introspection hook (criteria 3/5/7), fault-injection set for reviewers (P9); plan declaration as an arm.
+
+---
+
+## Addendum 2026-10-27 — VisJudge-7B as an auxiliary chart judge (teammate's find)
+
+[xypkent/visjudge-7b](https://huggingface.co/xypkent/visjudge-7b): LoRA (rank 128, GRPO) on Qwen2.5-VL-7B-Instruct, Apache-2.0, trained on VisJudge-Bench (3,090 expert-annotated visualizations, 32 chart types incl. dashboards; [paper](https://arxiv.org/abs/2510.22373), [repo](https://github.com/HKUSTDial/VisJudgeBench)). Input: image + fixed prompt. Output: 1–5 with reasoning on six dimensions in three groups: Fidelity (Data Fidelity), Expressiveness (Semantic Readability, Insight Discovery), Aesthetics (Design Style, Visual Composition, Color Harmony), plus an average. Reported overall: MAE 0.44, correlation with experts 0.68 (GPT-5: 0.55 / 0.43; base Qwen2.5-VL-7B: 1.05 / 0.32). Stated limits: performance drops with complexity, dashboards hardest, best on chart types seen in training.
+
+Assessment for our evaluation layer:
+- **Fits criteria 7 (clear and readable) and 8 (visually well presented)**, the slot where frontier judges correlate only 0.43 and we had planned to keep humans. A different model family from the generators (Qwen vs mimo / Luna) and open weights: reproducible, no API cost, in line with the open-source constraint.
+- **Does not fit criteria 1, 2, 5, 6.** It sees pixels only: it cannot compare a chart to `values.csv` or the gold, and it has no question, data dictionary or trap sheet, so its "Data Fidelity" is plausibility, not verification. Our code checks (gold match, figure introspection, trap assertions) stay the source of truth there.
+- **Use as a ranker, not a grader.** Judges rank better than they score ([2604.25235](https://arxiv.org/abs/2604.25235)); its 1–5 is not calibrated to our binary rubric. Use its scores to order charts across arms and its reasoning text as prompts for the human reviewer; never as a hill-climbing target (Goodhart).
+- **Calibration before use** (judge rule in Part 4): ~40 of our 149 charts, two human labels for criteria 7 and 8, VisJudge run 3× at temperature 0; report Spearman vs humans, AUROC at a threshold, self-consistency α, and dashboard-vs-simple-chart split (our charts are simple matplotlib; its training mix is broader).
+- **Runs locally**: 7B bf16 ≈ 16–17 GB; a 24 GB M4 Pro can run it on MPS (`transformers` + `peft`, not in the team venv on purpose: separate judge environment), tens of seconds per image; 149 charts ≈ 1–2 hours. A one-day task plus the download.
