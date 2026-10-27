@@ -40,7 +40,7 @@
 
   <!-- ===== Layer 1: the agent ===== -->
   <rect x="30" y="100" width="1740" height="200" rx="10" fill="#FAFAFA" stroke="#E6E6E6"/>
-  <text class="lane" x="48" y="130">Layer 1 · the agent under evaluation (one OpenCode run, ≤ 15 steps, sandboxed: own folder, own data copy, no network)</text>
+  <text class="lane" x="48" y="130">Layer 1 · the agent under evaluation (one OpenCode run, ≤ 15 steps, 25 for D; sandboxed: own folder, own data copy, no network)</text>
 
   <rect class="io" x="48" y="150" width="190" height="120" rx="8"/>
   <text class="boxTitle" x="62" y="175">Input</text>
@@ -221,7 +221,7 @@
   <path class="line" d="M1328,757 L1344,757" marker-end="url(#arrow)"/>
   <path class="line" d="M1538,757 L1554,757" marker-end="url(#arrow)"/>
   <path class="lineP" d="M1233,802 L1233,830 L143,830 L143,806" marker-end="url(#arrowP)"/>
-  <text class="accent" x="600" y="846">revert → next failure class; dev set = 6 pilot questions (screens, MDE ≈ 30 pp at K = 5); held-out = 10 formal questions (confirmation only)</text>
+  <text class="accent" x="600" y="846">revert → next failure class; dev set = 6 pilot questions (screens only: MDE ≈ 48 pp at K = 5; ≈ 30 pp with 16 questions); held-out = 10 formal questions (confirmation only)</text>
 
   <text class="small" x="48" y="880">Humans do steps 3, 4, 7, 8 (every practitioner standard mandates it; automated optimizers assume a validated metric and hundreds of labelled items, which these steps produce). Code does 1, 2, 5, 6.</text>
   <text class="small" x="48" y="898">Report format for Ryan: one row per change · quality ↑↓→ · cost ↑↓→ · time ↑↓→ · numbers beneath.</text>
@@ -238,5 +238,5 @@
   <text class="boxTitle" x="1120" y="982">E009 · enumerate (VS) + plan-declaration arm</text>
   <text class="boxMeta" x="1120" y="1000">k = 3 framings scored as a set (accuracy gate, distinct, coverage,</text>
   <text class="boxMeta" x="1120" y="1016">mode share); plan declaration as with / without arm</text>
-  <text class="small" x="48" y="1044">Assets in hand: 70+ traced runs (2 models × 4 arms × 6 questions, D × 3 repeats), 16 verified gold series, trap sheet, frozen prompts, contract checker, figure-introspection prototype, 32-sentence judge calibration set.</text>
+  <text class="small" x="48" y="1044">Assets in hand: 88 committed traced runs (2 models × 4 arms × 6 questions, pilot iterations, D × 3 repeats), 16 verified gold series, trap sheet, frozen prompts, contract checker, figure-introspection prototype, 32-sentence judge calibration set.</text>
 </svg>

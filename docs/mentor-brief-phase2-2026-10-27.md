@@ -19,15 +19,10 @@ The agent stays as it is. Around it we build a layer that (a) checks every obser
 
 | Exists | To build (order) |
 |---|---|
-| contract checks, end states, hashes, sandbox, 70+ traced runs, 16 gold series, trap sheet, figure-introspection prototype, 32-sentence judge calibration set | 1 executed claim checks (STAT-TO-TEXT pattern) · 2 framing assertions on plan + code · 3 figure checks wired into the harness · 4 fault-injection set for reviewers · 5 per-question rubrics (ambiguous Qs) · 6 paired-stats + gate script · 7 taxonomy from ≥ 30 hand-coded traces |
+| contract checks, end states, hashes, sandbox, 88 committed traced runs, 16 gold series, trap sheet, figure-introspection prototype, 32-sentence judge calibration set | 1 executed claim checks (STAT-TO-TEXT pattern) · 2 framing assertions on plan + code · 3 figure checks wired into the harness · 4 fault-injection set for reviewers · 5 per-question rubrics (ambiguous Qs) · 6 paired-stats + gate script · 7 taxonomy from ≥ 30 hand-coded traces |
 
-## 4. Where we want your judgement
+## 4. Three questions for you
 
-1. Scoring boundary by question type: clear = code; ambiguous = human-written rubric graded by the frontier model; insufficient = abstain judge + executed claim checks; aesthetics and disagreements human. Reasonable for a 3-person team?
-2. The judge rule (no scoring until TPR/TNR on ≥ 60 human labels). Our first claim judge measured TPR 0.57 / TNR 1.00. Is "flagging aid until recall ≥ 0.8" the right bar?
-3. Plan declaration changes the agent's behaviour; we treat it as an arm, not a harness feature. Agree?
-4. With 6 dev questions the minimum detectable effect is ≈ 30 points at 5 repeats. We propose: dev = screen, held-out 10 = confirmation once per freeze candidate, report pass@5 / pass^5 and the MDE instead of p-values. Would you report it differently?
-5. Process reference: Husain & Shankar error analysis + LangChain "one change at a time" + Anthropic capability → regression evals. Is this how 99P would run it?
-6. Reviewer leniency: fault injection (20–30 planted faults) to measure recall per reviewer. Worth the effort, or is the 2×2 enough?
-7. A teammate found VisJudge-7B (open weights, Apache-2.0) for readability/aesthetics; we would calibrate it on ~40 charts before use. Yes or skip?
-8. Deliverables you want to see at the end: field guide, Medium post in the 99P style, the harness as a reusable repo?
+1. **Scoring boundary by question type.** Clear questions by code (gold match, chart introspection); ambiguous questions by a per-question rubric written by a human and graded by the frontier model; insufficient-evidence questions by an abstain judge plus executed claim checks; aesthetics, disagreements and the freeze decision by humans. Reasonable for a three-person team? (Note on power: with 6 dev questions and 5 repeats the minimum detectable effect is ≈ 48 points, ≈ 30 with 16 questions, so dev comparisons are screens and the 10 held-out questions confirm.)
+2. **Reviewer leniency.** The frontier reviewer flagged issues on 2 of 6 items, the small model's reviewer on 5 of 5. With six items we cannot separate precision from leniency. We would plant 20–30 known faults into correct outputs and measure recall per reviewer and per fault type. Worth it, or is the generator × reviewer 2×2 enough?
+3. **VisJudge-7B.** A teammate found an open-weight (Apache-2.0) chart judge for readability and aesthetics, the slot where frontier judges correlate only 0.43 with experts. We would calibrate it on ~40 of our charts (two human labels, three runs) before using it as a ranker, never as a target. Yes or skip?
