@@ -1,5 +1,6 @@
 # Phase 2 — design inventory (what has to be decided, by module)
 
+- **Status (2026-11-02):** superseded by `docs/v2-plan.md` (the minimal plan decided on Bo's replies of 2026-11-02). Kept as the record of the option space; items not in the plan are listed there as deferred with their return trigger.
 - **Status (2026-11-01):** inventory, not decisions. Phase 2 is open. Each module lists what exists, what must be designed or chosen, the options with evidence, and dependencies. Decisions are taken module by module after the D follow-up experiments (`experiments/E009-enumerate/FOLLOWUPS.md`) finish.
 - **Evidence base:** `docs/phase1-summary.md`, `docs/problem-register.md`, `docs/ground-truth-audit-2026-10-21.md`, `docs/eval-layer-deep-dive-2026-10-21.md` (with the 10-27 addendum), `docs/mentor-brief-phase2-2026-10-27.md`, `docs/v2-eval-layer-architecture.md`.
 
