@@ -4,6 +4,24 @@
 - **Goal this plan serves (Bo, 2026-10-21, restated 2026-11-02):** objective, standard-based automated scoring is the intended *primary* scorer; humans do the final review before a freeze, the error analysis and the decision of what to change. The minimal plan is the **calibration phase** of that goal, not a replacement for it: every human verdict it collects is a label that lets a machine column take over that item (§3a). Where the machine column is already trustworthy (numbers, contract, code-visible traps) it is primary from day one.
 - **Principle:** build only what phase 1's observed failures need, score it on runs we already have, and let the loop decide the next addition. Nothing is built for a failure we have not seen.
 
+## v0 — the minimal implementation (build this first; nothing else until it has run on existing runs)
+
+Decided 2026-11-02 after Bo asked whether §3–§5 were really minimal. They were not: four scripts, two record files and a separate calibration file. v0 is one script, one data file, one sheet.
+
+| Piece | What it is |
+|---|---|
+| `experiments/E007-pilot-prompts/gold_readings.json` | the 6 dev questions' gold series keyed by reading name, with the DuckDB query of each (P1–P10 added only when the held-out run is due) |
+| `scripts/score_runs.py` | one script, three parts: (1) machine checks: complete / n_options / distinct (existing parser), `gold_match`, `unsourced_numbers` (provenance), `framing_flags` (three code patterns: TR05, TR01, TR08); (2) the **standard-based grader**: Luna answers one binary question per item of the written standard (8 criteria; the question's trap-sheet disclosure items; unsupported claim; required statement for insufficient questions), given the option's chart, values, answer, code lines and the trap-sheet row, and quotes the evidence sentence; (3) `--summary`: counts per item per arm × question, paired differences against the baseline label, and the fixed line "6 questions: screening only, MDE ≈ 48 points at K = 5" |
+| `results/<label>/scores.csv` | one row per option (D) or run (A/B): machine columns, grader columns `m_<item>` with `ev_<item>` quotes, human columns `h_<item>` **filled only where the human disagrees** (review by exception), and `first_failure` free text |
+
+**Division of labour.** The machine and the grader score every row. The human reads each row with its evidence quotes, opens the trace only where a row fails or looks wrong, corrects wrong verdicts in `h_*`, writes `first_failure`, and from the summary decides the one change for the next iteration. That is the "split every step, analyse, judge, drive the optimisation" role; the human does not score from scratch.
+
+**Acceptance of v0:** run on D v1 r1–r3 (54 option rows, already on disk). The hand-recorded cases must be flagged (A1 TR05 on options 1–3; A1 option 3 and I1 option 2 TR01; I1 numbers from outside the data); the review by exception of 54 rows takes under an hour; agreement per item (human vs grader) is reported in `ITERATIONS.md`.
+
+**One caveat built in:** review by exception anchors the human on the grader's verdict and inflates agreement. Before any item is promoted to machine-primary, one blind batch of 20 rows (grader columns hidden) is labelled and used for the TPR/TNR check.
+
+**Not in v0** (each returns on a trigger, §8): Wilson intervals and pass^K (when an arm comparison is close), a separate calibration file (the `h_*` columns are the calibration set), a gate script, the figure hook, plan.json, the pandas-assertion checker, fault injection, VisJudge, Inspect AI. §3–§5 below describe the full minimal layer that v0 grows into; v0 is the first slice of it.
+
 ## 1. The four replies, analysed
 
 **(a) Detection first, prevention as treatments — agreed, minimal.** Phase 1's failures were of four kinds and all four are visible in saved runs: numbers plotted that do not match the gold (clear questions), numbers in prose that come from nowhere in the run's own table (I1 imported vehicle-miles; K1 "official" tolls), framings that are correct but undisclosed (A1 borough filter in 6/6 runs; per-crash rates across the 2020 recording change), and unsupported claims (causes, exposure-based risk). The minimal detection layer is one check per kind, machine where the check is cheap and precise, human where it is not (§3). The figure hook, plan declaration, pandas-assertion generator, fault injection and VisJudge are not needed to score those four kinds and are deferred (§8).
@@ -114,8 +132,8 @@ Full tables with scores, agreement figures and what was rejected: `docs/eval-lay
 
 ## 9. Order of work
 
-1. **E009-F1** (now): step measurement on K1/A2 → cap → 6-question acceptance → repeats r2, r3. Scored by hand with the existing sheet (completion, n, distinct, gold by eye, trap sheet).
-2. **M1 scorer** (`score_runs.py`, `gold_readings.json`, `summarize_scores.py`, `scores.csv` format): built once, then run on D v1 r1–r3 and F1. Check: the D v1 cases already recorded by hand (A1 TR05 on options 1–3, A1 option 3 / I1 option 2 TR01, I1 imported numbers) must be flagged. The scorer earns its place on runs that already exist.
+1. **v0 scorer** (one script + gold_readings.json, see top): built and accepted on D v1 r1–r3, which are already on disk. In parallel, **E009-F1** runs (step measurement on K1/A2 → cap → 6-question acceptance → repeats); F1 is then scored by v0, not by hand.
+2. **First analysis:** Bo reads the v0 summary and the failing rows of D v1 + F1, codes `first_failure`, and reports the human–grader agreement per item. This is the first iteration of the loop and decides what v0 gains next.
 3. **E009-F2** rephrasings (teammate writes and commits the phrasings first; D = F1's winner).
 4. **E009-F3** reverse inference; stripped condition = `values.csv` only; validated on 30–40 hand labels before any use.
 5. **E010 loop, iteration 1**: open-code the dev rows of F1–F3 (≥ 30), taxonomy count, one change, paired re-run K = 3, keep / revert by the §5 rule, log.
