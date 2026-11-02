@@ -1,0 +1,56 @@
+You are grading ONE output of a data-analysis agent against a written standard. The chart is attached as an image.
+Judge from the materials below only. Do not fix anything, do not redo the analysis. For each item answer PASS or FAIL
+(NA if the item does not apply to this output) and quote the sentence, number or chart element that decides it.
+Be strict: a limitation that matters but is not stated is a FAIL on the item that asks for it.
+
+QUESTION ASKED: K2
+QUESTION TYPE: clear
+DECLARED FRAMING:
+metric: Average police-reported crashes per calendar occurrence of the weekday
+denominator: Calendar dates of that weekday from 2013-01-01 through 2025-12-31 (678 or 679 dates, depending on weekday)
+grouping: Weekday (Monday through Sunday)
+chart_type: Line chart
+probability: 0.3
+WRITTEN ANSWER:
+The average was highest on Friday at 499.7 crashes per Friday and lowest on Sunday at 379.9 per Sunday.
+
+VALUES TABLE(S) BEHIND THE CHART:
+[values_3.csv]
+weekday,crash_count,calendar_days,avg_crashes_per_day
+Monday,304518,678,449.141593
+Tuesday,313488,679,461.690722
+Wednesday,311111,679,458.189985
+Thursday,318376,678,469.581121
+Friday,338800,678,499.705015
+Saturday,288381,678,425.340708
+Sunday,257544,678,379.858407
+
+CODE LINES THE AGENT RAN (for filters, windows, denominators):
+# bash
+python3 -c "import duckdb; print(duckdb.query(\"select min(crash_date), max(crash_date), count(*) from read_parquet('data/crashes.parquet')\").fetchall())"
+# bash
+python3 -c "import duckdb; print(duckdb.query(\"select year(crash_date) yr, min(crash_date), max(crash_date), count(*) from read_parquet('data/crashes.parquet') where crash_date >= date '2013-01-01' and crash_date < date '2026-01-01' group by 1 order by 1\").df().to_string(index=False))"
+# bash
+ls -la
+# bash
+python3 _make_weekday_outputs.py
+# bash
+ls -l out
+# bash
+python3 -c "import json; p='out/options.json'; d=json.load(open(p)); assert len(d['options'])==3; assert abs(sum(o['probability'] for o in d['options'])-1)<1e-9; print('valid JSON; probability sum =', sum(o['probability'] for o in d['options']))"
+
+ITEMS:
+- c1: question answered: the output answers the question that was asked (not a neighbouring one)
+- c2: appropriate measure: the metric and denominator fit the question
+- c3: appropriate chart type for the data and the comparison
+- c4: useful comparison: the chart makes the relevant comparison visible
+- c5: faithful visual encoding: the chart shows the numbers in the values table without distortion (axis, scale, labels)
+- c6: evidence-aware presentation: claims stay within what the data supports; limitations that matter are stated
+- c7: clear and readable: titles, axes, legend and text are understandable without the code
+- c8: visually well presented
+- tr_TR01: If counts are pooled over 2013–2025, the output says that pre-2020 years dominate or that crash reporting changed in 2020.
+- tr_DAYCOUNT: If per-day averages or 'X% fewer on <day>' comparisons are given, the arithmetic is right (e.g. Sunday has 24% fewer than the mean weekday, Friday 32% more) and unequal day counts (678/679) are handled or noted.
+- unsupported_claim: PASS if no sentence makes a causal claim, a risk-per-exposure claim, an official-count claim, or uses a number from outside the data; FAIL otherwise, quoting the sentence
+
+Reply with exactly one JSON object and nothing else:
+{"<item>": {"verdict": "PASS|FAIL|NA", "evidence": "<short quote>"}, ...} with one entry per item above.

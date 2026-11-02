@@ -75,3 +75,29 @@ Added with `PILOT_REPS=2,3`, so every question has 3 runs (SCORING.md §2).
 | Exposure disclaimer (no per-trip / per-mile risk) | A1, I1, A2 | 9/9 runs, every option | consistent |
 
 These are systematic, not run-to-run noise: the in-run self-check does not catch them. They are the phase-2 fourth silent-error component (misleading framing).
+
+## v0 scorer: acceptance on D v1 r1–r3 (2026-11-02, phase 2, `docs/v2-plan.md` §v0)
+
+`scripts/score_runs.py` + `experiments/E007-pilot-prompts/gold_readings.json` run on the 54 option rows already on disk (no new model runs of D). Sheet: `results/D-v1-k3-openai-gpt-6-luna/scores.csv`; grader prompt and raw reply kept per option in `<run>/grader/<version>-p<pass>/o<k>/`.
+
+**Acceptance (hand-confirmed cases of 10-19 must be flagged):**
+
+| Case (hand, 10-19) | v0 result | By |
+|---|---|---|
+| TR05 undisclosed borough filter, A1, 9/9 options | `tr_TR05` FAIL 9/9; code flag `TR05@L..: WHERE borough = 'BROOKLYN'` on 3/3 runs | grader + code flag |
+| TR01 per-crash rate across 2020 without caveat, A1 option 3, 3/3 | `tr_TR01` FAIL on A1 o3 in r1, r2, r3 | grader |
+| TR01 same, I1 per-crash option, 2/3 runs | `tr_TR01` FAIL on I1-r1 o2 and I1-r3 o3 (r2 has no per-crash option) | grader (after the I1 item was aligned with A1's wording, g2) |
+| Numbers: top option matches gold on every question (hand, 10-19) | `gold_match` = match for 37/54 options; 17 `unmatched`/`no_key` = readings the gold file does not have (A2's own day/night cuts, year-month, by-borough, crashes-with-motorist-death, shares) → human decides `h_gold` | machine |
+| Exposure disclaimer present 9/9 (A1, A2, I1) | `tr_TR11` PASS 14/14 | grader |
+| I1 required statement | `required_statement` PASS 9/9 | grader |
+
+Provenance (`unsourced_numbers`): 0/54 on D v1 (every prose number is a cell or a one-step derivation of the option's own table). On the mimo A-v1 sheet (machine only, `E007-pilot-prompts/results/A-v1/scores.csv`) it flags A1-r1 (3 numbers) and A2-r2 (11 numbers) for the human; I1-r1's invented per-mile reasoning passes the number check and is the claim judge's job, as designed.
+
+**Grader (GPT-6 Luna, review sandbox, 0 tool calls, median 12–14 s per option):**
+- g1 run twice with the same prompt (p1, p2): agreement 556/577 = 0.964 on PASS/FAIL cells. Stable items: c1, c3, c7, c8, TR01, TR05, TR11, TR15 (all 100%). Least stable: c6 46/53, c5 49/53, NIGHTDEF 7/9, TR08 7/9.
+- g2 (one JSON-robustness fix; code lines selected by keyword instead of the last 6,000 characters; a rule for insufficient questions so c1/c2 are not failed for "not per mile"; I1 `TR01` = the 2020 caveat, per-mile substitute moved to `PERMILE`): 0 unparsed; c2 FAIL on I1 went 4 → 0; agreement with g1-p1 on shared items 0.953.
+- Sheets kept: `scores.g1-p1.csv`, `scores.g1-p2.csv` (same prompt), `scores.csv` (g2).
+
+**What the grader says about D v1 (shadow, not scored until promoted):** silent-error rows 25/54, almost all framing: TR05 9/9 (A1), TR01 12/12 where a pooled or per-crash quantity spans 2020 (A1, I1, K2), TR08 6/9 (A2 windows reaching into 2026 or NULL handling not shown), TR15 3/4, NIGHTDEF 3/9. Unsupported claim 1/54; c5 (truncated axes on I1 count charts) 3/54. Clear-question criteria c1, c3, c7, c8: 0 fails.
+
+**Not yet done (Bo):** review by exception of the 54 rows (`h_*`, `h_gold`, `first_failure`), then the per-item human–grader agreement is the first calibration number. Promotion needs the blind batch (plan §v0).

@@ -1,0 +1,7 @@
+{
+ "grader_model": "openai/gpt-6-luna",
+ "secs": 12.0,
+ "tool_calls": 0,
+ "errors": [],
+ "net_calls": null
+}
