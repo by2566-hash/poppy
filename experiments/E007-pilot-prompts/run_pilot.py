@@ -10,7 +10,8 @@ Environment:
   POPPY_MODEL         model id (default mimo-v2.6-flash-free; "openai/gpt-6-luna" needs OPENAI_API_KEY in poppy/.env)
   POPPY_EXP           experiment folder for sandbox + results (default E007-pilot-prompts; e.g. E008-model-contrast)
   POPPY_QSET          pilot (6 pilot questions, default) or formal (P1-P10)
-  PILOT_K             arm D: framings per run (default 3)
+  PILOT_K             arm D: framings per run (default 3; 0 = the model chooses)
+  PILOT_STEPS         arm D: step cap override for a variant (recorded as meta.step_cap)
   PILOT_REPS          comma-separated repeat numbers to run (e.g. 2,3), leaving existing repeats untouched
   PILOT_QIDS          comma-separated pilot question ids (default: all six)
   PILOT_CONCURRENCY   parallel runs (default 1; the free tier rate-limits)
@@ -408,6 +409,7 @@ def run_B(job):
 
 
 OPTION_FIELDS = ("id", "metric", "denominator", "grouping", "chart_type", "reason", "probability", "answer")
+OPTIONAL_FIELDS = ("interpretation",)   # D v2+: present when the prompt asks for it
 
 
 def parse_options(sb):
@@ -428,7 +430,7 @@ def parse_options(sb):
         o = o if isinstance(o, dict) else {}
         oid = o.get("id", i)
         framing = tuple(str(o.get(k, "")).strip().lower() for k in ("metric", "denominator", "grouping", "chart_type"))
-        out.append({**{k: o.get(k) for k in OPTION_FIELDS}, "id": oid,
+        out.append({**{k: o.get(k) for k in OPTION_FIELDS + OPTIONAL_FIELDS}, "id": oid,
                     "png": (sb / "out" / f"option_{oid}.png").exists(),
                     "values": (sb / "out" / f"values_{oid}.csv").exists(),
                     "fields_ok": all(o.get(k) not in (None, "") for k in OPTION_FIELDS if k != "id"),
@@ -445,7 +447,11 @@ def run_enumerate(job):
     label, q, rep, prompt_file, k = job
     sb = SANDBOX / label / f"{q}-r{rep}"
     prep(sb, CONFIG_ENUMERATE)
-    prompt = Path(prompt_file).read_text().format(dictionary=DATA_DICTIONARY, question=QS[q]["text"], k=k)
+    if os.environ.get("PILOT_STEPS"):   # D variants may need more steps (free k); recorded in meta via env
+        cfg = json.loads((sb / "opencode.json").read_text()); cfg["agent"]["build"]["steps"] = int(os.environ["PILOT_STEPS"])
+        (sb / "opencode.json").write_text(json.dumps(cfg, indent=2))
+    k_text = str(k) if k else "as many as a careful analyst would consider defensible, and no more (usually two to five)"
+    prompt = Path(prompt_file).read_text().format(dictionary=DATA_DICTIONARY, question=QS[q]["text"], k=k_text)
     (sb / "prompt.md").write_text(prompt)
     r = call_model(sb, prompt, timeout=TIMEOUT)
     steps = steps_in(sb / "events.jsonl")
@@ -464,8 +470,11 @@ def run_enumerate(job):
             "recommended": po.get("recommended"),
             "options": opts, "answer": ans, "answer_ok": ans is not None, "errors": r["errors"],
             "env": environment([prompt_file])}
-    meta["complete"] = (meta["call_ok"] and po["parsed"] and meta["n_complete_options"] == k
-                        and meta["n_distinct_framings"] == k and meta["answer_ok"])
+    n_req = k if k else max(len(opts), 1)   # free k: every produced option must be complete and distinct
+    meta["step_cap"] = json.loads((sb / "opencode.json").read_text())["agent"]["build"]["steps"]
+    meta["hit_step_limit"] = steps >= meta["step_cap"]
+    meta["complete"] = (meta["call_ok"] and po["parsed"] and len(opts) >= 1 and meta["n_complete_options"] == n_req
+                        and meta["n_distinct_framings"] == n_req and meta["answer_ok"])
     (sb / "response.md").write_text(r["text"])
     (sb / "meta.json").write_text(json.dumps(meta, indent=1))
     print(f"[{label} {q} r{rep}] complete={meta['complete']} options={meta['n_complete_options']}/{k} "
@@ -491,9 +500,9 @@ if __name__ == "__main__":
             res = list(ex.map(run_B, [(label, q, 1, a_label, cf, rf) for q in qids]))
         elif mode == "D":
             ver, reps = sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 1
-            k = int(os.environ.get("PILOT_K", "3"))
+            k = int(os.environ.get("PILOT_K", "3"))        # 0 = free: the model chooses how many framings
             pf = HERE / "prompts" / f"D_enumerate.{ver}.md"
-            label = f"D-{ver}-k{k}{SUFFIX}"
+            label = f"D-{ver}-k{k if k else 'free'}{SUFFIX}"
             res = list(ex.map(run_enumerate, [(label, q, r, pf, k) for q in qids for r in (only_reps or range(1, reps + 1))]))
         else:
             sys.exit("mode must be A, B, C or D")
