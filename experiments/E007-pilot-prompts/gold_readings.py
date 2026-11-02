@@ -44,7 +44,7 @@ STANDARD = {
    {"id": "TR15", "item": "Claims about pedestrian deaths changing are qualified by the small counts (about 30–39 per year).", "note": "small numbers"}]},
  "A2": {"type": "ambiguous", "traps": [
    {"id": "TR11", "item": "Severity per crash (deaths or injuries per crash) is described as such, not as the risk of being on the street at night (no traffic volume by hour exists).", "note": "no exposure"},
-   {"id": "TR08", "item": "The analysis window is 2013–2025, or 2026 rows (killed count NULL in 87.8% of May-2026 and 100% of June-2026 rows) are excluded or handled, and sums are NULL-safe.", "note": "a window including 2026 biases fatality rates low"},
+   {"id": "TR08", "item": "NA if the option uses no killed or injured counts. Otherwise the analysis window excludes 2026, or 2026 rows (killed count NULL in 87.8% of May-2026 and 100% of June-2026 rows) are excluded or handled, and sums are NULL-safe.", "note": "a window including 2026 biases fatality rates low"},
    {"id": "NIGHTDEF", "item": "The definition of 'night' (hours) is stated.", "note": "the cut is one of several defensible ones"}]},
  "I1": {"type": "insufficient", "required_statement": "Per-mile (per vehicle-mile) risk cannot be determined from this data because it has no vehicle-miles or traffic volume.", "traps": [
    {"id": "TR01", "item": "If a per-reported-crash rate spanning 2020 is shown, the output caveats the 2020 change in crash recording (fewer minor crashes reported).", "note": "per-crash denominators collapse after 2020"},

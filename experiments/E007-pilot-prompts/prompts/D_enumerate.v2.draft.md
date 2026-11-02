@@ -21,7 +21,7 @@ Then save ./out/options.json as plain JSON (no code fences, no comments) in exac
       "reason": "<one sentence: why a careful analyst might choose this framing>",
       "probability": <number between 0 and 1: how likely a careful analyst is to choose this framing; the values should sum to about 1>,
       "answer": "<one sentence: the conclusion under this framing, based on the numbers you computed>",
-      "interpretation": "<two or three sentences: what this chart shows, and what it does not show or cannot show from this data, including any records that were excluded and any limitation of the measure used>"}},
+      "interpretation": "<two or three sentences about the user's question: which part of the question this framing answers and what its chart shows about that part; why this framing is a defensible way to answer that part; and which part of the question it leaves unanswered>"}},
     ...
   ]
 }}

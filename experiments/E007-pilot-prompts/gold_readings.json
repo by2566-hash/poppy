@@ -401,7 +401,7 @@
    },
    {
     "id": "TR08",
-    "item": "The analysis window is 2013\u20132025, or 2026 rows (killed count NULL in 87.8% of May-2026 and 100% of June-2026 rows) are excluded or handled, and sums are NULL-safe.",
+    "item": "NA if the option uses no killed or injured counts. Otherwise the analysis window excludes 2026, or 2026 rows (killed count NULL in 87.8% of May-2026 and 100% of June-2026 rows) are excluded or handled, and sums are NULL-safe.",
     "note": "a window including 2026 biases fatality rates low"
    },
    {

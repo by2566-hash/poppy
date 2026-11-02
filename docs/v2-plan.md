@@ -20,7 +20,7 @@ Decided 2026-11-02 after Bo asked whether §3–§5 were really minimal. They we
 
 **One caveat built in:** review by exception anchors the human on the grader's verdict and inflates agreement. Before any item is promoted to machine-primary, one blind batch of 20 rows (grader columns hidden) is labelled and used for the TPR/TNR check.
 
-**Status 2026-11-02: v0 is built and accepted on D v1 r1–r3** (`experiments/E009-enumerate/ITERATIONS.md`, last section): every hand-confirmed case is flagged; grader repeat agreement 0.964 (two passes, same prompt), 0 unparsed; prompt/reply of every grading kept with the run. Open: Bo's review by exception of the 54 rows, which gives the first human–grader agreement per item.
+**Status 2026-11-02: v0 is built and accepted on D v1 r1–r3** (`experiments/E009-enumerate/ITERATIONS.md`, last section): every hand-confirmed case is flagged; grader repeat agreement 0.964 (two passes, same prompt), 0 unparsed; prompt/reply of every grading kept with the run. **Update, later on 2026-11-02:** the 54 rows came back reviewed by a Codex AI pass, not by a human; used as a second-model cross-check (g2 0.950 → g3 0.978 after two real scorer defects were fixed: the grader had seen only the question id; a tolerance floor produced one false gold match). Human labels and the blind batch are still open (ITERATIONS, "Calibration pass 1").
 
 **Not in v0** (each returns on a trigger, §8): Wilson intervals and pass^K (when an arm comparison is close), a separate calibration file (the `h_*` columns are the calibration set), a gate script, the figure hook, plan.json, the pandas-assertion checker, fault injection, VisJudge, Inspect AI. §3–§5 below describe the full minimal layer that v0 grows into; v0 is the first slice of it.
 

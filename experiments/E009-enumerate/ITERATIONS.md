@@ -100,4 +100,32 @@ Provenance (`unsourced_numbers`): 0/54 on D v1 (every prose number is a cell or 
 
 **What the grader says about D v1 (shadow, not scored until promoted):** silent-error rows 25/54, almost all framing: TR05 9/9 (A1), TR01 12/12 where a pooled or per-crash quantity spans 2020 (A1, I1, K2), TR08 6/9 (A2 windows reaching into 2026 or NULL handling not shown), TR15 3/4, NIGHTDEF 3/9. Unsupported claim 1/54; c5 (truncated axes on I1 count charts) 3/54. Clear-question criteria c1, c3, c7, c8: 0 fails.
 
-**Not yet done (Bo):** review by exception of the 54 rows (`h_*`, `h_gold`, `first_failure`), then the per-item human–grader agreement is the first calibration number. Promotion needs the blind batch (plan §v0).
+**Done 2026-11-02 (review of the 54 rows):** the sheet came back filled by a **Codex AI review**, not by a human (every row's `notes` says so: "not an independent human calibration label"). It is used here as a second-model cross-check of the grader, not as the human calibration the plan requires; the ≥ 60 human labels and the blind batch of 20 are still open.
+
+## Calibration pass 1: g2 → g3 against the Codex review (2026-11-02)
+
+Review marks (by exception against g2): 32 overrides on 639 cells, agreement 0.950; 18 `h_gold` (17 `new_reading`, 1 `ok`, 0 `wrong`); 25 `first_failure` (TR05 9, TR01 9, TR08 3, other 4). The review found **two real scorer defects**: (1) the grader prompt showed `QUESTION ASKED: A2` — the question *id*, because `QUESTIONS` came from E006's P1–P10 set; (2) `gold_match` matched A2-r3 o3's fatal-crash share (0.290%, 20:00–05:59, 2012–2026) to the gold's derived killed/(killed+crashes) (0.257%, 18:00–05:59, 2013–2025) because the 0.05 absolute floor swallowed the difference.
+
+**g3 changes (`scripts/score_runs.py`, archived g2 sheet with the review marks: `scores.g2-p1.csv`):** question text from `pilot_questions.json`; a `DATA FACTS` block (snapshot window, NULL borough 20–38%/year, NULL killed in May–June 2026, no NULL crash_time, 2020 reporting fall, no exposure; verified with DuckDB) so the grader stops inventing limitations; rules copied from SCORING.md §4: declared framing fields are part of the output, c6 FAILs when a disclosure item FAILs (an exposure disclaimer does not rescue an undisclosed exclusion), c6 FAILs on a superlative contradicted by the table, c5 does not fail a labelled non-zero axis on a line chart; derived gold ratios/shares use 1% relative with no floor (`tolerance()`); TR08 item for A2 is NA when the option uses no killed/injured counts.
+
+| | g2 | g3 |
+|---|---|---|
+| agreement with the review, all cells (n = 639) | 0.950 | **0.978** |
+| grader FAIL overturned / grader PASS overturned | 12 / 15 | 6 / 5 |
+| c6 | 43/54 | 50/54 |
+| NIGHTDEF | 6/9 | 9/9 |
+| TR08 | 4/9 | 7/9 |
+| c5, c4 | 51/54, 52/54 | 54/54, 54/54 |
+| c8 | 51/54 | 51/54 (3 misses: axis title overlapping the footer on A1-r3, a vision limit) |
+| gold A2-r3 o3 | match (false) | unmatched → `new_reading` |
+| g3 vs g2 on the same cells | | 0.948 (the changes moved only the intended items) |
+| unparsed / tool calls / median s per option | 0 / 0 / 12 | 0 / 0 / 12 |
+
+Sheet under the review's overrides: silent-error rows 20/54, gold_wrong 0, gold_unverified 0. Caveat: g3 was tuned on the same rows it is compared with; the number is an upper bound, and the blind batch decides promotion.
+
+**Three standard questions for Bo (the remaining disagreements are about the standard, not the grader):**
+1. **TR01 on pooled comparisons.** The trap sheet lists TR01 for K2 (pooled weekday counts, 2013–2025) but not for A2 (pooled day vs night per-crash rates). g3 now fails c6 on three A2 options for "rates spanning 2020 without a caveat"; the review passed them. Either TR01 applies to every pooled window across 2020 (then A2 gets a TR01 item) or only to per-year comparisons (then K2 loses it).
+2. **TR08 "handled".** `SUM(COALESCE(killed, 0))` over a window that includes 2026 is NULL-safe in syntax but biases fatality rates low; g3 passes it (A2-r3 o2), the review fails it. Proposed wording: "2026 rows with NULL killed counts are excluded, or the bias is disclosed; COALESCE to 0 alone is not handling."
+3. **c6 on in-table superlatives.** K3-r2 o1/o3 call 110 (2020) the largest gap while the table gives 115 (2021); the grader passed both even with the new rule. If this matters, it is a mechanical check (superlatives in the prose vs the table), not a grader prompt change.
+
+**Next:** F1 scored with g3 as is; the blind batch (20 rows, grader columns hidden, human labels) before any item is promoted; the three standard questions decided by Bo and recorded in SCORING.md §4 / `gold_readings.py` before g4.

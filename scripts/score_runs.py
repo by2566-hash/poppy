@@ -24,10 +24,22 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "experiments" / "E006-mimo-screen"))
 from common import QUESTIONS, QUESTION_TYPES  # noqa: E402
 
+# The pilot questions (K1..I1) live in pilot_questions.json; the grader must see the question text, not the id
+# (g2 showed "QUESTION ASKED: A2"; found by the 2026-11-02 review of the sheet).
+_PILOT = json.loads((ROOT / "experiments" / "E007-pilot-prompts" / "pilot_questions.json").read_text())["questions"]
+QUESTIONS = {**QUESTIONS, **{q["id"]: q["text"] for q in _PILOT}}
+QUESTION_TYPES = {**QUESTION_TYPES, **{q["id"]: q["type"] for q in _PILOT}}
+
 GOLD = json.loads((ROOT / "experiments" / "E007-pilot-prompts" / "gold_readings.json").read_text())
 REVIEW_CONFIG = ROOT / "experiments" / "E007-pilot-prompts" / "config" / "opencode.review.json"
+# Facts about the pinned snapshot the grader may rely on (so it does not invent limitations). Verified 2026-11-02 with DuckDB.
+DATA_FACTS = """- The file covers 2012-07-01 to 2026-06-11; 2013-2025 are complete calendar years; 2026 is partial (to June 11).
+- borough is NULL for about 20-38% of crashes in every year (TR05): a borough filter silently drops them.
+- number_of_persons_killed is NULL in most May-2026 and all June-2026 rows (TR08); 2013-2025 killed counts have no NULLs.
+- crash_time has no NULL rows. Reported crash counts fall sharply in 2020 (TR01): per-reported-crash rates spanning 2020 need a caveat.
+- No exposure measure exists (no traffic volume, trips, miles): counts and per-crash rates are not risk (TR11)."""
 SANDBOX = ROOT.parent / "poppy-sandbox" / "_score"
-GRADER_VERSION = "g2"   # bump on any change to grader_prompt / items / standard; recorded in the sheet and in each run's grader/<version>-p<pass>/
+GRADER_VERSION = "g3"   # bump on any change to grader_prompt / items / standard; recorded in the sheet and in each run's grader/<version>-p<pass>/
 CRITERIA = {"c1": "question answered: the output answers the question that was asked (not a neighbouring one)",
             "c2": "appropriate measure: the metric and denominator fit the question",
             "c3": "appropriate chart type for the data and the comparison",
@@ -154,7 +166,7 @@ def gold_match(q, values_files):
                         ok = True
                         for k, gv in gvals.items():
                             x = to_float(rows[idx[k]][vc])
-                            if x is None or gv is None or abs(x - gv) > (0.5 if float(gv).is_integer() and "-" not in gcol and "/" not in gcol and "%" not in gcol else max(0.01 * abs(gv), 0.05)):
+                            if x is None or gv is None or abs(x - gv) > tolerance(gcol, gv):
                                 ok = False; break
                         if ok:
                             matches.append(f"{rname}.{gcol}={vf.name}:{vc}"); hit = True
@@ -167,6 +179,16 @@ def gold_match(q, values_files):
         # The human decides (h_gold = wrong | new_reading); period-type keys are free cuts, hence unverified.
         return "unmatched", ";".join(mismatches)
     return "no_key", ""
+
+
+def tolerance(gcol, gv):
+    """Integer gold (and integer differences): ±0.5. Base rates: 1% relative, floor 0.05. Derived ratios and shares: 1% relative,
+    no floor (g3: the 0.05 floor let a 0.29% fatal-crash share match the gold's 0.26% killed/(killed+crashes); found by the 11-02 review)."""
+    if "/" in gcol or "%" in gcol:
+        return 0.01 * abs(gv) + 1e-9
+    if float(gv).is_integer():
+        return 0.5
+    return max(0.01 * abs(gv), 0.05)
 
 
 def gold_columns(r):
@@ -302,6 +324,16 @@ Be strict: a limitation that matters but is not stated is a FAIL on the item tha
 If the QUESTION TYPE is "insufficient", the data cannot answer the question as asked; the appropriate output states that
 (required_statement) and shows a measure the data does support. Do not FAIL c1 or c2 merely because the measure is not the
 one the question named (e.g. not per mile); FAIL them only if the output pretends to answer the unanswerable question.
+Rules that follow from the written standard (SCORING.md section 4):
+- The DECLARED FRAMING fields are part of the output: a definition given there (e.g. which hours count as night) counts as stated.
+- c6 FAILs whenever a disclosure item below (TR.., NIGHTDEF, ...) FAILs: an undisclosed exclusion or an uncaveated denominator is a
+  limitation that matters, and an exposure disclaimer does not make up for it. c6 also FAILs when a superlative or comparison in the
+  prose (largest, smallest, peak, doubled) is contradicted by the values table.
+- Do not invent limitations: rely on DATA FACTS for what is partial, missing or NULL.
+- c5: a y-axis that does not start at zero is not a distortion on a line chart when the axis is labelled; on a bar chart it is a FAIL.
+
+DATA FACTS (pinned snapshot):
+{DATA_FACTS}
 
 QUESTION ASKED: {QUESTIONS.get(q, q)}
 QUESTION TYPE: {unit['type']}
