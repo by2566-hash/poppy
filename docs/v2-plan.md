@@ -1,6 +1,7 @@
 # Phase 2 — minimal plan (decided 2026-11-02)
 
 - **Status:** this is the working plan. It replaces the option space in `docs/v2-design-inventory.md` (kept as the record of what was considered; §8 below lists what was deferred and why). Decisions here follow Bo's replies of 2026-11-02: detection as a minimal implementation; gold = correct numbers, framing stays a human check; the loop as the smallest version that fits the current experiments; every adopted method carries its source.
+- **Goal this plan serves (Bo, 2026-10-21, restated 2026-11-02):** objective, standard-based automated scoring is the intended *primary* scorer; humans do the final review before a freeze, the error analysis and the decision of what to change. The minimal plan is the **calibration phase** of that goal, not a replacement for it: every human verdict it collects is a label that lets a machine column take over that item (§3a). Where the machine column is already trustworthy (numbers, contract, code-visible traps) it is primary from day one.
 - **Principle:** build only what phase 1's observed failures need, score it on runs we already have, and let the loop decide the next addition. Nothing is built for a failure we have not seen.
 
 ## 1. The four replies, analysed
@@ -39,6 +40,14 @@ One score sheet per experiment, `results/<label>/scores.csv`, one row per run (p
 | The team's 8 binary criteria | scored by the human on the top option (D-top) and on the best option (D-best), as in `SCORING.md` §1 | human | verdict | HealthBench-style binary items ([2505.08775](https://arxiv.org/html/2505.08775v1)) |
 | Contract / completeness / boundaries | existing: `check_contract.py`, `B_STATES`, `parse_options` (complete, n_options, distinct, duplicates), `net_calls` | machine | verdict | — |
 | First failure | free text: the first upstream thing that went wrong, coded with a TR code, one of the four silent-error components, or `crash/incomplete` | human | label for the taxonomy (§5) | Husain & Shankar error analysis |
+
+### 3a. Standard-based model grader (shadow → primary, per item)
+
+Every human column above is also graded by GPT-6 Luna against the **written standard**: one binary question per item, with the question's trap-sheet row and the matched gold reading as the reference. Items: the 8 binary criteria; each trap-sheet disclosure item of the question; "unsupported claim present"; "required statement present" (insufficient-evidence questions). Output: a machine column `m_<item>` next to the human column `h_<item>` in `scores.csv`, plus the quoted evidence sentence. Rules:
+- **Shadow first:** `m_*` is never scored until promoted; the human column is the score.
+- **Promotion per item:** when an item has ≥ 60 labelled rows and the grader reaches TPR ≥ 0.8 and TNR ≥ 0.8 against the human (judgy-corrected), `m_<item>` becomes the score and the human reviews only disagreements with the flags, unparseable outputs, and the freeze decision. Re-validated on untouched rows after any prompt change to the grader.
+- **Expected path:** clear questions are machine-primary immediately (gold_match, provenance, framing flags, contract). Ambiguous and insufficient questions become machine-primary item by item; the disclosure items have no external benchmark, so their promotion rests on our own labels only.
+- Sources: HealthBench per-example binary criteria graded by a model ([2505.08775](https://arxiv.org/html/2505.08775v1)); CheckEval binary checklist > Likert ([2403.18771](https://arxiv.org/html/2403.18771v3)); ReaLMistake / judgy for the calibration rule.
 
 Primary metric unchanged: silent-error rate = unsourced number ∨ unsupported claim ∨ gold mismatch ∨ undisclosed framing, per run, reported per question type.
 
@@ -110,5 +119,5 @@ Full tables with scores, agreement figures and what was rejected: `docs/eval-lay
 3. **E009-F2** rephrasings (teammate writes and commits the phrasings first; D = F1's winner).
 4. **E009-F3** reverse inference; stripped condition = `values.csv` only; validated on 30–40 hand labels before any use.
 5. **E010 loop, iteration 1**: open-code the dev rows of F1–F3 (≥ 30), taxonomy count, one change, paired re-run K = 3, keep / revert by the §5 rule, log.
-6. Shadow judge accumulates labels through 1–5; promotion decided when ≥ 60 labels exist.
+6. The standard-based grader (§3a) runs in shadow on every run from step 1 on; promotion per item when ≥ 60 labels exist. The ~60 labels are reached around the end of F2 (6 questions × 3 options × 3 repeats ≈ 54 rows per experiment).
 7. Held-out P1–P10 once, at the end, with the frozen workflow and scorer.
