@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of motorist deaths in police-reported crashes",
+      "denominator": "None (annual total)",
+      "grouping": "Crash year",
+      "chart_type": "Line chart",
+      "reason": "Annual deaths directly describe the fatality burden recorded by this crash dataset without implying an exposure-adjusted risk.",
+      "probability": 0.55,
+      "answer": "Recorded motorist deaths fell from 110 in 2013 to 81 in 2025 (-26.4%), but this does not establish a decline in deaths per mile driven.",
+      "interpretation": "This framing answers whether the annual count of recorded motorist deaths changed, and the chart shows a lower total in 2025 than in 2013. It is defensible as a measure of fatality burden in the crash records. It leaves the per-mile risk question unanswered because the data contain no miles driven."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist-fatal crash records per 100,000 police-reported crash records",
+      "denominator": "All police-reported crash records in the year",
+      "grouping": "Crash year",
+      "chart_type": "Line chart",
+      "reason": "A crash-denominated rate indicates how often a recorded crash involved a motorist death while making its denominator explicit.",
+      "probability": 0.45,
+      "answer": "Motorist-fatal crash records increased from 50.1 to 87.7 per 100,000 reported crashes between 2013 and 2025 (75.1%), not a per-mile risk estimate.",
+      "interpretation": "This framing answers how the occurrence of motorist-fatal crashes compares with the volume of all reported crashes, and the chart shows this ratio was higher in 2025 than in 2013. It is defensible as a crash-level descriptive ratio, not an individual motorist exposure rate. It leaves deaths per mile driven unanswered because neither miles nor the number of motorists exposed is recorded."
+    }
+  ]
+}

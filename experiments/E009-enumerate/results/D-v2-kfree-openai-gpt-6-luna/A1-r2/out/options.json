@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of pedestrians injured or killed",
+      "denominator": "None; absolute count of people",
+      "grouping": "Calendar year, Brooklyn",
+      "chart_type": "Line chart",
+      "reason": "Combining nonfatal injuries and deaths gives a broad measure of the yearly human toll while preserving a direct count of affected people.",
+      "probability": 0.5,
+      "answer": "Brooklyn recorded 2,874 pedestrian injuries and deaths in 2025, 22% fewer than 3,671 in 2013, although the total has climbed from its 2020 low of 1,798.",
+      "interpretation": "This framing answers whether the total reported pedestrian harm count is lower than in 2013; the chart shows a decline through 2020 followed by a steady rise through 2025. Adding injury and death counts measures total affected people, with each casualty counted once. It cannot establish whether individual pedestrian risk changed because the data has no walking-exposure denominator and covers police-reported crashes."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of pedestrians killed",
+      "denominator": "None; absolute count of people killed",
+      "grouping": "Calendar year, Brooklyn",
+      "chart_type": "Line chart",
+      "reason": "Fatalities are a distinct, severe safety outcome that can move differently from the much larger injury count.",
+      "probability": 0.3,
+      "answer": "Brooklyn pedestrian deaths increased from 30 in 2013 to 39 in 2025, a 30% rise, despite substantial year-to-year variation.",
+      "interpretation": "This framing answers whether the most severe reported pedestrian outcome improved, and the chart shows that fatalities were higher in 2025 than in 2013 and fluctuated considerably in between. An absolute death count directly describes the yearly fatal toll without combining it with less severe injuries. It does not show pedestrian risk per trip or explain what caused the changes."
+    },
+    {
+      "id": 3,
+      "metric": "Annual number of pedestrians injured (nonfatal)",
+      "denominator": "None; absolute count of people injured",
+      "grouping": "Calendar year, Brooklyn",
+      "chart_type": "Line chart",
+      "reason": "Separating nonfatal injuries shows whether the more frequent form of reported pedestrian harm has changed independently of deaths.",
+      "probability": 0.2,
+      "answer": "Reported nonfatal pedestrian injuries fell from 3,641 in 2013 to 2,835 in 2025, a 22% decrease, but have risen from the 2020 low of 1,781.",
+      "interpretation": "This framing answers whether the annual nonfatal injury count is lower than in 2013; the chart shows a strong decline to 2020 followed by a substantial rebound. Injury counts are a clear measure of the more common reported harm and do not let the smaller fatality count obscure the trend. They do not measure per-pedestrian risk or indicate why the counts changed."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Crash count",
+      "denominator": "None; absolute totals over 2013–2025",
+      "grouping": "Day of week, pooled across 2013–2025",
+      "chart_type": "Bar chart",
+      "reason": "A pooled count chart directly shows how the total crash volume is distributed across weekdays.",
+      "probability": 0.55,
+      "answer": "Of 2,132,218 crashes, Friday had the most (338,800; 15.89%) and Sunday the fewest (257,544; 12.08%).",
+      "interpretation": "This answers how many crashes occurred on each weekday across the full period, with Friday highest and Sunday lowest. Absolute totals are a direct way to show the overall burden by day. It does not adjust for the small differences in how many calendar dates of each weekday occurred."
+    },
+    {
+      "id": 2,
+      "metric": "Average crashes per calendar date",
+      "denominator": "Calendar dates for each weekday in 2013–2025 (678 or 679 dates)",
+      "grouping": "Day of week, pooled across 2013–2025",
+      "chart_type": "Bar chart",
+      "reason": "Dividing each weekday's total by its number of calendar-date opportunities makes the comparison a per-day rate.",
+      "probability": 0.25,
+      "answer": "On a per-date basis, Friday averaged the most crashes (499.7 per Friday) and Sunday the fewest (379.9 per Sunday).",
+      "interpretation": "This answers the typical number of crashes recorded on a date for each weekday. It is defensible because weekdays have slightly different numbers of calendar dates in the selected period. It does not show how weekday shares changed from year to year."
+    },
+    {
+      "id": 3,
+      "metric": "Weekday share of annual crashes",
+      "denominator": "All crashes in the corresponding year",
+      "grouping": "Year and day of week, 2013–2025",
+      "chart_type": "Multi-series line chart",
+      "reason": "Year-specific shares reveal whether the weekday pattern shifted over time without letting high-volume years dominate the comparison.",
+      "probability": 0.2,
+      "answer": "Friday had the largest weekday share in every year, ranging from 15.32% in 2023 to 16.25% in 2013, while Sunday rose overall from 11.85% in 2013 to 13.09% in 2025.",
+      "interpretation": "This answers how the weekday composition evolved during 2013–2025: Friday led each year, while Sunday accounted for a larger share at the end than at the start. Within-year percentages make the yearly distributions comparable even when annual crash totals differ. It does not show absolute crash volumes by year."
+    }
+  ]
+}

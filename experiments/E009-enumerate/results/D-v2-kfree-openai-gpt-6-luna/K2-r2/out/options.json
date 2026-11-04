@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Crash-record count",
+      "denominator": "No normalization; total crash records in 2013–2025",
+      "grouping": "Day of week, Monday through Sunday",
+      "chart_type": "Vertical bar chart",
+      "reason": "Total counts directly describe how the recorded crashes are distributed across weekdays over the full period.",
+      "probability": 0.55,
+      "answer": "Friday had the most recorded crashes (338,800) and Sunday the fewest (257,544) among 2,132,218 crashes.",
+      "interpretation": "This answers how the total 2013–2025 crash records split among weekdays: Friday leads and Sunday trails. A weekday count chart is a direct descriptive distribution of recorded events; it leaves unanswered the per-date rate and does not adjust for traffic exposure."
+    },
+    {
+      "id": 2,
+      "metric": "Average crash-record count per calendar date",
+      "denominator": "Calendar dates occurring on each weekday (678 or 679 dates)",
+      "grouping": "Day of week, Monday through Sunday",
+      "chart_type": "Vertical bar chart",
+      "reason": "Per-date averages account for the slightly different number of each weekday in the 2013–2025 calendar period.",
+      "probability": 0.45,
+      "answer": "Friday averaged 499.7 crash records per calendar date, the highest, while Sunday averaged 379.9, the lowest.",
+      "interpretation": "This answers the average number of crash records on a calendar date of each weekday, accounting for the 678 or 679 occurrences of each weekday. Dividing by weekday-date counts is defensible for comparing per-date averages; it leaves unanswered how crash risk per trip differs because traffic exposure is not in these data."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+I’ll compare nighttime and daytime crashes using the available crash-level outcomes, while making clear that these data do not include traffic or pedestrian exposure needed to estimate risk per trip.
+ANSWER:
+These data cannot establish whether people face greater risk at night without traffic or travel-exposure data, but 28.27% of nighttime crashes involved an injury or death versus 23.21% of daytime crashes—a 5.06-percentage-point difference.
+These data cannot establish whether people face greater risk at night without traffic or travel-exposure data, but fatal crashes occurred at 2.90 per 1,000 nighttime crashes versus 1.08 per 1,000 daytime crashes.
+These data cannot establish whether people face greater risk at night without traffic or travel-exposure data, but crashes produced 40.42 injured or killed people per 100 nighttime crashes versus 30.73 per 100 daytime crashes.

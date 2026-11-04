@@ -36,10 +36,10 @@ REVIEW_CONFIG = ROOT / "experiments" / "E007-pilot-prompts" / "config" / "openco
 DATA_FACTS = """- The file covers 2012-07-01 to 2026-06-11; 2013-2025 are complete calendar years; 2026 is partial (to June 11).
 - borough is NULL for about 20-38% of crashes in every year (TR05): a borough filter silently drops them.
 - number_of_persons_killed is NULL in most May-2026 and all June-2026 rows (TR08); 2013-2025 killed counts have no NULLs.
-- crash_time has no NULL rows. Reported crash counts fall sharply in 2020 (TR01): a per-reported-crash rate or a pooled count COMPARED ACROSS YEARS spanning 2020 needs a caveat; a comparison between groups within one pooled window (e.g. day vs night) does not (decided 2026-11-04).
+- crash_time has no NULL rows. Reported crash counts (the number of crash records) fall sharply in 2020 (TR01), so a per-reported-crash rate (deaths or injuries divided by reported crashes) compared across years spanning 2020 needs a caveat. Counts of deaths or injuries by year do NOT need it (they are not affected by the reporting change), and a comparison between groups within one pooled window (e.g. day vs night) does not either (decided 2026-11-04; g5 wording after g4 failed c6 on plain death counts).
 - No exposure measure exists (no traffic volume, trips, miles): counts and per-crash rates are not risk (TR11)."""
 SANDBOX = ROOT.parent / "poppy-sandbox" / "_score"
-GRADER_VERSION = "g4"   # bump on any change to grader_prompt / items / standard; recorded in the sheet and in each run's grader/<version>-p<pass>/
+GRADER_VERSION = "g5"   # bump on any change to grader_prompt / items / standard; recorded in the sheet and in each run's grader/<version>-p<pass>/
 CRITERIA = {"c1": "question answered: the output answers the question that was asked (not a neighbouring one)",
             "c2": "appropriate measure: the metric and denominator fit the question",
             "c3": "appropriate chart type for the data and the comparison",
@@ -49,7 +49,7 @@ CRITERIA = {"c1": "question answered: the output answers the question that was a
             "c7": "clear and readable: titles, axes, legend and text are understandable without the code",
             "c8": "visually well presented"}
 WEEKDAYS = {n: i for i, n in enumerate(["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"])}
-NUM_RE = re.compile(r"(?<![\w.])(?<!per )(?<!per\s)(?<!every )[-~≈]?\s?(\d{1,3}(?:,\d{3})+|\d+)(\.\d+)?\s?(%|k\b|K\b|M\b|million|thousand|×|x\b)?")
+NUM_RE = re.compile(r"(?<![\w.:])(?<!per )(?<!per\s)(?<!every )[-~≈]?\s?(\d{1,3}(?:,\d{3})+|\d+)(\.\d+)?\s?(%|k\b|K\b|M\b|million|thousand|×|x\b)?")
 
 
 # ---------------------------------------------------------------- loading runs

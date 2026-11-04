@@ -1,0 +1,4 @@
+The file has about 2.27 million crash records and includes injury/fatality outcomes, but no traffic- or pedestrian-exposure denominator. So it can compare outcomes among reported crashes by clock time, but it cannot establish whether an individual trip or street-user faces greater risk at night.
+ANSWER:
+Among crashes with complete outcome counts, 28.44% of nighttime crashes involved injury or death, compared with 23.41% of daytime crashes—a 5.03 percentage-point difference, though this does not establish per-trip nighttime risk.
+Fatal crashes made up 0.292% of nighttime crashes and 0.108% of daytime crashes, about 2.69 times as high among crashes; the data cannot establish per-trip nighttime risk.

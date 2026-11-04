@@ -1,0 +1,3 @@
+The dataset contains records through 2026, and every requested year (2013–2025) has crash records through December 31. I’ll report the annual sums of `number_of_pedestrians_killed`; bar and line charts are both defensible for showing those yearly counts.
+ANSWER: The bar-chart framing shows annual pedestrian deaths of 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.
+The line-chart framing shows the same yearly counts: 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.

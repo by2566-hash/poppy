@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of motorists killed",
+      "denominator": "None (count)",
+      "grouping": "Calendar year",
+      "chart_type": "Line chart",
+      "reason": "A direct annual death count answers whether the recorded toll was lower, without implying an exposure-adjusted risk.",
+      "probability": 0.25,
+      "answer": "Reported motorist deaths fell from 110 in 2013 to 81 in 2025, but these counts cannot establish whether deaths per mile driven declined.",
+      "interpretation": "This framing answers whether the annual number of motorists killed in recorded NYC crashes changed, and shows 110 deaths in 2013 versus 81 in 2025, with substantial year-to-year variation. An annual count is a defensible measure of the recorded toll, but it leaves unanswered the per-mile risk question because miles driven are not in this dataset."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of crashes with at least one motorist killed",
+      "denominator": "None (count of crashes)",
+      "grouping": "Calendar year",
+      "chart_type": "Line chart",
+      "reason": "Counting fatal crash events distinguishes how often a motorist-fatal crash occurred from the total number of people killed.",
+      "probability": 0.2,
+      "answer": "Crashes with a motorist death fell from 102 in 2013 to 75 in 2025, but this does not measure deaths per mile driven.",
+      "interpretation": "This framing answers how many reported crash events each year involved at least one motorist death, declining from 102 in 2013 to 75 in 2025. Fatal crash events are a defensible frequency measure, but they do not count additional deaths in the same crash and cannot establish per-mile risk without travel exposure data."
+    },
+    {
+      "id": 3,
+      "metric": "Motorist deaths per 1,000 reported crashes",
+      "denominator": "All police-reported crashes in that calendar year",
+      "grouping": "Calendar year",
+      "chart_type": "Line chart",
+      "reason": "Normalizing by reported crashes accounts for changes in crash-record volume, while clearly limiting the measure to crash-level rather than mileage exposure.",
+      "probability": 0.55,
+      "answer": "Motorist deaths per 1,000 reported crashes rose from 0.54 in 2013 to 0.95 in 2025, so this crash-normalized measure did not decline; it is not risk per mile.",
+      "interpretation": "This framing answers whether motorist deaths relative to the number of reported crashes declined, and shows an increase from 0.54 deaths per 1,000 crashes in 2013 to 0.95 in 2025, despite a lower absolute count in 2025. It is a defensible within-crash-data normalization, but the denominator is crashes rather than miles driven, so it leaves the per-mile risk question unanswered."
+    }
+  ]
+}

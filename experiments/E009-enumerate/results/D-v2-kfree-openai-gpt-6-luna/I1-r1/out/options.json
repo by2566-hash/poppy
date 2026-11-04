@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual motorist deaths",
+      "denominator": "None (annual count)",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "Annual deaths show the absolute fatality burden directly recorded in the crash data.",
+      "probability": 0.3,
+      "answer": "The data cannot establish whether per-mile risk declined; motorist deaths fell from 110 in 2013 to 81 in 2025.",
+      "interpretation": "This framing answers whether the annual number of motorists killed changed, and the chart shows a decrease from 110 deaths in 2013 to 81 in 2025. Annual death totals are a defensible measure of fatality burden, but they leave the per-mile risk question unanswered because miles driven are not in the data."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths per 100,000 police-reported crash reports",
+      "denominator": "All police-reported crash rows in the year, scaled to 100,000",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "Normalizing deaths by crash-report volume gives a crash-based comparison that accounts for changes in the number of reported crashes.",
+      "probability": 0.7,
+      "answer": "Per-mile risk is unmeasured; motorist deaths per 100,000 crash reports rose from 54.0 in 2013 to 94.7 in 2025.",
+      "interpretation": "This framing compares motorist deaths with annual crash-report volume, and the chart shows an increase from 54.0 deaths per 100,000 reports in 2013 to 94.7 in 2025. It is a defensible crash-normalized measure because each row is a reported crash, but it leaves the per-mile risk question unanswered because the data contain no miles driven."
+    }
+  ]
+}

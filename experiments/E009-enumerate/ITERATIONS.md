@@ -129,3 +129,26 @@ Sheet under the review's overrides: silent-error rows 20/54, gold_wrong 0, gold_
 3. **c6 on in-table superlatives.** K3-r2 o1/o3 call 110 (2020) the largest gap while the table gives 115 (2021); the grader passed both even with the new rule. If this matters, it is a mechanical check (superlatives in the prose vs the table), not a grader prompt change.
 
 **Next:** F1 scored with g3 as is; the blind batch (20 rows, grader columns hidden, human labels) before any item is promoted; the three standard questions decided by Bo and recorded in SCORING.md §4 / `gold_readings.py` before g4.
+
+## E009-F1: D v2 (free k, question-anchored interpretation) vs D v1 (2026-11-04, GPT-6 Luna, r1–r3)
+
+Prompt `D_enumerate.v2.md` (hash in `E007-pilot-prompts/FROZEN.md`, frozen and pushed before the first run; confirmed by Bo). `PILOT_K=0`, `PILOT_STEPS=35` (measured first on K1/A2: 12–13 steps, 68–92 s, so 35 kept for all runs and the two measurement runs count as r1). Results `results/D-v2-kfree-openai-gpt-6-luna/` (18 runs, 42 options), listing for facet coding `options.md`, scores `scores.csv` (g5, machine + grader columns; `h_*` empty).
+
+**Acceptance:** 18/18 complete (every option has chart + values + all fields; options.json parsed), 0 net calls, 0 step-limit hits, duplicates ≤ 1 per run (5 in total, all chart-type-only pairs on K1/K3).
+
+| | D v1 (k = 3, 54 options) | D v2 (free k, 42 options) |
+|---|---|---|
+| k per run | 3 fixed | median 2, range 1–3 (clear 1–3; ambiguous 2–3; insufficient 2–3); K1-r3 gave a single option with p = 1.0 |
+| distinct analytic framings per run | 3 (one run 2) | = k minus the chart-type duplicates (5 runs with one duplicate) |
+| max probability | 0.36–0.55 | 0.35–1.0 (concentrates as k falls) |
+| steps (median / max) | 14 / 22 | 14 / 20 |
+| seconds (median) | 96 | 76 |
+| `interpretation` | — | 40–70 words; every option names the part of the question it answers and what it leaves out |
+
+**Pre-registered predictions:** median k on clear questions 2–3 ✓ (2); on ambiguous 3–5 ✗ (2–3, the model chooses fewer framings than v1 forced); duplicates rise beyond 3 options: not testable (k never exceeded 3); facet sets overlap across repeats: pending Bo's coding (`options.md`); the interpretation field does not by itself raise TR05/TR01 disclosures ✓ (TR05 FAIL 9/9, TR01 FAIL 5/5, as in v1); steps linear in k ✗ (steps flat, time falls with k).
+
+**Scores (g5 grader, machine composite; v1 re-scored under the same g5 standard):** silent-error rows v1 15/54 (0.28) vs v2 15/42 (0.36); per question v1 → v2: K1 0/9 → 0/5, K2 0/9 → 0/7, K3 0/9 → 0/7, A1 9/9 → 9/9 (TR05 every option, both versions), A2 4/9 → 3/7, I1 2/9 → 3/7 (v2 produced a per-reported-crash option in all three runs, p = 0.7 in r1, TR01 FAIL each time). `--summary` (which applies the Codex overrides on v1) gives mean paired difference +0.05 on 6 questions; far below the MDE, unresolved. Other items: gold 33/42 match, 9 unverified (A2's own day/night cuts ×6, A1-r2 o1, I1-r3 o2, K2-r1 o3 share) → `h_gold`; unsourced 0/42 after the clock-time fix; unsupported_claim 1/42 (A2-r2 o1 "but not greater per-trip risk", borderline: a disclaimer read as a claim); TR15 4/5 (A1 "30 → 39, a 30% rise" and K3's cyclist-per-100-motorist ratio without a small-count qualification; v1 3/5); TR08 2/6 (v1 3/5); c1–c5, c7, c8 0 fails in v2 (v1: c8 4, c4 2, c2 1). **Reading:** free k and the question-anchored interpretation change how many options come back and how they are explained, not the framing errors; the undisclosed Brooklyn filter and the per-crash denominators survive untouched, which is the result the treatments in plan §2 are meant to address.
+
+**Grader versions in this entry:** g4 (standard decisions of 2026-11-04) failed c6 on plain death counts compared across years (14 v2 rows) because the data-facts line said "a per-reported-crash rate or a pooled count compared across years"; g5 restricts the caveat to per-reported-crash rates. g5 vs the Codex review on v1: 610/630 = 0.968 (K2 TR01 cells no longer exist). Both passes kept per run (`grader/g4-p1/`, `grader/g5-p1/`). Provenance regex now ignores clock times (`7:59 p.m.` had flagged "59").
+
+**Pending (Bo):** facet coding from `options.md`; `h_gold` on the 9 unverified rows; the unsupported-claim row; decision on the reduced-labelling proposal (plan §v0) before any item is promoted.

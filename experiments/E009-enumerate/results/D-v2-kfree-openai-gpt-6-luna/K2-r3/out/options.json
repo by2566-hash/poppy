@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Crash records",
+      "denominator": "All 2,132,218 crash records dated 2013-01-01 through 2025-12-31; weekday shares are shown in the values file",
+      "grouping": "Day of week",
+      "chart_type": "Vertical bar chart of total crashes",
+      "reason": "Total counts directly describe how the full set of recorded crashes is distributed across weekdays.",
+      "probability": 0.6,
+      "answer": "Friday had the most crashes (338,800; 15.9% of records) and Sunday the fewest (257,544; 12.1%).",
+      "interpretation": "This framing answers how the total recorded crashes are divided among weekdays, showing Friday as the largest category and Sunday as the smallest. Total counts and shares are a defensible description of the observed crash distribution. It does not adjust for the slightly different number of calendar dates that each weekday occurs during the period."
+    },
+    {
+      "id": 2,
+      "metric": "Mean crash records per calendar date",
+      "denominator": "Calendar dates of each weekday from 2013-01-01 through 2025-12-31 (678 or 679 dates, depending on weekday)",
+      "grouping": "Day of week",
+      "chart_type": "Vertical bar chart of mean crashes per weekday date",
+      "reason": "Dividing by the number of dates of each weekday makes typical daily crash volume comparable across weekdays.",
+      "probability": 0.4,
+      "answer": "Friday averaged 499.7 crashes per Friday, the highest daily average, while Sunday averaged 379.9 per Sunday, the lowest.",
+      "interpretation": "This framing answers how the typical calendar date's crash volume varies by weekday, again showing Friday highest and Sunday lowest. Averaging by the number of dates is defensible because weekdays occur 678 or 679 times in this interval. It does not show each weekday's cumulative share of all crashes."
+    }
+  ]
+}

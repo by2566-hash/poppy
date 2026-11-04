@@ -1,0 +1,5 @@
+The file contains full-year Brooklyn records through 2025; 2026 is partial, so I’m excluding it. The measures already point in different directions: nonfatal pedestrian injuries are below 2013, while pedestrian deaths are higher, so I’ll chart those separately and add the share of reported crashes that harmed a pedestrian as a relative measure.
+ANSWER:
+The data cannot establish whether pedestrian risk per walking trip improved, but reported Brooklyn pedestrian injuries fell 22.1%, from 3,641 in 2013 to 2,835 in 2025, after rising from a 2020 low (`out/option_1.png`).
+The data cannot establish whether pedestrian risk per walking trip improved, but reported pedestrian deaths rose 30%, from 30 in 2013 to 39 in 2025 (`out/option_2.png`).
+The data cannot establish whether pedestrian risk per walking trip improved, but crashes with a pedestrian injured or killed grew from 7.4% to 11.4% of reported Brooklyn crashes between 2013 and 2025 (`out/option_3.png`).

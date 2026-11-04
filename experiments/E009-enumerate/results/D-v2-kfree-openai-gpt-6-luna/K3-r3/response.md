@@ -1,0 +1,4 @@
+The file contains records through 2026, and the requested annual aggregates are available for every year from 2013–2025. I’m preparing two direct count comparisons—annual lines and grouped bars—using the same summed motorist- and cyclist-death totals.
+ANSWER:
+The line chart shows that motorist deaths exceeded cyclist deaths in every year from 2013–2025, peaking at 139 in 2020, while cyclist deaths peaked at 31 in 2019 and 2023.
+The grouped bar chart shows the same yearly pattern: motorist deaths were higher every year, with peaks of 139 in 2020 for motorists and 31 in 2019 and 2023 for cyclists.

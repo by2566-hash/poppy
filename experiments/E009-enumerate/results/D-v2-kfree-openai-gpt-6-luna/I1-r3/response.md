@@ -1,0 +1,5 @@
+The dataset has no vehicle-miles-traveled field, so it cannot establish risk per mile. I’m comparing annual motorist death counts, fatal-crash counts, and deaths per 1,000 reported crashes as distinct crash-data measures; the last is a proxy, not mileage-adjusted risk.
+ANSWER:
+1. [Annual motorist deaths](out/option_1.png): Recorded deaths fell from 110 in 2013 to 81 in 2025, but without miles driven the data cannot establish whether per-mile risk declined.
+2. [Crashes involving a motorist death](out/option_2.png): Fatal crashes fell from 102 in 2013 to 75 in 2025, but this does not establish whether per-mile risk declined.
+3. [Motorist deaths per 1,000 reported crashes](out/option_3.png): This crash-normalized measure rose from 0.54 in 2013 to 0.95 in 2025, but it is not a per-mile risk measure.

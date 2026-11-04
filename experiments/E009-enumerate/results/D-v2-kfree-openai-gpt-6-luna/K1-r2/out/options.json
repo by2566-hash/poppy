@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual sum of pedestrians killed in reported motor vehicle crashes",
+      "denominator": "None; total count",
+      "grouping": "Calendar year of crash_date, 2013–2025",
+      "chart_type": "Bar chart",
+      "reason": "A bar chart makes the number of fatalities in each discrete year easy to compare.",
+      "probability": 0.55,
+      "answer": "Pedestrians killed were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This framing answers the annual-count question directly, and the bars make the differences in yearly totals readily comparable. It is defensible because the data records pedestrian fatalities by crash and year; it leaves causes and exposure-adjusted risk unanswered."
+    },
+    {
+      "id": 2,
+      "metric": "Annual sum of pedestrians killed in reported motor vehicle crashes",
+      "denominator": "None; total count",
+      "grouping": "Calendar year of crash_date, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "A line chart emphasizes how annual pedestrian fatality counts change over time.",
+      "probability": 0.45,
+      "answer": "Pedestrians killed were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This framing answers the same annual-count question while showing the year-to-year path: the count declined from 176 in 2013 to 119 in 2025, with intervening rises and falls. A line is defensible for emphasizing temporal movement across consecutive years; it leaves causes and exposure-adjusted risk unanswered."
+    }
+  ]
+}

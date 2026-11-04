@@ -1,0 +1,2 @@
+ANSWER: The crash data cannot establish whether per-mile risk declined; annual motorist deaths fell from 110 in 2013 to 81 in 2025 ([chart](out/option_1.png)).
+Per-mile risk is unmeasured; motorist deaths per 100,000 crash reports rose from 54.0 in 2013 to 94.7 in 2025 ([chart](out/option_2.png)).

@@ -1,0 +1,3 @@
+period,numerator,denominator_crashes,metric_value,metric
+Night (8pm–5:59am),221601,548233,40.42095240527294,Casualty burden per crash
+Day (6am–7:59pm),517648,1684488,30.730287185186242,Casualty burden per crash

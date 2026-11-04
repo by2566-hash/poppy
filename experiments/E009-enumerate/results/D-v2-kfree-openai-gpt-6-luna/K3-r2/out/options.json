@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of people killed in crashes, split into motorist and cyclist deaths",
+      "denominator": "None; raw annual death counts",
+      "grouping": "Year and road-user category",
+      "chart_type": "Grouped bar chart",
+      "reason": "Grouped bars make the two death counts directly comparable within each year.",
+      "probability": 0.55,
+      "answer": "Motorist deaths were higher than cyclist deaths in every year; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in both 2019 and 2023.",
+      "interpretation": "This framing directly answers how the annual counts compare, with side-by-side bars showing the motorist count above the cyclist count in all 13 years. Raw counts are a defensible comparison of the recorded deaths, while the chart does not show risk relative to how many people traveled by each mode."
+    },
+    {
+      "id": 2,
+      "metric": "Annual count of people killed in crashes, split into motorist and cyclist deaths",
+      "denominator": "None; raw annual death counts",
+      "grouping": "Year and road-user category",
+      "chart_type": "Two-series line chart",
+      "reason": "A line chart emphasizes how each road-user group's annual death count changes over time.",
+      "probability": 0.45,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year, rising to 139 in 2020 before falling to 81 in 2025; cyclist deaths were highest at 31 in 2019 and 2023.",
+      "interpretation": "This framing answers the year-by-year comparison while making the temporal pattern for each group easy to follow. Lines connect the annual counts to highlight changes over time, but these counts alone do not compare risk per trip, mile, or traveler."
+    }
+  ]
+}

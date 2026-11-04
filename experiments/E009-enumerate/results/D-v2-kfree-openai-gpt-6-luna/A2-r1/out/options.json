@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Share of crashes involving at least one person injured or killed",
+      "denominator": "Police-reported crashes with non-null injury and fatality counts, grouped by time band",
+      "grouping": "Day (6am–7:59pm) versus night (8pm–5:59am), pooled across the available dates",
+      "chart_type": "Horizontal bar chart",
+      "reason": "A broad injury-or-death indicator captures how often a reported crash produced any recorded human harm.",
+      "probability": 0.65,
+      "answer": "Among crashes with complete outcome counts, 28.44% of nighttime crashes involved at least one injury or death versus 23.41% of daytime crashes (5.03 percentage points higher), but these records cannot establish per-trip nighttime risk.",
+      "interpretation": "This compares whether a reported crash had any person injured or killed across the two clock-time bands; the nighttime share is 28.44%, versus 23.41% by day. It is defensible as a pooled crash-severity comparison, but it cannot answer whether people face greater risk per trip or mile because the file has no exposure denominator."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes involving at least one death",
+      "denominator": "Police-reported crashes with non-null injury and fatality counts, grouped by time band",
+      "grouping": "Day (6am–7:59pm) versus night (8pm–5:59am), pooled across the available dates",
+      "chart_type": "Horizontal bar chart",
+      "reason": "Fatal crashes are a distinct, high-severity outcome that is useful to report separately from crashes with nonfatal injuries.",
+      "probability": 0.35,
+      "answer": "Fatal crashes made up 0.292% of nighttime crashes and 0.108% of daytime crashes (about 2.69 times as high among crashes), but the data cannot establish per-trip nighttime risk.",
+      "interpretation": "This focuses on the most severe recorded crash outcome and shows that the share involving a death was 0.292% at night versus 0.108% by day. It is defensible as a comparison of fatality severity among reported crashes, but without traffic or travel exposure it cannot establish whether an individual road user is more likely to die at night."
+    }
+  ]
+}
