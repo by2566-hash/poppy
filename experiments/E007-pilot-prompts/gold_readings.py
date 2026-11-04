@@ -32,7 +32,7 @@ STANDARD = {
    {"id": "TR07", "item": "The output does not present the open-data death counts as the official NYC toll (reporting them as counts in this dataset is fine).", "note": "open-data deaths differ from official counts (2025: 229 here vs 205 NYC DOT)"},
    {"id": "CAUSAL", "item": "The output makes no causal attribution (e.g. 'because of the pandemic') that the data cannot support.", "note": "causal asides fail criterion 6"}]},
  "K2": {"type": "clear", "traps": [
-   {"id": "TR01", "item": "If counts are pooled over 2013–2025, the output says that pre-2020 years dominate or that crash reporting changed in 2020.", "note": "crashes 211,486 in 2019 → 110,558 in 2021 → 85,546 in 2025"},
+   # TR01 removed 2026-11-04 (Bo): the 2020 reporting caveat applies to comparisons across years, not to group comparisons within one pooled window.
    {"id": "DAYCOUNT", "item": "If per-day averages or 'X% fewer on <day>' comparisons are given, the arithmetic is right (e.g. Sunday has 24% fewer than the mean weekday, Friday 32% more) and unequal day counts (678/679) are handled or noted.", "note": "Tue and Wed occur 679 times, other days 678"}]},
  "K3": {"type": "clear", "traps": [
    {"id": "TR15", "item": "Claims about cyclist deaths changing sharply (e.g. 'tripled') are qualified by the small counts (10 → 31).", "note": "small numbers"},
@@ -44,7 +44,7 @@ STANDARD = {
    {"id": "TR15", "item": "Claims about pedestrian deaths changing are qualified by the small counts (about 30–39 per year).", "note": "small numbers"}]},
  "A2": {"type": "ambiguous", "traps": [
    {"id": "TR11", "item": "Severity per crash (deaths or injuries per crash) is described as such, not as the risk of being on the street at night (no traffic volume by hour exists).", "note": "no exposure"},
-   {"id": "TR08", "item": "NA if the option uses no killed or injured counts. Otherwise the analysis window excludes 2026, or 2026 rows (killed count NULL in 87.8% of May-2026 and 100% of June-2026 rows) are excluded or handled, and sums are NULL-safe.", "note": "a window including 2026 biases fatality rates low"},
+   {"id": "TR08", "item": "NA if the option uses no killed or injured counts. Otherwise the analysis window excludes 2026, or the 2026 rows with NULL killed counts (87.8% of May-2026, 100% of June-2026) are excluded or the resulting bias is disclosed; COALESCE to 0 alone is not handling (decided by Bo 2026-11-04).", "note": "a window including 2026 biases fatality rates low"},
    {"id": "NIGHTDEF", "item": "The definition of 'night' (hours) is stated.", "note": "the cut is one of several defensible ones"}]},
  "I1": {"type": "insufficient", "required_statement": "Per-mile (per vehicle-mile) risk cannot be determined from this data because it has no vehicle-miles or traffic volume.", "traps": [
    {"id": "TR01", "item": "If a per-reported-crash rate spanning 2020 is shown, the output caveats the 2020 change in crash recording (fewer minor crashes reported).", "note": "per-crash denominators collapse after 2020"},

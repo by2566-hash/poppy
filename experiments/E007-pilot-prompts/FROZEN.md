@@ -20,3 +20,10 @@ Frozen after pilot iteration 3 (protocol limit: 3 iterations). No edits from her
 - Harness at freeze: sandbox v2, review in its own folder, review timeout 420 s, other runs 600 s, 15 steps per run, zero-output timeout retried once, B end states `B_STATES`.
 
 Iteration 3 total model time on 5 runnable items: 13.8 min.
+
+## Phase 2 prompts (arm D)
+
+| Prompt | SHA-256 | Frozen |
+|---|---|---|
+| `D_enumerate.v1.md` | `a18643123c55bfd00cabea8dcbb4f806463a50d79723d3e5e42ef355e3b14e19` | 2026-10-20 (k = 3, cap 25; baseline for every D comparison) |
+| `D_enumerate.v2.md` | `bde1fd02f5b3e576618cf5f2429d6e9d31904328a8c3dfce675a3c753b598d0a` | 2026-11-04 (free k, `interpretation` = which part of the asked question the option answers and why; confirmed by Bo from `D_enumerate.v2.draft.md`; run as `PILOT_K=0 run_pilot.py D v2`) |
