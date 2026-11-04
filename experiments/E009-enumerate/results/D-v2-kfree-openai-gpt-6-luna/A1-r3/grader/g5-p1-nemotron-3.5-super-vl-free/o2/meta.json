@@ -1,0 +1,8 @@
+{
+ "grader_model": "nemotron-3.5-super-vl-free",
+ "grader_version": "g5",
+ "attempts": 2,
+ "secs": 1264.6,
+ "tool_calls": 0,
+ "errors": []
+}

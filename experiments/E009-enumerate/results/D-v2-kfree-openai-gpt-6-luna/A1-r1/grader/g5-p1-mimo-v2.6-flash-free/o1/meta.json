@@ -1,0 +1,8 @@
+{
+ "grader_model": "mimo-v2.6-flash-free",
+ "grader_version": "g5",
+ "attempts": 2,
+ "secs": 842.9,
+ "tool_calls": 0,
+ "errors": []
+}

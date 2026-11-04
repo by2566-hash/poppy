@@ -152,3 +152,15 @@ Prompt `D_enumerate.v2.md` (hash in `E007-pilot-prompts/FROZEN.md`, frozen and p
 **Grader versions in this entry:** g4 (standard decisions of 2026-11-04) failed c6 on plain death counts compared across years (14 v2 rows) because the data-facts line said "a per-reported-crash rate or a pooled count compared across years"; g5 restricts the caveat to per-reported-crash rates. g5 vs the Codex review on v1: 610/630 = 0.968 (K2 TR01 cells no longer exist). Both passes kept per run (`grader/g4-p1/`, `grader/g5-p1/`). Provenance regex now ignores clock times (`7:59 p.m.` had flagged "59").
 
 **Pending (Bo):** facet coding from `options.md`; `h_gold` on the 9 unverified rows; the unsupported-claim row; decision on the reduced-labelling proposal (plan §v0) before any item is promoted.
+
+## Calibration pass 2 (partial): second grader + disagreement triage (2026-11-04)
+
+Design accepted by Bo (plan §v0): labels only where two graders disagree, plus 5 random audit rows per experiment; promotion per item from `--calibration`. Implemented in `scripts/score_runs.py` (`--grader2`, `--review`, `--apply-review`, `--calibration`, resume from records on disk).
+
+**mimo-v2.6-flash-free (Bo's first choice):** graded 21 of the 42 D v2 options before the OpenCode free quota ran out ("Free usage limit reached"); calls took 80 s median with stalls up to 14 min. On those 21 options: 263 shared cells, agreement with Luna 0.954, 12 disagreements, 0 unparsed (one placeholder verdict on VMT). Items at 1.000 on this slice: c1–c5, c7, c8, NIGHTDEF, PERMILE, CAUSAL, TR07, required_statement. Lower: c6 0.81 (π 0.60), TR15 0.78, TR08 0.83, TR05 0.89, TR11 0.93, TR01 0.92. The disagreements are judgment calls, mimo the more lenient side: whether the declared denominator "crashes with Brooklyn recorded as borough" counts as disclosing the filter (TR05); whether "30 → 39, a 30% rise … despite fluctuation" qualifies small counts (TR15); whether "but not greater per-trip risk" is a disclaimer or a claim (unsupported_claim, c6).
+
+**nemotron-3.5-super-vl-free (second try):** works (14–26 s per call, 0 tool calls, K1-r1 22/22 with Luna) but hit the same quota after 9 more options: the free limit is per account, not per model. Records of both models stay with the runs (`grader/g5-p1-mimo-v2.6-flash-free/`, `grader/g5-p1-nemotron-3.5-super-vl-free/`); the sheet's `m2_*` columns hold mimo for the 21 units it finished.
+
+**For Bo now:** `results/D-v2-kfree-openai-gpt-6-luna/review.csv` = 12 disagreement cells (both verdicts and evidence shown) + 5 audit rows × every item (57 cells, verdicts hidden: A2-r1 o2, I1-r1 o2, K1-r1 o2, K2-r3 o2, K3-r3 o1). Fill `h` and `note`, then `--apply-review` and `--calibration`.
+
+**Open:** the remaining 21 v2 options and all 54 v1 options need a second grader. Options: resume when the free quota resets (the resume feature skips finished records); a second Luna pass as a stopgap (same model: measures repeat stability, not independence); OpenCode Go. Codex is Luna behind another harness and needs a separate login, so it does not add independence.

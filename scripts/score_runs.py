@@ -449,7 +449,7 @@ def write_sheet(p, rows):
         w = csv.DictWriter(f, fieldnames=COLUMNS, extrasaction="ignore"); w.writeheader(); w.writerows(rows)
 
 
-def grader2(exp, label, model, only, workers, timeout):
+def grader2(exp, label, model, only, workers, timeout, records_only=False):
     """Run the second grader on the units of an existing sheet (machine + primary grader columns untouched)."""
     from run_screen import call_model  # noqa: E402
     sheet, rows = read_sheet(exp, label)
@@ -462,9 +462,36 @@ def grader2(exp, label, model, only, workers, timeout):
     units = {(u["q"], str(u["rep"]), str(u["option"])): u for p in runs for u in load_units(p)}
     todo = [r for r in rows if (r["q"], r["rep"], r["option"]) in units]
     tag = model.replace("/", "-")
-    print(f"grader2: {model}, {len(todo)} units, {workers} workers, timeout {timeout}s", flush=True)
+
+    def from_record(u):
+        """Resume: a record already on disk (grader/<ver>-p<pass>-<tag>/o<k>/response.md) is parsed instead of calling the model."""
+        keep = u["dir"] / "grader" / f"{GRADER_VERSION}-p{os.environ.get('GRADER_PASS', '1')}-{tag}" / f"o{u['option']}"
+        if not (keep / "response.md").exists():
+            return None
+        got = parse_json((keep / "response.md").read_text())
+        if not got:
+            return None
+        meta = json.loads((keep / "meta.json").read_text()) if (keep / "meta.json").exists() else {}
+        res = {"grader_secs": meta.get("secs", ""), "grader_tools": meta.get("tool_calls", "")}
+        for k in grader_items(u["q"]):
+            v = got.get(k)
+            res[f"m_{k}"] = str(v.get("verdict", "unparsed")).upper()[:6] if isinstance(v, dict) else "unparsed"
+            res[f"ev_{k}"] = str(v.get("evidence", ""))[:300] if isinstance(v, dict) else ""
+        return res
+
+    def one(r):
+        u = units[(r["q"], r["rep"], r["option"])]
+        rec = from_record(u)
+        if rec:
+            return rec
+        if records_only:
+            return None
+        return run_grader(u, label, call_model, model=model, tag=tag, timeout=timeout)
+    have = sum(1 for r in todo if from_record(units[(r["q"], r["rep"], r["option"])]))
+    print(f"grader2: {model}, {len(todo)} units ({have} from records on disk), {workers} workers, timeout {timeout}s", flush=True)
     with ThreadPoolExecutor(workers) as ex:
-        outs = list(ex.map(lambda r: run_grader(units[(r["q"], r["rep"], r["option"])], label, call_model, model=model, tag=tag, timeout=timeout), todo))
+        outs = list(ex.map(one, todo))
+    todo, outs = zip(*[(r, o) for r, o in zip(todo, outs) if o]) if any(outs) else ([], [])
     for r, o in zip(todo, outs):
         r["grader2_model"] = f"{model}@{GRADER_VERSION}"; r["grader2_secs"] = o["grader_secs"]
         for k in ALL_ITEMS:
@@ -651,6 +678,7 @@ def main():
     ap.add_argument("--workers", type=int, default=3)
     ap.add_argument("--grader2", metavar="MODEL", help="run the second grader (e.g. mimo-v2.6-flash-free) on an existing sheet")
     ap.add_argument("--timeout", type=int, default=600, help="per-call timeout for --grader2")
+    ap.add_argument("--records-only", action="store_true", help="--grader2: fill the sheet from records on disk, call no model")
     ap.add_argument("--review", action="store_true", help="write review.csv: disagreement cells + random audit rows")
     ap.add_argument("--audit", type=int, default=5); ap.add_argument("--seed", default="1")
     ap.add_argument("--apply-review", action="store_true"); ap.add_argument("--calibration", action="store_true")
@@ -661,7 +689,7 @@ def main():
         calibration(a.exp, a.labels)
     elif a.grader2:
         for lab in a.labels:
-            grader2(a.exp, lab, a.grader2, set(a.only), a.workers, a.timeout)
+            grader2(a.exp, lab, a.grader2, set(a.only), a.workers, a.timeout, a.records_only)
     elif a.review:
         for lab in a.labels:
             review(a.exp, lab, a.audit, a.seed)

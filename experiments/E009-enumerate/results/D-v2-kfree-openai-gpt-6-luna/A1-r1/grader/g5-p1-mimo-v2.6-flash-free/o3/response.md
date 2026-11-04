@@ -1,0 +1,15 @@
+{
+  "c1": {"verdict": "PASS", "evidence": "\"The file cannot establish whether risk per walking trip improved; pedestrian-harm crashes rose from 7.4% ... to 11.4% in 2025\" — the output addresses the asked question and states what it can and cannot establish"},
+  "c2": {"verdict": "PASS", "evidence": "DECLARED FRAMING metric: \"Share of reported Brooklyn crashes with a pedestrian injured or killed\", denominator: \"All police-reported motor vehicle crashes with Brooklyn recorded as borough\" — a defensible relative measure given no exposure data; the output does not pretend to answer per-exposure risk"},
+  "c3": {"verdict": "PASS", "evidence": "DECLARED FRAMING \"chart_type: Line chart\" and the chart plots yearly shares 2013–2025 — appropriate for a time series comparison"},
+  "c4": {"verdict": "PASS", "evidence": "Chart annotates start and end: \"7.4%\" at 2013 and \"11.4%\" at 2025, with the full annual trend visible"},
+  "c5": {"verdict": "PASS", "evidence": "Y-axis starts at 0 with labelled ticks (0–10); endpoint labels \"7.4%\" and \"11.4%\" match table values 7.4388 and 11.3813; intermediate points (e.g. 2022≈9.35, 2023≈10.09) are consistent with the table"},
+  "c6": {"verdict": "PASS", "evidence": "\"The file cannot establish whether risk per walking trip improved\" ... \"It is a defensible relative measure when the overall number of recorded crashes changes substantially\" — exposure and 2020-recording caveats stated; no superlative contradicted by the table"},
+  "c7": {"verdict": "PASS", "evidence": "Title \"Pedestrian-harm crashes make up a larger share in Brooklyn\", subtitle, y-axis \"Share of reported crashes (%)\", x-axis years, and source line are all readable without code"},
+  "c8": {"verdict": "PASS", "evidence": "Clean line chart with markers, light area fill, and direct endpoint annotations 7.4%/11.4%"},
+  "tr_TR05": {"verdict": "PASS", "evidence": "DECLARED FRAMING denominator: \"All police-reported motor vehicle crashes with Brooklyn recorded as borough\" — states that only crashes with Brooklyn recorded are included, i.e. crashes with no borough recorded are excluded"},
+  "tr_TR11": {"verdict": "PASS", "evidence": "\"The file cannot establish whether risk per walking trip improved\" and \"It is not a pedestrian exposure rate\"; title says only \"make up a larger share\", not safer/less safe"},
+  "tr_TR01": {"verdict": "PASS", "evidence": "\"It is a defensible relative measure when the overall number of recorded crashes changes substantially\" — caveat on the 2020 change in recorded crash counts for a per-crash rate spanning 2020"},
+  "tr_TR15": {"verdict": "NA", "evidence": "The output makes no claim about pedestrian deaths changing (metric is crashes with a pedestrian injured or killed; no death-count claim in prose)"},
+  "unsupported_claim": {"verdict": "PASS", "evidence": "No causal, risk-per-exposure, or official-count claim; \"The file cannot establish whether risk per walking trip improved\"; numbers 7.4%, 11.4%, +3.9 pp match the values table (11.3813−7.4388=3.94)"}
+}
