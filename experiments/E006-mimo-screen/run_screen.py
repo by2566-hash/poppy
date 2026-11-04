@@ -58,7 +58,8 @@ def sandbox_shims(sb, protect=()):
 STALL = None
 
 
-def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files=(), protect=(), stall=STALL):
+def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files=(), protect=(), stall=STALL, model=None):
+    # model: provider/model override for a second grader (scripts/score_runs.py --grader2); default MODEL_ID from POPPY_MODEL
     """One `opencode run`. Detects the free tier's rate limiting (which otherwise looks like a hang:
     OpenCode retries 3 times, then waits, with an empty event stream), stops immediately, and retries with
     backoff when no step had started. Optional `stall` (seconds without an event) kills and retries once;
@@ -71,7 +72,7 @@ def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files
         last_size, last_change = 0, t0
         with open(sb / "events.jsonl", "w") as out, open(sb / "stderr.log", "w") as err:
             proc = subprocess.Popen(["opencode", "run", "--pure", "--print-logs", "--log-level", "ERROR", "--format", "json",
-                                     "-m", MODEL_ID, "--dir", str(sb)] + [a for f in files for a in ("-f", str(f))] + ["--", prompt],
+                                     "-m", model or MODEL_ID, "--dir", str(sb)] + [a for f in files for a in ("-f", str(f))] + ["--", prompt],
                                     stdout=out, stderr=err, env=env, cwd=sb, stdin=subprocess.DEVNULL)
             while proc.poll() is None:
                 if time.time() - t0 > timeout:

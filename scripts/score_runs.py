@@ -6,6 +6,9 @@
   ... --only A1-r1 K1-r2             restrict to runs
   ... --workers 3                    parallel grader calls
   ~/.poppy/venv/bin/python scripts/score_runs.py --summary E009-enumerate D-v1-k3-... [--baseline <label>]
+  ... --grader2 mimo-v2.6-flash-free   second grader on an existing sheet (m2_/ev2_ columns, `disagree`), records in grader/<ver>-p1-<model>/
+  ... --review [--audit 5]             review.csv: disagreement cells (both verdicts) + 5 random rows with verdicts hidden, for the human
+  ... --apply-review                   copy review.csv `h` verdicts into h_<item>;  --calibration: per-item agreement + promotion status
 
 Row = one option of a D run, or the single output of an A/B run. Columns:
   machine : complete, n_options, n_distinct_analytic, gold_match, gold_detail, n_numbers, unsourced_numbers, framing_flags
@@ -16,7 +19,7 @@ Row = one option of a D run, or the single output of an A/B run. Columns:
 The grader runs in the review sandbox (read-only, no code, no network) with only the chart attached; values, answer and
 code lines are passed inline. It never sees the run folder, the gold or the other options.
 """
-import argparse, csv, itertools, json, math, os, re, shutil, sys, time
+import argparse, collections, csv, itertools, json, math, os, re, shutil, sys, time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -377,9 +380,10 @@ def code_for_grader(code, limit=12000):
     return out[:limit] + note
 
 
-def run_grader(unit, label, call_model):
+def run_grader(unit, label, call_model, model=None, tag="", timeout=300):
+    """One grading call. model/tag: a second grader (same prompt, another model); its record goes to grader/<version>-p<pass>-<tag>/."""
     q, rep, opt = unit["q"], unit["rep"], unit["option"]
-    sb = SANDBOX / label / f"{q}-r{rep}-o{opt}"
+    sb = SANDBOX / label / (f"{q}-r{rep}-o{opt}" + (f"-{tag}" if tag else ""))
     shutil.rmtree(sb, ignore_errors=True); sb.mkdir(parents=True)
     shutil.copy(REVIEW_CONFIG, sb / "opencode.json")
     files = []
@@ -394,16 +398,16 @@ def run_grader(unit, label, call_model):
     (sb / "grader_prompt.md").write_text(prompt)
     t0 = time.time(); got, text, r, attempt = {}, "", {}, 0
     for attempt in (1, 2):   # one retry when nothing parses
-        r = call_model(sb, prompt, timeout=300, files=files)
+        r = call_model(sb, prompt, timeout=timeout, files=files, model=(model if "/" in (model or "") else (f"opencode/{model}" if model else None)))
         text = r.get("text", "")
         got = parse_json(text)
         if got:
             break
     (sb / "grader_response.md").write_text(text)
-    keep = unit["dir"] / "grader" / f"{GRADER_VERSION}-p{os.environ.get('GRADER_PASS', '1')}" / f"o{opt}"   # record stays with the run
+    keep = unit["dir"] / "grader" / (f"{GRADER_VERSION}-p{os.environ.get('GRADER_PASS', '1')}" + (f"-{tag}" if tag else "")) / f"o{opt}"   # record stays with the run
     keep.mkdir(parents=True, exist_ok=True)
     shutil.copy(sb / "grader_prompt.md", keep / "prompt.md"); shutil.copy(sb / "grader_response.md", keep / "response.md")
-    (keep / "meta.json").write_text(json.dumps({"grader_model": os.environ.get("POPPY_MODEL", ""), "grader_version": GRADER_VERSION, "attempts": attempt,
+    (keep / "meta.json").write_text(json.dumps({"grader_model": model or os.environ.get("POPPY_MODEL", ""), "grader_version": GRADER_VERSION, "attempts": attempt,
                                                 "secs": round(time.time() - t0, 1), "tool_calls": r.get("tool_calls"), "errors": r.get("errors")}, indent=1))
     res = {"grader_secs": round(time.time() - t0, 1), "grader_tools": r.get("tool_calls", "")}
     for k in grader_items(q):
@@ -423,7 +427,126 @@ HUMAN = ["h_gold"] + [f"h_{k}" for k in ALL_ITEMS] + ["first_failure", "notes"] 
 MACHINE = ["exp", "label", "q", "type", "rep", "option", "complete", "n_options", "n_distinct_analytic", "steps", "gold_match", "gold_detail",
            "n_numbers", "unsourced_numbers", "framing_flags"]
 GRADER = ["grader_model", "grader_secs", "grader_tools"] + [c for k in ALL_ITEMS for c in (f"m_{k}", f"ev_{k}")] + ["ev_raw"]
-COLUMNS = MACHINE + GRADER + HUMAN
+# Second grader (plan §v0, accepted by Bo 2026-11-04): same prompt, another model; m2_/ev2_ per item; `disagree` lists the items
+# where the two graders differ. Cells where they agree are accepted; disagreements and a small random audit go to the human (--review).
+GRADER2 = ["grader2_model", "grader2_secs"] + [c for k in ALL_ITEMS for c in (f"m2_{k}", f"ev2_{k}")] + ["disagree"]
+COLUMNS = MACHINE + GRADER + GRADER2 + HUMAN
+
+
+def disagreements(r):
+    return ",".join(k for k in ALL_ITEMS if r.get(f"m_{k}", "").strip() and r.get(f"m2_{k}", "").strip() and r[f"m_{k}"] != r[f"m2_{k}"])
+
+
+def read_sheet(exp, label):
+    p = ROOT / "experiments" / exp / "results" / label / "scores.csv"
+    return (p, list(csv.DictReader(p.open())) if p.exists() else [])
+
+
+def write_sheet(p, rows):
+    for r in rows:
+        r["disagree"] = disagreements(r)
+    with p.open("w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=COLUMNS, extrasaction="ignore"); w.writeheader(); w.writerows(rows)
+
+
+def grader2(exp, label, model, only, workers, timeout):
+    """Run the second grader on the units of an existing sheet (machine + primary grader columns untouched)."""
+    from run_screen import call_model  # noqa: E402
+    sheet, rows = read_sheet(exp, label)
+    if not rows:
+        sys.exit(f"no sheet at {sheet}: run the primary scorer first")
+    res_dir = sheet.parent
+    runs = sorted(p for p in res_dir.iterdir() if p.is_dir() and (p / "meta.json").exists())
+    if only:
+        runs = [p for p in runs if p.name in only]
+    units = {(u["q"], str(u["rep"]), str(u["option"])): u for p in runs for u in load_units(p)}
+    todo = [r for r in rows if (r["q"], r["rep"], r["option"]) in units]
+    tag = model.replace("/", "-")
+    print(f"grader2: {model}, {len(todo)} units, {workers} workers, timeout {timeout}s", flush=True)
+    with ThreadPoolExecutor(workers) as ex:
+        outs = list(ex.map(lambda r: run_grader(units[(r["q"], r["rep"], r["option"])], label, call_model, model=model, tag=tag, timeout=timeout), todo))
+    for r, o in zip(todo, outs):
+        r["grader2_model"] = f"{model}@{GRADER_VERSION}"; r["grader2_secs"] = o["grader_secs"]
+        for k in ALL_ITEMS:
+            if f"m_{k}" in o:
+                r[f"m2_{k}"] = o[f"m_{k}"]; r[f"ev2_{k}"] = o[f"ev_{k}"]
+    write_sheet(sheet, rows)
+    n = sum(1 for r in todo for k in ALL_ITEMS if r.get(f"m_{k}", "").strip() and r.get(f"m2_{k}", "").strip())
+    d = sum(len(r["disagree"].split(",")) for r in todo if r["disagree"])
+    unp = sum(1 for r in todo for k in ALL_ITEMS if r.get(f"m2_{k}") == "unparsed")
+    print(f"wrote {sheet}: {len(todo)} units, {n} shared cells, {d} disagreements ({1 - d / n if n else 0:.3f} agreement), {unp} unparsed")
+
+
+def review(exp, label, audit_n, seed):
+    """review.csv for the human: every disagreement cell (both verdicts shown) + audit_n random option rows with every item and the verdicts hidden."""
+    import random
+    sheet, rows = read_sheet(exp, label)
+    out = sheet.parent / "review.csv"
+    done = {}
+    if out.exists():   # keep verdicts already written
+        for r in csv.DictReader(out.open()):
+            done[(r["q"], r["rep"], r["option"], r["item"], r["kind"])] = r
+    lines = []
+    for r in rows:
+        for k in (r.get("disagree") or "").split(","):
+            if k:
+                lines.append({"kind": "disagree", "q": r["q"], "rep": r["rep"], "option": r["option"], "item": k,
+                              "g1": r[f"m_{k}"], "g1_evidence": r[f"ev_{k}"], "g2": r[f"m2_{k}"], "g2_evidence": r[f"ev2_{k}"], "h": "", "note": ""})
+    rng = random.Random(f"{label}:{seed}")
+    pick = rng.sample(rows, min(audit_n, len(rows)))
+    for r in sorted(pick, key=lambda r: (r["q"], int(r["rep"]), int(r["option"]))):
+        for k in ALL_ITEMS:
+            if r.get(f"m_{k}", "").strip():
+                lines.append({"kind": "audit", "q": r["q"], "rep": r["rep"], "option": r["option"], "item": k,
+                              "g1": "", "g1_evidence": "", "g2": "", "g2_evidence": "", "h": "", "note": ""})
+    for l in lines:
+        prev = done.get((l["q"], l["rep"], l["option"], l["item"], l["kind"]))
+        if prev:
+            l["h"], l["note"] = prev.get("h", ""), prev.get("note", "")
+    with out.open("w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["kind", "q", "rep", "option", "item", "g1", "g1_evidence", "g2", "g2_evidence", "h", "note"]); w.writeheader(); w.writerows(lines)
+    nd = sum(1 for l in lines if l["kind"] == "disagree"); na = sum(1 for l in lines if l["kind"] == "audit")
+    print(f"wrote {out}: {nd} disagreement cells + {na} audit cells ({len(pick)} rows); fill `h` (PASS|FAIL|NA) and `note`, then --apply-review")
+
+
+def apply_review(exp, label):
+    """Copy the human verdicts of review.csv into h_<item> of scores.csv (an audit verdict counts like any other)."""
+    sheet, rows = read_sheet(exp, label)
+    rv = sheet.parent / "review.csv"
+    idx = {(r["q"], r["rep"], r["option"]): r for r in rows}
+    n = 0
+    for l in csv.DictReader(rv.open()):
+        if l["h"].strip():
+            r = idx[(l["q"], l["rep"], l["option"])]; r[f"h_{l['item']}"] = l["h"].strip().upper(); n += 1
+            if l["note"].strip() and l["note"].strip() not in r.get("notes", ""):
+                r["notes"] = (r.get("notes", "") + " | " if r.get("notes") else "") + f"{l['item']}: {l['note'].strip()}"
+    write_sheet(sheet, rows)
+    print(f"applied {n} human verdicts into {sheet}")
+
+
+def calibration(exp, labels):
+    """Per item: two-grader agreement, human adjudication of disagreements, audit cells that both graders got wrong, promotion status
+    (plan §v0: agreement >= 0.95 on >= 60 rows, no agreed-but-wrong audit cell, human sides with grader 1 on >= 0.8 of adjudicated disagreements)."""
+    rows = [r for lab in labels for r in read_sheet(exp, lab)[1]]
+    print(f"{'item':20s} {'n':>4s} {'agree':>6s} {'pi':>6s} {'disagr':>6s} {'adjud':>5s} {'h=g1':>5s} {'h=g2':>5s} {'audit':>5s} {'both_wrong':>10s}  status")
+    for k in ALL_ITEMS:
+        both = [r for r in rows if r.get(f"m_{k}", "").strip() and r.get(f"m2_{k}", "").strip()]
+        if not both:
+            continue
+        dis = [r for r in both if r[f"m_{k}"] != r[f"m2_{k}"]]
+        adj = [r for r in dis if r.get(f"h_{k}", "").strip()]
+        h1 = sum(r[f"h_{k}"] == r[f"m_{k}"] for r in adj); h2 = sum(r[f"h_{k}"] == r[f"m2_{k}"] for r in adj)
+        aud = [r for r in both if r[f"m_{k}"] == r[f"m2_{k}"] and r.get(f"h_{k}", "").strip()]
+        bw = sum(r[f"h_{k}"] != r[f"m_{k}"] for r in aud)
+        agree = 1 - len(dis) / len(both)
+        # Scott's pi: chance-corrected agreement on the pooled verdict distribution (plan §7, Judging the Judges)
+        pool = collections.Counter(v for r in both for v in (r[f"m_{k}"], r[f"m2_{k}"]))
+        ae = sum((n / (2 * len(both))) ** 2 for n in pool.values())
+        pi = (agree - ae) / (1 - ae) if ae < 1 else 1.0
+        ok = agree >= 0.95 and len(both) >= 60 and bw == 0 and (not adj or h1 / len(adj) >= 0.8)
+        why = [] if ok else ([f"agreement {agree:.2f} < 0.95"] if agree < 0.95 else []) + ([f"n {len(both)} < 60"] if len(both) < 60 else []) + ([f"{bw} agreed-but-wrong"] if bw else []) + ([f"h sides with g1 {h1}/{len(adj)}"] if adj and h1 / len(adj) < 0.8 else [])
+        print(f"{k:20s} {len(both):4d} {agree:6.3f} {pi:6.2f} {len(dis):6d} {len(adj):5d} {h1:5d} {h2:5d} {len(aud):5d} {bw:10d}  {'PROMOTABLE' if ok else '; '.join(why)}")
+
 
 
 def score(exp, label, only, use_grader, workers):
@@ -454,7 +577,7 @@ def score(exp, label, only, use_grader, workers):
             r.update(o); r["grader_model"] = f"{MODEL}@{GRADER_VERSION}"
     for r in rows:
         prev = old.get((r["q"], str(r["rep"]), str(r["option"])), {})
-        for c in HUMAN:
+        for c in HUMAN + GRADER2:
             r[c] = prev.get(c, "")
         if not use_grader:
             for c in GRADER:
@@ -463,8 +586,7 @@ def score(exp, label, only, use_grader, workers):
         done = {(r["q"], str(r["rep"]), str(r["option"])) for r in rows}
         rows += [r for k, r in old.items() if k not in done]
         rows.sort(key=lambda r: (r["q"], int(r["rep"]), int(r["option"])))
-    with sheet.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=COLUMNS, extrasaction="ignore"); w.writeheader(); w.writerows(rows)
+    write_sheet(sheet, rows)
     print(f"wrote {sheet} ({len(rows)} rows)")
     for r in rows:
         flags = [k for k in ALL_ITEMS if r.get(f"m_{k}") == "FAIL"]
@@ -527,9 +649,25 @@ def main():
     ap.add_argument("--summary", action="store_true"); ap.add_argument("--baseline")
     ap.add_argument("--no-grader", action="store_true"); ap.add_argument("--only", nargs="*", default=[])
     ap.add_argument("--workers", type=int, default=3)
+    ap.add_argument("--grader2", metavar="MODEL", help="run the second grader (e.g. mimo-v2.6-flash-free) on an existing sheet")
+    ap.add_argument("--timeout", type=int, default=600, help="per-call timeout for --grader2")
+    ap.add_argument("--review", action="store_true", help="write review.csv: disagreement cells + random audit rows")
+    ap.add_argument("--audit", type=int, default=5); ap.add_argument("--seed", default="1")
+    ap.add_argument("--apply-review", action="store_true"); ap.add_argument("--calibration", action="store_true")
     a = ap.parse_args()
     if a.summary:
         summary(a.exp, a.labels, a.baseline)
+    elif a.calibration:
+        calibration(a.exp, a.labels)
+    elif a.grader2:
+        for lab in a.labels:
+            grader2(a.exp, lab, a.grader2, set(a.only), a.workers, a.timeout)
+    elif a.review:
+        for lab in a.labels:
+            review(a.exp, lab, a.audit, a.seed)
+    elif a.apply_review:
+        for lab in a.labels:
+            apply_review(a.exp, lab)
     else:
         for lab in a.labels:
             score(a.exp, lab, set(a.only), not a.no_grader, a.workers)
