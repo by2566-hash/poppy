@@ -26,6 +26,8 @@ Common rules: GPT-6 Luna; the 6 pilot questions; D v1 (`D_enumerate.v1.md`, k = 
 
 **Why:** phase 1 compared arms on one phrasing; a robust D should produce the same framing *set* under paraphrase. Sensitivity to phrasing is itself a finding (prompt brittleness).
 
+**How to run (harness support added 2026-11-04):** put the phrasings in `experiments/E009-enumerate/questions.<name>.json` as `{"questions": [{"id": "A1-casual", "base": "A1", "type": "ambiguous", "text": "..."}, ...]}` (one entry per phrasing; `base` is the pilot id whose gold and trap items apply), commit it, then `POPPY_EXP=E009-enumerate POPPY_QSET=<name> POPPY_MODEL=openai/gpt-6-luna PILOT_K=0 PILOT_STEPS=35 PILOT_REPS=3 ~/.poppy/venv/bin/python experiments/E007-pilot-prompts/run_pilot.py enumerate v2 3`, collect with `scripts/collect_runs.py`, score with `scripts/score_runs.py E009-enumerate <label>` (the grader sees the asked phrasing; gold, traps and type come from `base`). Facets are coded as in F1 (`facets.csv`, same facet names per base question) so the overlap is computed on the same codebook.
+
 **Measures:** framing-set overlap across phrasings (Jaccard on hand-coded analytic framings), top-option stability, option count stability, accuracy; per phrasing: completion.
 
 **Prediction:** the top option is stable across phrasings on clear questions and unstable on ambiguous ones; "show me alternatives" phrasing raises k.

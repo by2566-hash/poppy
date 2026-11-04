@@ -87,9 +87,11 @@ def load_units(run_dir):
     """A run folder -> list of units (option rows). D: one per option; A/B: one unit from out/."""
     meta = json.loads((run_dir / "meta.json").read_text())
     q, rep = meta["q"], meta["rep"]
+    bq = meta.get("base", q)   # F2 rephrasings: gold, traps and type come from the base pilot question; the grader sees the asked phrasing
     code = code_of(run_dir / "events.jsonl")
     out = run_dir / "out"
-    base = {"q": q, "rep": rep, "type": meta.get("type") or QUESTION_TYPES.get(q, GOLD.get(q, {}).get("type", "")),
+    base = {"q": q, "base": bq, "question": meta.get("question", ""), "rep": rep,
+            "type": meta.get("type") or QUESTION_TYPES.get(bq, GOLD.get(bq, {}).get("type", "")),
             "complete": meta.get("complete", meta.get("n_complete_options") == meta.get("n_options")),
             "n_options": meta.get("n_options", 1), "n_distinct_analytic": meta.get("n_distinct_analytic", ""),
             "steps": meta.get("steps", ""), "code": code, "dir": run_dir}
@@ -316,7 +318,7 @@ def grader_items(q):
 
 
 def grader_prompt(unit, values_text, code_text):
-    q = unit["q"]
+    q = unit["base"]
     items = grader_items(q)
     lines = "\n".join(f"- {k}: {v}" for k, v in items.items())
     fields = "\n".join(f"{k}: {v}" for k, v in unit["fields"].items() if v != "")
@@ -340,7 +342,7 @@ Rules that follow from the written standard (SCORING.md section 4):
 DATA FACTS (pinned snapshot):
 {DATA_FACTS}
 
-QUESTION ASKED: {QUESTIONS.get(q, q)}
+QUESTION ASKED: {unit.get("question") or QUESTIONS.get(q, q)}
 QUESTION TYPE: {unit['type']}
 {('DECLARED FRAMING:' + chr(10) + fields) if fields else ''}
 WRITTEN ANSWER:
@@ -412,7 +414,7 @@ def run_grader(unit, label, call_model, model=None, tag="", timeout=300):
     (keep / "meta.json").write_text(json.dumps({"grader_model": model or os.environ.get("POPPY_MODEL", ""), "grader_version": GRADER_VERSION, "attempts": attempt,
                                                 "secs": round(time.time() - t0, 1), "tool_calls": r.get("tool_calls"), "errors": r.get("errors")}, indent=1))
     res = {"grader_secs": round(time.time() - t0, 1), "grader_tools": r.get("tool_calls", "")}
-    for k in grader_items(q):
+    for k in grader_items(unit["base"]):
         v = got.get(k) if isinstance(got, dict) else None
         if isinstance(v, dict):
             res[f"m_{k}"] = str(v.get("verdict", "unparsed")).upper()[:6]; res[f"ev_{k}"] = str(v.get("evidence", ""))[:300]
@@ -475,7 +477,7 @@ def grader2(exp, label, model, only, workers, timeout, records_only=False):
             return None
         meta = json.loads((keep / "meta.json").read_text()) if (keep / "meta.json").exists() else {}
         res = {"grader_secs": meta.get("secs", ""), "grader_tools": meta.get("tool_calls", "")}
-        for k in grader_items(u["q"]):
+        for k in grader_items(u["base"]):
             v = got.get(k)
             res[f"m_{k}"] = str(v.get("verdict", "unparsed")).upper()[:6] if isinstance(v, dict) else "unparsed"
             res[f"ev_{k}"] = str(v.get("evidence", ""))[:300] if isinstance(v, dict) else ""
@@ -591,7 +593,7 @@ def score(exp, label, only, use_grader, workers):
     units = [u for p in runs for u in load_units(p)]
     rows = []
     for u in units:
-        gm, gd = gold_match(u["q"], [v for v in u["values"] if v.exists()])
+        gm, gd = gold_match(u["base"], [v for v in u["values"] if v.exists()])
         nn, uns = provenance(u["text"], [v for v in u["values"] if v.exists()])
         rows.append({"exp": exp, "label": label, "q": u["q"], "type": u["type"], "rep": u["rep"], "option": u["option"],
                      "complete": u["complete"], "n_options": u["n_options"], "n_distinct_analytic": u["n_distinct_analytic"], "steps": u["steps"],

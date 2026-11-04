@@ -63,8 +63,12 @@ CONCURRENCY = int(os.environ.get("PILOT_CONCURRENCY", "1"))
 SUFFIX = "" if MODEL == "mimo-v2.6-flash-free" else f"-{MODEL_TAG}"   # keep other models' runs separate
 if QSET == "formal":
     QS = {k: {"id": k, "type": QUESTION_TYPES[k], "text": v} for k, v in QUESTIONS.items()}
-else:
+elif QSET == "pilot":
     QS = {q["id"]: q for q in json.loads((HERE / "pilot_questions.json").read_text())["questions"]}
+else:   # F2 rephrasings: POPPY_QSET=<name> -> experiments/<EXP>/questions.<name>.json, entries {id, base, type, text}
+    _qf = Path(QSET) if QSET.endswith(".json") else ROOT / "experiments" / EXP / f"questions.{QSET}.json"
+    QS = {q["id"]: q for q in json.loads(_qf.read_text())["questions"]}
+    assert all("base" in q for q in QS.values()), f"{_qf}: every question needs a base pilot id (gold and traps come from it)"
 MAX_EMBED = 6000  # characters of values / code embedded in a prompt
 ATTACH_CHART = os.environ.get("PILOT_NO_IMAGE") != "1"   # control run only
 
@@ -247,7 +251,7 @@ def run_analysis(job):
     r = call_model(sb, prompt, timeout=TIMEOUT)
     steps = steps_in(sb / "events.jsonl")
     ans = answer_of(r["text"])
-    meta = {"q": q, "rep": rep, "label": label, "type": QS[q]["type"],
+    meta = {"q": q, "rep": rep, "label": label, "type": QS[q]["type"], "base": QS[q].get("base", q), "question": QS[q]["text"],
             "call_ok": r["exit"] == 0 and not r["timed_out"] and not r["errors"], "timed_out": r["timed_out"],
             "rate_limited": r["rate_limited"], "stalled": r["stalled"], "attempts": r["attempts"], "secs": r["secs"],
             "zero_output_retries": r["zero_output_retries"], "secs_total": r["secs_total"],
@@ -288,7 +292,7 @@ def run_B(job):
     if not a_answer:
         # Rule (PROTOCOL amendment 2026-10-15): B needs a "before". With no answer from A there is nothing to
         # review, and a revise run would just be a second analysis with 15 more steps. Both arms fail the item.
-        meta = {"q": q, "rep": rep, "label": label, "a_label": a_label, "type": QS[q]["type"],
+        meta = {"q": q, "rep": rep, "label": label, "a_label": a_label, "type": QS[q]["type"], "base": QS[q].get("base", q), "question": QS[q]["text"],
                 "a_source": str(src.relative_to(ROOT)), "a_git_commit": (a_meta.get("env") or {}).get("git_commit"),
                 "a_complete": False, "b_skipped": "A produced no answer (step cap, timeout or format); B not applicable",
                 "b_state": "skipped_no_A_answer",
@@ -390,7 +394,7 @@ def run_B(job):
         if (rd / name).exists():
             shutil.copy(rd / name, sb / name)
     shutil.copytree(rd, sb / "review", ignore=shutil.ignore_patterns(".ocdata", ".bin", "critique.md", "review_*", "revise_prompt.md"), dirs_exist_ok=True)
-    meta = {"q": q, "rep": rep, "label": label, "a_label": a_label, "type": QS[q]["type"],
+    meta = {"q": q, "rep": rep, "label": label, "a_label": a_label, "type": QS[q]["type"], "base": QS[q].get("base", q), "question": QS[q]["text"],
             "a_source": str(src.relative_to(ROOT)),
             "a_git_commit": (a_meta.get("env") or {}).get("git_commit"),   # None for runs made before env logging
             "a_complete": a_complete, **review, **rev,
@@ -458,7 +462,7 @@ def run_enumerate(job):
     ans = answer_of(r["text"])
     po = parse_options(sb)
     opts = po["options"]
-    meta = {"q": q, "rep": rep, "label": label, "type": QS[q]["type"], "k": k,
+    meta = {"q": q, "rep": rep, "label": label, "type": QS[q]["type"], "base": QS[q].get("base", q), "question": QS[q]["text"], "k": k,
             "call_ok": r["exit"] == 0 and not r["timed_out"] and not r["errors"], "timed_out": r["timed_out"],
             "rate_limited": r["rate_limited"], "stalled": r["stalled"], "attempts": r["attempts"], "secs": r["secs"],
             "zero_output_retries": r["zero_output_retries"], "secs_total": r["secs_total"],
