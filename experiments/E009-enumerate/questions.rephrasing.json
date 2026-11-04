@@ -1,0 +1,90 @@
+{
+  "version": "f2-rephrasing-v1",
+  "source": "experiments/E007-pilot-prompts/pilot_questions.json",
+  "questions": [
+    {
+      "id": "K1-casual",
+      "base": "K1",
+      "type": "clear",
+      "phrasing": "casual",
+      "text": "From 2013 to 2025, how many pedestrians were killed in motor vehicle crashes in NYC each year?"
+    },
+    {
+      "id": "K1-formal",
+      "base": "K1",
+      "type": "clear",
+      "phrasing": "formal",
+      "text": "What was the annual number of pedestrian deaths in NYC motor vehicle crashes from 2013 to 2025?"
+    },
+    {
+      "id": "K2-casual",
+      "base": "K2",
+      "type": "clear",
+      "phrasing": "casual",
+      "text": "From 2013 to 2025, how were NYC crashes spread across the days of the week?"
+    },
+    {
+      "id": "K2-formal",
+      "base": "K2",
+      "type": "clear",
+      "phrasing": "formal",
+      "text": "What was the distribution of NYC crashes by day of the week over the period 2013 to 2025?"
+    },
+    {
+      "id": "K3-casual",
+      "base": "K3",
+      "type": "clear",
+      "phrasing": "casual",
+      "text": "From 2013 to 2025, how did motorist deaths compare with cyclist deaths in NYC each year?"
+    },
+    {
+      "id": "K3-formal",
+      "base": "K3",
+      "type": "clear",
+      "phrasing": "formal",
+      "text": "How did annual motorist and cyclist death counts compare in NYC during 2013 to 2025?"
+    },
+    {
+      "id": "A1-casual",
+      "base": "A1",
+      "type": "ambiguous",
+      "phrasing": "casual",
+      "text": "Since 2013, has it gotten safer for pedestrians in Brooklyn? Make a chart for a local news story and sum up what you find."
+    },
+    {
+      "id": "A1-formal",
+      "base": "A1",
+      "type": "ambiguous",
+      "phrasing": "formal",
+      "text": "Has pedestrian road safety in Brooklyn improved since 2013? Produce a chart appropriate for a local news story and summarize the findings."
+    },
+    {
+      "id": "A2-casual",
+      "base": "A2",
+      "type": "ambiguous",
+      "phrasing": "casual",
+      "text": "Is it more dangerous to be on NYC's streets at night? Make a chart and say what you conclude for a news report."
+    },
+    {
+      "id": "A2-formal",
+      "base": "A2",
+      "type": "ambiguous",
+      "phrasing": "formal",
+      "text": "Are NYC streets more dangerous during nighttime hours? Present a chart and a conclusion suitable for a news report."
+    },
+    {
+      "id": "I1-casual",
+      "base": "I1",
+      "type": "insufficient",
+      "phrasing": "casual",
+      "text": "From 2013 to 2025, did the risk of a motorist being killed for each mile driven in NYC go down? Use this crash data to make a chart and answer the question."
+    },
+    {
+      "id": "I1-formal",
+      "base": "I1",
+      "type": "insufficient",
+      "phrasing": "formal",
+      "text": "Did motorist fatality risk per mile driven in NYC decrease from 2013 to 2025? Create a chart and answer using this crash dataset."
+    }
+  ]
+}
