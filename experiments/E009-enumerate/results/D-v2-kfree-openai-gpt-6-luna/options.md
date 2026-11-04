@@ -46,3 +46,16 @@ Facet = which part of the asked question the option claims to answer (from `inte
 | I1 | 3 | 1 | 0.25 | Annual count of motorists killed | None (count) | Calendar year | Line chart | This framing answers whether the annual number of motorists killed in recorded NYC crashes changed, and shows 110 deaths in 2013 versus 81 in 2025, with substantial year-to-year variation |
 | I1 | 3 | 2 | 0.2 | Annual number of crashes with at least one motorist killed | None (count of crashes) | Calendar year | Line chart | This framing answers how many reported crash events each year involved at least one motorist death, declining from 102 in 2013 to 75 in 2025 |
 | I1 | 3 | 3 | 0.55 | Motorist deaths per 1,000 reported crashes | All police-reported crashes in that calendar year | Calendar year | Line chart | This framing answers whether motorist deaths relative to the number of reported crashes declined, and shows an increase from 0.54 deaths per 1,000 crashes in 2013 to 0.95 in 2025, despite a lower absolute count in 2025 |
+
+## Facet coding (first pass by Claude 2026-11-04, from `interpretation`; Bo reviews `facets.csv`)
+
+| q | r1 facets | r2 facets | r3 facets | shared by all 3 | pairwise Jaccard | top facet (max p) stable? |
+|---|---|---|---|---|---|---|
+| K1 | count_by_year | count_by_year | count_by_year | count_by_year | 1/1 / 1/1 / 1/1 | yes: count_by_year / count_by_year / count_by_year |
+| K2 | mean_per_calendar_date, total_by_weekday, weekday_share_by_year | mean_per_calendar_date, total_by_weekday | mean_per_calendar_date, total_by_weekday | mean_per_calendar_date, total_by_weekday | 2/3 / 2/3 / 2/2 | yes: total_by_weekday / total_by_weekday / total_by_weekday |
+| K3 | counts_by_year, cyclist_per_100_motorist | counts_by_year | counts_by_year | counts_by_year | 1/2 / 1/2 / 1/1 | yes: counts_by_year / counts_by_year / counts_by_year |
+| A1 | injured_count, killed_count, ped_harm_share_of_crashes | casualties_count, injured_count, killed_count | casualties_count, killed_count, ped_harm_share_of_crashes | killed_count | 2/4 / 2/4 / 2/4 | no: injured_count / casualties_count / casualties_count |
+| A2 | casualty_crash_share, fatal_crash_share | casualty_crash_share, crashes_per_clock_hour | casualties_per_crash, casualty_crash_share, fatal_crash_share | casualty_crash_share | 1/3 / 2/3 / 1/4 | yes: casualty_crash_share / casualty_crash_share / casualty_crash_share |
+| I1 | deaths_count_by_year, deaths_per_reported_crash | deaths_count_by_year, deaths_per_reported_crash | deaths_count_by_year, deaths_per_reported_crash, fatal_crash_count_by_year | deaths_count_by_year, deaths_per_reported_crash | 2/2 / 2/3 / 2/3 | no: deaths_per_reported_crash / deaths_count_by_year / deaths_per_reported_crash |
+
+Facet = the part of the asked question the option claims to answer, coded from the `interpretation` field; chart-type duplicates share a facet. Every A1, A2 and I1 option also states that per-trip or per-mile risk is left unanswered (the exposure caveat), so that statement is not a facet.

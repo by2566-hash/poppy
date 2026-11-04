@@ -4,7 +4,7 @@
   "traps": [
    {
     "id": "TR07",
-    "item": "The output does not present the open-data death counts as the official NYC toll (reporting them as counts in this dataset is fine).",
+    "item": "The output does not present the open-data death counts as the official NYC toll: counts called 'NYC totals' or 'killed in NYC' without saying they are counts in this dataset (reported crashes) FAIL; counts described as reported or recorded in this data are fine (wording decided by Bo 2026-11-04).",
     "note": "open-data deaths differ from official counts (2025: 229 here vs 205 NYC DOT)"
    },
    {

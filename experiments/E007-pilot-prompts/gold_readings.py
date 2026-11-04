@@ -29,7 +29,7 @@ READINGS = {
 # The written standard per question (from SCORING.md §4). Each trap item is a PASS/FAIL question for the grader.
 STANDARD = {
  "K1": {"type": "clear", "traps": [
-   {"id": "TR07", "item": "The output does not present the open-data death counts as the official NYC toll (reporting them as counts in this dataset is fine).", "note": "open-data deaths differ from official counts (2025: 229 here vs 205 NYC DOT)"},
+   {"id": "TR07", "item": "The output does not present the open-data death counts as the official NYC toll: counts called 'NYC totals' or 'killed in NYC' without saying they are counts in this dataset (reported crashes) FAIL; counts described as reported or recorded in this data are fine (wording decided by Bo 2026-11-04).", "note": "open-data deaths differ from official counts (2025: 229 here vs 205 NYC DOT)"},
    {"id": "CAUSAL", "item": "The output makes no causal attribution (e.g. 'because of the pandemic') that the data cannot support.", "note": "causal asides fail criterion 6"}]},
  "K2": {"type": "clear", "traps": [
    # TR01 removed 2026-11-04 (Bo): the 2020 reporting caveat applies to comparisons across years, not to group comparisons within one pooled window.
