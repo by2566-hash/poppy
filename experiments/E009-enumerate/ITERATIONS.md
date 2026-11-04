@@ -199,3 +199,21 @@ Pass-1 repeat agreement on v1 was 0.964 (2026-11-02); the same model now gives 0
 **F1 status after this:** run, scored, gold closed, facets coded (first pass). Open: Bo's review of `facets.csv`, the 15 remaining review cells, the A2-r2 o1 unsupported-claim call; F2 and F3 are with the teammates.
 
 **Addendum (2026-11-04, relayed from Bo's other session):** decision (6) in SCORING §4: a disclaimer that reads as a data conclusion is judged by that reading. A2-r2 o1 → `h_unsupported_claim = FAIL`, `h_c6 = FAIL`; v2 silent-error stays 15/42: the g5 grader had already failed this row on unsupported_claim (the 1/42), so Bo's verdict confirms the grader rather than adding a row. Harness support for F2 added: `POPPY_QSET=<name>` loads `experiments/<EXP>/questions.<name>.json` with a `base` id per phrasing; the scorer takes gold, traps and type from `base` and shows the grader the asked phrasing (regression: 0 diffs on the 96 existing units). F2/F3 can start.
+
+## g6 re-score of D v1 and D v2 (2026-11-04, Bo's request)
+
+Both labels re-scored from scratch with g6 (primary Luna pass, then a second Luna pass, then `review.csv`); g5 sheets archived as `scores.g5-p1.csv`; records in `grader/g6-p1/` and `grader/g6-p1-openai-gpt-6-luna/`. Human cells (`h_*`, 61 on v1 incl. the Codex review and the rule adjudications; 11 on v2) carried over and still override.
+
+| | D v1 (54) | D v2 (42) |
+|---|---|---|
+| verdict cells changed g5 → g6 | 29 | 10 |
+| of which NA ↔ PASS (decision 4, no score effect) | 6 | 3 |
+| Luna-2 agreement (g6 vs g6) | 0.968 (20 cells) | 0.988 (6 cells) |
+| silent-error, human override applied | **22/54** (was 17) | **15/42** (unchanged) |
+| per question | A1 9/9, A2 4/9, I1 2/9, **K1 7/9**, K2 0, K3 0 | A1 9/9, A2 3/7, I1 3/7, K1 0/5, K2 0, K3 0 |
+
+**What g6 changed, substantively.** (a) *TR07 (decision 5):* g6 fails 7 of 9 v1 K1 options, not only the three "NYC annual totals" rows adjudicated earlier but also four whose chart *title* reads "Pedestrians killed in NYC motor vehicle crashes" (K1-r1 o1, r2 o1, r2 o2, r3 o2), and it fails c6 and unsupported_claim ("official-count claim") on the same rows, so one wording costs three items. v2's five K1 options pass (their titles and answers say "reported"). **Question for Bo:** is a title like "Pedestrians killed in NYC motor vehicle crashes" (with a source note) inside decision 5, or only prose that calls the numbers "NYC totals"? The rule as written in SCORING §4 lists "killed in NYC" as an example, which the grader applies literally. (b) *TR08 (decision 2):* g6 now fails A2-r2 o3 on v1 (COALESCE with 2026 rows, "complete cases only" declared) and A2-r1 o1 on v2, and passes A2-r1 o2 (its SQL has `killed IS NOT NULL`): the grader reads the code more consistently than g5 did; the A2-r1 o1/o2 pair is also where the two g6 passes disagree (c6, TR08), so these go to the human. (c) *A2-r2 o1:* g6 itself passes unsupported_claim ("leaves unanswered whether nighttime travel is riskier"), i.e. decision 6 is not yet in the grader prompt (it was recorded in SCORING §4 after the g6 bump); the row stays FAIL by Bo's `h_*` override. Decision 6 goes into the prompt at the next version bump. (d) *Still missed by both passes:* K3-r2 o1 "largest gap was 110 deaths in 2020" (values: 115 in 2021); covered by the human cell, mechanical check still deferred (decision 3).
+
+**Calibration (g6, both labels):** c1, c3, c5, c7, c8 at 1.000; c2 0.990; c6 0.917; unsupported_claim 0.948; TR07 0.714 (14 cells: the title question above); TR03 0.875; TR08 0.875; TR11 0.912; every trap item n < 60. Nothing promoted (the human columns are still mostly the Codex review).
+
+**For Bo:** `review.csv` regenerated on g6: v2 = 6 disagreement cells + 5 audit rows; v1 = 20 cells + 5 audit rows (earlier `h`/`note` entries kept where the cell still exists). Two decisions: the TR07 title question above, and whether to bump to g7 now (rule 6 in the prompt, TR07 wording clarified) and re-score once more, or let g7 start with F2/F3.
