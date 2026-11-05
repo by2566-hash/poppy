@@ -1,0 +1,1 @@
+ANSWER: Total counts show Friday had the most crashes (338,800; 15.89% of the 2,132,218 crashes), while Sunday had the fewest (257,544; 12.08%). Adjusting for the number of each weekday in the period, Friday averaged 499.71 crashes per occurrence and Sunday averaged 379.86.

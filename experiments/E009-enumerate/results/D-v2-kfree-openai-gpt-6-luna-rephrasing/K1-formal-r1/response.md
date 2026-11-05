@@ -1,0 +1,4 @@
+I’ll calculate annual pedestrian fatalities for 2013–2025, chart the defensible count framing(s), and verify the charts, CSVs, and answers against the saved values.
+The two plotted forms match the same annual totals: they were highest in 2013 (176) and lowest in 2020 (101); I’ve checked each chart against its CSV and am saving the option descriptions now.
+ANSWER: The bar chart shows annual pedestrian deaths of 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).
+The line chart shows the same annual counts: 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).

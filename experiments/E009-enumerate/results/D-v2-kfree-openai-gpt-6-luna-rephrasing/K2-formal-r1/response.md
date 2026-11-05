@@ -1,0 +1,2 @@
+ANSWER: Friday had the most recorded crashes (338,800), while Sunday had the fewest (257,544).
+Friday accounted for the largest share of recorded crashes (15.9%), while Sunday accounted for the smallest (12.1%).

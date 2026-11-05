@@ -1,0 +1,1 @@
+The file spans July 2012 through June 11, 2026, so 2026 is incomplete and shouldn’t be compared with full years. I’ll use complete calendar years 2013–2025 and show both total pedestrian casualties and pedestrian deaths; the data has no population or walking-activity denominator, so these will be counts rather than exposure-adjusted risk rates.

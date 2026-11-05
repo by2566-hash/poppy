@@ -1,0 +1,251 @@
+[
+ {
+  "q": "K1-casual",
+  "rep": 1,
+  "label": "D-v2-kfree-openai-gpt-6-luna-rephrasing",
+  "type": "clear",
+  "base": "K1",
+  "question": "From 2013 to 2025, how many pedestrians were killed in motor vehicle crashes in NYC each year?",
+  "k": 0,
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 172.4,
+  "zero_output_retries": 0,
+  "secs_total": 172.4,
+  "steps": 13,
+  "hit_step_limit": false,
+  "tool_calls": 17,
+  "tokens": {
+   "input": 39,
+   "output": 2791,
+   "reasoning": 1361,
+   "cache_read": 253903,
+   "cache_write": 29487,
+   "total": 287581
+  },
+  "net_calls": 0,
+  "options_parsed": true,
+  "options_reason": null,
+  "n_options": 2,
+  "n_complete_options": 2,
+  "n_distinct_framings": 2,
+  "n_distinct_analytic": 1,
+  "recommended": null,
+  "options": [
+   {
+    "id": 1,
+    "metric": "Annual sum of number_of_pedestrians_killed",
+    "denominator": "None; absolute count of pedestrian fatalities",
+    "grouping": "Calendar year of crash_date (2013\u20132025)",
+    "chart_type": "Bar chart",
+    "reason": "Bars make it easy to compare the absolute fatality count across individual calendar years.",
+    "probability": 0.6,
+    "answer": "Annual pedestrian deaths were 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+    "interpretation": "This framing answers how many pedestrians were killed in each requested year, using the sum of the crash-level pedestrian-fatality counts. Comparing annual totals with bars is defensible because the question asks for yearly counts rather than rates. It does not show the number of pedestrians exposed to traffic or explain causes of changes.",
+    "png": true,
+    "values": true,
+    "fields_ok": true,
+    "duplicate_framing": false
+   },
+   {
+    "id": 2,
+    "metric": "Annual sum of number_of_pedestrians_killed",
+    "denominator": "None; absolute count of pedestrian fatalities",
+    "grouping": "Calendar year of crash_date (2013\u20132025)",
+    "chart_type": "Line chart",
+    "reason": "A line chart emphasizes the year-to-year trajectory while preserving the requested annual counts.",
+    "probability": 0.4,
+    "answer": "Annual pedestrian deaths were 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+    "interpretation": "This framing answers the annual-count question and highlights how the counts move over time from 2013 through 2025. A line is defensible for ordered yearly observations when the temporal pattern is of interest. It does not show exposure-adjusted risk or explain why the count changes.",
+    "png": true,
+    "values": true,
+    "fields_ok": true,
+    "duplicate_framing": false
+   }
+  ],
+  "answer": "Option 1 ([bar chart](out/option_1.png), [values](out/values_1.csv)): Pedestrians killed by year were 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.  \nOption 2 ([line chart](out/option_2.png), [values](out/values_2.csv)): The annual counts were 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+  "answer_ok": true,
+  "errors": [],
+  "env": {
+   "model": "openai/gpt-6-luna",
+   "opencode": "1.18.34",
+   "python": "3.13.13",
+   "python_prefix": "/Users/chloehe/.poppy/venv",
+   "python_executable": "/opt/homebrew/Cellar/python@3.13/3.13.13_1/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+   "git_commit": "597c32b",
+   "prompt_sha": {
+    "D_enumerate.v2.md": "bde1fd02f5b3e576"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "step_cap": 35,
+  "complete": true
+ },
+ {
+  "q": "K1-casual",
+  "rep": 2,
+  "label": "D-v2-kfree-openai-gpt-6-luna-rephrasing",
+  "type": "clear",
+  "base": "K1",
+  "question": "From 2013 to 2025, how many pedestrians were killed in motor vehicle crashes in NYC each year?",
+  "k": 0,
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 186.4,
+  "zero_output_retries": 0,
+  "secs_total": 186.4,
+  "steps": 14,
+  "hit_step_limit": false,
+  "tool_calls": 17,
+  "tokens": {
+   "input": 42,
+   "output": 3515,
+   "reasoning": 1936,
+   "cache_read": 158908,
+   "cache_write": 19626,
+   "total": 184027
+  },
+  "net_calls": 0,
+  "options_parsed": true,
+  "options_reason": null,
+  "n_options": 2,
+  "n_complete_options": 2,
+  "n_distinct_framings": 2,
+  "n_distinct_analytic": 1,
+  "recommended": null,
+  "options": [
+   {
+    "id": 1,
+    "metric": "Sum of number_of_pedestrians_killed across crashes",
+    "denominator": "None; annual count",
+    "grouping": "Crash calendar year, 2013\u20132025",
+    "chart_type": "Bar chart",
+    "reason": "Bars make it easy to compare the discrete yearly death totals directly.",
+    "probability": 0.55,
+    "answer": "Pedestrians killed per year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+    "interpretation": "The bars give the annual pedestrian death count for every year in the requested period, with 2013 highest at 176 and 2020 lowest at 101. Annual totals directly answer the question; they do not indicate pedestrian risk per trip or population because no exposure denominator is included.",
+    "png": true,
+    "values": true,
+    "fields_ok": true,
+    "duplicate_framing": false
+   },
+   {
+    "id": 2,
+    "metric": "Sum of number_of_pedestrians_killed across crashes",
+    "denominator": "None; annual count",
+    "grouping": "Crash calendar year, 2013\u20132025",
+    "chart_type": "Line chart with annual markers",
+    "reason": "A line chart emphasizes how the yearly counts change over time while retaining the value for each year.",
+    "probability": 0.45,
+    "answer": "Pedestrians killed per year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+    "interpretation": "The connected annual counts show a general decline from 176 in 2013 to 119 in 2025, with year-to-year fluctuations and a low of 101 in 2020. This is a defensible time-series view of the full annual-count question; it leaves pedestrian risk relative to travel or population unanswered because those denominators are not in the data.",
+    "png": true,
+    "values": true,
+    "fields_ok": true,
+    "duplicate_framing": false
+   }
+  ],
+  "answer": "The bar-chart framing shows 176 pedestrians killed in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.\nThe line-chart framing shows the same annual counts: 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.",
+  "answer_ok": true,
+  "errors": [],
+  "env": {
+   "model": "openai/gpt-6-luna",
+   "opencode": "1.18.34",
+   "python": "3.13.13",
+   "python_prefix": "/Users/chloehe/.poppy/venv",
+   "python_executable": "/opt/homebrew/Cellar/python@3.13/3.13.13_1/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+   "git_commit": "597c32b",
+   "prompt_sha": {
+    "D_enumerate.v2.md": "bde1fd02f5b3e576"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "step_cap": 35,
+  "complete": true
+ },
+ {
+  "q": "K1-casual",
+  "rep": 3,
+  "label": "D-v2-kfree-openai-gpt-6-luna-rephrasing",
+  "type": "clear",
+  "base": "K1",
+  "question": "From 2013 to 2025, how many pedestrians were killed in motor vehicle crashes in NYC each year?",
+  "k": 0,
+  "call_ok": true,
+  "timed_out": false,
+  "rate_limited": false,
+  "stalled": false,
+  "attempts": 1,
+  "secs": 134.3,
+  "zero_output_retries": 0,
+  "secs_total": 134.3,
+  "steps": 13,
+  "hit_step_limit": false,
+  "tool_calls": 15,
+  "tokens": {
+   "input": 39,
+   "output": 2011,
+   "reasoning": 938,
+   "cache_read": 128876,
+   "cache_write": 14854,
+   "total": 146718
+  },
+  "net_calls": 0,
+  "options_parsed": true,
+  "options_reason": null,
+  "n_options": 1,
+  "n_complete_options": 1,
+  "n_distinct_framings": 1,
+  "n_distinct_analytic": 1,
+  "recommended": null,
+  "options": [
+   {
+    "id": 1,
+    "metric": "Sum of number_of_pedestrians_killed",
+    "denominator": "Not applicable; absolute annual count of pedestrian deaths",
+    "grouping": "Crash year (2013\u20132025)",
+    "chart_type": "Bar chart",
+    "reason": "Annual counts directly answer how many pedestrians were killed in each calendar year without adding an unnecessary denominator.",
+    "probability": 1.0,
+    "answer": "Pedestrian deaths by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+    "interpretation": "This framing answers the question directly by summing pedestrian fatalities for crashes in each year, and the chart shows the year-to-year counts from 2013 through 2025. It leaves no part of the stated question unanswered, though it does not break deaths down by crash location or other characteristics.",
+    "png": true,
+    "values": true,
+    "fields_ok": true,
+    "duplicate_framing": false
+   }
+  ],
+  "answer": "Pedestrian deaths by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+  "answer_ok": true,
+  "errors": [],
+  "env": {
+   "model": "openai/gpt-6-luna",
+   "opencode": "1.18.34",
+   "python": "3.13.13",
+   "python_prefix": "/Users/chloehe/.poppy/venv",
+   "python_executable": "/opt/homebrew/Cellar/python@3.13/3.13.13_1/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+   "git_commit": "597c32b",
+   "prompt_sha": {
+    "D_enumerate.v2.md": "bde1fd02f5b3e576"
+   },
+   "config_sha": {
+    "opencode.analysis.json": "51a2bdaf303e06c4",
+    "opencode.review.json": "beba3f25da37e6af"
+   }
+  },
+  "step_cap": 35,
+  "complete": true
+ }
+]

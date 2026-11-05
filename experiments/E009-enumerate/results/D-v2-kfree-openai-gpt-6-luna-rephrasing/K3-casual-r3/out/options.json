@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual motorist deaths and annual cyclist deaths",
+      "denominator": "None; annual totals of people killed in police-reported crashes",
+      "grouping": "Calendar year and road-user group",
+      "chart_type": "Two-series line chart",
+      "reason": "Annual counts show the size and year-to-year movement of fatalities for both groups on a common scale.",
+      "probability": 0.58,
+      "answer": "Motorist deaths exceeded cyclist deaths every year, peaking at 139 versus 29 in 2020; in 2025 the counts were 81 versus 23.",
+      "interpretation": "This framing directly compares the annual number of people recorded killed as motorists or cyclists and shows both groups' changes over time. Raw counts are a defensible answer to how many deaths occurred, but they do not adjust for how much each group traveled or otherwise measure individual risk."
+    },
+    {
+      "id": 2,
+      "metric": "Annual motorist-death count divided by annual cyclist-death count",
+      "denominator": "Annual cyclist deaths",
+      "grouping": "Calendar year",
+      "chart_type": "Line chart of yearly ratios",
+      "reason": "A yearly ratio makes the relative size of the difference between the two fatality counts easy to compare across years.",
+      "probability": 0.42,
+      "answer": "The motorist-to-cyclist death ratio was highest in 2013 at 10.0:1, lowest in 2019 at 2.65:1, and 3.52:1 in 2025.",
+      "interpretation": "This framing answers how large the motorist death count was relative to the cyclist death count in each year, with every plotted value above 1 indicating more motorist deaths. It is a defensible scale-free comparison of the two counts, but it does not show their absolute sizes by itself or compare deaths per person or distance traveled."
+    }
+  ]
+}

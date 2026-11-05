@@ -32,6 +32,8 @@ Common rules: GPT-6 Luna; the 6 pilot questions; D v1 (`D_enumerate.v1.md`, k = 
 
 **Prediction:** the top option is stable across phrasings on clear questions and unstable on ambiguous ones; "show me alternatives" phrasing raises k.
 
+**Status 2026-11-04 (F2 run, not scored):** `questions.rephrasing.json` (casual and formal phrasings of the six pilot questions; no "show me alternatives" phrasing, so the k prediction is not tested) run as `D-v2-kfree-openai-gpt-6-luna-rephrasing`, r1–r3: 36/36 repetitions with complete artifacts, 31 completed and 5 timed out (A1-casual r3 completed on a restart), results collected, per-question entries and the audit in ITERATIONS.md ("E009-F2 trial", "E009-F2 audit"), checks in `f2_checks/`. Open: grader pass (g6), facet coding, framing-set overlap.
+
 ## 3. E009-F3 — reverse inference ("does this option answer the question that was asked?")
 
 **What the team proposed:** give each option's output (chart, values, answer) to an independent model, have it infer the question, and compare the inferred question with the original to judge the option's credibility.

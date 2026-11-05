@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Police-reported crashes with recorded injury or death per clock-hour",
+      "denominator": "Elapsed clock-hours across the observed date span in each time window (13 daytime hours or 11 nighttime hours per date)",
+      "grouping": "Day (6am–6:59pm) versus night (7pm–5:59am)",
+      "chart_type": "Two-bar comparison",
+      "reason": "A clock-hour comparison accounts for the unequal lengths of the defined day and night windows while showing the volume of harmful crashes.",
+      "probability": 0.4,
+      "answer": "In the 2012–2026 records, injury-or-fatal crashes averaged 5.58 per daytime clock-hour versus 3.42 per nighttime clock-hour, but this is not a per-person street-risk measure.",
+      "interpretation": "This framing addresses the volume of harmful crashes in each clock-time window: the observed daytime rate is higher. It adjusts for the windows' different lengths, but the data has no measure of traffic or pedestrian exposure. It therefore leaves unanswered whether an individual street user is more likely to be harmed at night."
+    },
+    {
+      "id": 2,
+      "metric": "Percentage of complete-outcome crashes recording any injury or death",
+      "denominator": "Crashes with non-missing counts for both persons injured and persons killed",
+      "grouping": "Day (6am–6:59pm) versus night (7pm–5:59am)",
+      "chart_type": "Two-bar percentage comparison",
+      "reason": "The share of crashes involving harm gives a direct comparison of recorded crash severity without letting the larger daytime crash count determine the result.",
+      "probability": 0.6,
+      "answer": "Among crashes with complete injury/death fields, 28.3% at night versus 23.1% by day recorded harm, indicating greater conditional crash severity at night but not necessarily greater street-user risk.",
+      "interpretation": "This framing asks whether a reported crash is more likely to involve injury or death; the complete-case share is 28.3% at night and 23.1% by day. Comparing shares is defensible as a measure of severity conditional on a crash, but no counts of people traveling at each time are available. It leaves overall per-person danger and the chance of crashing unanswered."
+    }
+  ]
+}

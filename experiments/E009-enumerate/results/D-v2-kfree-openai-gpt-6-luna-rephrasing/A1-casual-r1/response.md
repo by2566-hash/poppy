@@ -1,0 +1,1 @@
+The data supports trends in recorded pedestrian harm, but it has no measure of walking trips or pedestrian volume—so I’ll distinguish changes in the crash toll from actual risk per pedestrian. I’m checking the date coverage before settling the year-to-year comparisons.

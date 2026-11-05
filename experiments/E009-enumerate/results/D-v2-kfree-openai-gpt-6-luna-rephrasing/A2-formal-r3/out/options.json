@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crashes",
+      "denominator": "None; totals over equal-length 12-hour daily periods",
+      "grouping": "Day (7am–6:59pm) versus night (7pm–6:59am)",
+      "chart_type": "Two-category bar chart of crash counts",
+      "reason": "Crash totals provide a direct comparison of the reported crash burden in equal-length day and night periods.",
+      "probability": 0.2,
+      "answer": "The dataset records 1,543,368 daytime crashes and 725,819 nighttime crashes, so more crashes occurred in the daytime, but these totals do not establish per-trip danger because traffic exposure is unavailable.",
+      "interpretation": "This framing answers when more police-reported crashes occur: the chart shows substantially more crashes during the 12 daytime hours than the 12 nighttime hours. Equal-length periods make raw counts comparable as crash burden, but counts alone do not account for how many people or vehicles are on the streets and therefore leave per-trip danger unanswered."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes involving at least one person injured or killed",
+      "denominator": "All police-reported crashes in the corresponding period",
+      "grouping": "Day (7am–6:59pm) versus night (7pm–6:59am)",
+      "chart_type": "Two-category bar chart of percentages",
+      "reason": "The proportion of crashes with reported harm compares outcomes conditional on a crash and is less confounded by the difference in crash totals.",
+      "probability": 0.45,
+      "answer": "An injury-or-fatality crash made up 28.3% of nighttime crashes versus 23.1% of daytime crashes, a 5.2-percentage-point difference, though this does not measure risk per trip.",
+      "interpretation": "This framing addresses whether a reported crash is more likely to involve injury or death at night: 28.3% of nighttime crashes did, compared with 23.1% of daytime crashes. The per-crash denominator is a defensible severity comparison, but the data lack traffic or travel exposure, so the chart cannot establish whether a road user's chance of crashing or being harmed per trip is higher at night."
+    },
+    {
+      "id": 3,
+      "metric": "Number of people injured plus killed per police-reported crash",
+      "denominator": "All police-reported crashes in the corresponding period",
+      "grouping": "Day (7am–6:59pm) versus night (7pm–6:59am)",
+      "chart_type": "Two-category bar chart of casualties per crash",
+      "reason": "Average casualties per crash captures the amount of reported human harm, including multiple injured people in a single crash.",
+      "probability": 0.35,
+      "answer": "Nighttime crashes averaged 0.398 people injured or killed per crash versus 0.305 in daytime, about 30% more, but that is severity per crash rather than danger per trip.",
+      "interpretation": "This framing answers how many people are injured or killed on average in a reported crash: nighttime crashes averaged 0.398 casualties, compared with 0.305 in daytime. Counting all reported casualties makes it a defensible measure of crash severity, but without traffic or travel exposure it leaves the likelihood of harm for an individual road user unanswered."
+    }
+  ]
+}

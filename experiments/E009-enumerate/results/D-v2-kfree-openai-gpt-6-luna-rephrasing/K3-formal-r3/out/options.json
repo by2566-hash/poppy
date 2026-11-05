@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual deaths by road-user type",
+      "denominator": "None; absolute death counts",
+      "grouping": "Year, with separate series for motorists and cyclists",
+      "chart_type": "Two-series line chart",
+      "reason": "A line chart makes year-to-year changes and the relative trajectories easy to follow.",
+      "probability": 0.4,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year; motorist deaths peaked at 139 in 2020 and ended at 81 in 2025, while cyclist deaths peaked at 31 in 2019 and 2023.",
+      "interpretation": "This framing answers how the two annual death-count series changed and compared over time, with motorists consistently higher and peaks in different years. A line chart is defensible for emphasizing temporal trajectories. It does not show risk per traveler or explain causes of the deaths."
+    },
+    {
+      "id": 2,
+      "metric": "Annual deaths by road-user type",
+      "denominator": "None; absolute death counts",
+      "grouping": "Year, with paired bars for motorists and cyclists",
+      "chart_type": "Grouped bar chart",
+      "reason": "Paired bars make the absolute count difference within each year straightforward to compare.",
+      "probability": 0.35,
+      "answer": "Motorist deaths were higher in all 13 years; the gap was smallest at 51 in 2019, largest at 115 in 2021, and 58 in 2025.",
+      "interpretation": "This framing answers the annual side-by-side count comparison, and its paired bars show both the scale and gap each year. Grouped bars are defensible when direct year-specific magnitude comparisons matter most. It does not adjust the counts for how many people traveled by each mode or explain why the gap changed."
+    },
+    {
+      "id": 3,
+      "metric": "Motorist deaths minus cyclist deaths per year",
+      "denominator": "None; absolute difference in deaths",
+      "grouping": "Year",
+      "chart_type": "Bar chart with a zero reference",
+      "reason": "A zero-centered difference chart directly highlights the size and direction of the annual gap.",
+      "probability": 0.25,
+      "answer": "The annual excess of motorist over cyclist deaths was positive throughout, ranging from 51 deaths in 2019 to 115 in 2021, and was 58 in 2025.",
+      "interpretation": "This framing answers how large the annual count gap was and whether either group had more deaths; every year has more motorist deaths. A zero-centered difference chart is defensible because it puts the gap itself, rather than both underlying series, in focus. It leaves out the two groups' separate count levels and cannot show relative risk by travel exposure."
+    }
+  ]
+}

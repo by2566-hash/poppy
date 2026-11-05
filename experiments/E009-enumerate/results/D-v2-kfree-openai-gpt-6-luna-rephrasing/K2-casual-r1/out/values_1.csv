@@ -1,0 +1,8 @@
+weekday,weekday_num,crash_count,calendar_days,share_of_crashes_pct
+Monday,1,304518,678,14.281748
+Tuesday,2,313488,679,14.702437
+Wednesday,3,311111,679,14.590956
+Thursday,4,318376,678,14.931681
+Friday,5,338800,678,15.889557
+Saturday,6,288381,678,13.524930
+Sunday,7,257544,678,12.078690

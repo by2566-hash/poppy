@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of motorists killed",
+      "denominator": "None (annual count)",
+      "grouping": "Crash year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "An annual fatality count directly compares the number of motorist deaths recorded in each year.",
+      "probability": 0.3,
+      "answer": "The data cannot establish whether risk per mile fell; annual motorist deaths were lower in 2025 than in 2013, falling from 110 to 81.",
+      "interpretation": "This answers the question only as a comparison of the annual number of motorist deaths: the chart falls from 110 in 2013 to 81 in 2025, with substantial fluctuation in between. It is a direct fatality-burden count, but it leaves unanswered whether an individual's risk per mile changed because the file has no miles-driven denominator."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths per 100,000 reported crashes",
+      "denominator": "All police-reported crash records in the same year",
+      "grouping": "Crash year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "Normalizing motorist deaths by reported crashes provides an available exposure-like comparison when miles traveled are not recorded.",
+      "probability": 0.7,
+      "answer": "The data cannot establish per-mile risk; motorist deaths per 100,000 reported crashes increased from 54.0 in 2013 to 94.7 in 2025, so this crash-based proxy did not fall.",
+      "interpretation": "This addresses whether fatalities declined relative to recorded crash volume: deaths per 100,000 police-reported crash records rose from 54.0 in 2013 to 94.7 in 2025. It is a defensible normalized proxy using an available denominator, but it does not measure risk per mile because the crash data contain no miles-driven measure."
+    }
+  ]
+}

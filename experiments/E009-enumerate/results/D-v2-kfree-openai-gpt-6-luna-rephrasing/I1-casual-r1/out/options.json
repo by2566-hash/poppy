@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of motorists killed in police-reported crashes",
+      "denominator": "None (annual count)",
+      "grouping": "Crash year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "Annual death counts directly show how the recorded motorist-fatality burden changed over time.",
+      "probability": 0.55,
+      "answer": "Recorded annual motorist deaths declined 26.4% from 110 in 2013 to 81 in 2025, but these data cannot determine whether per-mile risk declined because they contain no miles-driven measure.",
+      "interpretation": "This framing shows whether the number of motorists killed changed between 2013 and 2025, and the count fell from 110 to 81 despite a peak of 139 in 2020. Counts are a direct measure of fatality burden, but they do not account for miles driven and therefore leave the per-mile risk question unanswered."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths per 100,000 police-reported crashes",
+      "denominator": "All police-reported crashes in the year",
+      "grouping": "Crash year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "Normalizing deaths by reported crash volume puts the fatality count in context relative to the number of recorded crashes.",
+      "probability": 0.45,
+      "answer": "Motorist deaths per 100,000 reported crashes rose 75.4%, from 54.0 in 2013 to 94.7 in 2025, but this crash-normalized measure cannot establish per-mile risk because vehicle-miles are absent.",
+      "interpretation": "This framing shows how motorist deaths changed relative to the volume of police-reported crashes; the measure increased from 54.0 to 94.7 deaths per 100,000 crashes. It is a defensible crash-normalized severity measure, but its denominator is crashes rather than miles driven, so it leaves the change in per-mile risk unanswered."
+    }
+  ]
+}

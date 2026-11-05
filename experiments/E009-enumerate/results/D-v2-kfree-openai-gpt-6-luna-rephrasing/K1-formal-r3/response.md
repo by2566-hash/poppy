@@ -1,0 +1,3 @@
+The data contains records through 2026, so 2025 is available as a full calendar-year grouping. I’ll use the direct measure—summing pedestrian deaths recorded per crash for each year—and avoid adding a crash-count series that would answer a different question.
+ANSWER:
+Pedestrian deaths by year were 2013: 176, 2014: 133, 2015: 133, 2016: 149, 2017: 127, 2018: 123, 2019: 131, 2020: 101, 2021: 132, 2022: 135, 2023: 107, 2024: 124, and 2025: 119.

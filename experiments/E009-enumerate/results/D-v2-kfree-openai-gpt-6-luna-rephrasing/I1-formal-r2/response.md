@@ -1,0 +1,3 @@
+The dataset covers complete calendar years 2013–2025, but contains no vehicle-miles-traveled measure, so per-mile fatality risk cannot be calculated. I’m charting the annual motorist-death count and a separate fatality-per-reported-crash proxy to show what this dataset can establish.
+ANSWER: Motorist fatalities fell from 110 in 2013 to 81 in 2025, but this dataset cannot show whether per-mile fatality risk decreased because it contains no vehicle-miles-traveled data.  
+Motorist fatalities per 1,000 reported crashes rose from 0.540 in 2013 to 0.947 in 2025, so this crash-based proxy did not decrease; it cannot establish the per-mile trend without miles driven.

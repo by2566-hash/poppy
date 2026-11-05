@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Sum of number_of_pedestrians_killed across crashes",
+      "denominator": "None; annual count",
+      "grouping": "Crash calendar year, 2013–2025",
+      "chart_type": "Bar chart",
+      "reason": "Bars make it easy to compare the discrete yearly death totals directly.",
+      "probability": 0.55,
+      "answer": "Pedestrians killed per year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "The bars give the annual pedestrian death count for every year in the requested period, with 2013 highest at 176 and 2020 lowest at 101. Annual totals directly answer the question; they do not indicate pedestrian risk per trip or population because no exposure denominator is included."
+    },
+    {
+      "id": 2,
+      "metric": "Sum of number_of_pedestrians_killed across crashes",
+      "denominator": "None; annual count",
+      "grouping": "Crash calendar year, 2013–2025",
+      "chart_type": "Line chart with annual markers",
+      "reason": "A line chart emphasizes how the yearly counts change over time while retaining the value for each year.",
+      "probability": 0.45,
+      "answer": "Pedestrians killed per year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "The connected annual counts show a general decline from 176 in 2013 to 119 in 2025, with year-to-year fluctuations and a low of 101 in 2020. This is a defensible time-series view of the full annual-count question; it leaves pedestrian risk relative to travel or population unanswered because those denominators are not in the data."
+    }
+  ]
+}

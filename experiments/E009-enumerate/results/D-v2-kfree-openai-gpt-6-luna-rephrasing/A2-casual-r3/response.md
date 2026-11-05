@@ -1,0 +1,1 @@
+The data show a mixed pattern: night crashes are more likely to involve injuries or deaths, but the pedestrian-specific rate of any casualty crash is almost unchanged. I’m adjusting the pedestrian comparison to show fatal pedestrian crashes separately, since lumping them with all pedestrian injuries would hide that difference.
