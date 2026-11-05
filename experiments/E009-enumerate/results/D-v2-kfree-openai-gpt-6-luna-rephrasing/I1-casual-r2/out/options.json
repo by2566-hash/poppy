@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of motorists killed in police-reported crashes",
+      "denominator": "Not applicable (annual count)",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "Annual fatalities directly show the overall motorist death burden, even though they do not adjust for how much driving occurred.",
+      "probability": 0.55,
+      "answer": "Annual motorist fatalities fell from 110 in 2013 to 81 in 2025 (26% lower), but this crash file cannot tell whether deaths per mile driven fell because it has no vehicle-miles-traveled data.",
+      "interpretation": "This framing answers whether the annual number of motorists killed was lower at the end of the period: the count fell from 110 in 2013 to 81 in 2025, with a peak of 139 in 2020. It is a defensible measure of the death burden recorded in crashes, but it leaves the per-mile risk question unanswered because driving exposure is not measured."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist fatalities per 100,000 police-reported crashes",
+      "denominator": "All police-reported crashes in that year",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "Normalizing deaths by reported crashes gives a crash-based severity measure that adjusts for the number of reported crashes each year.",
+      "probability": 0.45,
+      "answer": "Motorist fatalities per 100,000 reported crashes rose from 54.0 in 2013 to 94.7 in 2025 (about 75% higher), but this is not a per-mile rate and cannot establish whether per-mile risk fell.",
+      "interpretation": "This framing answers how the number of motorist deaths compares with the volume of reported crashes: the ratio was higher in 2025 than 2013 and surged in 2020. It is a defensible crash-based severity indicator, but it leaves risk per mile unanswered because crashes are not a measure of miles driven."
+    }
+  ]
+}

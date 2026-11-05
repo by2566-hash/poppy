@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual deaths among motorists and cyclists",
+      "denominator": "None; absolute summed deaths",
+      "grouping": "Year and road-user group",
+      "chart_type": "Grouped bar chart",
+      "reason": "Side-by-side annual counts show both the scale and year-to-year pattern for each group.",
+      "probability": 0.7,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year; motorist deaths ranged from 72 to 139 annually, while cyclist deaths ranged from 10 to 31.",
+      "interpretation": "This framing answers the question by showing each group\u2019s annual death count side by side, and the chart shows a higher motorist count in all 13 years. Absolute counts are a direct comparison of deaths recorded in these crash data. It leaves differences in population or travel exposure unaddressed."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths minus cyclist deaths per year",
+      "denominator": "None; absolute count difference",
+      "grouping": "Year",
+      "chart_type": "Bar chart of annual count differences",
+      "reason": "The annual difference makes the size and direction of the gap easy to compare across years.",
+      "probability": 0.3,
+      "answer": "Motorist deaths exceeded cyclist deaths every year, with the gap ranging from 51 deaths in 2019 to 115 in 2021.",
+      "interpretation": "This framing answers how far apart the annual death counts were, and every bar is positive, indicating more motorist than cyclist deaths in each year. The count difference is a defensible summary of the comparison, especially for seeing when the gap widened or narrowed. It leaves the separate annual totals and any exposure-adjusted risk comparison less explicit."
+    }
+  ]
+}

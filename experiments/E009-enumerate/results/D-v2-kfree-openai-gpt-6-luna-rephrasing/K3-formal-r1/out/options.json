@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual deaths",
+      "denominator": "None; absolute count",
+      "grouping": "Year and road-user type (motorist, cyclist)",
+      "chart_type": "Two-series line chart",
+      "reason": "A line chart makes the year-to-year trajectories and relative changes of the two annual counts easy to compare.",
+      "probability": 0.55,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in 2019 and 2023.",
+      "interpretation": "This framing answers how the two annual death counts changed and compared from 2013 through 2025: the motorist series is higher every year, with a 2020 motorist peak and cyclist peaks of 31 in 2019 and 2023. A line chart is defensible because it highlights trends over time as well as the gap between series. It does not explain causes or compare exposure-adjusted risk."
+    },
+    {
+      "id": 2,
+      "metric": "Annual deaths",
+      "denominator": "None; absolute count",
+      "grouping": "Year and road-user type (motorist, cyclist)",
+      "chart_type": "Grouped bar chart",
+      "reason": "Grouped bars emphasize direct side-by-side comparison of the absolute motorist and cyclist counts within each year.",
+      "probability": 0.45,
+      "answer": "Motorist deaths were higher in all 13 years, ranging from 72 to 139 per year, compared with 10 to 31 cyclist deaths.",
+      "interpretation": "This framing answers the annual count comparison directly: motorists had more deaths in every year from 2013 to 2025, and the full-year counts ranged from 72 to 139 for motorists and 10 to 31 for cyclists. Grouped bars are defensible because each year presents the two absolute counts side by side. They do not show why the deaths occurred or account for differences in travel exposure."
+    }
+  ]
+}

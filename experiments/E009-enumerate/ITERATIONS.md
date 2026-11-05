@@ -217,3 +217,206 @@ Both labels re-scored from scratch with g6 (primary Luna pass, then a second Lun
 **Calibration (g6, both labels):** c1, c3, c5, c7, c8 at 1.000; c2 0.990; c6 0.917; unsupported_claim 0.948; TR07 0.714 (14 cells: the title question above); TR03 0.875; TR08 0.875; TR11 0.912; every trap item n < 60. Nothing promoted (the human columns are still mostly the Codex review).
 
 **For Bo:** `review.csv` regenerated on g6: v2 = 6 disagreement cells + 5 audit rows; v1 = 20 cells + 5 audit rows (earlier `h`/`note` entries kept where the cell still exists). Two decisions: the TR07 title question above, and whether to bump to g7 now (rule 6 in the prompt, TR07 wording clarified) and re-score once more, or let g7 start with F2/F3.
+
+## E009-F2 trial: K1-formal r1–r3 (2026-11-04, GPT-6 Luna, not graded)
+
+Setup as F1: D v2 (SHA-256 `bde1fd02f5b3e576`, matches FROZEN.md), `PILOT_K=0`, step cap 35, concurrency 1, git `597c32b`, team venv `~/.poppy/venv` (Python 3.13.13, pinned packages; created on this machine with `scripts/setup_env.sh` for the F2 trial). Question set `questions.rephrasing.json`, id `K1-formal` (base K1): "What was the annual number of pedestrian deaths in NYC motor vehicle crashes from 2013 to 2025?" The runner was not edited: a wrapper outside the repo called `run_pilot.run_enumerate` with label `D-v2-kfree-openai-gpt-6-luna-rephrasing`. Results in `results/D-v2-kfree-openai-gpt-6-luna-rephrasing/K1-formal-r{1,2,3}/`, summary in `runs/D-v2-kfree-openai-gpt-6-luna-rephrasing-K1-formal.json`. K1-casual r1–r3 were run the same way earlier the same day (same label, own summary); all 6 runs complete.
+
+| run | complete | options (chart types) | probabilities | steps | secs | net calls | attempts | errors |
+|---|---|---|---|---|---|---|---|---|
+| r1 | yes | 2 (bar, line) | 0.65 / 0.35 | 18 | 445.1 | 0 | 1 | none |
+| r2 | yes | 2 (line, bar) | 0.55 / 0.45 | 12 | 160.4 | 0 | 1 | none |
+| r3 | yes | 1 (bar) | 1.0 | 9 | 96.2 | 0 | 1 | none |
+
+**Verified** (meta.json; values files compared with `gold_readings.json` K1 `ped_killed_by_year`): every option's `values_<id>.csv` matches the 13 gold rows exactly; option ids match the png/csv filenames; every option has answer, interpretation and probability, and the probabilities sum to 1 per run. All five options read the question the same way (annual sum of `number_of_pedestrians_killed`, no denominator); options within a run differ only in chart type, as in K1-casual (2, 2, 1 options).
+
+**Interpretation, for the grader pass:** no title or answer qualifies the counts as reported/recorded in this dataset (one interpretation, r2 o2, says "recorded in each year"); the F1 v2 K1 options did say "reported" (g6 section above). Under decision 5 these look like TR07 candidates on the original phrasing's terms, pending the TR07 title question. No causal claims found. r2 o1 (line) has no value labels; the other charts label every year.
+
+## E009-F2 trial: K2-casual r1–r3 (2026-11-04, GPT-6 Luna, not graded)
+
+Setup identical to the K1-formal trial above (D v2 `bde1fd02f5b3e576`, `PILOT_K=0`, cap 35, concurrency 1, git `597c32b`, team venv, wrapper outside the repo, same label). Question `K2-casual` (base K2): "From 2013 to 2025, how were NYC crashes spread across the days of the week?" Results in `results/D-v2-kfree-openai-gpt-6-luna-rephrasing/K2-casual-r{1,2,3}/`, summary in `runs/D-v2-kfree-openai-gpt-6-luna-rephrasing-K2-casual.json`.
+
+| run | complete | options | probabilities (count/share, per-date mean) | steps | secs | net calls | attempts | errors |
+|---|---|---|---|---|---|---|---|---|
+| r1 | yes | 2 | 0.55 / 0.45 | 13 | 148.3 | 0 | 1 | none |
+| r2 | yes | 2 | 0.65 / 0.35 | 14 | 182.4 | 0 | 1 | none |
+| r3 | yes | 2 | 0.65 / 0.35 | 15 | 216.9 | 0 | 1 | none |
+
+**Verified** (meta.json; values files against `gold_readings.json` K2 `crashes_by_weekday`, shares against the gold total 2,132,218, per-date means against weekday date counts 2013-01-01..2025-12-31 computed independently: Tue/Wed 679, others 678): all 6 values files match with no differences; option ids match the png/csv filenames; every option has answer, interpretation and probability, probabilities sum to 1 per run. The option set is the same in all three runs: (1) crash count with share of total, (2) mean crashes per calendar date of each weekday (`n_distinct_analytic` = 2 in every run, unlike K1 where options differed only in chart type).
+
+**Interpretation, for the grader pass:** option 2 handles the unequal day counts explicitly (DAYCOUNT); no "X% fewer" comparisons are made. No causal claims found. Count axes print raw numbers without thousands separators (r1 o1, r3 o1); otherwise every bar is labelled.
+
+## E009-F2 trial: K2-formal r1–r3 (2026-11-04, GPT-6 Luna, not graded)
+
+Setup identical to the K2-casual trial above (same prompt hash, `PILOT_K=0`, cap 35, concurrency 1, git `597c32b`, team venv, wrapper outside the repo, same label). Question `K2-formal` (base K2): "What was the distribution of NYC crashes by day of the week over the period 2013 to 2025?" Results in `results/D-v2-kfree-openai-gpt-6-luna-rephrasing/K2-formal-r{1,2,3}/`, summary in `runs/D-v2-kfree-openai-gpt-6-luna-rephrasing-K2-formal.json`.
+
+| run | complete | options: framing (probability) | steps | secs | net calls | attempts | errors |
+|---|---|---|---|---|---|---|---|
+| r1 | yes | count (0.40), share of total (0.60) | 13 | 136.3 | 0 | 1 | none |
+| r2 | yes | count with share (0.55), mean per weekday date (0.45) | 13 | 140.3 | 0 | 1 | none |
+| r3 | yes | count (0.40), share of total (0.35), mean per weekday date (0.25) | 14 | 190.7 | 0 | 1 | none |
+
+**Verified** (same checks as K2-casual: values against `gold_readings.json` K2 `crashes_by_weekday`, shares against the gold total, per-date means against independently counted weekday dates): all 7 values files match with no differences; option ids match the png/csv filenames; every option has answer, interpretation and probability, probabilities sum to 1 per run. Every run is complete; k = 2, 2, 3 (free k, not forced).
+
+**Interpretation, for the facet coding:** the option set is not stable on this phrasing, unlike K2-casual (count/share + per-date mean in all three runs). r1 has no per-date mean, and its two options (count, share) are the same ranking rescaled; r3 lists count and share as separate options next to the mean. Whether count and share are one facet or two is a codebook decision for `facets.csv`. r1 o2's interpretation states that shares do not control for the number of each weekday; no per-day "X% fewer" comparisons are made (DAYCOUNT). No causal claims found. Count axes print raw numbers without thousands separators; every bar is labelled.
+
+## E009-F2 trial: K3-casual r1–r3 (2026-11-04, GPT-6 Luna, not graded)
+
+Setup identical to the K2 trials above (same prompt hash, `PILOT_K=0`, cap 35, concurrency 1, git `597c32b`, team venv, wrapper outside the repo, same label). Question `K3-casual` (base K3): "From 2013 to 2025, how did motorist deaths compare with cyclist deaths in NYC each year?" Results in `results/D-v2-kfree-openai-gpt-6-luna-rephrasing/K3-casual-r{1,2,3}/`, summary in `runs/D-v2-kfree-openai-gpt-6-luna-rephrasing-K3-casual.json`.
+
+| run | complete | options: framing (probability) | steps | secs | net calls | attempts | errors |
+|---|---|---|---|---|---|---|---|
+| r1 | yes | counts, grouped bars (0.70); motorist minus cyclist gap (0.30) | 14 | 174.4 | 0 | 1 | none |
+| r2 | yes | counts, two lines (0.40); counts, grouped bars (0.30); gap (0.30) | 13 | 142.4 | 0 | 1 | none |
+| r3 | yes | counts, two lines (0.58); motorist-to-cyclist ratio (0.42) | 15 | 188.8 | 0 | 1 | none |
+
+**Verified** (values against `gold_readings.json` K3 `motorist_cyclist_killed_by_year`, wide and long layouts; gap and ratio recomputed from gold): all 7 values files match with no differences; option ids match the png/csv filenames; every option has answer, interpretation and probability, probabilities sum to 1 per run. The extremes quoted in the answers match gold: motorists 72–139, cyclists 10–31 (31 in 2019 and 2023), gap 51 (2019) to 115 (2021), ratio 2.65 (2019) to 10.0 (2013).
+
+**Interpretation, for the facet coding and grader pass:** every run leads with annual counts; the second facet varies (gap in r1/r2, ratio in r3). r2 o1 and o2 are the same counts in two chart types, although the harness counts them as analytically distinct (`n_distinct_analytic` = 3, because the `grouping` text differs). The r3 ratio peaks (10.0 in 2013, 9.8 in 2018) sit on years with 11 and 10 cyclist deaths, and the answer does not mention the small counts (TR15 candidate). No claim that motorist + cyclist deaths are all deaths (TR03), no causal claims. The two line charts (r2 o1, r3 o1) do not start the y-axis at zero; r2 o2 and r2 o3 have no value labels.
+
+## E009-F2 trial: K3-formal r1–r3 (2026-11-04, GPT-6 Luna, not graded; r3 failed on timeout)
+
+Setup identical to the K3-casual trial above (same prompt hash, `PILOT_K=0`, cap 35, concurrency 1, git `597c32b`, team venv, wrapper outside the repo, same label). Question `K3-formal` (base K3): "How did annual motorist and cyclist death counts compare in NYC during 2013 to 2025?" Results in `results/D-v2-kfree-openai-gpt-6-luna-rephrasing/K3-formal-r{1,2,3}/`, summary in `runs/D-v2-kfree-openai-gpt-6-luna-rephrasing-K3-formal.json`.
+
+| run | complete | options: framing (probability) | steps | secs | net calls | attempts | errors |
+|---|---|---|---|---|---|---|---|
+| r1 | yes | counts, two lines (0.55); counts, grouped bars (0.45) | 11 | 110.2 | 0 | 1 | none |
+| r2 | yes | counts, two lines (0.45); counts, grouped bars (0.35); gap (0.20) | 16 | 252.5 | 0 | 1 | none |
+| r3 | **no: timed out** | counts, two lines (0.40); counts, grouped bars (0.35); gap (0.25) | 15 | 600.9 | 0 | 1 | none recorded |
+
+**r3 failure, as observed:** `timed_out` = true, `call_ok` = false, so `complete` = false. The model had saved all outputs (charts and values 20:35:16, `options.json` 20:35:40) and its last recorded event is the final `ANSWER:` step; the OpenCode process then did not exit and was killed at the 600 s timeout. Not rerun. Its outputs are collected as they are and verified below, but the run counts as failed: 5/6 K3 runs complete, 17/18 F2 trial runs so far.
+
+**Verified** (values against `gold_readings.json` K3, gap recomputed from gold): all 8 values files match with no differences, including r3's; option ids match the png/csv filenames; every option has answer, interpretation and probability, probabilities sum to 1 per run. Extremes quoted in the answers match gold (motorists 72–139, cyclists 10–31 with 31 in 2019 and 2023, 110 vs 11 in 2013, 81 vs 23 in 2025, gap 51 in 2019 to 115 in 2021 and 58 in 2025).
+
+**Interpretation, for the facet coding and grader pass:** every run gives the counts as both a line and a grouped bar chart (one analysis, two encodings; r1 `n_distinct_analytic` = 1); r2 and r3 add the gap. No ratio option on this phrasing (K3-casual r3 had one). No claim that motorist + cyclist deaths are all deaths (TR03), no sharp-change claims on cyclist counts (TR15), no causal claims. No K3-formal chart has value labels; r3 o1 (line) does not start the y-axis at zero.
+
+## E009-F2 trial: A1-casual r1–r3 (2026-11-04, GPT-6 Luna, not graded; 2 of 3 repetitions failed, r3 restarted once)
+
+Setup identical to the K trials above (D v2 `bde1fd02f5b3e576`, `PILOT_K=0`, cap 35, concurrency 1, git `597c32b`, team venv, wrapper outside the repo, same label); the generation prompt is the frozen D v2 prompt with the question inserted unchanged. Question `A1-casual` (base A1, ambiguous): "Since 2013, has it gotten safer for pedestrians in Brooklyn? Make a chart for a local news story and sum up what you find." Results in `results/D-v2-kfree-openai-gpt-6-luna-rephrasing/A1-casual-{r1,r2,r3,r3-attempt2}/`; summary with attempt history in `runs/D-v2-kfree-openai-gpt-6-luna-rephrasing-A1-casual.json` (original fields unchanged; attempt 2 also in `runs/D-v2-kfree-openai-gpt-6-luna-rephrasing-attempt2-A1-casual-r3.json`).
+
+| run | process outcome | `complete` | artifacts | options (probability) | steps | secs | attempts |
+|---|---|---|---|---|---|---|---|
+| r1 | timed out twice (first try no text, runner's zero-output retry also timed out) | no | complete: 3 options, all files | casualties (0.45), deaths (0.30), share of crashes with a pedestrian casualty (0.25) | 9 | 601.5 (1233.1 total) | 2 |
+| r2 | timed out after the final `ANSWER:` step started; `response.md` holds a complete answer | no | complete: 3 options, all files | injuries (0.40), deaths (0.25), pedestrian-casualty crashes per 1,000 crashes (0.35) | 17 | 601.6 | 1 |
+| r3 attempt 1 | stopped manually at the user's request (21:26) | no | none (`out/` empty) | — | 7 | 110.3 | 1 |
+| r3 attempt 2 | finished normally; restart of r3 from the beginning (no checkpoint recovery), not an independent repetition | yes | complete: 3 options, all files | casualties (0.50), deaths (0.30), crashes with a pedestrian casualty (0.20) | 16 | 278.6 | 1 |
+
+Net calls 0 and no errors recorded in every attempt; all `stderr.log` files are empty. Restart convention: the repo has none that keeps both attempts (PROTOCOL moves void runs to `_void/` and replaces them), so attempt 2 ran under the label suffix `-attempt2` with rep = 3 and is stored as `A1-casual-r3-attempt2`; attempt 1 is kept unchanged.
+
+**Verified** (values against `gold_readings.json` A1 `brooklyn_ped_injured_killed_by_year` and `brooklyn_crashes_by_year`; crashes with a pedestrian casualty, which the gold file does not hold, by a direct DuckDB query on the pinned parquet, Brooklyn filter, 3,498 in 2013 to 2,766 in 2025): all 9 values files match; option ids match the png/csv filenames, every PNG opens, every CSV has 13 year rows; every option has answer, interpretation and probability, probabilities sum to 1. The quoted figures recompute: casualties −21.7%, injuries −22.1%, deaths +30.0% (30 → 39), crashes with a casualty −20.9%, share 7.44% → 11.38% (+53.0% relative), five consecutive rises after 2020. r1's `options.json` was written on its first try and its charts/values on the retry; its answers agree with the retry's values files.
+
+**Interpretation, for the grader pass:** every option uses `borough = 'BROOKLYN'` and none discloses that crashes with no borough (19.9–38.1% per year, same query) are excluded, in text or chart notes (TR05 candidate, all 9 options). The per-crash shares (r1 o3, r2 o3) rise mainly because the crash denominator halves in 2020, and neither mentions the 2020 change in crash recording (TR01 candidate). Every option and chart footnote says counts do not measure pedestrian exposure (TR11 handled). Deaths 30 → 39 are called volatile in r2 o2 and attempt 2 o2 but not tied to small counts; r1 o2 has no caveat and its chart title reads "Brooklyn pedestrian deaths remain above 2013" (TR15 candidate). Attempt 2 o1 and o2 do not start the y-axis at zero. The option set is similar across attempts: a count of people harmed, deaths, and a crash-level measure (share of crashes in r1/r2, count of crashes in attempt 2).
+
+## E009-F2 trial: A2-casual r1–r3 (2026-11-04, GPT-6 Luna, not graded; r3 failed on timeout)
+
+Setup identical to the trials above (D v2 `bde1fd02f5b3e576`, hash checked against FROZEN.md; `PILOT_K=0`, cap 35, concurrency 1, git `597c32b`, team venv, wrapper outside the repo, same label; question inserted unchanged). Question `A2-casual` (base A2, ambiguous): "Is it more dangerous to be on NYC's streets at night? Make a chart and say what you conclude for a news report." Results in `results/D-v2-kfree-openai-gpt-6-luna-rephrasing/A2-casual-r{1,2,3}/`, summary in `runs/D-v2-kfree-openai-gpt-6-luna-rephrasing-A2-casual.json`.
+
+| run | process outcome | `complete` | artifacts | night definition | options (probability) | steps | secs | attempts |
+|---|---|---|---|---|---|---|---|---|
+| r1 | finished | yes | complete, 2 options | 19:00–05:59 | injury-or-fatal crashes per clock-hour (0.40); share of complete-case crashes with injury or death (0.60) | 18 | 523.2 | 1 |
+| r2 | finished | yes | complete, 3 options | 20:00–05:59 | crashes per clock-hour (0.30); share of crashes with an injury (0.42); fatal crashes per 1,000 crashes (0.28) | 16 | 294.7 | 1 |
+| r3 | **timed out** at 600 s; outputs saved by 21:59:49, the model was still revising (last reply: an interim note, no `ANSWER:`) | no | complete, 3 options | 20:00–05:59 | crashes per clock-hour (0.20); casualty and fatal crashes per 1,000 crashes (0.50); pedestrian casualty and pedestrian-fatal crashes per 1,000 crashes (0.30) | 20 | 601.5 | 1 |
+
+Net calls 0, no errors recorded, `stderr.log` empty in all three. Not rerun.
+
+**Verified** (`check_a2.py`-style direct DuckDB queries on the pinned parquet under each run's own night definition and window; the A2 gold rows use 2013–2025 and day = 06:00–17:59, which no run used): every cell of all 8 values files reproduces; option ids match the png/csv filenames, every PNG opens, every option has answer, interpretation and probability, probabilities sum to 1. All three runs use the full file, 2012-07-01 to 2026-06-11 (5,094 dates, all 2,269,187 rows). Rows with NULL `number_of_persons_killed`: 8,877 in 2026, 36 in earlier years; `number_of_pedestrians_killed` has none.
+
+**Interpretation, for the grader pass:** NIGHTDEF stated in every option (grouping field and chart). TR11: every option and chart footnote calls the per-crash measures severity conditional on a crash and the clock-hour measures frequency, not personal risk. TR08 (window includes 2026): handled by complete-case denominators with disclosure in r1 o2, r2 o2, r2 o3; NA for r2 o1 and r3 o1 (no casualty counts); r3 o3 uses only pedestrian fields, which have no NULLs; candidates: r1 o1 (counts injury-or-fatal crashes over the full window, NULL-killed rows not disclosed) and r3 o2 (all crashes, including the NULL-killed rows, in the fatal-crash denominator, not disclosed; night 2.90 vs r2's complete-case 2.92). The night cut differs between runs (19:00 in r1, 20:00 in r2/r3), so the same facet carries different numbers across repetitions; all runs report a lower crash frequency and a higher casualty and fatal share at night.
+
+## E009-F2 trial: A1-formal r1–r3 (2026-11-04, GPT-6 Luna, not graded; r2 failed on timeout)
+
+Setup identical to the trials above (D v2 `bde1fd02f5b3e576`, hash checked against FROZEN.md; `PILOT_K=0`, cap 35, concurrency 1, git `597c32b`, team venv, wrapper outside the repo, same label; question inserted unchanged). Question `A1-formal` (base A1, ambiguous): "Has pedestrian road safety in Brooklyn improved since 2013? Produce a chart appropriate for a local news story and summarize the findings." Results in `results/D-v2-kfree-openai-gpt-6-luna-rephrasing/A1-formal-r{1,2,3}/`, summary in `runs/D-v2-kfree-openai-gpt-6-luna-rephrasing-A1-formal.json`. No restart.
+
+| run | process outcome | `complete` | artifacts | options (probability) | steps | secs | attempts |
+|---|---|---|---|---|---|---|---|
+| r1 | finished | yes | complete, 3 options | injuries (0.40), deaths (0.40), crashes with a pedestrian casualty (0.20) | 13 | 168.4 | 1 |
+| r2 | **timed out**: outputs saved by 22:16:16, final `ANSWER:` written at 22:21:42, then the process did not exit (as K3-formal r3) | no | complete, 2 options | injuries (0.65), deaths (0.35) | 18 | 601.8 | 1 |
+| r3 | finished | yes | complete, 3 options | casualties (0.45), deaths (0.30), share of crashes with a pedestrian casualty (0.25) | 14 | 200.8 | 1 |
+
+Net calls 0, no errors recorded, `stderr.log` empty in all three. Not rerun.
+
+**Verified** (same checks as A1-casual: values against `gold_readings.json` A1 and the direct DuckDB query for crashes with a pedestrian casualty): all 8 values files match; option ids match the png/csv filenames, every PNG opens, every CSV has 13 year rows, every option has answer, interpretation and probability, probabilities sum to 1. Quoted figures recompute: injuries −22%, deaths +30% (30 → 39), crashes with a casualty −21%, casualties −21.7% and +59.8% from the 2020 low, share 7.4% → 11.4% (+3.9 points).
+
+**Interpretation, for the grader pass:** no option discloses that the Brooklyn filter drops crashes with no borough (TR05 candidate, all 8; r3's code counted NULL boroughs inside the Brooklyn filter, which is always 0, and reported nothing). r3 o3's per-crash share rises after 2020 with no mention of the 2020 recording change (TR01 candidate). TR11: every option says counts or shares are not exposure-adjusted risk. TR15: r1 o2 calls deaths "this small annual count"; r2 o2 and r3 o2 call them volatile or irregular. The option set is close to A1-casual's (people harmed, deaths, a crash-level measure); r2 offers no crash-level option.
+
+## E009-F2 trial: A2-formal r1–r3 (2026-11-04, GPT-6 Luna, not graded)
+
+Setup identical to the trials above (D v2 `bde1fd02f5b3e576`, hash checked against FROZEN.md; `PILOT_K=0`, cap 35, concurrency 1, git `597c32b`, team venv, wrapper outside the repo, same label; question inserted unchanged). Question `A2-formal` (base A2, ambiguous): "Are NYC streets more dangerous during nighttime hours? Present a chart and a conclusion suitable for a news report." Results in `results/D-v2-kfree-openai-gpt-6-luna-rephrasing/A2-formal-r{1,2,3}/` (r3 also wrote `out/generate_analysis.py`, stored at the run-folder root as the collector does); summary in `runs/D-v2-kfree-openai-gpt-6-luna-rephrasing-A2-formal.json`.
+
+| run | process outcome | `complete` | artifacts | night definition | options (probability) | steps | secs | attempts |
+|---|---|---|---|---|---|---|---|---|
+| r1 | finished | yes | complete, 3 options | 18:00–05:59 | crash counts in two 12-hour windows (0.25); share of crashes with an injury (0.30); share with a death (0.45) | 17 | 332.8 | 1 |
+| r2 | finished | yes | complete, 3 options | 18:00–05:59 | crash counts (0.35); share with injury or death (0.40); fatal crashes per 1,000 (0.25) | 17 | 339.3 | 1 |
+| r3 | finished | yes | complete, 3 options | 19:00–06:59 | crash counts (0.20); share with injury or death (0.45); people injured or killed per crash (0.35) | 15 | 222.9 | 1 |
+
+Net calls 0, no errors recorded, `stderr.log` empty in all three. All 3 runs complete (9 options); no timeouts.
+
+**Verified** (direct DuckDB queries on the pinned parquet under each run's own day window; every run used the full file, 2012-07-01 to 2026-06-11, all 2,269,187 rows; the A2 gold rows use 2013–2025, so they do not apply directly although r1/r2 use the gold's 06:00–17:59 day cut): every cell of all 9 values files reproduces; option ids match the png/csv filenames, every PNG opens, every option has answer, interpretation and probability, probabilities sum to 1. Quoted figures recompute: r1 injury share 1.23× and fatal share 2.4× at night; r2 44.1% fewer crashes at night, +5.2 points, 2.4×; r3 +5.2 points, casualties per crash 1.30×.
+
+**Interpretation, for the grader pass:** NIGHTDEF stated in every option and chart. TR11: every per-crash measure is called severity conditional on a crash, and counts are not called risk. TR08: none of the 6 options that use injury or death counts (o2/o3 in every run) restricts the window, excludes the 8,913 rows with NULL `number_of_persons_killed` (8,877 in 2026), or mentions them in text or chart notes (candidate in all 6); the effect is small (r1/r2 night fatal rate 2.448 per 1,000 as plotted vs 2.459 on complete records). The o1 count options are NA. Compared with A2-casual, the formal phrasing used 12-hour windows and raw counts instead of per-clock-hour rates, and every run completed.
+
+## E009-F2 trial: I1-casual r1–r3 (2026-11-04, GPT-6 Luna, not graded)
+
+Setup identical to the trials above (D v2 `bde1fd02f5b3e576`, hash checked against FROZEN.md; `PILOT_K=0`, cap 35, concurrency 1, git `597c32b`, team venv, wrapper outside the repo, same label; question inserted unchanged, per-mile wording intact). Question `I1-casual` (base I1, insufficient): "From 2013 to 2025, did the risk of a motorist being killed for each mile driven in NYC go down? Use this crash data to make a chart and answer the question." Results in `results/D-v2-kfree-openai-gpt-6-luna-rephrasing/I1-casual-r{1,2,3}/`, summary in `runs/D-v2-kfree-openai-gpt-6-luna-rephrasing-I1-casual.json`.
+
+| run | process outcome | `complete` | artifacts | options (probability) | steps | secs | attempts |
+|---|---|---|---|---|---|---|---|
+| r1 | finished | yes | complete, 2 options | motorist deaths per year (0.55); motorist deaths per 100,000 reported crashes (0.45) | 15 | 216.5 | 1 |
+| r2 | finished | yes | complete, 2 options | same two framings (0.55 / 0.45) | 15 | 206.4 | 1 |
+| r3 | finished | yes | complete, 2 options | same two framings (0.30 / 0.70) | 15 | 208.6 | 1 |
+
+Net calls 0, no errors recorded, `stderr.log` empty in all three. Every answer states that the file has no miles-driven measure and so cannot settle the per-mile question: a justified insufficient-data answer, not a process failure.
+
+**Verified** (values against `gold_readings.json` I1 `motorist_killed_by_year` and `crashes_and_all_killed_by_year`; rates recomputed): all 6 values files match; option ids match the png/csv filenames, every PNG opens, every CSV has 13 year rows, every option has answer, interpretation and probability, probabilities sum to 1. Quoted figures recompute: deaths 110 → 81 (−26.4%), peak 139 in 2020; deaths per 100,000 crashes 54.0 → 94.7 (+75.4%). No vehicle-miles figure appears in any option, values file, chart note or code (VMT handled). Every chart footnote says the measure is not per-mile risk.
+
+**Interpretation, for the grader pass:** the per-crash rate jumps from 38.8 (2019) to 123.1 (2020) per 100,000 because reported crashes roughly halve after 2020; no option or chart mentions the 2020 change in crash recording (TR01 candidate, all 3 runs; the same failure F1 recorded on I1). PERMILE: r1 and r2 say the per-crash rate cannot establish per-mile risk; r3 o2 calls it a "crash-based proxy" that "did not fall", which reads as offering it in place of the per-mile answer (candidate). No y-axis starts at zero. The option set is identical across the three repetitions.
+
+## E009-F2 trial: I1-formal r1–r3 (2026-11-04, GPT-6 Luna, not graded)
+
+Setup identical to the trials above (D v2 `bde1fd02f5b3e576`, hash checked against FROZEN.md; `PILOT_K=0`, cap 35, concurrency 1, git `597c32b`, team venv, wrapper outside the repo, same label; question inserted unchanged, per-mile wording intact). Question `I1-formal` (base I1, insufficient): "Did motorist fatality risk per mile driven in NYC decrease from 2013 to 2025? Create a chart and answer using this crash dataset." Results in `results/D-v2-kfree-openai-gpt-6-luna-rephrasing/I1-formal-r{1,2,3}/`, summary in `runs/D-v2-kfree-openai-gpt-6-luna-rephrasing-I1-formal.json`.
+
+| run | process outcome | `complete` | artifacts | options (probability) | steps | secs | attempts |
+|---|---|---|---|---|---|---|---|
+| r1 | finished | yes | complete, 2 options | motorist deaths per year (0.35); motorist deaths per 100,000 reported crashes (0.65) | 13 | 152.4 | 1 |
+| r2 | finished | yes | complete, 2 options | deaths per year (0.35); deaths per 1,000 reported crashes (0.65) | 14 | 176.5 | 1 |
+| r3 | finished | yes | complete, 2 options | deaths per year (0.50); deaths per 1,000 reported crashes (0.50) | 11 | 110.3 | 1 |
+
+Net calls 0, no errors recorded, `stderr.log` empty in all three. Every answer states that the file has no miles-driven measure and so cannot settle the per-mile question: a justified insufficient-data answer, not a process failure.
+
+**Verified** (values against `gold_readings.json` I1; rates recomputed; r1's extra `fatal_crashes` column against a direct DuckDB query for crashes with a motorist killed, 102 in 2013): all 6 values files match; option ids match the png/csv filenames, every PNG opens, every CSV has 13 year rows, every option has answer, interpretation and probability, probabilities sum to 1. Quoted figures recompute: deaths 110 → 81 (−26.4%); per 100,000 crashes 54.0 → 94.7 (+75.4%), i.e. 0.540 → 0.947 per 1,000. No vehicle-miles figure appears in any option, values file or code (VMT handled).
+
+**Interpretation, for the grader pass:** no option or chart mentions the 2020 change in crash recording behind the per-crash jump (38.8 → 123.1 per 100,000 from 2019 to 2020) (TR01 candidate, all 3 runs, as in I1-casual and F1). PERMILE: r1 and r3 o2 say the per-crash rate is not per-mile risk; r2 o2 calls it a "crash-based proxy" that "did not decrease" (candidate, the same wording as I1-casual r3); r3 o1 calls counts "a defensible descriptive substitute" for the missing denominator. Per-mile chart footnotes appear on r2 o2 and both r3 charts, not on r1's charts or r2 o1. No y-axis starts at zero. The option set is the same in all six I1 runs across both phrasings: a death count and a per-crash rate (per 100,000 or per 1,000).
+
+## E009-F2 trial: K1-casual r1–r3 (2026-11-04, GPT-6 Luna, not graded; entry added by the F2 audit)
+
+The first F2 trial; it was run and collected before the per-question log entries started, and the K1-formal entry above only refers to it. Setup as K1-formal (D v2 `bde1fd02f5b3e576`, `PILOT_K=0`, cap 35, concurrency 1, git `597c32b`, team venv, wrapper outside the repo, same label). Question `K1-casual` (base K1): "From 2013 to 2025, how many pedestrians were killed in motor vehicle crashes in NYC each year?" Results in `results/D-v2-kfree-openai-gpt-6-luna-rephrasing/K1-casual-r{1,2,3}/`, summary in `runs/D-v2-kfree-openai-gpt-6-luna-rephrasing-K1-casual.json`.
+
+| run | process outcome | `complete` | artifacts | options: chart type (probability) | steps | secs | attempts |
+|---|---|---|---|---|---|---|---|
+| r1 | finished | yes | complete, 2 options | bar (0.60), line (0.40) | 13 | 172.4 | 1 |
+| r2 | finished | yes | complete, 2 options | bar (0.55), line (0.45) | 14 | 186.4 | 1 |
+| r3 | finished | yes | complete, 1 option | bar (1.00) | 13 | 134.3 | 1 |
+
+Net calls 0, no errors recorded.
+
+**Verified** (values files against `gold_readings.json` K1 `ped_killed_by_year`, re-checked by the audit): all 5 values files match the 13 gold rows; option ids match the png/csv filenames; every option has answer, interpretation and probability, probabilities sum to 1. Every option is the same analysis (annual sum of `number_of_pedestrians_killed`); options within a run differ only in chart type.
+
+**Interpretation, for the grader pass:** chart titles say "killed in NYC" and no answer qualifies the counts as reported in this dataset (TR07 candidate under decision 5, pending the TR07 title question). No causal claims found.
+
+## E009-F2 audit (2026-11-04)
+
+Numbers from `f2_checks/audit_f2.py` (read-only; reads `results/`, `runs/`, this file, and the sandbox when present). The per-option checks behind the trial entries above are `f2_checks/check_{k1,k2,k3,a1,a2,a2f,i1}.py`; re-run from their new location, they reproduce every one of the 84 options in the 37 collected run folders with no value problems.
+
+Three levels are counted separately: **repetition** (the planned unit, 12 phrasings × r1–r3 = 36; a restart counts under its original repetition), **attempt** (one run folder; restarts are stored as `<q>-r<rep>-attempt<n>`), and **internal retry** (the runner's own retry inside one attempt, `attempts` > 1 in `meta.json`).
+
+| | count | detail |
+|---|---|---|
+| repetitions | 36 | all started; none running |
+| final outcome per repetition | 31 completed, 5 timed out | 30 completed on attempt 1; A1-casual r3 completed on attempt 2; timeouts not rerun: K3-formal r3, A1-casual r1, A1-casual r2, A1-formal r2, A2-casual r3 |
+| repetitions with a complete artifact set | 36 / 36 | A1-casual r3 through attempt 2; every timeout left complete outputs |
+| attempts | 37 (1 restart) | 31 completed, 5 timed out, 1 stopped manually (A1-casual r3 attempt 1) |
+| attempts with a complete artifact set | 36 / 37 | A1-casual r3 attempt 1 has none |
+| internal retries | 1 | A1-casual r1: one zero-output retry inside attempt 1 (not a restart) |
+| timeouts with a final `ANSWER:` | 3 / 5 | K3-formal r3, A1-casual r2, A1-formal r2 (the process did not exit after answering); A1-casual r1 and A2-casual r3 have none |
+
+Every attempt is collected (byte-identical to its sandbox), every phrasing has a `runs/` summary (A1-casual's also records the attempt history; original completion fields unchanged) and one entry in this file (K1-casual added with this audit; no duplicates).

@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Crash count",
+      "denominator": "None; total police-reported crash records per weekday during 2013-01-01 through 2025-12-31",
+      "grouping": "Day of week",
+      "chart_type": "Vertical bar chart",
+      "reason": "Absolute counts directly show how many recorded crashes fell on each weekday.",
+      "probability": 0.4,
+      "answer": "Friday had the most crashes (338,800) and Sunday the fewest (257,544) from 2013 through 2025.",
+      "interpretation": "This framing answers the question in terms of total recorded crashes assigned to each weekday, with Friday highest and Sunday lowest. It is a direct count distribution, but it does not adjust for the number of times each weekday occurred in the calendar period."
+    },
+    {
+      "id": 2,
+      "metric": "Percentage of all crashes",
+      "denominator": "All 2,132,218 police-reported crashes in the date range",
+      "grouping": "Day of week",
+      "chart_type": "Vertical bar chart",
+      "reason": "Shares make each weekday's contribution to the full-period crash total easy to compare.",
+      "probability": 0.35,
+      "answer": "Friday accounted for the largest share of crashes (15.9%) and Sunday the smallest (12.1%).",
+      "interpretation": "This framing answers how the total crash pool was distributed across weekdays: Friday contributed the largest share and Sunday the smallest. A percentage distribution is easy to compare across categories, but it does not describe crashes per calendar date or changes over time within 2013–2025."
+    },
+    {
+      "id": 3,
+      "metric": "Mean crash count per calendar date",
+      "denominator": "Number of dates of each weekday in 2013-01-01 through 2025-12-31 (678 or 679 dates, depending on weekday)",
+      "grouping": "Day of week",
+      "chart_type": "Vertical bar chart",
+      "reason": "A per-date average accounts for the small differences in how often weekdays occurred during the period.",
+      "probability": 0.25,
+      "answer": "Friday averaged 499.7 crashes per calendar date, the highest, while Sunday averaged 379.9, the lowest.",
+      "interpretation": "This framing answers how many crashes occurred on a typical date of each weekday, with Friday highest and Sunday lowest. It is defensible because the 13-year period contains 678 or 679 occurrences of a weekday; it still does not show how weekday patterns changed over time."
+    }
+  ]
+}

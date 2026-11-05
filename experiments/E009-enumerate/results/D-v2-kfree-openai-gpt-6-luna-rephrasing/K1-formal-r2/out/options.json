@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Total pedestrian deaths (sum of number_of_pedestrians_killed)",
+      "denominator": "None; absolute count, not a rate",
+      "grouping": "Crash year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "A line chart makes the year-to-year movement and longer-term trend easy to follow.",
+      "probability": 0.55,
+      "answer": "Annual pedestrian deaths were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025), with a high of 176 in 2013 and a low of 101 in 2020.",
+      "interpretation": "This directly answers the annual-count question and emphasizes how the totals change over time. A line is a defensible choice for ordered yearly data; it does not explain why the counts rise or fall."
+    },
+    {
+      "id": 2,
+      "metric": "Total pedestrian deaths (sum of number_of_pedestrians_killed)",
+      "denominator": "None; absolute count, not a rate",
+      "grouping": "Crash year, 2013–2025",
+      "chart_type": "Bar chart",
+      "reason": "Bars make the count for each discrete year easy to compare and read precisely.",
+      "probability": 0.45,
+      "answer": "Annual pedestrian deaths were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025), with a high of 176 in 2013 and a low of 101 in 2020.",
+      "interpretation": "This directly answers how many pedestrian deaths were recorded in each year, with labels that support precise year-by-year lookup. A bar chart is defensible because the years are distinct categories; it does not explain what caused the differences among years."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crash records",
+      "denominator": "None; raw crash-record counts",
+      "grouping": "Day of week, across dates from 2013-01-01 through 2025-12-31",
+      "chart_type": "Bar chart",
+      "reason": "Raw counts directly show how many recorded crashes fell on each weekday over the requested period.",
+      "probability": 0.4,
+      "answer": "Friday had the most recorded crashes (338,800), while Sunday had the fewest (257,544).",
+      "interpretation": "This framing answers the absolute-count part of the weekday distribution question, and the chart shows that Friday has the highest count and Sunday the lowest. It is defensible when the goal is to compare total recorded crash volume, but it does not express each weekday's share of all crashes or crash risk relative to traffic exposure."
+    },
+    {
+      "id": 2,
+      "metric": "Percentage of all police-reported crash records",
+      "denominator": "All 2,132,218 crash records dated 2013-01-01 through 2025-12-31",
+      "grouping": "Day of week, across dates from 2013-01-01 through 2025-12-31",
+      "chart_type": "Bar chart",
+      "reason": "Percentages normalize the weekday totals to the requested period's overall number of crashes and make the distribution easy to compare as shares.",
+      "probability": 0.6,
+      "answer": "Friday accounted for the largest share of recorded crashes (15.9%), while Sunday accounted for the smallest (12.1%).",
+      "interpretation": "This framing answers how the recorded crashes were distributed as portions of the period total, and the chart shows Friday's share was highest and Sunday's lowest. It is defensible for describing the overall composition of crashes, but it does not indicate weekday-specific crash rates or control for traffic volume or the number of each weekday in the date span."
+    }
+  ]
+}

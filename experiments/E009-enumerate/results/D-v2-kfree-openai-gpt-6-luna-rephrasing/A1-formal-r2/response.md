@@ -1,0 +1,4 @@
+The dataset has complete Brooklyn records from 2013 through 2025; 2026 is partial, so I’ll exclude it. I’m using annual pedestrian injury counts and annual pedestrian deaths as separate measures: they show different parts of safety, while the data has no walking-exposure denominator to estimate individual risk.
+ANSWER:
+- Brooklyn recorded 2,835 pedestrian injuries in 2025 versus 3,641 in 2013 (22% fewer), although injuries have risen since 2020; these counts do not account for walking volume.
+- Brooklyn recorded 39 pedestrian deaths in 2025 versus 30 in 2013 (30% more), so this severe-outcome count does not show improvement.

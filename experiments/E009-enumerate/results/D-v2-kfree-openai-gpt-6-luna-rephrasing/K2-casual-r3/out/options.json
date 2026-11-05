@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Crash count and share of all crashes",
+      "denominator": "All police-reported crashes dated 2013-01-01 through 2025-12-31",
+      "grouping": "Day of week",
+      "chart_type": "bar chart",
+      "reason": "A share-of-total distribution directly describes how the full-period crash volume was spread across weekdays.",
+      "probability": 0.65,
+      "answer": "Of 2,132,218 crashes, Fridays had the most (338,800; 15.9%) and Sundays the fewest (257,544; 12.1%).",
+      "interpretation": "This framing answers how the total recorded crash volume was distributed among weekdays; the chart shows Friday with the largest share and Sunday with the smallest. It is defensible because each crash contributes once to an overall distribution across the full period. It does not show year-to-year changes or crash risk relative to traffic or travel exposure."
+    },
+    {
+      "id": 2,
+      "metric": "Average crash count per calendar date",
+      "denominator": "Number of calendar dates for each weekday during 2013-01-01 through 2025-12-31",
+      "grouping": "Day of week",
+      "chart_type": "bar chart",
+      "reason": "A per-date average adjusts for the small differences in how often each weekday occurred during the period.",
+      "probability": 0.35,
+      "answer": "Averaged over calendar dates, Friday had the most crashes (499.7 per day) and Sunday the fewest (379.9 per day).",
+      "interpretation": "This framing answers how the typical calendar date's crash count varied by weekday; the chart shows averages from 379.9 on Sunday to 499.7 on Friday. It is defensible because it normalizes by weekday occurrences (678 or 679 dates) rather than comparing raw totals alone. It does not explain year-to-year variation or measure crash risk relative to traffic or travel exposure."
+    }
+  ]
+}

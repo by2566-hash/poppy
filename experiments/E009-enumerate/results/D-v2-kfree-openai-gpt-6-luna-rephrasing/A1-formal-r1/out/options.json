@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of pedestrians injured",
+      "denominator": "None; absolute count of injured pedestrians in Brooklyn police-reported crashes per calendar year",
+      "grouping": "Calendar year (Brooklyn)",
+      "chart_type": "Line chart",
+      "reason": "Injury counts capture the most frequent direct harm to pedestrians and make the long-term trend easy to compare.",
+      "probability": 0.4,
+      "answer": "These counts cannot establish whether pedestrian road-safety risk improved, but Brooklyn recorded 2,835 pedestrian injuries in 2025 versus 3,641 in 2013 (22% fewer), after a low in 2020 and a subsequent rise.",
+      "interpretation": "This chart answers whether the number of pedestrians injured each year is lower than in 2013: it shows a lower 2025 count, after a sharp 2020 dip and a subsequent rise. Injury totals are a defensible direct-harm measure, but without pedestrian exposure or population data they do not show the risk per trip or establish an overall safety improvement."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of pedestrians killed",
+      "denominator": "None; absolute count of pedestrians killed in Brooklyn police-reported crashes per calendar year",
+      "grouping": "Calendar year (Brooklyn)",
+      "chart_type": "Line chart",
+      "reason": "Fatalities are the most severe pedestrian outcome and should be examined separately from much more numerous injuries.",
+      "probability": 0.4,
+      "answer": "These counts cannot establish whether pedestrian road-safety risk improved, but Brooklyn recorded 39 pedestrian deaths in 2025 versus 30 in 2013 (30% more), with substantial year-to-year fluctuation.",
+      "interpretation": "This chart focuses on the most severe outcome and shows that pedestrian deaths were higher in 2025 than in 2013, with considerable year-to-year variation. Fatality counts are directly relevant to safety, but this small annual count does not describe injury burden or risk per pedestrian trip."
+    },
+    {
+      "id": 3,
+      "metric": "Annual number of crashes with at least one pedestrian injured or killed",
+      "denominator": "None; absolute count of Brooklyn police-reported crashes with at least one pedestrian casualty per calendar year",
+      "grouping": "Calendar year (Brooklyn)",
+      "chart_type": "Line chart",
+      "reason": "Counting affected crashes provides a complementary view of how often a police-reported crash resulted in pedestrian harm, independent of the number of people hurt per crash.",
+      "probability": 0.2,
+      "answer": "These counts cannot establish whether pedestrian road-safety risk improved, but Brooklyn had 2,766 crashes involving a pedestrian injury or death in 2025 versus 3,498 in 2013 (21% fewer), with a substantial rise since 2020.",
+      "interpretation": "This chart answers how often a Brooklyn crash involved pedestrian harm, showing fewer such crashes in 2025 than in 2013 but a marked increase after 2020. Crash counts offer a distinct frequency measure, but they do not account for pedestrian exposure or how many people were injured in each crash."
+    }
+  ]
+}

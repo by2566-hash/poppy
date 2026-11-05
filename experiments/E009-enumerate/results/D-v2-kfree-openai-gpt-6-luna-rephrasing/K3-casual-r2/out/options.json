@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of deaths among motorists and cyclists",
+      "denominator": "None; absolute death counts, not population-adjusted rates",
+      "grouping": "Crash year and road-user group",
+      "chart_type": "Two-series line chart",
+      "reason": "A line chart makes it easy to compare the two groups' year-to-year trends over the full period.",
+      "probability": 0.4,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year from 2013 through 2025, with annual counts of 72\u2013139 motorists and 10\u201331 cyclists.",
+      "interpretation": "This framing answers how each group's annual death counts changed and how the two trends compare. The lines show motorist deaths above cyclist deaths in all 13 years, while preserving the size and timing of annual changes. It does not adjust for population, travel exposure, or the number of people in each road-user group."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of deaths among motorists and cyclists",
+      "denominator": "None; absolute death counts, not population-adjusted rates",
+      "grouping": "Crash year, with side-by-side bars for road-user group",
+      "chart_type": "Grouped bar chart",
+      "reason": "Side-by-side bars emphasize the direct within-year count comparison without requiring the reader to estimate separation between lines.",
+      "probability": 0.3,
+      "answer": "The side-by-side annual counts show more motorist than cyclist deaths in all 13 years; motorist deaths peaked at 139 in 2020 while cyclist deaths peaked at 31 in both 2019 and 2023.",
+      "interpretation": "This framing answers the question as a direct year-by-year comparison of the two death counts. Paired bars make the absolute difference for each year visible, and the peaks identify when each group had its highest count. It does not show risk per traveler or explain why counts differ."
+    },
+    {
+      "id": 3,
+      "metric": "Motorist deaths minus cyclist deaths per year",
+      "denominator": "None; absolute difference in death counts",
+      "grouping": "Crash year",
+      "chart_type": "Bar chart of annual differences with a zero reference line",
+      "reason": "The annual difference isolates the size and direction of the gap between the two groups in each year.",
+      "probability": 0.3,
+      "answer": "Motorist deaths exceeded cyclist deaths by 51 to 115 per year, with the smallest gap in 2019 and the largest in 2021.",
+      "interpretation": "This framing answers how large the annual count gap was, rather than displaying each group's count as the primary measure. The positive bars show a motorist-death excess in every year, ranging from 51 in 2019 to 115 in 2021. It does not show the two underlying counts separately or compare exposure-adjusted fatality rates."
+    }
+  ]
+}

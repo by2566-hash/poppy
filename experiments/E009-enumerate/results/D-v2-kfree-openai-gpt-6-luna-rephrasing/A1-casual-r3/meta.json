@@ -1,0 +1,58 @@
+{
+ "q": "A1-casual",
+ "rep": 3,
+ "label": "D-v2-kfree-openai-gpt-6-luna-rephrasing",
+ "type": "ambiguous",
+ "base": "A1",
+ "question": "Since 2013, has it gotten safer for pedestrians in Brooklyn? Make a chart for a local news story and sum up what you find.",
+ "k": 0,
+ "call_ok": false,
+ "timed_out": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 110.3,
+ "zero_output_retries": 0,
+ "secs_total": 110.3,
+ "steps": 7,
+ "hit_step_limit": false,
+ "tool_calls": 7,
+ "tokens": {
+  "input": 18,
+  "output": 1114,
+  "reasoning": 870,
+  "cache_read": 45710,
+  "cache_write": 10194,
+  "total": 57906
+ },
+ "net_calls": 0,
+ "options_parsed": false,
+ "options_reason": "no options.json",
+ "n_options": 0,
+ "n_complete_options": 0,
+ "n_distinct_framings": 0,
+ "n_distinct_analytic": 0,
+ "recommended": null,
+ "options": [],
+ "answer": null,
+ "answer_ok": false,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.13",
+  "python_prefix": "/Users/chloehe/.poppy/venv",
+  "python_executable": "/opt/homebrew/Cellar/python@3.13/3.13.13_1/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+  "git_commit": "597c32b",
+  "prompt_sha": {
+   "D_enumerate.v2.md": "bde1fd02f5b3e576"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "step_cap": 35,
+ "complete": false,
+ "collected_by": "Chloe_He"
+}

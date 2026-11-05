@@ -1,0 +1,3 @@
+The file contains no miles-driven or vehicle-miles-traveled measure, so it cannot establish risk per mile. I’ll chart the two useful crash-data proxies: annual motorist deaths and motorist deaths per 100,000 reported crashes, and label them as proxies rather than per-mile risk.
+ANSWER: The data cannot establish whether risk per mile fell; annual motorist deaths were lower in 2025 than in 2013, falling from 110 to 81.  
+The data cannot establish per-mile risk; motorist deaths per 100,000 reported crashes increased from 54.0 in 2013 to 94.7 in 2025, so this crash-based proxy did not fall.
