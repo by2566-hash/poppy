@@ -420,3 +420,46 @@ Three levels are counted separately: **repetition** (the planned unit, 12 phrasi
 | timeouts with a final `ANSWER:` | 3 / 5 | K3-formal r3, A1-casual r2, A1-formal r2 (the process did not exit after answering); A1-casual r1 and A2-casual r3 have none |
 
 Every attempt is collected (byte-identical to its sandbox), every phrasing has a `runs/` summary (A1-casual's also records the attempt history; original completion fields unchanged) and one entry in this file (K1-casual added with this audit; no duplicates).
+
+## E009-F2 scored with g6, facets coded (2026-11-05, Claude)
+
+Chloe's 36 repetitions (84 options; `A1-casual-r3` attempt 1 has no outputs and contributes no rows; the 5 timed-out runs are scored because their artifacts are complete, and are marked `complete = False`) scored with grader **g6** (Luna primary pass + Luna second pass, `POPPY_MODEL=openai/gpt-6-luna`), `review.csv` written. The first launch fell back to the harness default grader (mimo) because `POPPY_MODEL` was not set; it was stopped after one record, which was deleted, and nothing from it is in the sheet.
+
+**Gold.** The 20 options the machine gold match cannot key (A2 night cuts and full window, A1 crash-level options, K3 long layout, K2 per-date mean) were recomputed independently by Chloe's `f2_checks/check_*.py` (DuckDB on the pinned Parquet under each option's own definition); re-run 2026-11-05 on all 84 options: 0 differences, 0 missing fields. `h_gold = new_reading` on those 20 rows (as for F1); gold_wrong 0/84.
+
+**Grader agreement:** 986 shared cells, 16 disagreements (0.984), 0 unparsed; `review.csv` = 16 disagreement cells + 5 audit rows (59 cells).
+
+**Silent-error (g6, human overrides applied), F1 v2 (original phrasing) vs F2 (casual + formal):**
+
+| base | F1 v2 | F2 | F2 causes |
+|---|---|---|---|
+| A1 | 9/9 | 17/17 | TR05 17, TR15 6, TR01 3 |
+| A2 | 3/7 | 10/17 | TR08 10 (2 proposed NA, below) |
+| I1 | 3/7 | 7/12 | TR01 7 |
+| K1 | 0/5 | 10/10 | TR07 10 (+ unsupported_claim 8) |
+| K2 | 0/7 | 0/13 | — |
+| K3 | 0/7 | 0/15 | — |
+| all | 15/42 | 44/84 | |
+
+Reading: the framing failures are the same failures on every phrasing (A1 TR05 on every option, I1 TR01 on every per-crash option). The K1 jump is not a phrasing effect: the paraphrases keep the original wording (no "in this dataset" was removed), and 9 of the 10 TR07 FAILs rest on chart titles ("Pedestrians killed in NYC motor vehicle crashes"); F1 v2's K1 options happened to say "reported". K1 therefore depends on the open TR07-title decision (g6 entry above). A2's TR08 rise follows from the window: every F2 A2 run used the full file through 2026-06-11, while F1 v2 A2-r3 stopped at 2025; three repeats cannot separate phrasing from repeat variation.
+
+**Agreed-but-wrong candidates (both passes agree, so `review.csv` does not show them):**
+- A2-casual r2 o2 (injury share) and A2-casual r3 o3 (pedestrian casualty / fatal crashes): TR08 FAIL in both passes, but `number_of_persons_injured` and the pedestrian fields have no NULLs in 2026 (`check_a2.py`: NULLs only in `number_of_persons_killed`, 8,877 in 2026); under decisions (2) and (4) TR08 is NA. Proposed `h_tr_TR08 = NA`, not set (Bo); composite would be 42/84 and A2 8/17.
+- I1-casual r3 o2 and I1-formal r2 o2: "this crash-based proxy did not fall / did not decrease" next to "cannot establish per-mile risk": PERMILE PASS in both passes; Chloe's audit flags it; this is the decision-6 pattern (a disclaimer that reads as an answer), which is not in the g6 prompt. Both rows are silent errors already (TR01), so the composite does not change.
+- A2-casual r3 o2: `unsourced = 1,000` is the unit "per 1,000 crashes" (provenance false positive; row is TR08 FAIL anyway).
+- K3-casual r3 o2: motorist/cyclist ratio peaks on years with 10–11 cyclist deaths (Chloe: TR15 candidate); TR15 is not a K3 item in `gold_readings.py`, so nothing scores it.
+
+**Facets** (`results/D-v2-kfree-openai-gpt-6-luna-rephrasing/facets.csv`, first pass, F1 codebook; new names: `ped_harm_crash_count` (A1), `ped_casualty_crash_share` (A2), `motorist_minus_cyclist_gap` (K3); open codebook question: K2 count vs share of total coded as one facet). Mean pairwise Jaccard of run facet sets, within one phrasing (repeat noise) vs across phrasings (original, casual, formal):
+
+| base | within | across | top facet over 9 runs |
+|---|---|---|---|
+| K1 | 1.00 | 1.00 | count 9/9 |
+| K2 | 0.81 | 0.82 | total by weekday 9/9 |
+| K3 | 0.63 | 0.59 | counts 9/9 |
+| A1 | 0.42 | 0.53 | casualties 5, injured 2, killed 1 (tie 0.40/0.40), share 1 |
+| A2 | 0.56 | 0.58 | casualty-crash share 8, fatal share 1 |
+| I1 | 0.93 | 0.93 | per-crash 6 (1 tie 0.5/0.5), count 3 |
+
+Reading: paraphrase moves the framing set no more than repeating the same phrasing does, on all six questions (screen: 3 runs per phrasing). Prediction "top option stable on clear, unstable on ambiguous": holds on K and A1, not on A2 (stable) or I1 (unstable although insufficient). k per run: median 2 in both (F1 v2 1–3, F2 1–3). The "show me alternatives" phrasing was not written, so the k prediction is untested.
+
+**Process:** 31/36 repetitions completed by the process, 5 timed out with complete artifacts (3 after the final `ANSWER:`: OpenCode did not exit). F1 had no timeouts. A harness-side exit after `options.json` + `ANSWER:` would recover these; not changed here (harness change, needs a decision).

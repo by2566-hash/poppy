@@ -1,0 +1,85 @@
+q,base,rep,run,option,p,facet,coder,bo_review,note
+A1-casual,A1,1,A1-casual-r1,1,0.45,casualties_count,claude-first-pass,,run timed out (artifacts complete)
+A1-casual,A1,1,A1-casual-r1,2,0.3,killed_count,claude-first-pass,,run timed out (artifacts complete)
+A1-casual,A1,1,A1-casual-r1,3,0.25,ped_harm_share_of_crashes,claude-first-pass,,run timed out (artifacts complete)
+A1-casual,A1,2,A1-casual-r2,1,0.4,injured_count,claude-first-pass,,run timed out (artifacts complete)
+A1-casual,A1,2,A1-casual-r2,2,0.25,killed_count,claude-first-pass,,run timed out (artifacts complete)
+A1-casual,A1,2,A1-casual-r2,3,0.35,ped_harm_share_of_crashes,claude-first-pass,,"per 1,000 crash reports; same facet as a share; run timed out (artifacts complete)"
+A1-casual,A1,3,A1-casual-r3-attempt2,1,0.5,casualties_count,claude-first-pass,,
+A1-casual,A1,3,A1-casual-r3-attempt2,2,0.3,killed_count,claude-first-pass,,
+A1-casual,A1,3,A1-casual-r3-attempt2,3,0.2,ped_harm_crash_count,claude-first-pass,,"new facet: count of crashes with a pedestrian casualty, no denominator"
+A1-formal,A1,1,A1-formal-r1,1,0.4,injured_count,claude-first-pass,,
+A1-formal,A1,1,A1-formal-r1,2,0.4,killed_count,claude-first-pass,,
+A1-formal,A1,1,A1-formal-r1,3,0.2,ped_harm_crash_count,claude-first-pass,,new facet (see A1-casual r3)
+A1-formal,A1,2,A1-formal-r2,1,0.65,injured_count,claude-first-pass,,run timed out (artifacts complete)
+A1-formal,A1,2,A1-formal-r2,2,0.35,killed_count,claude-first-pass,,run timed out (artifacts complete)
+A1-formal,A1,3,A1-formal-r3,1,0.45,casualties_count,claude-first-pass,,
+A1-formal,A1,3,A1-formal-r3,2,0.3,killed_count,claude-first-pass,,
+A1-formal,A1,3,A1-formal-r3,3,0.25,ped_harm_share_of_crashes,claude-first-pass,,
+A2-casual,A2,1,A2-casual-r1,1,0.4,crashes_per_clock_hour,claude-first-pass,,"numerator is injury-or-fatal crashes, normalised per clock-hour; coded as frequency facet"
+A2-casual,A2,1,A2-casual-r1,2,0.6,casualty_crash_share,claude-first-pass,,
+A2-casual,A2,2,A2-casual-r2,1,0.3,crashes_per_clock_hour,claude-first-pass,,
+A2-casual,A2,2,A2-casual-r2,2,0.42,casualty_crash_share,claude-first-pass,,injury-only share; same severity-per-crash facet
+A2-casual,A2,2,A2-casual-r2,3,0.28,fatal_crash_share,claude-first-pass,,"per 1,000 crashes"
+A2-casual,A2,3,A2-casual-r3,1,0.2,crashes_per_clock_hour,claude-first-pass,,run timed out (artifacts complete)
+A2-casual,A2,3,A2-casual-r3,2,0.5,casualty_crash_share,claude-first-pass,,"two panels: casualty and fatal crashes per 1,000; coded by first panel; run timed out (artifacts complete)"
+A2-casual,A2,3,A2-casual-r3,3,0.3,ped_casualty_crash_share,claude-first-pass,,"new facet: pedestrian casualty / pedestrian-fatal crashes per 1,000 crashes; run timed out (artifacts complete)"
+A2-formal,A2,1,A2-formal-r1,1,0.25,crashes_per_clock_hour,claude-first-pass,,raw counts in two equal 12-hour windows; equivalent to frequency per hour
+A2-formal,A2,1,A2-formal-r1,2,0.3,casualty_crash_share,claude-first-pass,,injury-only share; same facet
+A2-formal,A2,1,A2-formal-r1,3,0.45,fatal_crash_share,claude-first-pass,,
+A2-formal,A2,2,A2-formal-r2,1,0.35,crashes_per_clock_hour,claude-first-pass,,raw counts in two equal 12-hour windows; equivalent to frequency per hour
+A2-formal,A2,2,A2-formal-r2,2,0.4,casualty_crash_share,claude-first-pass,,
+A2-formal,A2,2,A2-formal-r2,3,0.25,fatal_crash_share,claude-first-pass,,"per 1,000 crashes"
+A2-formal,A2,3,A2-formal-r3,1,0.2,crashes_per_clock_hour,claude-first-pass,,raw counts in two equal 12-hour windows
+A2-formal,A2,3,A2-formal-r3,2,0.45,casualty_crash_share,claude-first-pass,,
+A2-formal,A2,3,A2-formal-r3,3,0.35,casualties_per_crash,claude-first-pass,,
+I1-casual,I1,1,I1-casual-r1,1,0.55,deaths_count_by_year,claude-first-pass,,
+I1-casual,I1,1,I1-casual-r1,2,0.45,deaths_per_reported_crash,claude-first-pass,,
+I1-casual,I1,2,I1-casual-r2,1,0.55,deaths_count_by_year,claude-first-pass,,
+I1-casual,I1,2,I1-casual-r2,2,0.45,deaths_per_reported_crash,claude-first-pass,,
+I1-casual,I1,3,I1-casual-r3,1,0.3,deaths_count_by_year,claude-first-pass,,
+I1-casual,I1,3,I1-casual-r3,2,0.7,deaths_per_reported_crash,claude-first-pass,,
+I1-formal,I1,1,I1-formal-r1,1,0.35,deaths_count_by_year,claude-first-pass,,
+I1-formal,I1,1,I1-formal-r1,2,0.65,deaths_per_reported_crash,claude-first-pass,,
+I1-formal,I1,2,I1-formal-r2,1,0.35,deaths_count_by_year,claude-first-pass,,
+I1-formal,I1,2,I1-formal-r2,2,0.65,deaths_per_reported_crash,claude-first-pass,,
+I1-formal,I1,3,I1-formal-r3,1,0.5,deaths_count_by_year,claude-first-pass,,
+I1-formal,I1,3,I1-formal-r3,2,0.5,deaths_per_reported_crash,claude-first-pass,,
+K1-casual,K1,1,K1-casual-r1,1,0.6,count_by_year,claude-first-pass,,
+K1-casual,K1,1,K1-casual-r1,2,0.4,count_by_year,claude-first-pass,,chart-type duplicate of o1
+K1-casual,K1,2,K1-casual-r2,1,0.55,count_by_year,claude-first-pass,,
+K1-casual,K1,2,K1-casual-r2,2,0.45,count_by_year,claude-first-pass,,chart-type duplicate of o1
+K1-casual,K1,3,K1-casual-r3,1,1.0,count_by_year,claude-first-pass,,
+K1-formal,K1,1,K1-formal-r1,1,0.65,count_by_year,claude-first-pass,,
+K1-formal,K1,1,K1-formal-r1,2,0.35,count_by_year,claude-first-pass,,chart-type duplicate of o1
+K1-formal,K1,2,K1-formal-r2,1,0.55,count_by_year,claude-first-pass,,
+K1-formal,K1,2,K1-formal-r2,2,0.45,count_by_year,claude-first-pass,,chart-type duplicate of o1
+K1-formal,K1,3,K1-formal-r3,1,1.0,count_by_year,claude-first-pass,,
+K2-casual,K2,1,K2-casual-r1,1,0.55,total_by_weekday,claude-first-pass,,
+K2-casual,K2,1,K2-casual-r1,2,0.45,mean_per_calendar_date,claude-first-pass,,
+K2-casual,K2,2,K2-casual-r2,1,0.65,total_by_weekday,claude-first-pass,,count with share
+K2-casual,K2,2,K2-casual-r2,2,0.35,mean_per_calendar_date,claude-first-pass,,
+K2-casual,K2,3,K2-casual-r3,1,0.65,total_by_weekday,claude-first-pass,,count with share
+K2-casual,K2,3,K2-casual-r3,2,0.35,mean_per_calendar_date,claude-first-pass,,
+K2-formal,K2,1,K2-formal-r1,1,0.4,total_by_weekday,claude-first-pass,,
+K2-formal,K2,1,K2-formal-r1,2,0.6,total_by_weekday,claude-first-pass,,share of total = count rescaled; coded as total_by_weekday (codebook decision for Bo: one facet or two)
+K2-formal,K2,2,K2-formal-r2,1,0.55,total_by_weekday,claude-first-pass,,
+K2-formal,K2,2,K2-formal-r2,2,0.45,mean_per_calendar_date,claude-first-pass,,
+K2-formal,K2,3,K2-formal-r3,1,0.4,total_by_weekday,claude-first-pass,,
+K2-formal,K2,3,K2-formal-r3,2,0.35,total_by_weekday,claude-first-pass,,share of total = count rescaled; coded as total_by_weekday (codebook decision for Bo: one facet or two)
+K2-formal,K2,3,K2-formal-r3,3,0.25,mean_per_calendar_date,claude-first-pass,,
+K3-casual,K3,1,K3-casual-r1,1,0.7,counts_by_year,claude-first-pass,,
+K3-casual,K3,1,K3-casual-r1,2,0.3,motorist_minus_cyclist_gap,claude-first-pass,,new facet: motorist minus cyclist deaths per year
+K3-casual,K3,2,K3-casual-r2,1,0.4,counts_by_year,claude-first-pass,,
+K3-casual,K3,2,K3-casual-r2,2,0.3,counts_by_year,claude-first-pass,,chart-type duplicate of o1
+K3-casual,K3,2,K3-casual-r2,3,0.3,motorist_minus_cyclist_gap,claude-first-pass,,new facet: motorist minus cyclist deaths per year
+K3-casual,K3,3,K3-casual-r3,1,0.58,counts_by_year,claude-first-pass,,
+K3-casual,K3,3,K3-casual-r3,2,0.42,cyclist_per_100_motorist,claude-first-pass,,"motorist / cyclist ratio: inverse of F1's ratio, same facet"
+K3-formal,K3,1,K3-formal-r1,1,0.55,counts_by_year,claude-first-pass,,
+K3-formal,K3,1,K3-formal-r1,2,0.45,counts_by_year,claude-first-pass,,chart-type duplicate of o1
+K3-formal,K3,2,K3-formal-r2,1,0.45,counts_by_year,claude-first-pass,,
+K3-formal,K3,2,K3-formal-r2,2,0.35,counts_by_year,claude-first-pass,,chart-type duplicate of o1
+K3-formal,K3,2,K3-formal-r2,3,0.2,motorist_minus_cyclist_gap,claude-first-pass,,new facet: motorist minus cyclist deaths per year
+K3-formal,K3,3,K3-formal-r3,1,0.4,counts_by_year,claude-first-pass,,run timed out (artifacts complete)
+K3-formal,K3,3,K3-formal-r3,2,0.35,counts_by_year,claude-first-pass,,chart-type duplicate of o1; run timed out (artifacts complete)
+K3-formal,K3,3,K3-formal-r3,3,0.25,motorist_minus_cyclist_gap,claude-first-pass,,new facet: motorist minus cyclist deaths per year; run timed out (artifacts complete)
