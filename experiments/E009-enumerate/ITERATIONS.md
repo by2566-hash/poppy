@@ -463,3 +463,27 @@ Reading: the framing failures are the same failures on every phrasing (A1 TR05 o
 Reading: paraphrase moves the framing set no more than repeating the same phrasing does, on all six questions (screen: 3 runs per phrasing). Prediction "top option stable on clear, unstable on ambiguous": holds on K and A1, not on A2 (stable) or I1 (unstable although insufficient). k per run: median 2 in both (F1 v2 1–3, F2 1–3). The "show me alternatives" phrasing was not written, so the k prediction is untested.
 
 **Process:** 31/36 repetitions completed by the process, 5 timed out with complete artifacts (3 after the final `ANSWER:`: OpenCode did not exit). F1 had no timeouts. A harness-side exit after `options.json` + `ANSWER:` would recover these; not changed here (harness change, needs a decision).
+
+## Decision 7, grader g7 → g8, harness end rule, F2 completion (2026-11-06, Bo's decisions; Claude)
+
+**Bo's decisions (2026-11-06):** (a) TR07 boundary (SCORING §4 decision 7): a count without "reported / in this dataset" in the chart title is fine when the written output qualifies it; a qualification or source note only inside the chart image does not count. (b) Bump the grader now (decision 6 into the prompt). (c) A2-casual r2 o2 and r3 o3 `h_tr_TR08 = NA` (set). (d) Keep the 5 F2 timeouts scored; report all options and completed-only; reclassify the 3 that wrote the final ANSWER and complete options.json; add a harness end rule and freeze it before F3.
+
+**g7 (superseded, not used):** decisions 6 and 7 in the prompt. Its wording ("must say the counts are reported or recorded in this dataset"; "the official-count part of unsupported_claim follows the same test as TR07") was read literally: the primary pass failed F1 v2 K1 options whose declared metric says "pedestrians killed in **reported** motor vehicle crashes" (K1 v2 0/5 → 4/5) and applied the official-count test to K2 crash counts (2 new FAILs); the second pass disagreed (v2 agreement 0.955). Sheets kept as `scores.g7-p1.csv` / `review.g7.csv`, records in `grader/g7-p1*`.
+
+**g8:** TR07 item and prompt say any wording in the written answer or declared framing that ties the counts to this data qualifies them; the official-count part of unsupported_claim applies to death counts on questions with a TR07 item and nowhere else. Checked before the full run on 16 target options (records deleted): F1 v2 K1 5/5 PASS, K2 crash counts PASS, F2 title-only K1 FAIL, v1 "NYC annual totals" FAIL, decision-6 cases FAIL. Full run, two Luna passes on all three labels:
+
+| | agreement | disagreements | silent-error g6 → g8 | completed runs only |
+|---|---|---|---|---|
+| D v1 (54) | 0.981 | 12 | 22 → 24 | 24/54 |
+| D v2 / F1 (42) | 0.980 | 10 | 15 → 14 (after the 2 TR08 cells below) | 14/42 |
+| F2 (84) | 0.983 | 17 | 42 → 42 | 38/78 |
+
+What changed with g8: decision 6 now fails "but not greater (per-trip) risk" (v1 A2-r1 o2, F2 A2-casual r2 o3, which also fails TR11) and "this crash-based proxy did not fall" (PERMILE + unsupported_claim on F2 I1-casual r3 o2 and I1-formal r2 o2, v1 I1); decision 7 fails v1 K1-r1 o3 ("these annual totals", no qualification anywhere in the written output) and passes F2 K1-formal r2 o2 ("recorded in each year" in the interpretation).
+
+**Rule adjudications by Claude, Bo to confirm:** F1 v2 A2-r1 o1 and o2 `h_tr_TR08 = PASS`: both options' code filters `number_of_persons_killed IS NOT NULL` and the declared denominator says "non-null injury and fatality counts"; decision 2 counts exclusion as handling, g8 failed them for not disclosing it (o2 in both passes, so `review.csv` would not show it). **Edge case for Bo:** v1 K1-r3 o3 calls the counts "annual NYC totals" in the answer but its declared framing says "count of recorded pedestrian deaths"; g8 passes it under decision 7, Bo's earlier `h_tr_TR07 = FAIL` (decision 5) still overrides.
+
+**Per question under g8 (human overrides applied):** v1 → F1 v2 → F2: K1 8/9 → 0/5 → 9/10 (TR07 wording; not a v2 effect, the same prompt fails 9/10 in F2); K2 0 → 0 → 0; K3 0 → 0 → 0; A1 9/9 → 9/9 → 17/17 (TR05); A2 5/9 → 2/7 → 9/17 (TR08 on full-window runs); I1 2/9 → 3/7 → 7/12 (TR01 on per-crash options).
+
+**Harness end rule (frozen in `E007-pilot-prompts/FROZEN.md`):** `enumerate_done` in `run_pilot.py`, `done=` hook in `run_screen.call_model`, arm D only. Checked on all 73 stored D runs (67 normal completions signal `stop`; the 3 hung-after-answer F2 runs signal; the 2 timeouts without an answer and the stopped attempt do not) and with a fake OpenCode (stop, text, no-answer paths).
+
+**F2 completion:** K3-formal r3, A1-formal r2, A1-casual r2 reclassified complete in their `meta.json` (`complete_original`, `call_ok_original`, `timed_out` kept; `complete_reclassified` gives the reason); A1-casual r1 and A2-casual r3 stay incomplete. F2 is 34/36 complete. Both readings give the same conclusions (all options 42/84; completed runs only 38/78).

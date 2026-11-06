@@ -6,7 +6,7 @@
  "base": "A1",
  "question": "Since 2013, has it gotten safer for pedestrians in Brooklyn? Make a chart for a local news story and sum up what you find.",
  "k": 0,
- "call_ok": false,
+ "call_ok": true,
  "timed_out": true,
  "rate_limited": false,
  "stalled": false,
@@ -99,6 +99,11 @@
   }
  },
  "step_cap": 35,
- "complete": false,
- "collected_by": "Chloe_He"
+ "complete": true,
+ "collected_by": "Chloe_He",
+ "call_ok_original": false,
+ "complete_original": false,
+ "answered_no_exit": true,
+ "answered_no_exit_signal": "text",
+ "complete_reclassified": "2026-11-06 (Bo): final ANSWER written and options.json complete before the 600 s timeout; OpenCode did not exit. Reclassified complete by the harness end rule `enumerate_done` (run_pilot.py), applied retroactively to the stored events; timed_out and the *_original fields keep the raw outcome."
 }

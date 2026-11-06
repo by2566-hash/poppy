@@ -36,6 +36,8 @@ Common rules: GPT-6 Luna; the 6 pilot questions; D v1 (`D_enumerate.v1.md`, k = 
 
 **Status 2026-11-05 (scored):** g6 two-pass (0.984), gold verified on all 84 options, facets coded (first pass): framing sets move under paraphrase no more than under repetition; silent-error 44/84 vs F1 v2 15/42, the difference is K1 TR07 on chart titles (pending the TR07-title decision) and A2 TR08 on full-window runs (ITERATIONS.md, "E009-F2 scored with g6").
 
+**Status 2026-11-06 (g8):** re-scored with g8 (decisions 6 and 7 in the prompt): 42/84 (completed runs only 38/78); 3 hung-after-answer runs reclassified complete (34/36); conclusions unchanged (ITERATIONS.md, "Decision 7, grader g7 → g8").
+
 ## 3. E009-F3 — reverse inference ("does this option answer the question that was asked?")
 
 **What the team proposed:** give each option's output (chart, values, answer) to an independent model, have it infer the question, and compare the inferred question with the original to judge the option's credibility.
@@ -50,6 +52,8 @@ Common rules: GPT-6 Luna; the 6 pilot questions; D v1 (`D_enumerate.v1.md`, k = 
 5. **Validation before trust:** 30–40 options hand-labelled "answers the asked question / answers a neighbouring question / unrelated"; report TPR/TNR of the alignment verdict; the known cases (I1 per-crash options, A1 borough-filtered options) must be caught in the stripped condition.
 
 **Measures:** alignment rate per option, per arm (A/B/C single outputs can be scored the same way, giving a cross-arm criterion-1 score without humans); mismatch types (denominator / population / time window / topic); agreement with human labels.
+
+**Status 2026-11-06:** a first F3 trial is on slides 3–5 of the team's phase-2 deck (top-probability chart per question, Luna asked "Based only on this chart, what analytical question does it answer?"); nothing is in the repo yet. That is the chart-only condition, which includes the title, so it is closer to the *full* (leaky) condition than to the *stripped* (`values.csv` only) test in design decision 1. The harness end rule for D runs is frozen (`E007-pilot-prompts/FROZEN.md`).
 
 **Prediction:** full condition ≈ 100% alignment (leakage); stripped condition separates options: K-type options align, I1 per-crash and A1 borough-filtered options are classified as neighbouring questions; the top-probability option aligns more often than the others.
 

@@ -1,0 +1,54 @@
+{
+  "c1": {
+    "verdict": "PASS",
+    "evidence": "“This data cannot establish whether risk per mile driven declined”"
+  },
+  "c2": {
+    "verdict": "PASS",
+    "evidence": "“Annual motorist fatalities” (annual count, with no denominator); the answer says this is “a decline in count, not necessarily in per-mile risk.”"
+  },
+  "c3": {
+    "verdict": "PASS",
+    "evidence": "The output uses a line chart for annual fatalities from 2013–2025."
+  },
+  "c4": {
+    "verdict": "PASS",
+    "evidence": "The chart labels the endpoints “2013: 110” and “2025: 81.”"
+  },
+  "c5": {
+    "verdict": "PASS",
+    "evidence": "The line chart’s y-axis is labeled “Motorist fatalities (people)” and its plotted values match the values table."
+  },
+  "c6": {
+    "verdict": "PASS",
+    "evidence": "“This data cannot establish whether risk per mile driven declined because it contains no miles-driven measure.”"
+  },
+  "c7": {
+    "verdict": "PASS",
+    "evidence": "The chart is titled “Motorist fatalities in NYC crashes, 2013–2025” and labels the axes “Year” and “Motorist fatalities (people).”"
+  },
+  "c8": {
+    "verdict": "PASS",
+    "evidence": "The chart has a clear title, readable axes, gridlines, and labeled endpoints."
+  },
+  "tr_TR01": {
+    "verdict": "NA",
+    "evidence": "No per-reported-crash rate is shown."
+  },
+  "tr_PERMILE": {
+    "verdict": "NA",
+    "evidence": "No per-reported-crash rate is shown."
+  },
+  "tr_VMT": {
+    "verdict": "PASS",
+    "evidence": "The answer says the data “contains no miles-driven measure”; no vehicle-miles figure is shown."
+  },
+  "unsupported_claim": {
+    "verdict": "PASS",
+    "evidence": "“Annual motorist fatalities fell from 110 in 2013 to 81 in 2025 (-26.4%), which is a decline in count, not necessarily in per-mile risk.”"
+  },
+  "required_statement": {
+    "verdict": "PASS",
+    "evidence": "“This data cannot establish whether risk per mile driven declined because it contains no miles-driven measure.”"
+  }
+}

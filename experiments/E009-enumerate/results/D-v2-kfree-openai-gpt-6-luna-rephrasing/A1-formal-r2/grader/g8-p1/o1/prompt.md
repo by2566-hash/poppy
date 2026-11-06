@@ -1,0 +1,94 @@
+You are grading ONE output of a data-analysis agent against a written standard. The chart is attached as an image.
+Judge from the materials below only. Do not fix anything, do not redo the analysis. For each item answer PASS or FAIL
+(NA if the item does not apply to this output) and quote the sentence, number or chart element that decides it.
+Be strict: a limitation that matters but is not stated is a FAIL on the item that asks for it.
+If the QUESTION TYPE is "insufficient", the data cannot answer the question as asked; the appropriate output states that
+(required_statement) and shows a measure the data does support. Do not FAIL c1 or c2 merely because the measure is not the
+one the question named (e.g. not per mile); FAIL them only if the output pretends to answer the unanswerable question.
+Rules that follow from the written standard (SCORING.md section 4):
+- The DECLARED FRAMING fields are part of the output: a definition given there (e.g. which hours count as night) counts as stated.
+- c6 FAILs whenever a disclosure item below (TR.., NIGHTDEF, ...) FAILs: an undisclosed exclusion or an uncaveated denominator is a
+  limitation that matters, and an exposure disclaimer does not make up for it. c6 also FAILs when a superlative or comparison in the
+  prose (largest, smallest, peak, doubled) is contradicted by the values table.
+- Do not invent limitations: rely on DATA FACTS for what is partial, missing or NULL.
+- c5: a y-axis that does not start at zero is not a distortion on a line chart when the axis is labelled; on a bar chart it is a FAIL.
+- NA, not PASS, when the claim or element an item is about is absent from the output (e.g. no claim that deaths changed sharply);
+  PASS means the claim is present and handled.
+- A disclaimer whose wording can reasonably be read as a conclusion from the data is judged by that reading: "per-trip risk
+  is not greater", or a substitute measure offered as the answer ("so this crash-based proxy did not fall" under a per-mile
+  question), FAILS unsupported_claim (and PERMILE where it applies); "does not establish" or "this is not per-mile risk" passes.
+- Where an item asks for a qualification or disclosure, wording in the WRITTEN ANSWER or the DECLARED FRAMING counts, in any
+  phrasing (it need not say "in this dataset" literally); text that appears only inside the chart image (title, footnote, source
+  note) does not satisfy it on its own.
+- The official-count part of unsupported_claim concerns death counts presented as the official city toll: on a question with a
+  TR07 item it FAILs exactly when TR07 FAILs; elsewhere a count or share computed from this data is not an official-count claim.
+
+DATA FACTS (pinned snapshot):
+- The file covers 2012-07-01 to 2026-06-11; 2013-2025 are complete calendar years; 2026 is partial (to June 11).
+- borough is NULL for about 20-38% of crashes in every year (TR05): a borough filter silently drops them.
+- number_of_persons_killed is NULL in most May-2026 and all June-2026 rows (TR08); 2013-2025 killed counts have no NULLs.
+- crash_time has no NULL rows. Reported crash counts (the number of crash records) fall sharply in 2020 (TR01), so a per-reported-crash rate (deaths or injuries divided by reported crashes) compared across years spanning 2020 needs a caveat. Counts of deaths or injuries by year do NOT need it (they are not affected by the reporting change), and a comparison between groups within one pooled window (e.g. day vs night) does not either (decided 2026-11-04; g5 wording after g4 failed c6 on plain death counts).
+- No exposure measure exists (no traffic volume, trips, miles): counts and per-crash rates are not risk (TR11).
+
+QUESTION ASKED: Has pedestrian road safety in Brooklyn improved since 2013? Produce a chart appropriate for a local news story and summarize the findings.
+QUESTION TYPE: ambiguous
+DECLARED FRAMING:
+metric: Annual number of pedestrians injured in police-reported crashes
+denominator: None (annual count)
+grouping: Crash year; Brooklyn crash location
+chart_type: Line chart
+probability: 0.65
+WRITTEN ANSWER:
+Brooklyn recorded 2,835 pedestrian injuries in 2025 versus 3,641 in 2013 (22% fewer), although injuries have risen since 2020; these counts do not account for walking volume. This answers how the annual number of pedestrians injured in police-reported Brooklyn crashes changed from 2013, showing a lower total in 2025 but a rebound after the 2020 low. Injury counts are a defensible measure of community harm, but without a measure of pedestrian exposure they cannot establish whether an individual's risk of injury fell, and this framing leaves fatal outcomes separate.
+
+VALUES TABLE(S) BEHIND THE CHART:
+[values_1.csv]
+year,count
+2013,3641
+2014,3349
+2015,3029
+2016,2917
+2017,2663
+2018,2785
+2019,2700
+2020,1781
+2021,1905
+2022,2275
+2023,2385
+2024,2645
+2025,2835
+
+CODE LINES THE AGENT RAN (for filters, windows, denominators):
+# bash
+python -c 'import duckdb; p="data/crashes.parquet"; c=duckdb.connect(); print(c.execute("describe select * from read_parquet(?)",[p]).fetchall()); print(c.execute("select min(crash_date),max(crash_date),count(*) from read_parquet(?)",[p]).fetchall()); print(c.execute("select extract(year from crash_date) y,count(*) n from read_parquet(?) where borough = '\''BROOKLYN'\'' group by y order by y",[p]).fetchall())'
+# bash
+python -c 'import duckdb; c=duckdb.connect(); p="data/crashes.parquet"; q="select year(crash_date) as year, sum(coalesce(number_of_pedestrians_injured,0)) as injured, sum(coalesce(number_of_pedestrians_killed,0)) as killed, count(*) crashes, count(*) filter (where number_of_pedestrians_injured is null) as null_inj, count(*) filter (where number_of_pedestrians_killed is null) as null_dead from read_parquet(?) where borough = '\''BROOKLYN'\'' and crash_date >= date '\''2013-01-01'\'' and crash_date < date '\''2026-01-01'\'' group by year order by year"; print(c.execute(q,[p]).df().to_string(index=False))'
+# bash
+python -c $'import duckdb, pandas as pd, matplotlib.pyplot as plt\nfrom pathlib import Path\n\nout = Path("out")\nout.mkdir(exist_ok=True)\ndata = duckdb.connect().execute("""\n    SELECT year(crash_date)::INTEGER AS year,\n           SUM(number_of_pedestrians_injured)::INTEGER AS pedestrian_injured,\n           SUM(number_of_pedestrians_killed)::INTEGER AS pedestrian_killed\n    FROM read_parquet(?)\n    WHERE borough = \'BROOKLYN\'\n      AND crash_date >= DATE \'2013-01-01\'\n      AND crash_date < DATE \'2026-01-01\'\n    GROUP BY year ORDER BY year\n""", ["data/crashes.parquet"]).df()\n\nseries = [\n    (1, "pedestrian_injured", "Pedestrians injured", "Pedestrians injured in reported Brooklyn crashes", "Injuries", "#176B87"),\n    (2, "pedestrian_killed", "Pedestrians killed", "Pedestrians killed in reported Brooklyn crashes", "Deaths", "#B6423C"),\n]\nfor oid, col, label, title, ylabel, color in series:\n    values = data[["year", col]].rename(columns={col: "count"})\n    values.to_csv(out / f"values_{oid}.csv", index=False)\n    fig, ax = plt.subplots(figsize=(9.5, 5.6), layout="constrained")\n    ax.plot(values.year, values["count"], color=color, linewidth=3, marker="o", markersize=6)\n    ax.fill_between(values.year, values["count"], 0, color=color, alpha=0.10)\n    ax.set_title(title + " | 2013–2025", loc="left", fontsize=17, weight="bold", pad=15)\n    ax.set_ylabel(ylabel, fontsize=11)\n    ax.set_xlabel("Year", fontsize=11)\n    ax.set_xticks(values.year)\n    ax.tick_params(axis="x", rotation=45)\n    ax.grid(axis="y", color="#D9DEE3", linewidth=0.8)\n    ax.set_axisbelow(True)\n    ax.spines[["top", "right", "left"]].set_visible(False)\n    ax.spines["bottom"].set_color("#AAB2B8")\n    ax.tick_params(axis="y", length=0, pad=7)\n    start = int(values.iloc[0]["count"]); end = int(values.iloc[-1]["count"])\n    change = (end / start - 1) * 100\n    direction = "down" if change < 0 else "up"\n    ax.annotate(f"{start:,}", (2013, start), xytext=(0, 12), textcoords="offset points", ha="center", color=color, weight="bold", fontsize=10)\n    ax.annotate(f"{end:,}\\n{abs(change):.0f}% {direction} vs. 2013", (2025, end), xytext=(-5, 12 if end >= start else -36), textcoords="offset points", ha="right", color=color, weight="bold", fontsize=10)\n    fig.text(0.01, 0.005, "Source: NYC police-reported motor vehicle crashes; Brooklyn crash location. Annual counts, not adjusted for walking volume.", fontsize=8.5, color="#4A5560")\n    fig.savefig(out / f"option_{oid}.png", dpi=180, facecolor="white")\n    plt.close(fig)\nprint(data.to_string(index=False))'
+# bash
+python -c $'import duckdb, matplotlib.pyplot as plt\nfrom pathlib import Path\nout=Path("out")\ndata=duckdb.connect().execute("SELECT year(crash_date)::INTEGER AS year, SUM(number_of_pedestrians_injured)::INTEGER AS pedestrian_injured, SUM(number_of_pedestrians_killed)::INTEGER AS pedestrian_killed FROM read_parquet(?) WHERE borough = \'BROOKLYN\' AND crash_date >= DATE \'2013-01-01\' AND crash_date < DATE \'2026-01-01\' GROUP BY year ORDER BY year", ["data/crashes.parquet"]).df()\nfor oid,col,title,ylabel,color in [(1,"pedestrian_injured","Pedestrians injured in reported Brooklyn crashes | 2013–2025","Injuries","#176B87"),(2,"pedestrian_killed","Pedestrians killed in reported Brooklyn crashes | 2013–2025","Deaths","#B6423C")]:\n    values=data[["year",col]].rename(columns={col:"count"}); values.to_csv(out/f"values_{oid}.csv",index=False)\n    fig,ax=plt.subplots(figsize=(9.5,5.6),layout="constrained")\n    ax.plot(values.year,values["count"],color=color,linewidth=3,marker="o",markersize=6); ax.fill_between(values.year,values["count"],0,color=color,alpha=.10)\n    ax.set_title(title,loc="left",fontsize=17,weight="bold",pad=15); ax.set_ylabel(ylabel,fontsize=11); ax.set_xticks(values.year); ax.tick_params(axis="x",rotation=45)\n    ax.grid(axis="y",color="#D9DEE3",linewidth=.8); ax.set_axisbelow(True); ax.spines[["top","right","left"]].set_visible(False); ax.spines["bottom"].set_color("#AAB2B8"); ax.tick_params(axis="y",length=0,pad=7)\n    first,last=int(values.iloc[0]["count"]),int(values.iloc[-1]["count"]); pct=(last/first-1)*100; direction="down" if pct<0 else "up"\n    ax.annotate(f"{first:,}",(2013,first),xytext=(0,12),textcoords="offset points",ha="center",color=color,weight="bold",fontsize=10)\n    ax.annotate(f"{last:,}\\n{abs(pct):.0f}% {direction} vs. 2013",(2025,last),xytext=(-5,12 if last>=first else -36),textcoords="offset points",ha="right",color=color,weight="bold",fontsize=10)\n    fig.text(.01,.005,"Source: NYC police-reported motor vehicle crashes; Brooklyn crash location. Annual counts, not adjusted for walking volume.",fontsize=8.5,color="#4A5560")\n    fig.savefig(out/f"option_{oid}.png",dpi=180,facecolor="white"); plt.close(fig)'
+# bash
+python -c $'import duckdb, matplotlib.pyplot as plt\nfrom pathlib import Path\nout=Path("out")\ndata=duckdb.connect().execute("SELECT year(crash_date)::INTEGER AS year, SUM(number_of_pedestrians_injured)::INTEGER AS pedestrian_injured, SUM(number_of_pedestrians_killed)::INTEGER AS pedestrian_killed FROM read_parquet(?) WHERE borough = \'BROOKLYN\' AND crash_date >= DATE \'2013-01-01\' AND crash_date < DATE \'2026-01-01\' GROUP BY year ORDER BY year", ["data/crashes.parquet"]).df()\nfor oid,col,title,ylabel,color in [(1,"pedestrian_injured","Pedestrians injured in reported Brooklyn crashes | 2013–2025","Injuries","#176B87"),(2,"pedestrian_killed","Pedestrians killed in reported Brooklyn crashes | 2013–2025","Deaths","#B6423C")]:\n    values=data[["year",col]].rename(columns={col:"count"}); values.to_csv(out/f"values_{oid}.csv",index=False)\n    fig,ax=plt.subplots(figsize=(9.5,5.6),layout="constrained")\n    ax.plot(values.year,values["count"],color=color,linewidth=3,marker="o",markersize=6); ax.fill_between(values.year,values["count"],0,color=color,alpha=.10)\n    ax.set_title(title,loc="left",fontsize=17,weight="bold",pad=15); ax.set_ylabel(ylabel,fontsize=11); ax.set_xticks(values.year); ax.tick_params(axis="x",rotation=0)\n    ax.grid(axis="y",color="#D9DEE3",linewidth=.8); ax.set_axisbelow(True); ax.spines[["top","right","left"]].set_visible(False); ax.spines["bottom"].set_color("#AAB2B8"); ax.tick_params(axis="y",length=0,pad=7)\n    first,last=int(values.iloc[0]["count"]),int(values.iloc[-1]["count"]); pct=(last/first-1)*100; direction="down" if pct<0 else "up"\n    ax.annotate(f"{first:,}",(2013,first),xytext=(0,12),textcoords="offset points",ha="center",color=color,weight="bold",fontsize=10)\n    ax.annotate(f"{last:,}\\n{abs(pct):.0f}% {direction} vs. 2013",(2025,last),xytext=(-5,12 if last>=first else -36),textcoords="offset points",ha="right",color=color,weight="bold",fontsize=10)\n    fig.text(.01,.005,"Source: NYC police-reported motor vehicle crashes; Brooklyn crash location. Annual counts, not adjusted for walking volume.",fontsize=8.5,color="#4A5560")\n    fig.savefig(out/f"option_{oid}.png",dpi=180,facecolor="white"); plt.close(fig)'
+# bash
+python -c $'import duckdb, matplotlib.pyplot as plt\nfrom pathlib import Path\nout=Path("out")\ndata=duckdb.connect().execute("SELECT year(crash_date)::INTEGER AS year, SUM(number_of_pedestrians_injured)::INTEGER AS pedestrian_injured, SUM(number_of_pedestrians_killed)::INTEGER AS pedestrian_killed FROM read_parquet(?) WHERE borough = \'BROOKLYN\' AND crash_date >= DATE \'2013-01-01\' AND crash_date < DATE \'2026-01-01\' GROUP BY year ORDER BY year", ["data/crashes.parquet"]).df()\nfor oid,col,title,ylabel,color in [(1,"pedestrian_injured","Pedestrians injured in reported Brooklyn crashes | 2013–2025","Injuries","#176B87"),(2,"pedestrian_killed","Pedestrians killed in reported Brooklyn crashes | 2013–2025","Deaths","#B6423C")]:\n    values=data[["year",col]].rename(columns={col:"count"}); values.to_csv(out/f"values_{oid}.csv",index=False)\n    fig,ax=plt.subplots(figsize=(9.5,5.6)); fig.subplots_adjust(left=.09,right=.99,bottom=.18,top=.86)\n    ax.plot(values.year,values["count"],color=color,linewidth=3,marker="o",markersize=6); ax.fill_between(values.year,values["count"],0,color=color,alpha=.10)\n    ax.set_title(title,loc="left",fontsize=17,weight="bold",pad=15); ax.set_ylabel(ylabel,fontsize=11); ax.set_xticks(values.year); ax.tick_params(axis="x",rotation=0)\n    ax.grid(axis="y",color="#D9DEE3",linewidth=.8); ax.set_axisbelow(True); ax.spines[["top","right","left"]].set_visible(False); ax.spines["bottom"].set_color("#AAB2B8"); ax.tick_params(axis="y",length=0,pad=7)\n    first,last=int(values.iloc[0]["count"]),int(values.iloc[-1]["count"]); pct=(last/first-1)*100; direction="down" if pct<0 else "up"\n    ax.annotate(f"{first:,}",(2013,first),xytext=(0,12),textcoords="offset points",ha="center",color=color,weight="bold",fontsize=10)\n    ax.annotate(f"{last:,}\\n{abs(pct):.0f}% {direction} vs. 2013",(2025,last),xytext=(-5,12 if last>=first else -36),textcoords="offset points",ha="right",color=color,weight="bold",fontsize=10)\n    fig.text(.01,.025,"Source: NYC police-reported motor vehicle crashes; Brooklyn crash location. Annual counts, not adjusted for walking volume.",fontsize=8.5,color="#4A5560")\n    fig.savefig(out/f"option_{oid}.png",dpi=180,facecolor="white"); plt.close(fig)'
+# bash
+python -c $'import duckdb, matplotlib.pyplot as plt\nfrom pathlib import Path\nout=Path("out")\ndata=duckdb.connect().execute("SELECT year(crash_date)::INTEGER AS year, SUM(number_of_pedestrians_injured)::INTEGER AS pedestrian_injured, SUM(number_of_pedestrians_killed)::INTEGER AS pedestrian_killed FROM read_parquet(?) WHERE borough = \'BROOKLYN\' AND crash_date >= DATE \'2013-01-01\' AND crash_date < DATE \'2026-01-01\' GROUP BY year ORDER BY year", ["data/crashes.parquet"]).df()\nfor oid,col,title,ylabel,color in [(1,"pedestrian_injured","Pedestrians injured in reported Brooklyn crashes | 2013–2025","Injuries","#176B87"),(2,"pedestrian_killed","Pedestrians killed in reported Brooklyn crashes | 2013–2025","Deaths","#B6423C")]:\n    values=data[["year",col]].rename(columns={col:"count"}); values.to_csv(out/f"values_{oid}.csv",index=False)\n    fig,ax=plt.subplots(figsize=(9.5,5.6)); fig.subplots_adjust(left=.09,right=.99,bottom=.18,top=.86)\n    ax.plot(values.year,values["count"],color=color,linewidth=3,marker="o",markersize=6); ax.fill_between(values.year,values["count"],0,color=color,alpha=.10)\n    ax.set_title(title,loc="left",fontsize=17,weight="bold",pad=15); ax.set_ylabel(ylabel,fontsize=11); ax.set_xticks(values.year); ax.tick_params(axis="x",rotation=0)\n    ax.grid(axis="y",color="#D9DEE3",linewidth=.8); ax.set_axisbelow(True); ax.spines[["top","right","left"]].set_visible(False); ax.spines["bottom"].set_color("#AAB2B8"); ax.tick_params(axis="y",length=0,pad=7)\n    first,last=int(values.iloc[0]["count"]),int(values.iloc[-1]["count"]); pct=(last/first-1)*100; direction="down" if pct<0 else "up"\n    ax.annotate(f"{first:,}",(2013,first),xytext=(0,12),textcoords="offset points",
+... (code lines filtered to those about filters, windows and denominators; truncated)
+
+ITEMS:
+- c1: question answered: the output answers the question that was asked (not a neighbouring one)
+- c2: appropriate measure: the metric and denominator fit the question
+- c3: appropriate chart type for the data and the comparison
+- c4: useful comparison: the chart makes the relevant comparison visible
+- c5: faithful visual encoding: the chart shows the numbers in the values table without distortion (axis, scale, labels)
+- c6: evidence-aware presentation: claims stay within what the data supports; limitations that matter are stated
+- c7: clear and readable: titles, axes, legend and text are understandable without the code
+- c8: visually well presented
+- tr_TR05: If a borough filter (borough = 'BROOKLYN') is used, the output discloses that crashes with no borough recorded (19.9–38.1% per year) are excluded.
+- tr_TR11: The output does not call Brooklyn 'safer' or 'less safe' from counts alone without saying that there is no pedestrian exposure measure.
+- tr_TR01: If a per-crash rate spanning 2020 is shown, the output caveats the 2020 change in crash recording.
+- tr_TR15: Claims about pedestrian deaths changing are qualified by the small counts (about 30–39 per year).
+- unsupported_claim: PASS if no sentence makes a causal claim, a risk-per-exposure claim, an official-count claim, or uses a number from outside the data; FAIL otherwise, quoting the sentence
+
+Reply with exactly one JSON object and nothing else:
+{"<item>": {"verdict": "PASS|FAIL|NA", "evidence": "<short quote>"}, ...} with one entry per item above.

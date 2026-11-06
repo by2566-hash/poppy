@@ -446,6 +446,30 @@ def parse_options(sb):
             "n_distinct_analytic": len(analytic), "reason": None}
 
 
+def enumerate_done(sb):
+    """Arm D's end signal for call_model(done=...): "stop" if out/options.json parses with >= 1 option and the final step
+    (events after the last step_start) wrote an `ANSWER:` text, called no tool, and ended with reason stop; "text" if the
+    same holds but the stream ends on that text (no step_finish yet); None otherwise (still working, or no final answer)."""
+    try:
+        if not json.loads((sb / "out" / "options.json").read_text())["options"]:
+            return None
+    except Exception:
+        return None
+    ev = []
+    for l in (sb / "events.jsonl").read_text(errors="ignore").splitlines():
+        try: ev.append(json.loads(l))
+        except json.JSONDecodeError: pass
+    last = max((i for i, e in enumerate(ev) if e.get("type") == "step_start"), default=-1)
+    tail = ev[last + 1:]
+    if any(e.get("type") == "tool_use" for e in tail):
+        return None
+    if not any(e.get("type") == "text" and "ANSWER:" in (e.get("part") or {}).get("text", "") for e in tail):
+        return None
+    if tail[-1].get("type") == "step_finish" and (tail[-1].get("part") or {}).get("reason") == "stop":
+        return "stop"
+    return "text" if tail[-1].get("type") == "text" else None
+
+
 def run_enumerate(job):
     """Arm D: one run, k framings of the same question, each with its own chart and values (E009, simplified)."""
     label, q, rep, prompt_file, k = job
@@ -457,13 +481,15 @@ def run_enumerate(job):
     k_text = str(k) if k else "as many as a careful analyst would consider defensible, and no more (usually two to five)"
     prompt = Path(prompt_file).read_text().format(dictionary=DATA_DICTIONARY, question=QS[q]["text"], k=k_text)
     (sb / "prompt.md").write_text(prompt)
-    r = call_model(sb, prompt, timeout=TIMEOUT)
+    r = call_model(sb, prompt, timeout=TIMEOUT, done=enumerate_done)
     steps = steps_in(sb / "events.jsonl")
     ans = answer_of(r["text"])
     po = parse_options(sb)
     opts = po["options"]
     meta = {"q": q, "rep": rep, "label": label, "type": QS[q]["type"], "base": QS[q].get("base", q), "question": QS[q]["text"], "k": k,
-            "call_ok": r["exit"] == 0 and not r["timed_out"] and not r["errors"], "timed_out": r["timed_out"],
+            # answered_no_exit: final ANSWER and options.json written, OpenCode did not exit, harness ended it (2026-11-06)
+            "call_ok": (r["exit"] == 0 or r["answered_no_exit"]) and not r["timed_out"] and not r["errors"], "timed_out": r["timed_out"],
+            "answered_no_exit": r["answered_no_exit"],
             "rate_limited": r["rate_limited"], "stalled": r["stalled"], "attempts": r["attempts"], "secs": r["secs"],
             "zero_output_retries": r["zero_output_retries"], "secs_total": r["secs_total"],
             "steps": steps, "hit_step_limit": steps >= json.loads(CONFIG_ENUMERATE.read_text())["agent"]["build"]["steps"],

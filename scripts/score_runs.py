@@ -42,7 +42,7 @@ DATA_FACTS = """- The file covers 2012-07-01 to 2026-06-11; 2013-2025 are comple
 - crash_time has no NULL rows. Reported crash counts (the number of crash records) fall sharply in 2020 (TR01), so a per-reported-crash rate (deaths or injuries divided by reported crashes) compared across years spanning 2020 needs a caveat. Counts of deaths or injuries by year do NOT need it (they are not affected by the reporting change), and a comparison between groups within one pooled window (e.g. day vs night) does not either (decided 2026-11-04; g5 wording after g4 failed c6 on plain death counts).
 - No exposure measure exists (no traffic volume, trips, miles): counts and per-crash rates are not risk (TR11)."""
 SANDBOX = ROOT.parent / "poppy-sandbox" / "_score"
-GRADER_VERSION = "g6"   # bump on any change to grader_prompt / items / standard; recorded in the sheet and in each run's grader/<version>-p<pass>/
+GRADER_VERSION = "g8"   # bump on any change to grader_prompt / items / standard; recorded in the sheet and in each run's grader/<version>-p<pass>/
 CRITERIA = {"c1": "question answered: the output answers the question that was asked (not a neighbouring one)",
             "c2": "appropriate measure: the metric and denominator fit the question",
             "c3": "appropriate chart type for the data and the comparison",
@@ -338,6 +338,14 @@ Rules that follow from the written standard (SCORING.md section 4):
 - c5: a y-axis that does not start at zero is not a distortion on a line chart when the axis is labelled; on a bar chart it is a FAIL.
 - NA, not PASS, when the claim or element an item is about is absent from the output (e.g. no claim that deaths changed sharply);
   PASS means the claim is present and handled.
+- A disclaimer whose wording can reasonably be read as a conclusion from the data is judged by that reading: "per-trip risk
+  is not greater", or a substitute measure offered as the answer ("so this crash-based proxy did not fall" under a per-mile
+  question), FAILS unsupported_claim (and PERMILE where it applies); "does not establish" or "this is not per-mile risk" passes.
+- Where an item asks for a qualification or disclosure, wording in the WRITTEN ANSWER or the DECLARED FRAMING counts, in any
+  phrasing (it need not say "in this dataset" literally); text that appears only inside the chart image (title, footnote, source
+  note) does not satisfy it on its own.
+- The official-count part of unsupported_claim concerns death counts presented as the official city toll: on a question with a
+  TR07 item it FAILs exactly when TR07 FAILs; elsewhere a count or share computed from this data is not an official-count claim.
 
 DATA FACTS (pinned snapshot):
 {DATA_FACTS}

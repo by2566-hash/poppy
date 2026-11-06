@@ -27,3 +27,12 @@ Iteration 3 total model time on 5 runnable items: 13.8 min.
 |---|---|---|
 | `D_enumerate.v1.md` | `a18643123c55bfd00cabea8dcbb4f806463a50d79723d3e5e42ef355e3b14e19` | 2026-10-20 (k = 3, cap 25; baseline for every D comparison) |
 | `D_enumerate.v2.md` | `bde1fd02f5b3e576618cf5f2429d6e9d31904328a8c3dfce675a3c753b598d0a` | 2026-11-04 (free k, `interpretation` = which part of the asked question the option answers and why; confirmed by Bo from `D_enumerate.v2.draft.md`; run as `PILOT_K=0 run_pilot.py D v2`) |
+
+## Harness for arm D from E009-F3 on (frozen 2026-11-06, Bo)
+
+| File | SHA-256 |
+|---|---|
+| `experiments/E007-pilot-prompts/run_pilot.py` | `edd5532fd8eb4ef34965a4128edab4113b06da3e94a6ce2d84669c0a8cbc7479` |
+| `experiments/E006-mimo-screen/run_screen.py` | `7616f48b5d3be9db98bbabe9142afc69fbabd36da602658f74c65d3c1845d118` |
+
+Change from the F1/F2 harness: `run_enumerate` passes `done=enumerate_done` to `call_model`. When `out/options.json` parses and the final step wrote `ANSWER:` without a tool call, the harness ends an OpenCode process that does not exit: 10 s after a `step_finish` with reason `stop`, or 120 s after the stream ends on the ANSWER text. Such a run is `answered_no_exit = true`, `timed_out = false`, and counts as `call_ok`. Every other arm calls `call_model` without `done` and is unchanged. Checked on all 73 stored D runs: the 67 normal completions give `stop`; the 3 F2 runs that answered and then hung give `stop` / `text`; the 2 timeouts without a final answer and the stopped attempt give none. A fake-OpenCode test covers the kill path (stop 6 s, text 10 s with a test grace of 8 s, no answer: timeout). Teammates check these hashes before an F3 run.

@@ -58,8 +58,14 @@ def sandbox_shims(sb, protect=()):
 STALL = None
 
 
-def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files=(), protect=(), stall=STALL, model=None):
+def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files=(), protect=(), stall=STALL, model=None,
+               done=None, done_grace=(10, 120)):
     # model: provider/model override for a second grader (scripts/score_runs.py --grader2); default MODEL_ID from POPPY_MODEL
+    # done: optional callable(sb) -> None | "stop" | "text" (arm D, 2026-11-06, Bo): the run has written its final answer.
+    #   OpenCode sometimes does not exit after the final ANSWER (E009-F2: 3 of 36 runs hit the 600 s timeout that way).
+    #   "stop": the final step ended with reason stop -> kill after done_grace[0] s without new events;
+    #   "text": the stream ends on the ANSWER text with no step_finish -> kill after done_grace[1] s without new events.
+    #   Such a run returns answered_no_exit = True and timed_out = False. Off (None) for every other caller.
     """One `opencode run`. Detects the free tier's rate limiting (which otherwise looks like a hang:
     OpenCode retries 3 times, then waits, with an empty event stream), stops immediately, and retries with
     backoff when no step had started. Optional `stall` (seconds without an event) kills and retries once;
@@ -68,7 +74,7 @@ def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files
                PATH=os.pathsep.join([str(sandbox_shims(sb, protect)), os.environ.get("PATH", "")]))
     zero_output_retries = 0; t_first = time.time()
     for attempt in range(1, max_attempts + 2):
-        t0 = time.time(); code = None; timed_out = False; rate_limited = False; stalled = False
+        t0 = time.time(); code = None; timed_out = False; rate_limited = False; stalled = False; answered_no_exit = False
         last_size, last_change = 0, t0
         with open(sb / "events.jsonl", "w") as out, open(sb / "stderr.log", "w") as err:
             proc = subprocess.Popen(["opencode", "run", "--pure", "--print-logs", "--log-level", "ERROR", "--format", "json",
@@ -85,6 +91,10 @@ def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files
                     last_size, last_change = size, time.time()
                 elif stall and time.time() - last_change > stall:
                     proc.kill(); stalled = True; break
+                if done is not None:
+                    st = done(sb); idle = time.time() - last_change
+                    if (st == "stop" and idle > done_grace[0]) or (st == "text" and idle > done_grace[1]):
+                        proc.kill(); answered_no_exit = True; break
             code = proc.wait()
         # All token fields per step, summed. Providers report most of the prompt as cache reads/writes (GPT-6 Luna:
         # "input" ~ 30 tokens per run, cache_read ~ 100k), so input/output alone understate the cost badly.
@@ -120,7 +130,8 @@ def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files
         break
     return {"text": "\n".join(text), "exit": code, "timed_out": timed_out, "secs": round(time.time() - t0, 1), "stalled": stalled,
             "zero_output_retries": zero_output_retries, "secs_total": round(time.time() - t_first, 1),
-            "tool_calls": tools, "tokens": tok, "errors": errors, "rate_limited": rate_limited, "attempts": attempt}
+            "tool_calls": tools, "tokens": tok, "errors": errors, "rate_limited": rate_limited, "attempts": attempt,
+            "answered_no_exit": answered_no_exit}
 
 def parse(text):
     """Strict: exactly the requested format. Returns (code, answer). The answer must come after the
