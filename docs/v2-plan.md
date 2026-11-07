@@ -95,7 +95,7 @@ Primary metric unchanged: silent-error rate = unsourced number ∨ unsupported c
 | 6 paired re-run | harness yes, stats no | same questions, K = 3 (5 when time allows); `summarize_scores.py` prints per-question paired differences, the pooled rate with a Wilson interval, and the MDE line (≈ 48 pts at 6 questions, K = 5) | Miller 2024 ([2411.13768](https://arxiv.org/abs/2411.13768)); Bowyer ([2503.01747](https://arxiv.org/abs/2503.01747)) |
 | 7 keep / revert | no | a written rule, applied by Bo and recorded in `ITERATIONS.md`: **keep iff the targeted failure count falls on dev and no other criterion's failure count rises**; no script | Better Harness; Hex |
 | 8 change log | yes (`ITERATIONS.md`) | add the judge-calibration update when the shadow judge is involved | — |
-| 9 stop | — | timebox: phase 2 ends with the final presentation; the held-out set is run once at the end | — |
+| 9 stop | — | timebox: phase 2 ends with the final presentation; the held-out set is run once at the end. *Superseded 2026-11-07 (Bo): V2 closes in the week of 11-09; see `v2-reconciliation-2026-11-07.md` §7.* | — |
 
 Not done now: a second labeller and κ (one labeller; the risk is recorded), a gate script, a re-scoring framework (Inspect AI), per-run `score.json`.
 

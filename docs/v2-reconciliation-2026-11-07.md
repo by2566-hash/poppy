@@ -99,3 +99,20 @@
 2. Labels (§3 row 1) and the first open-coding pass (§3 row 2): small, and they unlock promotion, the PPI number and the evidence-based choice of the first treatment.
 3. E010 iteration 1 with the chosen treatment, scored by g8 (+ the drift metric if Ryan's route is adopted).
 4. In parallel, owned by teammates: F3 as designed; phase-1 runs scored with the scorer; E008 decided or formally dropped.
+
+## 7. Bo's decisions of 2026-11-07 and corrections found while checking
+
+**Decided (Bo, 2026-11-07):**
+1. **Timebox:** V2 closes **next week** (week of 11-09). V2 is not the full earlier design; it is the version settled from all inputs (experiments, Ryan, the parked items). Supersedes `v2-plan.md` §5 step 9 ("phase 2 ends with the final presentation").
+2. **D's final form = D v2** (free k + question-anchored `interpretation`).
+3. **Grader status:** a **machine estimate that is also the standard** (g8 + SCORING §4 decisions 1–7). The human validation procedure is not yet designed and must be designed and run within this phase. Reported numbers are labelled "machine estimate (g8), human validation pending".
+4. Labels (§3 row 1): Bo, when time allows. E010 iteration 1: **not decided**.
+
+**Structural point raised by decision 1:** at 09:29 the team asked Ryan what to explore in the *next phase*; his spectrum (explain ↔ measure, closed loop) answers that question. With V2 closing next week, the spectrum is naturally the phase after V2, not part of it. The 11-06 proposal (`mentor-meeting-2026-11-06.md` §5, "phase 2b" to 12-18) merged the two and its timeline no longer holds. To confirm with Bo.
+
+**Corrections (checked against the repo on 2026-11-07):**
+- *"Facts the agent was never shown" is too strong.* The data dictionary in every prompt (`E006-mimo-screen/common.py`) says "police-reported motor vehicle crash" and "borough (VARCHAR, may be NULL)". So TR07 and TR05 were stated qualitatively (no magnitude, no consequence); only TR01 (2020 recording change) and TR08 (NULL killed counts in 2026) were absent. Prediction for a data profile revised: TR08, TR05 and TR01 can fall (magnitude and coverage become visible); TR07 is a disclosure behaviour, the information was already given, so a profile alone is not expected to fix it.
+- *127 instances double-count K1.* Under g8, unsupported_claim on a question with a TR07 item fails exactly when TR07 fails, so the 17 K1 unsupported-claim failures are the same events as the 17 TR07 failures. The better unit is options: **77 of the 80 silent-error options** (of 180) contain at least one TR05/TR01/TR07/TR08 failure.
+- *Concentration.* These failures sit on four questions: A1 35/35 options (TR05 on every A1 option, all three experiments), K1 17/24 (TR07), A2 13/33 (TR08), I1 12/28 (TR01); K2 and K3 have none. The effective sample for a treatment is four questions' traps repeated across runs.
+- *Trigger.* `v2-plan.md` §8 defines the trigger on the open-coding taxonomy count (`first_failure`), not on grader item counts. The grader counts are a proxy; by the plan's own rule the trigger is met only after open coding.
+- *A1-tie rule.* In F2, 16 of 36 runs have a top-two margin ≤ 0.10, including K questions where both options measure the same thing (K1 `count_by_year` twice). Verbalized probabilities are coarse (multiples of 0.05) and uncalibrated. A presentation rule must apply to options with **different facets**, not to the probability margin alone. Top-facet flips across the six A1 runs: casualties 3, injured 2, killed/injured tie 1; I1: deaths per reported crash 3 + 1 tie, death counts 2.
