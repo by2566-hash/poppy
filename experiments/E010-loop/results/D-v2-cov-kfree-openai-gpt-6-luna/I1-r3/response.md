@@ -1,0 +1,4 @@
+The file has motorist-fatality counts but no miles-driven exposure, so it cannot measure per-mile risk. I’m preparing two crash-data framings that show the fatality trend directly and relative to the number of reported crash records, while making that limitation explicit.
+ANSWER:
+Recorded motorist deaths fell from 110 in 2013 to 81 in 2025 (26.4%), but this crash data cannot establish whether risk per mile declined because it contains no miles-driven measure.
+Motorist deaths per 1,000 reported crash records rose from 0.54 in 2013 to 0.95 in 2025 (75.4%), though this crash-normalized proxy is not risk per mile.

@@ -1,0 +1,5 @@
+I’ll compare defensible day-versus-night crash measures, generate the charts and value files, then verify that each conclusion and its exclusions match the saved data.
+The file spans July 2012 through June 11, 2026, with no missing crash times. I’ll define night as 7 p.m.–5:59 a.m. and day as 6 a.m.–6:59 p.m.; because the data has no traffic or pedestrian exposure, the comparisons will be crash frequency per clock-hour and severity conditional on a reported crash—not individual travel risk.
+ANSWER: Reported crash frequency is lower at night—12.03 crashes per clock-hour versus 24.08 by day; this is not exposure-adjusted risk ([chart](out/option_1.png)).
+Among crashes with complete outcome counts, 28.32% at night involved injury or death, compared with 23.09% by day ([chart](out/option_2.png)).
+Fatality burden per reported crash is higher at night: 0.283 people killed per 100 crashes, versus 0.108 by day ([chart](out/option_3.png)).

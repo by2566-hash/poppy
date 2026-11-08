@@ -1,0 +1,5 @@
+The data supports comparing crash counts and injury/fatality outcomes by clock time, but it has no traffic-volume or travel-distance denominator. I’m using equal 12-hour windows (night = 6 p.m.–5:59 a.m.) and will frame the conclusions as reported crash burden/severity, not exposure-adjusted risk.
+ANSWER:
+1. Reported crash totals were higher by day—1,455,425 versus 813,762 at night—and do not account for differences in traffic exposure ([chart](out/option_1.png), [values](out/values_1.csv)).
+2. A larger share of nighttime crashes involved injury: 27.91%, compared with 22.78% by day; this is not a measure of injury risk per trip or mile ([chart](out/option_2.png), [values](out/values_2.csv)).
+3. Fatal crashes occurred at a higher rate among nighttime crash reports—24.59 versus 10.19 per 10,000 crashes with known death status—but the rates are not exposure-adjusted ([chart](out/option_3.png), [values](out/values_3.csv)).

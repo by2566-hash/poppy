@@ -1,0 +1,6 @@
+The file has complete records for 2013 and 2025, but it contains no mileage or travel-exposure measure, so it cannot establish deaths per mile. I’m preparing annual motorist-fatality counts and crash-based comparisons as supported alternatives, while excluding the partial 2012 and 2026 years from year-to-year charts.
+The review shows two different supported signals: total deaths fell, while fatal-motorist crashes became a larger share of reported crashes. I’m adding a separate deaths-per-1,000-crashes view as well; it captures multiple motorist deaths in a crash, which the binary fatal-crash share does not.
+ANSWER:
+The crash file cannot establish deaths per mile; recorded motorist deaths fell from 110 in 2013 to 81 in 2025 (26.4% lower) ([chart](out/option_1.png), [values](out/values_1.csv)).
+The file cannot establish per-mile risk; the share of reported crashes with a motorist death rose from 0.050% in 2013 to 0.088% in 2025 (75.1% higher) ([chart](out/option_2.png), [values](out/values_2.csv)).
+The file cannot establish deaths per mile; motorist deaths per 1,000 reported crashes rose from 0.540 in 2013 to 0.947 in 2025 (75.4% higher) ([chart](out/option_3.png), [values](out/values_3.csv)).

@@ -1,0 +1,5 @@
+The requested years are fully covered (Jan 1–Dec 31 for each year from 2013 through 2025), and there are no NULL crash dates. I’m comparing the pooled weekday counts, a per-calendar-day rate that adjusts for the one-day weekday-count imbalance, and the year-by-year weekday mix.
+ANSWER:
+1. Across 2013–2025, Friday had the most reported crashes (338,800; 15.89% of the total) and Sunday the fewest (257,544; 12.08%); see [chart](out/option_1.png) and [values](out/values_1.csv).
+2. Adjusting for the number of dates of each weekday, crashes averaged 499.7 per Friday—the highest rate—and 379.9 per Sunday—the lowest; see [chart](out/option_2.png) and [values](out/values_2.csv).
+3. Friday had the largest share of crashes in every year (15.32%–16.25%), while Sunday had the smallest (11.47%–13.61%); see [chart](out/option_3.png) and [values](out/values_3.csv).

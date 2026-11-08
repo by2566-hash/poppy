@@ -1,0 +1,3 @@
+period,known_harm_crashes,injury_or_fatal_crashes,missing_harm,injury_or_fatal_crash_share_pct,known_harm_crashes_share_of_all,file_total_crashes,file_start_date,file_end_date,2012_absent_calendar_days,2012_calendar_days,2012_absent_calendar_day_share,2026_absent_calendar_days,2026_calendar_days,2026_absent_calendar_day_share,file_rows_missing_required_outcome,file_share_missing_required_outcome
+Night (8 pm–5:59 am),556333,158211,2671,28.438183605861955,0.9952218588775752,2269187,2012-07-01,2026-06-11,182,366,0.4972677595628415,203,365,0.5561643835616439,8919,0.003930482591342185
+Day (6 am–7:59 pm),1703935,398867,6248,23.408580726377473,0.9963465898093948,2269187,2012-07-01,2026-06-11,182,366,0.4972677595628415,203,365,0.5561643835616439,8919,0.003930482591342185

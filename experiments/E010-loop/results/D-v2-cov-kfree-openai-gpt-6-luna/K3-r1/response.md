@@ -1,0 +1,3 @@
+The requested years are fully covered in the file (2013–2025), and both death-count columns have no NULLs. I’m comparing the annual counts directly and also showing each group’s share of the combined motorist-and-cyclist deaths.
+ANSWER: Motorist deaths exceeded cyclist deaths every year, ranging from 72–139 annually versus 10–31; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in both 2019 and 2023.
+Cyclists accounted for 9.1%–27.4% of combined motorist and cyclist deaths, with the lowest share in 2013 and the highest in 2019.

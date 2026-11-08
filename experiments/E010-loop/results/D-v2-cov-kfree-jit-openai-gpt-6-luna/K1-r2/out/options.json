@@ -1,0 +1,15 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of pedestrians killed",
+      "denominator": "None; raw count",
+      "grouping": "Crash year (2013–2025)",
+      "chart_type": "Bar chart",
+      "reason": "Summing the crash-level pedestrian death counts by year directly answers how many pedestrians were killed each year.",
+      "probability": 1.0,
+      "answer": "Pedestrians killed by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This directly answers how many pedestrians were killed in crashes in each requested year, and the chart shows the annual totals, with a high of 176 in 2013 and a low of 101 in 2020. Summing the crash-level pedestrian death count is defensible because each crash row records the number of pedestrians killed in that crash. It does not show where deaths occurred, causes, or population-adjusted risk. Rows from 2012 and 2026 are outside the requested range; among included years, 0% of rows are omitted for NULL crash dates or pedestrian-death counts, and 0% of any included year is omitted for partial-year coverage (none of 2013–2025 is partial)."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual deaths (sum of crash-level killed counts)",
+      "denominator": "None; absolute death counts",
+      "grouping": "Year, with separate series for motorists and cyclists",
+      "chart_type": "Grouped bar chart",
+      "reason": "Grouped bars make the absolute annual gap between the two road-user groups easy to compare directly.",
+      "probability": 0.55,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in 2019 and 2023.",
+      "interpretation": "This framing directly compares the yearly numbers of motorists and cyclists killed, and the bars show motorist deaths above cyclist deaths in all 13 years. Absolute counts are a defensible comparison because the question asks how deaths compare; this view does not show risk per trip or per person exposed."
+    },
+    {
+      "id": 2,
+      "metric": "Annual deaths (sum of crash-level killed counts)",
+      "denominator": "None; absolute death counts",
+      "grouping": "Year, with separate series for motorists and cyclists",
+      "chart_type": "Two-series line chart",
+      "reason": "A line chart emphasizes how each group\u2019s annual death count changes over time while retaining the direct comparison.",
+      "probability": 0.45,
+      "answer": "Motorist deaths were higher than cyclist deaths every year, reaching 139 in 2020; cyclist deaths reached their high of 31 in 2019 and 2023.",
+      "interpretation": "This framing answers how the two groups compare across time by showing each annual count and its trajectory, including the motorist peak in 2020 and cyclist highs in 2019 and 2023. Lines are a defensible way to reveal year-to-year movement, but the comparison remains counts and does not establish per-capita or per-trip risk."
+    }
+  ]
+}

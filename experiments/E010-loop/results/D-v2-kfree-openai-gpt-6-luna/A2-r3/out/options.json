@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Crashes involving at least one person injured or killed",
+      "denominator": "All crashes with a reported crash time in each period",
+      "grouping": "Day (6 a.m.–7:59 p.m.) vs. night (8 p.m.–5:59 a.m.)",
+      "chart_type": "Two-bar comparison of percentage of crashes",
+      "reason": "A crash-level harm rate directly compares how often reported crashes in each period involved an injury or death.",
+      "probability": 0.5,
+      "answer": "Among NYC police-reported crashes, 28.51% at night involved an injury or death, versus 23.50% by day, indicating greater harm per reported crash at night but not risk per trip.",
+      "interpretation": "This compares the share of reported crashes involving any injury or death, showing a higher share at night (28.51% vs. 23.50%). It is a defensible crash-severity comparison, but without traffic or travel exposure data it cannot determine whether a trip or mile of travel is more dangerous at night."
+    },
+    {
+      "id": 2,
+      "metric": "Crashes with at least one person killed",
+      "denominator": "All crashes with a reported crash time in each period",
+      "grouping": "Day (6 a.m.–7:59 p.m.) vs. night (8 p.m.–5:59 a.m.)",
+      "chart_type": "Two-bar comparison of fatal-crash percentage",
+      "reason": "Fatal-crash share isolates the most severe recorded outcome while retaining all crashes as the denominator.",
+      "probability": 0.3,
+      "answer": "Fatal crashes made up 0.29% of reported nighttime crashes and 0.11% of daytime crashes, so fatal outcomes were more common per reported crash at night, though travel risk cannot be inferred.",
+      "interpretation": "This focuses specifically on whether a crash was fatal and shows that this share was higher at night (0.29% vs. 0.11%). It gives a clear comparison of fatal severity among reported crashes, but does not answer whether people face greater risk per trip or mile at night because exposure is not in the data."
+    },
+    {
+      "id": 3,
+      "metric": "Persons injured plus persons killed per reported crash",
+      "denominator": "All crashes with a reported crash time in each period",
+      "grouping": "Day (6 a.m.–7:59 p.m.) vs. night (8 p.m.–5:59 a.m.)",
+      "chart_type": "Two-bar comparison of average casualties per crash",
+      "reason": "Average casualties per crash captures the total reported human harm rather than only whether a crash crossed a severity threshold.",
+      "probability": 0.2,
+      "answer": "NYC recorded 0.408 people injured or killed per nighttime crash versus 0.311 per daytime crash, indicating a greater casualty burden per reported crash at night, not necessarily greater risk per trip.",
+      "interpretation": "This measures the average number of people injured or killed in each reported crash, which was higher at night (0.408 vs. 0.311). It captures casualty burden per crash, but cannot establish danger per traveler or mile without traffic-exposure data."
+    }
+  ]
+}

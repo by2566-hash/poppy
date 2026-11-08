@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual pedestrian casualties (pedestrians injured plus pedestrians killed)",
+      "denominator": "None; annual count",
+      "grouping": "Crash year for Brooklyn, 2013–2025",
+      "chart_type": "Stacked bar chart of pedestrians injured and killed",
+      "reason": "A count directly shows the annual human toll and is easy for a local audience to interpret.",
+      "probability": 0.55,
+      "answer": "Annual pedestrian casualties fell 21.7% from 3,671 in 2013 to 2,874 in 2025, but rose from a low of 2,298 in 2022 and included 39 pedestrian deaths in 2025 versus 30 in 2013.",
+      "interpretation": "This framing answers whether the annual number of pedestrians injured or killed in Brooklyn crashes has fallen: casualties decreased from 3,671 in 2013 to 2,874 in 2025, after a low of 2,298 in 2022. The stacked bars separate injury and death counts, making the total harm burden and the recent rebound visible. This is a defensible measure of the number of people harmed, but it does not account for how many people walked or distinguish injury severity beyond killed versus injured. Of all NYC crash records dated 2013–2025, 659,713 of 2,132,218 (30.94%) have NULL borough and cannot be assigned to Brooklyn; known crashes in other boroughs are outside this grouping, and no required pedestrian count is NULL; 2026 is omitted because the file covers only January 1 through June 11, so no partial year is included."
+    },
+    {
+      "id": 2,
+      "metric": "Share of Brooklyn crashes with at least one pedestrian injured or killed",
+      "denominator": "All police-reported Brooklyn crashes in the same year",
+      "grouping": "Crash year for Brooklyn, 2013–2025",
+      "chart_type": "Line chart of annual percentage",
+      "reason": "A crash-based share adjusts the pedestrian-harm count for changes in the overall number of reported Brooklyn crashes.",
+      "probability": 0.45,
+      "answer": "The share of Brooklyn crashes involving pedestrian injury or death rose from 7.44% in 2013 to 11.38% in 2025, a 3.94-percentage-point increase.",
+      "interpretation": "This framing answers whether pedestrian-harm crashes became less common relative to all reported Brooklyn crashes: their share rose from 7.44% in 2013 to 11.38% in 2025, with a low of 5.68% in 2017 and a sharp rise after 2021. It is defensible because the denominator adjusts for changes in the total number of Brooklyn crashes, unlike a raw count. It leaves unanswered pedestrian risk per trip or mile walked, since the file contains no pedestrian-exposure denominator. Of all NYC crash records dated 2013–2025, 659,713 of 2,132,218 (30.94%) have NULL borough and cannot be assigned to Brooklyn; known crashes in other boroughs are outside this grouping, and no required pedestrian count is NULL; 2026 is omitted because the file covers only January 1 through June 11, so no partial year is included."
+    }
+  ]
+}

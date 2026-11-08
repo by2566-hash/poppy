@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Police-reported crash count per clock hour",
+      "denominator": "12-hour periods per calendar date across 5094 dates (61128 hours per period)",
+      "grouping": "Day 6 a.m.\u20135:59 p.m. versus night 6 p.m.\u20135:59 a.m.",
+      "chart_type": "Two-bar comparison",
+      "reason": "Equal-length day and night windows make the volume comparison straightforward while adjusting for hours in each window.",
+      "probability": 0.32,
+      "answer": "The file cannot establish whether streets are more dangerous per trip at night, but it records 13.3 police-reported crashes per clock hour at night versus 23.8 by day.",
+      "interpretation": "This framing answers whether more police-reported crashes occur at night by comparing reported crashes per clock hour in equal 12-hour windows; the chart shows 13.3 at night and 23.8 by day. Equal-duration windows are a defensible way to compare incident volume by time of day, but this file has no traffic or pedestrian exposure denominator and therefore cannot establish that a trip or street user is more at risk at night. No rows are left out for missing date or time (0 of 2269187, 0.0%). The file covers 2012 only from July 1 (182 of 366 calendar days, 49.7% outside the file) and 2026 only through June 11 (203 of 365 days, 55.6% outside the file)."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes with at least one person injured or killed",
+      "denominator": "Crash records with both person-injured and person-killed counts non-NULL",
+      "grouping": "Day 6 a.m.\u20135:59 p.m. versus night 6 p.m.\u20135:59 a.m.",
+      "chart_type": "Two-bar comparison",
+      "reason": "A per-crash casualty share compares how often reported crashes involve harm rather than how many crashes occur overall.",
+      "probability": 0.43,
+      "answer": "The file cannot establish per-trip danger, but among crashes with complete casualty counts, 28.01% at night involved an injury or death versus 22.77% by day.",
+      "interpretation": "This framing answers whether a reported crash is more likely to involve harm at night, defining harm as at least one person injured or killed; the chart shows 28.01% of complete nighttime records versus 22.77% of daytime records. The per-crash denominator is defensible for comparing crash severity, though it does not estimate a street user's risk per trip or mile. It leaves out 8919 of 2269187 rows (0.39%) because at least one of the two person-count fields is NULL. The file covers 2012 only from July 1 (182 of 366 calendar days, 49.7% outside the file) and 2026 only through June 11 (203 of 365 days, 55.6% outside the file)."
+    },
+    {
+      "id": 3,
+      "metric": "Recorded deaths per crash",
+      "denominator": "Crash records with both person-injured and person-killed counts non-NULL",
+      "grouping": "Day 6 a.m.\u20135:59 p.m. versus night 6 p.m.\u20135:59 a.m.",
+      "chart_type": "Two-bar comparison",
+      "reason": "Deaths per crash isolates the most severe recorded outcome and captures multiple deaths in a single crash.",
+      "probability": 0.25,
+      "answer": "The file cannot establish per-trip danger, but it records 0.0026 deaths per complete nighttime crash versus 0.0010 per complete daytime crash.",
+      "interpretation": "This framing answers whether nighttime crashes have a higher fatality burden by dividing recorded deaths by crashes with complete person injury and death counts; the chart shows 0.0026 deaths per nighttime crash and 0.0010 per daytime crash. This is defensible because it counts deaths directly and includes crashes with multiple deaths, but it says nothing about nonfatal injury severity or risk per trip. It leaves out 8919 of 2269187 rows (0.39%) because at least one of the injury or death count fields is NULL. The file covers 2012 only from July 1 (182 of 366 calendar days, 49.7% outside the file) and 2026 only through June 11 (203 of 365 days, 55.6% outside the file)."
+    }
+  ]
+}

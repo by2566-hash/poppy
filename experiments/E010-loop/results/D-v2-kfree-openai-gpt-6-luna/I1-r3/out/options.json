@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of motorist deaths in reported crashes",
+      "denominator": "None (annual count)",
+      "grouping": "Calendar year",
+      "chart_type": "Line chart",
+      "reason": "A count directly shows how many motorist deaths were recorded each year, without implying an exposure denominator.",
+      "probability": 0.2,
+      "answer": "This data cannot determine deaths per mile; recorded motorist deaths fell from 110 in 2013 to 81 in 2025.",
+      "interpretation": "This framing answers how the annual number of motorist deaths in reported NYC crashes changed, and the chart shows the count fell between 2013 and 2025. A count is defensible as a direct burden measure, but it leaves both driving exposure and per-mile risk unanswered."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths per 1,000 reported crashes",
+      "denominator": "All police-reported crashes in the same calendar year",
+      "grouping": "Calendar year",
+      "chart_type": "Line chart",
+      "reason": "Normalizing deaths by reported crashes provides a crash-based severity proxy that accounts for changes in crash volume.",
+      "probability": 0.45,
+      "answer": "This data cannot determine deaths per mile; deaths per 1,000 reported crashes rose from 0.54 in 2013 to 0.95 in 2025.",
+      "interpretation": "This framing answers whether motorist deaths changed relative to the volume of reported crashes, and the chart shows this crash-based rate increased between 2013 and 2025. It is defensible for comparing fatality burden per reported crash, but does not measure travel exposure or deaths per mile driven."
+    },
+    {
+      "id": 3,
+      "metric": "Share of reported crashes with at least one motorist death",
+      "denominator": "All police-reported crashes in the same calendar year",
+      "grouping": "Calendar year",
+      "chart_type": "Line chart",
+      "reason": "The fatal-crash share measures how often a reported crash involved a motorist death, without counting multiple deaths in one crash multiple times.",
+      "probability": 0.35,
+      "answer": "This data cannot determine deaths per mile; the share of reported crashes with a motorist death rose from 0.050% in 2013 to 0.088% in 2025.",
+      "interpretation": "This framing answers how frequently a police-reported crash involved any motorist death, and the chart shows that share increased between 2013 and 2025. It is defensible as a crash-level fatality measure, but it leaves vehicle-miles traveled and the per-mile risk unanswered."
+    }
+  ]
+}

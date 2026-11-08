@@ -1,0 +1,3 @@
+ANSWER:
+1. Daytime averaged 24.08 police-reported crashes per clock-hour versus 12.03 at night, so the file does not show more crash reports at night by volume ([chart](./out/option_1.png), [values](./out/values_1.csv)).
+2. Among crashes with a reported injury count, 28.20% at night involved at least one injury versus 23.10% during daytime, indicating greater injury involvement at night conditional on a reported crash ([chart](./out/option_2.png), [values](./out/values_2.csv)).

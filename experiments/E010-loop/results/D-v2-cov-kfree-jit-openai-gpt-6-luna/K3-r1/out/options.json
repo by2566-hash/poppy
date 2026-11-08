@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual deaths in each road-user group",
+      "denominator": "None (absolute death counts)",
+      "grouping": "Calendar year and road-user group (motorist, cyclist)",
+      "chart_type": "Grouped bar chart",
+      "reason": "Absolute counts directly show the number of motorist and cyclist deaths in each year.",
+      "probability": 0.65,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year; the count gap ranged from 51 in 2019 to 115 in 2021, and 2025 had 81 motorist deaths versus 23 cyclist deaths.",
+      "interpretation": "This framing answers how many motorist and cyclist deaths occurred in each requested year; the bars show more motorist deaths in every year, with the smallest absolute gap in 2019 and largest in 2021. Annual counts are a defensible direct comparison of the two death totals, but they do not measure death risk per traveler or per trip because exposure denominators are not in this file. Within 2013–2025, 0% of rows are omitted for NULL motorist or cyclist death counts in every year, and no included year is partial (each year has dates from January 1 through December 31). The year filter excludes 2012: 100% of its 100,545 rows excluded (outside the requested interval); 2026: 100% of its 36,424 rows excluded (outside the requested interval)."
+    },
+    {
+      "id": 2,
+      "metric": "Annual ratio of motorist deaths to cyclist deaths",
+      "denominator": "Cyclist deaths in the same calendar year",
+      "grouping": "Calendar year",
+      "chart_type": "Line chart",
+      "reason": "The ratio makes the relative scale of motorist and cyclist death counts comparable across years.",
+      "probability": 0.35,
+      "answer": "Motorist deaths were 2.6 times cyclist deaths in 2019 (the lowest ratio) and 10.0 times in 2013 (the highest); the 2025 ratio was 3.5.",
+      "interpretation": "This framing answers how the relative number of motorist deaths compared with cyclist deaths changed year by year: the ratio ranged from 2.6 in 2019 to 10.0 in 2013, and was 3.5 in 2025. A same-year ratio is a defensible way to compare relative counts when the groups have different totals, but it does not show the absolute size of the death counts or death risk per traveler. Within 2013–2025, 0% of rows are omitted for NULL motorist or cyclist death counts in every year, and no included year is partial (each year has dates from January 1 through December 31). The year filter excludes 2012: 100% of its 100,545 rows excluded (outside the requested interval); 2026: 100% of its 36,424 rows excluded (outside the requested interval)."
+    }
+  ]
+}

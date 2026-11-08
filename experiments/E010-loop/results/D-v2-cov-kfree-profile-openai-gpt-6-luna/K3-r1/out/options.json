@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual sum of motorist deaths and annual sum of cyclist deaths",
+      "denominator": "None; raw annual death counts",
+      "grouping": "Calendar year (2013\u20132025), by road-user type",
+      "chart_type": "Grouped bar chart",
+      "reason": "Raw yearly counts directly show the difference in fatality totals between the two road-user groups.",
+      "probability": 0.65,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in both 2019 and 2023.",
+      "interpretation": "This answers the year-by-year comparison in absolute numbers: motorist deaths were higher each year, with the peaks shown in the answer. Raw counts are defensible because they show the annual fatality totals directly. It does not express cyclist deaths relative to the motorist total or estimate risk per traveler, for which exposure data are unavailable here. The date filter uses only 2013\u20132025; none of those rows are omitted for NULL death counts (0% in each year), and none of the included years is partial; records outside 2013\u20132025 are outside the requested period."
+    },
+    {
+      "id": 2,
+      "metric": "Cyclist deaths per 100 motorist deaths",
+      "denominator": "Annual motorist deaths",
+      "grouping": "Calendar year (2013\u20132025)",
+      "chart_type": "Line chart",
+      "reason": "A ratio makes the cyclist-to-motorist comparison explicit even as the yearly motorist death total changes.",
+      "probability": 0.35,
+      "answer": "Cyclist deaths ranged from 10.0 per 100 motorist deaths in 2013 to a peak of 37.8 in 2019, and were 28.4 per 100 in 2025.",
+      "interpretation": "This answers how cyclist deaths compare relative to motorist deaths each year: the ratio varies, reaching its high in 2019 and remaining below 100 in every year. The denominator is defensible for comparing the relative number of these two kinds of deaths as motorist totals vary. It leaves the absolute annual death burden unanswered and is not a per-traveler risk comparison because travel exposure is not in the data. The date filter uses only 2013\u20132025; none of those rows are omitted for NULL death counts (0% in each year), and none of the included years is partial; records outside 2013\u20132025 are outside the requested period."
+    }
+  ]
+}

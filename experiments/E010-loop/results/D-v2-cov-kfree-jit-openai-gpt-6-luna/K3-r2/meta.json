@@ -1,0 +1,97 @@
+{
+ "q": "K3",
+ "rep": 2,
+ "label": "D-v2-cov-kfree-jit-openai-gpt-6-luna",
+ "type": "clear",
+ "base": "K3",
+ "question": "How do motorist and cyclist deaths compare year by year in NYC, 2013 to 2025?",
+ "k": 0,
+ "call_ok": true,
+ "timed_out": false,
+ "answered_no_exit": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 110.5,
+ "zero_output_retries": 0,
+ "secs_total": 110.5,
+ "steps": 17,
+ "hit_step_limit": false,
+ "tool_calls": 25,
+ "tokens": {
+  "input": 51,
+  "output": 4566,
+  "reasoning": 3349,
+  "cache_read": 228148,
+  "cache_write": 27833,
+  "total": 263947
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 2,
+ "n_complete_options": 2,
+ "n_distinct_framings": 2,
+ "n_distinct_analytic": 2,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Annual sum of deaths by road-user group",
+   "denominator": "None; annual death counts",
+   "grouping": "Year, with motorist and cyclist as series",
+   "chart_type": "Grouped bar chart",
+   "reason": "Direct annual counts make the absolute difference between the two road-user groups easy to compare.",
+   "probability": 0.65,
+   "answer": "Motorist deaths exceeded cyclist deaths in all 13 years; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in 2019 and 2023.",
+   "interpretation": "This framing answers how the annual numbers of motorist and cyclist deaths compare in absolute terms. It shows motorist deaths were higher in each of the 13 years, with the peaks given in the answer. Raw totals are a direct comparison of deaths, but do not adjust for travel exposure or explain causes. The 2013\u20132025 filter excludes 136,969 of 2,269,187 file rows (6.04%), those outside that range, including partial 2012 and 2026; all included years are complete calendar years and no in-range rows have NULL dates or death counts.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Cyclist deaths as a percentage of motorist plus cyclist deaths",
+   "denominator": "Motorist deaths plus cyclist deaths in the same year",
+   "grouping": "Year, split by motorist and cyclist",
+   "chart_type": "100% stacked bar chart",
+   "reason": "The within-year share emphasizes how the balance between these two categories changes independently of their combined total.",
+   "probability": 0.35,
+   "answer": "Cyclists accounted for 9.1% to 27.4% of motorist-plus-cyclist deaths, lowest in 2013 and highest in 2019; motorist deaths made up the balance.",
+   "interpretation": "This framing answers how the relative mix of motorist and cyclist deaths changes year by year. Cyclist deaths made up 9.1%\u201327.4% of deaths in these two groups, with the smallest and largest shares in the years stated in the answer. This share is a defensible comparison of composition, but leaves the absolute annual death totals unanswered. The 2013\u20132025 filter excludes 136,969 of 2,269,187 file rows (6.04%), those outside that range, including partial 2012 and 2026; all included years are complete calendar years and no in-range rows have NULL dates or death counts.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "Motorist deaths exceeded cyclist deaths in all 13 years; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in both 2019 and 2023.\nCyclists made up 9.1%\u201327.4% of motorist-plus-cyclist deaths, with the lowest share in 2013 and the highest in 2019.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "python_prefix": "/Users/yubo/.poppy/venv",
+  "python_executable": "/Users/yubo/Downloads/Anaconda/anaconda3/bin/python3.13",
+  "git_commit": "18cba5c",
+  "prompt_sha": {
+   "D_enumerate.v2-cov.md": "c4c3d343c9a2c283"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "profile": null,
+ "rendered_prompt_sha": "a4b918a78ef12ac8",
+ "jit": {
+  "sitecustomize_sha": "9732ae740dc1588e",
+  "facts_sha": "295ccc418ca81109",
+  "notes_in_trace": 20
+ },
+ "step_cap": 35,
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

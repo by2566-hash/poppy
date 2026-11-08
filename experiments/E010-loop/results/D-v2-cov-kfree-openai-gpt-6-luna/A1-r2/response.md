@@ -1,0 +1,3 @@
+ANSWER:
+The crash counts show mixed change from 2013 to 2025: Brooklyn pedestrian injuries fell 22.1%, from 3,641 to 2,835, while deaths rose 30.0%, from 30 to 39; the data cannot establish whether risk per walking trip fell.
+Pedestrian harm appeared in a larger share of Brooklyn crash reports in 2025 than in 2013—11.4% versus 7.4%—but this crash-based measure cannot establish whether risk per walking trip fell.

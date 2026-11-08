@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Total reported crash count",
+      "denominator": "None; equal 12-hour clock windows in the same date range",
+      "grouping": "Day (6 a.m.\u20135:59 p.m.) versus night (6 p.m.\u20135:59 a.m.)",
+      "chart_type": "Bar chart",
+      "reason": "A news report may need to distinguish the total crash burden from the severity of each crash.",
+      "probability": 0.25,
+      "answer": "The file records 1,455,425 daytime crashes versus 813,762 nighttime crashes, so the recorded crash total is higher by day, not night.",
+      "interpretation": "This answers whether more reported crashes occur during the night by comparing equal-length clock-time windows. It shows substantially more crash reports in the daytime, but the file has no traffic or travel-exposure measure and therefore cannot establish which period is riskier per trip or mile."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes with at least one person injured",
+      "denominator": "All crashes with a non-missing injury count",
+      "grouping": "Day versus night",
+      "chart_type": "Bar chart",
+      "reason": "The injury-involved crash share compares the likelihood of injury conditional on a crash being reported.",
+      "probability": 0.45,
+      "answer": "27.91% of nighttime crashes involved an injury, compared with 22.78% of daytime crashes.",
+      "interpretation": "This addresses whether nighttime crash reports more often involve injury, rather than whether there are more crashes overall. The nighttime share is higher, making crash severity a defensible measure of danger in these records; it does not measure injury risk for all people traveling because exposure is unavailable."
+    },
+    {
+      "id": 3,
+      "metric": "Fatal crashes per 10,000 crashes with known death status",
+      "denominator": "Crashes with a non-missing number_of_persons_killed",
+      "grouping": "Day versus night",
+      "chart_type": "Bar chart",
+      "reason": "Fatal outcomes are a distinct and especially consequential measure of crash severity.",
+      "probability": 0.3,
+      "answer": "There were 24.59 fatal crashes per 10,000 nighttime crashes with known death status, versus 10.19 per 10,000 by day.",
+      "interpretation": "This answers whether a reported crash is more likely to be fatal at night, using only records with reported death status. The nighttime rate is higher, but missing death-status records (especially in the incomplete latest-year data) and the absence of travel exposure mean this is not an exposure-adjusted fatality risk."
+    }
+  ]
+}

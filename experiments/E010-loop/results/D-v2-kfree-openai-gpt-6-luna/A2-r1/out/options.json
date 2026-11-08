@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Police-reported crash frequency per clock-hour",
+      "denominator": "Clock-hours in each period across the inclusive date range",
+      "grouping": "Night (7pm\u20135:59am) vs day (6am\u20136:59pm)",
+      "chart_type": "Bar chart",
+      "reason": "Normalizing by clock-hours makes crash frequency comparable despite the unequal lengths of the two time windows.",
+      "probability": 0.25,
+      "answer": "The data records 12.0 police-reported crashes per clock-hour at night versus 24.1 by day, so reported crash frequency is lower at night under these clock-time definitions.",
+      "interpretation": "This compares when police-reported crashes occur, with counts normalized for the different durations of the night and day windows. It is a defensible frequency comparison, but it cannot establish risk per trip or person because traffic and travel exposure by hour are not in the data."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes involving at least one injury",
+      "denominator": "Crashes with a non-missing number_of_persons_injured",
+      "grouping": "Night (7pm\u20135:59am) vs day (6am\u20136:59pm)",
+      "chart_type": "Bar chart",
+      "reason": "The share of crashes with an injury compares harmful outcomes conditional on a crash, rather than simply comparing crash counts.",
+      "probability": 0.45,
+      "answer": "28.2% of night crashes involved an injury, compared with 23.1% of day crashes (about 22% higher at night).",
+      "interpretation": "This answers whether a reported crash is more likely to involve injury at night, using crashes with known injury counts as the denominator. It shows a higher injury-crash share at night, but it does not measure the chance of injury per journey or account for differences in who or how many people are traveling."
+    },
+    {
+      "id": 3,
+      "metric": "Fatal crashes per 100,000 crashes",
+      "denominator": "Crashes with a non-missing number_of_persons_killed",
+      "grouping": "Night (7pm\u20135:59am) vs day (6am\u20136:59pm)",
+      "chart_type": "Bar chart",
+      "reason": "Fatal-crash frequency per crash highlights the most severe recorded outcome while adjusting for the different number of crashes in each period.",
+      "probability": 0.3,
+      "answer": "There were 268.0 fatal crashes per 100,000 night crashes versus 105.1 per 100,000 day crashes (about 2.6 times as high at night).",
+      "interpretation": "This compares the proportion of crashes involving at least one death among crashes with a known killed count, so it addresses crash severity rather than crash volume. The fatal-crash share is higher at night, but this cannot show fatality risk per road user or travel distance without exposure data."
+    }
+  ]
+}

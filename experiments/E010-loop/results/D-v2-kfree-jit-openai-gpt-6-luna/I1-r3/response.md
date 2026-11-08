@@ -1,0 +1,3 @@
+ANSWER:
+1. The crash data cannot establish whether per-mile risk declined because they contain no miles-driven denominator; recorded motorist deaths fell from 110 in 2013 to 81 in 2025 (26% lower). [Chart](out/option_1.png) · [Values](out/values_1.csv)
+2. The crash data also cannot establish the per-mile trend; motorist deaths per 100,000 reported crashes rose from 54.0 in 2013 to 94.7 in 2025. [Chart](out/option_2.png) · [Values](out/values_2.csv)

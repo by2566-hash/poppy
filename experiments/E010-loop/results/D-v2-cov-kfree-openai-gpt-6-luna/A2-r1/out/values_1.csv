@@ -1,0 +1,3 @@
+period,crash_rows,observed_dates,clock_hours,crashes_per_clock_hour
+Day (7 a.m.–6:59 p.m.),1450687,4748,56976,25.461370
+Night (7 p.m.–6:59 a.m.),681531,4748,56976,11.961721

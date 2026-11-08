@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of motorist and cyclist fatalities",
+      "denominator": "None; raw counts of persons killed in crashes during each calendar year",
+      "grouping": "Crash year and road-user group (motorist, cyclist)",
+      "chart_type": "Two-series line chart",
+      "reason": "Annual counts give the direct year-by-year comparison of how many motorists and cyclists were killed.",
+      "probability": 0.7,
+      "answer": "Motorist deaths exceeded cyclist deaths every year; annual counts ranged from 72 to 139 motorists and 10 to 31 cyclists, with peaks of 139 motorists in 2020 and 31 cyclists in 2019 and 2023.",
+      "interpretation": "This framing answers how the absolute number of deaths for the two road-user groups changed year by year, and the chart shows that motorist fatalities were higher in every year. Raw counts are a direct and easily interpreted measure of fatalities. It leaves unanswered how the two groups compare as a share of their combined deaths or relative to exposure such as trips taken."
+    },
+    {
+      "id": 2,
+      "metric": "Each group's share of combined motorist and cyclist fatalities",
+      "denominator": "Motorist deaths plus cyclist deaths in the same calendar year",
+      "grouping": "Crash year and road-user group (motorist, cyclist)",
+      "chart_type": "100% stacked bar chart",
+      "reason": "Yearly shares show how the composition of motorist-plus-cyclist fatalities varies even when the combined total changes.",
+      "probability": 0.3,
+      "answer": "Cyclists accounted for 9.1% to 27.4% of combined motorist and cyclist deaths, with the highest share in 2019 (31 of 113) and lowest in 2013 (11 of 121).",
+      "interpretation": "This framing answers how motorist and cyclist deaths compare in relative composition each year, and the chart shows that motorists made up the larger share in every year while cyclist shares varied from 9.1% to 27.4%. Using the combined fatalities as the denominator makes each year's split comparable as a composition. It leaves out the absolute scale of deaths and any comparison with other road-user groups or travel exposure."
+    }
+  ]
+}

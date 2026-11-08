@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Share of crash reports with at least one person injured or killed",
+      "denominator": "Crash reports with both injury and death counts present",
+      "grouping": "Night (8 p.m.\u20135:59 a.m.) versus daytime (6 a.m.\u20137:59 p.m.); complete calendar years 2013\u20132025",
+      "chart_type": "Two-bar comparison of percentages",
+      "reason": "It compares the probability that a reported crash involved a casualty, which captures common injury severity without equating crash counts with travel risk.",
+      "probability": 0.5,
+      "answer": "Among crashes with complete casualty counts, 28.47% of nighttime crashes involved an injury or death, versus 23.41% of daytime crashes, so nighttime crashes were more likely to involve a casualty in these records.",
+      "interpretation": "This framing answers whether a reported nighttime crash is more likely to involve an injured or killed person: the share is 28.47% at night and 23.41% during daytime. It is a defensible comparison of crash severity among reported crashes, while the chart does not account for how many people or vehicles traveled in each period. It therefore leaves per-trip, per-mile, and overall individual travel risk unanswered. It omits records dated in partial 2012 and 2026 (136969 rows, 6.04% of all file rows) and 2013\u20132025 records missing either required injury or death count (42 rows, 0.0020% of complete-year rows); no rows are omitted for missing crash time."
+    },
+    {
+      "id": 2,
+      "metric": "Number of persons killed per 1,000 reported crashes",
+      "denominator": "Crash reports with a non-NULL death count",
+      "grouping": "Night (8 p.m.\u20135:59 a.m.) versus daytime (6 a.m.\u20137:59 p.m.); complete calendar years 2013\u20132025",
+      "chart_type": "Two-bar comparison of deaths per 1,000 crashes",
+      "reason": "It isolates fatal harm and expresses it relative to reported crash volume, making the night/day severity contrast readable despite the rarity of deaths.",
+      "probability": 0.5,
+      "answer": "The records show 3.08 people killed per 1,000 nighttime crashes versus 1.12 per 1,000 daytime crashes, indicating greater fatal harm per reported crash at night.",
+      "interpretation": "This framing answers whether nighttime crashes produce more fatal harm per reported crash: there were 3.08 deaths per 1,000 nighttime crashes versus 1.12 per 1,000 daytime crashes. This is defensible as a fatal-severity rate because it accounts for the number of crash reports in each period, rather than comparing raw death totals alone. It does not establish that an individual traveler is at greater risk at night, because the file contains no traffic or travel-exposure denominator. It omits records dated in partial 2012 and 2026 (136969 rows, 6.04% of all file rows) and 2013\u20132025 records with a NULL death count (36 rows, 0.0017% of complete-year rows); no rows are omitted for missing crash time."
+    }
+  ]
+}

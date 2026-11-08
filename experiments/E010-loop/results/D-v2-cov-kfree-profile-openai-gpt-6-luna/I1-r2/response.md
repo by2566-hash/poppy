@@ -1,0 +1,3 @@
+ANSWER:
+1. Recorded motorist deaths declined 26.4%, from 110 in 2013 to 81 in 2025, but this crash data cannot establish whether deaths per mile driven declined ([chart](out/option_1.png), [plotted values](out/values_1.csv)).
+2. The share of reported crashes involving a motorist death rose from 0.050% in 2013 to 0.088% in 2025, a 0.038 percentage-point increase; this is a crash-level measure, not risk per mile ([chart](out/option_2.png), [plotted values](out/values_2.csv), [options](out/options.json)).

@@ -1,0 +1,7 @@
+period,severity,crashes,complete_case_crashes,share_pct
+Day,No reported casualty,1231105,1607466,76.586690
+Day,Nonfatal injury crash,374612,1607466,23.304505
+Day,Fatal crash,1749,1607466,0.108805
+Night,No reported casualty,375311,524710,71.527320
+Night,Nonfatal injury crash,147877,524710,28.182615
+Night,Fatal crash,1522,524710,0.290065

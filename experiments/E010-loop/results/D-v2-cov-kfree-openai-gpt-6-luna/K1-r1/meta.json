@@ -1,0 +1,92 @@
+{
+ "q": "K1",
+ "rep": 1,
+ "label": "D-v2-cov-kfree-openai-gpt-6-luna",
+ "type": "clear",
+ "base": "K1",
+ "question": "How many pedestrians were killed in NYC motor vehicle crashes each year from 2013 to 2025?",
+ "k": 0,
+ "call_ok": true,
+ "timed_out": false,
+ "answered_no_exit": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 82.3,
+ "zero_output_retries": 0,
+ "secs_total": 82.3,
+ "steps": 14,
+ "hit_step_limit": false,
+ "tool_calls": 17,
+ "tokens": {
+  "input": 42,
+  "output": 3390,
+  "reasoning": 3135,
+  "cache_read": 146765,
+  "cache_write": 18984,
+  "total": 172316
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 2,
+ "n_complete_options": 2,
+ "n_distinct_framings": 2,
+ "n_distinct_analytic": 1,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Annual pedestrians killed (sum of number_of_pedestrians_killed)",
+   "denominator": "None; annual counts, not a rate",
+   "grouping": "Crash year (2013\u20132025)",
+   "chart_type": "Bar chart",
+   "reason": "Bars make it straightforward to compare the number of pedestrian deaths across individual years.",
+   "probability": 0.65,
+   "answer": "Pedestrian deaths were highest in 2013 at 176, fell to a low of 101 in 2020, and stood at 119 in 2025.",
+   "interpretation": "This framing answers how many pedestrians were killed in each requested year by summing the pedestrian-fatality counts on crash rows and displaying annual totals as bars. It shows 176 deaths in 2013, a low of 101 in 2020, and 119 in 2025. Annual counts directly answer the question, but they do not measure population- or travel-adjusted risk because the data has no such denominator. The date filter leaves out rows outside 2013\u20132025, including the file's partial 2012 and 2026; across the file, 0 of 2,269,187 rows (0%) have a NULL crash_date, and within the selected period 0 of 2,132,218 rows (0%) have a NULL pedestrian-killed count, with none of the 13 included years partial.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Annual pedestrians killed (sum of number_of_pedestrians_killed)",
+   "denominator": "None; annual counts, not a rate",
+   "grouping": "Crash year (2013\u20132025)",
+   "chart_type": "Line chart",
+   "reason": "A line chart emphasizes how annual pedestrian-death counts move over time.",
+   "probability": 0.35,
+   "answer": "The annual count fell from 176 in 2013 to 119 in 2025, reaching its period low of 101 in 2020 before rising again.",
+   "interpretation": "This framing answers how many pedestrians were killed in each requested year by summing the pedestrian-fatality counts on crash rows and connecting the annual totals over time. It shows a fall from 176 in 2013 to 101 in 2020, followed by a rebound and 119 deaths in 2025. A line chart is defensible for emphasizing the sequence and changes between years, but the counts do not measure population- or travel-adjusted risk because the data has no such denominator. The date filter leaves out rows outside 2013\u20132025, including the file's partial 2012 and 2026; across the file, 0 of 2,269,187 rows (0%) have a NULL crash_date, and within the selected period 0 of 2,132,218 rows (0%) have a NULL pedestrian-killed count, with none of the 13 included years partial.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "The bar chart shows pedestrian deaths by year: 2013\u2014176, 2014\u2014133, 2015\u2014133, 2016\u2014149, 2017\u2014127, 2018\u2014123, 2019\u2014131, 2020\u2014101, 2021\u2014132, 2022\u2014135, 2023\u2014107, 2024\u2014124, and 2025\u2014119.\nThe line chart shows the same annual counts over time: 2013\u2014176, 2014\u2014133, 2015\u2014133, 2016\u2014149, 2017\u2014127, 2018\u2014123, 2019\u2014131, 2020\u2014101, 2021\u2014132, 2022\u2014135, 2023\u2014107, 2024\u2014124, and 2025\u2014119.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "python_prefix": "/Users/yubo/.poppy/venv",
+  "python_executable": "/Users/yubo/Downloads/Anaconda/anaconda3/bin/python3.13",
+  "git_commit": "61c72b4",
+  "prompt_sha": {
+   "D_enumerate.v2-cov.md": "c4c3d343c9a2c283"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "profile": null,
+ "rendered_prompt_sha": "98424da59b490fc5",
+ "step_cap": 35,
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

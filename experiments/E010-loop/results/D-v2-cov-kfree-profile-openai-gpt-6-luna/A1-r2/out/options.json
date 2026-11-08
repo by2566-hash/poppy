@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual pedestrian casualties (pedestrians injured plus pedestrians killed)",
+      "denominator": "None; annual count",
+      "grouping": "Crash year for Brooklyn crashes, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "A combined casualty count directly summarizes the annual burden of pedestrian harm for a local audience.",
+      "probability": 0.65,
+      "answer": "Brooklyn's recorded pedestrian casualties fell from 3,671 in 2013 to 2,874 in 2025 (21.7% lower), despite pedestrian deaths rising from 30 to 39.",
+      "interpretation": "This framing answers whether the annual count of pedestrians injured or killed in Brooklyn crashes is lower than in 2013. The chart shows casualties declined from 3,671 in 2013 to 2,874 in 2025, with a pronounced low in 2020 followed by increases through 2025. A count is a defensible measure of observed harm, but it does not adjust for how many people walked or measure risk per pedestrian trip. The Brooklyn filter omits other boroughs; borough is NULL for 659,713 of 2,132,218 rows (30.9%) in 2013–2025 and pedestrian count fields are complete, and only full years 2013–2025 are used (2012 and partial 2026 are excluded)."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of pedestrians killed",
+      "denominator": "None; annual count",
+      "grouping": "Crash year for Brooklyn crashes, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "A fatality-only measure isolates the most severe pedestrian outcome, which may be obscured by the larger injury count.",
+      "probability": 0.35,
+      "answer": "Brooklyn pedestrian deaths increased from 30 in 2013 to 39 in 2025 (30%), so fatalities alone show no improvement.",
+      "interpretation": "This framing answers whether the annual number of pedestrians killed in Brooklyn crashes has fallen since 2013. The chart shows deaths rose from 30 in 2013 to 39 in 2025, despite substantial year-to-year fluctuation. Fatalities are a defensible severity-focused measure, but the small counts fluctuate and do not measure pedestrian exposure or risk per trip. The Brooklyn filter omits other boroughs; borough is NULL for 659,713 of 2,132,218 rows (30.9%) in 2013–2025 and pedestrian count fields are complete, and only full years 2013–2025 are used (2012 and partial 2026 are excluded)."
+    }
+  ]
+}

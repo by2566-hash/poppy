@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Police-reported crash frequency",
+      "denominator": "Observed clock-hours in each equal-length 12-hour period",
+      "grouping": "Day (7 a.m.\u20136:59 p.m.) vs night (7 p.m.\u20136:59 a.m.)",
+      "chart_type": "Two-bar comparison",
+      "reason": "A per-hour comparison makes crash frequency comparable between the equal-length day and night windows and directly shows when crashes are recorded more often.",
+      "probability": 0.55,
+      "answer": "NYC recorded 25.5 police-reported crashes per clock-hour by day versus 12.0 at night in 2013\u20132025, so reported crash frequency was higher by day.",
+      "interpretation": "This addresses whether police-reported crashes occur more frequently at night by comparing the mean count per clock-hour, with equal 12-hour day and night windows. The chart shows the per-hour crash frequency in each window, a defensible count-based proxy for danger when no traffic-exposure measure is available. It does not answer whether an individual trip or road user faces greater risk, because the file has no traffic volume, travel distance, or road-user exposure; it also does not compare injury severity. Rows excluded are all rows from the partial coverage years 2012 (100,545 rows, 4.43% of the file) and 2026 (36,424 rows, 1.61% of the file); no rows are excluded for missing crash date/time."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes involving injury or death",
+      "denominator": "Crashes with nonmissing persons-injured and persons-killed counts, within each period",
+      "grouping": "Day (7 a.m.\u20136:59 p.m.) vs night (7 p.m.\u20136:59 a.m.)",
+      "chart_type": "Two-bar percentage comparison",
+      "reason": "Comparing the fraction of crashes that harm someone distinguishes crash severity from the number of crashes occurring in each period.",
+      "probability": 0.45,
+      "answer": "Among crashes with known injury and death counts, 28.22% at night involved an injured or killed person, versus 22.99% by day, a higher share at night.",
+      "interpretation": "This addresses whether a reported crash is more likely to involve harm at night by comparing injury-or-fatality crashes as a share of crashes with complete severity counts. The chart shows the observed harm-involvement share for each period, a defensible severity measure independent of the total number of crashes. It does not establish per-trip danger or compare the number of people harmed per crash, and it is not adjusted for traffic exposure. Rows excluded are all rows from the partial coverage years 2012 (100,545 rows, 4.43% of the file) and 2026 (36,424 rows, 1.61% of the file), plus 42 complete-year crash rows (0.0020% of complete-year rows) with a NULL injury or death count; no rows are excluded for missing crash date/time."
+    }
+  ]
+}

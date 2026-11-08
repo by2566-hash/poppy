@@ -1,0 +1,4 @@
+The file covers complete calendar years through 2025, then only part of 2026. Brooklyn pedestrian injury counts fell between 2013 and 2025, while pedestrian deaths rose; I’m charting those separately so the two severity measures don’t mask each other. These are victim counts, not risk rates, since the file has no measure of how much people walked.
+ANSWER:
+1. Annual pedestrian injuries fell 22.1%, from 3,641 in 2013 to 2,835 in 2025, but rebounded from a 2020 low of 1,781; these are raw counts, not risk per walking trip ([chart](out/option_1.png), [values](out/values_1.csv)).
+2. Annual pedestrian deaths rose 30%, from 30 in 2013 to 39 in 2025, with substantial year-to-year fluctuation; these are raw counts, not risk per walking trip ([chart](out/option_2.png), [values](out/values_2.csv)).

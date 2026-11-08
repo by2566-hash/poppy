@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crashes",
+      "denominator": "None; raw count of crash rows",
+      "grouping": "Weekday, pooled across 2013–2025",
+      "chart_type": "Vertical bar chart",
+      "reason": "Raw totals directly describe how the observed crashes are distributed across the weekdays over the requested period.",
+      "probability": 0.7,
+      "answer": "Friday had the most crashes (338,800; 15.89% of the period total) and Sunday the fewest (257,544; 12.08%).",
+      "interpretation": "This pooled bar chart answers how many recorded crashes fell on each weekday across 2013–2025, with Friday highest and Sunday lowest. Raw counts are a direct and readily interpretable summary of the requested period's crash distribution. It does not show whether the weekday mix changed over time or normalize for yearly changes in total crashes. The date filter leaves out 136,969 file rows (6.04%) from outside 2013–2025; no rows are omitted for a NULL crash_date (0%), and no partially covered year is included."
+    },
+    {
+      "id": 2,
+      "metric": "Share of a calendar year's crashes (%)",
+      "denominator": "All crash rows in the same calendar year",
+      "grouping": "Year and weekday",
+      "chart_type": "Heatmap",
+      "reason": "Within-year percentages show whether weekday patterns persist despite changes in the total number of crashes from year to year.",
+      "probability": 0.3,
+      "answer": "Friday had the highest crash share in every year from 2013 through 2025, ranging from 15.32% in 2023 to 16.25% in 2013.",
+      "interpretation": "This heatmap answers how each weekday's share of crashes varies by year, and it shows Friday as the largest share in all 13 years. Annual percentages are a defensible way to compare weekday composition without allowing years with more crash rows to dominate the comparison. It does not summarize the pooled number of crashes on each weekday. The date filter leaves out 136,969 file rows (6.04%) from outside 2013–2025; no rows are omitted for a NULL crash_date (0%), and no partially covered year is included."
+    }
+  ]
+}

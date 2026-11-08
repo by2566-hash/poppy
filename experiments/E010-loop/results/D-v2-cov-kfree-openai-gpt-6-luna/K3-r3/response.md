@@ -1,0 +1,3 @@
+The requested interval has complete yearly coverage from 2013 through 2025, and neither death-count field has NULLs. I’m comparing both the absolute annual counts and the cyclist-to-motorist ratio so the outputs show both scale and relative magnitude.
+ANSWER: Motorist deaths exceeded cyclist deaths in all 13 years; annual counts ranged from 72–139 motorist deaths and 10–31 cyclist deaths, with 81 versus 23 in 2025.
+Cyclist deaths were highest relative to motorist deaths in 2019 at 37.8% (31 versus 82), and were 28.4% (23 versus 81) in 2025.

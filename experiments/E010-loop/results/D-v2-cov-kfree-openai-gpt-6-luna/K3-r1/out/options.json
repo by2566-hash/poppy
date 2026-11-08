@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual motorist and cyclist deaths",
+      "denominator": "None; total deaths in each group",
+      "grouping": "Year and road-user group",
+      "chart_type": "Grouped bar chart",
+      "reason": "Annual counts directly answer how the number of deaths in each road-user group compares over time.",
+      "probability": 0.75,
+      "answer": "Motorist deaths were higher in every year, ranging from 72 to 139 annually versus 10 to 31 cyclist deaths; motorist deaths peaked in 2020 (139), while cyclist deaths peaked at 31 in both 2019 and 2023.",
+      "interpretation": "This framing answers the question in terms of annual death counts: motorist deaths exceeded cyclist deaths in all 13 complete years, with respective annual ranges of 72\u2013139 and 10\u201331. The grouped bars make the absolute scale and yearly peaks visible, so counts directly compare the two groups. It leaves unanswered how the balance looks relative to their combined total. No rows are left out for NULL values in the two death-count fields, and none of 2013\u20132025 is partial in this file."
+    },
+    {
+      "id": 2,
+      "metric": "Annual share of the combined motorist and cyclist death count for each group",
+      "denominator": "Motorist deaths plus cyclist deaths in the same year",
+      "grouping": "Year and road-user group",
+      "chart_type": "100% stacked bar chart",
+      "reason": "The combined-total share makes the relative balance between the two groups comparable across years regardless of their differing totals.",
+      "probability": 0.25,
+      "answer": "Cyclists accounted for 9.1% to 27.4% of motorist-plus-cyclist deaths, lowest in 2013 and highest in 2019.",
+      "interpretation": "This framing answers the question as a relative comparison: cyclists made up 9.1% to 27.4% of the combined motorist-and-cyclist death total, with the low in 2013 and high in 2019. The 100% stacked bars show how the relative shares shift year by year. It does not show absolute yearly death counts, and the denominator excludes deaths among pedestrians and any other road-user category. No rows are left out for NULL values in the two death-count fields, and none of 2013\u20132025 is partial in this file."
+    }
+  ]
+}

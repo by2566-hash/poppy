@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crashes",
+      "denominator": "No denominator; total crash records during 2013\u20132025",
+      "grouping": "Day of week",
+      "chart_type": "Horizontal bar chart",
+      "reason": "Total counts directly show how the recorded crash burden is distributed across weekdays over the requested period.",
+      "probability": 0.65,
+      "answer": "Friday had the most crashes (338,800, 15.9% of 2,132,218), while Sunday had the fewest (257,544, 12.1%).",
+      "interpretation": "This framing answers how the total number of NYC police-reported crashes from 2013 through 2025 is divided among weekdays; the chart shows Friday highest and Sunday lowest. It is defensible when the interest is total recorded crash burden, but it does not adjust for how many dates each weekday has or traffic exposure."
+    },
+    {
+      "id": 2,
+      "metric": "Average number of police-reported crashes per calendar date",
+      "denominator": "Number of calendar dates of each weekday from 2013-01-01 through 2025-12-31",
+      "grouping": "Day of week",
+      "chart_type": "Horizontal bar chart",
+      "reason": "A per-date average adjusts for the slight differences in how often each weekday occurs in the 13-year period.",
+      "probability": 0.35,
+      "answer": "Friday averaged 499.7 crashes per date, the highest, while Sunday averaged 379.9, the lowest.",
+      "interpretation": "This framing answers which weekday tends to have more recorded crashes on a typical calendar date, accounting for weekday date counts; Friday is highest and Sunday lowest on that basis. It is defensible as a normalized weekday comparison, but it does not measure risk per trip, vehicle, or mile traveled."
+    }
+  ]
+}

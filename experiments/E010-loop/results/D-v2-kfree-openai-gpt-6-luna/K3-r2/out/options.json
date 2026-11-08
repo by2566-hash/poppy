@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual deaths (sum of motorist and cyclist fatalities)",
+      "denominator": "None; raw counts of deaths",
+      "grouping": "Year and road-user type",
+      "chart_type": "Two-series line chart",
+      "reason": "Annual counts give the most direct comparison of how many motorist and cyclist deaths were recorded each year.",
+      "probability": 0.65,
+      "answer": "Motorist deaths exceeded cyclist deaths every year; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in both 2019 and 2023, and 2025 counts were 81 and 23, respectively.",
+      "interpretation": "This framing answers how the annual numbers of motorist and cyclist deaths compare and shows that the motorist count was higher in each year, with the two series varying over time. Counts are a direct, intuitive comparison of the recorded deaths; this view does not show each type's share of their combined deaths."
+    },
+    {
+      "id": 2,
+      "metric": "Annual percentage of motorist-plus-cyclist deaths by road-user type",
+      "denominator": "Motorist deaths plus cyclist deaths in the same year",
+      "grouping": "Year and road-user type",
+      "chart_type": "100% stacked column chart",
+      "reason": "A within-year share comparison highlights how the relative composition of these deaths changes even when annual totals vary.",
+      "probability": 0.35,
+      "answer": "Cyclists accounted for 9.1% of motorist-plus-cyclist deaths in 2013, reached a high of 27.4% in 2019, and made up 22.1% in 2025; motorists remained the majority in every year.",
+      "interpretation": "This framing answers how cyclist deaths compare proportionally with motorist deaths within each year, showing cyclists' share ranged from 9.1% in 2013 to 27.4% in 2019 and was 22.1% in 2025. It is defensible because it compares the two requested groups against the same annual denominator; it leaves the absolute number of deaths in each year unstated."
+    }
+  ]
+}

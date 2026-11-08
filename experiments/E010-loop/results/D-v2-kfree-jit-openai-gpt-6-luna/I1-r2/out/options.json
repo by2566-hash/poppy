@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of motorist deaths in police-reported crashes",
+      "denominator": "None; annual count",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "A direct count of motorist deaths shows the observed fatal outcome without imposing an unsupported exposure denominator.",
+      "probability": 0.45,
+      "answer": "The per-mile risk cannot be determined because miles driven are absent, but recorded motorist deaths declined from 110 in 2013 to 81 in 2025 (about 26%).",
+      "interpretation": "This framing answers whether the annual number of motorists killed declined: it did between the endpoints, despite substantial year-to-year variation. It is defensible as a direct count of fatal outcomes in the crash file, but it does not measure risk per mile because it has no travel-exposure denominator."
+    },
+    {
+      "id": 2,
+      "metric": "Crashes with at least one motorist death per 100,000 police-reported crashes",
+      "denominator": "All police-reported crashes in the same calendar year",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "Normalizing fatal-crash occurrence by all reported crashes provides a crash-based comparison when travel mileage is unavailable.",
+      "probability": 0.55,
+      "answer": "The per-mile risk cannot be determined, but motorist-fatal crashes increased from 50.1 to 87.7 per 100,000 reported crashes between 2013 and 2025 (about 75%).",
+      "interpretation": "This framing answers whether motorist-fatal crashes became more or less frequent relative to all police-reported crashes; the rate is higher at the 2025 endpoint and peaked at 118.0 per 100,000 in 2023. It is defensible as a measure of fatal-crash frequency among recorded crashes, but it leaves per-mile risk unanswered because the denominator is crashes rather than miles driven."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of reported crashes",
+      "denominator": "None (raw count)",
+      "grouping": "Weekday, pooled across 2013–2025",
+      "chart_type": "Bar chart",
+      "reason": "Raw totals directly describe how many reported crashes fell on each weekday over the requested period.",
+      "probability": 0.55,
+      "answer": "Friday had the most crashes (338,800; 15.89% of the period total), while Sunday had the fewest (257,544; 12.08%).",
+      "interpretation": "This pooled-count framing answers how many reported crashes occurred on each weekday across 2013–2025, with Friday highest and Sunday lowest. Counting crashes directly is a clear overall distribution, but this view does not adjust for weekday-date frequency or reveal year-to-year changes. The date filter selects 2013–2025; 136,969/2,269,187 file rows (6.04%) fall outside that window. Rows omitted because crash_date is NULL: none; partial years included: none."
+    },
+    {
+      "id": 2,
+      "metric": "Average number of reported crashes per calendar date",
+      "denominator": "Number of calendar dates of each weekday in 2013–2025",
+      "grouping": "Weekday, pooled across 2013–2025",
+      "chart_type": "Bar chart",
+      "reason": "Per-date averages adjust for the small difference in the number of occurrences of each weekday during the period.",
+      "probability": 0.25,
+      "answer": "Friday averaged 499.7 crashes per Friday, the highest rate, versus 379.9 per Sunday, the lowest.",
+      "interpretation": "This rate framing answers how the weekday distribution looks after accounting for the number of dates available for each weekday: Fridays averaged 499.7 crashes per date and Sundays 379.9. Dividing pooled counts by the corresponding weekday-date counts is defensible because some weekdays occurred 678 times while others occurred 679 times; this pooled average does not show year-to-year changes. The date filter selects 2013–2025; 136,969/2,269,187 file rows (6.04%) fall outside that window. Rows omitted because crash_date is NULL: none; partial years included: none."
+    },
+    {
+      "id": 3,
+      "metric": "Share of each calendar year’s reported crashes",
+      "denominator": "All reported crashes in the same year",
+      "grouping": "Weekday within year (2013–2025)",
+      "chart_type": "Multi-series line chart",
+      "reason": "Annual shares show whether the weekday mix is consistent over time without conflating it with changes in total crash volume.",
+      "probability": 0.2,
+      "answer": "Friday had the largest weekday share in every year (15.32%–16.25%), while Sunday had the smallest (11.47%–13.61%).",
+      "interpretation": "This year-by-year share framing answers how the weekday mix varied from 2013 through 2025: Friday was highest and Sunday lowest in each year, while the lines show modest annual shifts in their shares. Annual percentages make the weekday pattern comparable across years with different total crash counts, but this view does not give pooled crash totals or crashes per calendar date. The date filter selects 2013–2025; 136,969/2,269,187 file rows (6.04%) fall outside that window. Rows omitted because crash_date is NULL: none; partial years included: none."
+    }
+  ]
+}

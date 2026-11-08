@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual total pedestrians killed",
+      "denominator": "Not applicable; this is a count, not a rate.",
+      "grouping": "Calendar year of crash_date (2013–2025)",
+      "chart_type": "Bar chart",
+      "reason": "Bars make absolute year-to-year totals easy to compare.",
+      "probability": 0.58,
+      "answer": "Pedestrians killed by year were 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+      "interpretation": "This framing directly answers how many pedestrians were killed each year by summing crash-level pedestrian-fatality counts within each year. It shows Pedestrians killed by year were 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119. The bar chart is defensible for comparing absolute yearly totals, but it does not explain why counts change or provide exposure-adjusted risk. None: 0 of 2132218 rows in 2013–2025 (0.00%) were excluded because crash_date or number_of_pedestrians_killed was NULL, and every included year is fully covered."
+    },
+    {
+      "id": 2,
+      "metric": "Annual total pedestrians killed",
+      "denominator": "Not applicable; this is a count, not a rate.",
+      "grouping": "Calendar year of crash_date (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "A connected time series makes the sequence and changes over time easy to follow.",
+      "probability": 0.42,
+      "answer": "Pedestrians killed by year were 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+      "interpretation": "This framing directly answers how many pedestrians were killed each year by summing crash-level pedestrian-fatality counts within each year. It shows Pedestrians killed by year were 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119. The line chart is defensible for following the annual time trend, but it does not explain why counts change or provide exposure-adjusted risk. None: 0 of 2132218 rows in 2013–2025 (0.00%) were excluded because crash_date or number_of_pedestrians_killed was NULL, and every included year is fully covered."
+    }
+  ]
+}

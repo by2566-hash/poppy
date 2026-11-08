@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual motorist and cyclist deaths",
+      "denominator": "None; counts are summed deaths, not normalized by crashes, population, or exposure",
+      "grouping": "Calendar year and road-user type",
+      "chart_type": "Grouped bar chart",
+      "reason": "Absolute yearly totals directly show the difference in fatality counts between the two road-user groups.",
+      "probability": 0.65,
+      "answer": "Motorist deaths exceeded cyclist deaths every year; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in both 2019 and 2023.",
+      "interpretation": "This answers the yearly count comparison directly: motorist deaths were higher in every year, with a maximum of 139 in 2020 versus a cyclist maximum of 31 in both 2019 and 2023. Comparing annual totals is defensible because the question asks how many deaths each group had year by year, and both groups use the same time scale. It does not adjust for population, travel exposure, or crash volume, so it does not compare individual risk. It uses rows dated 2013–2025 and leaves out 136,969 of 2,269,187 file rows (6.04%) dated outside that range; no included year is partial, and none of the included rows has a NULL date or fatality value needed for this calculation."
+    },
+    {
+      "id": 2,
+      "metric": "Cyclist deaths as a percentage of motorist deaths",
+      "denominator": "Annual motorist deaths",
+      "grouping": "Calendar year",
+      "chart_type": "Line chart",
+      "reason": "A relative ratio makes year-to-year changes in the size of the cyclist–motorist difference easier to compare.",
+      "probability": 0.35,
+      "answer": "Cyclist deaths ranged from 10.0% of motorist deaths in 2013 to 37.8% in 2019, and were 28.4% of the motorist total in 2025.",
+      "interpretation": "This answers how close the two yearly counts are in relative terms: cyclist deaths were 10.0% of motorist deaths in 2013, rose to 37.8% in 2019, and stood at 28.4% in 2025. Using motorist deaths as the denominator puts the comparison on a relative scale and makes changes in the gap easier to compare across years. It does not show the absolute number of deaths or risk per trip, person, or crash. It uses rows dated 2013–2025 and leaves out 136,969 of 2,269,187 file rows (6.04%) dated outside that range; no included year is partial, and none of the included rows has a NULL date or fatality value needed for this calculation."
+    }
+  ]
+}

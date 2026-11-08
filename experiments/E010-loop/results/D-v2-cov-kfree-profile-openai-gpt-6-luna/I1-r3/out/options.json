@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual motorist fatalities",
+      "denominator": "None (annual count)",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Bar chart",
+      "reason": "Annual deaths directly describe the total motorist-fatality burden, even though they do not measure exposure-adjusted risk.",
+      "probability": 0.35,
+      "answer": "Per-mile risk cannot be determined from these data; the annual motorist death count fell from 110 in 2013 to 81 in 2025 (-26.4%).",
+      "interpretation": "The file has no miles-driven or vehicle-miles-traveled measure, so this chart cannot answer whether risk per mile declined; it shows the annual motorist death toll instead. Fatalities fell from 110 in 2013 to 81 in 2025, a 26.4% decrease, though the intervening years fluctuate. Annual count is a defensible burden measure, but it does not adjust for how much driving occurred or estimate an individual motorist’s risk. The comparison uses complete calendar years 2013–2025; rows omitted for NULL values needed by the calculation: none (0%), and partially covered included years: none."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist fatalities per 10,000 reported crashes",
+      "denominator": "All reported crashes in that calendar year",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "Normalizing motorist deaths by reported crashes provides a crash-exposure proxy that accounts for changes in annual crash volume.",
+      "probability": 0.65,
+      "answer": "Per-mile risk cannot be determined from these data; fatalities per 10,000 reported crashes rose from 5.40 in 2013 to 9.47 in 2025 (75.4%).",
+      "interpretation": "The file has no miles-driven or vehicle-miles-traveled measure, so fatalities per 10,000 reported crashes are only a crash-based proxy for the question about per-mile risk. This proxy rose from 5.40 in 2013 to 9.47 in 2025 (75.4%), so it does not show a decline over those endpoints, despite dropping from its 2023 high of 12.73 by 2025. This denominator adjusts for reported crash volume, but not miles driven or the number of motorists exposed. The comparison uses complete calendar years 2013–2025; rows omitted for NULL values needed by the calculation: none (0%), and partially covered included years: none."
+    }
+  ]
+}

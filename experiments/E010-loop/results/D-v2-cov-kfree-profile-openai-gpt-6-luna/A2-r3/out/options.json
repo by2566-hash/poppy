@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Police-reported crash count",
+      "denominator": "None; raw counts of crash records",
+      "grouping": "Night 18:00\u201305:59 vs day 06:00\u201317:59; complete calendar years 2013\u20132025",
+      "chart_type": "Two-bar count chart",
+      "reason": "A newsroom may need the absolute number of reported collisions in equal-length clock windows to describe when crash burden occurs.",
+      "probability": 0.22,
+      "answer": "Among complete years 2013\u20132025, police reports logged 763,838 crashes at night versus 1,368,380 by day, so recorded crashes were more numerous by day; these counts do not establish per-trip danger.",
+      "interpretation": "This framing answers whether more reported crashes occur during nighttime than daytime hours: it counts crashes in equal 12-hour clock windows and shows 763,838 at night versus 1,368,380 by day. A count comparison is a defensible measure of observed crash burden across those equal-length windows, but it does not establish higher per-traveler risk. It leaves unanswered whether a crash is more likely to injure or kill someone, and whether exposure to traffic differs by time. It excludes all 2012 and 2026 records (136,969 rows, 6.04% of the file) to compare complete calendar years 2013\u20132025; no rows are excluded for missing crash time."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes involving at least one injured or killed person",
+      "denominator": "Crashes with non-NULL values for both number_of_persons_injured and number_of_persons_killed",
+      "grouping": "Night 18:00\u201305:59 vs day 06:00\u201317:59; complete calendar years 2013\u20132025",
+      "chart_type": "Two-bar percentage chart",
+      "reason": "A newsroom may prefer the share of crashes with reported harm, which compares collision severity without treating every crash as equally consequential.",
+      "probability": 0.53,
+      "answer": "28.05% of nighttime crashes involved an injury or death versus 22.77% of daytime crashes (1.23 times the daytime share), although this is severity conditional on a reported crash rather than per-trip risk.",
+      "interpretation": "This framing answers whether a reported crash was more likely to involve injury or death at night: the share is 28.05% at night and 22.77% by day. This binary crash-level outcome is a defensible, easily interpreted measure of reported harm conditional on a crash. It leaves unanswered the risk per trip or mile, because the file contains no traffic-exposure denominator. It excludes all 2012 and 2026 records (136,969 rows, 6.04% of the file) for complete-year comparison, plus 29 daytime rows (0.0021%) and 13 nighttime rows (0.0017%) in 2013\u20132025 because at least one required injury/death field is NULL."
+    },
+    {
+      "id": 3,
+      "metric": "Share of crashes with at least one person killed",
+      "denominator": "Crashes with non-NULL number_of_persons_killed",
+      "grouping": "Night 18:00\u201305:59 vs day 06:00\u201317:59; complete calendar years 2013\u20132025",
+      "chart_type": "Two-bar percentage chart",
+      "reason": "A separate fatal-crash share isolates the most consequential outcome and shows whether nighttime collisions are disproportionately fatal.",
+      "probability": 0.25,
+      "answer": "Fatal crashes made up 0.245% of nighttime crashes (1,869/763,826) versus 0.102% by day (1,402/1,368,356), about 2.39 times the daytime share; this is not per-trip risk.",
+      "interpretation": "This framing answers whether a reported crash was more likely to be fatal at night: fatal crashes were 0.245% of nighttime crashes and 0.102% of daytime crashes. Fatality share is a defensible severity indicator focused on the most consequential crash outcome. It leaves unanswered the chance of being killed per trip or mile, since the file has no traffic-exposure denominator. It excludes all 2012 and 2026 records (136,969 rows, 6.04% of the file) for complete-year comparison, plus 24 daytime rows (0.0018%) and 12 nighttime rows (0.0016%) in 2013\u20132025 because number_of_persons_killed is NULL."
+    }
+  ]
+}

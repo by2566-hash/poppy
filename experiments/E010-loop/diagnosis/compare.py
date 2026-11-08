@@ -22,6 +22,19 @@ for d in map(Path, sys.argv[1:]):
     se2 = sum(bool(s.verdict(r, "unsupported_claim") == "FAIL" or any(k.startswith("tr_") and s.verdict(r, k) == "FAIL" for k in s.ALL_ITEMS)) for r in rows)
     c["SENSITIVITY traps+UC only (no provenance)"] = f"{se2} ({100 * se2 / len(rows):.0f}%)"
     c["unsourced numbers"] = f"{sum(bool(r['unsourced_numbers']) for r in rows)}/{len(rows)}"
+    # SENSITIVITY B: provenance also accepts the option's check file (C5 writes out/check_<id>.csv); scorer unchanged
+    se3 = 0
+    for r in rows:
+        run = d / f"{r['q']}-r{r['rep']}"
+        opts = {str(o["id"]): o for o in json.loads((run / "out" / "options.json").read_text())["options"]}
+        o = opts.get(str(r["option"]), {})
+        text = " ".join(str(o.get(f, "")) for f in ("answer", "interpretation") if o.get(f))
+        chk = run / "out" / f"check_{r['option']}.csv"
+        files = [run / "out" / f"values_{r['option']}.csv"] + ([chk] if chk.exists() else [])
+        uns = s.provenance(text, files)[1] if chk.exists() else r["unsourced_numbers"]
+        traps = any(k.startswith("tr_") and s.verdict(r, k) == "FAIL" for k in s.ALL_ITEMS)
+        se3 += bool(r.get("h_gold") == "wrong" or uns or s.verdict(r, "unsupported_claim") == "FAIL" or traps)
+    c["SENSITIVITY provenance accepts check file"] = f"{se3} ({100 * se3 / len(rows):.0f}%)"
     for t in TRAPS:
         app = [r for r in rows if s.verdict(r, t) in ("PASS", "FAIL")]
         c[t] = f"{sum(s.verdict(r, t) == 'FAIL' for r in app)}/{len(app)}"

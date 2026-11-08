@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Crash count",
+      "denominator": "None (raw total); share_pct is the share of all selected crash rows",
+      "grouping": "Weekday of crash_date",
+      "chart_type": "Bar chart",
+      "reason": "Raw totals directly show how the recorded crashes are distributed across weekdays over the full period.",
+      "probability": 0.58,
+      "answer": "Friday had the most crashes (338,800, 15.89% of the total), while Sunday had the fewest (257,544).",
+      "interpretation": "This framing answers how the total number of recorded crashes is distributed across weekdays: Friday is highest and Sunday lowest, with bar heights giving each weekday total. Raw totals are a direct interpretation of distribution over the specified period, and the CSV also reports each weekday share of the selected total. It does not adjust for the number of occurrences of each weekday and does not show crash severity or risk per trip. Rows left out for a NULL required crash date: none (0 of 2,132,218 selected rows, 0.00%); partial-year share left out: none, since 2013\u20132025 are complete years in the selected interval."
+    },
+    {
+      "id": 2,
+      "metric": "Mean crash count per calendar date",
+      "denominator": "Number of calendar dates of each weekday from 2013-01-01 through 2025-12-31, including dates with zero reported crashes",
+      "grouping": "Weekday of calendar date",
+      "chart_type": "Bar chart",
+      "reason": "A per-date average controls for the small differences in how often each weekday occurs in the period.",
+      "probability": 0.42,
+      "answer": "Friday averaged 499.71 crashes per calendar date, the highest weekday average, versus Sunday at 379.86, the lowest.",
+      "interpretation": "This framing answers the typical number of recorded crashes on a date of each weekday; Friday has the highest average and Sunday the lowest. Dividing each weekday total by all calendar dates of that weekday accounts for weekday exposure, including dates with no crash rows. It leaves unanswered the total contribution of each weekday to all crashes and does not measure per-person or per-trip risk. Rows left out for a NULL required crash date: none (0 of 2,132,218 selected rows, 0.00%); partial-year share left out: none, since 2013\u20132025 are complete years in the selected interval."
+    }
+  ]
+}

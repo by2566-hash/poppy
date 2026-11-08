@@ -1,0 +1,3 @@
+The dataset contains records through all of 2025, so I can report complete calendar-year totals for 2013–2025. I’m generating two standard views of the same annual counts: bars for year-by-year comparison and a line for the trend.
+ANSWER: The bar chart shows pedestrian deaths of 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.
+The line chart shows the same annual counts, highlighting how the total changed over time: 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.

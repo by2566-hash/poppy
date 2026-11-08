@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Crash count and share of all in-range crashes",
+      "denominator": "All 2,132,218 crashes dated 2013-01-01 through 2025-12-31",
+      "grouping": "Day of week of crash_date",
+      "chart_type": "Vertical bar chart",
+      "reason": "This directly shows the weekday distribution of all crashes in the requested period.",
+      "probability": 0.65,
+      "answer": "Friday had the most crashes (338,800; 15.89% of the total), while Sunday had the fewest (257,544; 12.08%).",
+      "interpretation": "This pooled view answers how the full 2013–2025 crash total is distributed by weekday: Friday is largest (15.89%) and Sunday smallest (12.08%). It is defensible because each in-range crash contributes once and the shares use the entire 2,132,218-crash period total as their denominator. It does not show how the weekday mix varied year to year or adjust for traffic exposure. Within the requested period, no rows are omitted for NULL crash dates (0 of 2,132,218, or 0.00%), and the file has records dated from January 1 through December 31 for every in-scope year, so no partial year is included."
+    },
+    {
+      "id": 2,
+      "metric": "Mean annual share of crashes by weekday",
+      "denominator": "Each calendar year's crash total; weekday percentages are calculated within each year and then averaged equally across 2013–2025",
+      "grouping": "Day of week of crash_date, averaged across calendar years",
+      "chart_type": "Vertical bar chart",
+      "reason": "Equal weighting of years shows a typical annual weekday mix without allowing higher-volume years to dominate the result.",
+      "probability": 0.35,
+      "answer": "Averaged equally across years, Friday has the largest weekday share (15.82%) and Sunday the smallest (12.33%).",
+      "interpretation": "This view answers what the average year's weekday distribution looks like, with each year from 2013 through 2025 weighted equally; Friday averages 15.82% and Sunday 12.33%. It is defensible when the aim is to describe a typical year's mix rather than let years with more reported crashes contribute more weight. It does not show the total number of crashes across the period or the year-to-year variation behind the average. Within the requested period, no rows are omitted for NULL crash dates (0 of 2,132,218, or 0.00%), and the file has records dated from January 1 through December 31 for every in-scope year, so no partial year is included."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Pedestrian casualties (injured plus killed)",
+      "denominator": "None; annual number of pedestrian victims reported in Brooklyn crashes",
+      "grouping": "Brooklyn crash year, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "Combining injuries and deaths gives a broad count of pedestrians harmed while keeping the fatal outcome visible in the plotted data.",
+      "probability": 0.45,
+      "answer": "Brooklyn recorded 3,671 pedestrian injuries and deaths in 2013 versus 2,874 in 2025, a 21.7% decline, though the total has risen since its 2020 low.",
+      "interpretation": "This answers whether the annual number of pedestrians harmed has improved: total injuries and deaths fell 21.7% between 2013 (3,671) and 2025 (2,874), but rose from 2020's 1,798 to 2,874. It is a defensible broad severity measure because it counts both injured and killed pedestrians directly, without treating each crash as only one victim. It does not adjust for Brooklyn's walking volume or tell whether an individual pedestrian's risk changed. The analysis uses only Brooklyn records in complete years 2013\u20132025; it excludes 659,713 rows with NULL borough (30.9% of all crashes dated 2013\u20132025) and 0 Brooklyn rows with a NULL pedestrian injury/death count (0.0% of Brooklyn rows dated 2013\u20132025); 2026 is excluded as partial, with 9,700 Brooklyn rows (2.0% of Brooklyn rows from 2013 onward in the file) through June 11, 2026, while 2012 is outside the requested period."
+    },
+    {
+      "id": 2,
+      "metric": "Pedestrian fatalities",
+      "denominator": "None; annual number of pedestrian deaths reported in Brooklyn crashes",
+      "grouping": "Brooklyn crash year, 2013\u20132025",
+      "chart_type": "Bar chart",
+      "reason": "Deaths are the clearest severe outcome for a local-news account of pedestrian safety, independent of injury reporting severity.",
+      "probability": 0.3,
+      "answer": "Brooklyn pedestrian deaths rose from 30 in 2013 to 39 in 2025 (+30.0%), so this severe-outcome measure did not improve.",
+      "interpretation": "This answers the question using the most severe outcome: reported pedestrian deaths rose from 30 in 2013 to 39 in 2025 (+30.0%), despite annual variation. Fatality counts are a defensible measure of the worst harm and are not obscured by changes in the number of minor injuries. It leaves out nonfatal injuries and cannot measure per-walker risk or explain why fatalities changed. The analysis uses only Brooklyn records in complete years 2013\u20132025; it excludes 659,713 rows with NULL borough (30.9% of all crashes dated 2013\u20132025) and 0 Brooklyn rows with a NULL pedestrian injury/death count (0.0% of Brooklyn rows dated 2013\u20132025); 2026 is excluded as partial, with 9,700 Brooklyn rows (2.0% of Brooklyn rows from 2013 onward in the file) through June 11, 2026, while 2012 is outside the requested period."
+    },
+    {
+      "id": 3,
+      "metric": "Brooklyn crashes with at least one pedestrian injured or killed per 10,000 Brooklyn crashes",
+      "denominator": "All reported Brooklyn motor-vehicle crashes in the same year",
+      "grouping": "Brooklyn crash year, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "Normalizing pedestrian-casualty crashes by all Brooklyn crashes distinguishes their share of reported crash activity from the raw annual victim total.",
+      "probability": 0.25,
+      "answer": "Pedestrian-casualty crashes increased from 744 to 1138 per 10,000 Brooklyn crashes between 2013 and 2025 (+53.0%), indicating a worse share-based measure.",
+      "interpretation": "This answers whether pedestrian-casualty crashes form a larger or smaller share of reported Brooklyn crashes: the rate went from 744 per 10,000 in 2013 to 1138 in 2025 (+53.0%). It is defensible as a within-dataset comparison of pedestrian-harm crashes against the volume of all reported crashes, but is not a measure of pedestrian exposure or risk per trip. It does not show how many victims were harmed in each crash, and the denominator's changes can affect the rate. The analysis uses only Brooklyn records in complete years 2013\u20132025; it excludes 659,713 rows with NULL borough (30.9% of all crashes dated 2013\u20132025) and 0 Brooklyn rows with a NULL pedestrian injury/death count (0.0% of Brooklyn rows dated 2013\u20132025); 2026 is excluded as partial, with 9,700 Brooklyn rows (2.0% of Brooklyn rows from 2013 onward in the file) through June 11, 2026, while 2012 is outside the requested period."
+    }
+  ]
+}

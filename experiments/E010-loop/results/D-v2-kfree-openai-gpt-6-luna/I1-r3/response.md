@@ -1,0 +1,5 @@
+The data can show annual motorist deaths and crash-based proxies, but it has no vehicle-miles-traveled measure, so it cannot directly establish risk per mile. The 2013 and 2025 records each cover a full calendar year; I’m comparing both the death counts and two distinct crash-based measures.
+ANSWER:
+1. This data cannot determine risk per mile; recorded motorist deaths fell from 110 in 2013 to 81 in 2025 ([chart](out/option_1.png), [values](out/values_1.csv)).
+2. This data cannot determine risk per mile; motorist deaths per 1,000 reported crashes rose from 0.54 to 0.95 ([chart](out/option_2.png), [values](out/values_2.csv)).
+3. This data cannot determine risk per mile; the share of reported crashes involving at least one motorist death rose from 0.050% to 0.088% ([chart](out/option_3.png), [values](out/values_3.csv)).

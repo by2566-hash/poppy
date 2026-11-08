@@ -64,3 +64,30 @@ Scripts: `diagnosis/trace_stats.py` (per-run behaviour from the event traces), `
 | C2 `D-v2-cov-profile` | C1 + profile | once there is a slot, does the profile add anything? (C2 vs C1; C2 vs E010-1 isolates the prompt) |
 | C3 `D-v2-jit` | D v2 prompt; harness prints NULL / partial-period notes next to the agent's own DuckDB query output | does timing + column link suffice without a slot? |
 | C4 `D-v2-cov-jit` | C1 + C3 | both |
+
+### Candidate results C1–C4 (2026-11-08, same day as the baseline; 18 runs each; g8 two Luna passes)
+
+Same environment for every arm (OpenCode loads the `architecture-scout` skill, H6), so the arms are comparable with each other and with the same-day baseline, not with F1. Agreement of the two Luna passes: baseline 0.984, E010-1 0.987, C1 0.965, C2 0.980, C3 0.988, C4 0.967 (longer interpretations, more judgement).
+
+| item | baseline (D v2) | E010-1 profile | C1 cov | C2 cov+profile | C3 jit | C4 cov+jit |
+|---|---|---|---|---|---|---|
+| options | 43 | 38 | 41 | 38 | 42 | 44 |
+| silent-error (g8 standard) | 22 (51%) | 21 (55%) | 33 (80%) | 26 (68%) | **19 (45%)** | 35 (80%) |
+| sensitivity: traps + unsupported claim only | 21 (49%) | 19 (50%) | 12 (29%) | **9 (24%)** | 18 (43%) | 13 (30%) |
+| options with unsourced numbers | 1 | 2 | 30 | 23 | 1 | 33 |
+| TR05 (target) | 7/7 | 8/8 | 1/8 | 3/7 | 3/8 | **0/8** |
+| TR08 (target) | 6/7 | 3/5 | 1/5 | 1/5 | 4/6 | 1/6 |
+| TR07 | 4/5 | 3/4 | 1/6 | 0/4 | 3/6 | 3/5 |
+| TR01 (control, named by no arm) | 4/4 | 4/4 | 7/7 | 4/4 | 3/3 | 6/6 |
+| TR15 (control) | 4/4 | 3/3 | 3/4 | 3/4 | 3/3 | 3/3 |
+| PERMILE | 1/4 | 3/3 | 3/4 | 2/3 | 0/3 | 0/5 |
+| unsupported claim | 5 | 8 | 4 | 2 | 5 | 3 |
+| NULL-inspecting queries per run | 0.7 | 0.1 | 3.4 | 2.3 | 1.6 | 3.6 |
+| options stating rows left out | 2/43 | 2/38 | 41/41 | 38/38 | 5/42 | 44/44 |
+
+**Reading.**
+1. The action hook is the cause. The slot alone (C1, no profile) takes TR05 from 7/7 to 1/8 and TR08 from 6/7 to 1/5. The profile alone (E010-1) moves neither. Before today TR05 had failed on every option ever scored (D v1, F1, F2: 35/35 + 9/9; baseline 7/7).
+2. Once the slot exists the profile adds nothing measurable: C2 vs C1, TR05 3/7 vs 1/8, traps + UC 24% vs 29%, within noise.
+3. Just-in-time notes alone (C3, no prompt change) move TR05 to 3/8 and restore the agent's own NULL checks (1.6 per run). They are the only arm that lowers g8 silent-error, because they add no new numbers to the text. C3 passes are disclosures in the agent's own words ("borough-missing crashes are excluded"); r3 wrote "Brooklyn crashes with borough recorded" and failed (borderline, for review).
+4. The effect is specific: the controls TR01 and TR15 do not move in any arm. Per-crash rates across 2020 (TR01) and small-number claims (TR15) need something else (the plan step, C5).
+5. **Measurement conflict.** The slot makes the agent write coverage numbers (rows, NULL shares). The g8 provenance check only accepts numbers found in `values_<id>.csv`, so these numbers count as unsourced and drive g8 silent-error to 68–80%. They are true: A1 "659,713 of 2,132,218 rows with NULL borough (30.9%)" in C1 and C4 matches DuckDB exactly; C2's 136,969 / 6.04% / 49.73% / 55.62% match too. This is a gap in the standard (no source for coverage facts), not hallucination. Resolution is Bo's: let a check file be a source (C5 writes `out/check_<id>.csv`), and/or verify coverage numbers directly against the data.

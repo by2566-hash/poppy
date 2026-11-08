@@ -1,0 +1,3 @@
+period,crashes,exposure_hours,crashes_per_clock_hour
+Night (20:00–05:59),524719,47480,11.05136900
+Day (06:00–19:59),1607499,66472,24.18309965

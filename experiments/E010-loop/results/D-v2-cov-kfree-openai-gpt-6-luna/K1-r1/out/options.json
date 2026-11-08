@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual pedestrians killed (sum of number_of_pedestrians_killed)",
+      "denominator": "None; annual counts, not a rate",
+      "grouping": "Crash year (2013–2025)",
+      "chart_type": "Bar chart",
+      "reason": "Bars make it straightforward to compare the number of pedestrian deaths across individual years.",
+      "probability": 0.65,
+      "answer": "Pedestrian deaths were highest in 2013 at 176, fell to a low of 101 in 2020, and stood at 119 in 2025.",
+      "interpretation": "This framing answers how many pedestrians were killed in each requested year by summing the pedestrian-fatality counts on crash rows and displaying annual totals as bars. It shows 176 deaths in 2013, a low of 101 in 2020, and 119 in 2025. Annual counts directly answer the question, but they do not measure population- or travel-adjusted risk because the data has no such denominator. The date filter leaves out rows outside 2013–2025, including the file's partial 2012 and 2026; across the file, 0 of 2,269,187 rows (0%) have a NULL crash_date, and within the selected period 0 of 2,132,218 rows (0%) have a NULL pedestrian-killed count, with none of the 13 included years partial."
+    },
+    {
+      "id": 2,
+      "metric": "Annual pedestrians killed (sum of number_of_pedestrians_killed)",
+      "denominator": "None; annual counts, not a rate",
+      "grouping": "Crash year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "A line chart emphasizes how annual pedestrian-death counts move over time.",
+      "probability": 0.35,
+      "answer": "The annual count fell from 176 in 2013 to 119 in 2025, reaching its period low of 101 in 2020 before rising again.",
+      "interpretation": "This framing answers how many pedestrians were killed in each requested year by summing the pedestrian-fatality counts on crash rows and connecting the annual totals over time. It shows a fall from 176 in 2013 to 101 in 2020, followed by a rebound and 119 deaths in 2025. A line chart is defensible for emphasizing the sequence and changes between years, but the counts do not measure population- or travel-adjusted risk because the data has no such denominator. The date filter leaves out rows outside 2013–2025, including the file's partial 2012 and 2026; across the file, 0 of 2,269,187 rows (0%) have a NULL crash_date, and within the selected period 0 of 2,132,218 rows (0%) have a NULL pedestrian-killed count, with none of the 13 included years partial."
+    }
+  ]
+}

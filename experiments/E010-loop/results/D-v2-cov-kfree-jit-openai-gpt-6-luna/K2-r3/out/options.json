@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Total police-reported crashes",
+      "denominator": "No denominator; counts are summed over 2013–2025",
+      "grouping": "Day of week (Sunday through Saturday)",
+      "chart_type": "Bar chart",
+      "reason": "Raw counts directly show the volume of crashes attributed to each weekday across the requested period.",
+      "probability": 0.4,
+      "answer": "Friday had the most reported crashes (338,800), while Sunday had the fewest (257,544).",
+      "interpretation": "This framing answers the question in terms of total crash volume by weekday and shows Friday at 338,800 crashes and Sunday at 257,544. It is defensible because it directly compares how many reported crashes occurred on each weekday over the full requested period. It leaves unanswered whether the aggregate pattern holds year by year or varies by season. Rows outside 2013–2025 (2012 and 2026) are excluded, representing 6.04% of all file rows; no in-period row has a NULL crash date (0.00% left out for a missing required value), and no included year is partial."
+    },
+    {
+      "id": 2,
+      "metric": "Share of period crashes",
+      "denominator": "All police-reported crashes dated 2013–2025",
+      "grouping": "Day of week (Sunday through Saturday)",
+      "chart_type": "Bar chart",
+      "reason": "A percentage distribution makes each weekday's contribution to all crashes in the requested period easy to compare.",
+      "probability": 0.3,
+      "answer": "Friday accounted for the largest share of crashes (15.89%), and Sunday the smallest (12.08%).",
+      "interpretation": "This framing answers how the period's crashes are apportioned across weekdays and shows Friday at 15.89% and Sunday at 12.08%. It is defensible because the common denominator expresses each weekday as a share of all crashes in 2013–2025. It leaves unanswered whether the aggregate share pattern holds year by year or varies by season. Rows outside 2013–2025 (2012 and 2026) are excluded, representing 6.04% of all file rows; no in-period row has a NULL crash date (0.00% left out for a missing required value), and no included year is partial."
+    },
+    {
+      "id": 3,
+      "metric": "Mean police-reported crashes per calendar date",
+      "denominator": "All calendar dates of the corresponding weekday in 2013–2025 (678 or 679 dates)",
+      "grouping": "Day of week (Sunday through Saturday)",
+      "chart_type": "Bar chart",
+      "reason": "Dividing weekday totals by the number of calendar dates of that weekday gives a directly comparable average daily volume.",
+      "probability": 0.3,
+      "answer": "The average was highest on Fridays at 499.7 crashes per date and lowest on Sundays at 379.9.",
+      "interpretation": "This framing answers how many reported crashes occurred on an average calendar date of each weekday and shows 499.7 per Friday versus 379.9 per Sunday. It is defensible because it accounts for the slightly different numbers of each weekday's calendar dates in 2013–2025, including zero-crash dates if any. It leaves unanswered whether the average pattern holds year by year or varies by season. Rows outside 2013–2025 (2012 and 2026) are excluded, representing 6.04% of all file rows; no in-period row has a NULL crash date (0.00% left out for a missing required value), and no included year is partial."
+    }
+  ]
+}

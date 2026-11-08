@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual counts of pedestrians injured and pedestrians killed in police-reported crashes assigned to Brooklyn",
+      "denominator": "None; absolute counts",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Two-panel line chart",
+      "reason": "A local news reader may want to compare nonfatal and fatal pedestrian harm directly without letting the much larger injury count obscure deaths.",
+      "probability": 0.65,
+      "answer": "From 2013 to 2025, recorded pedestrian injuries fell 22.1% (3,641 to 2,835) while deaths rose 30.0% (30 to 39), so the data show mixed changes in harm but cannot establish whether risk per pedestrian improved.",
+      "interpretation": "This framing answers how the annual human toll changed: injuries were lower in 2025 than 2013, but deaths were higher, with both series fluctuating over time. Separate panels keep these distinct outcomes legible, making this a direct measure of reported harm. It does not show harm per walking trip or the causes of the trend, and crashes with an unreported borough are not included."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of police-reported crashes assigned to Brooklyn with at least one pedestrian injured or killed",
+      "denominator": "None; absolute crash-event counts",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "A local news reader may choose crash-event frequency to show how often a reported crash harmed at least one pedestrian, regardless of the number of people harmed in each event.",
+      "probability": 0.35,
+      "answer": "Crashes involving pedestrian injury or death fell 20.9% from 3,498 in 2013 to 2,766 in 2025, but rose each year after 2020; without pedestrian exposure data, this does not establish that individual pedestrian risk improved.",
+      "interpretation": "This framing answers whether the frequency of reported crashes that harmed pedestrians changed: it was lower in 2025 than in 2013, after a marked 2020 low and a steady rise through 2025. Counting events is defensible when the focus is how often harm incidents occur, rather than the total number of people injured or killed. It does not account for how many people walked, distinguish crashes by severity beyond the harm threshold, or capture crashes with an unreported borough."
+    }
+  ]
+}

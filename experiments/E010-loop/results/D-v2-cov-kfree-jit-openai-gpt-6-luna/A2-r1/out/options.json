@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Crash involvement in any reported injury or death",
+      "denominator": "Crashes with non-NULL values for both persons injured and persons killed",
+      "grouping": "Day (6am–7:59pm) vs night (8pm–5:59am)",
+      "chart_type": "Two-bar comparison of percentages",
+      "reason": "The share of crashes involving harm compares how often a reported collision has a human consequence in each time band.",
+      "probability": 0.4,
+      "answer": "The file cannot establish whether streets are more dangerous at night without travel exposure, but 28.5% of nighttime crashes involved injury or death versus 23.4% of daytime crashes.",
+      "interpretation": "This answers whether a reported crash was more likely to involve injury or death at night: the chart shows 28.5% at night versus 23.4% by day. This is a defensible severity comparison because the denominator is all crashes with both outcome counts observed, rather than raw counts that differ with the number of crashes. It does not measure the chance of a person being hurt per trip or per mile, since traffic and travel exposure are not in this file. It uses 2013 through 2025 (the 13 complete calendar years in the file); it excludes all 100,545 2012 rows (4.43% of the file; only July–December is present) and all 36,424 2026 rows (1.61%; only January 1–June 11 is present), together 6.04%, 42 included-year rows (0.002% of all file rows) missing an injury or death value, and no rows for NULL crash time."
+    },
+    {
+      "id": 2,
+      "metric": "Crashes with at least one person killed per 1,000 crashes",
+      "denominator": "Crashes with a non-NULL persons-killed count",
+      "grouping": "Day (6am–7:59pm) vs night (8pm–5:59am)",
+      "chart_type": "Two-bar comparison of fatal crashes per 1,000 crashes",
+      "reason": "Fatal-crash frequency isolates the most severe outcome and is less diluted by non-injury collisions than a broad harm measure.",
+      "probability": 0.35,
+      "answer": "The file cannot establish whether streets are more dangerous at night without travel exposure, but fatal crashes occurred at 2.90 per 1,000 nighttime crashes versus 1.09 per 1,000 daytime crashes (2.7 times as high at night).",
+      "interpretation": "This answers whether a reported crash was more likely to be fatal at night: the chart shows 2.90 fatal crashes per 1,000 at night and 1.09 by day. It is a defensible news measure because it focuses on the clearest severe outcome and uses crashes with known killed counts as the denominator. It does not establish fatality risk per traveler, trip, or mile, because exposure is unavailable, and it says nothing about less severe injuries. It uses 2013 through 2025 (the 13 complete calendar years in the file); it excludes all 100,545 2012 rows (4.43% of the file; only July–December is present) and all 36,424 2026 rows (1.61%; only January 1–June 11 is present), together 6.04%, 36 included-year rows (0.002% of all file rows) with NULL persons-killed counts, and no rows for NULL crash time."
+    },
+    {
+      "id": 3,
+      "metric": "Police-reported crashes per clock-hour",
+      "denominator": "Clock-hours in each time band over all observed dates (14 daytime hours or 10 nighttime hours per date)",
+      "grouping": "Day (6am–7:59pm) vs night (8pm–5:59am)",
+      "chart_type": "Two-bar comparison of crashes per clock-hour",
+      "reason": "Clock-hour normalization makes the volume comparison fairer because the daytime and nighttime bands have different durations.",
+      "probability": 0.25,
+      "answer": "The file cannot establish whether streets are more dangerous without travel exposure; it records 11.1 crashes per nighttime clock-hour versus 24.2 per daytime clock-hour.",
+      "interpretation": "This answers how many reported collisions occur in each time band after accounting for its duration: the chart shows 11.1 per nighttime clock-hour versus 24.2 by day. It is a defensible volume comparison because it accounts for the 10 nighttime versus 14 daytime hours in each date. It leaves relative danger unanswered because it is not adjusted for traffic volume, and crash severity is not distinguished. It uses 2013 through 2025 (the 13 complete calendar years in the file); it excludes all 100,545 2012 rows (4.43% of the file; only July–December is present) and all 36,424 2026 rows (1.61%; only January 1–June 11 is present), together 6.04% and no rows for NULL crash time (none in the file); no outcome field is needed."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of pedestrians injured in Brooklyn police-reported crashes",
+      "denominator": "No exposure denominator; annual count of injured pedestrians",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "A yearly count of nonfatal pedestrian injuries directly tracks a major component of road harm and makes the long-term trend easy to see.",
+      "probability": 0.4,
+      "answer": "Reported pedestrian injuries fell from 3,641 in 2013 to 2,835 in 2025 (22%), although they rose each year from 2020 onward.",
+      "interpretation": "This framing answers the nonfatal-harm part of whether safety improved: the chart shows fewer injured pedestrians in 2025 than in 2013, with a sustained increase since 2020. Injury counts directly measure recorded harm, but without pedestrian exposure or population data they cannot show risk per trip or person."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of pedestrians killed in Brooklyn police-reported crashes",
+      "denominator": "No exposure denominator; annual count of pedestrian deaths",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "Deaths are the most severe road-safety outcome and should be examined separately from nonfatal injuries.",
+      "probability": 0.35,
+      "answer": "Pedestrian deaths increased from 30 in 2013 to 39 in 2025 (30%), with substantial year-to-year fluctuation.",
+      "interpretation": "This framing answers whether the most severe pedestrian harm has declined: the chart shows 39 deaths in 2025, more than the 30 recorded in 2013. Death counts are a direct measure of fatal harm, but they do not account for pedestrian exposure and say nothing about nonfatal injuries."
+    },
+    {
+      "id": 3,
+      "metric": "Pedestrian deaths as a percentage of recorded pedestrian injuries plus deaths",
+      "denominator": "All pedestrians recorded as injured or killed in Brooklyn crashes that year",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "The fatal share among recorded casualties adds an outcome-severity comparison alongside absolute injury and death counts.",
+      "probability": 0.25,
+      "answer": "The fatality share among recorded pedestrian casualties rose from 0.82% in 2013 to 1.36% in 2025, an increase of 0.54 percentage points.",
+      "interpretation": "This framing asks whether the outcomes among recorded pedestrian casualties became less severe: the fatal share was higher in 2025 than in 2013. It compares deaths with all recorded injured or killed pedestrians, but excludes uninjured pedestrians and cannot estimate risk per trip or person."
+    }
+  ]
+}

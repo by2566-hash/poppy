@@ -1,0 +1,2 @@
+ANSWER: Motorist deaths exceeded cyclist deaths every year; the absolute gap ranged from 51 in 2019 to 115 in 2021, and in 2025 there were 81 motorist deaths versus 23 cyclist deaths.
+Motorist deaths were 2.6 times cyclist deaths in 2019 (the lowest ratio) and 10.0 times in 2013 (the highest); the 2025 ratio was 3.5.

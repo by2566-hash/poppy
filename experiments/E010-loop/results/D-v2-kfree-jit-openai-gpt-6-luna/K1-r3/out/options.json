@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of pedestrians killed in motor vehicle crashes",
+      "denominator": "None; absolute count",
+      "grouping": "Calendar year of crash (2013–2025)",
+      "chart_type": "Vertical bar chart",
+      "reason": "Bars make the exact totals for each discrete year easy to compare directly.",
+      "probability": 0.55,
+      "answer": "Pedestrians killed by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This framing answers the requested year-by-year count, with bar heights and labels showing the annual totals for 2013–2025. Bars are defensible for comparing discrete yearly counts; this view does not break totals down by borough or adjust for pedestrian exposure."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of pedestrians killed in motor vehicle crashes",
+      "denominator": "None; absolute count",
+      "grouping": "Calendar year of crash (2013–2025)",
+      "chart_type": "Line chart with annual points",
+      "reason": "A line chart makes the temporal pattern and year-to-year changes in the requested annual counts easy to follow.",
+      "probability": 0.45,
+      "answer": "Pedestrians killed by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This framing answers the requested year-by-year count, and the labeled points show annual totals while the connecting line emphasizes how they change over time. It is defensible because the years are ordered observations in a time series; it does not break totals down by borough or adjust for pedestrian exposure."
+    }
+  ]
+}

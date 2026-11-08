@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crashes",
+      "denominator": "No denominator for counts; total in-scope crashes for percentage share",
+      "grouping": "Day of week, Monday through Sunday",
+      "chart_type": "Bar chart",
+      "reason": "Total counts directly describe how the recorded crash burden is distributed across weekdays.",
+      "probability": 0.65,
+      "answer": "Friday had the most crashes (338,800; 15.89% of the total), while Sunday had the fewest (257,544; 12.08%).",
+      "interpretation": "This answers how the total number of reported crashes is distributed across weekdays, and the chart shows Friday highest and Sunday lowest. Raw totals are defensible because each row represents one crash and every requested year is complete. It does not adjust for how many dates of each weekday occur or explain why crashes differ. The filter leaves out 136,969 rows (6.04% of the file) from 2012 and partial 2026; no in-scope row has a NULL crash_date, and no included year is partial."
+    },
+    {
+      "id": 2,
+      "metric": "Average number of police-reported crashes per calendar date of that weekday",
+      "denominator": "Number of calendar dates of each weekday from 2013-01-01 through 2025-12-31",
+      "grouping": "Day of week, Monday through Sunday",
+      "chart_type": "Bar chart",
+      "reason": "Dividing by weekday-specific calendar-date counts adjusts the comparison for the small differences in weekday exposure over the full period.",
+      "probability": 0.35,
+      "answer": "Friday averaged 499.7 crashes per calendar date, the highest rate, and Sunday averaged 379.9, the lowest.",
+      "interpretation": "This answers the average crash frequency on a calendar date belonging to each weekday, and the chart shows Friday highest and Sunday lowest. It is defensible because the period contains 678 or 679 occurrences of each weekday, and the rate accounts for those small exposure differences. It does not show annual changes or explain causes of weekday differences. The filter leaves out 136,969 rows (6.04% of the file) from 2012 and partial 2026; no in-scope row has a NULL crash_date, and no included year is partial."
+    }
+  ]
+}

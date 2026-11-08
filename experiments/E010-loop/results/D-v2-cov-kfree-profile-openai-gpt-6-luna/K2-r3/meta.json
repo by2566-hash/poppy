@@ -1,0 +1,95 @@
+{
+ "q": "K2",
+ "rep": 3,
+ "label": "D-v2-cov-kfree-profile-openai-gpt-6-luna",
+ "type": "clear",
+ "base": "K2",
+ "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+ "k": 0,
+ "call_ok": true,
+ "timed_out": false,
+ "answered_no_exit": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 118.5,
+ "zero_output_retries": 0,
+ "secs_total": 118.5,
+ "steps": 15,
+ "hit_step_limit": false,
+ "tool_calls": 18,
+ "tokens": {
+  "input": 45,
+  "output": 6821,
+  "reasoning": 2909,
+  "cache_read": 197464,
+  "cache_write": 27381,
+  "total": 234620
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 2,
+ "n_complete_options": 2,
+ "n_distinct_framings": 2,
+ "n_distinct_analytic": 2,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Crash records per weekday, with share of all selected crash records shown",
+   "denominator": "All crash records dated 2013-01-01 through 2025-12-31 (2,132,218 records)",
+   "grouping": "Day of week pooled across 2013\u20132025",
+   "chart_type": "Horizontal bar chart",
+   "reason": "Pooled counts directly show the absolute volume and relative weekday mix across the full requested period.",
+   "probability": 0.65,
+   "answer": "Friday had the most crashes (338,800; 15.89% of the period total), while Sunday had the fewest (257,544; 12.08%).",
+   "interpretation": "This framing answers the overall distribution across weekdays: Friday leads with 338,800 records and Sunday has the fewest, out of 2,132,218 selected crashes. It is defensible because pooled counts measure absolute reported crash volume and their displayed shares show each weekday's portion of that total. It leaves unanswered whether the weekday mix changes from year to year, since the chart pools the years. The date filter leaves out 2012: 100,545 rows (4.43%), 2026: 36,424 rows (1.61%); neither partial year is included, and no selected rows are omitted for a NULL date or weekday.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Crash records for each weekday as a percentage of that calendar year\u2019s crash records",
+   "denominator": "All crash records in the same year, for each year from 2013 through 2025",
+   "grouping": "Year by day of week",
+   "chart_type": "Annotated heatmap",
+   "reason": "Year-specific shares make the weekday pattern comparable across years despite differences in annual crash totals.",
+   "probability": 0.35,
+   "answer": "Friday had the largest weekday share in all 13 years (15.32%\u201316.25%); Sunday had the smallest each year (11.47%\u201313.61%).",
+   "interpretation": "This framing answers how the weekday distribution looks within each year: Friday is the largest share in all 13 years (15.32%\u201316.25%), and Sunday is the smallest (11.47%\u201313.61%). It is defensible because each year's percentages use that year's total, making patterns comparable when annual crash totals differ. It leaves absolute year-to-year crash volume unanswered because the heatmap shows shares rather than counts. The date filter leaves out 2012: 100,545 rows (4.43%), 2026: 36,424 rows (1.61%); neither partial year is included, and no selected rows are omitted for a NULL date or weekday.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "From 2013\u20132025, Friday had the most crashes (338,800; 15.89% of the period total), while Sunday had the fewest (257,544; 12.08%).\nFriday had the largest weekday share in each of the 13 years (15.32%\u201316.25%), and Sunday had the smallest (11.47%\u201313.61%).",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "python_prefix": "/Users/yubo/.poppy/venv",
+  "python_executable": "/Users/yubo/Downloads/Anaconda/anaconda3/bin/python3.13",
+  "git_commit": "18cba5c",
+  "prompt_sha": {
+   "D_enumerate.v2-cov.md": "c4c3d343c9a2c283"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "profile": {
+  "file": "experiments/E010-loop/profile.md",
+  "sha": "0596d2a7bf974a11"
+ },
+ "rendered_prompt_sha": "33e3cbe28df8e163",
+ "step_cap": 35,
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

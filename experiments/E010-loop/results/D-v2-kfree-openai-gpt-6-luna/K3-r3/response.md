@@ -1,0 +1,4 @@
+The data includes complete calendar years 2013–2025. I’ll use three defensible views of the comparison: annual death counts, cyclist deaths per 100 motorist deaths, and the annual count gap.
+ANSWER: Motorist deaths exceeded cyclist deaths every year, from 110 versus 11 in 2013 to 81 versus 23 in 2025; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in 2019 and 2023.
+Cyclist deaths ranged from 10.0 per 100 motorist deaths in 2013 to 37.8 in 2019, and were 28.4 per 100 in 2025.
+The motorist–cyclist death gap ranged from 51 deaths in 2019 to 115 in 2021, and was 58 in 2025.

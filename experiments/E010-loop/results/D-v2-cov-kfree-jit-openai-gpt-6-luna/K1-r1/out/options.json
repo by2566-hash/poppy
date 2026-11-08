@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "sum of pedestrians killed",
+      "denominator": "none (annual count, not a rate)",
+      "grouping": "crash year, 2013\u20132025",
+      "chart_type": "bar chart",
+      "reason": "Bars make the exact annual totals easy to compare across years.",
+      "probability": 0.55,
+      "answer": "The annual pedestrian death counts were 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+      "interpretation": "This bar chart answers how many pedestrians were killed in each requested year by summing the crash-level pedestrian-fatality counts; it shows annual totals from 2013 through 2025. It is a defensible framing because the requested quantity is a yearly count, and the plotted values are the direct annual sums. It does not show where or why those deaths occurred. It excludes 100545 rows dated before 2013 (4.43% of all file rows, all in the partial 2012 coverage), 36424 rows dated in 2026 (1.61% of all file rows, 2026 is covered only through 2026-06-11), and no rows for NULL crash dates or NULL pedestrian-fatality counts."
+    },
+    {
+      "id": 2,
+      "metric": "sum of pedestrians killed",
+      "denominator": "none (annual count, not a rate)",
+      "grouping": "crash year, 2013\u20132025",
+      "chart_type": "line chart",
+      "reason": "A line emphasizes the year-to-year pattern across this ordered time series.",
+      "probability": 0.45,
+      "answer": "The yearly series records 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119, with the highest count in 2013 and the lowest in 2020.",
+      "interpretation": "This line chart answers how many pedestrians were killed in each requested year by summing the crash-level pedestrian-fatality counts; it shows annual totals from 2013 through 2025. It is a defensible framing because the requested quantity is a yearly count, and the plotted values are the direct annual sums. It does not show where or why those deaths occurred. It excludes 100545 rows dated before 2013 (4.43% of all file rows, all in the partial 2012 coverage), 36424 rows dated in 2026 (1.61% of all file rows, 2026 is covered only through 2026-06-11), and no rows for NULL crash dates or NULL pedestrian-fatality counts."
+    }
+  ]
+}

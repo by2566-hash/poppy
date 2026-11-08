@@ -1,0 +1,4 @@
+The file has complete annual coverage for 2013–2025 and includes motorist deaths and crash counts, but no miles-driven exposure. I’ll chart three supportable alternatives: annual deaths, deaths per reported crash, and the share of crashes with a motorist death; none can establish per-mile risk.
+ANSWER: The data cannot establish whether per-mile risk fell, but recorded motorist deaths declined from 110 in 2013 to 81 in 2025 (26.4%).
+The data cannot establish per-mile risk, and motorist deaths per 1,000 crash records rose from 0.540 in 2013 to 0.947 in 2025 (75.4%).
+The data cannot establish per-mile risk, and the share of crash records with a motorist killed increased from 0.050% in 2013 to 0.088% in 2025.

@@ -1,0 +1,92 @@
+{
+ "q": "K1",
+ "rep": 2,
+ "label": "D-v2-cov-kfree-openai-gpt-6-luna",
+ "type": "clear",
+ "base": "K1",
+ "question": "How many pedestrians were killed in NYC motor vehicle crashes each year from 2013 to 2025?",
+ "k": 0,
+ "call_ok": true,
+ "timed_out": false,
+ "answered_no_exit": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 126.5,
+ "zero_output_retries": 0,
+ "secs_total": 126.5,
+ "steps": 17,
+ "hit_step_limit": false,
+ "tool_calls": 23,
+ "tokens": {
+  "input": 51,
+  "output": 6890,
+  "reasoning": 4108,
+  "cache_read": 215611,
+  "cache_write": 25864,
+  "total": 252524
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 2,
+ "n_complete_options": 2,
+ "n_distinct_framings": 2,
+ "n_distinct_analytic": 1,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Sum of pedestrians killed per calendar year",
+   "denominator": "Not applicable; absolute count of people",
+   "grouping": "Calendar year (2013\u20132025)",
+   "chart_type": "Vertical bar chart",
+   "reason": "A bar chart makes it easy to compare the separate annual totals requested.",
+   "probability": 0.5,
+   "answer": "Pedestrians killed by year were 2013: 176, 2014: 133, 2015: 133, 2016: 149, 2017: 127, 2018: 123, 2019: 131, 2020: 101, 2021: 132, 2022: 135, 2023: 107, 2024: 124, and 2025: 119.",
+   "interpretation": "Bars answer the requested question with annual numbers of pedestrians killed: 2013: 176, 2014: 133, 2015: 133, 2016: 149, 2017: 127, 2018: 123, 2019: 131, 2020: 101, 2021: 132, 2022: 135, 2023: 107, 2024: 124, and 2025: 119. A bar chart treats years as separate categories, making the magnitude in each calendar year easy to compare. It does not show where fatalities occurred or how the totals relate to the number of crashes. The requested period uses 2,132,218 crash rows; none is omitted for NULL crash dates or pedestrian-fatality values (NULL dates: 0/2,269,187, 0.00%; NULL fatality values: 0/2,132,218, 0.00%), and all 13 included years are complete (0/13 partial years, 0%). Rows outside 2013\u20132025 are excluded by the date filter (136,969/2,269,187, 6.04%).",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Sum of pedestrians killed per calendar year",
+   "denominator": "Not applicable; absolute count of people",
+   "grouping": "Calendar year (2013\u20132025)",
+   "chart_type": "Line chart with annual points",
+   "reason": "A line chart emphasizes how the annual pedestrian-fatality count changed over time.",
+   "probability": 0.5,
+   "answer": "Pedestrians killed by year were 2013: 176, 2014: 133, 2015: 133, 2016: 149, 2017: 127, 2018: 123, 2019: 131, 2020: 101, 2021: 132, 2022: 135, 2023: 107, 2024: 124, and 2025: 119.",
+   "interpretation": "The annual points answer how many pedestrians were killed in each year and show the rise and fall over the requested period: 2013: 176, 2014: 133, 2015: 133, 2016: 149, 2017: 127, 2018: 123, 2019: 131, 2020: 101, 2021: 132, 2022: 135, 2023: 107, 2024: 124, and 2025: 119. Connecting adjacent annual totals emphasizes the time trend while retaining the count for each year. It does not show where fatalities occurred or how the totals relate to the number of crashes. The requested period uses 2,132,218 crash rows; none is omitted for NULL crash dates or pedestrian-fatality values (NULL dates: 0/2,269,187, 0.00%; NULL fatality values: 0/2,132,218, 0.00%), and all 13 included years are complete (0/13 partial years, 0%). Rows outside 2013\u20132025 are excluded by the date filter (136,969/2,269,187, 6.04%).",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "**Bar chart:** Pedestrians killed by year were 2013: 176, 2014: 133, 2015: 133, 2016: 149, 2017: 127, 2018: 123, 2019: 131, 2020: 101, 2021: 132, 2022: 135, 2023: 107, 2024: 124, and 2025: 119.\n\n**Line chart:** The annual pedestrian-fatality counts were 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "python_prefix": "/Users/yubo/.poppy/venv",
+  "python_executable": "/Users/yubo/Downloads/Anaconda/anaconda3/bin/python3.13",
+  "git_commit": "18cba5c",
+  "prompt_sha": {
+   "D_enumerate.v2-cov.md": "c4c3d343c9a2c283"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "profile": null,
+ "rendered_prompt_sha": "98424da59b490fc5",
+ "step_cap": 35,
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

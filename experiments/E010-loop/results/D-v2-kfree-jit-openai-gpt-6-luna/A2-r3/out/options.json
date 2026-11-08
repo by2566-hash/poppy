@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Share of timed crash records by hour",
+      "denominator": "All crash records with recorded times during 2013–2025",
+      "grouping": "Hour of day",
+      "chart_type": "Hourly bar chart",
+      "reason": "A time-of-day distribution is a defensible descriptive view when the data record crashes but not travel exposure.",
+      "probability": 0.2,
+      "answer": "Reported crashes peaked at 4–4:59 p.m. (7.12% of records) and reached their lowest share at 3–3:59 a.m. (1.21%), which does not establish higher risk per trip at night.",
+      "interpretation": "This framing shows when reported crashes occur, and the chart's afternoon peak and overnight low describe crash timing rather than danger per journey. It is defensible because crash times are available, but leaves unanswered whether an individual street user faces greater risk at night since travel exposure is not in the data."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes in each injury/fatality outcome category",
+      "denominator": "Crashes during 2013–2025 with nonmissing injury and death counts",
+      "grouping": "Day (6 a.m.–7:59 p.m.) versus night (8 p.m.–5:59 a.m.) and mutually exclusive crash outcome",
+      "chart_type": "100% stacked bar chart",
+      "reason": "Comparing injury and fatality outcomes conditional on a recorded crash directly describes the severity of reported crashes.",
+      "probability": 0.5,
+      "answer": "Among crashes with complete outcome counts, 28.47% of nighttime crashes involved injury or death versus 23.41% of daytime crashes; fatal crashes were 0.29% versus 0.11%, respectively.",
+      "interpretation": "This compares outcomes conditional on a recorded crash, and the chart shows a larger share of nighttime crashes involving injury or death, including a higher fatal-crash share. That is a defensible measure of crash severity, but without traffic or trip exposure it cannot establish whether a street user is more likely to crash at night."
+    },
+    {
+      "id": 3,
+      "metric": "People injured or killed per 100 crashes",
+      "denominator": "Crashes during 2013–2025 with nonmissing injury and death counts",
+      "grouping": "Day (6 a.m.–7:59 p.m.) versus night (8 p.m.–5:59 a.m.)",
+      "chart_type": "Bar chart",
+      "reason": "A casualty-per-crash measure captures how many people are harmed on average, including crashes with multiple casualties.",
+      "probability": 0.3,
+      "answer": "Nighttime crashes produced 40.71 people injured or killed per 100 crashes, compared with 30.98 during daytime, indicating a higher casualty burden per recorded crash but not higher risk per trip.",
+      "interpretation": "This framing answers how many people are injured or killed per reported crash; the chart shows a higher casualty count per crash at night. It is defensible because a single crash can harm multiple people, but does not measure risk per traveler or mile because exposure data are absent."
+    }
+  ]
+}

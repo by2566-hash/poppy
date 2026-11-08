@@ -1,0 +1,3 @@
+period,metric,denominator,crashes,events,rate,rate_per_1000
+Daytime,"Persons killed per 1,000 crash reports",Crash reports with death count present,1607471,1798,0.00111853,1.11852718
+Night,"Persons killed per 1,000 crash reports",Crash reports with death count present,524711,1614,0.00307598,3.07597897

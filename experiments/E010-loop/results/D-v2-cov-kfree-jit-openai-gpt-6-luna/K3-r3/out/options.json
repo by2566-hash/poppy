@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual motorist and cyclist deaths",
+      "denominator": "None; sum of reported deaths for each road-user group",
+      "grouping": "Calendar year (2013\u20132025)",
+      "chart_type": "Two-series line chart",
+      "reason": "Annual counts preserve the units in the question and make changes in each group directly comparable over time.",
+      "probability": 0.65,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year, ranging from 72 to 139 versus 10 to 31; motorist deaths peaked in 2020, while cyclist deaths peaked at 31 in both 2019 and 2023.",
+      "interpretation": "This compares absolute motorist and cyclist fatality counts year by year; the lines show more motorist deaths in every year, with motorist deaths highest in 2020 and cyclist deaths highest (tied) in 2019 and 2023. Absolute annual totals directly answer which group had more deaths and how the counts changed over time. It does not express the gap relative to the cyclist count. No rows are omitted for NULL required values (0 of 2269187, 0%); all included years are complete calendar years."
+    },
+    {
+      "id": 2,
+      "metric": "Ratio of motorist deaths to cyclist deaths",
+      "denominator": "Cyclist deaths in the same calendar year",
+      "grouping": "Calendar year (2013\u20132025)",
+      "chart_type": "Line chart",
+      "reason": "A within-year ratio shows how large the motorist death count was relative to the cyclist count, independent of the different count scales.",
+      "probability": 0.35,
+      "answer": "Motorist deaths were about 2.6 to 10.0 times cyclist deaths per year, with the ratio lowest in 2019 and highest in 2013.",
+      "interpretation": "This compares the relative yearly scale of motorist and cyclist deaths; the line ranges from about 2.6 motorist deaths per cyclist death in 2019 to 10.0 in 2013. Dividing by cyclist deaths makes the year-to-year size of the disparity easy to compare despite the different absolute scales. It does not show the absolute number of deaths in either group. No rows are omitted for NULL required values (0 of 2269187, 0%); all included years are complete calendar years."
+    }
+  ]
+}

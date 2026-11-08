@@ -1,0 +1,3 @@
+I’m using two complementary views: the overall weekday totals, and each year’s weekday shares so annual volume changes don’t obscure the pattern. Both use complete calendar years 2013–2025.
+ANSWER: From 2013–2025, Friday had the most crashes (338,800; 15.89% of the period total), while Sunday had the fewest (257,544; 12.08%).
+Friday had the largest weekday share in each of the 13 years (15.32%–16.25%), and Sunday had the smallest (11.47%–13.61%).

@@ -1,0 +1,3 @@
+ANSWER:
+1. Per-mile risk cannot be determined from this crash data; annual motorist fatalities fell from 110 in 2013 to 81 in 2025 (26.4% lower; chart: `./out/option_1.png`, values: `./out/values_1.csv`).
+2. Per-mile risk cannot be determined, and the crash-based proxy moved in the opposite direction: motorist fatalities per 10,000 reported crashes rose from 5.40 in 2013 to 9.47 in 2025 (chart: `./out/option_2.png`, values: `./out/values_2.csv`; options: `./out/options.json`).

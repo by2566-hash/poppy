@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of motorists killed in reported crashes",
+      "denominator": "None (count)",
+      "grouping": "Calendar year, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "Annual deaths are the clearest direct measure of fatal burden that the crash records provide.",
+      "probability": 0.38,
+      "answer": "The recorded annual count fell from 110 motorist deaths in 2013 to 81 in 2025 (-26.4%), but this does not establish a decline in deaths per mile driven.",
+      "interpretation": "This chart answers whether the number of motorists killed in reported NYC crashes changed over time: it declined between the endpoint years, with intervening fluctuation. Counts are a defensible description of fatal burden, but they are not a risk rate because they are not normalized by travel exposure. It leaves the per-mile risk question unanswered because the file has no vehicle-miles-traveled denominator. No rows with NULL crash dates or required motorist injury/death values are omitted within 2013\u20132025 (0 of 2,132,218; 0%). The analysis excludes 136,969 of 2,269,187 file rows (6.04%) outside the full-year 2013\u20132025 window (partial 2012 and 2026); none of the included years is partial."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths per 1,000 motorist casualties",
+      "denominator": "Number of motorists injured plus number of motorists killed",
+      "grouping": "Calendar year, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "This expresses fatal outcomes as a share of all reported injured or killed motorists, adjusting the death count for the scale of reported motorist casualties.",
+      "probability": 0.34,
+      "answer": "Deaths per 1,000 reported motorist casualties decreased from 2.81 in 2013 to 2.40 in 2025, but this is not risk per mile driven.",
+      "interpretation": "This framing answers whether deaths became a smaller share of reported motorist casualties: the plotted fatal share is lower in 2025 than in 2013. It is defensible as a severity measure among people recorded as injured or killed, rather than a travel-exposure risk measure. It leaves deaths per mile unanswered because neither miles driven nor all motorists exposed are in the file. No rows with NULL crash dates or required motorist injury/death values are omitted within 2013\u20132025 (0 of 2,132,218; 0%). The analysis excludes 136,969 of 2,269,187 file rows (6.04%) outside the full-year 2013\u20132025 window (partial 2012 and 2026); none of the included years is partial."
+    },
+    {
+      "id": 3,
+      "metric": "Motorist deaths per 1,000 crashes involving a motorist injury or death",
+      "denominator": "Crash rows with at least one motorist injured or killed",
+      "grouping": "Calendar year, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "This compares the number of motorist deaths with the number of casualty-involved crash events, describing crash-level fatal severity.",
+      "probability": 0.28,
+      "answer": "Motorist deaths per 1,000 motorist-casualty crashes fell from 4.43 in 2013 to 3.64 in 2025, but this does not measure risk per mile driven.",
+      "interpretation": "This chart answers whether fatal outcomes per crash event with at least one motorist casualty changed: the rate is lower at the 2025 endpoint than in 2013. Using casualty-involved crash events as the denominator is a defensible crash-severity framing, though it differs from an individual motorist's travel risk. It leaves the per-mile question unanswered because the crash file records neither miles driven nor trips. No rows with NULL crash dates or required motorist injury/death values are omitted within 2013\u20132025 (0 of 2,132,218; 0%). The analysis excludes 136,969 of 2,269,187 file rows (6.04%) outside the full-year 2013\u20132025 window (partial 2012 and 2026); none of the included years is partial."
+    }
+  ]
+}

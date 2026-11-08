@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Pedestrians injured plus pedestrians killed in Brooklyn crashes (annual count)",
+      "denominator": "None; annual casualty count",
+      "grouping": "Calendar year, 2013\u20132025",
+      "chart_type": "Stacked annual bar chart (injured and killed)",
+      "reason": "Total pedestrian casualties provide a direct measure of the human toll, while the stacked bars retain the distinction between injuries and deaths.",
+      "probability": 0.5,
+      "answer": "Annual pedestrian casualties fell from 3,671 in 2013 to 2,874 in 2025, a decrease of 21.7%, indicating improvement in the recorded toll.",
+      "interpretation": "This framing answers whether the recorded number of pedestrians hurt or killed in Brooklyn crashes declined, and the chart shows 3,671 casualties in 2013 versus 2,874 in 2025 (21.7% fewer). It is defensible because injury and death counts measure the direct human toll, with deaths distinguished in the bars. It cannot establish risk per pedestrian trip, explain causes, or isolate changes in traffic or walking exposure. The analysis uses complete years 2013\u20132025, excludes partial 2012 and 2026 (2012 (100% of its 100,545 available rows omitted); 2026 (100% of its 36,424 available rows omitted)), excludes non-Brooklyn and NULL-borough rows (NULL borough accounts for 30.9% of NYC rows across these years; annual shares: 2013 23.4%, 2014 24.1%, 2015 24.9%, 2016 33.3%, 2017 38.1%, 2018 35.6%, 2019 35.2%, 2020 34.7%, 2021 34.7%, 2022 33.8%, 2023 32.0%, 2024 28.6%, 2025 19.9%), and excludes no Brooklyn rows for NULL pedestrian counts (0 of 473,801 Brooklyn records had either count missing)."
+    },
+    {
+      "id": 2,
+      "metric": "Pedestrians killed in Brooklyn crashes (annual count)",
+      "denominator": "None; annual death count",
+      "grouping": "Calendar year, 2013\u20132025",
+      "chart_type": "Annual line chart",
+      "reason": "Fatalities are an unambiguous severe outcome and can reveal whether the gravest pedestrian harm has moved differently from total injuries.",
+      "probability": 0.25,
+      "answer": "Recorded pedestrian deaths changed from 30 in 2013 to 39 in 2025 (+30.0%), so this severe-outcome measure worsened.",
+      "interpretation": "This framing answers whether the most severe recorded pedestrian outcome has improved; deaths moved from 30 in 2013 to 39 in 2025 (+30.0%). It is defensible because fatality counts focus on severity rather than combining deaths with nonfatal injuries. It leaves out nonfatal pedestrian injuries and does not measure risk per pedestrian trip or distance walked. The analysis uses complete years 2013\u20132025, excludes partial 2012 and 2026 (2012 (100% of its 100,545 available rows omitted); 2026 (100% of its 36,424 available rows omitted)), excludes non-Brooklyn and NULL-borough rows (NULL borough accounts for 30.9% of NYC rows across these years; annual shares: 2013 23.4%, 2014 24.1%, 2015 24.9%, 2016 33.3%, 2017 38.1%, 2018 35.6%, 2019 35.2%, 2020 34.7%, 2021 34.7%, 2022 33.8%, 2023 32.0%, 2024 28.6%, 2025 19.9%), and excludes no Brooklyn rows for NULL pedestrian counts (0 of 473,801 Brooklyn records had either count missing)."
+    },
+    {
+      "id": 3,
+      "metric": "Brooklyn crashes with at least one pedestrian injured or killed, as a share of Brooklyn crashes",
+      "denominator": "All crash records with borough recorded as Brooklyn in the same year",
+      "grouping": "Calendar year, 2013\u20132025",
+      "chart_type": "Annual line chart of percentage",
+      "reason": "A within-crash share adjusts for changes in the volume of Brooklyn crash records, while directly comparing the relative frequency of pedestrian-casualty crashes.",
+      "probability": 0.25,
+      "answer": "Pedestrian-casualty crashes accounted for 7.4% of Brooklyn crash records in 2013 and 11.4% in 2025 (+53.0% relative change), indicating that their share rose.",
+      "interpretation": "This framing answers whether pedestrian-injury or fatality crashes became less common relative to all recorded Brooklyn crashes; the share shifted from 7.4% in 2013 to 11.4% in 2025 (+53.0% relative change). It is defensible as a way to account for year-to-year changes in the volume of Brooklyn crash records. It does not measure pedestrian risk per trip or exposure and its denominator includes crashes without pedestrian casualties. The analysis uses complete years 2013\u20132025, excludes partial 2012 and 2026 (2012 (100% of its 100,545 available rows omitted); 2026 (100% of its 36,424 available rows omitted)), excludes non-Brooklyn and NULL-borough rows (NULL borough accounts for 30.9% of NYC rows across these years; annual shares: 2013 23.4%, 2014 24.1%, 2015 24.9%, 2016 33.3%, 2017 38.1%, 2018 35.6%, 2019 35.2%, 2020 34.7%, 2021 34.7%, 2022 33.8%, 2023 32.0%, 2024 28.6%, 2025 19.9%), and excludes no Brooklyn rows for NULL pedestrian counts (0 of 473,801 Brooklyn records had either count missing)."
+    }
+  ]
+}

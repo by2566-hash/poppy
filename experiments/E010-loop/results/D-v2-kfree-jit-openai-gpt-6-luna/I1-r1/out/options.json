@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of reported motorist deaths",
+      "denominator": "None (absolute count)",
+      "grouping": "Calendar year",
+      "chart_type": "Line chart",
+      "reason": "A direct count shows whether the annual number of motorists killed in reported NYC crashes changed over time.",
+      "probability": 0.55,
+      "answer": "Reported motorist deaths fell from 110 in 2013 to 81 in 2025 (26.4%), but this crash data cannot establish whether per-mile risk declined.",
+      "interpretation": "This answers whether the annual burden of reported motorist deaths was lower at the endpoints: it fell 26.4%, despite intervening fluctuations. Annual counts are directly measured and easy to interpret, but without annual miles driven they leave the requested per-mile risk unanswered."
+    },
+    {
+      "id": 2,
+      "metric": "Crashes with at least one motorist death per 100,000 reported crashes",
+      "denominator": "All reported crash records in the same year",
+      "grouping": "Calendar year",
+      "chart_type": "Line chart",
+      "reason": "A crash-level rate adjusts for changes in the annual volume of crash records and compares the frequency of fatal crashes over time.",
+      "probability": 0.45,
+      "answer": "Crashes with a motorist death increased from 50.1 to 87.7 per 100,000 reported crashes between 2013 and 2025 (75.1%), but this does not determine per-mile risk.",
+      "interpretation": "This answers how often a reported crash involved at least one motorist death: the frequency increased from 50.1 to 87.7 per 100,000 crashes between 2013 and 2025. It adjusts for annual crash-report volume, a defensible crash-level comparison, but leaves per-mile risk unanswered because the data do not include vehicle-miles traveled."
+    }
+  ]
+}

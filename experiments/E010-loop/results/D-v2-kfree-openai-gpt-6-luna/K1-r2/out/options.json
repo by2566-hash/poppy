@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Sum of number_of_pedestrians_killed",
+      "denominator": "None (raw annual count)",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Bar chart",
+      "reason": "Bars make it easy to compare the number of pedestrian deaths across individual years.",
+      "probability": 0.55,
+      "answer": "Pedestrian deaths were 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.",
+      "interpretation": "This framing answers the requested annual counts directly, and the bars show the count for each year from 2013 through 2025. A bar chart is defensible because each calendar year is a discrete category whose total can be compared with the others. It does not show pedestrian exposure or explain why the counts changed."
+    },
+    {
+      "id": 2,
+      "metric": "Sum of number_of_pedestrians_killed",
+      "denominator": "None (raw annual count)",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart with annual markers",
+      "reason": "A line chart emphasizes how the annual death count changes over time while retaining a marker for each year's value.",
+      "probability": 0.45,
+      "answer": "Pedestrian deaths were 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.",
+      "interpretation": "This framing answers the annual-count question and highlights the year-to-year pattern, including a high of 176 deaths in 2013 and a low of 101 in 2020. Connecting consecutive annual totals is defensible for showing changes over time, with markers indicating the observed count in each year. It does not show pedestrian exposure or explain why the counts changed."
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+ "q": "K2",
+ "rep": 2,
+ "label": "D-v2-cov-kfree-jit-openai-gpt-6-luna",
+ "type": "clear",
+ "base": "K2",
+ "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+ "k": 0,
+ "call_ok": true,
+ "timed_out": false,
+ "answered_no_exit": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 86.3,
+ "zero_output_retries": 0,
+ "secs_total": 86.3,
+ "steps": 14,
+ "hit_step_limit": false,
+ "tool_calls": 19,
+ "tokens": {
+  "input": 42,
+  "output": 3606,
+  "reasoning": 2719,
+  "cache_read": 140592,
+  "cache_write": 18348,
+  "total": 165307
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 2,
+ "n_complete_options": 2,
+ "n_distinct_framings": 2,
+ "n_distinct_analytic": 2,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Number of police-reported crashes",
+   "denominator": "No denominator for counts; total in-scope crashes for percentage share",
+   "grouping": "Day of week, Monday through Sunday",
+   "chart_type": "Bar chart",
+   "reason": "Total counts directly describe how the recorded crash burden is distributed across weekdays.",
+   "probability": 0.65,
+   "answer": "Friday had the most crashes (338,800; 15.89% of the total), while Sunday had the fewest (257,544; 12.08%).",
+   "interpretation": "This answers how the total number of reported crashes is distributed across weekdays, and the chart shows Friday highest and Sunday lowest. Raw totals are defensible because each row represents one crash and every requested year is complete. It does not adjust for how many dates of each weekday occur or explain why crashes differ. The filter leaves out 136,969 rows (6.04% of the file) from 2012 and partial 2026; no in-scope row has a NULL crash_date, and no included year is partial.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Average number of police-reported crashes per calendar date of that weekday",
+   "denominator": "Number of calendar dates of each weekday from 2013-01-01 through 2025-12-31",
+   "grouping": "Day of week, Monday through Sunday",
+   "chart_type": "Bar chart",
+   "reason": "Dividing by weekday-specific calendar-date counts adjusts the comparison for the small differences in weekday exposure over the full period.",
+   "probability": 0.35,
+   "answer": "Friday averaged 499.7 crashes per calendar date, the highest rate, and Sunday averaged 379.9, the lowest.",
+   "interpretation": "This answers the average crash frequency on a calendar date belonging to each weekday, and the chart shows Friday highest and Sunday lowest. It is defensible because the period contains 678 or 679 occurrences of each weekday, and the rate accounts for those small exposure differences. It does not show annual changes or explain causes of weekday differences. The filter leaves out 136,969 rows (6.04% of the file) from 2012 and partial 2026; no in-scope row has a NULL crash_date, and no included year is partial.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "Friday had the most crashes (338,800; 15.89% of in-scope crashes) and Sunday the fewest (257,544; 12.08%).\nAdjusted for the number of calendar dates, Friday averaged 499.7 crashes per date and Sunday averaged 379.9.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "python_prefix": "/Users/yubo/.poppy/venv",
+  "python_executable": "/Users/yubo/Downloads/Anaconda/anaconda3/bin/python3.13",
+  "git_commit": "18cba5c",
+  "prompt_sha": {
+   "D_enumerate.v2-cov.md": "c4c3d343c9a2c283"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "profile": null,
+ "rendered_prompt_sha": "e0b377b648c30abb",
+ "jit": {
+  "sitecustomize_sha": "9732ae740dc1588e",
+  "facts_sha": "295ccc418ca81109",
+  "notes_in_trace": 8
+ },
+ "step_cap": 35,
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

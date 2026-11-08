@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Sum of pedestrians killed",
+      "denominator": "None (annual count)",
+      "grouping": "Crash year, 2013\u20132025",
+      "chart_type": "Bar chart",
+      "reason": "Bars make it easy to compare the discrete annual totals requested.",
+      "probability": 0.65,
+      "answer": "The annual totals were 2013: 176, 2014: 133, 2015: 133, 2016: 149, 2017: 127, 2018: 123, 2019: 131, 2020: 101, 2021: 132, 2022: 135, 2023: 107, 2024: 124, 2025: 119; the highest was 176 in 2013 and the lowest was 101 in 2020.",
+      "interpretation": "This framing answers the question with the annual count of pedestrians killed, summing the pedestrian-fatality field across crashes in each crash year. It shows 176 deaths in 2013, a low of 101 in 2020, and 119 in 2025, with year-to-year variation in between. Grouping the requested counts by calendar year is a defensible way to report how many pedestrians were killed, but it does not identify causes, locations, or individual crash circumstances. It excludes crashes dated outside 2013\u20132025; among selected-year rows, 0 of 2132218 (0%) are omitted for a NULL crash date or pedestrian-killed value, and each included year is complete in the file (0% omitted for partial-year coverage)."
+    },
+    {
+      "id": 2,
+      "metric": "Sum of pedestrians killed",
+      "denominator": "None (annual count)",
+      "grouping": "Crash year, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "A line chart emphasizes the year-to-year trend while preserving each annual count.",
+      "probability": 0.35,
+      "answer": "The annual totals were 2013: 176, 2014: 133, 2015: 133, 2016: 149, 2017: 127, 2018: 123, 2019: 131, 2020: 101, 2021: 132, 2022: 135, 2023: 107, 2024: 124, 2025: 119; the highest was 176 in 2013 and the lowest was 101 in 2020.",
+      "interpretation": "This framing answers the question with the annual count of pedestrians killed, summing the pedestrian-fatality field across crashes in each crash year. It shows 176 deaths in 2013, a low of 101 in 2020, and 119 in 2025, with year-to-year variation in between. Grouping the requested counts by calendar year is a defensible way to report how many pedestrians were killed, but it does not identify causes, locations, or individual crash circumstances. It excludes crashes dated outside 2013\u20132025; among selected-year rows, 0 of 2132218 (0%) are omitted for a NULL crash date or pedestrian-killed value, and each included year is complete in the file (0% omitted for partial-year coverage)."
+    }
+  ]
+}

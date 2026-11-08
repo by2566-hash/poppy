@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of motorist deaths",
+      "denominator": "None (raw annual total)",
+      "grouping": "Calendar year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "Annual deaths directly show whether the fatality burden rose or fell, without implying an exposure-adjusted risk.",
+      "probability": 0.2,
+      "answer": "This crash file cannot determine per-mile risk; recorded annual motorist deaths fell from 110 in 2013 to 81 in 2025 (26.4%).",
+      "interpretation": "This answers the annual fatality-count part of the question: recorded motorist deaths fell from 110 in 2013 to 81 in 2025, with the intervening years shown in the chart. Annual totals are a direct measure of fatality burden in the crash file, but they are not exposure-adjusted. The per-mile risk trend remains unanswered because the file has no vehicle-miles-driven measure. Rows omitted for NULL required values: none; no included year is partial."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths per 100,000 reported crashes",
+      "denominator": "All police-reported crashes with a non-NULL motorist-killed count in the same year",
+      "grouping": "Calendar year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "Dividing deaths by the number of reported crashes gives a crash-volume-adjusted comparison while staying within the available data.",
+      "probability": 0.5,
+      "answer": "This crash file cannot determine per-mile risk; motorist deaths per 100,000 reported crashes rose from 54.0 in 2013 to 94.7 in 2025 (75.4%).",
+      "interpretation": "This answers whether motorist deaths fell relative to the number of reported crashes: the rate rose from 54.0 per 100,000 crashes in 2013 to 94.7 in 2025. A crash-count denominator adjusts for the annual volume of recorded crashes and is a defensible crash-based proxy. It does not answer risk per mile because crash counts are not miles driven. Rows omitted for NULL required values: none; no included year is partial."
+    },
+    {
+      "id": 3,
+      "metric": "Share of reported crashes with at least one motorist death",
+      "denominator": "All police-reported crashes with a non-NULL motorist-killed count in the same year",
+      "grouping": "Calendar year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "The share of crashes involving any motorist death tracks crash-level fatality incidence without letting multiple deaths in one crash inflate the event count.",
+      "probability": 0.3,
+      "answer": "This crash file cannot determine per-mile risk; the share of crashes with at least one motorist death rose from 0.0501% in 2013 to 0.0877% in 2025.",
+      "interpretation": "This answers whether the incidence of a crash involving a motorist death changed: the share rose from 0.0501% in 2013 to 0.0877% in 2025. Counting each crash at most once gives a defensible event-level view that differs from counting each person killed. It leaves per-mile risk unanswered because this file has no vehicle-miles-driven denominator. Rows omitted for NULL required values: none; no included year is partial."
+    }
+  ]
+}

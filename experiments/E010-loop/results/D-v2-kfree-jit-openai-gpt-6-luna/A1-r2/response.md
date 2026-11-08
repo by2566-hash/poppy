@@ -1,0 +1,4 @@
+The file supports annual counts of pedestrians harmed and crashes involving pedestrian harm, but it has no pedestrian-activity denominator. I’ll use complete calendar years (2013–2025) and frame the results as changes in reported harm, not individual risk.
+ANSWER:
+- In Brooklyn, pedestrian injuries fell 22.1% from 2013 to 2025, but pedestrian deaths rose 30.0%, so reported harm changed in mixed ways and these counts cannot show risk per walking trip; see [chart](out/option_1.png) and [data](out/values_1.csv).
+- Crashes involving pedestrian injury or death fell 20.9% from 2013 to 2025 but rose each year after 2020, and without pedestrian exposure data this does not establish that individual pedestrian risk improved; see [chart](out/option_2.png) and [data](out/values_2.csv).

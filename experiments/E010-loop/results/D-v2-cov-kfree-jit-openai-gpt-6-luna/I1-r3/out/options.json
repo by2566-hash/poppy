@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual motorist deaths",
+      "denominator": "None; total deaths per calendar year",
+      "grouping": "Crash year (2013–2025)",
+      "chart_type": "Bar chart",
+      "reason": "Annual deaths provide a direct and understandable measure of the fatality burden, although they are not exposure-adjusted.",
+      "probability": 0.2,
+      "answer": "This file cannot establish whether per-mile risk fell, but recorded motorist deaths declined from 110 in 2013 to 81 in 2025 (26.4%).",
+      "interpretation": "This answers how the annual number of motorists killed changed, rather than the risk per mile asked about. The bars fall from 110 deaths in 2013 to 81 in 2025, with a peak of 139 in 2020. Annual counts are a defensible fatality-burden measure, but without miles driven they cannot establish a change in per-mile risk. No rows (0%) are omitted for NULL required values, and all included years are complete."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths per 1,000 police-reported crash records",
+      "denominator": "All police-reported crashes in each calendar year",
+      "grouping": "Crash year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "Normalizing deaths by crash volume distinguishes changes in fatal outcomes from changes in the number of reported crashes.",
+      "probability": 0.45,
+      "answer": "This file cannot establish per-mile risk, and deaths per 1,000 crash records rose from 0.540 in 2013 to 0.947 in 2025 (75.4%).",
+      "interpretation": "This addresses whether motorist deaths became less frequent relative to the number of police-reported crashes, not relative to miles driven. The line rises from 0.540 deaths per 1,000 crash records in 2013 to 0.947 in 2025, with a sharp increase in 2020. This is a defensible crash-normalized fatality measure, but one crash record is not a unit of driving exposure and cannot answer the per-mile question. No rows (0%) are omitted for NULL required values, and all included years are complete."
+    },
+    {
+      "id": 3,
+      "metric": "Share of police-reported crashes with at least one motorist killed",
+      "denominator": "All police-reported crashes in each calendar year",
+      "grouping": "Crash year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "A crash-level indicator describes how often a reported crash involved a motorist death without allowing multi-fatality crashes to contribute multiple events.",
+      "probability": 0.35,
+      "answer": "This file cannot establish per-mile risk, and the share of crash records with a motorist killed increased from 0.050% in 2013 to 0.088% in 2025.",
+      "interpretation": "This answers how often a police-reported crash involved one or more motorist deaths, rather than the chance of death per mile. The line moves from 0.050% of crash records in 2013 to 0.088% in 2025, also peaking in 2023 at 0.118%. This is a defensible crash-level incidence measure because each crash counts once, but it cannot measure risk per mile driven. No rows (0%) are omitted for NULL required values, and all included years are complete."
+    }
+  ]
+}

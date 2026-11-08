@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Reported crash frequency per scheduled clock-hour",
+      "denominator": "Number of distinct crash dates in the file multiplied by 13 day hours or 11 night hours per date",
+      "grouping": "Night (7 p.m.\u20135:59 a.m.) versus day (6 a.m.\u20136:59 p.m.)",
+      "chart_type": "Bar chart",
+      "reason": "Clock-hour normalization makes the two unequal-length time windows comparable while showing reported crash volume.",
+      "probability": 0.25,
+      "answer": "The file records 24.08 crashes per clock-hour during the day versus 12.03 at night, so reported crash frequency per clock-hour is lower at night, although this is not exposure-adjusted risk.",
+      "interpretation": "This framing answers whether crash reports occur more often during nighttime hours by comparing reports per scheduled clock-hour; its chart shows 24.08 per hour by day and 12.03 at night. It is defensible because it accounts for the day window being longer, but without traffic or pedestrian exposure it cannot show an individual's risk of crashing. It excludes 0 rows (0.00% of the file) for NULL crash date or time; here that is none. The pooled file also includes partial 2012 coverage (2012-07-01\u20132012-12-31; 49.7% of that calendar year's days are outside the file) and partial 2026 coverage (2026-01-01\u20132026-06-11; 55.6% of that calendar year's days are outside the file)."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes involving at least one person injured or killed",
+      "denominator": "Crashes with both number_of_persons_injured and number_of_persons_killed non-NULL",
+      "grouping": "Night (7 p.m.\u20135:59 a.m.) versus day (6 a.m.\u20136:59 p.m.)",
+      "chart_type": "Bar chart",
+      "reason": "The proportion of crashes with reported casualties measures how often a crash produces human harm, conditional on a crash being reported.",
+      "probability": 0.45,
+      "answer": "Among crashes with complete outcome counts, 28.32% at night involved injury or death, compared with 23.09% by day, indicating greater per-crash harm at night on this measure.",
+      "interpretation": "This framing answers whether a reported crash is more likely to involve injury or death at night; the chart shows 28.32% at night versus 23.09% by day. It is a defensible per-crash harm measure, but it does not estimate risk per traveler or compare overall crash frequency. It excludes 8,919 rows (0.39% of the file) because at least one injury or fatality count is NULL: 5,820 of 1,594,921 day crashes (0.36%) and 3,099 of 674,266 night crashes (0.46%). The pooled file also includes partial 2012 coverage (2012-07-01\u20132012-12-31; 49.7% of that calendar year's days are outside the file) and partial 2026 coverage (2026-01-01\u20132026-06-11; 55.6% of that calendar year's days are outside the file)."
+    },
+    {
+      "id": 3,
+      "metric": "People killed per 100 crashes",
+      "denominator": "Crashes with both number_of_persons_injured and number_of_persons_killed non-NULL",
+      "grouping": "Night (7 p.m.\u20135:59 a.m.) versus day (6 a.m.\u20136:59 p.m.)",
+      "chart_type": "Bar chart",
+      "reason": "A fatality burden rate isolates the most severe outcome and accounts for multiple deaths in a single crash.",
+      "probability": 0.3,
+      "answer": "The data show 0.283 people killed per 100 crashes at night versus 0.108 by day, indicating greater fatality burden per reported crash at night.",
+      "interpretation": "This framing answers whether nighttime crashes have a greater fatality burden; its chart shows 0.283 people killed per 100 crashes at night compared with 0.108 by day. It is defensible because it counts the number of deaths rather than merely whether a crash was fatal, but it does not measure injury severity short of death or risk per traveler. It excludes 8,919 rows (0.39% of the file) because at least one injury or fatality count is NULL: 5,820 of 1,594,921 day crashes (0.36%) and 3,099 of 674,266 night crashes (0.46%). The pooled file also includes partial 2012 coverage (2012-07-01\u20132012-12-31; 49.7% of that calendar year's days are outside the file) and partial 2026 coverage (2026-01-01\u20132026-06-11; 55.6% of that calendar year's days are outside the file)."
+    }
+  ]
+}

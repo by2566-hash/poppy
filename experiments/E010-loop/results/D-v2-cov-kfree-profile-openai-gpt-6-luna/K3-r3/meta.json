@@ -1,0 +1,95 @@
+{
+ "q": "K3",
+ "rep": 3,
+ "label": "D-v2-cov-kfree-profile-openai-gpt-6-luna",
+ "type": "clear",
+ "base": "K3",
+ "question": "How do motorist and cyclist deaths compare year by year in NYC, 2013 to 2025?",
+ "k": 0,
+ "call_ok": true,
+ "timed_out": false,
+ "answered_no_exit": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 80.5,
+ "zero_output_retries": 0,
+ "secs_total": 80.5,
+ "steps": 11,
+ "hit_step_limit": false,
+ "tool_calls": 16,
+ "tokens": {
+  "input": 33,
+  "output": 3076,
+  "reasoning": 2739,
+  "cache_read": 159236,
+  "cache_write": 25724,
+  "total": 190808
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 2,
+ "n_complete_options": 2,
+ "n_distinct_framings": 2,
+ "n_distinct_analytic": 2,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Annual summed deaths for motorists and cyclists",
+   "denominator": "None; absolute counts of people killed",
+   "grouping": "Crash year and road-user type",
+   "chart_type": "Two-series line chart",
+   "reason": "Absolute annual counts directly show how the numbers of motorist and cyclist deaths compare over time.",
+   "probability": 0.75,
+   "answer": "Motorist deaths exceeded cyclist deaths in every year; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in both 2019 and 2023 (81 versus 23 in 2025).",
+   "interpretation": "This answers the year-by-year count comparison: motorist deaths exceed cyclist deaths in all years, with their peaks in 2020 (139) and 2019 and 2023 (31), respectively. Summed fatality counts are a direct and defensible measure of the annual toll for each group. It leaves unanswered the cyclist share of these two groups' deaths and does not adjust for crash or travel exposure. The analysis uses crash-date rows from 2013\u20132025 (2,132,218 of 2,269,187), filters out 136,969 rows (6.0%) outside that date window, excludes 0.0% of in-window rows for NULL motorist or cyclist death counts, and includes no partial calendar year.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Each group's percentage of combined motorist and cyclist deaths",
+   "denominator": "Motorist deaths plus cyclist deaths in the same year; pedestrian deaths excluded",
+   "grouping": "Crash year",
+   "chart_type": "100% stacked bar chart",
+   "reason": "Annual shares make the relative composition of motorist and cyclist deaths comparable even when the total number of deaths differs by year.",
+   "probability": 0.25,
+   "answer": "Cyclists accounted for 9.1% to 27.4% of motorist-plus-cyclist deaths, with the highest share in 2019 and motorists remaining the majority every year.",
+   "interpretation": "This answers how the relative mix of motorist and cyclist deaths changes by year: cyclist shares range from 9.1% in 2013 to 27.4% in 2019, while the motorist share is larger every year. A 100% denominator of the two queried groups provides a defensible comparison of composition despite varying annual totals. It leaves the absolute number of deaths unanswered and excludes pedestrian deaths from the comparison. The analysis uses crash-date rows from 2013\u20132025 (2,132,218 of 2,269,187), filters out 136,969 rows (6.0%) outside that date window, excludes 0.0% of in-window rows for NULL motorist or cyclist death counts, and includes no partial calendar year.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "Motorist deaths exceeded cyclist deaths in every year from 2013\u20132025, peaking at 139 in 2020; cyclist deaths peaked at 31 in both 2019 and 2023, and were 81 versus 23 in 2025.\nCyclists made up 9.1%\u201327.4% of combined motorist and cyclist deaths, reaching their highest share in 2019, while motorists remained the majority every year.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "python_prefix": "/Users/yubo/.poppy/venv",
+  "python_executable": "/Users/yubo/Downloads/Anaconda/anaconda3/bin/python3.13",
+  "git_commit": "18cba5c",
+  "prompt_sha": {
+   "D_enumerate.v2-cov.md": "c4c3d343c9a2c283"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "profile": {
+  "file": "experiments/E010-loop/profile.md",
+  "sha": "0596d2a7bf974a11"
+ },
+ "rendered_prompt_sha": "96802186669947a5",
+ "step_cap": 35,
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of motorist deaths in reported crashes",
+      "denominator": "None (annual total)",
+      "grouping": "Calendar year of crash_date, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "Annual deaths directly show the fatality burden recorded by the crash file without adding an exposure denominator the file does not contain.",
+      "probability": 0.45,
+      "answer": "The file records 110 motorist deaths in 2013 and 81 in 2025 (-26.4%), but it cannot determine whether deaths per mile declined.",
+      "interpretation": "This framing answers how the annual number of motorist deaths recorded in NYC crashes changed, and the chart shows 110 deaths in 2013 versus 81 in 2025 (-26.4%). An annual count is a defensible measure of recorded fatality burden, but it is not a per-mile risk measure because vehicle-miles traveled are absent. It leaves unanswered whether a motorist's risk per mile declined. No rows are omitted for NULL crash date (0; 0.00% of all file rows) or NULL motorist-death values in 2013\u20132025 (0; 0.00% of rows in that period); no partial year is included, and rows from 2012 and 2026 are outside the comparison."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths per 100,000 reported crashes",
+      "denominator": "All reported crashes in that calendar year",
+      "grouping": "Calendar year of crash_date, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "Scaling deaths by the number of reported crashes provides a useful crash-based comparison when no miles-driven exposure is available.",
+      "probability": 0.55,
+      "answer": "The crash-based rate rose from 53.99 to 94.69 motorist deaths per 100,000 crashes (75.4%), so this proxy does not show a decline, though it cannot establish the per-mile trend.",
+      "interpretation": "This framing answers how motorist deaths changed relative to the number of reported crashes, and the chart shows 53.99 deaths per 100,000 crashes in 2013 versus 94.69 in 2025 (75.4%). A crash denominator adjusts the death count for the volume of reported crashes, making it a defensible crash-based rate, but it does not account for miles driven or exposure outside reported crashes. It therefore leaves unanswered whether the risk per mile driven declined. No rows are omitted for NULL crash date (0; 0.00% of all file rows) or NULL motorist-death values in 2013\u20132025 (0; 0.00% of rows in that period); no partial year is included, and rows from 2012 and 2026 are outside the comparison."
+    }
+  ]
+}

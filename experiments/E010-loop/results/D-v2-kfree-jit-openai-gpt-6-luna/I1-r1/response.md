@@ -1,0 +1,4 @@
+The file has records for every full year from 2013 through 2025, but it contains no vehicle-miles-traveled denominator. I’ll chart two supported proxies—motorist deaths per year and crashes with a motorist death per 100,000 reported crashes—and make clear that neither establishes risk per mile.
+ANSWER:
+1. Reported motorist deaths fell from 110 in 2013 to 81 in 2025 (26.4%), but the crash data cannot establish whether per-mile risk declined.
+2. Crashes with a motorist death increased from 50.1 to 87.7 per 100,000 reported crashes (75.1%), but this crash-based rate does not determine risk per mile.

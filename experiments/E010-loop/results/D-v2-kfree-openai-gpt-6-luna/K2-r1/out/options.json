@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Total number of police-reported crashes",
+      "denominator": "None; raw counts pooled across 2013\u20132025",
+      "grouping": "Day of week, Monday through Sunday",
+      "chart_type": "Bar chart",
+      "reason": "Pooled counts directly show how many recorded crashes fell on each weekday over the full period.",
+      "probability": 0.5,
+      "answer": "Friday had the most reported crashes (338,800) and Sunday the fewest (257,544) from 2013 through 2025.",
+      "interpretation": "This framing answers how the total number of crashes is distributed across weekdays over the full 13 years, and its bars show Friday at the top and Sunday at the bottom. Raw totals are a direct measure of recorded crash burden, but they do not normalize for the number of dates of each weekday."
+    },
+    {
+      "id": 2,
+      "metric": "Mean number of police-reported crashes per calendar date",
+      "denominator": "Number of calendar dates for each weekday in 2013\u20132025",
+      "grouping": "Day of week, Monday through Sunday",
+      "chart_type": "Bar chart",
+      "reason": "Per-date averages account for the small differences in how often each weekday occurred during the 13-year window.",
+      "probability": 0.5,
+      "answer": "Friday averaged 499.7 crashes per date, the highest weekday average, while Sunday averaged 379.9, the lowest.",
+      "interpretation": "This framing answers how crash frequency differs on a typical calendar date for each weekday, with Friday highest and Sunday lowest in the period. Dividing each weekday\u2019s count by the number of dates of that weekday makes the comparison account for unequal weekday counts, but it does not describe totals alone or adjust for traffic volume, population, or exposure."
+    }
+  ]
+}

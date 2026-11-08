@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Motorist deaths",
+      "denominator": "None; annual count",
+      "grouping": "Crash year",
+      "chart_type": "Line chart",
+      "reason": "A direct yearly count shows the fatality burden without implying an unsupported exposure rate.",
+      "probability": 0.5,
+      "answer": "This data cannot establish per-mile risk, but recorded motorist deaths fell from 110 in 2013 to 81 in 2025 (26% lower).",
+      "interpretation": "These annual counts show the absolute number of motorists recorded killed in NYC police-reported crashes, falling from 110 in 2013 to 81 in 2025. A count is a direct measure of fatality burden in this dataset, but it does not adjust for distance driven and therefore leaves per-mile risk unanswered."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths per 100,000 police-reported crashes",
+      "denominator": "All police-reported crashes in the year",
+      "grouping": "Crash year",
+      "chart_type": "Line chart",
+      "reason": "Normalizing by reported crash volume compares fatality burden relative to crashes, while avoiding a claim that the data measure driving exposure.",
+      "probability": 0.5,
+      "answer": "This data cannot establish per-mile risk, but motorist deaths per 100,000 crash reports rose from 54.0 in 2013 to 94.7 in 2025.",
+      "interpretation": "This ratio shows motorist deaths relative to the volume of police-reported crashes, rising from 54.0 per 100,000 reports in 2013 to 94.7 in 2025. It is a defensible normalization by crash volume, but crash reports are not miles driven, so this framing leaves the per-mile risk trend unanswered."
+    }
+  ]
+}

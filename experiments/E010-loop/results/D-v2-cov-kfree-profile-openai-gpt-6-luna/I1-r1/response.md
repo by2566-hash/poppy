@@ -1,0 +1,4 @@
+The requested per-mile risk cannot be calculated from crash records alone because there is no miles-driven denominator. I computed two transparent substitutes—annual motorist-death counts and deaths per 100,000 reported crashes—and am checking their charts and saved values against the written conclusions.
+ANSWER:
+Annual motorist deaths fell from 110 in 2013 to 81 in 2025 (26.4% lower), but the data cannot establish whether per-mile risk declined; see [chart](out/option_1.png) and [values](out/values_1.csv).
+Motorist deaths per 100,000 reported crashes rose from 53.99 to 94.69 (75.4% higher), but this crash-based proxy does not measure per-mile risk; see [chart](out/option_2.png) and [values](out/values_2.csv).

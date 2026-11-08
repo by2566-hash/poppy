@@ -1,0 +1,2 @@
+The file covers all of 2013–2025, and the pedestrian-fatality field has no missing values. I’m using annual sums of that field, which directly count pedestrians killed rather than crashes involving a death.
+ANSWER: Pedestrians killed by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).

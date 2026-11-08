@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Sum of number_of_pedestrians_killed",
+      "denominator": "None; annual count of pedestrian deaths",
+      "grouping": "Calendar year of crash_date (2013–2025)",
+      "chart_type": "Bar chart",
+      "reason": "Bars make the discrete annual death totals straightforward to compare year by year.",
+      "probability": 0.55,
+      "answer": "The annual counts were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This framing answers how many pedestrians were killed in each calendar year, using the sum of the pedestrian-fatality count recorded on crash rows. Bars support direct comparison of yearly totals; the chart does not break those deaths down by borough, location, or crash circumstances."
+    },
+    {
+      "id": 2,
+      "metric": "Sum of number_of_pedestrians_killed",
+      "denominator": "None; annual count of pedestrian deaths",
+      "grouping": "Calendar year of crash_date (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "A line chart makes the year-to-year direction and fluctuations in the requested counts easy to follow.",
+      "probability": 0.45,
+      "answer": "The annual counts were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This framing answers the annual-count question while emphasizing how pedestrian deaths changed over time: the count was highest in 2013 at 176 and lowest in 2020 at 101, then it fluctuated through 2025. It is defensible for showing a time sequence, but it does not explain the causes of those changes or identify where deaths occurred."
+    }
+  ]
+}

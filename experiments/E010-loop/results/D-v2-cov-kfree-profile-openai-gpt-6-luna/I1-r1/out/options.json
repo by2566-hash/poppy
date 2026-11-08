@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of motorist deaths in police-reported crashes",
+      "denominator": "None (annual total)",
+      "grouping": "Calendar year, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "Annual death counts show whether the total fatal burden went down, without implying an exposure-adjusted risk.",
+      "probability": 0.45,
+      "answer": "Motorist deaths fell from 110 in 2013 to 81 in 2025 (26.4% lower), but this crash file cannot determine whether deaths per mile driven declined because it contains no miles-driven measure.",
+      "interpretation": "This framing answers whether the annual count of motorists killed in reported NYC crashes declined: it fell from 110 deaths in 2013 to 81 in 2025, a 26.4% decrease. An annual count is a defensible measure of fatal burden, but it is not a risk rate and can change with travel exposure. The question's per-mile-risk part remains unanswered because the file has no miles-driven denominator. Within 2013\u20132025, no rows are left out for NULL crash dates or motorist-killed values (0% in each year), and every included year is complete; other years are outside the requested period."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths per 100,000 police-reported crashes",
+      "denominator": "All police-reported crash records in the same calendar year",
+      "grouping": "Calendar year, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "Normalizing deaths by reported crash volume distinguishes fatality burden from changes in the number of crashes, while remaining explicit about the available denominator.",
+      "probability": 0.55,
+      "answer": "Motorist deaths per 100,000 reported crashes rose from 53.99 in 2013 to 94.69 in 2025 (75.4% higher), so this crash-based proxy did not decline; per-mile risk is not measurable from these data.",
+      "interpretation": "This framing addresses a crash-normalized proxy for the requested risk: motorist deaths per 100,000 reported crashes increased from 53.99 in 2013 to 94.69 in 2025, up 75.4%. It is defensible because the denominator controls for yearly police-reported crash volume, but it measures deaths relative to crashes rather than miles driven. Therefore the actual per-mile-risk question remains unanswered because no vehicle-miles-traveled or other miles-driven data are present. Within 2013\u20132025, no rows are left out for NULL crash dates, motorist-killed values, or crash-count denominators (0% in each year), and every included year is complete; other years are outside the requested period."
+    }
+  ]
+}

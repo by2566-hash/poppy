@@ -1,0 +1,3 @@
+period,crashes,calendar_days_in_date_range,clock_hours_per_day,period_clock_hours,crashes_per_clock_hour
+Day (6am–6:59pm),1594921,5094,13,66222,24.084458337108515
+Night (7pm–5:59am),674266,5094,11,56034,12.033158439518864

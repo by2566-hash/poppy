@@ -1,0 +1,3 @@
+The source has complete annual records for 2013–2025 and supports annual sums of the motorist- and cyclist-killed fields. I’m preparing two views of those same counts: a year-by-year grouped comparison and a trend line view.
+ANSWER: The grouped bars show motorist deaths exceeded cyclist deaths every year, including 81 versus 23 in 2025.
+The trend lines show motorist deaths peaking at 139 in 2020 and reaching 81 in 2025, while cyclist deaths peaked at 31 in 2019 and 2023.

@@ -1,0 +1,3 @@
+ANSWER: NYC recorded an average of 11.0 crashes per nighttime clock-hour versus 24.0 per daytime clock-hour, but crash counts without traffic-exposure data cannot show which period is riskier per trip.  
+Injury-or-death crashes were 28.5% of nighttime records versus 23.5% of daytime records, a higher observed harm share at night that does not establish per-trip risk.  
+Fatal crashes were 0.29% of nighttime records versus 0.11% of daytime records, a higher fatal-crash share at night that does not establish greater danger per trip.

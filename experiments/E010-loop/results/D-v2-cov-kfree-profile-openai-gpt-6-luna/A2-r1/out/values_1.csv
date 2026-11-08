@@ -1,0 +1,3 @@
+period,crashes,observed_calendar_days,clock_hours_per_day,observed_clock_hours,average_crashes_per_clock_hour
+Day (06:00–18:59),1594921,5094,13,66222,24.08445834
+Night (19:00–05:59),674266,5094,11,56034,12.03315844

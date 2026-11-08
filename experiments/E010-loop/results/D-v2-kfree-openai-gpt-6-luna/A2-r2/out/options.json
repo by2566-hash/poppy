@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Average recorded crashes per clock-hour",
+      "denominator": "Number of dates in the dataset multiplied by clock-hours in each period (10 night, 14 day)",
+      "grouping": "Night (8 pm–5:59 am) vs day (6 am–7:59 pm)",
+      "chart_type": "Bar chart",
+      "reason": "A clock-hour average compares the observed crash burden across periods of unequal length without treating the ten-hour night as equal in duration to the fourteen-hour day.",
+      "probability": 0.3,
+      "answer": "The records average 11.0 crashes per nighttime clock-hour versus 24.0 per daytime clock-hour; without traffic exposure data, this cannot establish greater crash risk per trip at night.",
+      "interpretation": "This framing answers when the dataset records the most crashes per hour, averaging 11.0 per night clock-hour and 24.0 per daytime clock-hour. It is defensible for comparing crash burden while accounting for the unequal number of hours in the two periods. It leaves unanswered risk per trip or mile, and clock time does not identify actual darkness."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes with at least one person injured or killed",
+      "denominator": "All crash records with a recorded time in the same period",
+      "grouping": "Night (8 pm–5:59 am) vs day (6 am–7:59 pm)",
+      "chart_type": "Bar chart",
+      "reason": "The crash-level share of events with harm directly compares the observed severity of reported crashes across night and day.",
+      "probability": 0.45,
+      "answer": "Injury-or-death crashes made up 28.5% of nighttime records versus 23.5% of daytime records, but this conditional comparison cannot show per-trip risk.",
+      "interpretation": "This framing addresses whether a reported crash is more likely to involve harm at night: 28.5% of night crashes involved an injury or death, compared with 23.5% by day. It is defensible because each crash contributes once to a severity share, regardless of the number of people hurt. It leaves unanswered the risk of being in a crash in the first place per trip, person, or mile, and uses clock-time rather than actual light conditions."
+    },
+    {
+      "id": 3,
+      "metric": "Share of crashes with at least one person killed",
+      "denominator": "All crash records with a recorded time in the same period",
+      "grouping": "Night (8 pm–5:59 am) vs day (6 am–7:59 pm)",
+      "chart_type": "Bar chart",
+      "reason": "A fatal-crash share isolates the most severe reported outcome and gives a news report a focused measure of crash severity.",
+      "probability": 0.25,
+      "answer": "Fatal crashes were 0.29% of nighttime records versus 0.11% of daytime records, though this does not establish greater per-trip danger at night.",
+      "interpretation": "This framing focuses on the most severe recorded outcome: 0.29% of nighttime crashes involved a death, compared with 0.11% of daytime crashes. The denominator is crashes, so it shows fatality severity conditional on a crash, not fatality risk for travelers. It leaves unanswered exposure-adjusted danger, and the dataset does not say whether crashes occurred in darkness."
+    }
+  ]
+}
