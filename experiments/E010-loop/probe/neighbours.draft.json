@@ -1,0 +1,36 @@
+{
+ "status": "DRAFT by Claude 2026-11-08; a teammate checks each item (one field changed, still a plausible question, not a legitimate reading of the base question) before the probe result is used for decisions",
+ "rule": "Each neighbour is written from the ORIGINAL phrasing of its base and changes exactly one field (metric, denominator, population, filter, grouping, time_window). The non-question tail (\"Make a chart ...\") is kept so that only the changed field differs.",
+ "neighbours": [
+  {"id": "K1-n1", "base": "K1", "field": "population", "text": "How many cyclists were killed in NYC motor vehicle crashes each year from 2013 to 2025?"},
+  {"id": "K1-n2", "base": "K1", "field": "metric", "text": "How many pedestrians were injured in NYC motor vehicle crashes each year from 2013 to 2025?"},
+  {"id": "K1-n3", "base": "K1", "field": "grouping", "text": "How many pedestrians were killed in NYC motor vehicle crashes in each borough from 2013 to 2025?"},
+
+  {"id": "K2-n1", "base": "K2", "field": "denominator", "text": "What is the average number of NYC crashes per calendar date for each day of the week, 2013 to 2025?"},
+  {"id": "K2-n2", "base": "K2", "field": "grouping", "text": "How are NYC crashes distributed across the months of the year, 2013 to 2025?"},
+  {"id": "K2-n3", "base": "K2", "field": "metric", "text": "How are NYC crash injuries distributed across the days of the week, 2013 to 2025?"},
+
+  {"id": "K3-n1", "base": "K3", "field": "metric", "text": "How do motorist and cyclist injuries compare year by year in NYC, 2013 to 2025?"},
+  {"id": "K3-n2", "base": "K3", "field": "population", "text": "How do motorist and pedestrian deaths compare year by year in NYC, 2013 to 2025?"},
+  {"id": "K3-n3", "base": "K3", "field": "grouping", "text": "How do motorist and cyclist deaths compare across NYC boroughs, 2013 to 2025?"},
+
+  {"id": "A1-n1", "base": "A1", "field": "filter", "text": "Has road safety for pedestrians in crashes recorded with a Brooklyn borough code gotten better since 2013? Make a chart suitable for a local news story and summarize the findings."},
+  {"id": "A1-n2", "base": "A1", "field": "denominator", "text": "Has the share of Brooklyn crashes that injure or kill a pedestrian gotten smaller since 2013? Make a chart suitable for a local news story and summarize the findings."},
+  {"id": "A1-n3", "base": "A1", "field": "population", "text": "Has road safety for cyclists in Brooklyn gotten better since 2013? Make a chart suitable for a local news story and summarize the findings."},
+  {"id": "A1-n4", "base": "A1", "field": "filter", "text": "Has road safety for pedestrians in Queens gotten better since 2013? Make a chart suitable for a local news story and summarize the findings."},
+
+  {"id": "A2-n1", "base": "A2", "field": "grouping", "text": "Are NYC's streets more dangerous on weekends? Make a chart and give a conclusion for a news report."},
+  {"id": "A2-n2", "base": "A2", "field": "grouping", "text": "Are NYC's streets more dangerous in winter? Make a chart and give a conclusion for a news report."},
+  {"id": "A2-n3", "base": "A2", "field": "population", "text": "Are NYC's streets more dangerous for cyclists than for pedestrians? Make a chart and give a conclusion for a news report."},
+
+  {"id": "I1-n1", "base": "I1", "field": "denominator", "text": "Did the number of motorists killed per reported crash in NYC decline from 2013 to 2025? Make a chart and answer based on this crash data."},
+  {"id": "I1-n2", "base": "I1", "field": "denominator", "text": "Did the number of motorists killed in NYC decline from 2013 to 2025? Make a chart and answer based on this crash data."},
+  {"id": "I1-n3", "base": "I1", "field": "population", "text": "Did the risk of a cyclist being killed per mile ridden in NYC decline from 2013 to 2025? Make a chart and answer based on this crash data."}
+ ],
+ "reading_pairs": {
+  "note": "Design §4 example 'A2 crashes per hour vs casualty share': two LEGITIMATE readings of the ambiguous A2. Reported separately (they should sit between paraphrase and neighbour); not counted as negatives.",
+  "pairs": [
+   ["How many NYC crashes happen per hour at night compared with per hour during the day?", "What share of NYC crashes at night injure or kill someone compared with crashes during the day?"]
+  ]
+ }
+}

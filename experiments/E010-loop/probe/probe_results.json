@@ -1,0 +1,194 @@
+[
+ {
+  "model": "sentence-transformers/all-mpnet-base-v2",
+  "auc_paraphrase<neighbour_ci95_cluster_bootstrap": [
+   0.6923831569664903,
+   0.7870370370370371
+  ],
+  "n": {
+   "paraphrase": 18,
+   "neighbour": 57,
+   "unrelated": 135
+  },
+  "mean_distance": {
+   "paraphrase": 0.06852402289708455,
+   "neighbour": 0.11015905204572175,
+   "unrelated": 0.4140208398854291,
+   "reading_pair": 0.11147302389144897
+  },
+  "auc": {
+   "paraphrase<neighbour": 0.7290448343079922,
+   "neighbour<unrelated": 0.9962313190383366,
+   "paraphrase<unrelated": 1.0
+  },
+  "auc_per_base_paraphrase<neighbour": {
+   "K1": 0.7037037037037037,
+   "K2": 0.8888888888888888,
+   "K3": 0.8148148148148148,
+   "A1": 0.6666666666666666,
+   "A2": 0.7777777777777778,
+   "I1": 0.7777777777777778
+  },
+  "max_paraphrase_vs_min_neighbour_per_base": {
+   "K1": [
+    0.04,
+    0.016
+   ],
+   "K2": [
+    0.118,
+    0.064
+   ],
+   "K3": [
+    0.04,
+    0.016
+   ],
+   "A1": [
+    0.141,
+    0.041
+   ],
+   "A2": [
+    0.141,
+    0.074
+   ],
+   "I1": [
+    0.084,
+    0.057
+   ]
+  },
+  "mean_neighbour_distance_by_field": {
+   "population": 0.122,
+   "metric": 0.103,
+   "grouping": 0.096,
+   "denominator": 0.126,
+   "filter": 0.093
+  },
+  "closest_neighbours": [
+   [
+    0.016,
+    "K1-n3",
+    "grouping"
+   ],
+   [
+    0.016,
+    "K3-n3",
+    "grouping"
+   ],
+   [
+    0.025,
+    "K1-n2",
+    "metric"
+   ],
+   [
+    0.041,
+    "A1-n4",
+    "filter"
+   ],
+   [
+    0.052,
+    "K3-n2",
+    "population"
+   ],
+   [
+    0.057,
+    "I1-n2",
+    "denominator"
+   ]
+  ]
+ },
+ {
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "auc_paraphrase<neighbour_ci95_cluster_bootstrap": [
+   0.753411306042885,
+   0.9681069958847737
+  ],
+  "n": {
+   "paraphrase": 18,
+   "neighbour": 57,
+   "unrelated": 135
+  },
+  "mean_distance": {
+   "paraphrase": 0.05675365196333991,
+   "neighbour": 0.1263320665610464,
+   "unrelated": 0.4074204312430488,
+   "reading_pair": 0.1404428482055664
+  },
+  "auc": {
+   "paraphrase<neighbour": 0.8528265107212476,
+   "neighbour<unrelated": 0.9996101364522417,
+   "paraphrase<unrelated": 1.0
+  },
+  "auc_per_base_paraphrase<neighbour": {
+   "K1": 0.7407407407407407,
+   "K2": 0.8888888888888888,
+   "K3": 0.9259259259259259,
+   "A1": 0.7222222222222222,
+   "A2": 1.0,
+   "I1": 1.0
+  },
+  "max_paraphrase_vs_min_neighbour_per_base": {
+   "K1": [
+    0.046,
+    0.021
+   ],
+   "K2": [
+    0.071,
+    0.03
+   ],
+   "K3": [
+    0.061,
+    0.058
+   ],
+   "A1": [
+    0.153,
+    0.055
+   ],
+   "A2": [
+    0.052,
+    0.064
+   ],
+   "I1": [
+    0.054,
+    0.102
+   ]
+  },
+  "mean_neighbour_distance_by_field": {
+   "population": 0.147,
+   "metric": 0.13,
+   "grouping": 0.077,
+   "denominator": 0.162,
+   "filter": 0.121
+  },
+  "closest_neighbours": [
+   [
+    0.021,
+    "K1-n3",
+    "grouping"
+   ],
+   [
+    0.03,
+    "K2-n2",
+    "grouping"
+   ],
+   [
+    0.031,
+    "K1-n2",
+    "metric"
+   ],
+   [
+    0.055,
+    "A1-n4",
+    "filter"
+   ],
+   [
+    0.058,
+    "K3-n3",
+    "grouping"
+   ],
+   [
+    0.064,
+    "A2-n1",
+    "grouping"
+   ]
+  ]
+ }
+]

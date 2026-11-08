@@ -46,3 +46,9 @@ Change from the F1/F2 harness: `run_enumerate` passes `done=enumerate_done` to `
 | `experiments/E010-loop/profile.md` | `0596d2a7bf974a11b55abe1057896bddcb15ec12edc012e2e2c96c1a2c52ef90` |
 
 Change from the E009-F3 harness: `POPPY_PROFILE=<repo-relative path>` makes arm D append that file to the data dictionary (dictionary + blank line + profile), adds `-profile` to the label, and records `profile` (`file`, `sha` prefix) and `rendered_prompt_sha` in `meta.json`. Unset, nothing changes: the prompts rendered for K1, K2, K3, A1, A2, I1 are byte-identical to the stored F1 `prompt.md` files (6/6); set, removing the profile block gives the F1 prompt back (6/6). The D v2 prompt file is unchanged (`bde1fd02f5b3e576`). Run E010-1 as `POPPY_EXP=E010-loop POPPY_PROFILE=experiments/E010-loop/profile.md PILOT_K=0 PILOT_STEPS=35 run_pilot.py D v2 3`.
+
+## E010 diagnostic candidates (2026-11-08; written by Claude with Bo's go-ahead of 2026-11-08 to create one E010 prompt per candidate experiment; Bo reviews a candidate before it becomes an E010 iteration)
+
+| Prompt | SHA-256 | Change from D v2 |
+|---|---|---|
+| `D_enumerate.v2-cov.md` | `c4c3d343c9a2c28367473d4ae326b126c64ae268a53eb21ffb4360d7af30cc11` | `interpretation` must also state which rows the framing does not use (NULL in a value its filters, groups or sums need; years the file covers only in part), with the share computed by its code; the self-review checks that statement against the code. The statement sits in a field the g8 grader already reads, so neither the harness nor the grader changes. |

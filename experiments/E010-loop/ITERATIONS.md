@@ -32,4 +32,6 @@ Per question, silent-error (pass 1): K1 0/5 → 3/4, K2 0/7 → 1/6, K3 0/7 → 
 - I1: "this crash-based proxy did not decline" (decision 6), the F2 failure pattern; PERMILE and unsupported_claim fail together on the same 3 options.
 - A1-r2 includes 2026 (`BETWEEN 2013 AND 2026`) although the profile lists 2026 as partial by month.
 
-**Keep rule** (design §3: the targeted failure count falls and no other criterion rises): TR05, TR01 and TR08 did not fall; TR07, PERMILE and unsupported_claim rose. By the rule: **revert** (the profile is not carried into E010-2). Waiting for Bo's decision.
+**Keep rule** (design §3: the targeted failure count falls and no other criterion rises): TR05, TR01 and TR08 did not fall; TR07, PERMILE and unsupported_claim rose. By the rule: **revert** (the profile is not carried into E010-2).
+
+**Decision (Bo, 2026-11-08): recorded and reverted.** The D v2 prompt without the profile stays the base. The `POPPY_PROFILE` hook stays in the harness (unset = F1 prompts byte-identical) so diagnostic candidates can use it. Root-cause analysis and candidate experiments: section "E010-1 diagnosis" below.
