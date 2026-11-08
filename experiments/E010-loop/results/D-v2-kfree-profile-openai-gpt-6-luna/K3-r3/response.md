@@ -1,0 +1,2 @@
+ANSWER: Motorist deaths exceeded cyclist deaths every year, peaking at 139 versus 29 in 2020; in 2025, the totals were 81 versus 23.  
+The annual gap favored motorist deaths throughout, ranging from 51 deaths in 2019 to 115 in 2021.

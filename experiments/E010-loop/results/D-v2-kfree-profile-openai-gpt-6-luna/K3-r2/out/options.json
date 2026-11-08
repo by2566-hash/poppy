@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of motorist and cyclist deaths",
+      "denominator": "None; annual summed death counts",
+      "grouping": "Year and road-user category",
+      "chart_type": "Grouped bar chart",
+      "reason": "Annual counts give the most direct comparison of how many motorist and cyclist deaths were reported each year.",
+      "probability": 0.75,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year: motorists ranged from 72 in 2016 to 139 in 2020, while cyclist deaths ranged from 10 in 2018 to 31 in both 2019 and 2023.",
+      "interpretation": "This framing directly answers how many motorist and cyclist deaths occurred year by year, and the chart shows the motorist total was higher in each year. Comparing counts is a defensible direct measure of the annual burden, but it does not express the cyclist deaths as a share of deaths across these two groups."
+    },
+    {
+      "id": 2,
+      "metric": "Cyclist and motorist shares of their combined annual deaths",
+      "denominator": "Annual motorist deaths plus annual cyclist deaths",
+      "grouping": "Year",
+      "chart_type": "100% stacked bar chart",
+      "reason": "The within-year shares show how the relative split between these two road-user groups changes even when their combined totals vary.",
+      "probability": 0.25,
+      "answer": "Cyclists accounted for 9.09% to 27.43% of combined motorist and cyclist deaths, with the minimum in 2013 and maximum in 2019.",
+      "interpretation": "This framing answers how the relative mix of motorist versus cyclist deaths changed year by year, showing cyclist shares ranging from 9.09% to 27.43%. It is defensible for comparing relative proportions across years with different combined totals, but it does not show the absolute number of deaths and its denominator excludes pedestrian deaths."
+    }
+  ]
+}

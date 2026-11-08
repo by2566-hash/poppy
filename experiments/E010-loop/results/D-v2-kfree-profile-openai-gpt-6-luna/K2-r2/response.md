@@ -1,0 +1,2 @@
+ANSWER: Across 2013–2025, Friday had the most police-reported crashes (338,800; 15.9% of the total), while Sunday had the fewest (257,544; 12.1%).
+Adjusted for the number of calendar dates of each weekday, Friday averaged the most crashes per date (499.7) and Sunday the fewest (379.9).

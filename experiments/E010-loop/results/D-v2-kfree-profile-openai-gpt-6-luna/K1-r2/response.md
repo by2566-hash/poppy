@@ -1,0 +1,2 @@
+I’m calculating the yearly totals directly from the pedestrian-killed field and preparing a single annual-count chart, which matches the question’s requested metric.
+ANSWER: Pedestrian deaths by year were 2013: 176, 2014: 133, 2015: 133, 2016: 149, 2017: 127, 2018: 123, 2019: 131, 2020: 101, 2021: 132, 2022: 135, 2023: 107, 2024: 124, and 2025: 119.

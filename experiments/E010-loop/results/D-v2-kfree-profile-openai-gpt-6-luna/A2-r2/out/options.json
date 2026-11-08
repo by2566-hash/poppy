@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Reported crash frequency",
+      "denominator": "Observed clock-hours in the dataset date range",
+      "grouping": "Night (20:00–05:59) versus day (06:00–19:59)",
+      "chart_type": "Horizontal bar chart",
+      "reason": "A clock-hour comparison describes crash volume while accounting for the unequal lengths of the chosen night and day periods.",
+      "probability": 0.45,
+      "answer": "NYC recorded 11.0 crashes per clock-hour at night versus 24.0 by day, so reported crash volume per hour was lower at night; this does not establish per-traveler danger.",
+      "interpretation": "This addresses whether the volume of reported crashes per hour is higher at night; the chart shows fewer crashes per clock-hour at night than by day. This is defensible because it normalizes the 10-hour night and 14-hour day windows, but it leaves unanswered whether an individual road user's risk is higher at night because traffic or trip exposure is unavailable."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes involving at least one injured or killed person",
+      "denominator": "All reported crashes in the same time period",
+      "grouping": "Night (20:00–05:59) versus day (06:00–19:59)",
+      "chart_type": "Horizontal bar chart",
+      "reason": "The share of crashes with human harm measures crash-outcome severity rather than simply how often crashes are reported.",
+      "probability": 0.55,
+      "answer": "An injury-or-fatality crash made up 28.0% of nighttime crashes versus 23.1% of daytime crashes, indicating a higher share of harmful outcomes at night but not higher risk per trip or mile.",
+      "interpretation": "This addresses whether a reported crash is more likely to involve injury or death at night; the nighttime share is 4.9 percentage points higher. This is a defensible crash-severity measure, but it conditions on a crash and leaves unanswered whether overall danger per traveler, trip, or mile is higher at night."
+    }
+  ]
+}

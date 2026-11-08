@@ -1,0 +1,5 @@
+I’ll check what the crash records can measure, then create charts and plotted values for defensible proxies across complete years 2013–2025. The dataset has no vehicle-mile-traveled measure, so it cannot directly establish deaths per mile driven.
+The annual records show 110 motorists killed in 2013 and 81 in 2025, while motorist-fatal crashes as a share of all reported crashes rose from about 0.050% to 0.088%. I’m charting both as distinct crash-data perspectives; neither is a per-mile risk measure.
+ANSWER:
+Recorded motorist deaths fell from 110 in 2013 to 81 in 2025, but that count cannot establish whether deaths per mile driven declined (chart: `out/option_1.png`; values: `out/values_1.csv`).
+Motorist-fatal crashes increased from 0.501 to 0.877 per 1,000 reported crashes, so this crash-based measure did not decline, but it is not a per-mile risk measure (chart: `out/option_2.png`; values: `out/values_2.csv`).

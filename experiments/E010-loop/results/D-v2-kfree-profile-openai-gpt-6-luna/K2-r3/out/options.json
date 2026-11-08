@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Police-reported crash count",
+      "denominator": "No denominator; total crashes in 2013–2025 (2,132,218)",
+      "grouping": "Day of week",
+      "chart_type": "Bar chart",
+      "reason": "Total counts directly show how the period's reported crashes are distributed across weekdays.",
+      "probability": 0.55,
+      "answer": "Friday had the most crashes (338,800; 15.9% of the total), while Sunday had the fewest (257,544; 12.1%).",
+      "interpretation": "This answers how the total reported crashes are allocated across weekdays: Friday is the largest category and Sunday the smallest. Total counts describe overall frequency over 2013–2025, but do not adjust for the slight differences in the number of each weekday or show severity."
+    },
+    {
+      "id": 2,
+      "metric": "Average police-reported crashes per calendar occurrence of weekday",
+      "denominator": "Number of calendar dates of each weekday in 2013–2025 (678 or 679)",
+      "grouping": "Day of week",
+      "chart_type": "Bar chart",
+      "reason": "A per-day average adjusts the weekday totals for the slight differences in weekday exposure during the period.",
+      "probability": 0.45,
+      "answer": "Friday averaged the most crashes per date (499.7), and Sunday averaged the fewest (379.9).",
+      "interpretation": "This answers how crash frequency compares on a typical calendar date for each weekday, with Friday highest and Sunday lowest. Dividing by the number of dates of each weekday makes this a defensible exposure-adjusted comparison; it does not reveal year-to-year changes, within-day patterns, or crash severity."
+    }
+  ]
+}

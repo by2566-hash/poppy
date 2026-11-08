@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Crash records with at least one person injured per 1,000 reported crashes",
+      "denominator": "All police-reported crashes in that clock period",
+      "grouping": "Day (06:00–17:59) vs night (18:00–05:59)",
+      "chart_type": "Two-bar comparison",
+      "reason": "An injury-involved crash rate compares the chance of recorded injury conditional on a crash report, rather than conflating harm with the number of crashes.",
+      "probability": 0.4,
+      "answer": "The data cannot establish whether a person or trip is more at risk at night, but injury-involved crashes occurred at 276.5 per 1,000 night crashes versus 224.9 per 1,000 day crashes.",
+      "interpretation": "This compares how often a reported crash involved at least one injured person in the two equal-length clock windows. It is a defensible crash-severity comparison, but it leaves unanswered how many trips or vehicles were on the road in each window, and clock time is only a proxy for darkness."
+    },
+    {
+      "id": 2,
+      "metric": "Crashes with at least one death per 10,000 reported crashes",
+      "denominator": "All police-reported crashes in that clock period",
+      "grouping": "Day (06:00–17:59) vs night (18:00–05:59)",
+      "chart_type": "Two-bar comparison",
+      "reason": "A fatal-crash rate isolates the most severe recorded outcome while accounting for the total number of crash reports in each period.",
+      "probability": 0.35,
+      "answer": "The data cannot establish per-trip danger, but fatal crashes occurred at 24.44 per 10,000 night crashes versus 10.11 per 10,000 day crashes (2012–2025).",
+      "interpretation": "This compares the share of reported crashes that involved at least one death, scaled to 10,000 crashes. It shows fatal severity conditional on a reported crash, but not the fatality risk for road users; 2026 is excluded because the profile shows deaths are missing for many 2026 records."
+    },
+    {
+      "id": 3,
+      "metric": "Police-reported crashes per covered clock hour",
+      "denominator": "12 clock hours per day/night period for each covered date",
+      "grouping": "Day (06:00–17:59) vs night (18:00–05:59)",
+      "chart_type": "Two-bar comparison",
+      "reason": "Crash occurrence per clock hour gives a simple, duration-adjusted measure of when reported collisions happen, useful as context for a news report.",
+      "probability": 0.25,
+      "answer": "The data cannot show whether nighttime travel is riskier per trip: reported crashes averaged 13.50 per clock hour at night versus 24.22 by day (0.56 as many at night).",
+      "interpretation": "This compares the volume of police-reported crashes in equal-length clock windows. It answers when more reports occur, not whether streets are more dangerous for an individual traveler, because the data contain no traffic or trip counts and clock time does not capture seasonal sunset."
+    }
+  ]
+}

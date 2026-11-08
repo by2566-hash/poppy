@@ -1,0 +1,1 @@
+ANSWER: Across all reported crashes from 2013–2025, Friday had the most (338,800; 15.9%) and Sunday the fewest (257,544; 12.1%). Adjusting for the number of calendar dates of each weekday, Friday still averaged the most crashes per date (499.7), and Sunday the fewest (379.9).

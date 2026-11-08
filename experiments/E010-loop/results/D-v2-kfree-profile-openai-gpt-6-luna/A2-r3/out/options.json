@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Share of crashes with at least one person injured or killed",
+      "denominator": "All police-reported crashes in the time period",
+      "grouping": "Night (8pm–5:59am) versus day (6am–7:59pm)",
+      "chart_type": "Bar chart",
+      "reason": "A casualty-involved crash share directly compares how often a reported crash has a human harm outcome across night and day crashes.",
+      "probability": 0.45,
+      "answer": "These records cannot establish whether NYC streets are more dangerous per trip at night, but 28.5% of reported night crashes involved an injury or death, compared with 23.5% of day crashes.",
+      "interpretation": "This framing answers whether a reported crash was more likely to involve a casualty at night, and the chart shows a higher share at night. Comparing casualty crashes with all crashes is a defensible crash-severity measure, but it leaves unanswered the risk per trip or mile because traffic and road-user exposure are not in the data."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes with at least one person killed",
+      "denominator": "All police-reported crashes in the time period",
+      "grouping": "Night (8pm–5:59am) versus day (6am–7:59pm)",
+      "chart_type": "Bar chart",
+      "reason": "Fatal crashes provide a focused comparison of the most severe recorded crash outcome.",
+      "probability": 0.35,
+      "answer": "The data cannot determine per-trip nighttime danger, but fatal crashes made up 0.290% of night crashes versus 0.108% of daytime crashes.",
+      "interpretation": "This framing answers whether a reported crash was more likely to be fatal at night, and the chart shows a larger fatal-crash share at night. Fatality is a clear severe outcome and the denominator is all reported crashes in each period, but the comparison does not measure risk per trip or mile without exposure data."
+    },
+    {
+      "id": 3,
+      "metric": "Average number of police-reported crashes per clock hour per observed date",
+      "denominator": "5,094 dates with crash records, for each clock hour",
+      "grouping": "Hour of day (00:00–23:00)",
+      "chart_type": "24-hour bar chart",
+      "reason": "Hourly crash counts show when crashes occur most often while avoiding unequal totals from day and night covering different numbers of hours.",
+      "probability": 0.2,
+      "answer": "These records cannot establish per-road-user risk, but reported crashes averaged 5.4 per date at 3am and peaked at 31.7 per date at 4pm.",
+      "interpretation": "This framing answers how reported crash volume varies across the clock, with the chart showing lower counts in most overnight hours and a late-afternoon peak. Counts per clock hour per observed date make hourly volumes comparable, but without traffic or road-user exposure they cannot establish whether an individual is more likely to crash at night."
+    }
+  ]
+}

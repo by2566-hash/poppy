@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Crash count",
+      "denominator": "None; total crash records for each weekday from 2013 through 2025",
+      "grouping": "Day of week",
+      "chart_type": "Vertical bar chart",
+      "reason": "Absolute totals directly show how many police-reported crashes occurred on each weekday in the requested period.",
+      "probability": 0.55,
+      "answer": "Friday had the most reported crashes (338,800) and Sunday the fewest (257,544) among 2,132,218 crashes.",
+      "interpretation": "This directly answers how recorded crashes are distributed across weekdays: Friday is highest and Sunday is lowest. Total counts describe the observed crash burden in the period, but do not adjust for the small differences in how many times each weekday occurred or explain why the distribution differs."
+    },
+    {
+      "id": 2,
+      "metric": "Share of all crash records",
+      "denominator": "All 2,132,218 crash records dated 2013 through 2025",
+      "grouping": "Day of week",
+      "chart_type": "Vertical bar chart",
+      "reason": "Percentages make each weekday's contribution to the period-wide total easy to compare and interpret.",
+      "probability": 0.45,
+      "answer": "Friday accounted for the largest share of crashes (15.89%), while Sunday accounted for the smallest (12.08%).",
+      "interpretation": "This answers what fraction of all reported crashes occurred on each weekday, with Friday contributing the most and Sunday the least. Shares provide an intuitive composition of the total, but this dataset does not measure travel exposure, so they do not show crash risk per trip, traveler, or mile."
+    }
+  ]
+}

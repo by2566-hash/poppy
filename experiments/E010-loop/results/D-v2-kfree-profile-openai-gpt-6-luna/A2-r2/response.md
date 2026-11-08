@@ -1,0 +1,5 @@
+I’ll compare nighttime (20:00–05:59) with daytime (06:00–19:59) in two ways: crashes per observed clock-hour, and the share of crashes involving an injury or death. These describe reported crash frequency and outcomes; without traffic or trip volumes, they can’t establish crash risk per road user or mile.
+The two metrics point in different directions: daytime has more reported crashes per clock-hour, while nighttime crashes more often involve an injured or killed person. I’m preserving that distinction in the charts and conclusions; neither measure adjusts for how many people are traveling at each time.
+ANSWER:
+1. NYC recorded 11.0 crashes per clock-hour at night versus 24.0 by day, so reported crash volume per hour was lower at night; this does not establish per-traveler danger ([chart](out/option_1.png), [values](out/values_1.csv)).
+2. An injury-or-fatality crash made up 28.0% of nighttime crashes versus 23.1% of daytime crashes, indicating a higher share of harmful outcomes at night but not higher risk per trip or mile ([chart](out/option_2.png), [values](out/values_2.csv)).

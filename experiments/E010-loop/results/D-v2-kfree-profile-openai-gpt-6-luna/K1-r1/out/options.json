@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual sum of number_of_pedestrians_killed",
+      "denominator": "None; absolute count of people killed",
+      "grouping": "Crash year, 2013–2025",
+      "chart_type": "Bar chart",
+      "reason": "A bar chart makes the exact count for each requested year easy to compare.",
+      "probability": 0.7,
+      "answer": "Pedestrian deaths by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This directly answers how many pedestrians were killed in each year, with bar heights and labels showing the annual totals. Annual counts are a defensible measure because the question asks for numbers of people, not rates. It does not explain causes or adjust for changes in population, traffic, or travel exposure."
+    },
+    {
+      "id": 2,
+      "metric": "Annual sum of number_of_pedestrians_killed",
+      "denominator": "None; absolute count of people killed",
+      "grouping": "Crash year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "A line chart emphasizes how the requested annual death counts change over time.",
+      "probability": 0.3,
+      "answer": "Pedestrian deaths by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This answers the annual-count part of the question and connects consecutive years to make fluctuations visible; the counts fell from 176 in 2013 to 119 in 2025, with intervening ups and downs. A line chart is defensible for this ordered yearly series. It does not explain causes or provide exposure-adjusted risk rates."
+    }
+  ]
+}

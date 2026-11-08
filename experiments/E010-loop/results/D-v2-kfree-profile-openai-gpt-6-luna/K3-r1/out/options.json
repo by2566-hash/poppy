@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual deaths by road-user category",
+      "denominator": "None; yearly sum of the reported number killed",
+      "grouping": "Year and category (motorist, cyclist)",
+      "chart_type": "Grouped bar chart",
+      "reason": "Raw annual counts give the most direct year-by-year comparison of the numbers killed in each category.",
+      "probability": 0.65,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year from 2013 to 2025, ranging from 72–139 versus 10–31; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in 2019 and 2023.",
+      "interpretation": "This grouped-count view directly compares the annual number of deaths in each category, showing a motorist count above the cyclist count in all 13 years. It is a defensible reading of “compare year by year,” but it does not show how the relative mix changed independent of the yearly totals."
+    },
+    {
+      "id": 2,
+      "metric": "Category share of combined motorist and cyclist deaths",
+      "denominator": "Motorist deaths plus cyclist deaths in that year",
+      "grouping": "Year, with motorist and cyclist shares",
+      "chart_type": "100% stacked bar chart",
+      "reason": "Shares make the relative balance between the two categories comparable across years with different combined totals.",
+      "probability": 0.35,
+      "answer": "Motorists made up the majority of combined motorist-and-cyclist deaths every year, while the cyclist share ranged from 9.1% in 2013 to 27.4% in 2019.",
+      "interpretation": "This view answers how the two categories compare as a share of their combined deaths: cyclists accounted for 9.1%–27.4%, with the highest share in 2019, and motorists remained the majority each year. The fixed denominator makes relative composition clear, but it leaves out changes in the absolute annual death counts and is not a share of all people killed in crashes."
+    }
+  ]
+}

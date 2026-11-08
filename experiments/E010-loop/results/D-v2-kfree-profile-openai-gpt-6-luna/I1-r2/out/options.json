@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of motorists killed",
+      "denominator": "None (annual count)",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "A careful analyst may choose the annual count to show how the total fatality burden changed over time.",
+      "probability": 0.45,
+      "answer": "Reported motorist deaths fell from 110 in 2013 to 81 in 2025 (26.4%), but this count cannot establish whether per-mile risk declined because vehicle-miles traveled are absent.",
+      "interpretation": "This framing shows whether the annual number of motorists killed in NYC reported crashes changed, and it fell between 2013 and 2025 despite fluctuations in between. A count is a defensible measure of fatality burden, but it leaves the requested exposure-adjusted risk per mile unanswered."
+    },
+    {
+      "id": 2,
+      "metric": "Crashes with at least one motorist killed per 100,000 reported crashes",
+      "denominator": "All reported motor vehicle crashes in the same calendar year",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "A careful analyst may normalize by crash volume to compare fatal-crash incidence across years with different numbers of reported crashes.",
+      "probability": 0.55,
+      "answer": "Motorist-fatal crashes rose from 50.1 to 87.7 per 100,000 reported crashes from 2013 to 2025 (75.1%), so this crash-normalized proxy did not decline; it cannot answer per-mile risk without vehicle-miles traveled.",
+      "interpretation": "This framing shows how often a reported crash involved a motorist death relative to all reported crashes, and this crash-based incidence was higher in 2025 than in 2013. It is a defensible way to adjust for changes in crash volume, but the data contain no miles-driven denominator and therefore leave the requested per-mile risk unanswered."
+    }
+  ]
+}

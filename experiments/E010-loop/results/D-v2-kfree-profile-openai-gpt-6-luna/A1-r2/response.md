@@ -1,0 +1,3 @@
+The first annual cut shows two different signals: pedestrian injuries were lower in 2025 than 2013, while pedestrian deaths were higher. I’m charting these separately for 2013–2025; 2026 is partial, and the file has no pedestrian-exposure data to estimate risk per trip or mile walked.
+ANSWER: Reported pedestrian injuries in Brooklyn were 22% lower in 2025 than in 2013—2,835 versus 3,641—but have risen each year since 2021; these counts aren’t adjusted for pedestrian exposure.
+Pedestrian deaths were 30% higher in 2025 than in 2013—39 versus 30—with substantial year-to-year variation.
