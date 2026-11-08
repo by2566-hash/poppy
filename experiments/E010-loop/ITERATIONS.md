@@ -91,3 +91,30 @@ Same environment for every arm (OpenCode loads the `architecture-scout` skill, H
 3. Just-in-time notes alone (C3, no prompt change) move TR05 to 3/8 and restore the agent's own NULL checks (1.6 per run). They are the only arm that lowers g8 silent-error, because they add no new numbers to the text. C3 passes are disclosures in the agent's own words ("borough-missing crashes are excluded"); r3 wrote "Brooklyn crashes with borough recorded" and failed (borderline, for review).
 4. The effect is specific: the controls TR01 and TR15 do not move in any arm. Per-crash rates across 2020 (TR01) and small-number claims (TR15) need something else (the plan step, C5).
 5. **Measurement conflict.** The slot makes the agent write coverage numbers (rows, NULL shares). The g8 provenance check only accepts numbers found in `values_<id>.csv`, so these numbers count as unsourced and drive g8 silent-error to 68–80%. They are true: A1 "659,713 of 2,132,218 rows with NULL borough (30.9%)" in C1 and C4 matches DuckDB exactly; C2's 136,969 / 6.04% / 49.73% / 55.62% match too. This is a gap in the standard (no source for coverage facts), not hallucination. Resolution is Bo's: let a check file be a source (C5 writes `out/check_<id>.csv`), and/or verify coverage numbers directly against the data.
+
+### Profile completeness audit (asked by Bo, 2026-11-08)
+
+Question: was the profile complete, or partial in a way that could mislead the agent? Checked with DuckDB on the same file.
+
+The facts TR05 and TR08 need were all in the profile: borough NULL per year, 2026 partial by month, killed NULL 24.4% in 2026. So E010-1's TR05 result is not explained by missing content.
+
+The profile is partial, though: it measures one kind of missing value (NULL). It omits the following.
+
+| Not in the profile | Fact | Possible misreading |
+|---|---|---|
+| placeholder values | `contributing_factor_vehicle_1` "Unspecified" 33.3% (profile: NULL 0.4%); `vehicle_type_code1` UNKNOWN / OTHER variants ≈ 43k rows | column looks almost complete |
+| heaping at defaults | `crash_time` = 00:00 on 1.08% of rows (≈ 16× a typical minute); 19% of times on the hour | "no NULL" suggests precise times (A2 night) |
+| recoverability | 70.5% of NULL-borough rows have coordinates | only "30% NULL" is visible, so a handling option is missing |
+| invalid values | 7,591 rows with a 0 coordinate | not flagged |
+| internal consistency | 84 rows where persons killed ≠ pedestrians + cyclists + motorists killed | minor |
+
+Consequence: C5's data check asks for missing *in any form* and for pile-ups, in general terms.
+
+### Record for later optimisation (Bo's reading, with the same-day correction)
+
+- **Holds:** a descriptive profile in context is not used by Luna without an explicit instruction tied to an action (TR05 8/8, no run mentions NULL borough). It also displaces the agent's own checks (NULL queries 0.7 → 0.1 per run). With an explicit action hook the profile is used (C2: TR05 3/7), but it adds nothing over the hook alone (C1: 1/8).
+- **Does not hold:** "the profile made results worse". Against the same-day baseline, silent-error is flat (55% vs 51%). The gap to F1 (33%) comes from the date and the harness context (H5, H6), not from the profile.
+
+### C5 = E010-v3 (Bo's design, 2026-11-08)
+
+Plan → Data check → Final plan per framing. Boundaries and the leak found on the first run: `C5-design.md`. Running: label `D-v2-plan-kfree-openai-gpt-6-luna`, `PILOT_STEPS=50`, same environment as C1–C4.

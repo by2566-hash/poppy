@@ -35,3 +35,5 @@ Neighbours sitting inside the paraphrase range:
 - MiniLM scores higher here, but on 18 positive pairs from 6 bases. Choosing a model on this probe would overfit it, so both are reported.
 
 **Limits.** The neighbours are hand-written and still unchecked. In use, the distance will be between the asked question and a question *inferred from values.csv*, whose wording differs more than these pairs. So this probe is an upper bound on how separable the classes are.
+
+**Decision (Bo, 2026-11-08):** as expected. Embedding is a diagnostic only (coarse drift, plainly off-topic). Whether an option answers a different question is the judge's call. The model is not switched: both models are reported.
