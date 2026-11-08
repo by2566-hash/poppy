@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of pedestrian casualties (pedestrians injured plus pedestrians killed)",
+      "denominator": "None; raw count of reported pedestrian casualties",
+      "grouping": "Crash year, 2013-2025",
+      "chart_type": "Line chart of annual raw counts",
+      "reason": "Combining injuries and deaths summarizes the overall recorded burden of pedestrian harm.",
+      "probability": 0.55,
+      "answer": "Reported pedestrian casualties fell from 3,671 in 2013 to 2,874 in 2025 (22% lower), although they have risen from the 2020 low of 1,798.",
+      "interpretation": "This annual count answers whether the recorded burden of pedestrian injuries and deaths has fallen: it declined from 3,671 in 2013 to 2,874 in 2025, then rose from a 2020 low of 1,798. It is defensible because it counts both nonfatal and fatal pedestrian victims directly, but raw counts cannot establish exposure-adjusted safety or individual risk. The check found that 9,700 of 483,501 candidate Brooklyn crash rows (2.0%) fell in partial 2026 through June 11 and are excluded; within the checked candidate population, neither outcome field was missing or negative, while pedestrian injury was zero in 449,006 rows and pedestrian death was zero in 483,119, so these valid zero values are retained. These are police-reported crash counts and do not account for walking volume or unreported crashes."
+    },
+    {
+      "id": 2,
+      "metric": "Annual count of pedestrians killed",
+      "denominator": "None; raw count of reported pedestrian deaths",
+      "grouping": "Crash year, 2013-2025",
+      "chart_type": "Line chart of annual raw counts",
+      "reason": "A fatality-only series isolates the most severe pedestrian safety outcome.",
+      "probability": 0.45,
+      "answer": "Reported pedestrian deaths rose from 30 in 2013 to 39 in 2025 (30% higher), so fatal counts do not show improvement over this period.",
+      "interpretation": "This annual death count answers whether the most severe recorded pedestrian outcome has fallen: it rose from 30 in 2013 to 39 in 2025, with considerable year-to-year fluctuation and a low of 17 in 2020. It is defensible as a focused measure of fatal harm, but it leaves nonfatal injuries out and cannot establish exposure-adjusted safety or individual risk. The check found that 9,700 of 483,501 candidate Brooklyn crash rows (2.0%) fell in partial 2026 through June 11 and are excluded; the checked death field had no missing or negative values and was zero in 483,119 candidate rows, so valid zero values are retained. These are police-reported deaths and do not account for walking volume or unreported crashes."
+    }
+  ]
+}

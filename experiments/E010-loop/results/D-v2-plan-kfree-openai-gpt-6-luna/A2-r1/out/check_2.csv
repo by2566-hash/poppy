@@ -1,0 +1,77 @@
+fact,value
+columns_checked,"crash_date, crash_time, number_of_persons_injured, number_of_persons_killed"
+population_rows_with_known_year,2269187
+rows_without_crash_date_or_year,0
+years_present,"2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026"
+rows_in_year_2012,100545
+date_coverage_2012,2012-07-01 through 2012-12-31; starts_at_year_boundary=false; ends_at_year_boundary=true; calendar_year_partial=true
+rows_in_year_2013,203742
+date_coverage_2013,2013-01-01 through 2013-12-31; starts_at_year_boundary=true; ends_at_year_boundary=true; calendar_year_partial=false
+rows_in_year_2014,206046
+date_coverage_2014,2014-01-01 through 2014-12-31; starts_at_year_boundary=true; ends_at_year_boundary=true; calendar_year_partial=false
+rows_in_year_2015,217708
+date_coverage_2015,2015-01-01 through 2015-12-31; starts_at_year_boundary=true; ends_at_year_boundary=true; calendar_year_partial=false
+rows_in_year_2016,229833
+date_coverage_2016,2016-01-01 through 2016-12-31; starts_at_year_boundary=true; ends_at_year_boundary=true; calendar_year_partial=false
+rows_in_year_2017,231007
+date_coverage_2017,2017-01-01 through 2017-12-31; starts_at_year_boundary=true; ends_at_year_boundary=true; calendar_year_partial=false
+rows_in_year_2018,231564
+date_coverage_2018,2018-01-01 through 2018-12-31; starts_at_year_boundary=true; ends_at_year_boundary=true; calendar_year_partial=false
+rows_in_year_2019,211486
+date_coverage_2019,2019-01-01 through 2019-12-31; starts_at_year_boundary=true; ends_at_year_boundary=true; calendar_year_partial=false
+rows_in_year_2020,112918
+date_coverage_2020,2020-01-01 through 2020-12-31; starts_at_year_boundary=true; ends_at_year_boundary=true; calendar_year_partial=false
+rows_in_year_2021,110558
+date_coverage_2021,2021-01-01 through 2021-12-31; starts_at_year_boundary=true; ends_at_year_boundary=true; calendar_year_partial=false
+rows_in_year_2022,103887
+date_coverage_2022,2022-01-01 through 2022-12-31; starts_at_year_boundary=true; ends_at_year_boundary=true; calendar_year_partial=false
+rows_in_year_2023,96607
+date_coverage_2023,2023-01-01 through 2023-12-31; starts_at_year_boundary=true; ends_at_year_boundary=true; calendar_year_partial=false
+rows_in_year_2024,91316
+date_coverage_2024,2024-01-01 through 2024-12-31; starts_at_year_boundary=true; ends_at_year_boundary=true; calendar_year_partial=false
+rows_in_year_2025,85546
+date_coverage_2025,2025-01-01 through 2025-12-31; starts_at_year_boundary=true; ends_at_year_boundary=true; calendar_year_partial=false
+rows_in_year_2026,36424
+date_coverage_2026,2026-01-01 through 2026-06-11; starts_at_year_boundary=true; ends_at_year_boundary=false; calendar_year_partial=true
+final_years_selected,2013-2025 (complete calendar years)
+rows_excluded_as_partial_years,136969
+rows_in_final_years,2132218
+crash_date_null_rows,0
+crash_date_type_and_invalid_values,DATE type; non-null values are valid calendar dates; empty strings/unknown words cannot be stored as DATE
+crash_time_null_rows_with_known_year,0
+crash_time_midnight_rows_with_known_year,24566
+crash_time_type_and_invalid_values,TIME type; non-null values are valid times; empty strings/unknown words and impossible clock values cannot be stored as TIME
+crash_time_null_rows_in_final_years,0
+crash_time_midnight_rows_in_final_years,23787
+number_of_persons_injured_null_rows_with_known_year,18
+number_of_persons_injured_negative_impossible_rows_with_known_year,0
+number_of_persons_injured_zero_rows_with_known_year,1710566
+number_of_persons_injured_type_and_invalid_values,INT type; negative counts are impossible; empty strings/unknown words cannot be stored as INT; zero is a valid recorded count
+number_of_persons_injured_null_rows_in_final_years,18
+number_of_persons_injured_null_share_in_final_years,0.000844%
+number_of_persons_injured_negative_rows_in_final_years,0
+number_of_persons_injured_zero_rows_in_final_years,1608886
+number_of_persons_killed_null_rows_with_known_year,8913
+number_of_persons_killed_negative_impossible_rows_with_known_year,0
+number_of_persons_killed_zero_rows_with_known_year,2256805
+number_of_persons_killed_type_and_invalid_values,INT type; negative counts are impossible; empty strings/unknown words cannot be stored as INT; zero is a valid recorded count
+number_of_persons_killed_null_rows_in_final_years,36
+number_of_persons_killed_null_share_in_final_years,0.001688%
+number_of_persons_killed_negative_rows_in_final_years,0
+number_of_persons_killed_zero_rows_in_final_years,2128911
+any_outcome_column_null_rows_in_final_years,42
+any_outcome_column_null_share_in_final_years,0.001970%
+final_plan_population_rows_2013_2025,2132176
+final_plan_population_rows_2013,203742
+final_plan_population_rows_2014,206046
+final_plan_population_rows_2015,217708
+final_plan_population_rows_2016,229831
+final_plan_population_rows_2017,230988
+final_plan_population_rows_2018,231548
+final_plan_population_rows_2019,211486
+final_plan_population_rows_2020,112917
+final_plan_population_rows_2021,110557
+final_plan_population_rows_2022,103887
+final_plan_population_rows_2023,96607
+final_plan_population_rows_2024,91316
+final_plan_population_rows_2025,85543

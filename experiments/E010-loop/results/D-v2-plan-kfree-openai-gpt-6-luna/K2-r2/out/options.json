@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crash rows",
+      "denominator": "None; raw crash-row counts over the requested 2013–2025 period",
+      "grouping": "Day of week derived from crash_date, Monday through Sunday",
+      "chart_type": "Bar chart",
+      "reason": "Raw counts directly show the total volume of crash records assigned to each weekday over the requested period.",
+      "probability": 0.75,
+      "answer": "Friday had the most reported crashes (338,800) and Sunday the fewest (257,544) from 2013 through 2025.",
+      "interpretation": "Raw weekday counts answer how the 2,132,218 reported crash records in 2013–2025 are distributed: Friday is highest (338,800) and Sunday lowest (257,544), with the other days between. This is defensible because each row is one crash and the question asks for crash distribution, so totals retain actual volume over the specified period. It does not compare crash rates per trip or population, and it describes reported records only. The date filter omits 136,969 rows (6.0% of 2,269,187 source rows) outside 2013–2025; check_1.csv shows zero NULL crash dates, zero in-scope null or checked sentinel dates, and observations at both date boundaries for each requested year, so all 2,132,218 in-range rows are kept, though boundaries do not prove complete reporting."
+    },
+    {
+      "id": 2,
+      "metric": "Mean number of police-reported crash rows per calendar occurrence of each weekday",
+      "denominator": "Number of calendar dates of that weekday during the full 2013–2025 calendar interval",
+      "grouping": "Day of week derived from crash_date, Monday through Sunday",
+      "chart_type": "Bar chart",
+      "reason": "A per-calendar-date average adjusts for the small differences in how many times each weekday occurs during the 13-year interval.",
+      "probability": 0.25,
+      "answer": "Friday averaged 499.7 reported crashes per calendar date, compared with Sunday’s low of 379.9 per date.",
+      "interpretation": "The calendar-date average answers how crash reports distribute across weekday dates, with Friday highest (499.7 per date) and Sunday lowest (379.9 per date). This is defensible because weekdays occur 678 or 679 times over the full 2013–2025 interval, and dividing by those occurrences makes the comparison per calendar date. It leaves per-trip or per-person crash risk unanswered and remains a count of police-reported crashes. The date filter omits 136,969 rows (6.0% of 2,269,187 source rows) outside 2013–2025; check_2.csv shows zero NULL crash dates, zero in-scope null or checked sentinel dates, and observations at both date boundaries for each requested year, so all 2,132,218 in-range rows are kept, though boundaries do not prove complete reporting."
+    }
+  ]
+}

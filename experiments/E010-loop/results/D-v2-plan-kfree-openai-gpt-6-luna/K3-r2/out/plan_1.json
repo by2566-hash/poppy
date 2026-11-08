@@ -1,0 +1,27 @@
+{
+  "id": 1,
+  "stage": "final plan after data check",
+  "can_answer": "yes: the file has annual crash-level counts of cyclist and motorist deaths, so these can be summed by crash year and compared as counts; it cannot measure individual risk or exposure-adjusted rates",
+  "metric": "annual number of cyclist deaths and annual number of motorist deaths, separately",
+  "denominator": "none; absolute death counts",
+  "population": "all police-reported NYC motor vehicle crash rows dated from 2013-01-01 through 2025-12-31; each crash contributes its cyclist-killed and motorist-killed counts",
+  "filters": ["crash_date falls in calendar years 2013 through 2025"],
+  "years": "2013-2025 inclusive",
+  "grouping": ["calendar year of crash_date", "road-user group: cyclist or motorist"],
+  "data_check_plan": {
+    "population_counts": "Count the qualifying crash rows overall and per year; inspect whether first or last year is partial based on the observed date coverage.",
+    "columns": {
+      "crash_date": "Check qualifying rows for missing, invalid, or out-of-range dates and the observed date coverage by year.",
+      "number_of_cyclist_killed": "Among qualifying rows, count missing values, zero values (the default/zero pile-up), and impossible negative values.",
+      "number_of_motorist_killed": "Among qualifying rows, count missing values, zero values (the default/zero pile-up), and impossible negative values."
+    },
+    "outcome_results": "Do not calculate death totals, rates, or shares during the check."
+  },
+  "check_implications_and_decisions": {
+    "dates": "The planned rows number 2,132,218; each year 2013-2025 has observed dates spanning January 1 through December 31, so no year is shortened based on the observed endpoints. The date field is a DATE and the year filter assigns every included row to a calendar year.",
+    "number_of_cyclist_killed": "There are no missing or negative values. The field is zero on 2,131,942 of the 2,132,218 rows; retain these rows as zero cyclist deaths for that crash, rather than dropping the large and valid zero pile-up.",
+    "number_of_motorist_killed": "There are no missing or negative values. The field is zero on 2,130,945 of the 2,132,218 rows; retain these rows as zero motorist deaths for that crash, rather than dropping the large and valid zero pile-up.",
+    "change_to_plan": "No change to years, population, metric, or grouping. Keep all dated crash rows in 2013-2025 and sum the two fatality count fields independently by year."
+  },
+  "limitations": "These are counts of deaths recorded on police-reported NYC crash records, not population- or travel-exposure-adjusted risks. The observed date endpoints span each calendar year; the checks found no missing or negative fatality values. The many zero-valued crash-level entries are retained as valid crashes with no deaths of that road-user group."
+}

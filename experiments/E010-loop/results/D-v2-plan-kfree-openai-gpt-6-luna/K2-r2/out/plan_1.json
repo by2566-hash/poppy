@@ -1,0 +1,30 @@
+{
+  "initial_plan": {
+    "can_answer": "yes",
+    "metric": "Number of police-reported crash rows",
+    "denominator": "None; raw crash-row counts over the requested 2013–2025 period",
+    "population": "One row per police-reported NYC motor vehicle crash with a usable crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date is in 2013–2025 inclusive"],
+    "years": "2013–2025 inclusive",
+    "grouping": "Day of week derived from crash_date, Monday through Sunday",
+    "chart_type": "Bar chart of total crash rows by day of week"
+  },
+  "data_check": {
+    "facts_file": "check_1.csv",
+    "population_and_years": "2,132,218 rows have crash_date in 2013–2025. Each year 2013–2025 has observations from January 1 through December 31; per-year row counts and endpoints are in check_1.csv.",
+    "field_quality": "There are 0 NULL crash_date values in the source, 0 NULL dates in scope, and 0 in-scope values at the checked common date sentinels 1900-01-01 or 1970-01-01. Since crash_date is DATE typed, empty strings, unknown words, and impossible dates cannot be represented in the field.",
+    "meaning_and_decisions": "The date filter leaves no in-range crash rows out for missing or sentinel dates. All requested years have observed records at both calendar boundaries, so no year appears partial by the available date bounds. Keep all in-range rows; the boundary check is evidence about observed date bounds, not an independent completeness audit.",
+    "changes": "No change to the initial plan."
+  },
+  "final_plan": {
+    "can_answer": "yes",
+    "metric": "Number of police-reported crash rows",
+    "denominator": "None; raw crash-row counts over the requested 2013–2025 period",
+    "population": "One row per police-reported NYC motor vehicle crash with crash_date in calendar years 2013 through 2025 inclusive (2,132,218 rows)",
+    "filters": ["crash_date is in 2013–2025 inclusive"],
+    "years": "2013–2025 inclusive; each year has observed crash dates at both January 1 and December 31",
+    "grouping": "Day of week derived from crash_date, Monday through Sunday",
+    "chart_type": "Bar chart of total crash rows by day of week",
+    "limitations": "Counts describe police-reported crash records, not all crashes or risk per trip/person. Date bounds show observations on the first and last calendar dates of every requested year, but do not independently establish complete reporting on every date."
+  }
+}

@@ -1,0 +1,3 @@
+ANSWER: The absolute-count framing shows Friday has the most recorded crashes (338,800) and Sunday the fewest (257,544) across 2013–2025.
+The overall-share framing shows Friday accounts for the largest share (15.89%) and Sunday the smallest (12.08%) of eligible crash records.
+The year-by-year framing shows Friday has the largest weekday share in every year, while Sunday's share rises from 11.85% in 2013 to 13.09% in 2025.

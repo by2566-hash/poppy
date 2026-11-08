@@ -1,0 +1,45 @@
+{
+  "id": 2,
+  "question": "Are NYC's streets more dangerous at night?",
+  "initial_plan": {
+    "answerability": "partly: reported injury/fatality involvement among crashes can compare outcome severity by time of day, but cannot establish person-level or travel-exposure risk",
+    "metric": "share of police-reported crashes with at least one person reported injured or killed",
+    "denominator": "all included police-reported crashes with usable time and known, nonnegative injury and fatality counts, separately within each time period",
+    "population": "one row per police-reported crash in the selected complete calendar years and 12-hour day/night periods, with known valid number_of_persons_injured and number_of_persons_killed",
+    "filters": ["night is 19:00 through 06:59:59", "day is 07:00 through 18:59:59", "use the same complete calendar years for both periods", "exclude rows with missing or invalid date/time or missing/negative person injury or fatality counts"],
+    "years": "all complete calendar years represented in the file, to be determined by checking date coverage",
+    "grouping": "night vs day"
+  },
+  "data_check": {
+    "file": "./out/check_2.csv",
+    "findings_and_decisions": [
+      {
+        "finding": "Observed date bounds are 2012-07-01 to 2026-06-11; 2012 and 2026 are partial calendar years by observed bounds, while 2013-2025 span Jan 1 through Dec 31.",
+        "decision": "Exclude the boundary years 2012 and 2026; use 2013-2025 for both periods. Observed bounds do not prove that every date within an included year is represented."
+      },
+      {
+        "finding": "There are 0 missing crash dates, 0 missing times among 2,132,218 selected-year candidate crashes, and no impossible/out-of-range values are representable in the TIME-typed column. 23,787 rows (1.12%) are timestamped exactly midnight.",
+        "decision": "No date/time rows are dropped; retain midnight rows in night and disclose possible default-time ambiguity."
+      },
+      {
+        "finding": "Among selected-year candidates, 0 dates equal the common 1900/1970 sentinel dates, 0 are nonfinite/impossible, and DATE values cannot contain empty or unknown words.",
+        "decision": "No date rows are dropped or reclassified for sentinel or impossible values."
+      },
+      {
+        "finding": "Among valid-time crashes in selected years, number_of_persons_injured is missing in 18 rows and number_of_persons_killed in 36 rows; 42 unique rows have either field missing, no negative values occur, and typed integer columns cannot contain empty/unknown words. The zero values are frequent (1,608,886 injured-count zeros and 2,128,911 killed-count zeros).",
+        "decision": "Exclude the 42 rows with either count missing from both numerator and denominator; keep valid zero counts as genuine no-reported-injury/no-reported-fatality values."
+      }
+    ],
+    "population_after_data_check": "2,132,176 crashes from 2013-2025 with nonmissing date/time and known nonnegative values in both person injury/fatality count columns."
+  },
+  "final_plan": {
+    "answerability": "partly: compare reported injury/fatality involvement conditional on a police-reported crash; this does not measure per-trip or per-mile danger and does not describe unreported crashes",
+    "metric": "percentage of police-reported crashes with at least one person reported injured or killed",
+    "denominator": "all included crashes in the corresponding day/night period with known, nonnegative number_of_persons_injured and number_of_persons_killed",
+    "population": "2,132,176 police-reported crashes from 2013-2025 with nonmissing date/time and known nonnegative person injury and fatality counts",
+    "filters": ["night: 19:00 through 06:59:59", "day: 07:00 through 18:59:59", "exclude partial boundary years 2012 and 2026", "exclude rows missing either person count; keep zero values", "keep timestamps at exactly midnight and disclose their ambiguity"],
+    "years": "2013-2025",
+    "grouping": "night vs day",
+    "limitations": "This is the share of reported crashes involving injury or death, conditional on a reported crash; it is not person-level or travel-exposure risk. Years 2012 and 2026 were omitted as partial by observed date bounds; included year bounds span full calendar years but do not prove every date is represented. There are 42 rows (0.002% of selected-year crashes with valid time) missing either person count, excluded from numerator and denominator; zero values are retained. 23,787 rows (1.12%) are exactly midnight and retained despite possible default-time ambiguity."
+  }
+}

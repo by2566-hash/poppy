@@ -1,0 +1,83 @@
+fact,value
+Population: crash rows with crash_date in 2013–2025 inclusive,2132218
+Population rows with usable crash_date missing,0
+Observed crash_date minimum in target years,2013-01-01
+Observed crash_date maximum in target years,2025-12-31
+2013: crash rows in population,203742
+2013: observed first and last crash_date,2013-01-01 00:00:00 .. 2013-12-31 00:00:00
+2013: number_of_motorist_killed NULL rows,0
+2013: number_of_motorist_killed impossible negative rows,0
+2013: number_of_motorist_killed zero rows (valid no-motorist-death value; checked for pile-up),203640
+2014: crash rows in population,206046
+2014: observed first and last crash_date,2014-01-01 00:00:00 .. 2014-12-31 00:00:00
+2014: number_of_motorist_killed NULL rows,0
+2014: number_of_motorist_killed impossible negative rows,0
+2014: number_of_motorist_killed zero rows (valid no-motorist-death value; checked for pile-up),205947
+2015: crash rows in population,217708
+2015: observed first and last crash_date,2015-01-01 00:00:00 .. 2015-12-31 00:00:00
+2015: number_of_motorist_killed NULL rows,0
+2015: number_of_motorist_killed impossible negative rows,0
+2015: number_of_motorist_killed zero rows (valid no-motorist-death value; checked for pile-up),217619
+2016: crash rows in population,229833
+2016: observed first and last crash_date,2016-01-01 00:00:00 .. 2016-12-31 00:00:00
+2016: number_of_motorist_killed NULL rows,0
+2016: number_of_motorist_killed impossible negative rows,0
+2016: number_of_motorist_killed zero rows (valid no-motorist-death value; checked for pile-up),229770
+2017: crash rows in population,231007
+2017: observed first and last crash_date,2017-01-01 00:00:00 .. 2017-12-31 00:00:00
+2017: number_of_motorist_killed NULL rows,0
+2017: number_of_motorist_killed impossible negative rows,0
+2017: number_of_motorist_killed zero rows (valid no-motorist-death value; checked for pile-up),230907
+2018: crash rows in population,231564
+2018: observed first and last crash_date,2018-01-01 00:00:00 .. 2018-12-31 00:00:00
+2018: number_of_motorist_killed NULL rows,0
+2018: number_of_motorist_killed impossible negative rows,0
+2018: number_of_motorist_killed zero rows (valid no-motorist-death value; checked for pile-up),231467
+2019: crash rows in population,211486
+2019: observed first and last crash_date,2019-01-01 00:00:00 .. 2019-12-31 00:00:00
+2019: number_of_motorist_killed NULL rows,0
+2019: number_of_motorist_killed impossible negative rows,0
+2019: number_of_motorist_killed zero rows (valid no-motorist-death value; checked for pile-up),211409
+2020: crash rows in population,112918
+2020: observed first and last crash_date,2020-01-01 00:00:00 .. 2020-12-31 00:00:00
+2020: number_of_motorist_killed NULL rows,0
+2020: number_of_motorist_killed impossible negative rows,0
+2020: number_of_motorist_killed zero rows (valid no-motorist-death value; checked for pile-up),112792
+2021: crash rows in population,110558
+2021: observed first and last crash_date,2021-01-01 00:00:00 .. 2021-12-31 00:00:00
+2021: number_of_motorist_killed NULL rows,0
+2021: number_of_motorist_killed impossible negative rows,0
+2021: number_of_motorist_killed zero rows (valid no-motorist-death value; checked for pile-up),110432
+2022: crash rows in population,103887
+2022: observed first and last crash_date,2022-01-01 00:00:00 .. 2022-12-31 00:00:00
+2022: number_of_motorist_killed NULL rows,0
+2022: number_of_motorist_killed impossible negative rows,0
+2022: number_of_motorist_killed zero rows (valid no-motorist-death value; checked for pile-up),103780
+2023: crash rows in population,96607
+2023: observed first and last crash_date,2023-01-01 00:00:00 .. 2023-12-31 00:00:00
+2023: number_of_motorist_killed NULL rows,0
+2023: number_of_motorist_killed impossible negative rows,0
+2023: number_of_motorist_killed zero rows (valid no-motorist-death value; checked for pile-up),96493
+2024: crash rows in population,91316
+2024: observed first and last crash_date,2024-01-01 00:00:00 .. 2024-12-31 00:00:00
+2024: number_of_motorist_killed NULL rows,0
+2024: number_of_motorist_killed impossible negative rows,0
+2024: number_of_motorist_killed zero rows (valid no-motorist-death value; checked for pile-up),91218
+2025: crash rows in population,85546
+2025: observed first and last crash_date,2025-01-01 00:00:00 .. 2025-12-31 00:00:00
+2025: number_of_motorist_killed NULL rows,0
+2025: number_of_motorist_killed impossible negative rows,0
+2025: number_of_motorist_killed zero rows (valid no-motorist-death value; checked for pile-up),85471
+2013: coverage boundary check (inferred from target-period min/max crash_date),within observed date bounds
+2014: coverage boundary check (inferred from target-period min/max crash_date),within observed date bounds
+2015: coverage boundary check (inferred from target-period min/max crash_date),within observed date bounds
+2016: coverage boundary check (inferred from target-period min/max crash_date),within observed date bounds
+2017: coverage boundary check (inferred from target-period min/max crash_date),within observed date bounds
+2018: coverage boundary check (inferred from target-period min/max crash_date),within observed date bounds
+2019: coverage boundary check (inferred from target-period min/max crash_date),within observed date bounds
+2020: coverage boundary check (inferred from target-period min/max crash_date),within observed date bounds
+2021: coverage boundary check (inferred from target-period min/max crash_date),within observed date bounds
+2022: coverage boundary check (inferred from target-period min/max crash_date),within observed date bounds
+2023: coverage boundary check (inferred from target-period min/max crash_date),within observed date bounds
+2024: coverage boundary check (inferred from target-period min/max crash_date),within observed date bounds
+2025: coverage boundary check (inferred from target-period min/max crash_date),within observed date bounds

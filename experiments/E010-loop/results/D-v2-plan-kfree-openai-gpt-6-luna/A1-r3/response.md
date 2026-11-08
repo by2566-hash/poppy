@@ -1,0 +1,4 @@
+The check identifies 2013–2025 as full calendar years in Brooklyn, with 2026 observed only through June 11, so I’ll exclude 2026. The borough field is absent or unknown for a substantial share of date-eligible citywide crashes; those records cannot be assigned to Brooklyn and will be disclosed as excluded from these borough-specific trends.
+ANSWER:
+- [Combined pedestrian casualty chart](out/option_1.png): Reported pedestrian injuries and deaths fell from 3,671 in 2013 to 2,874 in 2025 (about 22% lower), after a low of 1,798 in 2020 and a subsequent rebound; these are counts, not exposure-adjusted safety rates.
+- [Pedestrian deaths chart](out/option_2.png): Reported pedestrian deaths rose from 30 in 2013 to 39 in 2025 (30% higher), fluctuating substantially and reaching a low of 17 in 2020; these are counts, not exposure-adjusted safety rates.

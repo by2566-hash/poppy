@@ -1,0 +1,28 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "answerability": "partly: the data can compare the number of police-reported crashes by time of day, but without traffic or travel exposure it cannot establish that a street user is more likely to crash at night.",
+    "metric": "number of police-reported motor vehicle crashes",
+    "denominator": "none for the count; this is not an exposure-adjusted risk",
+    "population": "all police-reported NYC motor vehicle crashes in the years present in the file, assigned to nighttime or daytime from crash_time",
+    "filters": ["Night is 20:00 through 05:59; day is 06:00 through 19:59", "Rows with missing or unusable crash_date or crash_time cannot be assigned to a year and time period"],
+    "years": "all years represented in crash_date; inspect coverage and partial years during the data check",
+    "grouping": ["year", "time period (night/day)"],
+    "limitations": ["Crash counts do not account for how much traffic or how many people travel during each period.", "Only police-reported crashes are represented."]
+  },
+  "data_check": {
+    "coverage_and_rows": "2,269,187 dated crashes occur in 2012-2026. 2012 is partial (July 1-December 31; 100,545 rows) and 2026 is partial (January 1-June 11; 36,424 rows). No crash dates or times are missing. Use complete years 2013-2025 (2,132,218 rows) and exclude 136,969 rows in the two partial years.",
+    "field_quality_and_decisions": "crash_date is a DATE and crash_time a TIME; all non-null values are valid typed values, and there are no missing dates or times. There are 23,787 midnight rows in the final years; retain them as night under the defined boundary, but disclose that these columns cannot tell whether midnight is a true time or a source default. Night is 10 clock-hours per date and day 14, so normalize by period clock-hours.",
+    "changes": "Change raw counts to crashes per clock-hour and exclude the two partial calendar years. Clock-hour normalization does not account for traffic or other road-user exposure."
+  },
+  "final_plan": {
+    "answerability": "partly: this compares hourly intensity of police-reported crashes by time of day, but cannot estimate street-user crash risk without traffic or travel exposure.",
+    "metric": "police-reported motor vehicle crashes per clock-hour",
+    "denominator": "total clock-hours in each period across complete calendar years 2013-2025 (10 hours per night and 14 hours per day per date)",
+    "population": "all police-reported NYC motor vehicle crashes with a usable date and time in complete calendar years 2013-2025",
+    "filters": ["Night is 20:00-05:59 across midnight; day is 06:00-19:59", "Exclude partial calendar years 2012 and 2026", "Retain midnight times as night"],
+    "years": "2013-2025 inclusive; all are complete calendar years in the file",
+    "grouping": ["time period (night/day), pooled over 2013-2025"],
+    "limitations": ["Clock-hour normalization does not account for how many vehicles, pedestrians, cyclists, or trips are present at each time.", "Only police-reported crashes are represented; midnight times could include source defaults that these columns cannot identify."]
+  }
+}

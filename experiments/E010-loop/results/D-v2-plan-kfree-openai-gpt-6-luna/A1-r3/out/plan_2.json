@@ -1,0 +1,29 @@
+{
+  "initial_plan": {
+    "answerability": "partly: the file can show annual counts of reported pedestrian deaths in Brooklyn, but not a population- or walking-exposure-adjusted road-safety rate or causation",
+    "metric": "annual number of pedestrians reported killed in Brooklyn motor-vehicle crashes",
+    "denominator": "calendar year; this is a count, not a rate",
+    "population": "people recorded as pedestrians killed in police-reported crashes with borough Brooklyn and a crash date in a calendar year from 2013 onward",
+    "filters": ["borough = Brooklyn", "crash_date year >= 2013", "use complete calendar years only if coverage checks show the latest year is partial"],
+    "years": "2013 through the latest covered calendar year, restricted to complete years after the data check",
+    "grouping": "crash year",
+    "columns_to_check": ["borough", "crash_date", "number_of_pedestrians_killed"]
+  },
+  "data_check_implications_and_decisions": {
+    "population_rows": "483,501 Brooklyn crash records from 2013 onward have the pedestrian-killed field available; 2013–2025 have full observed date bounds, while 2026 is observed only through June 11 and is excluded to avoid comparing a partial year with full years.",
+    "borough": "Among all 2,168,642 crashes with a nonmissing date from 2013 onward, 668,406 (30.821408%) have borough missing or labeled unknown. Such records cannot be assigned to Brooklyn; exclude them from the Brooklyn count and disclose this coverage limitation. Brooklyn rows are selected by a nonblank borough value equal to Brooklyn.",
+    "outcome": "In the Brooklyn population, the integer pedestrian-killed field has 0 NULLs, 0 impossible negative values, and no text missing values are possible by type. Zero is the expected no-death default for 483,119/483,501 (99.920993%) crash records; retain these valid zeros in the underlying population.",
+    "crash_date": "There are 0 missing crash dates, so none are unassignable to a year.",
+    "changes": "Restrict the analysis to complete years 2013–2025; retain zero fatality values; exclude borough-missing and non-Brooklyn records because their location cannot support a Brooklyn assignment."
+  },
+  "final_plan": {
+    "answerability": "partly: compare reported pedestrian death counts over time, but the data cannot establish a true safety rate because pedestrian exposure is absent, nor attribute trends causally",
+    "metric": "annual number of pedestrians reported killed in Brooklyn motor-vehicle crashes",
+    "denominator": "calendar year; annual count, not a rate",
+    "population": "pedestrians reported killed in police-reported crashes with borough Brooklyn and crash dates from January 1, 2013 through December 31, 2025",
+    "filters": ["borough = Brooklyn", "crash_date between 2013-01-01 and 2025-12-31 inclusive", "retain zero values in pedestrian-killed field"],
+    "years": "2013–2025, complete observed calendar years",
+    "grouping": "crash year",
+    "limitations": "Counts of reported deaths are not exposure-adjusted safety rates; the data has no pedestrian-trip or population denominator. Of all date-eligible NYC records from 2013 onward, 668,406/2,168,642 (30.821408%) lack a usable borough and cannot be assigned to Brooklyn. The partial 2026 period (through June 11) is excluded; zero pedestrian-death values are retained as valid no-death crash records."
+  }
+}

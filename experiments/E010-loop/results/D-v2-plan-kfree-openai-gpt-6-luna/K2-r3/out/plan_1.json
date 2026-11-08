@@ -1,0 +1,32 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer": "yes",
+    "answerable_part": "The weekday distribution of police-reported crash records dated from 2013 through 2025.",
+    "metric": "Number of police-reported crashes",
+    "denominator": "No separate denominator; each qualifying crash record counts once.",
+    "population": "Crash records with a valid crash_date from 2013-01-01 through 2025-12-31 inclusive.",
+    "filters": ["crash_date is in calendar years 2013 through 2025"],
+    "years": "2013-2025 inclusive",
+    "grouping": "Day of week derived from crash_date, Monday through Sunday",
+    "columns_used": ["crash_date"]
+  },
+  "data_check_interpretation": {
+    "facts": "The selected population has 2,132,218 rows: every year 2013-2025 has rows and min/max dates span January 1 through December 31. There are 0 NULL crash_date values among rows satisfying the date filter; the DATE type plus the filter excludes empty or impossible date values. Standard date sentinels such as 1900-01-01 and 1970-01-01 lie outside the selected years.",
+    "decisions": "Retain every row with a crash_date in 2013-2025 and assign its weekday from that date. No qualifying rows are dropped or placed in an unknown-weekday group. Missing dates outside the selected date window cannot be assigned to a year or weekday and are not part of this population.",
+    "change": "No change to the initial population or metric. All 13 years have full calendar-year min/max date extents; this establishes the observed date span, but not independent completeness of the source records within each year."
+  },
+  "final_plan": {
+    "can_answer": "yes",
+    "answerable_part": "The distribution of police-reported crash records by weekday over 2013-2025.",
+    "metric": "Number of police-reported crashes",
+    "denominator": "No separate denominator; each qualifying crash record counts once.",
+    "population": "Crash records with a valid crash_date from 2013-01-01 through 2025-12-31 inclusive.",
+    "filters": ["crash_date is in calendar years 2013 through 2025"],
+    "years": "2013-2025 inclusive; observed min/max dates span each full calendar year",
+    "grouping": "Day of week derived from crash_date, Monday through Sunday",
+    "columns_used": ["crash_date"],
+    "data_check_decisions": "Use all selected rows; no selected rows have missing/invalid dates, and no year is partial by observed min/max. Rows outside the date window, including any undated rows, do not enter the population.",
+    "limitations": "These are police-reported records, not all crashes or a measure of per-trip/per-mile risk. Full-year min/max dates do not independently verify source completeness within the interval; the data check excludes dates outside 2013-2025 and does not quantify undated rows."
+  }
+}

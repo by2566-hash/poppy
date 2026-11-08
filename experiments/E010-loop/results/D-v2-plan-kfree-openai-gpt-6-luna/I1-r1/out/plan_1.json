@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "question_part_answerable": "partly: the file cannot measure risk per mile driven because it contains no vehicle-miles-traveled exposure; it can show yearly counts of motorists killed in reported crashes.",
+  "metric": "Annual number of motorists killed in police-reported NYC crashes",
+  "denominator": "None (count)",
+  "population": "Motorists recorded as killed in police-reported motor-vehicle crashes in NYC, assigned to the crash year",
+  "filters": "Crash dates in 2013–2025 inclusive; valid, nonmissing motorist-killed counts; exclude rows without a usable crash year or with an impossible negative count",
+  "years": "2013–2025 inclusive",
+  "grouping": "Crash year",
+  "initial_data_check": "Scoped checks in check_1.csv: 2,132,218 crashes have dates in 2013–2025; each year has rows spanning Jan 1 through Dec 31, including 2025. No missing crash dates, missing motorist-killed values, or negative motorist-killed values were found. The count is zero for most crash rows in each year; those are legitimate zero-fatality observations rather than missing/default values.",
+  "data_check_decisions": "Keep the full eligible date range and all rows, including zero motorist-death values; exclude no rows. Missing-year rows cannot be assigned to the requested time trend, but the check found none. No changes to the initial plan.",
+  "final_plan": {
+    "question_part_answerable": "Partly. The file cannot measure risk per mile driven because it contains no vehicle-miles-traveled exposure. It can show the annual count of motorists recorded killed in reported crashes.",
+    "metric": "Annual number of motorists killed in police-reported NYC crashes",
+    "denominator": "None (count)",
+    "population": "Motorists recorded as killed in police-reported motor-vehicle crashes in NYC, assigned to the crash year",
+    "filters": "Crash dates in 2013–2025 inclusive; retain all nonnegative motorist-killed counts, including zero; no rows are dropped by the checks",
+    "years": "2013–2025 inclusive; observed dates span Jan 1 to Dec 31 in every year",
+    "grouping": "Crash year",
+    "limitations": "This is a count of recorded deaths, not a per-mile risk: the file has no mileage or other travel-exposure denominator. Counts may change with driving exposure and reporting as well as underlying risk."
+  }
+}

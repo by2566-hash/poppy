@@ -1,0 +1,2 @@
+The scoped checks show records across the full calendar-year boundaries for 2013–2025, with no missing dates, missing pedestrian-fatality counts, or negative counts in those years. Zero-valued crash records are valid members of the population, so I’ll retain them; the annual metric remains the direct sum of the pedestrian-killed field.
+ANSWER: Recorded pedestrian deaths were 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.

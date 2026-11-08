@@ -1,0 +1,28 @@
+{
+  "initial_plan": {
+    "can_answer": "yes — the dataset records pedestrian fatalities for each police-reported crash and the crash date needed to assign a calendar year.",
+    "metric": "Annual number of pedestrians killed, calculated as the sum of number_of_pedestrians_killed across crashes.",
+    "denominator": "None; this is a count of people, not a rate or share.",
+    "population": "Police-reported NYC motor vehicle crashes dated from 2013-01-01 through 2025-12-31; sum the recorded pedestrian fatalities in each crash.",
+    "filters": ["crash_date in calendar years 2013–2025"],
+    "years": "2013–2025 inclusive",
+    "grouping": "Calendar year of crash_date",
+    "chart_type": "Line chart connecting annual counts to emphasize change over time."
+  },
+  "data_check_meaning_and_decisions": {
+    "facts": "The plan's population contains 2,132,218 crash rows. Every year from 2013 through 2025 has observed dates from January 1 through December 31; endpoint coverage does not establish completeness of reporting within each year. Within the selected rows, crash_date and number_of_pedestrians_killed have no missing values, and the fatality field has no negative values. Many crash rows have a zero fatality value, which is a valid count rather than missing data.",
+    "meaning": "The year filter defines a population with an observed full-calendar-year date span, but the data cannot verify whether all crashes were reported. The check is restricted to the selected population, so it does not measure rows with an unassignable missing date outside that population.",
+    "decisions": "Keep all dated rows, retain valid zero values as zero contributors, and disclose police-reporting and coverage limitations; there are no missing or negative fatality values in the selected population to exclude."
+  },
+  "final_plan": {
+    "can_answer": "yes — as recorded pedestrian deaths in police-reported crashes.",
+    "metric": "Annual sum of number_of_pedestrians_killed (pedestrian fatalities).",
+    "denominator": "None; count of people, not a rate or share.",
+    "population": "Police-reported NYC motor vehicle crashes with crash_date in 2013–2025, inclusive.",
+    "filters": ["crash_date >= 2013-01-01", "crash_date < 2026-01-01"],
+    "years": "2013–2025 inclusive; observed date endpoints span each full calendar year, though reporting completeness is unverified.",
+    "grouping": "Calendar year of crash_date",
+    "chart_type": "Line chart connecting annual counts to emphasize change over time.",
+    "limitations": "The counts describe police-reported crashes and recorded fatalities only. Although each year has observed records at both calendar-year endpoints, the data check cannot establish complete reporting or completeness within each year; crashes without a usable date cannot be assigned to a year."
+  }
+}

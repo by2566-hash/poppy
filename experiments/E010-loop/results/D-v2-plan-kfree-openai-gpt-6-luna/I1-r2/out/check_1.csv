@@ -1,0 +1,81 @@
+fact,value
+planned_population_rows_2013_2025,2132218
+rows_with_missing_crash_date_in_file_unassignable_to_year,0
+rows_2013,203742
+motorist_killed_missing_rows_2013,0
+motorist_killed_negative_rows_2013,0
+motorist_killed_zero_rows_2013,203640
+date_coverage_edges_2013,first=2013-01-01; last=2013-12-31
+coverage_status_2013,full year at observed edges; internal date coverage not evaluated
+rows_2014,206046
+motorist_killed_missing_rows_2014,0
+motorist_killed_negative_rows_2014,0
+motorist_killed_zero_rows_2014,205947
+date_coverage_edges_2014,first=2014-01-01; last=2014-12-31
+coverage_status_2014,full year at observed edges; internal date coverage not evaluated
+rows_2015,217708
+motorist_killed_missing_rows_2015,0
+motorist_killed_negative_rows_2015,0
+motorist_killed_zero_rows_2015,217619
+date_coverage_edges_2015,first=2015-01-01; last=2015-12-31
+coverage_status_2015,full year at observed edges; internal date coverage not evaluated
+rows_2016,229833
+motorist_killed_missing_rows_2016,0
+motorist_killed_negative_rows_2016,0
+motorist_killed_zero_rows_2016,229770
+date_coverage_edges_2016,first=2016-01-01; last=2016-12-31
+coverage_status_2016,full year at observed edges; internal date coverage not evaluated
+rows_2017,231007
+motorist_killed_missing_rows_2017,0
+motorist_killed_negative_rows_2017,0
+motorist_killed_zero_rows_2017,230907
+date_coverage_edges_2017,first=2017-01-01; last=2017-12-31
+coverage_status_2017,full year at observed edges; internal date coverage not evaluated
+rows_2018,231564
+motorist_killed_missing_rows_2018,0
+motorist_killed_negative_rows_2018,0
+motorist_killed_zero_rows_2018,231467
+date_coverage_edges_2018,first=2018-01-01; last=2018-12-31
+coverage_status_2018,full year at observed edges; internal date coverage not evaluated
+rows_2019,211486
+motorist_killed_missing_rows_2019,0
+motorist_killed_negative_rows_2019,0
+motorist_killed_zero_rows_2019,211409
+date_coverage_edges_2019,first=2019-01-01; last=2019-12-31
+coverage_status_2019,full year at observed edges; internal date coverage not evaluated
+rows_2020,112918
+motorist_killed_missing_rows_2020,0
+motorist_killed_negative_rows_2020,0
+motorist_killed_zero_rows_2020,112792
+date_coverage_edges_2020,first=2020-01-01; last=2020-12-31
+coverage_status_2020,full year at observed edges; internal date coverage not evaluated
+rows_2021,110558
+motorist_killed_missing_rows_2021,0
+motorist_killed_negative_rows_2021,0
+motorist_killed_zero_rows_2021,110432
+date_coverage_edges_2021,first=2021-01-01; last=2021-12-31
+coverage_status_2021,full year at observed edges; internal date coverage not evaluated
+rows_2022,103887
+motorist_killed_missing_rows_2022,0
+motorist_killed_negative_rows_2022,0
+motorist_killed_zero_rows_2022,103780
+date_coverage_edges_2022,first=2022-01-01; last=2022-12-31
+coverage_status_2022,full year at observed edges; internal date coverage not evaluated
+rows_2023,96607
+motorist_killed_missing_rows_2023,0
+motorist_killed_negative_rows_2023,0
+motorist_killed_zero_rows_2023,96493
+date_coverage_edges_2023,first=2023-01-01; last=2023-12-31
+coverage_status_2023,full year at observed edges; internal date coverage not evaluated
+rows_2024,91316
+motorist_killed_missing_rows_2024,0
+motorist_killed_negative_rows_2024,0
+motorist_killed_zero_rows_2024,91218
+date_coverage_edges_2024,first=2024-01-01; last=2024-12-31
+coverage_status_2024,full year at observed edges; internal date coverage not evaluated
+rows_2025,85546
+motorist_killed_missing_rows_2025,0
+motorist_killed_negative_rows_2025,0
+motorist_killed_zero_rows_2025,85471
+date_coverage_edges_2025,first=2025-01-01; last=2025-12-31
+coverage_status_2025,full year at observed edges; internal date coverage not evaluated

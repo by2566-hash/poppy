@@ -1,0 +1,62 @@
+fact,value
+Rows in requested date range (2013-01-01 through 2025-12-31),2132218
+Rows with missing crash_date in entire file (excluded; year cannot be assigned),0
+Rows with usable crash_date outside requested date range (excluded),136969
+crash_date missing among eligible population rows,0
+crash_date has no empty-string/unknown-word/impossible values: parquet column is typed DATE; NULL count reported separately,not applicable to DATE type
+crash_date count at candidate default 1900-01-01 in range,0
+crash_date count at candidate default 1970-01-01 in range,0
+crash_date count at candidate default 2000-01-01 in range,0
+crash_date count at candidate default 2013-01-01 in range,381
+Rows in 2013,203742
+Observed crash_date span in 2013,2013-01-01 through 2013-12-31
+Distinct crash dates represented in 2013,365
+Coverage endpoint check for 2013,full calendar-year endpoints observed
+Rows in 2014,206046
+Observed crash_date span in 2014,2014-01-01 through 2014-12-31
+Distinct crash dates represented in 2014,365
+Coverage endpoint check for 2014,full calendar-year endpoints observed
+Rows in 2015,217708
+Observed crash_date span in 2015,2015-01-01 through 2015-12-31
+Distinct crash dates represented in 2015,365
+Coverage endpoint check for 2015,full calendar-year endpoints observed
+Rows in 2016,229833
+Observed crash_date span in 2016,2016-01-01 through 2016-12-31
+Distinct crash dates represented in 2016,366
+Coverage endpoint check for 2016,full calendar-year endpoints observed
+Rows in 2017,231007
+Observed crash_date span in 2017,2017-01-01 through 2017-12-31
+Distinct crash dates represented in 2017,365
+Coverage endpoint check for 2017,full calendar-year endpoints observed
+Rows in 2018,231564
+Observed crash_date span in 2018,2018-01-01 through 2018-12-31
+Distinct crash dates represented in 2018,365
+Coverage endpoint check for 2018,full calendar-year endpoints observed
+Rows in 2019,211486
+Observed crash_date span in 2019,2019-01-01 through 2019-12-31
+Distinct crash dates represented in 2019,365
+Coverage endpoint check for 2019,full calendar-year endpoints observed
+Rows in 2020,112918
+Observed crash_date span in 2020,2020-01-01 through 2020-12-31
+Distinct crash dates represented in 2020,366
+Coverage endpoint check for 2020,full calendar-year endpoints observed
+Rows in 2021,110558
+Observed crash_date span in 2021,2021-01-01 through 2021-12-31
+Distinct crash dates represented in 2021,365
+Coverage endpoint check for 2021,full calendar-year endpoints observed
+Rows in 2022,103887
+Observed crash_date span in 2022,2022-01-01 through 2022-12-31
+Distinct crash dates represented in 2022,365
+Coverage endpoint check for 2022,full calendar-year endpoints observed
+Rows in 2023,96607
+Observed crash_date span in 2023,2023-01-01 through 2023-12-31
+Distinct crash dates represented in 2023,365
+Coverage endpoint check for 2023,full calendar-year endpoints observed
+Rows in 2024,91316
+Observed crash_date span in 2024,2024-01-01 through 2024-12-31
+Distinct crash dates represented in 2024,366
+Coverage endpoint check for 2024,full calendar-year endpoints observed
+Rows in 2025,85546
+Observed crash_date span in 2025,2025-01-01 through 2025-12-31
+Distinct crash dates represented in 2025,365
+Coverage endpoint check for 2025,full calendar-year endpoints observed

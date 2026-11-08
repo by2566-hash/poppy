@@ -1,0 +1,27 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "can_answer_question": "partly: the data can show the share of reported crashes with at least one motorist death, but it has no miles-driven exposure and cannot establish risk per mile",
+    "metric": "crashes with number_of_motorist_killed >= 1 divided by all included reported crashes, by year",
+    "denominator": "all police-reported crashes with a valid date in the same year",
+    "population": "police-reported NYC motor vehicle crashes dated from 2013 through 2025, inclusive",
+    "filters": ["crash_date is within 2013-01-01 through 2025-12-31", "exclude rows with missing or invalid crash_date or number_of_motorist_killed if necessary after data check"],
+    "years": "calendar years 2013-2025 inclusive, subject to data coverage checks",
+    "grouping": "calendar year of crash_date"
+  },
+  "data_check_and_decisions": {
+    "facts": ["2,132,218 rows have crash_date in 2013-2025; every planned year has rows", "0 rows in the file have a missing crash_date", "in every year, observed dates run from January 1 through December 31; internal date coverage was not evaluated", "for every year, number_of_motorist_killed has 0 missing and 0 negative values; zero values are retained as meaningful reports of no motorist deaths"],
+    "decisions": ["Keep dated rows in the planned years; no date-missing rows are lost, and all years pass the observed-edge coverage check", "Keep zero motorist-killed values as non-events in the denominator; exclude missing or negative outcome values if present, though none were found", "No change to the planned year range or grouping; this data check does not validate completeness of dates within each year"],
+    "population_after_check": "all 2,132,218 police-reported crash rows with dates in 2013-2025 and a nonnegative, observed number_of_motorist_killed value; all are included in their year's denominator, with crashes having zero deaths as non-events"
+  },
+  "final_plan": {
+    "can_answer_question": "partly: shows the frequency of a motorist death among reported crashes, not risk per mile",
+    "metric": "percentage of included reported crashes with number_of_motorist_killed >= 1, by year",
+    "denominator": "all police-reported NYC crashes in that year with an observed, nonnegative number_of_motorist_killed value",
+    "population": "police-reported NYC motor vehicle crashes dated 2013-2025 with an observed, nonnegative number_of_motorist_killed value",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive", "number_of_motorist_killed is not missing and is nonnegative"],
+    "years": "calendar years 2013-2025 inclusive",
+    "grouping": "calendar year of crash_date",
+    "limitations": "No vehicle-miles-traveled or other exposure denominator is present, so this is crash-level fatality prevalence, not a per-mile risk or an individual motorist's probability. There are no missing dates, missing motorist-killed values, or negative motorist-killed values among planned rows; zero values are retained as non-events in the denominator. Each year has observed records at both date boundaries, but internal date coverage was not evaluated."
+  }
+}

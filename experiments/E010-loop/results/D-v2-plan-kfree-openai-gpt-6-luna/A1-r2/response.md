@@ -1,0 +1,5 @@
+I’ve set up two distinct views: pedestrian casualties (injured and killed) and crashes involving a pedestrian casualty. Both are counts, so they can show recorded harm over time but not risk per walking trip or distance. I’m checking coverage and the planned fields before fixing the year range.
+The file runs from 2013-01-01 through 2026-06-11, so I’ll use full calendar years 2013–2025 and exclude partial 2026. The borough field is uppercase in the file, so I’m standardizing case and whitespace; 659,713 of 2,132,218 dated NYC crash rows in 2013–2025 have no usable borough and cannot be assigned to Brooklyn.
+ANSWER:
+Recorded pedestrian casualties fell 21.7% from 3,671 in 2013 to 2,874 in 2025, but pedestrian deaths rose from 30 to 39; [view the chart](out/option_1.png)—these counts are not adjusted for walking exposure.
+Brooklyn crashes with a pedestrian injured or killed fell 20.9% from 3,498 in 2013 to 2,766 in 2025, after reaching a low of 1,724 in 2020 and rising each year since; [view the chart](out/option_2.png)—this count is not adjusted for walking exposure.

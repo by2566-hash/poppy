@@ -1,0 +1,5 @@
+The crash file spans the full calendar-year bounds for 2013–2025. The motorist-death field has no NULL or negative values in these years; zero is common but represents no reported motorist deaths in a crash, so I’ll retain those rows in each denominator. The file has no miles-driven measure, so all three charts will be clearly labeled as crash-record summaries rather than per-mile risk.
+ANSWER:
+1. Reported motorist deaths declined from 110 in 2013 to 81 in 2025, but this count cannot establish a decline in per-mile risk ([chart](out/option_1.png), [values](out/values_1.csv)).
+2. Motorist deaths per 1,000 reported crashes rose from 0.540 to 0.947, so this crash-volume-adjusted measure did not decline and does not measure per-mile risk ([chart](out/option_2.png), [values](out/values_2.csv)).
+3. The share of reported crashes with a motorist death rose from 0.0501% to 0.0877%, not a decline in this crash-level measure; it cannot establish per-mile risk ([chart](out/option_3.png), [values](out/values_3.csv)).

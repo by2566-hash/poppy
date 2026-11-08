@@ -1,0 +1,15 @@
+{
+  "status": "final",
+  "answerability": "partly: this can compare the share of police-reported crashes involving injury or death between night and day, but cannot establish exposure-adjusted street danger because traffic volume or distance traveled is absent.",
+  "metric": "Share of police-reported crashes with at least one person injured or killed, by daypart.",
+  "denominator": "Police-reported crashes dated in 2013–2025 with nonmissing crash time and both person injury/death counts.",
+  "population": "One row per NYC police-reported motor vehicle crash; count a crash as an injury-or-fatality crash if number_of_persons_injured > 0 or number_of_persons_killed > 0.",
+  "filters": ["Complete calendar years 2013–2025", "Exclude rows missing crash_date or crash_time", "Exclude rows missing either person injury/death count", "Night is 20:00–05:59; day is 06:00–19:59"],
+  "years": "2013–2025 inclusive; exclude partial boundary years 2012 and 2026.",
+  "grouping": "Day vs night; night spans midnight and consists of 20:00–05:59.",
+  "data_check": {
+    "scope_and_findings": "The file has 2,269,187 rows, with dates from 2012-07-01 through 2026-06-11, no missing dates or times, and 2,132,218 rows with date and time in complete years 2013–2025. In those complete years, number_of_persons_injured is missing on 18 rows and number_of_persons_killed on 36 rows (42 unique rows lack at least one count); neither has negative values. Each count has many valid zero values. There are 23,787 exact-midnight times in 2013–2025, retained as valid times.",
+    "decisions": "Exclude partial years 2012 and 2026 (136,969 date/time rows) to compare only complete calendar years; exclude the 42 complete-year rows missing at least one outcome count; keep valid zero outcomes and midnight times. The resulting population is 2,132,176 reported crashes in complete years 2013–2025."
+  },
+  "limitations": "No traffic-volume, trip, or distance-traveled denominator is available, so this measures harm among reported crashes rather than crash risk per road user or journey. The analysis excludes partial 2012/2026 and 42 complete-year crashes with missing outcome counts; 2026 ends on June 11 and 8,877 of its 36,424 date/time rows lack at least one outcome count."
+}

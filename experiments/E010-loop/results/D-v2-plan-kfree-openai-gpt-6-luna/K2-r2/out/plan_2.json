@@ -1,0 +1,30 @@
+{
+  "initial_plan": {
+    "can_answer": "yes",
+    "metric": "Mean number of police-reported crash rows per calendar occurrence of each weekday",
+    "denominator": "Number of calendar dates of that weekday in the observed date span within 2013–2025",
+    "population": "One row per police-reported NYC motor vehicle crash with a usable crash_date in calendar years 2013 through 2025 inclusive; denominator is calendar weekday occurrences in years with full date coverage only, with partial-year coverage handled after the data check",
+    "filters": ["crash_date is in 2013–2025 inclusive"],
+    "years": "2013–2025 inclusive",
+    "grouping": "Day of week derived from crash_date, Monday through Sunday",
+    "chart_type": "Bar chart of mean crash rows per calendar occurrence of each weekday"
+  },
+  "data_check": {
+    "facts_file": "check_2.csv",
+    "population_and_years": "2,132,218 rows have crash_date in 2013–2025. Each year 2013–2025 has observations from January 1 through December 31; per-year row counts and endpoints are in check_2.csv.",
+    "field_quality": "There are 0 NULL crash_date values in the source, 0 NULL dates in scope, and 0 in-scope values at the checked common date sentinels 1900-01-01 or 1970-01-01. Since crash_date is DATE typed, empty strings, unknown words, and impossible dates cannot be represented in the field.",
+    "meaning_and_decisions": "The date filter leaves no in-range crash rows out for missing or sentinel dates. All requested years have observed records at both calendar boundaries, so no year appears partial by the available date bounds. Use the full 2013–2025 calendar interval to calculate weekday-occurrence denominators; keep all in-range crash rows. The boundary check is evidence about observed date bounds, not an independent completeness audit.",
+    "changes": "No change to the initial plan; denominator is the number of calendar dates for each weekday across all 13 requested calendar years."
+  },
+  "final_plan": {
+    "can_answer": "yes",
+    "metric": "Mean number of police-reported crash rows per calendar occurrence of each weekday",
+    "denominator": "Number of calendar dates of that weekday during the complete 2013–2025 calendar interval (calculated from the calendar, not from crash rows)",
+    "population": "One row per police-reported NYC motor vehicle crash with crash_date in calendar years 2013 through 2025 inclusive (2,132,218 rows); divide each weekday's crash-row count by the number of calendar occurrences of that weekday in the 13-year interval",
+    "filters": ["crash_date is in 2013–2025 inclusive"],
+    "years": "2013–2025 inclusive; each year has observed crash dates at both January 1 and December 31",
+    "grouping": "Day of week derived from crash_date, Monday through Sunday",
+    "chart_type": "Bar chart of mean crash rows per calendar occurrence of each weekday",
+    "limitations": "This equalizes different weekday exposure counts in the calendar but is not a per-trip or per-person risk rate. Counts describe police-reported crash records, and observed date endpoints do not independently establish complete reporting on every date."
+  }
+}

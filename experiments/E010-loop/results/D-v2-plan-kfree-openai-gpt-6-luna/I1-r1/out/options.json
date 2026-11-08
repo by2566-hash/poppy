@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of motorists killed in police-reported NYC crashes",
+      "denominator": "None (count)",
+      "grouping": "Crash year",
+      "chart_type": "Line chart",
+      "reason": "A yearly count is a straightforward measure of the absolute fatality burden, even though it does not adjust for travel exposure.",
+      "probability": 0.4,
+      "answer": "The data cannot establish per-mile risk, but recorded motorist deaths fell from 110 in 2013 to 81 in 2025, with substantial year-to-year variation and a high of 139 in 2020.",
+      "interpretation": "This framing answers whether the annual number of motorists recorded killed in reported crashes declined: it fell from 110 in 2013 to 81 in 2025, though the series fluctuated and peaked at 139 in 2020. A count is a defensible view of absolute fatality burden, but it is not a risk measure adjusted for driving exposure. The requested per-mile risk remains unanswered because the crash file has no miles-driven denominator. The check found 2,132,218 crashes in 2013–2025, with observed dates spanning Jan 1–Dec 31 in every year including 2025, and zero missing dates, missing motorist-killed values, or negative counts; the zero-death rows (99.95% of 2013 crashes and 99.91% of 2025 crashes) contribute zero deaths and were retained, with no rows excluded."
+    },
+    {
+      "id": 2,
+      "metric": "Annual share of police-reported NYC crashes with at least one motorist killed",
+      "denominator": "All eligible police-reported NYC crashes in each crash year",
+      "grouping": "Crash year",
+      "chart_type": "Line chart",
+      "reason": "The share of crashes with a motorist fatality adjusts fatal crashes for the annual volume of reported crashes.",
+      "probability": 0.3,
+      "answer": "The data cannot establish per-mile risk; the share of crashes with a motorist killed rose from 0.0501% in 2013 to 0.0877% in 2025, after peaking at 0.1180% in 2023.",
+      "interpretation": "This framing answers how often a reported crash involved a motorist death, relative to all reported crashes: the share rose from 0.0501% in 2013 to 0.0877% in 2025, with a 2023 high of 0.1180%. It is defensible as a crash-normalized fatal-crash frequency, but the denominator is crashes rather than miles driven or the number of motorists. It therefore leaves the per-mile risk question unanswered. The check found 2,132,218 crashes in 2013–2025, with observed dates spanning Jan 1–Dec 31 in every year including 2025, and zero missing dates, missing motorist-killed values, or negative counts; zero-death crashes (99.95% in 2013 and 99.91% in 2025) remained in the denominator, and no rows were excluded."
+    },
+    {
+      "id": 3,
+      "metric": "Annual recorded motorist deaths per 1,000 police-reported NYC crashes",
+      "denominator": "All eligible police-reported NYC crashes in each crash year, scaled to 1,000 crashes",
+      "grouping": "Crash year",
+      "chart_type": "Line chart",
+      "reason": "Deaths per 1,000 crashes captures the number of recorded motorist fatalities while normalizing for changes in the number of reported crashes.",
+      "probability": 0.3,
+      "answer": "The data cannot establish per-mile risk; recorded motorist deaths per 1,000 crashes increased from 0.54 in 2013 to 0.95 in 2025, despite falling from their 2023 high of 1.27.",
+      "interpretation": "This framing answers how motorist deaths per reported crash volume changed: the value increased from 0.54 per 1,000 crashes in 2013 to 0.95 in 2025, with a 2023 high of 1.27. It is a defensible normalization that counts multiple deaths in a crash, unlike a share that gives each fatal crash equal weight. It still leaves per-mile risk unanswered because crash counts do not measure miles driven. The check found 2,132,218 crashes in 2013–2025, with observed dates spanning Jan 1–Dec 31 in every year including 2025, and zero missing dates, missing motorist-killed values, or negative counts; zero-death crashes (99.95% in 2013 and 99.91% in 2025) stayed in the crash denominator, and no rows were excluded."
+    }
+  ]
+}

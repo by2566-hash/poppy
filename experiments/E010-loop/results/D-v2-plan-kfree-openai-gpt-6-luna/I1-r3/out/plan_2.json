@@ -1,0 +1,17 @@
+{
+  "status": "final plan",
+  "answerability": {
+    "assessment": "partly",
+    "answerable_part": "Whether reported motorist deaths per 1,000 police-reported NYC crashes changed from 2013 to 2025.",
+    "unanswerable_part": "Whether the risk per mile driven declined; crash counts are not miles driven or motorist exposure."
+  },
+  "metric": "Annual number_of_motorist_killed divided by annual number of crash records, multiplied by 1,000",
+  "denominator": "All police-reported NYC crash records in that calendar year",
+  "population": "All police-reported NYC crash records with a usable crash_date in 2013–2025; numerator is the summed motorist deaths among those crashes and denominator is the number of those crash records.",
+  "filters": ["crash_date is in 2013–2025"],
+  "years": "2013–2025 inclusive",
+  "grouping": "Calendar year of crash_date",
+  "data_check_interpretation": "The selected population has 2,132,218 crash records across 2013–2025, with records in each year and observed crash dates spanning January 1 through December 31 in every year. number_of_motorist_killed is NULL in 0 rows and negative in 0 rows; zero occurs in 2,130,945 rows in total and is a valid no-motorist-death value. No rows are excluded for the field; all records, including zero-death crashes, remain in the denominator. The date bounds indicate full calendar-year bounds in each target year, though they do not independently establish reporting completeness.",
+  "decisions": "Keep all crash records in the planned years; include zero values in the numerator as zero and retain their crashes in the denominator. No other rows are dropped.",
+  "limitations": "Deaths per 1,000 crash reports adjusts for changes in crash-record volume, not miles driven or motorist exposure; it is not per-mile risk. The file contains no miles-driven denominator. Check of observed date bounds indicates full calendar-year bounds for every year, but does not independently establish reporting completeness."
+}

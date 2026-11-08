@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual sum of number_of_motorist_killed",
+      "denominator": "None; annual count",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "bar chart",
+      "reason": "Annual death counts give a straightforward view of the reported motorist-death burden without implying an exposure denominator.",
+      "probability": 0.20,
+      "answer": "Reported annual motorist deaths fell from 110 in 2013 to 81 in 2025 (26.4%), although they peaked at 139 in 2020; this does not establish a decline in per-mile risk.",
+      "interpretation": "The per-mile risk question cannot be answered from these records, but this chart shows that the annual count of reported motorist deaths fell from 110 in 2013 to 81 in 2025, with a peak of 139 in 2020. An annual count is a direct measure of reported death burden and does not introduce an unsupported denominator. It leaves unanswered whether deaths declined relative to miles driven, which are not recorded. The check found 2,132,218 crash records in 2013–2025, with 0 NULL and 0 negative motorist-death values; 2,130,945 zero-valued records were kept as zero contributions, and observed dates span each calendar year's bounds, though that alone does not prove reporting completeness."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number_of_motorist_killed divided by annual number of crash records, multiplied by 1,000",
+      "denominator": "All police-reported NYC crash records in that calendar year",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "line chart",
+      "reason": "Deaths per crash report controls descriptively for annual changes in the volume of crash records, while remaining explicit that it is not an exposure-adjusted risk.",
+      "probability": 0.50,
+      "answer": "Motorist deaths per 1,000 reported crashes rose from 0.540 in 2013 to 0.947 in 2025 (75.4%), so this crash-volume-adjusted measure did not decline; it is not a per-mile risk.",
+      "interpretation": "The per-mile risk question remains unanswered, but this chart shows motorist deaths per 1,000 crash reports rising from 0.540 in 2013 to 0.947 in 2025, after a low of 0.313 in 2016 and a high of 1.273 in 2023. This is a defensible descriptive comparison because its denominator accounts for annual changes in the number of crash records. It does not adjust for miles driven or motorist exposure and therefore cannot establish whether per-mile risk changed. The check found 2,132,218 crash records in 2013–2025, with 0 NULL and 0 negative motorist-death values; all 2,130,945 zero-valued records were retained in the denominator and contribute zero deaths, and observed dates span each calendar year's bounds, though that alone does not prove reporting completeness."
+    },
+    {
+      "id": 3,
+      "metric": "Annual share of crash records with number_of_motorist_killed greater than zero",
+      "denominator": "All police-reported NYC crash records in that calendar year",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "line chart",
+      "reason": "The share of crashes involving at least one motorist death answers a distinct crash-level question and is not affected by multiple deaths in one crash in the same way as a death count.",
+      "probability": 0.30,
+      "answer": "The share of crash reports with a motorist death rose from 0.0501% in 2013 to 0.0877% in 2025 (75.1%), not a decline; it does not measure per-mile risk.",
+      "interpretation": "The per-mile risk question cannot be answered, but this chart shows the crash-level share with at least one motorist death rising from 0.0501% in 2013 to 0.0877% in 2025, with a low of 0.0274% in 2016 and a high of 0.1180% in 2023. This proportion is defensible when the question is whether a reported crash was fatal to a motorist, rather than how many motorists died across crashes. It leaves unanswered individual risk per mile because mileage and motorist exposure are absent. The check found 2,132,218 crash records in 2013–2025, with 0 NULL and 0 negative motorist-death values; zero-death crashes (2,130,945 records) were retained in the denominator and counted as no motorist-death crash, and observed dates span each calendar year's bounds, though that alone does not prove reporting completeness."
+    }
+  ]
+}

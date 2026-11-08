@@ -1,0 +1,17 @@
+{
+  "status": "final plan",
+  "answerability": {
+    "assessment": "partly",
+    "answerable_part": "Whether the annual total number of reported motorist deaths in NYC crash records changed from 2013 to 2025.",
+    "unanswerable_part": "Whether the risk per mile driven declined; the data has no miles-driven or other motorist-exposure denominator."
+  },
+  "metric": "Annual sum of number_of_motorist_killed",
+  "denominator": "None; annual count",
+  "population": "All police-reported NYC crash records with a usable crash_date in 2013–2025; each row is a crash and the summed field counts motorists killed in that crash.",
+  "filters": ["crash_date is in 2013–2025"],
+  "years": "2013–2025 inclusive",
+  "grouping": "Calendar year of crash_date",
+  "data_check_interpretation": "The selected population has 2,132,218 crash records across 2013–2025, with records in each year and observed crash dates spanning January 1 through December 31 in every year. number_of_motorist_killed is NULL in 0 rows and negative in 0 rows; zero occurs in 2,130,945 rows in total and is a valid no-motorist-death value. No rows are excluded for the field; dates are restricted to the planned years, and all selected rows with zero deaths contribute zero to the annual sum.",
+  "decisions": "Keep all crash records in the planned years; include zero values. No adjustment is made for exposure, and no other rows are dropped.",
+  "limitations": "An annual death count describes reported deaths, not a per-mile risk. The file contains no miles driven or other motorist-exposure denominator. Check of observed date bounds indicates full calendar-year bounds for every year, but does not independently establish reporting completeness."
+}

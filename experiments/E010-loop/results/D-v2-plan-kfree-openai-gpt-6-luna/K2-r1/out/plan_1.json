@@ -1,0 +1,25 @@
+{
+  "initial_plan": {
+    "answerability": "yes: the file records one row per police-reported crash and crash_date permits assigning each dated crash to a day of the week",
+    "metric": "number of recorded crashes",
+    "denominator": "not applicable to the absolute-count metric; population is all eligible crash records in the requested date range",
+    "population": "one row per police-reported NYC motor vehicle crash dated from 2013-01-01 through 2025-12-31",
+    "filters": ["crash_date is within 2013-01-01 through 2025-12-31", "crash_date is not missing"],
+    "years": "2013–2025 inclusive",
+    "grouping": "weekday derived from crash_date, ordered Monday through Sunday"
+  },
+  "data_check": {
+    "facts": "2,132,218 rows have a crash_date in the requested period; 0 crash_date values are missing in the file, and 136,969 dated rows fall outside the requested period. All years 2013–2025 have observed dates from January 1 through December 31, with the expected 365 or 366 distinct dates. crash_date is a typed DATE, so empty strings, unknown words and impossible dates cannot occur as stored values. Candidate sentinel dates 1900-01-01, 1970-01-01 and 2000-01-01 occur zero times in the range; 2013-01-01 has 381 rows but is a valid requested-period date, not treated as a sentinel.",
+    "meaning_and_decisions": "Rows outside the requested years are excluded; no rows are dropped for missing dates. All requested calendar years have full observed endpoint coverage. The 381 valid records dated 2013-01-01 remain assigned to their actual weekday. Count all eligible records as recorded."
+  },
+  "final_plan": {
+    "answerability": "yes: each eligible crash record can be assigned to a weekday from crash_date",
+    "metric": "number of police-reported crash records",
+    "denominator": "none for an absolute count; each bar counts eligible crash records in that weekday group",
+    "population": "one row per police-reported NYC motor vehicle crash dated 2013-01-01 through 2025-12-31",
+    "filters": ["crash_date is within 2013-01-01 through 2025-12-31", "crash_date is not missing"],
+    "years": "2013–2025 inclusive; each year has full observed calendar-year endpoints",
+    "grouping": "weekday derived from crash_date, Monday through Sunday",
+    "limitations": "Counts describe crashes represented in police reports, not all crashes. All 13 years have observed January 1 and December 31 endpoints, and there are no missing dates; this date check does not establish completeness of reporting within the period."
+  }
+}

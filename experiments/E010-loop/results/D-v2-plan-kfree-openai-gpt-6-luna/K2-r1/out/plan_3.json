@@ -1,0 +1,25 @@
+{
+  "initial_plan": {
+    "answerability": "yes: the file supports comparing recorded crash counts by weekday and year within the requested period",
+    "metric": "number of recorded crashes for each weekday in each calendar year",
+    "denominator": "not applicable to the absolute-count metric; each cell counts eligible crash records in one year and weekday",
+    "population": "one row per police-reported NYC motor vehicle crash dated from 2013-01-01 through 2025-12-31",
+    "filters": ["crash_date is within 2013-01-01 through 2025-12-31", "crash_date is not missing"],
+    "years": "2013–2025 inclusive, displayed separately by calendar year",
+    "grouping": "calendar year and weekday derived from crash_date; weekdays ordered Monday through Sunday"
+  },
+  "data_check": {
+    "facts": "2,132,218 rows have a crash_date in the requested period; 0 crash_date values are missing in the file, and 136,969 dated rows fall outside the requested period. Each year 2013–2025 has dates from January 1 through December 31 and 365 or 366 distinct dates. crash_date is a typed DATE, so empty strings, unknown words and impossible dates cannot occur as stored values. Candidate sentinel dates 1900-01-01, 1970-01-01 and 2000-01-01 occur zero times in the range; 2013-01-01 has 381 rows but is a valid requested-period date.",
+    "meaning_and_decisions": "Rows outside the requested years are excluded; no eligible rows are dropped for missing dates. All years have full observed endpoint coverage. The 381 records on 2013-01-01 remain in their year and weekday. Change the initial annual-count metric to within-year weekday shares: this directly compares the weekday composition across years without letting differences in each year's overall record volume determine the color scale."
+  },
+  "final_plan": {
+    "answerability": "yes: the file supports comparing the weekday composition of police-reported crash records by year",
+    "metric": "percentage of each calendar year's eligible police-reported crash records occurring on each weekday",
+    "denominator": "all eligible records in the corresponding calendar year",
+    "population": "one row per police-reported NYC motor vehicle crash dated 2013-01-01 through 2025-12-31",
+    "filters": ["crash_date is within 2013-01-01 through 2025-12-31", "crash_date is not missing"],
+    "years": "2013–2025 inclusive, displayed separately; each has full observed calendar-year endpoints",
+    "grouping": "calendar year and weekday derived from crash_date; weekdays ordered Monday through Sunday",
+    "limitations": "Within-year shares show the composition of police-reported records, not all real-world crashes; they do not adjust for reporting or exposure changes. The date check shows full year endpoints and no missing dates, but cannot establish completeness of reporting within the period."
+  }
+}

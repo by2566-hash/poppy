@@ -1,0 +1,45 @@
+{
+  "id": 1,
+  "question": "Are NYC's streets more dangerous at night?",
+  "initial_plan": {
+    "answerability": "partly: the file can compare police-reported crash counts by time of day, but cannot establish crash risk per trip or per vehicle-mile because traffic exposure is not provided",
+    "metric": "number of police-reported crashes in the night and day periods",
+    "denominator": "same-length 12-hour clock-time period over the included calendar dates; no traffic-exposure denominator",
+    "population": "one row per police-reported crash with a usable crash_date and crash_time, in either selected 12-hour period",
+    "filters": ["night is 19:00 through 06:59:59", "day is 07:00 through 18:59:59", "use the same complete calendar years for both periods", "exclude rows with missing or invalid date/time"],
+    "years": "all complete calendar years represented in the file, to be determined by checking date coverage",
+    "grouping": "night vs day"
+  },
+  "data_check": {
+    "file": "./out/check_1.csv",
+    "findings_and_decisions": [
+      {
+        "finding": "Observed date bounds are 2012-07-01 to 2026-06-11; 2012 and 2026 are partial calendar years by observed bounds, while 2013-2025 span Jan 1 through Dec 31.",
+        "decision": "Exclude the boundary years 2012 and 2026; use 2013-2025 for both periods. Observed bounds do not prove that every date within an included year is represented."
+      },
+      {
+        "finding": "There are 0 missing crash dates, 0 missing times among 2,132,218 crashes in selected years, and no impossible/out-of-range values are representable in the TIME-typed column.",
+        "decision": "No rows are dropped for missing or invalid dates/times."
+      },
+      {
+        "finding": "Among selected-year candidates, 0 dates equal the common 1900/1970 sentinel dates, 0 are nonfinite/impossible, and DATE values cannot contain empty or unknown words.",
+        "decision": "No date rows are dropped or reclassified for sentinel or impossible values."
+      },
+      {
+        "finding": "23,787 selected-year rows (1.12%) are timestamped exactly 00:00:00, which may be a valid midnight crash or a default.",
+        "decision": "Keep and assign these rows to night; disclose that their timestamps cannot be distinguished as valid or default from these fields."
+      }
+    ],
+    "population_after_data_check": "2,132,218 crashes in 2013-2025 with nonmissing date and time, including the midnight-timestamp rows; the 12-hour periods are equal duration."
+  },
+  "final_plan": {
+    "answerability": "partly: compare the volume of police-reported crashes by time of day; this does not measure crash risk per trip, per driver, or per vehicle-mile because traffic exposure is absent",
+    "metric": "total police-reported crash count in the night period and in the day period",
+    "denominator": "equal 12-hour time windows over the same included dates and years (2013-2025); not a traffic-exposure denominator",
+    "population": "2,132,218 police-reported crashes from 2013-2025 with nonmissing date and time",
+    "filters": ["night: 19:00 through 06:59:59", "day: 07:00 through 18:59:59", "exclude partial boundary years 2012 and 2026", "keep timestamps at exactly midnight and disclose their ambiguity"],
+    "years": "2013-2025",
+    "grouping": "night vs day",
+    "limitations": "The source reports crashes, not traffic exposure, so counts cannot establish per-trip or per-mile danger. Years 2012 and 2026 were omitted as partial by observed date bounds; included year bounds span full calendar years but do not prove every date is represented. No selected-year dates or times are missing; 23,787 rows (1.12%) are exactly midnight and are retained despite possible default-time ambiguity."
+  }
+}

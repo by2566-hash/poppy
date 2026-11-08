@@ -1,0 +1,4 @@
+I’ll first record plans for two defensible crash-data framings. Since the file has no miles-driven exposure, neither can establish risk per mile; they can show annual motorist deaths and the share of reported crashes with a motorist death.
+The checks found 2,132,218 dated crash records across 2013–2025, with no missing dates or missing/negative motorist-death counts. Each year has records at both calendar boundaries; internal date continuity wasn’t checked, so I’ll disclose that limitation and keep zero-death records in the analyses.
+ANSWER: 1. The annual count of reported motorist deaths fell from 110 in 2013 to 81 in 2025, but this data cannot establish whether risk per mile declined ([chart](out/option_1.png)).
+2. The share of reported crashes with at least one motorist death rose from 0.0501% to 0.0877%, so this crash-level measure did not decline, while per-mile risk remains unknown ([chart](out/option_2.png)).

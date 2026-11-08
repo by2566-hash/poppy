@@ -1,0 +1,27 @@
+{
+  "initial_plan": {
+    "can_answer": "partly: the file can compare annual pedestrian deaths in Brooklyn-reported crashes, but it cannot measure individual pedestrian risk or exposure-adjusted safety",
+    "metric": "annual number of pedestrians killed",
+    "denominator": "none; raw count",
+    "population": "pedestrians killed in police-reported crashes whose borough is Brooklyn and whose crash date is in 2013 or later",
+    "filters": ["borough = Brooklyn", "crash_date year >= 2013"],
+    "years": "each calendar year from 2013 through the latest year present",
+    "grouping": ["crash_date year"]
+  },
+  "data_check": {
+    "rows_and_years": "The planned Brooklyn population has 483,501 crash rows from 2013 onward. 2013-2025 each have observed dates from January 1 through December 31; 2026 has 9,700 rows only through June 11, 2026.",
+    "column_quality": "Among the planned population, borough and crash_date are not missing; number_of_pedestrians_killed has no missing or negative values and is zero in 483,119 rows. Zero means no pedestrian death reported in that crash and is not treated as missing.",
+    "decision": "Use only complete calendar years 2013-2025 and exclude the 9,700 rows from partial 2026 (2.0% of Brooklyn rows from 2013 onward). Keep zero values as zero; no otherwise eligible rows are excluded for missing or impossible death counts.",
+    "change": "Narrowed the initial through-latest-year plan to complete calendar years through 2025 because 2026 coverage ends on June 11."
+  },
+  "final_plan": {
+    "can_answer": "partly: annual counts of pedestrians killed in Brooklyn police-reported crashes can be compared, but exposure-adjusted pedestrian safety cannot be measured",
+    "metric": "annual count of pedestrians killed",
+    "denominator": "none; raw count of reported pedestrian deaths",
+    "population": "pedestrians reported killed in crashes with borough Brooklyn and crash dates in complete calendar years 2013-2025",
+    "filters": ["upper(trim(borough)) = BROOKLYN", "crash_date from 2013-01-01 through 2025-12-31"],
+    "years": "2013-2025 inclusive; partial 2026 excluded",
+    "grouping": ["crash_date year"],
+    "limitations": "Counts cover police-reported crashes, not pedestrian exposure or risk; borough and outcome reporting may be incomplete. The data check finds 2026 ends June 11, so 9,700 otherwise matching partial-year crash rows (2.0% of the 2013-onward Brooklyn population) are excluded; there are no missing or negative death counts, and valid zeros are retained."
+  }
+}

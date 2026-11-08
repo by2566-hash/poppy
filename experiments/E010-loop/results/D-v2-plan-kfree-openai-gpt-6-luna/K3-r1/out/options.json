@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of reported people killed, separately for motorists and cyclists, calculated by summing the corresponding death-count columns across crashes",
+      "denominator": "None; absolute annual death counts, not a rate",
+      "grouping": "Calendar year and death group (motorist or cyclist)",
+      "chart_type": "Line chart",
+      "reason": "Absolute annual counts directly show how the number of deaths in each group changes and compare over time.",
+      "probability": 0.7,
+      "answer": "Motorist deaths exceeded cyclist deaths every year, with 72–139 annual motorist deaths versus 10–31 cyclist deaths; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in 2019 and 2023.",
+      "interpretation": "This framing answers the year-by-year comparison in absolute numbers, and its lines show more motorist than cyclist deaths in every year from 2013 to 2025. Absolute counts are a defensible direct measure of the reported number of people killed in each group, although they are not rates adjusted for population or travel exposure. It does not show how each group compares as a share of deaths or account for pedestrian deaths. The check found 2,132,218 in-range crash rows with every year's observed dates spanning January 1 through December 31; the two death fields each had 0 NULLs and 0 negatives, while zero values appeared in 2,130,945 motorist rows and 2,131,942 cyclist rows, so all rows were kept and zeros counted as no-death records."
+    },
+    {
+      "id": 2,
+      "metric": "Annual percentage of combined motorist and cyclist deaths attributable to cyclists, with the complementary motorist percentage shown",
+      "denominator": "For each year, all reported motorist deaths plus all reported cyclist deaths; excludes pedestrian deaths",
+      "grouping": "Calendar year and death group (motorist or cyclist)",
+      "chart_type": "100% stacked bar chart",
+      "reason": "The annual composition makes the relative balance between motorist and cyclist fatalities comparable despite changes in the combined total.",
+      "probability": 0.3,
+      "answer": "Cyclists accounted for 9.1%–27.4% of motorist-plus-cyclist deaths each year, lowest in 2013 (9.1%), highest in 2019 (27.4%), and 22.1% in 2025.",
+      "interpretation": "This framing answers how the relative balance between motorist and cyclist deaths changes year by year, and the bars show cyclists' share ranging from 9.1% in 2013 to 27.4% in 2019. A within-year percentage is defensible for comparing composition without conflating it with the annual size of the combined total. It leaves out absolute death totals and excludes pedestrians from the denominator, so it does not describe cyclists' share of all traffic deaths. The check found 2,132,218 in-range crash rows with every year's observed dates spanning January 1 through December 31; the two death fields each had 0 NULLs and 0 negatives, while zero values appeared in 2,130,945 motorist rows and 2,131,942 cyclist rows, so all rows were kept and zeros counted as no-death records."
+    }
+  ]
+}

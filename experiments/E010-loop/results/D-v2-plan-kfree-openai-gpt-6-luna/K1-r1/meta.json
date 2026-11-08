@@ -1,0 +1,93 @@
+{
+ "q": "K1",
+ "rep": 1,
+ "label": "D-v2-plan-kfree-openai-gpt-6-luna",
+ "type": "clear",
+ "base": "K1",
+ "question": "How many pedestrians were killed in NYC motor vehicle crashes each year from 2013 to 2025?",
+ "k": 0,
+ "call_ok": true,
+ "timed_out": false,
+ "answered_no_exit": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 150.6,
+ "zero_output_retries": 0,
+ "secs_total": 150.6,
+ "steps": 19,
+ "hit_step_limit": false,
+ "tool_calls": 23,
+ "tokens": {
+  "input": 57,
+  "output": 7820,
+  "reasoning": 5855,
+  "cache_read": 271141,
+  "cache_write": 30107,
+  "total": 314980
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 2,
+ "n_complete_options": 2,
+ "n_distinct_framings": 2,
+ "n_distinct_analytic": 1,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Annual sum of number_of_pedestrians_killed (pedestrian fatalities).",
+   "denominator": "None; count of people, not a rate or share.",
+   "grouping": "Calendar year of crash_date",
+   "chart_type": "Bar chart",
+   "reason": "A bar chart makes the magnitude of each year's count and year-to-year comparisons clear.",
+   "probability": 0.65,
+   "answer": "Annual pedestrian fatalities were highest in 2013 at 176, fell to a low of 101 in 2020, and totaled 119 in 2025.",
+   "interpretation": "This framing directly answers how many pedestrians were recorded killed in each calendar year: counts peak at 176 in 2013, reach a low of 101 in 2020, and are 119 in 2025. A bar chart is defensible because it makes each annual total and comparisons across years easy to read, while it does not measure per-capita or per-crash risk or fatalities in unreported crashes. The check found no missing or negative pedestrian-fatality values among the 2,132,218 selected crash rows, and every year has observed dates at both calendar-year endpoints, though this does not establish reporting completeness. Zero-valued rows remain as zero contributors (for example, 85,432 of 85,546 crash rows in 2025); crashes without a usable date cannot be assigned to a year and were outside the date-filtered check, so their count is unknown.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Annual sum of number_of_pedestrians_killed (pedestrian fatalities).",
+   "denominator": "None; count of people, not a rate or share.",
+   "grouping": "Calendar year of crash_date",
+   "chart_type": "Line chart",
+   "reason": "A line chart highlights the direction and year-to-year movement of the annual fatality counts over time.",
+   "probability": 0.35,
+   "answer": "The time series falls from 176 pedestrian fatalities in 2013 to a low of 101 in 2020, then fluctuates and ends at 119 in 2025.",
+   "interpretation": "This framing answers the same annual-count question while emphasizing change over time: the series declines from 176 in 2013 to a low of 101 in 2020, then fluctuates and reaches 119 in 2025. A line chart is defensible for showing temporal movement, but it still does not provide a risk rate or count fatalities from crashes absent from the police-reported data. The check found no missing or negative pedestrian-fatality values among the 2,132,218 selected crash rows, and every year has observed dates at both calendar-year endpoints, though this does not establish reporting completeness. Zero-valued rows remain as zero contributors (for example, 85,432 of 85,546 crash rows in 2025); crashes without a usable date cannot be assigned to a year and were outside the date-filtered check, so their count is unknown.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "- Bar-chart framing: recorded pedestrian fatalities were 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025; reporting completeness is unverified.\n- Line-chart framing: the annual series was 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, and 119 from 2013 through 2025, respectively, showing a low of 101 in 2020 and 119 in 2025; these are recorded fatalities in police-reported crashes.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "python_prefix": "/Users/yubo/.poppy/venv",
+  "python_executable": "/Users/yubo/Downloads/Anaconda/anaconda3/bin/python3.13",
+  "git_commit": "0588522",
+  "prompt_sha": {
+   "D_enumerate.v2-plan.md": "2b0aa0ecdebd5ae3"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "profile": null,
+ "rendered_prompt_sha": "fe9ba9eca56af704",
+ "jit": null,
+ "step_cap": 50,
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

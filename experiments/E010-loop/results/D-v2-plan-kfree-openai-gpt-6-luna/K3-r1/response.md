@@ -1,0 +1,5 @@
+I’ll check the dataset’s year coverage and relevant death columns, then create the planned comparisons, charts, and JSON answers.
+The check covers 2,132,218 crash records across 2013–2025, with full-year date endpoints for every year. Both death columns have no NULLs or negative values; zero counts are common and valid, so I’ll retain them as no-death crash records rather than treat them as missing.
+ANSWER:
+1. Motorist deaths exceeded cyclist deaths every year: motorist deaths ranged from 72 to 139, peaking in 2020, while cyclist deaths ranged from 10 to 31, peaking in 2019 and 2023 ([annual counts chart](out/option_1.png)).
+2. Cyclists accounted for 9.1%–27.4% of motorist-plus-cyclist deaths each year, with the lowest share in 2013, the highest in 2019, and a 22.1% share in 2025 ([annual share chart](out/option_2.png)).

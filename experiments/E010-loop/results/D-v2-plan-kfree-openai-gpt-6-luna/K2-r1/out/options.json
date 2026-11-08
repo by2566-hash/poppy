@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crash records",
+      "denominator": "None for an absolute count; each bar counts eligible crash records in that weekday group",
+      "grouping": "Weekday derived from crash_date, Monday through Sunday",
+      "chart_type": "Vertical bar chart",
+      "reason": "Absolute counts directly show the volume of police-reported crashes assigned to each weekday.",
+      "probability": 0.35,
+      "answer": "Friday has the most recorded crashes (338,800) and Sunday the fewest (257,544) across 2013–2025.",
+      "interpretation": "This framing answers the question in event volume: Friday leads at 338,800 records and Sunday is lowest at 257,544. Absolute counts show total recorded workload, but do not give a per-occurrence weekday frequency or the yearly changes in weekday mix. The plan includes 2,132,218 records dated 2013–2025 and excludes 136,969 dated records outside that period; the check found zero missing dates and full observed year endpoints in each year. The 381 records dated 2013-01-01 are retained as a valid date; the records are police-reported, and endpoint coverage does not establish reporting completeness."
+    },
+    {
+      "id": 2,
+      "metric": "Percentage of eligible police-reported crash records occurring on each weekday",
+      "denominator": "All 2,132,218 police-reported crash records with crash_date in 2013–2025",
+      "grouping": "Weekday derived from crash_date, Monday through Sunday",
+      "chart_type": "Horizontal bar chart",
+      "reason": "Percentages make the overall weekday composition easy to compare without focusing on the scale of the total count.",
+      "probability": 0.3,
+      "answer": "Friday accounts for the largest share of records (15.89%), while Sunday accounts for the smallest (12.08%).",
+      "interpretation": "This framing answers how the full-period crash-record mix is divided among weekdays: Friday is 15.89% and Sunday is 12.08%. A share is defensible for describing composition relative to all eligible records, but it does not show the yearly changes or the absolute volume as directly as a count chart. The plan uses all 2,132,218 in-range records and excludes 136,969 dated records outside 2013–2025; the check found zero missing dates and full observed year endpoints for every included year. The 381 records dated 2013-01-01 remain included as valid; the dataset counts police reports, and full observed endpoints do not prove reporting completeness."
+    },
+    {
+      "id": 3,
+      "metric": "Percentage of each calendar year's eligible police-reported crash records occurring on each weekday",
+      "denominator": "All eligible police-reported crash records in the corresponding calendar year",
+      "grouping": "Calendar year and weekday derived from crash_date; weekdays Monday through Sunday",
+      "chart_type": "Annotated heatmap",
+      "reason": "Within-year shares reveal whether the weekday composition changes over time without letting differences in annual record volume dominate the chart.",
+      "probability": 0.35,
+      "answer": "Friday has the largest weekday share in every year, while Sunday's share rises from 11.85% in 2013 to 13.09% in 2025.",
+      "interpretation": "This framing answers how the weekday distribution changes across the requested years: Friday is the largest share each year, while Sunday rises from 11.85% in 2013 to 13.09% in 2025. Year-specific percentages make compositions comparable even when annual record totals differ, but the heatmap does not communicate total crash volume as directly as pooled counts. The plan includes 2,132,218 in-range records and excludes 136,969 dated records outside 2013–2025; the check found no missing dates and full observed January 1–December 31 endpoints in every included year. The 381 records dated 2013-01-01 are retained as valid; shares describe police-reported records, and the date check cannot establish reporting completeness."
+    }
+  ]
+}

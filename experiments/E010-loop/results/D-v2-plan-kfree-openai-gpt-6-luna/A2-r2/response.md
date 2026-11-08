@@ -1,0 +1,3 @@
+ANSWER:
+Across 2013–2025, police-reported crash volume was lower at night: 681,531 crashes versus 1,450,687 during the day; see [chart](out/option_1.png) and [plotted values](out/values_1.csv).
+Among crashes with known person counts, 28.2% of night crashes involved injury or fatality versus 23.0% of daytime crashes, a 5.2-point difference; see [chart](out/option_2.png) and [plotted values](out/values_2.csv).

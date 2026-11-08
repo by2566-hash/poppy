@@ -1,0 +1,4 @@
+The data can answer this as an annual count of pedestrians killed. I’m using two distinct views of the same yearly totals—a bar chart for year-by-year magnitudes and a line chart for the time trend—and checking year coverage and the fatality field before calculating them.
+ANSWER:
+- Bar-chart framing: recorded pedestrian fatalities were 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025; reporting completeness is unverified.
+- Line-chart framing: the annual series was 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, and 119 from 2013 through 2025, respectively, showing a low of 101 in 2020 and 119 in 2025; these are recorded fatalities in police-reported crashes.

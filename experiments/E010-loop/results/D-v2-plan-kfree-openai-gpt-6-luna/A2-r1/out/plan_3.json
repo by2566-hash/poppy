@@ -1,0 +1,28 @@
+{
+  "id": 3,
+  "initial_plan": {
+    "answerability": "partly: the data can compare the share of reported crashes involving at least one death by time of day, but cannot establish per-trip or per-person fatality risk without travel exposure.",
+    "metric": "share of police-reported crashes with at least one person killed",
+    "denominator": "police-reported crashes with an assignable year and time period",
+    "population": "all police-reported NYC motor vehicle crashes in the years present in the file; outcome is present when number_of_persons_killed is greater than zero",
+    "filters": ["Night is 20:00 through 05:59; day is 06:00 through 19:59", "Rows with missing or unusable crash_date, crash_time, or death counts cannot be assigned or classified"],
+    "years": "all years represented in crash_date; inspect coverage and partial years during the data check",
+    "grouping": ["year", "time period (night/day)"],
+    "limitations": ["A crash-level fatality share is not a per-trip, per-person, or per-mile fatality risk.", "The data records police-reported crashes and recorded death counts only."]
+  },
+  "data_check": {
+    "coverage_and_rows": "2,269,187 dated crashes occur in 2012-2026. 2012 is partial (July 1-December 31; 100,545 rows) and 2026 is partial (January 1-June 11; 36,424 rows). No crash dates or times are missing. Use complete years 2013-2025 (2,132,218 rows) and exclude 136,969 rows in the two partial years; after excluding 36 complete-year crashes with a missing death count, the final population is 2,132,182 crashes.",
+    "field_quality_and_decisions": "In 2013-2025, number_of_persons_killed is NULL for 36 rows (0.001688%) and has no negative values. Zero is valid (2,128,911 rows); retain it. Exclude 36 rows with unknown death status. Retain 23,787 midnight times in night.",
+    "changes": "Limit analysis to complete years 2013-2025, exclude rows with missing death counts, and retain valid zeros."
+  },
+  "final_plan": {
+    "answerability": "partly: this estimates how often a reported crash involves a death, conditional on a police-reported crash; it does not estimate fatality risk per trip, person, or mile.",
+    "metric": "share of police-reported crashes with at least one person killed",
+    "denominator": "police-reported crashes with a usable time and non-missing death count, in 2013-2025",
+    "population": "NYC police-reported motor vehicle crashes in complete calendar years 2013-2025 with non-missing number_of_persons_killed",
+    "filters": ["Night is 20:00-05:59; day is 06:00-19:59", "Exclude partial years 2012 and 2026", "Exclude rows with NULL death counts", "Retain zero counts and classify midnight as night"],
+    "years": "2013-2025 inclusive; all are complete calendar years in the file",
+    "grouping": ["time period (night/day), pooled over 2013-2025"],
+    "limitations": ["The metric is conditional on a reported crash and does not account for road-user exposure or unreported crashes.", "Midnight values could include source defaults that these columns cannot identify."]
+  }
+}

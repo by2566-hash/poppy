@@ -1,0 +1,4 @@
+ANSWER:
+In complete years 2013–2025, police recorded 11.05 crashes per night-hour versus 24.18 per day-hour, so reports were less frequent at night per clock-hour, before accounting for traffic exposure ([chart](out/option_1.png)).
+Among crashes with known casualty counts, 28.47% of night crashes involved injury or death versus 23.41% of day crashes, a 5.06-point higher share at night ([chart](out/option_2.png)).
+The share of crashes involving a death was 0.29% at night versus 0.11% by day—about 2.7 times higher among reported crashes, though this is not exposure-adjusted fatality risk ([chart](out/option_3.png)).

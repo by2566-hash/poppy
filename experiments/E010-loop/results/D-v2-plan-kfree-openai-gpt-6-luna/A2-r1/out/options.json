@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "police-reported motor vehicle crashes per clock-hour",
+      "denominator": "total clock-hours in each period across complete calendar years 2013-2025 (10 hours per night and 14 hours per day per date)",
+      "grouping": "time period (night/day), pooled over 2013-2025",
+      "chart_type": "bar chart",
+      "reason": "This compares reported crash frequency while correcting for the different number of clock-hours in the defined night and day periods.",
+      "probability": 0.2,
+      "answer": "Police recorded 11.05 crashes per night-hour versus 24.18 per day-hour in 2013-2025, so reported crashes were less frequent per clock-hour at night, before accounting for traffic exposure.",
+      "interpretation": "This framing answers whether reported crash frequency per unit of clock time is higher at night: the chart shows 11.05 crashes per night-hour versus 24.18 per day-hour in 2013-2025. It is defensible because the defined night period is shorter (10 hours per date) than the day period (14), so the denominator corrects for clock-time availability. It leaves road-user risk per trip, person, or mile unanswered because the file has no traffic or travel exposure. The data check found no missing dates or times, retained 23,787 exact-midnight records as night, and excluded 136,969 records from partial 2012 and 2026 (100,545 and 36,424, respectively) to use complete years only."
+    },
+    {
+      "id": 2,
+      "metric": "share of police-reported crashes with at least one person injured or killed",
+      "denominator": "complete-case police-reported crashes with a usable time and non-missing injury and death counts, in 2013-2025",
+      "grouping": "time period (night/day), pooled over 2013-2025",
+      "chart_type": "bar chart",
+      "reason": "A casualty-involved crash share measures the severity of reported collisions without implying an exposure-based risk to individual travelers.",
+      "probability": 0.5,
+      "answer": "A reported crash involved injury or death in 28.47% of night crashes versus 23.41% of day crashes, a 5.06-percentage-point higher share at night.",
+      "interpretation": "This framing answers whether reported crashes are more likely to involve a recorded casualty at night: 28.47% of night crashes versus 23.41% of day crashes involved injury or death. It is defensible as a crash-severity comparison because its denominator is reported crashes and the outcome includes either injuries or deaths. It leaves the chance of a crash or injury per trip, traveler, or mile unanswered because exposure is not recorded. The check found no missing dates or times, retained 23,787 exact-midnight records as night and valid zero counts as no recorded casualty, excluded 42 of 2,132,218 complete-year crashes with a missing casualty field (0.001970%), and excluded 136,969 crashes in partial 2012/2026."
+    },
+    {
+      "id": 3,
+      "metric": "share of police-reported crashes with at least one person killed",
+      "denominator": "police-reported crashes with a usable time and non-missing death count, in 2013-2025",
+      "grouping": "time period (night/day), pooled over 2013-2025",
+      "chart_type": "bar chart",
+      "reason": "Fatal crashes are a distinct, high-severity outcome that can reveal a night/day difference obscured by broader injury measures.",
+      "probability": 0.3,
+      "answer": "The share of crashes involving a death was 0.29% at night and 0.11% by day—about 2.7 times higher at night among reported crashes.",
+      "interpretation": "This framing answers whether reported crashes are more likely to involve a death at night: the fatal-crash share is 0.29% at night versus 0.11% by day. It is defensible as a specific measure of the most severe crash outcomes, conditional on a police-reported crash. It leaves fatality risk per traveler, trip, or mile unanswered because neither exposure nor unreported crashes are observed. The check found no missing dates or times, retained 23,787 exact-midnight records as night and valid zero death counts, excluded 36 of 2,132,218 complete-year crashes with a missing death count (0.001688%), and excluded 136,969 crashes from partial 2012/2026."
+    }
+  ]
+}

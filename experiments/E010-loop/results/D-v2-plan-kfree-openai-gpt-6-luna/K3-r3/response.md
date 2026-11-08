@@ -1,0 +1,3 @@
+The check found 2,132,218 crashes across full-year date spans for all requested years. Both death-count columns have no NULL or negative values; I’m keeping their zero-valued crash rows as valid zeros and proceeding with annual counts plus the annual motorist-minus-cyclist gap.
+ANSWER: Motorist deaths exceeded cyclist deaths every year from 2013–2025, ranging from 72–139 motorist deaths versus 10–31 cyclist deaths; motorist deaths peaked at 139 in 2020, while cyclist deaths peaked at 31 in 2019 and 2023.
+The motorist-minus-cyclist death gap was positive every year, ranging from 51 deaths in 2019 to 115 in 2021, and was 58 in 2025.

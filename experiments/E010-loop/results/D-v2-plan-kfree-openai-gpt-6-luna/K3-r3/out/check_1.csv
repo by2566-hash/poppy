@@ -1,0 +1,114 @@
+fact,value
+"population rows, 2013-2025",2132218
+population rows in 2013,203742
+date coverage in 2013,2013-01-01 through 2013-12-31; full-year date span
+population rows in 2014,206046
+date coverage in 2014,2014-01-01 through 2014-12-31; full-year date span
+population rows in 2015,217708
+date coverage in 2015,2015-01-01 through 2015-12-31; full-year date span
+population rows in 2016,229833
+date coverage in 2016,2016-01-01 through 2016-12-31; full-year date span
+population rows in 2017,231007
+date coverage in 2017,2017-01-01 through 2017-12-31; full-year date span
+population rows in 2018,231564
+date coverage in 2018,2018-01-01 through 2018-12-31; full-year date span
+population rows in 2019,211486
+date coverage in 2019,2019-01-01 through 2019-12-31; full-year date span
+population rows in 2020,112918
+date coverage in 2020,2020-01-01 through 2020-12-31; full-year date span
+population rows in 2021,110558
+date coverage in 2021,2021-01-01 through 2021-12-31; full-year date span
+population rows in 2022,103887
+date coverage in 2022,2022-01-01 through 2022-12-31; full-year date span
+population rows in 2023,96607
+date coverage in 2023,2023-01-01 through 2023-12-31; full-year date span
+population rows in 2024,91316
+date coverage in 2024,2024-01-01 through 2024-12-31; full-year date span
+population rows in 2025,85546
+date coverage in 2025,2025-01-01 through 2025-12-31; full-year date span
+number_of_cyclist_killed: missing/NULL rows in 2013,0
+number_of_cyclist_killed: zero/default-value rows in 2013,203731
+number_of_cyclist_killed: impossible negative-value rows in 2013,0
+number_of_cyclist_killed: missing/NULL rows in 2014,0
+number_of_cyclist_killed: zero/default-value rows in 2014,206026
+number_of_cyclist_killed: impossible negative-value rows in 2014,0
+number_of_cyclist_killed: missing/NULL rows in 2015,0
+number_of_cyclist_killed: zero/default-value rows in 2015,217693
+number_of_cyclist_killed: impossible negative-value rows in 2015,0
+number_of_cyclist_killed: missing/NULL rows in 2016,0
+number_of_cyclist_killed: zero/default-value rows in 2016,229815
+number_of_cyclist_killed: impossible negative-value rows in 2016,0
+number_of_cyclist_killed: missing/NULL rows in 2017,0
+number_of_cyclist_killed: zero/default-value rows in 2017,230981
+number_of_cyclist_killed: impossible negative-value rows in 2017,0
+number_of_cyclist_killed: missing/NULL rows in 2018,0
+number_of_cyclist_killed: zero/default-value rows in 2018,231554
+number_of_cyclist_killed: impossible negative-value rows in 2018,0
+number_of_cyclist_killed: missing/NULL rows in 2019,0
+number_of_cyclist_killed: zero/default-value rows in 2019,211455
+number_of_cyclist_killed: impossible negative-value rows in 2019,0
+number_of_cyclist_killed: missing/NULL rows in 2020,0
+number_of_cyclist_killed: zero/default-value rows in 2020,112889
+number_of_cyclist_killed: impossible negative-value rows in 2020,0
+number_of_cyclist_killed: missing/NULL rows in 2021,0
+number_of_cyclist_killed: zero/default-value rows in 2021,110539
+number_of_cyclist_killed: impossible negative-value rows in 2021,0
+number_of_cyclist_killed: missing/NULL rows in 2022,0
+number_of_cyclist_killed: zero/default-value rows in 2022,103868
+number_of_cyclist_killed: impossible negative-value rows in 2022,0
+number_of_cyclist_killed: missing/NULL rows in 2023,0
+number_of_cyclist_killed: zero/default-value rows in 2023,96576
+number_of_cyclist_killed: impossible negative-value rows in 2023,0
+number_of_cyclist_killed: missing/NULL rows in 2024,0
+number_of_cyclist_killed: zero/default-value rows in 2024,91292
+number_of_cyclist_killed: impossible negative-value rows in 2024,0
+number_of_cyclist_killed: missing/NULL rows in 2025,0
+number_of_cyclist_killed: zero/default-value rows in 2025,85523
+number_of_cyclist_killed: impossible negative-value rows in 2025,0
+"number_of_cyclist_killed: missing/NULL rows, all years",0
+"number_of_cyclist_killed: zero/default-value rows, all years",2131942
+"number_of_cyclist_killed: impossible negative-value rows, all years",0
+number_of_cyclist_killed: text empty/unknown values,not applicable: column is numeric
+number_of_motorist_killed: missing/NULL rows in 2013,0
+number_of_motorist_killed: zero/default-value rows in 2013,203640
+number_of_motorist_killed: impossible negative-value rows in 2013,0
+number_of_motorist_killed: missing/NULL rows in 2014,0
+number_of_motorist_killed: zero/default-value rows in 2014,205947
+number_of_motorist_killed: impossible negative-value rows in 2014,0
+number_of_motorist_killed: missing/NULL rows in 2015,0
+number_of_motorist_killed: zero/default-value rows in 2015,217619
+number_of_motorist_killed: impossible negative-value rows in 2015,0
+number_of_motorist_killed: missing/NULL rows in 2016,0
+number_of_motorist_killed: zero/default-value rows in 2016,229770
+number_of_motorist_killed: impossible negative-value rows in 2016,0
+number_of_motorist_killed: missing/NULL rows in 2017,0
+number_of_motorist_killed: zero/default-value rows in 2017,230907
+number_of_motorist_killed: impossible negative-value rows in 2017,0
+number_of_motorist_killed: missing/NULL rows in 2018,0
+number_of_motorist_killed: zero/default-value rows in 2018,231467
+number_of_motorist_killed: impossible negative-value rows in 2018,0
+number_of_motorist_killed: missing/NULL rows in 2019,0
+number_of_motorist_killed: zero/default-value rows in 2019,211409
+number_of_motorist_killed: impossible negative-value rows in 2019,0
+number_of_motorist_killed: missing/NULL rows in 2020,0
+number_of_motorist_killed: zero/default-value rows in 2020,112792
+number_of_motorist_killed: impossible negative-value rows in 2020,0
+number_of_motorist_killed: missing/NULL rows in 2021,0
+number_of_motorist_killed: zero/default-value rows in 2021,110432
+number_of_motorist_killed: impossible negative-value rows in 2021,0
+number_of_motorist_killed: missing/NULL rows in 2022,0
+number_of_motorist_killed: zero/default-value rows in 2022,103780
+number_of_motorist_killed: impossible negative-value rows in 2022,0
+number_of_motorist_killed: missing/NULL rows in 2023,0
+number_of_motorist_killed: zero/default-value rows in 2023,96493
+number_of_motorist_killed: impossible negative-value rows in 2023,0
+number_of_motorist_killed: missing/NULL rows in 2024,0
+number_of_motorist_killed: zero/default-value rows in 2024,91218
+number_of_motorist_killed: impossible negative-value rows in 2024,0
+number_of_motorist_killed: missing/NULL rows in 2025,0
+number_of_motorist_killed: zero/default-value rows in 2025,85471
+number_of_motorist_killed: impossible negative-value rows in 2025,0
+"number_of_motorist_killed: missing/NULL rows, all years",0
+"number_of_motorist_killed: zero/default-value rows, all years",2130945
+"number_of_motorist_killed: impossible negative-value rows, all years",0
+number_of_motorist_killed: text empty/unknown values,not applicable: column is numeric

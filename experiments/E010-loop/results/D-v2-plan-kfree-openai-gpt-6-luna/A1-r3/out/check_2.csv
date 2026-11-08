@@ -1,0 +1,53 @@
+fact,value
+Brooklyn crashes in 2013,47024
+Brooklyn crashes in 2014,47761
+Brooklyn crashes in 2015,50851
+Brooklyn crashes in 2016,47464
+Brooklyn crashes in 2017,44915
+Brooklyn crashes in 2018,47313
+Brooklyn crashes in 2019,44479
+Brooklyn crashes in 2020,25473
+Brooklyn crashes in 2021,25174
+Brooklyn crashes in 2022,23369
+Brooklyn crashes in 2023,22890
+Brooklyn crashes in 2024,22785
+Brooklyn crashes in 2025,24303
+Brooklyn crashes in 2026,9700
+Date-eligible crashes with missing/unknown borough (all boroughs),668406
+Date-eligible crash rows (all boroughs; borough-missing denominator),2168642
+Date-eligible crashes with missing/unknown borough (share),30.821408%
+Crashes with missing crash_date (cannot assign year),0
+number_of_pedestrians_killed: Brooklyn date-eligible crash rows,483501
+number_of_pedestrians_killed: NULL values in Brooklyn rows,0
+number_of_pedestrians_killed: empty/unknown text values (not applicable; integer column),0
+number_of_pedestrians_killed: impossible negative values in Brooklyn rows,0
+number_of_pedestrians_killed: zero/default values in Brooklyn rows,483119
+number_of_pedestrians_killed: zero/default values in Brooklyn rows (share),99.920993%
+Year 2013 Brooklyn date coverage (earliest to latest observed),2013-01-01 to 2013-12-31
+Year 2013 observed coverage flag,no
+Year 2014 Brooklyn date coverage (earliest to latest observed),2014-01-01 to 2014-12-31
+Year 2014 observed coverage flag,no
+Year 2015 Brooklyn date coverage (earliest to latest observed),2015-01-01 to 2015-12-31
+Year 2015 observed coverage flag,no
+Year 2016 Brooklyn date coverage (earliest to latest observed),2016-01-01 to 2016-12-31
+Year 2016 observed coverage flag,no
+Year 2017 Brooklyn date coverage (earliest to latest observed),2017-01-01 to 2017-12-31
+Year 2017 observed coverage flag,no
+Year 2018 Brooklyn date coverage (earliest to latest observed),2018-01-01 to 2018-12-31
+Year 2018 observed coverage flag,no
+Year 2019 Brooklyn date coverage (earliest to latest observed),2019-01-01 to 2019-12-31
+Year 2019 observed coverage flag,no
+Year 2020 Brooklyn date coverage (earliest to latest observed),2020-01-01 to 2020-12-31
+Year 2020 observed coverage flag,no
+Year 2021 Brooklyn date coverage (earliest to latest observed),2021-01-01 to 2021-12-31
+Year 2021 observed coverage flag,no
+Year 2022 Brooklyn date coverage (earliest to latest observed),2022-01-01 to 2022-12-31
+Year 2022 observed coverage flag,no
+Year 2023 Brooklyn date coverage (earliest to latest observed),2023-01-01 to 2023-12-31
+Year 2023 observed coverage flag,no
+Year 2024 Brooklyn date coverage (earliest to latest observed),2024-01-01 to 2024-12-31
+Year 2024 observed coverage flag,no
+Year 2025 Brooklyn date coverage (earliest to latest observed),2025-01-01 to 2025-12-31
+Year 2025 observed coverage flag,no
+Year 2026 Brooklyn date coverage (earliest to latest observed),2026-01-01 to 2026-06-11
+Year 2026 observed coverage flag,yes / boundary coverage not full

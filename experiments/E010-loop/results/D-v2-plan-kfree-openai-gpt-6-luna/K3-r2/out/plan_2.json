@@ -1,0 +1,27 @@
+{
+  "id": 2,
+  "stage": "final plan after data check",
+  "can_answer": "yes: the file has annual crash-level counts of cyclist and motorist deaths, allowing comparison of each group's share of the combined cyclist-and-motorist deaths; this is not a share of all NYC traffic deaths and cannot measure individual risk or exposure-adjusted rates",
+  "metric": "for each year, cyclist deaths and motorist deaths as percentages of the combined cyclist-plus-motorist deaths",
+  "denominator": "all cyclist deaths plus all motorist deaths recorded in that calendar year",
+  "population": "all police-reported NYC motor vehicle crash rows dated from 2013-01-01 through 2025-12-31; each crash contributes its cyclist-killed and motorist-killed counts to the corresponding annual numerator and combined denominator",
+  "filters": ["crash_date falls in calendar years 2013 through 2025"],
+  "years": "2013-2025 inclusive",
+  "grouping": ["calendar year of crash_date", "road-user group: cyclist or motorist"],
+  "data_check_plan": {
+    "population_counts": "Count the qualifying crash rows overall and per year; inspect whether first or last year is partial based on the observed date coverage.",
+    "columns": {
+      "crash_date": "Check qualifying rows for missing, invalid, or out-of-range dates and the observed date coverage by year.",
+      "number_of_cyclist_killed": "Among qualifying rows, count missing values, zero values (the default/zero pile-up), and impossible negative values.",
+      "number_of_motorist_killed": "Among qualifying rows, count missing values, zero values (the default/zero pile-up), and impossible negative values."
+    },
+    "outcome_results": "Do not calculate death totals, rates, or shares during the check."
+  },
+  "check_implications_and_decisions": {
+    "dates": "The planned rows number 2,132,218; each year 2013-2025 has observed dates spanning January 1 through December 31, so no year is shortened based on the observed endpoints. The date field is a DATE and the year filter assigns every included row to a calendar year.",
+    "number_of_cyclist_killed": "There are no missing or negative values. The field is zero on 2,131,942 of the 2,132,218 rows; retain these rows as zero cyclist deaths for that crash, rather than dropping the large and valid zero pile-up.",
+    "number_of_motorist_killed": "There are no missing or negative values. The field is zero on 2,130,945 of the 2,132,218 rows; retain these rows as zero motorist deaths for that crash, rather than dropping the large and valid zero pile-up.",
+    "change_to_plan": "No change to years, population, metric, or grouping. Keep all dated crash rows in 2013-2025; calculate each group's share using the combined cyclist-plus-motorist deaths in that year. A year with no deaths in either group would have an undefined share."
+  },
+  "limitations": "This share compares only cyclist and motorist deaths and is not a share of all traffic deaths or an exposure-adjusted risk. The observed date endpoints span each calendar year; the checks found no missing or negative fatality values. The many zero-valued crash-level entries are retained as valid crashes with no deaths of that road-user group."
+}

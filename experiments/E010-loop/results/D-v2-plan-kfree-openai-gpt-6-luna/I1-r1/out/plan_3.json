@@ -1,0 +1,22 @@
+{
+  "id": 3,
+  "question_part_answerable": "partly: the file cannot measure risk per mile driven because it contains no vehicle-miles-traveled exposure; it can show recorded motorist deaths per 1,000 reported crashes.",
+  "metric": "Annual recorded motorist deaths per 1,000 police-reported NYC crashes",
+  "denominator": "All eligible police-reported NYC crashes in each crash year, scaled to 1,000 crashes",
+  "population": "Motorists recorded as killed in police-reported motor-vehicle crashes in NYC, divided by all eligible crashes with a usable crash year in 2013–2025",
+  "filters": "Crash dates in 2013–2025 inclusive; exclude rows with missing crash year or missing/negative motorist-killed count",
+  "years": "2013–2025 inclusive",
+  "grouping": "Crash year",
+  "initial_data_check": "Scoped checks in check_3.csv: 2,132,218 crashes have dates in 2013–2025; each year has rows spanning Jan 1 through Dec 31, including 2025. No missing crash dates, missing motorist-killed values, or negative motorist-killed values were found. Zero motorist deaths occur in most crash rows and are retained in the crash denominator.",
+  "data_check_decisions": "Keep the full eligible date range and all crashes, including zero motorist deaths; exclude no rows. Missing-year rows cannot be assigned to the requested time trend, but the check found none. No changes to the initial plan.",
+  "final_plan": {
+    "question_part_answerable": "Partly. The file cannot measure risk per mile driven because it contains no vehicle-miles-traveled exposure. It can show recorded motorist deaths per 1,000 reported crashes.",
+    "metric": "Annual recorded motorist deaths per 1,000 police-reported NYC crashes",
+    "denominator": "All eligible police-reported NYC crashes in each crash year, scaled to 1,000 crashes",
+    "population": "Motorists recorded as killed in police-reported motor-vehicle crashes in NYC, divided by all reported crashes with a date in 2013–2025 and a nonnegative motorist-killed count",
+    "filters": "Crash dates in 2013–2025 inclusive; zero counts remain in the crash denominator; no rows are dropped by the checks",
+    "years": "2013–2025 inclusive; observed dates span Jan 1 to Dec 31 in every year",
+    "grouping": "Crash year",
+    "limitations": "This crash-normalized measure is not a per-mile risk because miles driven are unavailable. It can change with crash incidence, travel exposure, and reporting as well as fatality risk."
+  }
+}

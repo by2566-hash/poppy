@@ -1,0 +1,27 @@
+{
+  "id": 1,
+  "stage": "final_plan",
+  "answerability": "yes: the data records the numbers of motorists and cyclists killed in each police-reported crash and crash dates, so annual death totals for both groups can be compared for 2013–2025",
+  "metric": "Annual number of reported people killed, separately for motorists and cyclists, calculated by summing the corresponding death-count columns across crashes",
+  "denominator": "None; absolute annual death counts, not a rate",
+  "population": "All police-reported NYC motor vehicle crashes dated 2013 through 2025",
+  "filters": ["crash_date from 2013-01-01 through 2025-12-31"],
+  "years": "Calendar years 2013–2025, derived from crash_date",
+  "grouping": ["calendar year", "death group (motorist or cyclist)"],
+  "columns_used": ["crash_date", "number_of_motorist_killed", "number_of_cyclist_killed"],
+  "initial_plan": {
+    "answerability": "yes: annual reported motorist and cyclist death totals can be compared using crash dates and the two group-specific death-count columns",
+    "metric": "Annual number of reported people killed, separately for motorists and cyclists, calculated by summing the corresponding death-count columns across crashes",
+    "denominator": "None; absolute annual death counts, not a rate",
+    "population": "All police-reported NYC motor vehicle crashes dated 2013 through 2025",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31"],
+    "years": "Calendar years 2013–2025, derived from crash_date",
+    "grouping": ["calendar year", "death group (motorist or cyclist)"]
+  },
+  "changes_after_check": "No plan changes; all rows were retained, and zero death counts were kept as valid values.",
+  "data_check": {
+    "facts": "The population contains 2,132,218 crash rows in total; every year 2013–2025 has rows and observed dates from January 1 through December 31. Both death columns have 0 NULL and 0 negative values among the included rows. Zero values occur in 2,130,945 motorist-killed rows and 2,131,942 cyclist-killed rows overall.",
+    "decisions": "Keep all in-range crashes. Retain zero death values as meaningful no-death records; exclude no rows for missing or impossible death counts. No year is flagged partial by its observed date endpoints."
+  },
+  "limitations": "These are counts recorded in police-reported crash data, not population- or exposure-adjusted risk rates. Date checks confirm each year has records through both endpoints but do not independently establish reporting completeness for every day."
+}

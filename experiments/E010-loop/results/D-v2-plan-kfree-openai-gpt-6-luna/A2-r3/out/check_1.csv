@@ -1,0 +1,34 @@
+fact,value
+all crash rows in file,2269187
+rows with missing crash_date (cannot assign year),0
+rows with missing crash_time,0
+earliest nonmissing crash_date,2012-07-01
+latest nonmissing crash_date,2026-06-11
+rows with date and time available in all years,2269187
+rows with date and time in complete years 2013–2025 (pre-outcome checks),2132218
+"rows with valid date, time, and both outcome counts in 2013–2025 (final population)",2132176
+date+time rows excluded for partial boundary years 2012 and 2026,136969
+number_of_persons_injured: missing among date/time-valid rows in 2013–2025,18
+number_of_persons_injured: negative/impossible among date/time-valid rows in 2013–2025,0
+"number_of_persons_injured: zero among date/time-valid rows in 2013–2025 (valid zero, not missing)",1608886
+number_of_persons_killed: missing among date/time-valid rows in 2013–2025,36
+number_of_persons_killed: negative/impossible among date/time-valid rows in 2013–2025,0
+"number_of_persons_killed: zero among date/time-valid rows in 2013–2025 (valid zero, not missing)",2128911
+crash_time: exact-midnight rows in 2013–2025 (valid hour; check for pileup),23787
+per-year counts: year | first date | last date | date+time rows | usable rows | missing-time rows,
+year 2012: first/last date; date+time rows; usable rows; missing-time rows,2012-07-01 | 2012-12-31 | 100545 | 100545 | 0
+year 2013: first/last date; date+time rows; usable rows; missing-time rows,2013-01-01 | 2013-12-31 | 203742 | 203742 | 0
+year 2014: first/last date; date+time rows; usable rows; missing-time rows,2014-01-01 | 2014-12-31 | 206046 | 206046 | 0
+year 2015: first/last date; date+time rows; usable rows; missing-time rows,2015-01-01 | 2015-12-31 | 217708 | 217708 | 0
+year 2016: first/last date; date+time rows; usable rows; missing-time rows,2016-01-01 | 2016-12-31 | 229833 | 229831 | 0
+year 2017: first/last date; date+time rows; usable rows; missing-time rows,2017-01-01 | 2017-12-31 | 231007 | 230988 | 0
+year 2018: first/last date; date+time rows; usable rows; missing-time rows,2018-01-01 | 2018-12-31 | 231564 | 231548 | 0
+year 2019: first/last date; date+time rows; usable rows; missing-time rows,2019-01-01 | 2019-12-31 | 211486 | 211486 | 0
+year 2020: first/last date; date+time rows; usable rows; missing-time rows,2020-01-01 | 2020-12-31 | 112918 | 112917 | 0
+year 2021: first/last date; date+time rows; usable rows; missing-time rows,2021-01-01 | 2021-12-31 | 110558 | 110557 | 0
+year 2022: first/last date; date+time rows; usable rows; missing-time rows,2022-01-01 | 2022-12-31 | 103887 | 103887 | 0
+year 2023: first/last date; date+time rows; usable rows; missing-time rows,2023-01-01 | 2023-12-31 | 96607 | 96607 | 0
+year 2024: first/last date; date+time rows; usable rows; missing-time rows,2024-01-01 | 2024-12-31 | 91316 | 91316 | 0
+year 2025: first/last date; date+time rows; usable rows; missing-time rows,2025-01-01 | 2025-12-31 | 85546 | 85543 | 0
+year 2026: first/last date; date+time rows; usable rows; missing-time rows,2026-01-01 | 2026-06-11 | 36424 | 27547 | 0
+boundary-year coverage,first year begins on 2012-07-01; last year ends on 2026-06-11; any boundary year not spanning Jan 1 through Dec 31 is partial

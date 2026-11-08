@@ -1,0 +1,26 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "answerability": "yes — the dataset has a per-crash pedestrian-killed count and crash date, so it can report annual totals for 2013–2025",
+    "metric": "Annual total number of pedestrians killed, calculated as the sum of number_of_pedestrians_killed across crashes",
+    "denominator": "None; this is a count, not a rate or share",
+    "population": "Police-reported NYC motor vehicle crash records with a nonmissing crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31"],
+    "years": "2013–2025 inclusive",
+    "grouping": "Calendar year of crash_date"
+  },
+  "data_check": {
+    "findings": "The file has 0 rows with missing crash_date. Each of 2013–2025 has dated crash records spanning January 1 through December 31. In each year, number_of_pedestrians_killed is missing on 0 rows and negative on 0 rows; zero is present on 85,432–230,886 crash rows per year (the annual row counts are in check_1.csv).",
+    "meaning_and_decisions": "No dated rows need to be excluded for missing or out-of-range years. There are no missing or impossible pedestrian-killed values in the included years. Rows where that count is zero remain in the crash population and contribute zero to the annual total; no rows are excluded or recoded. No plan change was needed."
+  },
+  "final_plan": {
+    "answerability": "yes — the dataset supports annual totals of pedestrians killed in police-reported NYC crashes for all requested calendar years",
+    "metric": "Annual total number of pedestrians killed, calculated as the sum of number_of_pedestrians_killed across crashes",
+    "denominator": "None; absolute count, not a rate or share",
+    "population": "All police-reported NYC motor vehicle crash records with crash_date in calendar years 2013 through 2025 inclusive, including crashes with zero pedestrian fatalities",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "2013–2025 inclusive; each year has dated records from January 1 through December 31",
+    "grouping": "Calendar year of crash_date",
+    "limitations": "This counts pedestrian fatalities recorded in police-reported crash records and does not measure unreported crashes or establish causes. The check found no missing or negative pedestrian-killed values in the requested years; zero-valued crash rows are retained."
+  }
+}

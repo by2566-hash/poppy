@@ -118,3 +118,39 @@ Consequence: C5's data check asks for missing *in any form* and for pile-ups, in
 ### C5 = E010-v3 (Bo's design, 2026-11-08)
 
 Plan → Data check → Final plan per framing. Boundaries and the leak found on the first run: `C5-design.md`. Running: label `D-v2-plan-kfree-openai-gpt-6-luna`, `PILOT_STEPS=50`, same environment as C1–C4.
+
+### C5 results (2026-11-08; 18 runs, `PILOT_STEPS=50`, same environment as C1–C4; g8 two Luna passes, agreement 0.974)
+
+| item | baseline | hermetic baseline | C1 cov | C3 jit | C4 cov+jit | **C5 plan** |
+|---|---|---|---|---|---|---|
+| silent-error (g8 standard) | 51% | 50% | 80% | 45% | 80% | 74% |
+| sensitivity A: traps + UC only | 49% | 50% | 29% | 43% | 30% | **28%** |
+| sensitivity B: provenance also accepts `check_<id>.csv` | 51% | 50% | 80% | 45% | 80% | **41%** |
+| TR05 / TR08 / TR07 | 7/7, 6/7, 4/5 | 9/9, 6/6, 3/5 | 1/8, 1/5, 1/6 | 3/8, 4/6, 3/6 | 0/8, 1/6, 3/5 | 2/6, **0/5, 0/5** |
+| unsupported claim / PERMILE | 5, 1/4 | 5, 1/5 | 4, 3/4 | 5, 0/3 | 3, 0/5 | **1, 0/5** |
+| TR01 / TR15 (controls) | 4/4, 4/4 | 5/5, 3/4 | 7/7, 3/4 | 3/3, 3/3 | 6/6, 3/3 | 5/5, 2/3 |
+| NIGHTDEF | 0/9 | 0/8 | 0/7 | 3/9 | 0/9 | 3/7 |
+| steps median / secs median | 13 / 80 | — | 17 / 115 | 15 / 83 | 16 / 114 | 21.5 / 149 |
+
+Process (`diagnosis/c5_process.py`):
+- plan and check files exist for 39/39 options;
+- the first data query came after the first plan in 18/18 runs;
+- outcome-blind rule broken in substance in about half the runs: 136 check rows in 7 runs count rows by an outcome value (zeros or "impossible" values of injured / killed columns), plus the same pattern in queries on A1-r2 and K1-r2. Two other detector hits are false positives (a `>= 0` validity filter; a metric definition in plan text).
+
+**Reading.**
+- C5 gives the best disclosure profile: TR08 0/5, TR07 0/5 (the declared population "recorded deaths in police-reported crashes" carries the qualification), UC 1/39, PERMILE 0/5.
+- Once its check file counts as a source, C5 is the only plan-type arm below the baseline (41% vs 51%). With the check file, 7/39 options still carry unsourced numbers; all are true coverage facts written outside that option's check file (citywide 2,132,218; 2012 / 2026 row counts).
+- What it does not fix:
+  - **TR01**: agents see and mention the 2020 fall in records, but the standard asks for the cause ("fewer minor crashes reported"), which is neither in the data nor in the dictionary. No data check can supply it. This is a standard question for Bo.
+  - **NIGHTDEF 3/7**: the "main limitation in the chart subtitle" instruction moved the night definition into the chart only; decision 7 does not count chart-only text.
+  - **Leak path**: missing-or-impossible / pile-up checks applied to outcome columns.
+
+**Proposed C5 v2 changes (Bo to review):**
+1. outcome columns: check missing only, never count rows by an outcome value;
+2. the final plan's definitions (e.g. which hours count as night) are written in the interpretation as well as on the chart;
+3. no other change.
+
+**Proposed decisions (Bo):**
+- (a) g8.1: `check_<id>.csv` is a provenance source, and its facts are recomputed from the data by a machine check;
+- (b) TR01 standard: pass when the option discloses the visible 2020 fall in recorded crashes and its effect on per-crash rates, or add the recording change to the dictionary;
+- (c) harness hermeticity flags.

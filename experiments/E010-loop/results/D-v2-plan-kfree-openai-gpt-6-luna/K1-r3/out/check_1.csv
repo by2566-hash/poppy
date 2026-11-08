@@ -1,0 +1,32 @@
+fact,value
+crashes with crash_date in 2013-2025,2132218
+rows with missing crash_date (cannot assign to a year),0
+2013 crash rows,203742
+2013 observed date range,2013-01-01 00:00:00 to 2013-12-31 00:00:00
+2014 crash rows,206046
+2014 observed date range,2014-01-01 00:00:00 to 2014-12-31 00:00:00
+2015 crash rows,217708
+2015 observed date range,2015-01-01 00:00:00 to 2015-12-31 00:00:00
+2016 crash rows,229833
+2016 observed date range,2016-01-01 00:00:00 to 2016-12-31 00:00:00
+2017 crash rows,231007
+2017 observed date range,2017-01-01 00:00:00 to 2017-12-31 00:00:00
+2018 crash rows,231564
+2018 observed date range,2018-01-01 00:00:00 to 2018-12-31 00:00:00
+2019 crash rows,211486
+2019 observed date range,2019-01-01 00:00:00 to 2019-12-31 00:00:00
+2020 crash rows,112918
+2020 observed date range,2020-01-01 00:00:00 to 2020-12-31 00:00:00
+2021 crash rows,110558
+2021 observed date range,2021-01-01 00:00:00 to 2021-12-31 00:00:00
+2022 crash rows,103887
+2022 observed date range,2022-01-01 00:00:00 to 2022-12-31 00:00:00
+2023 crash rows,96607
+2023 observed date range,2023-01-01 00:00:00 to 2023-12-31 00:00:00
+2024 crash rows,91316
+2024 observed date range,2024-01-01 00:00:00 to 2024-12-31 00:00:00
+2025 crash rows,85546
+2025 observed date range,2025-01-01 00:00:00 to 2025-12-31 00:00:00
+2013-2025 rows with missing number_of_pedestrians_killed,0
+2013-2025 rows with impossible negative number_of_pedestrians_killed,0
+2013-2025 rows with number_of_pedestrians_killed equal to zero,2130554

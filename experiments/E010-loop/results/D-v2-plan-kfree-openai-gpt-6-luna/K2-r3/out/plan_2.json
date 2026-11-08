@@ -1,0 +1,32 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "can_answer": "yes",
+    "answerable_part": "The average number of police-reported crash records per calendar date for each weekday from 2013 through 2025.",
+    "metric": "Mean number of police-reported crashes per calendar date, grouped by weekday",
+    "denominator": "Number of calendar dates of each weekday within the covered 2013-2025 date span.",
+    "population": "Crash records with a valid crash_date from 2013-01-01 through 2025-12-31 inclusive.",
+    "filters": ["crash_date is in calendar years 2013 through 2025"],
+    "years": "2013-2025 inclusive",
+    "grouping": "Day of week derived from crash_date, Monday through Sunday",
+    "columns_used": ["crash_date"]
+  },
+  "data_check_interpretation": {
+    "facts": "The selected population has 2,132,218 rows: every year 2013-2025 has rows and min/max dates span January 1 through December 31. There are 0 NULL crash_date values among rows satisfying the date filter; the DATE type plus the filter excludes empty or impossible date values. Standard date sentinels such as 1900-01-01 and 1970-01-01 lie outside the selected years.",
+    "decisions": "Retain every row with a crash_date in 2013-2025 and assign its weekday from that date. Use the actual calendar count of each weekday as the denominator, rather than treating all weekdays as having exactly equal numbers of dates. Missing dates outside the selected date window cannot be assigned to a year or weekday and are not part of this population.",
+    "change": "No change to the initial population or metric. All 13 years have full calendar-year min/max date extents, so the denominator uses all calendar dates in the requested interval; this establishes the observed date span, but not independent completeness of the source records within each year."
+  },
+  "final_plan": {
+    "can_answer": "yes",
+    "answerable_part": "The mean number of police-reported crash records per calendar occurrence of each weekday over 2013-2025.",
+    "metric": "Average number of police-reported crashes per calendar date, by weekday",
+    "denominator": "Number of calendar dates of that weekday from 2013-01-01 through 2025-12-31 inclusive.",
+    "population": "Crash records with a valid crash_date from 2013-01-01 through 2025-12-31 inclusive.",
+    "filters": ["crash_date is in calendar years 2013 through 2025"],
+    "years": "2013-2025 inclusive; observed min/max dates span each full calendar year",
+    "grouping": "Day of week derived from crash_date, Monday through Sunday",
+    "columns_used": ["crash_date"],
+    "data_check_decisions": "Use all selected rows and divide weekday crash totals by the number of calendar dates of that weekday in the complete 13-year interval. No selected rows have missing/invalid dates, and no year is partial by observed min/max.",
+    "limitations": "These are police-reported records, not all crashes or a measure of per-trip/per-mile risk. Full-year min/max dates do not independently verify source completeness within the interval; the data check excludes dates outside 2013-2025 and does not quantify undated rows."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer": "yes: the file records the number of cyclist and motorist deaths for each crash, so annual totals can be compared directly",
+    "metric": "annual count of reported cyclist deaths and annual count of reported motorist deaths",
+    "denominator": "none; these are counts, not rates",
+    "population": "all police-reported NYC motor vehicle crashes with crash_date in calendar years 2013 through 2025; deaths counted from the corresponding per-crash cyclist and motorist death fields",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31"],
+    "years": "2013-2025 inclusive",
+    "grouping": ["calendar year", "victim group (cyclist, motorist)"]
+  },
+  "data_check_interpretation": {
+    "population_and_coverage": "The planned population contains 2,132,218 crash rows. Every year from 2013 through 2025 has rows and a full-year date span from January 1 through December 31, including 2025.",
+    "column_quality": "Both planned death-count fields have 0 NULL rows and 0 negative-value rows; as numeric columns they cannot contain text empty/unknown markers. Zero occurs on 2,131,942 rows (about 99.99%) for cyclist deaths and 2,130,945 rows (about 99.94%) for motorist deaths.",
+    "row_decisions": "Keep all rows, including zero values, because zero is a valid per-crash death count rather than missing data; no rows are dropped for these fields. There are no NULL or negative values to drop or recode. The check gives full-year date spans, but does not independently establish reporting completeness.",
+    "changes": "No change to the initial plan."
+  },
+  "final_plan": {
+    "can_answer": "yes, for annual counts of reported deaths in the two recorded victim groups",
+    "metric": "annual count of reported cyclist deaths and annual count of reported motorist deaths, calculated by summing the corresponding per-crash fields",
+    "denominator": "none; these are counts, not rates",
+    "population": "all 2,132,218 police-reported NYC motor vehicle crash rows with crash_date in calendar years 2013 through 2025; all crashes are retained, and cyclist/motorist deaths are counted from their respective fields",
+    "filters": ["crash_date from 2013-01-01 inclusive through 2026-01-01 exclusive"],
+    "years": "2013-2025 inclusive; each has a full-year date span in the file",
+    "grouping": ["calendar year", "victim group (cyclist, motorist)"],
+    "limitations": "These are reported death counts, not exposure-adjusted fatality rates; the data check finds no missing or negative values in either death field and all years have full-year date spans, but date spans do not verify reporting completeness. The many zero-valued crash rows are retained as valid no-death counts."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "annual number of pedestrians reported injured or killed in Brooklyn motor-vehicle crashes (sum of pedestrian injuries and deaths)",
+      "denominator": "calendar year; annual count, not a rate",
+      "grouping": "crash year",
+      "chart_type": "line chart",
+      "reason": "Combining injuries and deaths shows the broad annual burden of pedestrian harm in one trend.",
+      "probability": 0.55,
+      "answer": "Reported pedestrian injuries and deaths fell from 3,671 in 2013 to 2,874 in 2025 (about 22% lower), after reaching a low of 1,798 in 2020 and then rebounding.",
+      "interpretation": "This framing answers whether reported pedestrian casualties became less frequent by tracking the combined annual count of pedestrians injured or killed; it falls from 3,671 in 2013 to 2,874 in 2025, with a low of 1,798 in 2020 followed by a rebound. It is defensible because injuries and deaths are direct harms and together capture a broader burden than deaths alone. It cannot establish risk per walking trip or explain why counts changed because there is no pedestrian-exposure denominator, and 2026 is excluded because the check shows coverage only through June 11. The borough filter also excludes 668,406 of 2,168,642 date-eligible city crashes (30.821408%) with missing or unknown borough; the analysis retains zero values as valid no-casualty records (92.865578% of injury fields and 99.920993% of death fields were zero among Brooklyn records)."
+    },
+    {
+      "id": 2,
+      "metric": "annual number of pedestrians reported killed in Brooklyn motor-vehicle crashes",
+      "denominator": "calendar year; annual count, not a rate",
+      "grouping": "crash year",
+      "chart_type": "bar chart",
+      "reason": "Focusing on deaths isolates the most severe pedestrian outcome and makes its year-to-year variation easy to compare.",
+      "probability": 0.45,
+      "answer": "Brooklyn recorded 30 pedestrian deaths in 2013 and 39 in 2025 (30% higher), with large year-to-year swings and a 2020 low of 17.",
+      "interpretation": "This framing answers whether the most severe reported pedestrian outcome improved by following annual deaths; the count rose from 30 in 2013 to 39 in 2025, despite a dip to 17 in 2020 and substantial variation in between. It is defensible because deaths are unambiguous and consequential, although yearly counts are small and volatile. It cannot establish a death rate per walking trip or the reasons behind changes, and 2026 is excluded because the check shows coverage only through June 11. Of 2,168,642 date-eligible city crashes, 668,406 (30.821408%) lack a usable borough and are excluded as unassignable; the fatality field has no NULL, negative, or text-missing values, and its zero values (483,119/483,501, or 99.920993%) are retained as valid records without a pedestrian death."
+    }
+  ]
+}

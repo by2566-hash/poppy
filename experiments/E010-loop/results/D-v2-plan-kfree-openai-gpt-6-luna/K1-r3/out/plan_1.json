@@ -1,0 +1,27 @@
+{
+  "initial_plan": {
+    "can_answer": "yes",
+    "metric": "Annual sum of number_of_pedestrians_killed, representing pedestrians killed in reported crashes",
+    "denominator": "None; this is a count, not a rate or share",
+    "population": "Police-reported NYC motor vehicle crashes with crash_date in calendar years 2013 through 2025",
+    "filters": "crash_date from 2013-01-01 through 2025-12-31",
+    "years": "2013-2025 inclusive",
+    "grouping": "Calendar year of crash_date"
+  },
+  "data_check": {
+    "evidence": "The planned period contains 2,132,218 crash rows and zero rows with a missing crash_date. Each requested year has observed dates from January 1 through December 31. Of the rows, 0 have a missing pedestrian-fatality value, 0 have a negative value, and 2,130,554 have zero pedestrian fatalities.",
+    "meaning_and_decisions": "All 2013-2025 crash rows can be assigned to a requested calendar year; no rows are dropped for missing dates or missing/impossible outcome values. The 2,130,554 zero-outcome rows are valid crashes with no pedestrians killed, not missing/default unknowns, and remain in the crash population. There is no endpoint evidence of a partial year; all requested years show both calendar endpoints. No change to the initial plan.",
+    "limitations": "This counts pedestrian fatalities as recorded in police-reported NYC crash records; it does not independently establish completeness or accuracy of reporting. Date endpoints indicate full calendar-year coverage, though they do not test for gaps in records within a year."
+  },
+  "final_plan": {
+    "can_answer": "yes",
+    "metric": "Annual sum of number_of_pedestrians_killed, representing pedestrians killed in reported crashes",
+    "denominator": "None; this is a count, not a rate or share",
+    "population": "All police-reported NYC motor vehicle crash records with crash_date in calendar years 2013 through 2025, including records with zero pedestrian fatalities",
+    "filters": "crash_date from 2013-01-01 through 2025-12-31; no outcome-value exclusions are needed based on the check",
+    "years": "2013-2025 inclusive; each has observed dates from January 1 through December 31",
+    "grouping": "Calendar year of crash_date",
+    "chart_type": "Annual bar chart",
+    "limitations": "Counts rely on pedestrian fatality values as recorded in police-reported NYC crash records. Full year endpoints are present, but the check does not establish within-year completeness or independent reporting accuracy."
+  }
+}

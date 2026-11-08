@@ -1,0 +1,96 @@
+fact,value
+Population rows across planned years 2013–2025,2132218
+2013: population rows,203742
+2013: observed date coverage,2013-01-01 through 2013-12-31
+2013: year coverage status,observed dates span Jan 1–Dec 31; reporting completeness cannot be established from endpoints alone
+2013: rows with missing crash_date,0
+2013: rows with missing pedestrian fatality value,0
+2013: rows with negative (impossible) pedestrian fatality value,0
+"2013: rows with zero pedestrian fatality value (valid zero, checked for pile-up)",203569
+2014: population rows,206046
+2014: observed date coverage,2014-01-01 through 2014-12-31
+2014: year coverage status,observed dates span Jan 1–Dec 31; reporting completeness cannot be established from endpoints alone
+2014: rows with missing crash_date,0
+2014: rows with missing pedestrian fatality value,0
+2014: rows with negative (impossible) pedestrian fatality value,0
+"2014: rows with zero pedestrian fatality value (valid zero, checked for pile-up)",205913
+2015: population rows,217708
+2015: observed date coverage,2015-01-01 through 2015-12-31
+2015: year coverage status,observed dates span Jan 1–Dec 31; reporting completeness cannot be established from endpoints alone
+2015: rows with missing crash_date,0
+2015: rows with missing pedestrian fatality value,0
+2015: rows with negative (impossible) pedestrian fatality value,0
+"2015: rows with zero pedestrian fatality value (valid zero, checked for pile-up)",217577
+2016: population rows,229833
+2016: observed date coverage,2016-01-01 through 2016-12-31
+2016: year coverage status,observed dates span Jan 1–Dec 31; reporting completeness cannot be established from endpoints alone
+2016: rows with missing crash_date,0
+2016: rows with missing pedestrian fatality value,0
+2016: rows with negative (impossible) pedestrian fatality value,0
+"2016: rows with zero pedestrian fatality value (valid zero, checked for pile-up)",229685
+2017: population rows,231007
+2017: observed date coverage,2017-01-01 through 2017-12-31
+2017: year coverage status,observed dates span Jan 1–Dec 31; reporting completeness cannot be established from endpoints alone
+2017: rows with missing crash_date,0
+2017: rows with missing pedestrian fatality value,0
+2017: rows with negative (impossible) pedestrian fatality value,0
+"2017: rows with zero pedestrian fatality value (valid zero, checked for pile-up)",230886
+2018: population rows,231564
+2018: observed date coverage,2018-01-01 through 2018-12-31
+2018: year coverage status,observed dates span Jan 1–Dec 31; reporting completeness cannot be established from endpoints alone
+2018: rows with missing crash_date,0
+2018: rows with missing pedestrian fatality value,0
+2018: rows with negative (impossible) pedestrian fatality value,0
+"2018: rows with zero pedestrian fatality value (valid zero, checked for pile-up)",231443
+2019: population rows,211486
+2019: observed date coverage,2019-01-01 through 2019-12-31
+2019: year coverage status,observed dates span Jan 1–Dec 31; reporting completeness cannot be established from endpoints alone
+2019: rows with missing crash_date,0
+2019: rows with missing pedestrian fatality value,0
+2019: rows with negative (impossible) pedestrian fatality value,0
+"2019: rows with zero pedestrian fatality value (valid zero, checked for pile-up)",211355
+2020: population rows,112918
+2020: observed date coverage,2020-01-01 through 2020-12-31
+2020: year coverage status,observed dates span Jan 1–Dec 31; reporting completeness cannot be established from endpoints alone
+2020: rows with missing crash_date,0
+2020: rows with missing pedestrian fatality value,0
+2020: rows with negative (impossible) pedestrian fatality value,0
+"2020: rows with zero pedestrian fatality value (valid zero, checked for pile-up)",112818
+2021: population rows,110558
+2021: observed date coverage,2021-01-01 through 2021-12-31
+2021: year coverage status,observed dates span Jan 1–Dec 31; reporting completeness cannot be established from endpoints alone
+2021: rows with missing crash_date,0
+2021: rows with missing pedestrian fatality value,0
+2021: rows with negative (impossible) pedestrian fatality value,0
+"2021: rows with zero pedestrian fatality value (valid zero, checked for pile-up)",110427
+2022: population rows,103887
+2022: observed date coverage,2022-01-01 through 2022-12-31
+2022: year coverage status,observed dates span Jan 1–Dec 31; reporting completeness cannot be established from endpoints alone
+2022: rows with missing crash_date,0
+2022: rows with missing pedestrian fatality value,0
+2022: rows with negative (impossible) pedestrian fatality value,0
+"2022: rows with zero pedestrian fatality value (valid zero, checked for pile-up)",103753
+2023: population rows,96607
+2023: observed date coverage,2023-01-01 through 2023-12-31
+2023: year coverage status,observed dates span Jan 1–Dec 31; reporting completeness cannot be established from endpoints alone
+2023: rows with missing crash_date,0
+2023: rows with missing pedestrian fatality value,0
+2023: rows with negative (impossible) pedestrian fatality value,0
+"2023: rows with zero pedestrian fatality value (valid zero, checked for pile-up)",96501
+2024: population rows,91316
+2024: observed date coverage,2024-01-01 through 2024-12-31
+2024: year coverage status,observed dates span Jan 1–Dec 31; reporting completeness cannot be established from endpoints alone
+2024: rows with missing crash_date,0
+2024: rows with missing pedestrian fatality value,0
+2024: rows with negative (impossible) pedestrian fatality value,0
+"2024: rows with zero pedestrian fatality value (valid zero, checked for pile-up)",91195
+2025: population rows,85546
+2025: observed date coverage,2025-01-01 through 2025-12-31
+2025: year coverage status,observed dates span Jan 1–Dec 31; reporting completeness cannot be established from endpoints alone
+2025: rows with missing crash_date,0
+2025: rows with missing pedestrian fatality value,0
+2025: rows with negative (impossible) pedestrian fatality value,0
+"2025: rows with zero pedestrian fatality value (valid zero, checked for pile-up)",85432
+Across planned population: rows with missing crash_date,0
+Across planned population: rows with missing pedestrian fatality value,0
+Across planned population: rows with negative (impossible) pedestrian fatality value,0

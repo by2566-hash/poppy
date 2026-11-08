@@ -1,0 +1,22 @@
+{
+  "id": 2,
+  "question_part_answerable": "partly: the file cannot measure risk per mile driven because it contains no vehicle-miles-traveled exposure; it can show what share of reported crashes involved at least one motorist killed.",
+  "metric": "Annual share of police-reported NYC crashes with at least one motorist killed",
+  "denominator": "All eligible police-reported NYC crashes in each crash year",
+  "population": "Police-reported motor-vehicle crashes in NYC with a usable crash year in 2013–2025; count crashes with one or more recorded motorist deaths in the numerator",
+  "filters": "Crash dates in 2013–2025 inclusive; exclude rows with missing crash year or missing/negative motorist-killed count",
+  "years": "2013–2025 inclusive",
+  "grouping": "Crash year",
+  "initial_data_check": "Scoped checks in check_2.csv: 2,132,218 crashes have dates in 2013–2025; each year has rows spanning Jan 1 through Dec 31, including 2025. No missing crash dates, missing motorist-killed values, or negative motorist-killed values were found. Zero motorist deaths occur in most crash rows and are retained as nonfatal crashes in the denominator.",
+  "data_check_decisions": "Keep the full eligible date range and all crashes, including crashes with zero motorist deaths in the denominator; exclude no rows. Missing-year rows cannot be assigned to the requested time trend, but the check found none. No changes to the initial plan.",
+  "final_plan": {
+    "question_part_answerable": "Partly. The file cannot measure risk per mile driven because it contains no vehicle-miles-traveled exposure. It can show the share of reported crashes with one or more recorded motorist deaths.",
+    "metric": "Annual share of police-reported NYC crashes with at least one motorist killed",
+    "denominator": "All eligible police-reported NYC crashes in each crash year",
+    "population": "All police-reported motor-vehicle crashes in NYC with a crash date in 2013–2025 and a nonnegative motorist-killed count; numerator counts crashes with one or more recorded motorist deaths",
+    "filters": "Crash dates in 2013–2025 inclusive; include zero counts as no motorist-fatality crash; no rows are dropped by the checks",
+    "years": "2013–2025 inclusive; observed dates span Jan 1 to Dec 31 in every year",
+    "grouping": "Crash year",
+    "limitations": "The denominator is reported crashes, not miles driven, trips, or motorists; the measure is therefore not motorist risk per mile and can also vary with crash volume and reporting."
+  }
+}

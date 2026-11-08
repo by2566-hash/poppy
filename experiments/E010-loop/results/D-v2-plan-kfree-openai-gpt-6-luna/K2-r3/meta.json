@@ -1,0 +1,93 @@
+{
+ "q": "K2",
+ "rep": 3,
+ "label": "D-v2-plan-kfree-openai-gpt-6-luna",
+ "type": "clear",
+ "base": "K2",
+ "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+ "k": 0,
+ "call_ok": true,
+ "timed_out": false,
+ "answered_no_exit": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 152.5,
+ "zero_output_retries": 0,
+ "secs_total": 152.5,
+ "steps": 20,
+ "hit_step_limit": false,
+ "tool_calls": 25,
+ "tokens": {
+  "input": 60,
+  "output": 5947,
+  "reasoning": 6476,
+  "cache_read": 277101,
+  "cache_write": 28259,
+  "total": 317843
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 2,
+ "n_complete_options": 2,
+ "n_distinct_framings": 2,
+ "n_distinct_analytic": 2,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Number of police-reported crashes",
+   "denominator": "No separate denominator; each qualifying crash record counts once.",
+   "grouping": "Day of week derived from crash_date, Monday through Sunday",
+   "chart_type": "Vertical bar chart",
+   "reason": "Raw weekday counts directly show how the total number of reported crashes is distributed across the week.",
+   "probability": 0.58,
+   "answer": "Friday had the most reported crashes (338,800; 15.89% of the total), while Sunday had the fewest (257,544; 12.08%).",
+   "interpretation": "The chart answers the overall weekday distribution by counting each in-period police-reported crash once: Friday is largest (338,800; 15.89% of 2,132,218) and Sunday smallest (257,544; 12.08%). This is a direct framing because the question asks how crashes are distributed, while retaining the original event counts. It does not normalize for weekday calendar-date counts or traffic exposure, so it cannot establish a per-date or per-trip crash risk pattern. The check found 2,132,218 in-scope records with 0 missing crash_date (0%) and full January 1-December 31 observed min/max in all 13 years, so none of those records were dropped or reassigned; dates outside 2013-2025, including any undated rows, are outside the population and were not quantified, and full-year endpoints do not confirm internal source completeness.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Average number of police-reported crashes per calendar date, by weekday",
+   "denominator": "Number of calendar dates of that weekday from 2013-01-01 through 2025-12-31 inclusive.",
+   "grouping": "Day of week derived from crash_date, Monday through Sunday",
+   "chart_type": "Vertical bar chart",
+   "reason": "A per-calendar-date average adjusts the weekday comparison for the slightly different number of each weekday in the 13-year interval.",
+   "probability": 0.42,
+   "answer": "Friday averaged 499.7 reported crashes per calendar date, the highest, while Sunday averaged 379.9, the lowest.",
+   "interpretation": "The chart answers the weekday pattern in average daily volume: Friday averaged 499.7 police-reported crashes per date, compared with 379.9 on Sunday. Dividing each weekday's total by its calendar-date count is defensible because the 2013-2025 interval contains 679 Tuesdays and Wednesdays but 678 of each other weekday. It leaves the total number or share of crashes by weekday and any per-trip/per-mile risk comparison unanswered. The check found 2,132,218 in-scope records with 0 missing crash_date (0%) and full January 1-December 31 observed min/max in all 13 years; all selected records are included, while dates outside 2013-2025, including any undated rows, are outside the population and were not quantified, and full-year endpoints do not verify internal source completeness.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "By total crash count, Friday had the most reported crashes (338,800; 15.89%) and Sunday the fewest (257,544; 12.08%).\nBy average crashes per calendar date, Friday was highest (499.7) and Sunday lowest (379.9).",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "python_prefix": "/Users/yubo/.poppy/venv",
+  "python_executable": "/Users/yubo/Downloads/Anaconda/anaconda3/bin/python3.13",
+  "git_commit": "712ec59",
+  "prompt_sha": {
+   "D_enumerate.v2-plan.md": "2b0aa0ecdebd5ae3"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "profile": null,
+ "rendered_prompt_sha": "fc1333003b294109",
+ "jit": null,
+ "step_cap": 50,
+ "complete": true,
+ "collected_by": "by2566-hash"
+}
