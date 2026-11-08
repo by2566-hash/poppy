@@ -36,3 +36,13 @@ Iteration 3 total model time on 5 runnable items: 13.8 min.
 | `experiments/E006-mimo-screen/run_screen.py` | `7616f48b5d3be9db98bbabe9142afc69fbabd36da602658f74c65d3c1845d118` |
 
 Change from the F1/F2 harness: `run_enumerate` passes `done=enumerate_done` to `call_model`. When `out/options.json` parses and the final step wrote `ANSWER:` without a tool call, the harness ends an OpenCode process that does not exit: 10 s after a `step_finish` with reason `stop`, or 120 s after the stream ends on the ANSWER text. Such a run is `answered_no_exit = true`, `timed_out = false`, and counts as `call_ok`. Every other arm calls `call_model` without `done` and is unchanged. Checked on all 73 stored D runs: the 67 normal completions give `stop`; the 3 F2 runs that answered and then hung give `stop` / `text`; the 2 timeouts without a final answer and the stopped attempt give none. A fake-OpenCode test covers the kill path (stop 6 s, text 10 s with a test grace of 8 s, no answer: timeout). Teammates check these hashes before an F3 run.
+
+## Harness for E010 (frozen 2026-11-08, Bo passed gate G1)
+
+| File | SHA-256 |
+|---|---|
+| `experiments/E007-pilot-prompts/run_pilot.py` | `9b9f9458adf42540681e0af555209374779867960da05aea1573b858bb8cf34b` |
+| `experiments/E006-mimo-screen/run_screen.py` | `7616f48b5d3be9db98bbabe9142afc69fbabd36da602658f74c65d3c1845d118` (unchanged) |
+| `experiments/E010-loop/profile.md` | `0596d2a7bf974a11b55abe1057896bddcb15ec12edc012e2e2c96c1a2c52ef90` |
+
+Change from the E009-F3 harness: `POPPY_PROFILE=<repo-relative path>` makes arm D append that file to the data dictionary (dictionary + blank line + profile), adds `-profile` to the label, and records `profile` (`file`, `sha` prefix) and `rendered_prompt_sha` in `meta.json`. Unset, nothing changes: the prompts rendered for K1, K2, K3, A1, A2, I1 are byte-identical to the stored F1 `prompt.md` files (6/6); set, removing the profile block gives the F1 prompt back (6/6). The D v2 prompt file is unchanged (`bde1fd02f5b3e576`). Run E010-1 as `POPPY_EXP=E010-loop POPPY_PROFILE=experiments/E010-loop/profile.md PILOT_K=0 PILOT_STEPS=35 run_pilot.py D v2 3`.

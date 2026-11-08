@@ -11,6 +11,7 @@ Environment:
   POPPY_EXP           experiment folder for sandbox + results (default E007-pilot-prompts; e.g. E008-model-contrast)
   POPPY_QSET          pilot (6 pilot questions, default) or formal (P1-P10)
   PILOT_K             arm D: framings per run (default 3; 0 = the model chooses)
+  POPPY_PROFILE       arm D: repo-relative path of a data profile appended to the dictionary (E010-1), label gets -profile
   PILOT_STEPS         arm D: step cap override for a variant (recorded as meta.step_cap)
   PILOT_REPS          comma-separated repeat numbers to run (e.g. 2,3), leaving existing repeats untouched
   PILOT_QIDS          comma-separated pilot question ids (default: all six)
@@ -71,6 +72,10 @@ else:   # F2 rephrasings: POPPY_QSET=<name> -> experiments/<EXP>/questions.<name
     assert all("base" in q for q in QS.values()), f"{_qf}: every question needs a base pilot id (gold and traps come from it)"
 MAX_EMBED = 6000  # characters of values / code embedded in a prompt
 ATTACH_CHART = os.environ.get("PILOT_NO_IMAGE") != "1"   # control run only
+# E010-1 (docs/v2-design-2026-11-07.md §3): POPPY_PROFILE=<path to profile.md, relative to the repo> appends the data
+# profile to the dictionary in arm D. Unset: the rendered prompt is byte-identical to the frozen E009 harness.
+PROFILE_FILE = ROOT / os.environ["POPPY_PROFILE"] if os.environ.get("POPPY_PROFILE") else None
+PROFILE_TEXT = PROFILE_FILE.read_text() if PROFILE_FILE else None
 
 
 def sha(path):
@@ -479,7 +484,8 @@ def run_enumerate(job):
         cfg = json.loads((sb / "opencode.json").read_text()); cfg["agent"]["build"]["steps"] = int(os.environ["PILOT_STEPS"])
         (sb / "opencode.json").write_text(json.dumps(cfg, indent=2))
     k_text = str(k) if k else "as many as a careful analyst would consider defensible, and no more (usually two to five)"
-    prompt = Path(prompt_file).read_text().format(dictionary=DATA_DICTIONARY, question=QS[q]["text"], k=k_text)
+    dictionary = DATA_DICTIONARY + "\n\n" + PROFILE_TEXT.rstrip("\n") if PROFILE_TEXT else DATA_DICTIONARY
+    prompt = Path(prompt_file).read_text().format(dictionary=dictionary, question=QS[q]["text"], k=k_text)
     (sb / "prompt.md").write_text(prompt)
     r = call_model(sb, prompt, timeout=TIMEOUT, done=enumerate_done)
     steps = steps_in(sb / "events.jsonl")
@@ -499,7 +505,10 @@ def run_enumerate(job):
             "n_distinct_framings": po.get("n_distinct", 0), "n_distinct_analytic": po.get("n_distinct_analytic", 0),
             "recommended": po.get("recommended"),
             "options": opts, "answer": ans, "answer_ok": ans is not None, "errors": r["errors"],
-            "env": environment([prompt_file])}
+            "env": environment([prompt_file]),
+            "profile": ({"file": str(PROFILE_FILE.relative_to(ROOT)), "sha": hashlib.sha256(PROFILE_TEXT.encode()).hexdigest()[:16]}
+                        if PROFILE_TEXT else None),
+            "rendered_prompt_sha": hashlib.sha256(prompt.encode()).hexdigest()[:16]}
     n_req = k if k else max(len(opts), 1)   # free k: every produced option must be complete and distinct
     meta["step_cap"] = json.loads((sb / "opencode.json").read_text())["agent"]["build"]["steps"]
     meta["hit_step_limit"] = steps >= meta["step_cap"]
@@ -532,7 +541,7 @@ if __name__ == "__main__":
             ver, reps = sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 1
             k = int(os.environ.get("PILOT_K", "3"))        # 0 = free: the model chooses how many framings
             pf = HERE / "prompts" / f"D_enumerate.{ver}.md"
-            label = f"D-{ver}-k{k if k else 'free'}{SUFFIX}"
+            label = f"D-{ver}-k{k if k else 'free'}{'-profile' if PROFILE_TEXT else ''}{SUFFIX}"
             res = list(ex.map(run_enumerate, [(label, q, r, pf, k) for q in qids for r in (only_reps or range(1, reps + 1))]))
         else:
             sys.exit("mode must be A, B, C or D")
