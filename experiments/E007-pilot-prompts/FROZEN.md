@@ -52,3 +52,13 @@ Change from the E009-F3 harness: `POPPY_PROFILE=<repo-relative path>` makes arm 
 | Prompt | SHA-256 | Change from D v2 |
 |---|---|---|
 | `D_enumerate.v2-cov.md` | `c4c3d343c9a2c28367473d4ae326b126c64ae268a53eb21ffb4360d7af30cc11` | `interpretation` must also state which rows the framing does not use (NULL in a value its filters, groups or sums need; years the file covers only in part), with the share computed by its code; the self-review checks that statement against the code. The statement sits in a field the g8 grader already reads, so neither the harness nor the grader changes. |
+
+Candidate C3 (just-in-time data notes, harness side; same G1 rule as the profile: column facts only, every column by one rule, no advice, no outcome aggregates):
+
+| File | SHA-256 |
+|---|---|
+| `experiments/E007-pilot-prompts/run_pilot.py` | `4b45c5f5c67352ba56e592cdf0f844736ec2da012b2da8695ce2bd7fd2af9ee1` (adds `POPPY_JIT=1`; unset path re-checked: 6/6 prompts byte-identical to F1) |
+| `experiments/E010-loop/jit/sitecustomize.py` | `9732ae740dc1588e0e5f7b3f6785db6308597282e563b6007ef3cb32403af4af` |
+| `experiments/E010-loop/jit/facts.json` | `295ccc418ca811098dd2bff8a6fa3406792109526f6881949c483779a04d8321` (from `make_facts.py`) |
+
+`POPPY_JIT=1` copies both files into `<sandbox>/.jit` and sets `PYTHONPATH` to it for that run only (concurrency 1). The agent's DuckDB queries on the crash file then print, once per process, to stderr: the NULL share (file and per-year range) of each column the query filters, groups or aggregates, and a note when the query has no date bound that leaves out 2012 or 2026. Queries and results are unchanged. Checked inside the real sandbox shim: note printed, repository reads still denied. Label suffix `-jit`; `meta.jit` records both hashes and the number of notes in the trace.

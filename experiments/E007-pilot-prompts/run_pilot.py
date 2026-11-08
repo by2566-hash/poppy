@@ -11,6 +11,7 @@ Environment:
   POPPY_EXP           experiment folder for sandbox + results (default E007-pilot-prompts; e.g. E008-model-contrast)
   POPPY_QSET          pilot (6 pilot questions, default) or formal (P1-P10)
   PILOT_K             arm D: framings per run (default 3; 0 = the model chooses)
+  POPPY_JIT=1         arm D: just-in-time data notes on the agent's DuckDB queries (E010 candidate C3), label gets -jit
   POPPY_PROFILE       arm D: repo-relative path of a data profile appended to the dictionary (E010-1), label gets -profile
   PILOT_STEPS         arm D: step cap override for a variant (recorded as meta.step_cap)
   PILOT_REPS          comma-separated repeat numbers to run (e.g. 2,3), leaving existing repeats untouched
@@ -76,6 +77,11 @@ ATTACH_CHART = os.environ.get("PILOT_NO_IMAGE") != "1"   # control run only
 # profile to the dictionary in arm D. Unset: the rendered prompt is byte-identical to the frozen E009 harness.
 PROFILE_FILE = ROOT / os.environ["POPPY_PROFILE"] if os.environ.get("POPPY_PROFILE") else None
 PROFILE_TEXT = PROFILE_FILE.read_text() if PROFILE_FILE else None
+# E010 diagnostic candidate C3: POPPY_JIT=1 copies experiments/E010-loop/jit/{sitecustomize.py,facts.json} into the
+# sandbox and puts that folder on PYTHONPATH, so the agent's DuckDB queries print factual notes about the columns and
+# dates they use (stderr, next to the query output). Unset: nothing changes. Needs PILOT_CONCURRENCY=1 (PYTHONPATH is
+# set per run in this process's environment).
+JIT_DIR = ROOT / "experiments" / "E010-loop" / "jit" if os.environ.get("POPPY_JIT") == "1" else None
 
 
 def sha(path):
@@ -487,7 +493,17 @@ def run_enumerate(job):
     dictionary = DATA_DICTIONARY + "\n\n" + PROFILE_TEXT.rstrip("\n") if PROFILE_TEXT else DATA_DICTIONARY
     prompt = Path(prompt_file).read_text().format(dictionary=dictionary, question=QS[q]["text"], k=k_text)
     (sb / "prompt.md").write_text(prompt)
-    r = call_model(sb, prompt, timeout=TIMEOUT, done=enumerate_done)
+    if JIT_DIR:
+        assert CONCURRENCY == 1, "POPPY_JIT needs PILOT_CONCURRENCY=1"
+        (sb / ".jit").mkdir()
+        for f in ("sitecustomize.py", "facts.json"):
+            shutil.copy(JIT_DIR / f, sb / ".jit" / f)
+        os.environ["PYTHONPATH"] = str((sb / ".jit").resolve())
+    try:
+        r = call_model(sb, prompt, timeout=TIMEOUT, done=enumerate_done)
+    finally:
+        if JIT_DIR:
+            os.environ.pop("PYTHONPATH", None)
     steps = steps_in(sb / "events.jsonl")
     ans = answer_of(r["text"])
     po = parse_options(sb)
@@ -508,7 +524,9 @@ def run_enumerate(job):
             "env": environment([prompt_file]),
             "profile": ({"file": str(PROFILE_FILE.relative_to(ROOT)), "sha": hashlib.sha256(PROFILE_TEXT.encode()).hexdigest()[:16]}
                         if PROFILE_TEXT else None),
-            "rendered_prompt_sha": hashlib.sha256(prompt.encode()).hexdigest()[:16]}
+            "rendered_prompt_sha": hashlib.sha256(prompt.encode()).hexdigest()[:16],
+            "jit": ({"sitecustomize_sha": sha(JIT_DIR / "sitecustomize.py"), "facts_sha": sha(JIT_DIR / "facts.json"),
+                     "notes_in_trace": (sb / "events.jsonl").read_text(errors="ignore").count("[data note]")} if JIT_DIR else None)}
     n_req = k if k else max(len(opts), 1)   # free k: every produced option must be complete and distinct
     meta["step_cap"] = json.loads((sb / "opencode.json").read_text())["agent"]["build"]["steps"]
     meta["hit_step_limit"] = steps >= meta["step_cap"]
@@ -541,7 +559,7 @@ if __name__ == "__main__":
             ver, reps = sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 1
             k = int(os.environ.get("PILOT_K", "3"))        # 0 = free: the model chooses how many framings
             pf = HERE / "prompts" / f"D_enumerate.{ver}.md"
-            label = f"D-{ver}-k{k if k else 'free'}{'-profile' if PROFILE_TEXT else ''}{SUFFIX}"
+            label = f"D-{ver}-k{k if k else 'free'}{'-profile' if PROFILE_TEXT else ''}{'-jit' if JIT_DIR else ''}{SUFFIX}"
             res = list(ex.map(run_enumerate, [(label, q, r, pf, k) for q in qids for r in (only_reps or range(1, reps + 1))]))
         else:
             sys.exit("mode must be A, B, C or D")
