@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual motorist and cyclist deaths",
+      "denominator": "None; absolute death counts",
+      "grouping": "Crash year and road-user type",
+      "chart_type": "Two-series line chart",
+      "reason": "A line chart makes the year-to-year trajectories and the gap between the two death counts easy to follow.",
+      "probability": 0.45,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year, peaking at 139 in 2020, while cyclist deaths peaked at 31 in both 2019 and 2023.",
+      "interpretation": "This framing answers the year-by-year comparison using absolute fatality counts; the lines show motorist deaths above cyclist deaths throughout, with their peaks in different years. Annual counts are a direct way to compare the observed totals and trends, but they do not adjust for the number of motorist or cyclist trips or travelers."
+    },
+    {
+      "id": 2,
+      "metric": "Annual motorist and cyclist deaths",
+      "denominator": "None; absolute death counts",
+      "grouping": "Crash year, with paired bars by road-user type",
+      "chart_type": "Grouped bar chart",
+      "reason": "Paired bars emphasize the magnitude of the motorist-versus-cyclist count difference within each year.",
+      "probability": 0.35,
+      "answer": "In 2013 the counts were 110 motorist deaths and 11 cyclist deaths, compared with 81 and 23, respectively, in 2025; motorist deaths were higher in every year.",
+      "interpretation": "This framing answers how the two annual death totals compare side by side, and the paired bars show higher motorist counts in every year. Absolute counts give a transparent same-year comparison, but they do not account for differences in travel exposure between the groups."
+    },
+    {
+      "id": 3,
+      "metric": "Motorist deaths divided by cyclist deaths",
+      "denominator": "Cyclist deaths in the same year",
+      "grouping": "Crash year",
+      "chart_type": "Line chart of annual ratios",
+      "reason": "The ratio expresses the relative size of motorist deaths to cyclist deaths consistently across years.",
+      "probability": 0.2,
+      "answer": "Motorist deaths ranged from 2.65 to 10.00 times cyclist deaths per year, with the ratio highest in 2013 and lowest in 2019.",
+      "interpretation": "This framing answers the relative comparison by showing how many motorist deaths occurred per cyclist death in each year; the ratio ranges from 10.00 in 2013 to 2.65 in 2019. A same-year ratio is a defensible measure of relative counts, but it does not show the absolute number of deaths or normalize for travel exposure."
+    }
+  ]
+}

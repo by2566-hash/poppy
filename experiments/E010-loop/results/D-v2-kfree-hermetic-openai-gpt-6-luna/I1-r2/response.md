@@ -1,0 +1,3 @@
+The crash file has no vehicle-miles-traveled measure, so it cannot calculate deaths per mile or establish whether that risk declined. I’m producing two transparent crash-data views instead: annual motorist deaths and motorist deaths per 100,000 reported crashes, with the limitation stated in each answer.
+ANSWER: Annual motorist deaths fell from 110 in 2013 to 81 in 2025 (26%); the data do not include miles driven, so this cannot establish whether deaths per mile declined.  
+Motorist deaths per 100,000 reported crashes rose from 54.0 in 2013 to 94.7 in 2025 (75%); this crash-normalized measure also cannot establish whether deaths per mile declined.

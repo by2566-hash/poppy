@@ -1,0 +1,2 @@
+The crash records cover the full 2013–2025 period. I’m using the annual sum of `number_of_pedestrians_killed` as the direct count of pedestrians killed, grouped by crash year.
+ANSWER: Pedestrians killed by year were 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; and 2025: 119.

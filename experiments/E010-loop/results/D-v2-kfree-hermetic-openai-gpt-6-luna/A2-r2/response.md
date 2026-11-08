@@ -1,0 +1,4 @@
+The dataset covers 2,269,187 crashes from July 2012 through June 2026, with crash times recorded for all rows. It has no traffic-volume or trip-distance measure, so I’ll separate crash volume from injury/fatality likelihood conditional on a reported crash; neither alone establishes per-trip danger.
+ANSWER:
+1. From July 2012 to June 2026, NYC recorded 1,543,368 daytime crashes versus 725,819 nighttime crashes ([chart](out/option_1.png), [values](out/values_1.csv)), but crash counts alone don’t establish danger per trip because traffic exposure is unavailable.
+2. Night crashes more often involved injury (28.1% vs. 23.0%) or death (0.268% vs. 0.099%) than daytime crashes ([chart](out/option_2.png), [values](out/values_2.csv)), though this comparison is conditional on a reported crash and cannot show risk per trip or mile.

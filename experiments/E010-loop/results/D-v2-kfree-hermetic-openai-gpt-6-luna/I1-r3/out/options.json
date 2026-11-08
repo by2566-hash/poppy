@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of motorist deaths recorded in crashes",
+      "denominator": "None; annual total",
+      "grouping": "Calendar year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "A careful analyst may use annual deaths to compare the motorist fatality burden across years without implying an exposure-adjusted rate.",
+      "probability": 0.25,
+      "answer": "Recorded motorist deaths fell from 110 in 2013 to 81 in 2025 (26.4% lower), but this crash file cannot determine whether deaths per mile driven declined.",
+      "interpretation": "This framing answers whether the annual count of motorist deaths in reported NYC crashes declined: it fell between the endpoints, despite substantial year-to-year variation. It is defensible as a measure of fatality burden, but not as a measure of risk because it has no miles-driven denominator; it therefore leaves the per-mile question unanswered."
+    },
+    {
+      "id": 2,
+      "metric": "Crashes with at least one motorist death per 100,000 reported crashes",
+      "denominator": "All police-reported crashes in the same calendar year",
+      "grouping": "Calendar year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "A careful analyst may compare the share of reported crashes involving a motorist death to normalize for changes in the number of crashes.",
+      "probability": 0.5,
+      "answer": "Motorist-fatal crashes rose from 50.1 to 87.7 per 100,000 reported crashes between 2013 and 2025 (75.1% higher), but this is not a per-mile risk rate.",
+      "interpretation": "This framing answers how often a reported crash involved one or more motorist deaths, relative to all reported crashes, and the chart shows that this crash-level rate was higher in 2025 than in 2013. It is a defensible conditional-on-a-reported-crash comparison, but crashes are not miles driven, so it leaves the requested per-mile risk unanswered."
+    },
+    {
+      "id": 3,
+      "metric": "Motorist deaths per 100,000 reported crashes",
+      "denominator": "All police-reported crashes in the same calendar year",
+      "grouping": "Calendar year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "A careful analyst may use deaths per reported crash to compare motorist fatality counts while accounting for annual differences in crash volume.",
+      "probability": 0.25,
+      "answer": "Motorist deaths per 100,000 reported crashes rose from 54.0 in 2013 to 94.7 in 2025 (75.4% higher), but the data cannot show deaths per mile driven.",
+      "interpretation": "This framing answers how many recorded motorist deaths there were relative to the volume of reported crashes, and the chart shows this ratio was higher at the 2025 endpoint. It is defensible as crash-normalized fatality intensity, but does not measure driving exposure or individual motorist risk per mile."
+    }
+  ]
+}

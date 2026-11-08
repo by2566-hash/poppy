@@ -1,0 +1,15 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of pedestrians killed in NYC motor vehicle crashes (sum of number_of_pedestrians_killed)",
+      "denominator": "None; raw annual count",
+      "grouping": "Crash year (2013\u20132025)",
+      "chart_type": "Bar chart",
+      "reason": "A bar for each year gives a direct, easy-to-compare answer to the requested annual counts.",
+      "probability": 1.0,
+      "answer": "From 2013 to 2025, pedestrians killed by year were: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+      "interpretation": "This framing directly answers how many pedestrians were killed in crashes in each requested calendar year, and the bar labels show each annual total. Summing the pedestrian-fatality field counts people rather than fatal crash events, which matches the question; it leaves no requested year or count unanswered."
+    }
+  ]
+}

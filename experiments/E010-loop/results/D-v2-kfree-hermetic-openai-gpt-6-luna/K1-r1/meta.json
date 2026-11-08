@@ -1,0 +1,83 @@
+{
+ "q": "K1",
+ "rep": 1,
+ "label": "D-v2-kfree-hermetic-openai-gpt-6-luna",
+ "type": "clear",
+ "base": "K1",
+ "question": "How many pedestrians were killed in NYC motor vehicle crashes each year from 2013 to 2025?",
+ "k": 0,
+ "call_ok": true,
+ "timed_out": false,
+ "answered_no_exit": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 52.2,
+ "zero_output_retries": 0,
+ "secs_total": 52.2,
+ "steps": 11,
+ "hit_step_limit": false,
+ "tool_calls": 14,
+ "tokens": {
+  "input": 33,
+  "output": 2072,
+  "reasoning": 1170,
+  "cache_read": 79565,
+  "cache_write": 12799,
+  "total": 95639
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 1,
+ "n_complete_options": 1,
+ "n_distinct_framings": 1,
+ "n_distinct_analytic": 1,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Annual number of pedestrians killed in NYC motor vehicle crashes (sum of number_of_pedestrians_killed)",
+   "denominator": "None; raw annual count",
+   "grouping": "Crash year (2013\u20132025)",
+   "chart_type": "Bar chart",
+   "reason": "A bar for each year gives a direct, easy-to-compare answer to the requested annual counts.",
+   "probability": 1.0,
+   "answer": "From 2013 to 2025, pedestrians killed by year were: 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; 2025: 119.",
+   "interpretation": "This framing directly answers how many pedestrians were killed in crashes in each requested calendar year, and the bar labels show each annual total. Summing the pedestrian-fatality field counts people rather than fatal crash events, which matches the question; it leaves no requested year or count unanswered.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "Pedestrians killed by year were 2013: 176; 2014: 133; 2015: 133; 2016: 149; 2017: 127; 2018: 123; 2019: 131; 2020: 101; 2021: 132; 2022: 135; 2023: 107; 2024: 124; and 2025: 119.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "python_prefix": "/Users/yubo/.poppy/venv",
+  "python_executable": "/Users/yubo/Downloads/Anaconda/anaconda3/bin/python3.13",
+  "git_commit": "18cba5c",
+  "prompt_sha": {
+   "D_enumerate.v2.md": "bde1fd02f5b3e576"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "profile": null,
+ "rendered_prompt_sha": "abe933c556ba31f0",
+ "jit": null,
+ "step_cap": 35,
+ "complete": true,
+ "first_step_prompt_tokens": 5400,
+ "opencode_env": {
+  "OPENCODE_DISABLE_EXTERNAL_SKILLS": "1",
+  "OPENCODE_DISABLE_CLAUDE_CODE": "1"
+ },
+ "collected_by": "by2566-hash"
+}

@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of recorded motorist deaths",
+      "denominator": "None; annual total",
+      "grouping": "Crash year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "Annual fatality counts directly show the recorded fatality burden over time.",
+      "probability": 0.4,
+      "answer": "The file cannot show per-mile risk, but recorded motorist deaths declined 26% from 110 in 2013 to 81 in 2025.",
+      "interpretation": "This shows the annual fatality-count component of the question: recorded motorist deaths were lower in 2025 than in 2013, though the series rose sharply in 2020. Counts are a direct fatality-burden measure, but they leave per-mile risk and changes in driving exposure unanswered."
+    },
+    {
+      "id": 2,
+      "metric": "Recorded motorist deaths per 1,000 crash records",
+      "denominator": "All police-reported crash records in that year",
+      "grouping": "Crash year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "Normalizing deaths by crash records shows whether recorded fatalities changed relative to the number of recorded crashes.",
+      "probability": 0.35,
+      "answer": "The file cannot show per-mile risk; motorist deaths per 1,000 crash records rose from 0.54 in 2013 to 0.95 in 2025 (75%).",
+      "interpretation": "This reframes risk as recorded fatalities relative to reported crashes, and the rate is higher in 2025 than in 2013. It is defensible as a fatality burden per crash record, but crash records are not miles driven, so it does not establish per-mile risk."
+    },
+    {
+      "id": 3,
+      "metric": "Crash records with at least one motorist death per 100,000 crash records",
+      "denominator": "All police-reported crash records in that year",
+      "grouping": "Crash year (2013–2025)",
+      "chart_type": "Line chart",
+      "reason": "Counting fatal crashes rather than individual deaths measures the frequency of a crash involving a motorist death.",
+      "probability": 0.25,
+      "answer": "The file cannot show per-mile risk; crashes with a motorist death rose from 50.1 to 87.7 per 100,000 crash records between 2013 and 2025 (75%).",
+      "interpretation": "This shows how often a recorded crash involved at least one motorist death; that recorded-crash rate is higher in 2025 than in 2013. It is defensible as fatal-crash incidence among reported crashes, but it does not measure deaths per mile or risk across all miles driven."
+    }
+  ]
+}

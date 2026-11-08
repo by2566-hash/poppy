@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual pedestrian fatalities (sum of number_of_pedestrians_killed)",
+      "denominator": "None; annual count",
+      "grouping": "Crash year, 2013–2025",
+      "chart_type": "Bar chart",
+      "reason": "Bars make the count for each individual year easy to compare.",
+      "probability": 0.55,
+      "answer": "Pedestrians killed by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This directly answers how many pedestrians were killed in each calendar year, with each bar showing the annual total. A bar chart is defensible for comparing discrete yearly counts; it leaves within-year timing and causes of fatalities unanswered."
+    },
+    {
+      "id": 2,
+      "metric": "Annual pedestrian fatalities (sum of number_of_pedestrians_killed)",
+      "denominator": "None; annual count",
+      "grouping": "Crash year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "A line emphasizes how annual pedestrian fatality counts change over time.",
+      "probability": 0.45,
+      "answer": "Pedestrians killed by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This directly answers how many pedestrians were killed in each calendar year, while the connected points emphasize the sequence over time. A line chart is defensible for an ordered annual series; it leaves within-year timing and causes of fatalities unanswered."
+    }
+  ]
+}

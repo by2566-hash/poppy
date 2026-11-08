@@ -1,0 +1,48 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual total number of motorist and cyclist deaths",
+      "denominator": "None; counts of people killed",
+      "grouping": "Year and road-user category",
+      "chart_type": "Two-series line chart",
+      "reason": "A line chart makes year-to-year changes in both categories and their relative levels easy to follow.",
+      "probability": 0.28,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year, ranging from 72–139 motorist deaths and 10–31 cyclist deaths annually.",
+      "interpretation": "This framing answers how the two annual death counts changed over time: the motorist series is higher in every year, with both series fluctuating. A line chart is defensible for comparing trends across ordered years while retaining the actual counts. It does not express the size of the difference as one annual gap or ratio, nor does it adjust for travel exposure."
+    },
+    {
+      "id": 2,
+      "metric": "Annual total number of motorist and cyclist deaths",
+      "denominator": "None; counts of people killed",
+      "grouping": "Year, with paired road-user-category bars",
+      "chart_type": "Grouped bar chart",
+      "reason": "Paired bars make the absolute count comparison within each individual year especially direct.",
+      "probability": 0.30,
+      "answer": "Grouped annual counts show more motorist than cyclist deaths in all years from 2013 to 2025, with yearly totals of 72–139 versus 10–31.",
+      "interpretation": "This framing answers the year-by-year absolute-count comparison, and the paired bars show motorists above cyclists in each year. It is defensible when the reader's main task is to compare the two categories within each calendar year. It does not summarize the difference as a single gap or relative ratio, and it does not indicate risk per trip or person."
+    },
+    {
+      "id": 3,
+      "metric": "Annual motorist deaths minus annual cyclist deaths",
+      "denominator": "None; absolute difference in people killed",
+      "grouping": "Year",
+      "chart_type": "Single-series bar chart",
+      "reason": "The annual difference focuses directly on how many more motorist deaths were recorded than cyclist deaths.",
+      "probability": 0.22,
+      "answer": "The annual motorist-minus-cyclist gap was positive every year, ranging from 51 deaths in 2019 to 115 in 2021.",
+      "interpretation": "This framing answers the size of the absolute year-by-year gap; every bar is positive, and the gap is largest in 2021 and smallest in 2019. It is defensible when the comparison is about the number of additional motorist deaths in each year. It does not display each category's annual count or show how large the gap is relative to cyclist deaths."
+    },
+    {
+      "id": 4,
+      "metric": "Annual motorist deaths divided by annual cyclist deaths",
+      "denominator": "Cyclist deaths in the same year",
+      "grouping": "Year",
+      "chart_type": "Single-series line chart with equality reference line",
+      "reason": "A ratio shows the relative scale of motorist deaths compared with cyclist deaths across years.",
+      "probability": 0.20,
+      "answer": "Motorist deaths were 2.65 to 10 times cyclist deaths across the years, with the lowest ratio in 2019 and highest in 2013.",
+      "interpretation": "This framing answers how many motorist deaths there were per cyclist death each year; the ratio remains above one throughout and ranges from about 2.65 to 10.00. It is defensible for comparing relative differences when the category totals are far apart. It does not show the absolute number of deaths, so a high ratio does not by itself identify the year with the most deaths."
+    }
+  ]
+}

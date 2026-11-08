@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Sum of pedestrians killed in reported crashes",
+      "denominator": "Not applicable; absolute count",
+      "grouping": "Crash year (2013–2025)",
+      "chart_type": "Vertical bar chart",
+      "reason": "Bars make the number killed in each calendar year easy to compare directly.",
+      "probability": 0.55,
+      "answer": "Pedestrians killed by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This answers the question with the annual sum of the crash records’ pedestrian-fatality counts, and the bars show a high of 176 in 2013 and a low of 101 in 2020. Absolute annual totals are a direct way to answer how many people were killed each year; this view does not explain causes or adjust for population or travel exposure."
+    },
+    {
+      "id": 2,
+      "metric": "Sum of pedestrians killed in reported crashes",
+      "denominator": "Not applicable; absolute count",
+      "grouping": "Crash year (2013–2025)",
+      "chart_type": "Line chart with point markers",
+      "reason": "A line chart emphasizes how the annual pedestrian death count changes over time.",
+      "probability": 0.45,
+      "answer": "Pedestrians killed by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This answers the question with yearly pedestrian-fatality totals and highlights their movement over time, falling from 176 in 2013 to a low of 101 in 2020 before reaching 119 in 2025. Connecting yearly counts makes the temporal pattern easy to see; the chart does not explain why counts changed or adjust them for population or travel exposure."
+    }
+  ]
+}

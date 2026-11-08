@@ -1,0 +1,4 @@
+The data has complete calendar-year coverage for 2013–2025 and no missing pedestrian-fatality counts in those years. I’ll show the same annual totals in two standard views: bars for year-to-year comparisons and a line for the longer-term pattern.
+ANSWER:
+1. The annual pedestrian death counts were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).
+2. The annual pedestrian death counts were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).

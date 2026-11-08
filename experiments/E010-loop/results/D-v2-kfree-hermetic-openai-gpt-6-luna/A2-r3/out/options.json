@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Average number of police-reported crashes per clock-hour",
+      "denominator": "Total clock-hours in the observation period: 5,094 dates multiplied by 10 nighttime hours or 14 daytime hours",
+      "grouping": "Night (8 p.m.–5:59 a.m.) versus day (6 a.m.–7:59 p.m.)",
+      "chart_type": "bar chart",
+      "reason": "A clock-hour denominator adjusts the raw crash totals for the unequal lengths of the chosen night and day periods.",
+      "probability": 0.25,
+      "answer": "There were 10.97 reported crashes per nighttime clock-hour versus 23.98 per daytime clock-hour, so crash volume per hour was lower at night.",
+      "interpretation": "This framing answers how frequently reported crashes occurred per hour in the selected night and day periods. It describes crash volume, but does not measure crash severity or risk per trip, person, or vehicle-mile, so by itself it cannot establish whether an individual road user faces greater danger at night."
+    },
+    {
+      "id": 2,
+      "metric": "Share of reported crashes involving at least one injury or death",
+      "denominator": "All police-reported crashes with a recorded crash time in the period",
+      "grouping": "Night (8 p.m.–5:59 a.m.) versus day (6 a.m.–7:59 p.m.)",
+      "chart_type": "bar chart",
+      "reason": "The injury-or-death share compares the likelihood of a harmful outcome conditional on a reported crash occurring.",
+      "probability": 0.5,
+      "answer": "Injury or death was recorded in 28.5% of nighttime crashes versus 23.5% of daytime crashes, a 5.0-percentage-point difference.",
+      "interpretation": "This framing answers whether a reported crash was more likely to involve injury or death at night; the chart shows a higher share at night. It is a defensible severity comparison among crashes, but combines injuries and deaths and does not adjust for traffic exposure, so it cannot establish risk per trip or mile."
+    },
+    {
+      "id": 3,
+      "metric": "Share of reported crashes with at least one person killed",
+      "denominator": "All police-reported crashes with a recorded crash time in the period",
+      "grouping": "Night (8 p.m.–5:59 a.m.) versus day (6 a.m.–7:59 p.m.)",
+      "chart_type": "bar chart",
+      "reason": "Fatal-crash share isolates the most severe recorded outcome and is directly relevant to a public-safety assessment.",
+      "probability": 0.25,
+      "answer": "At least one person was killed in 0.29% of nighttime crashes versus 0.11% of daytime crashes, about 2.7 times the share.",
+      "interpretation": "This framing answers whether a reported crash was more likely to be fatal at night; the fatal-crash share was higher at night in these data. It isolates deaths rather than combining outcomes, but conditions on a reported crash and lacks traffic-exposure data, so it does not measure fatality risk per road user, trip, or mile."
+    }
+  ]
+}

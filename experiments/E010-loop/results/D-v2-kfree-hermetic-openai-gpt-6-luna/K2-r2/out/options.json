@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Total police-reported crashes",
+      "denominator": "None; counts pooled across all dates from 2013-01-01 through 2025-12-31",
+      "grouping": "Day of week",
+      "chart_type": "Bar chart",
+      "reason": "A pooled count directly answers how the recorded crashes were distributed over the full period.",
+      "probability": 0.45,
+      "answer": "Friday had the most crashes (338,800) and Sunday the fewest (257,544) among 2,132,218 crashes from 2013 through 2025.",
+      "interpretation": "This framing answers the overall volume distribution by weekday, showing Friday as the peak and Sunday as the low. Pooling actual crash records is a direct summary of the requested period, but it does not adjust for the number of dates per weekday or show how the distribution changed from year to year."
+    },
+    {
+      "id": 2,
+      "metric": "Mean crashes per calendar date",
+      "denominator": "Number of dates of each weekday in 2013–2025 (678 or 679 dates)",
+      "grouping": "Day of week",
+      "chart_type": "Bar chart",
+      "reason": "A per-date average accounts for the slight differences in how often each weekday occurred over the 13 calendar years.",
+      "probability": 0.32,
+      "answer": "Friday averaged 499.7 crashes per date, the most, while Sunday averaged 379.9, the fewest.",
+      "interpretation": "This answers how the average number of recorded crashes on a date varies by weekday, with Friday highest and Sunday lowest. Dividing by each weekday’s calendar-date count is a defensible exposure to time adjustment for this distribution, but it does not account for traffic volume or reveal year-to-year changes."
+    },
+    {
+      "id": 3,
+      "metric": "Mean annual weekday share of crashes",
+      "denominator": "Each calendar year's total crashes; annual weekday percentages are then averaged equally across 2013–2025",
+      "grouping": "Day of week, with equal weighting of each year",
+      "chart_type": "Bar chart",
+      "reason": "Averaging each year's weekday shares equally describes the typical year's mix without letting higher-volume years dominate.",
+      "probability": 0.23,
+      "answer": "Across the 13 equally weighted annual distributions, Friday accounted for the largest mean share (15.82%) and Sunday the smallest (12.33%).",
+      "interpretation": "This framing answers which weekdays take larger or smaller shares in an average year, with Friday leading and Sunday lowest. It is defensible when the interest is the recurring weekday mix rather than pooled volume, but averaging hides how the pattern varied between individual years and gives no absolute crash totals."
+    }
+  ]
+}

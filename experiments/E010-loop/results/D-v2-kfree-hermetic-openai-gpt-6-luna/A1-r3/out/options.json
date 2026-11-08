@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual pedestrian casualties (pedestrians injured plus pedestrians killed)",
+      "denominator": "None; raw annual count of people in Brooklyn crashes",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "A combined injury-and-death count gives a broad measure of the human toll while retaining the full annual trend.",
+      "probability": 0.45,
+      "answer": "Reported pedestrian casualties fell from 3,671 in 2013 to 2,874 in 2025 (21.7% fewer), although they rose from 1,798 in 2020 to 2,874 in 2025.",
+      "interpretation": "This framing answers whether the overall number of pedestrians harmed in reported Brooklyn crashes has improved since 2013: the 2025 count is lower, but the series has risen from its 2020 low. It is defensible because it counts all reported pedestrian injuries and deaths, but it does not account for changes in walking exposure or distinguish injury severity."
+    },
+    {
+      "id": 2,
+      "metric": "Annual pedestrians killed",
+      "denominator": "None; raw annual fatality count in Brooklyn",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Bar chart",
+      "reason": "Fatalities are the most severe road-safety outcome and warrant a separate view rather than being obscured in a combined count.",
+      "probability": 0.3,
+      "answer": "Pedestrian deaths rose from 30 in 2013 to 39 in 2025 (30.0% more), with substantial year-to-year variation.",
+      "interpretation": "This framing addresses whether the most severe pedestrian outcome has improved: the full-year fatality count is higher in 2025 than in 2013. Separating deaths is defensible because a fatality is not equivalent in severity to an injury, but this small, volatile count alone does not describe nonfatal harm or exposure-adjusted risk."
+    },
+    {
+      "id": 3,
+      "metric": "Annual crashes with at least one pedestrian injured or killed",
+      "denominator": "None; crash-event count, each qualifying crash counted once",
+      "grouping": "Calendar year, 2013–2025",
+      "chart_type": "Line chart",
+      "reason": "Counting crash events rather than individual casualties shows how often reported crashes harmed pedestrians, without giving extra weight to events with multiple casualties.",
+      "probability": 0.25,
+      "answer": "Crashes involving a pedestrian injury or death fell from 3,498 in 2013 to 2,766 in 2025 (20.9% fewer), after a low of 1,724 in 2020.",
+      "interpretation": "This framing answers whether the annual number of reported crash events that harmed pedestrians is lower than in 2013: it is, though it has risen since its 2020 low. Counting each qualifying crash once is defensible for event frequency, but it hides how many pedestrians were hurt in each crash and does not measure risk per trip or person."
+    }
+  ]
+}

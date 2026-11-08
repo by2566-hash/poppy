@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual motorist deaths and annual cyclist deaths",
+      "denominator": "None; raw totals summed across NYC crashes in each calendar year",
+      "grouping": "Calendar year, with road-user type as series",
+      "chart_type": "Grouped bar chart",
+      "reason": "A side-by-side count comparison directly shows the annual absolute difference between the two road-user groups.",
+      "probability": 0.65,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year from 2013 through 2025; in 2025 there were 81 motorist deaths and 23 cyclist deaths.",
+      "interpretation": "This framing answers how the annual numbers of motorist and cyclist deaths compare, and the bars show consistently higher motorist totals across all 13 years. Comparing raw totals is a direct and defensible reading of the question, but the chart does not compare death risk relative to travel or population exposure."
+    },
+    {
+      "id": 2,
+      "metric": "Cyclist deaths per 100 motorist deaths",
+      "denominator": "Annual motorist deaths",
+      "grouping": "Calendar year",
+      "chart_type": "Line chart",
+      "reason": "Expressing cyclist deaths relative to motorist deaths makes the size of the year-by-year gap easier to compare across years with different totals.",
+      "probability": 0.35,
+      "answer": "Cyclist deaths ranged from 10 per 100 motorist deaths in 2013 to 38 per 100 in 2019, and were 28 per 100 in 2025.",
+      "interpretation": "This framing answers how cyclist deaths compare proportionally with motorist deaths over time, and the line shows the cyclist-to-motorist count ratio fluctuating from 10 to about 38 per 100. The ratio is a defensible measure of the relative counts, but it does not measure risk per trip, distance traveled, or population."
+    }
+  ]
+}

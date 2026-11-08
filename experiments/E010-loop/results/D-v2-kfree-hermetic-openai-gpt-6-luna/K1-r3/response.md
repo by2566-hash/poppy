@@ -1,0 +1,3 @@
+The file covers crashes through June 2026, so 2013–2025 are complete calendar years in this extract. I’m using the sum of `number_of_pedestrians_killed` by crash year; this counts pedestrians killed, rather than crashes with a pedestrian fatality.
+ANSWER: The bar-chart framing shows 176 pedestrians killed in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.
+The line-chart framing shows the same annual totals: 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.

@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Total police-reported crashes",
+      "denominator": "Equal 12-hour clock-time periods (7am\u20136:59pm versus 7pm\u20136:59am), summed across all dates",
+      "grouping": "Day versus night",
+      "chart_type": "Bar chart",
+      "reason": "Crash totals show the volume of reported incidents that each time window contributes to the overall burden.",
+      "probability": 0.3,
+      "answer": "Across 2012-07-01 to 2026-06-11, there were 1,543,368 day crashes versus 725,819 night crashes, but these totals do not establish per-trip danger because traffic exposure is unavailable.",
+      "interpretation": "This framing answers how many reported crashes occurred in equal-length daytime and nighttime windows; the chart shows lower total crash volume at night. It is defensible as an incident-burden comparison, but it leaves unanswered whether an individual road user faces greater risk at night because vehicle, pedestrian, and trip exposure are not measured."
+    },
+    {
+      "id": 2,
+      "metric": "Share of reported crashes with any injury or any fatality",
+      "denominator": "All reported crashes with a recorded crash time in the corresponding day/night period",
+      "grouping": "Day versus night; injury and fatality outcomes shown separately",
+      "chart_type": "Two-panel bar chart of percentages",
+      "reason": "Outcome shares compare the severity of a reported crash while accounting for the different numbers of crashes in each period.",
+      "probability": 0.7,
+      "answer": "Night crashes were more severe per reported crash: 28.1% involved an injury versus 23.0% by day, and 0.268% involved a death versus 0.099%, but missing traffic exposure prevents a per-trip danger conclusion.",
+      "interpretation": "This framing answers whether a reported crash is more likely to involve injury or death at night; the chart shows higher shares for both outcomes at night, by 5.1 percentage points for injury and 2.7 times the fatal-crash share. It is defensible as a comparison of crash severity conditional on a crash being reported, but it leaves unanswered the chance of a crash per trip, mile, or person out at night."
+    }
+  ]
+}

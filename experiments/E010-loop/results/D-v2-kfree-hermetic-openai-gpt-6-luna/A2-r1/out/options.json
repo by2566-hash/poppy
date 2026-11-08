@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crashes",
+      "denominator": "Raw crash counts in equal-length 12-hour periods; not adjusted for traffic volume",
+      "grouping": "Day (6 a.m.–6 p.m.) versus night (6 p.m.–6 a.m.)",
+      "chart_type": "bar chart",
+      "reason": "Crash counts answer when collisions occur most often, using equal-length day and night windows.",
+      "probability": 0.35,
+      "answer": "There were 1,455,425 police-reported crashes in the day period and 813,762 at night, so the day period had 78.9% more recorded crashes; these counts do not establish per-traveler risk.",
+      "interpretation": "This framing answers when more police-reported crashes occur, and the chart compares raw totals across equal-length 12-hour periods. Counts are a defensible measure of collision burden, but without traffic-exposure data they do not establish which period is riskier per trip or traveler."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes with at least one person injured",
+      "denominator": "All crashes with a recorded crash time in each period",
+      "grouping": "Day (6 a.m.–6 p.m.) versus night (6 p.m.–6 a.m.)",
+      "chart_type": "bar chart",
+      "reason": "The injury-crash share compares the likelihood that a recorded collision involves an injury rather than the volume of collisions.",
+      "probability": 0.4,
+      "answer": "Injury crashes made up 22.78% of daytime crashes and 27.91% of nighttime crashes, a higher nighttime share by 5.13 percentage points.",
+      "interpretation": "This framing answers whether a police-reported crash is more likely to involve an injury at night, with each period's injury crashes divided by all recorded crashes in that period. It captures injury involvement per crash, but does not measure the risk to travelers who did not crash or adjust for traffic exposure."
+    },
+    {
+      "id": 3,
+      "metric": "Share of crashes with at least one person killed",
+      "denominator": "All crashes with a recorded crash time in each period",
+      "grouping": "Day (6 a.m.–6 p.m.) versus night (6 p.m.–6 a.m.)",
+      "chart_type": "bar chart",
+      "reason": "Fatal-crash share isolates the rare but most severe outcome and compares it per recorded collision.",
+      "probability": 0.25,
+      "answer": "Fatal crashes made up 0.101% of daytime crashes and 0.245% of nighttime crashes, a higher nighttime share by 0.143 percentage points.",
+      "interpretation": "This framing answers whether recorded crashes are more likely to be fatal at night, using fatal crashes as a share of all crashes in each period. That is a defensible comparison of collision severity, but it cannot establish fatality risk per traveler or explain why any difference occurs."
+    }
+  ]
+}

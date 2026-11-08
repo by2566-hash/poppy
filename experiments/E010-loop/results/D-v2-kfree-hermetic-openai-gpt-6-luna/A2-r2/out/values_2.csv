@@ -1,0 +1,3 @@
+period,reported_crashes,crashes_with_injury,crashes_with_fatality,injury_crash_pct,fatal_crash_pct
+Day (7am–6:59pm),1543368,354903,1522,22.995358,0.098615
+Night (7pm–6:59am),725819,203700,1947,28.064848,0.268249

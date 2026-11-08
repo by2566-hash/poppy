@@ -1,0 +1,113 @@
+{
+ "q": "K2",
+ "rep": 2,
+ "label": "D-v2-kfree-hermetic-openai-gpt-6-luna",
+ "type": "clear",
+ "base": "K2",
+ "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+ "k": 0,
+ "call_ok": true,
+ "timed_out": false,
+ "answered_no_exit": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 90.4,
+ "zero_output_retries": 0,
+ "secs_total": 90.4,
+ "steps": 15,
+ "hit_step_limit": false,
+ "tool_calls": 21,
+ "tokens": {
+  "input": 45,
+  "output": 4878,
+  "reasoning": 2397,
+  "cache_read": 151241,
+  "cache_write": 19978,
+  "total": 178539
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 3,
+ "n_complete_options": 3,
+ "n_distinct_framings": 3,
+ "n_distinct_analytic": 3,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Total police-reported crashes",
+   "denominator": "None; counts pooled across all dates from 2013-01-01 through 2025-12-31",
+   "grouping": "Day of week",
+   "chart_type": "Bar chart",
+   "reason": "A pooled count directly answers how the recorded crashes were distributed over the full period.",
+   "probability": 0.45,
+   "answer": "Friday had the most crashes (338,800) and Sunday the fewest (257,544) among 2,132,218 crashes from 2013 through 2025.",
+   "interpretation": "This framing answers the overall volume distribution by weekday, showing Friday as the peak and Sunday as the low. Pooling actual crash records is a direct summary of the requested period, but it does not adjust for the number of dates per weekday or show how the distribution changed from year to year.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Mean crashes per calendar date",
+   "denominator": "Number of dates of each weekday in 2013\u20132025 (678 or 679 dates)",
+   "grouping": "Day of week",
+   "chart_type": "Bar chart",
+   "reason": "A per-date average accounts for the slight differences in how often each weekday occurred over the 13 calendar years.",
+   "probability": 0.32,
+   "answer": "Friday averaged 499.7 crashes per date, the most, while Sunday averaged 379.9, the fewest.",
+   "interpretation": "This answers how the average number of recorded crashes on a date varies by weekday, with Friday highest and Sunday lowest. Dividing by each weekday\u2019s calendar-date count is a defensible exposure to time adjustment for this distribution, but it does not account for traffic volume or reveal year-to-year changes.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 3,
+   "metric": "Mean annual weekday share of crashes",
+   "denominator": "Each calendar year's total crashes; annual weekday percentages are then averaged equally across 2013\u20132025",
+   "grouping": "Day of week, with equal weighting of each year",
+   "chart_type": "Bar chart",
+   "reason": "Averaging each year's weekday shares equally describes the typical year's mix without letting higher-volume years dominate.",
+   "probability": 0.23,
+   "answer": "Across the 13 equally weighted annual distributions, Friday accounted for the largest mean share (15.82%) and Sunday the smallest (12.33%).",
+   "interpretation": "This framing answers which weekdays take larger or smaller shares in an average year, with Friday leading and Sunday lowest. It is defensible when the interest is the recurring weekday mix rather than pooled volume, but averaging hides how the pattern varied between individual years and gives no absolute crash totals.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "1. Of 2,132,218 crashes, Friday had the most (338,800) and Sunday the fewest (257,544).\n2. On a per-date basis, Friday averaged the most crashes (499.7) and Sunday the fewest (379.9).\n3. Averaged equally across the 13 years, Friday had the largest annual share (15.82%) and Sunday the smallest (12.33%).",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "python_prefix": "/Users/yubo/.poppy/venv",
+  "python_executable": "/Users/yubo/Downloads/Anaconda/anaconda3/bin/python3.13",
+  "git_commit": "18cba5c",
+  "prompt_sha": {
+   "D_enumerate.v2.md": "bde1fd02f5b3e576"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "profile": null,
+ "rendered_prompt_sha": "9d9ab9349251f948",
+ "jit": null,
+ "step_cap": 35,
+ "complete": true,
+ "first_step_prompt_tokens": 5399,
+ "opencode_env": {
+  "OPENCODE_DISABLE_EXTERNAL_SKILLS": "1",
+  "OPENCODE_DISABLE_CLAUDE_CODE": "1"
+ },
+ "collected_by": "by2566-hash"
+}
