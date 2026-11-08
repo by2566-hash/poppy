@@ -62,3 +62,9 @@ Candidate C3 (just-in-time data notes, harness side; same G1 rule as the profile
 | `experiments/E010-loop/jit/facts.json` | `295ccc418ca811098dd2bff8a6fa3406792109526f6881949c483779a04d8321` (from `make_facts.py`) |
 
 `POPPY_JIT=1` copies both files into `<sandbox>/.jit` and sets `PYTHONPATH` to it for that run only (concurrency 1). The agent's DuckDB queries on the crash file then print, once per process, to stderr: the NULL share (file and per-year range) of each column the query filters, groups or aggregates, and a note when the query has no date bound that leaves out 2012 or 2026. Queries and results are unchanged. Checked inside the real sandbox shim: note printed, repository reads still denied. Label suffix `-jit`; `meta.jit` records both hashes and the number of notes in the trace.
+
+Candidate C5 = Bo's E010-v3 design (2026-11-08): per framing Plan → Data check → Final plan between choosing framings and writing analysis code.
+
+| Prompt | SHA-256 | Change from D v2 |
+|---|---|---|
+| `D_enumerate.v2-plan.md` | `2b0aa0ecdebd5ae3b2e167fd1ad89a79971562f373efbdfe0b9ad7f2659ce32a` | Plan to `out/plan_<id>.json` without querying data; Data check by code on the planned columns and years only (rows, rows per year, missing in any form, default pile-ups, partial years) to `out/check_<id>.csv` (fact, value), with consequence and decision (keep and disclose / exclude / own group) and plan changes with reasons; Final plan with limitations from the check. No outcome numbers in the three steps. Analysis, chart title (metric and population) and subtitle (main limitation), options fields and self-review follow the final plan; the data-check conclusion is written in `interpretation`. Run with `PILOT_STEPS=50` (more steps; the other arms never exceeded 24). |

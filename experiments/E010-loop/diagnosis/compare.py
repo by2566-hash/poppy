@@ -19,6 +19,9 @@ cols = {}
 for d in map(Path, sys.argv[1:]):
     rows = list(csv.DictReader(open(d / "scores.csv")))
     c = {"options": str(len(rows)), "silent-error": f"{sum(map(s.silent_error, rows))} ({100 * sum(map(s.silent_error, rows)) / len(rows):.0f}%)"}
+    se2 = sum(bool(s.verdict(r, "unsupported_claim") == "FAIL" or any(k.startswith("tr_") and s.verdict(r, k) == "FAIL" for k in s.ALL_ITEMS)) for r in rows)
+    c["SENSITIVITY traps+UC only (no provenance)"] = f"{se2} ({100 * se2 / len(rows):.0f}%)"
+    c["unsourced numbers"] = f"{sum(bool(r['unsourced_numbers']) for r in rows)}/{len(rows)}"
     for t in TRAPS:
         app = [r for r in rows if s.verdict(r, t) in ("PASS", "FAIL")]
         c[t] = f"{sum(s.verdict(r, t) == 'FAIL' for r in app)}/{len(app)}"
