@@ -1,0 +1,4 @@
+The file contains crash records from 2012 through June 2026, so it covers all of 2013–2025. It has no vehicle-miles-traveled measure, so it cannot establish risk per mile; I’ll chart annual motorist deaths and, separately, deaths per reported crash as two descriptive views the data can support.
+ANSWER:
+1. The data cannot establish whether risk per mile declined because miles driven are absent; annual motorist deaths fell from 110 in 2013 to 81 in 2025 (26.4%) ([chart](out/option_1.png), [values](out/values_1.csv)).
+2. The data cannot establish per-mile risk, and motorist deaths per 100,000 reported crashes rose from 54.0 in 2013 to 94.7 in 2025 (75.4%) ([chart](out/option_2.png), [values](out/values_2.csv)).

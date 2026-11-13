@@ -1,0 +1,26 @@
+{
+  "framing_id": 1,
+  "initial_plan": {
+    "answerability": "yes: the file has annual counts reported for motorist and cyclist deaths, allowing a direct comparison of the two groups",
+    "metric": "annual number of reported deaths, separately for motorists and cyclists, obtained by summing number_of_motorist_killed and number_of_cyclist_killed across crash records",
+    "denominator": "none; absolute counts",
+    "population": "all crash records with a crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date is in 2013–2025"],
+    "years": "calendar year of crash_date, 2013–2025 inclusive",
+    "grouping": ["calendar year", "road-user category: motorist or cyclist"]
+  },
+  "data_check": {
+    "facts": "check_1.csv reports 2,132,218 in-scope crash rows. Neither summed death column has missing values in the population or any year; crash_date has no missing rows and no 1970-01-01 values within the population. The observed minimum and maximum dates span January 1 through December 31 in every year from 2013 to 2025.",
+    "implications_and_decisions": "No in-scope rows need to be excluded or counted differently for missing or default values. Keep all in-scope crash records. The year-boundary check finds no partial year by observed date bounds, though row counts remain counts in this police-reported file."
+  },
+  "final_plan": {
+    "answerability": "yes: directly compare the annual absolute number of reported deaths for motorists and cyclists",
+    "metric": "sum of number_of_motorist_killed and number_of_cyclist_killed by calendar year and category, reported as absolute death counts",
+    "denominator": "none; absolute counts, not rates",
+    "population": "all police-reported crash records with crash_date in calendar years 2013–2025 inclusive; the measures count reported people killed, not fatal crashes",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "calendar year of crash_date, 2013–2025 inclusive",
+    "grouping": ["calendar year", "category derived from the motorist or cyclist killed-count field"],
+    "limitations": "The file contains police-reported crashes and provides no travel-exposure denominator, so absolute counts do not compare per-trip or per-person risk; full-year date bounds do not independently establish reporting completeness. The check found no missing death-field values, no missing or 1970-01-01 crash dates within scope, and no partial years by observed date bounds, so all in-scope rows are retained."
+  }
+}

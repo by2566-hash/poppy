@@ -1,0 +1,48 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of reported crashes",
+      "denominator": "None; raw count over each equal 12-hour block",
+      "grouping": "Night 6pm\u20135:59am versus day 6am\u20135:59pm",
+      "chart_type": "Two-bar count chart",
+      "reason": "Crash volume communicates the absolute reported burden in each equally long part of the day.",
+      "probability": 0.18,
+      "answer": "The file records 813,762 nighttime crashes versus 1,455,425 daytime crashes, but those counts alone cannot establish per-trip danger because traffic exposure is unavailable.",
+      "interpretation": "This framing answers which equal-length time block has more reported crashes: the daytime block has more. Counts are useful for describing total crash burden, but without traffic or travel exposure they do not show the risk of a crash for a person traveling at night."
+    },
+    {
+      "id": 2,
+      "metric": "Percentage of crashes with at least one person injured or killed",
+      "denominator": "Crashes with nonmissing person-injured and person-killed totals",
+      "grouping": "Night 6pm\u20135:59am versus day 6am\u20135:59pm",
+      "chart_type": "Two-bar percentage chart",
+      "reason": "The share of crashes with any human harm is an intuitive crash-level measure of severity.",
+      "probability": 0.34,
+      "answer": "Among crashes with known outcomes, 28.0% of nighttime crashes involved injury or death, versus 22.8% of daytime crashes.",
+      "interpretation": "This framing answers whether a reported crash is more likely to involve a harmed person at night; the nighttime share is higher. It compares severity conditional on a crash and excludes records with missing injury or death totals, but it does not estimate risk per trip or explain why the difference occurs."
+    },
+    {
+      "id": 3,
+      "metric": "People injured or killed per 100 crashes",
+      "denominator": "Crashes with nonmissing person-injured and person-killed totals",
+      "grouping": "Night 6pm\u20135:59am versus day 6am\u20135:59pm",
+      "chart_type": "Two-bar rate chart",
+      "reason": "A casualty count per crash captures the total human toll, including multiple people harmed in one collision.",
+      "probability": 0.25,
+      "answer": "The data show 39.2 people injured or killed per 100 nighttime crashes, compared with 30.1 per 100 daytime crashes.",
+      "interpretation": "This framing answers whether the average reported nighttime crash produces more casualties, and the nighttime casualty total per 100 crashes is higher. It accounts for multiple people harmed in one crash and uses crashes with known outcomes, but cannot establish per-traveler risk because exposure is not measured."
+    },
+    {
+      "id": 4,
+      "metric": "Crashes with at least one death per 1,000 crashes",
+      "denominator": "Crashes with nonmissing person-injured and person-killed totals",
+      "grouping": "Night 6pm\u20135:59am versus day 6am\u20135:59pm",
+      "chart_type": "Two-bar rate chart",
+      "reason": "Fatal crashes are a distinct, high-severity outcome and the per-crash rate adjusts for the different number of crashes in each block.",
+      "probability": 0.23,
+      "answer": "There were 2.46 fatal crashes per 1,000 nighttime crashes versus 1.02 per 1,000 daytime crashes.",
+      "interpretation": "This framing answers whether a crash is more likely to be fatal at night, and the observed rate among reported crashes is higher at night. It isolates the most severe outcome with a per-crash denominator, but it does not estimate a traveler's fatality risk or account for differences in traffic exposure."
+    }
+  ]
+}

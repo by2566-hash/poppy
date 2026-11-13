@@ -1,0 +1,4 @@
+The plan-scoped checks cover 2,132,218 crash records across 2013–2025. Both death fields have zero missing values, and each year’s observed dates span January 1 through December 31, so I’ll retain all in-scope rows for both an absolute-count comparison and a within-these-two-groups share comparison.
+ANSWER:
+Reported motorist deaths exceeded cyclist deaths in all 13 years; in 2025 there were 81 motorist deaths and 23 cyclist deaths, with series highs of 139 motorists in 2020 and 31 cyclists in both 2019 and 2023.
+Cyclists made up 9.1% of combined motorist-and-cyclist deaths in 2013, peaked at 27.4% in 2019, and accounted for 22.1% in 2025.

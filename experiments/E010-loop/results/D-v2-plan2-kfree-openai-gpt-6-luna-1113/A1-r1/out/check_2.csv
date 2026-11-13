@@ -1,0 +1,67 @@
+fact,value
+Brooklyn crash rows with crash_date in 2013 onward (before outcome-field exclusions),483501
+Brooklyn crash rows in 2013 onward years whose observed dates reach both Jan 1 and Dec 31,473801
+Year selection based on observed date range,2013 onward screened; years with observed dates not reaching both Jan 1 and Dec 31 flagged as partial and to be excluded
+Brooklyn crash rows in 2013,47024
+Observed crash_date range in Brooklyn for 2013,2013-01-01 through 2013-12-31
+Calendar-year coverage note for 2013,observed dates reach both calendar-year boundaries; continuous coverage not established
+Brooklyn crash rows in 2014,47761
+Observed crash_date range in Brooklyn for 2014,2014-01-01 through 2014-12-31
+Calendar-year coverage note for 2014,observed dates reach both calendar-year boundaries; continuous coverage not established
+Brooklyn crash rows in 2015,50851
+Observed crash_date range in Brooklyn for 2015,2015-01-01 through 2015-12-31
+Calendar-year coverage note for 2015,observed dates reach both calendar-year boundaries; continuous coverage not established
+Brooklyn crash rows in 2016,47464
+Observed crash_date range in Brooklyn for 2016,2016-01-01 through 2016-12-31
+Calendar-year coverage note for 2016,observed dates reach both calendar-year boundaries; continuous coverage not established
+Brooklyn crash rows in 2017,44915
+Observed crash_date range in Brooklyn for 2017,2017-01-01 through 2017-12-31
+Calendar-year coverage note for 2017,observed dates reach both calendar-year boundaries; continuous coverage not established
+Brooklyn crash rows in 2018,47313
+Observed crash_date range in Brooklyn for 2018,2018-01-01 through 2018-12-31
+Calendar-year coverage note for 2018,observed dates reach both calendar-year boundaries; continuous coverage not established
+Brooklyn crash rows in 2019,44479
+Observed crash_date range in Brooklyn for 2019,2019-01-01 through 2019-12-31
+Calendar-year coverage note for 2019,observed dates reach both calendar-year boundaries; continuous coverage not established
+Brooklyn crash rows in 2020,25473
+Observed crash_date range in Brooklyn for 2020,2020-01-01 through 2020-12-31
+Calendar-year coverage note for 2020,observed dates reach both calendar-year boundaries; continuous coverage not established
+Brooklyn crash rows in 2021,25174
+Observed crash_date range in Brooklyn for 2021,2021-01-01 through 2021-12-31
+Calendar-year coverage note for 2021,observed dates reach both calendar-year boundaries; continuous coverage not established
+Brooklyn crash rows in 2022,23369
+Observed crash_date range in Brooklyn for 2022,2022-01-01 through 2022-12-31
+Calendar-year coverage note for 2022,observed dates reach both calendar-year boundaries; continuous coverage not established
+Brooklyn crash rows in 2023,22890
+Observed crash_date range in Brooklyn for 2023,2023-01-01 through 2023-12-31
+Calendar-year coverage note for 2023,observed dates reach both calendar-year boundaries; continuous coverage not established
+Brooklyn crash rows in 2024,22785
+Observed crash_date range in Brooklyn for 2024,2024-01-01 through 2024-12-31
+Calendar-year coverage note for 2024,observed dates reach both calendar-year boundaries; continuous coverage not established
+Brooklyn crash rows in 2025,24303
+Observed crash_date range in Brooklyn for 2025,2025-01-01 through 2025-12-31
+Calendar-year coverage note for 2025,observed dates reach both calendar-year boundaries; continuous coverage not established
+Brooklyn crash rows in 2026,9700
+Observed crash_date range in Brooklyn for 2026,2026-01-01 through 2026-06-11
+Calendar-year coverage note for 2026,observed dates do not span the full calendar year
+2013-onward crash rows with borough NULL (not assignable to Brooklyn),668406
+2013-onward crash rows with borough blank,0
+2013-onward crash rows with borough labeled unknown/unspecified,0
+Rows with borough missing within normalized Brooklyn population,0
+Brooklyn-labeled rows with missing crash_date (cannot be assigned to a year),0
+2013-onward rows with nonmissing borough outside the five NYC borough labels,0
+Rows with number_of_pedestrians_killed missing among Brooklyn crashes in complete observed 2013-onward years,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2013,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2014,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2015,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2016,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2017,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2018,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2019,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2020,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2021,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2022,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2023,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2024,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2025,0
+Rows with number_of_pedestrians_killed missing in Brooklyn crashes in 2026,0

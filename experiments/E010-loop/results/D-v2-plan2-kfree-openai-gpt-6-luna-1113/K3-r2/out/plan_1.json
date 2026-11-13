@@ -1,0 +1,18 @@
+{
+  "status": "final",
+  "can_answer": "yes — the data has year and motorist/cyclist fatality count fields for NYC police-reported crashes; it cannot establish population-level risk or explain causes.",
+  "metric": "Annual number of motorist deaths (number_of_motorist_killed) and cyclist deaths (number_of_cyclist_killed) recorded in NYC crashes, compared as separate series.",
+  "denominator": "None; absolute death counts summed from the two road-user-specific killed fields.",
+  "population": "All police-reported NYC motor vehicle crash records dated 2013 through 2025 inclusive, using the motorist and cyclist killed fields; no records are excluded for missing outcome values because none are missing.",
+  "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive"],
+  "years": "Calendar years 2013–2025 inclusive; all 13 calendar years have coverage from January 1 through December 31.",
+  "grouping": "Calendar year, with two series: motorist deaths and cyclist deaths.",
+  "data_check": {
+    "rows_by_year": {"2013": 203742, "2014": 206046, "2015": 217708, "2016": 229833, "2017": 231007, "2018": 231564, "2019": 211486, "2020": 112918, "2021": 110558, "2022": 103887, "2023": 96607, "2024": 91316, "2025": 85546},
+    "selected_rows": 2132218,
+    "missing": {"number_of_motorist_killed": 0, "number_of_cyclist_killed": 0},
+    "date_coverage": "Each year 2013–2025 runs January 1 through December 31; crash_date is a DATE, and no selected dates match the checked default dates 1900-01-01, 1970-01-01, or 2000-01-01.",
+    "decision": "Keep all in-range records. The two summed killed fields have no missing values in the selected records, so no records are dropped or treated as zero due to missingness. All requested years are full calendar years."
+  },
+  "limitations": "Counts describe police-reported NYC crash fatalities, not individual risk rates or population exposure. The data cover each requested calendar year fully; no records are lost to missing killed-field values. The actual parquet names the fields number_of_motorist_killed and number_of_cyclist_killed."
+}

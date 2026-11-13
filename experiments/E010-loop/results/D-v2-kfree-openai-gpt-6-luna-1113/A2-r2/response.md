@@ -1,0 +1,5 @@
+The file covers 2.27 million reported crashes from July 2012 through June 11, 2026. I’m comparing crash frequency per clock-hour and two crash-severity measures; the dataset has no traffic-volume or trip-exposure data, so it can’t establish a person’s risk per mile or trip.
+ANSWER:
+1. **Crash frequency** — NYC recorded 10.97 reported crashes per clock-hour at night versus 23.98 by day (54.2% fewer at night); this measures crash volume, not risk per road user. [Chart](out/option_1.png) · [Values](out/values_1.csv)
+2. **Injury-or-death share** — 28.44% of nighttime crashes with complete severity counts involved an injury or death, compared with 23.41% of daytime crashes; this is severity conditional on a reported crash, not risk per trip or mile. [Chart](out/option_2.png) · [Values](out/values_2.csv)
+3. **Deaths per crash** — There were 3.09 persons killed per 1,000 nighttime crashes versus 1.11 per 1,000 daytime crashes (2.77 times as many at night); this compares crash consequences, not risk per trip or mile. [Chart](out/option_3.png) · [Values](out/values_3.csv)

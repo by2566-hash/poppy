@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual motorist deaths",
+      "denominator": "None (annual count)",
+      "grouping": "Crash year",
+      "chart_type": "Line chart",
+      "reason": "A careful analyst might begin with the annual fatality burden because the count is directly recorded and easy to interpret.",
+      "probability": 0.55,
+      "answer": "These data cannot establish whether risk per mile declined because miles driven are absent; recorded motorist deaths fell from 110 in 2013 to 81 in 2025, a 26.4% decrease.",
+      "interpretation": "This framing cannot answer the exposure-adjusted risk question because miles driven are not in the data; it shows how the annual count of motorist deaths changed instead. The count fell from 110 in 2013 to 81 in 2025, although it peaked at 139 in 2020. It leaves unanswered whether the risk per mile driven declined."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths per 100,000 police-reported crashes",
+      "denominator": "All police-reported crashes in the same year",
+      "grouping": "Crash year",
+      "chart_type": "Line chart",
+      "reason": "A careful analyst might use reported crashes as an available denominator to compare motorist deaths relative to the recorded crash volume.",
+      "probability": 0.45,
+      "answer": "These data cannot establish whether risk per mile declined; motorist deaths per 100,000 reported crashes increased from 54.0 in 2013 to 94.7 in 2025, a 75.4% increase.",
+      "interpretation": "This framing answers how motorist deaths changed relative to all police-reported crashes, using a denominator available in the file, but it does not measure risk per mile. The rate increased from 54.0 to 94.7 deaths per 100,000 reported crashes between 2013 and 2025. It leaves unanswered how many miles were driven and therefore whether miles-adjusted risk declined."
+    }
+  ]
+}

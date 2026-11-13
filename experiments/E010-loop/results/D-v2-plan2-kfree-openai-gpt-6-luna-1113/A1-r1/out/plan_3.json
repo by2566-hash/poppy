@@ -1,0 +1,29 @@
+{
+  "initial_plan": {
+    "can_answer": "partly: this can show the annual number of Brooklyn police-reported crashes with at least one pedestrian injured or killed, but not a population- or exposure-adjusted safety rate or all dimensions of road safety",
+    "metric": "number of crashes with at least one pedestrian injured or killed",
+    "denominator": "none; annual event count, not a rate",
+    "population": "police-reported motor vehicle crashes whose borough is Brooklyn and with at least one pedestrian reported injured or killed",
+    "filters": ["borough is Brooklyn (case-insensitive and whitespace-trimmed)", "calendar year is 2013 or later", "both pedestrian injury and fatality counts are present to classify"],
+    "years": "calendar years 2013 onward represented in the file; end year to be set after checking year coverage",
+    "grouping": "calendar year of crash_date",
+    "chart_type": "annual line chart"
+  },
+  "data_check": {
+    "rows_and_coverage": "There are 483,501 Brooklyn crash rows dated 2013 onward, including 9,700 in 2026; 473,801 fall in 2013–2025. For each year 2013–2025 the observed dates reach Jan 1 and Dec 31, while 2026 runs only Jan 1–June 11.",
+    "field_quality": "Borough values use uppercase spelling, so the Brooklyn filter is case-insensitive and trims whitespace. Among crashes dated 2013 onward, 668,406 have NULL borough, 0 have blank borough, 0 use checked unknown/unspecified labels, and 0 have a nonmissing borough outside the five NYC borough labels; NULL-borough rows cannot be assigned to Brooklyn. There are 0 Brooklyn-labeled rows with missing crash_date. Pedestrian injury and fatality fields are each missing in 0 Brooklyn crash rows for 2013–2025.",
+    "decisions": "Use the normalized Brooklyn match; exclude the partial 2026 year (9,700 rows); keep all otherwise eligible 2013–2025 rows for classification since neither pedestrian field is missing; count a crash only when at least one of the two recorded counts is greater than zero; do not assign NULL-borough crashes to Brooklyn.",
+    "plan_change": "Set the final endpoint to 2025 after the data check identified 2026 as partial; normalize borough case/whitespace after finding uppercase category values."
+  },
+  "final_plan": {
+    "can_answer": "partly: annual counts of crashes with reported pedestrian casualties can indicate change in recorded crash burden, but cannot establish exposure-adjusted risk or all dimensions of road safety",
+    "metric": "count of Brooklyn crashes with number_of_pedestrians_injured > 0 or number_of_pedestrians_killed > 0",
+    "denominator": "none; annual crash-event count, not a rate",
+    "population": "police-reported motor vehicle crashes labeled Brooklyn with at least one pedestrian reported injured or killed",
+    "filters": ["upper(trim(borough)) = BROOKLYN", "crash_date from 2013-01-01 through 2025-12-31", "both pedestrian injury and fatality fields are nonmissing; the data check found neither missing"],
+    "years": "calendar years 2013–2025",
+    "grouping": "calendar year of crash_date",
+    "chart_type": "annual line chart",
+    "limitations": "A crash event count is not a count of pedestrian casualties and is not adjusted for pedestrian exposure or population; police-reported crashes with missing borough cannot be assigned, and 2026 is partial and excluded. The date range reaches both year boundaries in 2013–2025, but endpoint dates alone do not prove uninterrupted reporting."
+  }
+}

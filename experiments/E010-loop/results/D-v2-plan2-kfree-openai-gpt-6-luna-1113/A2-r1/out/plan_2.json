@@ -1,0 +1,32 @@
+{
+  "initial_plan": {
+    "question_fit": "partly: this can compare the share of reported crashes with any reported injury or death by time of day, but without traffic or travel exposure it cannot establish whether a person or trip faces greater risk at night",
+    "metric": "percentage of crashes with at least one person injured or killed",
+    "denominator": "crashes with nonmissing values for both number_of_persons_injured and number_of_persons_killed",
+    "population": "police-reported NYC motor-vehicle crashes with a valid crash_date and complete person injury and death counts; all years represented in the file",
+    "filters": ["exclude rows with missing crash_date because they cannot be assigned to a year", "exclude rows with either summed person outcome missing", "retain missing crash_time as an Unknown time group"],
+    "years": "all years in the file with a valid crash_date; inspect coverage by year",
+    "grouping": "Night is 21:00 through 05:59; Day is 06:00 through 20:59; missing crash_time is Unknown"
+  },
+  "data_check": {
+    "facts": [
+      "There are 0 rows missing crash_date and 0 dated rows missing crash_time.",
+      "2012 only spans 2012-07-01 through 2012-12-31; 2026 spans 2026-01-01 through 2026-06-11, so both are partial calendar years and are excluded.",
+      "The 13 intervening years, 2013-2025, have observed endpoints spanning their calendar years (internal date gaps were not checked). They contain 2,132,218 dated rows before outcome completeness filtering.",
+      "Among 2013-2025 rows, 18 lack number_of_persons_injured, 42 lack number_of_persons_killed, and 42 lack at least one of the two counts; exclude those 42 (0.001970%) because crash injury status cannot be determined.",
+      "2026 has 8,877 of 36,424 dated rows missing number_of_persons_killed (24.37%), reinforcing exclusion of that partial year.",
+      "Among complete-outcome rows in 2013-2025, 23,786 (1.115574%) have crash_time at 00:00; this is a valid time and may represent a default, so retain it in Night and disclose the ambiguity. The typed TIME column has no invalid nonmissing times and no missing times in the selected years."
+    ],
+    "decisions": "Change the year scope from all years to 2013-2025 to avoid partial edge years; exclude the 42 selected-year rows missing either person outcome; retain midnight records within Night and disclose that valid 00:00 values may include defaults. No rows are lost for missing or invalid time."
+  },
+  "final_plan": {
+    "question_fit": "partly: compares the chance a reported crash includes injury or death between night and day, but cannot estimate danger per trip, person, distance, or traffic volume",
+    "metric": "percentage of crashes with at least one person injured or killed, using number_of_persons_injured + number_of_persons_killed > 0",
+    "denominator": "all crashes with both person outcome counts present in the same time group",
+    "population": "police-reported NYC motor-vehicle crashes dated 2013-01-01 through 2025-12-31, with both person outcome counts present; 2,132,176 crashes before time grouping",
+    "filters": ["include only calendar years 2013-2025", "exclude rows missing either person outcome count", "do not filter crash_time; all valid times are grouped"],
+    "years": "2013-2025, with observed date endpoints spanning each calendar year; internal date gaps were not tested",
+    "grouping": "Night: 21:00-05:59 inclusive by hour (00:00 belongs to Night); Day: 06:00-20:59; no unknown-time rows were present",
+    "limitations": "This is the share of police-reported crashes with a casualty, not exposure-adjusted risk; it omits partial years 2012 and 2026, drops 42 (0.001970%) selected-year records missing an outcome count, and treats 23,786 valid 00:00 times (1.115574% of selected complete-outcome rows) as night even though some may be default-coded."
+  }
+}

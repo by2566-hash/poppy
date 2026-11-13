@@ -1,0 +1,4 @@
+The crash file has yearly motorist-fatality counts, but no vehicle-miles-traveled or other mileage exposure measure, so it cannot directly establish risk per mile. I’m preparing two useful alternatives: annual motorist deaths and motorist deaths per 100,000 reported crashes, with the latter clearly treated as a crash-normalized measure rather than a per-mile risk.
+ANSWER:
+1. Motorist deaths fell from 110 in 2013 to 81 in 2025 (26%), but the data lacks miles-driven exposure and cannot show whether per-mile risk declined ([chart](out/option_1.png), [values](out/values_1.csv)).
+2. Motorist deaths per 100,000 reported crashes rose from 54.0 in 2013 to 94.7 in 2025, but this crash-normalized measure cannot establish per-mile risk ([chart](out/option_2.png), [values](out/values_2.csv)).

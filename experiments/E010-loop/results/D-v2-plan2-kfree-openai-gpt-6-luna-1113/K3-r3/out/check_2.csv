@@ -1,0 +1,60 @@
+fact,value
+scope,crash_date calendar years 2013–2025 inclusive
+population_rows_total,2132218
+rows_2013,203742
+crash_date_first_2013,2013-01-01
+crash_date_last_2013,2013-12-31
+year_coverage_2013,observed date range spans entire calendar year
+rows_2014,206046
+crash_date_first_2014,2014-01-01
+crash_date_last_2014,2014-12-31
+year_coverage_2014,observed date range spans entire calendar year
+rows_2015,217708
+crash_date_first_2015,2015-01-01
+crash_date_last_2015,2015-12-31
+year_coverage_2015,observed date range spans entire calendar year
+rows_2016,229833
+crash_date_first_2016,2016-01-01
+crash_date_last_2016,2016-12-31
+year_coverage_2016,observed date range spans entire calendar year
+rows_2017,231007
+crash_date_first_2017,2017-01-01
+crash_date_last_2017,2017-12-31
+year_coverage_2017,observed date range spans entire calendar year
+rows_2018,231564
+crash_date_first_2018,2018-01-01
+crash_date_last_2018,2018-12-31
+year_coverage_2018,observed date range spans entire calendar year
+rows_2019,211486
+crash_date_first_2019,2019-01-01
+crash_date_last_2019,2019-12-31
+year_coverage_2019,observed date range spans entire calendar year
+rows_2020,112918
+crash_date_first_2020,2020-01-01
+crash_date_last_2020,2020-12-31
+year_coverage_2020,observed date range spans entire calendar year
+rows_2021,110558
+crash_date_first_2021,2021-01-01
+crash_date_last_2021,2021-12-31
+year_coverage_2021,observed date range spans entire calendar year
+rows_2022,103887
+crash_date_first_2022,2022-01-01
+crash_date_last_2022,2022-12-31
+year_coverage_2022,observed date range spans entire calendar year
+rows_2023,96607
+crash_date_first_2023,2023-01-01
+crash_date_last_2023,2023-12-31
+year_coverage_2023,observed date range spans entire calendar year
+rows_2024,91316
+crash_date_first_2024,2024-01-01
+crash_date_last_2024,2024-12-31
+year_coverage_2024,observed date range spans entire calendar year
+rows_2025,85546
+crash_date_first_2025,2025-01-01
+crash_date_last_2025,2025-12-31
+year_coverage_2025,observed date range spans entire calendar year
+crash_date_missing_within_population,0
+crash_date_impossible_within_population,0
+crash_date_default_or_unknown_within_population,0
+number_of_motorist_killed_missing_rows,0
+number_of_cyclist_killed_missing_rows,0

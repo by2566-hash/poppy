@@ -1,0 +1,23 @@
+fact,value
+source_rows,2269187
+plan_population_rows,2132218
+source_rows_with_missing_crash_date,0
+source_rows_before_2013-01-01_excluded,100545
+source_rows_after_2025-12-31_excluded,36424
+in_scope_crash_date_missing,0
+in_scope_default_or_sentinel_crash_dates,0
+in_scope_derived_weekday_missing_or_invalid,0
+in_scope_derived_year_missing_or_out_of_range,0
+year_2013_rows_and_observed_date_span,"203742; 2013-01-01 to 2013-12-31"
+year_2014_rows_and_observed_date_span,"206046; 2014-01-01 to 2014-12-31"
+year_2015_rows_and_observed_date_span,"217708; 2015-01-01 to 2015-12-31"
+year_2016_rows_and_observed_date_span,"229833; 2016-01-01 to 2016-12-31"
+year_2017_rows_and_observed_date_span,"231007; 2017-01-01 to 2017-12-31"
+year_2018_rows_and_observed_date_span,"231564; 2018-01-01 to 2018-12-31"
+year_2019_rows_and_observed_date_span,"211486; 2019-01-01 to 2019-12-31"
+year_2020_rows_and_observed_date_span,"112918; 2020-01-01 to 2020-12-31"
+year_2021_rows_and_observed_date_span,"110558; 2021-01-01 to 2021-12-31"
+year_2022_rows_and_observed_date_span,"103887; 2022-01-01 to 2022-12-31"
+year_2023_rows_and_observed_date_span,"96607; 2023-01-01 to 2023-12-31"
+year_2024_rows_and_observed_date_span,"91316; 2024-01-01 to 2024-12-31"
+year_2025_rows_and_observed_date_span,"85546; 2025-01-01 to 2025-12-31"

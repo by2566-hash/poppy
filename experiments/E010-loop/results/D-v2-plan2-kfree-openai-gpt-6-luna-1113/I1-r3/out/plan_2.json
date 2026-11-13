@@ -1,0 +1,17 @@
+{
+  "id": 2,
+  "stage": "final plan",
+  "can_answer_question": "partly: this data has no miles-driven exposure, so it cannot measure deaths per mile or whether per-mile risk declined; it can show the annual number of reported crashes with at least one motorist death as a crash-count trend.",
+  "metric": "Annual number of police-reported NYC crashes with at least one motorist reported killed (number_of_motorist_killed > 0).",
+  "denominator": "None; this is a crash count, not a rate.",
+  "population": "Police-reported NYC motor vehicle crashes dated 2013 through 2025, inclusive; the metric counts the subset with at least one motorist reported killed.",
+  "filters": ["crash_date year is 2013 through 2025 inclusive", "number_of_motorist_killed > 0"],
+  "years": "2013-2025 inclusive; check whether either endpoint year is only partially covered.",
+  "grouping": "Calendar year derived from crash_date.",
+  "data_check": {
+    "facts": "The planned period contains 2,132,218 source crash rows. Each year 2013-2025 has observed dates from January 1 through December 31; no edge year is visibly partial by its observed date bounds. Within the planned population, crash_date is non-missing by the year filter, no checked sentinel date occurs, and number_of_motorist_killed is missing in 0 rows in every year.",
+    "decision": "No change to the plan. Keep all crashes as the year-specific source population and count the subset whose motorist-deaths value is positive. No rows need to be removed for a missing classification field.",
+    "plan_change": "Clarified the row population as all crashes in the planned years and the fatal-crash condition as the metric criterion, so population row counts can be checked without counting rows by the death value; the substantive metric is unchanged."
+  },
+  "limitations": "The crash file has no vehicle-miles-traveled or other mileage exposure, so a count of fatal crashes is not a per-mile risk or rate. This metric counts fatal crash events, not the number of motorists killed. Full-year observed date bounds do not establish record completeness or absence of within-year gaps."
+}

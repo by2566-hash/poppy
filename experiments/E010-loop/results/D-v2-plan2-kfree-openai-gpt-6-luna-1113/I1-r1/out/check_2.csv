@@ -1,0 +1,44 @@
+fact,value
+source_rows,2269187
+rows_excluded_because_crash_date_is_missing,0
+requested_years,2013-2025
+rows_2013,203742
+missing_number_of_motorist_killed_2013,0
+date_coverage_2013,2013-01-01 through 2013-12-31
+rows_2014,206046
+missing_number_of_motorist_killed_2014,0
+date_coverage_2014,2014-01-01 through 2014-12-31
+rows_2015,217708
+missing_number_of_motorist_killed_2015,0
+date_coverage_2015,2015-01-01 through 2015-12-31
+rows_2016,229833
+missing_number_of_motorist_killed_2016,0
+date_coverage_2016,2016-01-01 through 2016-12-31
+rows_2017,231007
+missing_number_of_motorist_killed_2017,0
+date_coverage_2017,2017-01-01 through 2017-12-31
+rows_2018,231564
+missing_number_of_motorist_killed_2018,0
+date_coverage_2018,2018-01-01 through 2018-12-31
+rows_2019,211486
+missing_number_of_motorist_killed_2019,0
+date_coverage_2019,2019-01-01 through 2019-12-31
+rows_2020,112918
+missing_number_of_motorist_killed_2020,0
+date_coverage_2020,2020-01-01 through 2020-12-31
+rows_2021,110558
+missing_number_of_motorist_killed_2021,0
+date_coverage_2021,2021-01-01 through 2021-12-31
+rows_2022,103887
+missing_number_of_motorist_killed_2022,0
+date_coverage_2022,2022-01-01 through 2022-12-31
+rows_2023,96607
+missing_number_of_motorist_killed_2023,0
+date_coverage_2023,2023-01-01 through 2023-12-31
+rows_2024,91316
+missing_number_of_motorist_killed_2024,0
+date_coverage_2024,2024-01-01 through 2024-12-31
+rows_2025,85546
+missing_number_of_motorist_killed_2025,0
+date_coverage_2025,2025-01-01 through 2025-12-31
+crash_date_type,DATE; empty strings and text sentinels cannot occur in this typed field

@@ -1,0 +1,8 @@
+{
+ "grader_model": "openai/gpt-6-luna",
+ "grader_version": "g8.1",
+ "attempts": 1,
+ "secs": 24.2,
+ "tool_calls": 0,
+ "errors": []
+}

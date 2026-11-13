@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of pedestrians injured plus pedestrians killed in Brooklyn police-reported crashes; grouped by crash calendar year.",
+      "denominator": "None; absolute annual count, not an exposure-adjusted rate.",
+      "grouping": "Calendar year of crash_date, 2013 onward; 2026 is partial through June 11.",
+      "chart_type": "Annual bar chart with the incomplete 2026 bar hatched and labeled.",
+      "reason": "A combined casualty count gives a broad, intuitive measure of recorded pedestrian harm over time.",
+      "probability": 0.55,
+      "answer": "Recorded pedestrian casualties fell 22% from 3,671 in 2013 to 2,874 in 2025, but rose about 60% from 2020; these counts cannot establish whether risk per walking trip improved.",
+      "interpretation": "This framing answers change in annual counts of pedestrians injured or killed in police-reported crashes whose borough label normalizes to BROOKLYN (upper(trim(borough)) = BROOKLYN): injured and killed persons are summed and grouped by crash calendar year from 2013 onward, with no denominator; the count declined 22% from 3,671 in 2013 to 2,874 in 2025 after rising from 1,798 in 2020, while 2026 is 1,104 through June 11 only. An absolute count is a defensible measure of recorded harm, but it cannot show exposure-adjusted risk or explain causes. The check found 668,406 dated 2013-on rows with borough missing or unknown, excluded because they cannot be placed in Brooklyn; it found zero missing crash dates in Brooklyn and zero missing injury/death components in the planned rows, so no rows were dropped for missing outcomes. All 9,700 Brooklyn crash rows in partial 2026 were kept but marked partial because the file ends June 11, so that value is not comparable with full years."
+    },
+    {
+      "id": 2,
+      "metric": "Annual count of pedestrians killed in Brooklyn police-reported crashes; grouped by crash calendar year.",
+      "denominator": "None; absolute annual count, not an exposure-adjusted rate.",
+      "grouping": "Calendar year of crash_date, 2013 onward; 2026 is partial through June 11.",
+      "chart_type": "Annual line chart for full years, with the incomplete 2026 point separately marked and not connected.",
+      "reason": "Focusing on deaths isolates the most severe pedestrian safety outcome and can reveal a trend hidden by injury totals.",
+      "probability": 0.45,
+      "answer": "Pedestrian deaths rose 30% from 30 in 2013 to 39 in 2025, so recorded fatalities did not improve over that comparison; exposure-adjusted risk is unavailable.",
+      "interpretation": "This framing answers the fatality component by summing pedestrians killed in police-reported crashes whose borough label normalizes to BROOKLYN (upper(trim(borough)) = BROOKLYN), grouped by crash calendar year from 2013 onward, with no denominator: deaths were 30 in 2013 and 39 in 2025, with 46 in 2015 and 17 in 2020; the partial 2026 total is 9 through June 11. Fatalities are a defensible severity indicator, but this framing leaves nonfatal injuries and exposure-adjusted risk unanswered. The check found 668,406 dated 2013-on records with borough missing or unknown, excluded because Brooklyn could not be assigned; it found zero Brooklyn rows with missing dates and zero missing pedestrian-death values in the selected population, so no rows were dropped for missing outcomes. All 9,700 Brooklyn crash rows through June 11, 2026 were kept but shown as partial rather than comparable to full years."
+    }
+  ]
+}

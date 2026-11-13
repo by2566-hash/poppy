@@ -159,3 +159,36 @@ Process (`diagnosis/c5_process.py`):
 ### Drift track update (2026-11-13)
 
 *Update 2026-11-13 (Bo, relayed from his branch session):* a teammate is trial-running the embedding method in the evaluation layer on the F3 results (round-trip distance). F3's reverse inference was made from the chart, and P13 found that chart titles leak the question, so F3 is the **leaky** condition, not §4's cleared-context `values.csv`-only condition. Distances from it are optimistic: good for getting the method working, not a result. The formal round-trip distance ratio waits for the `values.csv`-only reverse-inference runner. Probe conclusion unchanged (`experiments/E010-loop/probe/README.md`): embedding is for coarse drift and plainly off-topic options only; mpnet and MiniLM both reported; whether an option answers a different question is the judge's call.
+
+## 2026-11-13: g8.1 rescoring, hermetic harness, C5 v2 vs same-day baseline
+
+Bo accepted all four proposals on 2026-11-13: g8.1, TR01 wording, C5 v2, hermetic harness (FROZEN.md, `a5a8ff2`).
+- All 8 labels from 11-08 were rescored with g8.1, two Luna passes each; agreement 0.971–0.986. Only the A1 / I1 units were re-graded; the others reuse g8 verdicts on byte-identical prompts.
+- Today's runs are hermetic. First-step prompt tokens: baseline 5,400–5,415 (= F1), C5 v2 5,924–5,939 (constant).
+
+| item (g8.1) | **baseline 11-13** | **C5 v2 11-13** | baseline 11-08 | hermetic 11-08 | C1 cov | C3 jit | C4 cov+jit | C5 |
+|---|---|---|---|---|---|---|---|---|
+| options | 43 | 37 | 43 | 46 | 41 | 42 | 44 | 39 |
+| silent-error (g8.1) | **42%** | **41%** | 51% | 50% | 80% | 48% | 80% | 44% |
+| traps + UC only | 42% | **22%** | 49% | 50% | 32% | 45% | 32% | 31% |
+| unsourced (options) | 0 | 8 | 1 | 1 | 30 | 1 | 33 | 7 |
+| TR05 / TR08 / TR07 | 9/9, 3/7, 3/5 | **2/7, 0/7, 0/3** | 7/7, 6/7, 4/5 | 9/9, 6/6, 3/5 | 2/8, 1/5, 1/6 | 4/8, 4/6, 3/6 | 0/8, 1/6, 3/5 | 2/6, 0/5, 0/5 |
+| TR01 / TR15 | 5/5, 3/3 | 4/4, 3/3 | 4/4, 3/3 | 5/5, 3/4 | 7/7, 3/4 | 3/3, 3/3 | 7/7, 3/3 | 5/5, 2/3 |
+| PERMILE / UC | 1/3, 4 | 3/4, 5 | 1/4, 5 | 0/5, 4 | 2/4, 3 | 0/3, 5 | 0/5, 3 | 1/5, 2 |
+| NIGHTDEF | 0/10 | **0/7** | 0/9 | 0/8 | 0/7 | 3/9 | 0/9 | 3/7 |
+
+**C5 v2 fixes.** The leak is closed: 0 check rows count by an outcome value (C5: 136). NIGHTDEF falls from 3/7 to 0/7.
+
+**Day-to-day noise.** The same D v2 prompt gave 51% (11-08), 50% (11-08 hermetic) and 42% (11-13); the pooled baseline is 59/132 (45%). This is why the keep rule uses the same-day baseline.
+
+**What is left in C5 v2, read by hand:**
+- 7 of its 8 unsourced options are machine false positives: "31" (days in a month, K2 / K3 / I1) and "1,000" (the unit in "per 1,000"). These are not data claims. K2's 5/6 silent-error comes entirely from "31". Without them, silent-error would be 22%. This is a provenance-rule question for Bo; the scorer was not changed.
+- 2 of its 5 unsupported-claim FAILs are grader errors. A1-r2 o2 and I1-r3 o3 say "0 missing death values in the selected population"; that population is 2013–2025, and the 2026 NULLs lie outside it, so the statement is true. These are for human review.
+- Real residuals sit on I1 only: "this per-crash proxy did not decline" (decision 6; PERMILE 3/4), and TR01 4/4. Even under g8.1, the per-crash options do not mention the 2020 fall.
+
+**Keep rule, by the letter.**
+- The targets fall: TR05 9/9 → 2/7, TR08 3/7 → 0/7, TR07 3/5 → 0/3.
+- Some other criteria rise: PERMILE 1/3 → 3/4, unsupported claim 4 → 5, unsourced 0 → 8.
+- So C5 v2 is **not kept as written**.
+- Read by hand, the unsourced and UC rises are machine or grader false positives, and the real cost is I1 PERMILE, about +2 options at n = 3–4.
+- Decision is Bo's: (a) keep C5 v2 as E010-v3, with I1 as the next target; or (b) first settle the "31" / unit-number provenance rule and the 2 UC review cells, then apply the rule.

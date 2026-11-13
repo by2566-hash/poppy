@@ -1,0 +1,6 @@
+I’ll compare defensible ways to measure pedestrian safety over time, check the relevant data coverage and missing/default values first, then create the chart(s), saved analysis artifacts, and concise findings.
+The first scoped check returned no rows because the source’s borough label did not match the literal capitalization used in the query. I’m adjusting the filter to match “Brooklyn” case-insensitively (and trim surrounding spaces), then rerunning the same plan-scoped checks.
+The complete-year trends are mixed: total pedestrian casualties are lower in 2025 than in 2013, while pedestrian deaths are higher. Both charts exclude partial 2026 and make clear that these are counts, not exposure-adjusted risks.
+ANSWER:
+1. Pedestrian casualties (injuries plus deaths) fell from 3,671 in 2013 to 2,874 in 2025, though they have risen since 2020; [chart](out/option_1.png).
+2. Pedestrian deaths increased from 30 in 2013 to 39 in 2025, with substantial year-to-year fluctuations; [chart](out/option_2.png).

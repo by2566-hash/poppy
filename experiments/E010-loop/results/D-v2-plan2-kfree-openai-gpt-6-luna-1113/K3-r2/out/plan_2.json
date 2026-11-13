@@ -1,0 +1,18 @@
+{
+  "status": "final",
+  "can_answer": "partly — the data can show each category's share of motorist-plus-cyclist deaths recorded in NYC crashes, but not its share of all road-user deaths or population-level risk.",
+  "metric": "Annual share of the combined motorist-and-cyclist deaths (number_of_motorist_killed plus number_of_cyclist_killed) accounted for by motorist deaths and cyclist deaths.",
+  "denominator": "For each year, motorist deaths plus cyclist deaths; other road-user deaths are outside this denominator.",
+  "population": "All police-reported NYC motor vehicle crash records dated 2013 through 2025 inclusive, using the motorist and cyclist killed fields; no records are excluded for missing outcome values because none are missing.",
+  "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive"],
+  "years": "Calendar years 2013–2025 inclusive; all 13 calendar years have coverage from January 1 through December 31.",
+  "grouping": "Calendar year and road-user category (motorist or cyclist); each annual category count is divided by the year's combined motorist and cyclist deaths.",
+  "data_check": {
+    "rows_by_year": {"2013": 203742, "2014": 206046, "2015": 217708, "2016": 229833, "2017": 231007, "2018": 231564, "2019": 211486, "2020": 112918, "2021": 110558, "2022": 103887, "2023": 96607, "2024": 91316, "2025": 85546},
+    "selected_rows": 2132218,
+    "missing": {"number_of_motorist_killed": 0, "number_of_cyclist_killed": 0},
+    "date_coverage": "Each year 2013–2025 runs January 1 through December 31; crash_date is a DATE, and no selected dates match the checked default dates 1900-01-01, 1970-01-01, or 2000-01-01.",
+    "decision": "Keep all in-range records. The two killed fields used in the numerator and denominator have no missing values in the selected records, so no records are dropped or treated as zero due to missingness. All requested years are full calendar years."
+  },
+  "limitations": "The denominator is motorist plus cyclist deaths only, not all road-user deaths; shares do not represent relative individual risk or population exposure. The data cover each requested calendar year fully; no records are lost to missing killed-field values. The actual parquet names the fields number_of_motorist_killed and number_of_cyclist_killed."
+}

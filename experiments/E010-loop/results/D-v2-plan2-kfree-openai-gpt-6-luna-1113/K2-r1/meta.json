@@ -1,0 +1,98 @@
+{
+ "q": "K2",
+ "rep": 1,
+ "label": "D-v2-plan2-kfree-openai-gpt-6-luna-1113",
+ "type": "clear",
+ "base": "K2",
+ "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+ "k": 0,
+ "call_ok": true,
+ "timed_out": false,
+ "answered_no_exit": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 138.4,
+ "zero_output_retries": 0,
+ "secs_total": 138.4,
+ "steps": 19,
+ "hit_step_limit": false,
+ "tool_calls": 21,
+ "tokens": {
+  "input": 57,
+  "output": 6991,
+  "reasoning": 5969,
+  "cache_read": 256564,
+  "cache_write": 27833,
+  "total": 297414
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 2,
+ "n_complete_options": 2,
+ "n_distinct_framings": 2,
+ "n_distinct_analytic": 2,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Number of police-reported crashes",
+   "denominator": "None; a count of crashes",
+   "grouping": "Day of week derived from crash_date, Monday through Sunday, pooled across 2013-2025",
+   "chart_type": "Bar chart",
+   "reason": "A pooled count gives the direct overall distribution of reported crash records across weekdays during the full requested period.",
+   "probability": 0.6,
+   "answer": "Among the 2,132,218 in-range crash records, Friday had the most reported crashes (338,800) and Sunday the fewest (257,544).",
+   "interpretation": "Each row is one police-reported crash, and its weekday is derived from crash_date; the bars count records from 2013-01-01 through 2025-12-31 pooled together. Friday is the largest category at 338,800 crashes and Sunday the smallest at 257,544, giving the aggregate weekday distribution but not its year-to-year variation or exposure-adjusted risk. The check found 2,132,218 in-range rows, no missing crash dates or derived weekdays, and no default/sentinel dates, so all in-range rows were retained; 100,545 records before 2013 and 36,424 after 2025 were excluded. Observed dates span January 1 to December 31 in every year, though those endpoints alone do not prove complete reporting within each year.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Within-year share of police-reported crashes for each day of the week",
+   "denominator": "All in-scope crashes with a valid crash_date in the same calendar year",
+   "grouping": "Calendar year and day of week derived from crash_date, Monday through Sunday",
+   "chart_type": "Year-by-weekday line chart of annual shares",
+   "reason": "Year-specific shares reveal whether the weekday mix changes over time without letting variation in total annual crash counts dominate the comparison.",
+   "probability": 0.4,
+   "answer": "Friday had the largest within-year share in every year, while its share declined from 16.25% in 2013 to 15.53% in 2025 and Sunday's rose from 11.85% to 13.09%.",
+   "interpretation": "Each row is one police-reported crash; weekday is derived from crash_date, and each line plots a weekday's share of that same calendar year's in-range reported crashes for 2013-2025. Friday has the largest share in all 13 years, while from 2013 to 2025 Friday's share moves from 16.25% to 15.53% and Sunday's from 11.85% to 13.09%; this within-year denominator shows mix changes rather than absolute annual volume. It does not show crash risk per amount of travel or other exposure. The check found 2,132,218 in-range rows, no missing crash dates, years, or weekdays and no default/sentinel dates, so all in-range rows were kept; 100,545 records before 2013 and 36,424 after 2025 were excluded, and each year's observed dates span January 1 to December 31, although that does not establish reporting completeness within the year.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "- Pooled across 2013\u20132025, Friday had the most reported crashes (338,800) and Sunday the fewest (257,544).\n- Friday had the largest within-year share in every year; its share declined from 16.25% in 2013 to 15.53% in 2025, while Sunday\u2019s rose from 11.85% to 13.09%.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "python_prefix": "/Users/yubo/.poppy/venv",
+  "python_executable": "/Users/yubo/Downloads/Anaconda/anaconda3/bin/python3.13",
+  "git_commit": "5d90fc7",
+  "prompt_sha": {
+   "D_enumerate.v2-plan2.md": "0404cb862dc10fd5"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "profile": null,
+ "rendered_prompt_sha": "7f2bd3be7d0bf270",
+ "jit": null,
+ "first_step_prompt_tokens": 5924,
+ "opencode_env": {
+  "OPENCODE_DISABLE_EXTERNAL_SKILLS": "1",
+  "OPENCODE_DISABLE_CLAUDE_CODE": "1"
+ },
+ "step_cap": 50,
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

@@ -1,0 +1,31 @@
+{
+  "initial_plan": {
+    "answerability": "partly: the data can compare the share of reported crashes involving at least one person injured or killed, but cannot measure the danger per trip or per vehicle-mile",
+    "metric": "percentage of included reported crashes with number_of_persons_injured > 0 or number_of_persons_killed > 0",
+    "denominator": "crashes with a usable date, a valid crash_time, and nonmissing values in both total-person outcome columns",
+    "population": "police-reported NYC motor-vehicle crashes in all years represented by valid crash_date values",
+    "filters": ["valid crash_date", "valid crash_time", "nonmissing number_of_persons_injured and number_of_persons_killed"],
+    "years": "all years represented by valid crash_date values in the file",
+    "grouping": "Night = crash_time from 20:00 through 05:59; day = 06:00 through 19:59",
+    "data_check_decisions": null,
+    "limitations": null
+  },
+  "data_check_decisions": {
+    "scope_change": "Use only complete calendar years 2013-2025 to compare both time-of-day groups across the same complete-year range and avoid the highly incomplete total-person outcomes in partial 2026.",
+    "year_exclusions": "Exclude 136,969 valid-date rows from 2012 and 2026 (6.036038% of all valid-date rows): 2012 covers only July 1-December 31 and 2026 only January 1-June 11; total-person killed is missing for 8,877 of 36,424 rows in 2026.",
+    "outcome_exclusions": "Within 2013-2025, exclude 42 of 2,132,218 candidate rows with either total-person outcome column missing (18 missing injured and 36 missing killed, with overlap), rather than treating unknown as no casualties.",
+    "impossible_outcomes": "No negative values were found in either total-person outcome column in the 2013-2025 candidate rows.",
+    "time_values": "Keep all 23,787 rows in 2013-2025 with crash_time 00:00:00 because midnight is a valid time; disclose the possible default-time pile-up.",
+    "date_time_quality": "There are no missing crash dates or times in the candidate rows used for these years, and no impossible nonmissing typed TIME values."
+  },
+  "final_plan": {
+    "answerability": "partly: measures the chance that a reported crash had at least one injured or killed person, conditional on being a reported crash, not street or trip risk",
+    "metric": "Percentage of included reported crashes where number_of_persons_injured > 0 or number_of_persons_killed > 0",
+    "denominator": "2,132,176 police-reported crashes with valid date and time and nonmissing values in both total-person outcome columns, during complete calendar years 2013-2025",
+    "population": "Police-reported NYC motor-vehicle crashes from 2013 through 2025, with known total-person injury and death counts and a valid recorded crash time",
+    "filters": ["crash_date in calendar years 2013-2025", "valid crash_time", "nonmissing number_of_persons_injured and number_of_persons_killed"],
+    "years": "2013-2025 inclusive; partial 2012 and 2026 excluded",
+    "grouping": "Night = crash_time 20:00-23:59 or 00:00-05:59; day = 06:00-19:59",
+    "limitations": "The denominator is reported crashes, not trips, people exposed, traffic volume, or vehicle-miles, so the result cannot establish exposure-adjusted danger. Years are pooled without year adjustment. The 23,787 recorded-midnight crashes in scope are retained although midnight may be a default-time pile-up; 42 crashes missing total-person outcome fields are excluded. Partial 2012 and 2026 are excluded; file dates end 2026-06-11."
+  }
+}

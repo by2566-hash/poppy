@@ -1,0 +1,28 @@
+{
+  "id": 2,
+  "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+  "initial_plan": {
+    "answerability": "yes: crash_date supports assigning each recorded crash to a weekday; the metric adjusts counts for the number of calendar dates of each weekday in the observed date span",
+    "metric": "mean number of crash records per calendar occurrence of each weekday",
+    "denominator": "number of calendar dates of that weekday from the earliest through latest non-missing crash_date in 2013–2025, inclusive",
+    "population": "police-reported crash records with crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date is in years 2013–2025"],
+    "years": "2013–2025 inclusive",
+    "grouping": "weekday of crash_date, Monday through Sunday"
+  },
+  "data_check_interpretation": {
+    "facts": "The selected population contains 2,132,218 crash records across 2013–2025. Every year has calendar bounds from January 1 through December 31. Within the selected rows crash_date is missing 0 times; impossible dates are 0, and the checked sentinel dates 1900-01-01, 1970-01-01 and 2000-01-01 each occur 0 times. Counts per year are in check_2.csv.",
+    "row_decisions": "Keep all in-range rows; no in-range rows are removed or separated by date quality. Rows with NULL or out-of-range crash_date cannot be assigned to this period or weekday and are not measured by the scoped check, so their number is not asserted.",
+    "plan_changes": "None. Complete year bounds mean the observed weekday exposure covers full calendar years, so the denominator will count calendar dates of each weekday in the full date span; the check establishes bounds, not completeness of reporting on every individual date."
+  },
+  "final_plan": {
+    "answerability": "yes: date-grouped crash records and calendar-day exposure support an average recorded crash count per occurrence of each weekday",
+    "metric": "mean number of police-reported crash records per calendar occurrence of each weekday",
+    "denominator": "number of calendar dates of each weekday from 2013-01-01 through 2025-12-31 inclusive",
+    "population": "all records with crash_date from 2013-01-01 through 2025-12-31 inclusive (2,132,218 records in the checked population)",
+    "filters": ["crash_date >= 2013-01-01", "crash_date <= 2025-12-31"],
+    "years": "2013–2025 inclusive; each year has observed date bounds Jan 1–Dec 31",
+    "grouping": "weekday of crash_date in Monday-to-Sunday order",
+    "limitations": "This is an average per calendar weekday date, not a rate per travel exposure or a measure of crash risk; it combines all years. Complete Jan 1–Dec 31 bounds were found each year, but the check does not prove each date is equally covered. Records with missing or out-of-period dates are not assignable to the defined population; their number was not assessed by the in-population check."
+  }
+}

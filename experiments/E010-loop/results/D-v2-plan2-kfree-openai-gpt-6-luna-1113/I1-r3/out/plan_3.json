@@ -1,0 +1,17 @@
+{
+  "id": 3,
+  "stage": "final plan",
+  "can_answer_question": "partly: this data has no miles-driven exposure, so it cannot measure deaths per mile or whether per-mile risk declined; it can show the share of reported crashes involving a motorist death as a crash-severity trend.",
+  "metric": "Annual share of NYC police-reported crashes with at least one motorist reported killed (number_of_motorist_killed > 0) among crashes with a non-missing motorist-deaths field.",
+  "denominator": "All police-reported NYC crashes in the same year with a non-missing number_of_motorist_killed value.",
+  "population": "Police-reported NYC motor vehicle crashes dated 2013 through 2025, inclusive, with known motorist-deaths field; numerator is crashes with a positive value.",
+  "filters": ["crash_date year is 2013 through 2025 inclusive", "number_of_motorist_killed is non-missing for numerator and denominator"],
+  "years": "2013-2025 inclusive; check whether either endpoint year is only partially covered.",
+  "grouping": "Calendar year derived from crash_date.",
+  "data_check": {
+    "facts": "The planned period contains 2,132,218 source crash rows. Each year 2013-2025 has observed dates from January 1 through December 31; no edge year is visibly partial by its observed date bounds. Within the planned population, crash_date is non-missing by the year filter, no checked sentinel date occurs, and number_of_motorist_killed is missing in 0 rows in every year; therefore the final known-field population has all source rows in each year.",
+    "decision": "No change to the plan. Define the denominator as crashes with a non-missing motorist-deaths field; this excludes 0 rows in every year, so all source crashes remain in the metric and none need a separate missing-data group.",
+    "plan_change": "None."
+  },
+  "limitations": "The crash file has no vehicle-miles-traveled or other mileage exposure, so the share of crashes involving a motorist death is not a per-mile risk or an individual motorist's probability of death. This measures crash severity conditional on a reported crash. Full-year observed date bounds do not establish record completeness or absence of within-year gaps."
+}

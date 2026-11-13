@@ -1,0 +1,98 @@
+{
+ "q": "K2",
+ "rep": 3,
+ "label": "D-v2-kfree-openai-gpt-6-luna-1113",
+ "type": "clear",
+ "base": "K2",
+ "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+ "k": 0,
+ "call_ok": true,
+ "timed_out": false,
+ "answered_no_exit": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 66.2,
+ "zero_output_retries": 0,
+ "secs_total": 66.2,
+ "steps": 13,
+ "hit_step_limit": false,
+ "tool_calls": 17,
+ "tokens": {
+  "input": 39,
+  "output": 2989,
+  "reasoning": 1499,
+  "cache_read": 109937,
+  "cache_write": 15311,
+  "total": 129775
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 2,
+ "n_complete_options": 2,
+ "n_distinct_framings": 2,
+ "n_distinct_analytic": 2,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Number of police-reported crashes",
+   "denominator": "None (raw crash total)",
+   "grouping": "Day of week, 2013-01-01 through 2025-12-31",
+   "chart_type": "Bar chart",
+   "reason": "Raw totals directly show how the observed crash volume is distributed across weekdays.",
+   "probability": 0.6,
+   "answer": "Friday had the most crashes (338,800) and Sunday the fewest (257,544) in 2013\u20132025.",
+   "interpretation": "This framing answers how the total observed crash records are distributed among weekdays, with Friday highest and Sunday lowest. Raw totals are an intuitive measure of overall recorded volume, but do not adjust for the number of dates per weekday or describe year-to-year changes.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Average number of police-reported crashes per calendar date",
+   "denominator": "Number of calendar dates of each weekday in 2013\u20132025",
+   "grouping": "Day of week, 2013-01-01 through 2025-12-31",
+   "chart_type": "Bar chart",
+   "reason": "A per-date average puts weekdays on a comparable basis despite small differences in how often each weekday occurs in the date range.",
+   "probability": 0.4,
+   "answer": "Friday averaged 499.7 crashes per date, the highest, while Sunday averaged 379.9, the lowest.",
+   "interpretation": "This framing answers which weekday dates typically had more or fewer recorded crashes, and Friday remains highest while Sunday is lowest after normalizing by weekday-date counts. It is a defensible comparison of daily volume, but does not measure crash risk per trip, vehicle, or person and does not show changes over time.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "From raw crash totals, Friday had the most crashes (338,800) and Sunday the fewest (257,544) in 2013\u20132025.\nAdjusted for the number of calendar dates per weekday, Friday averaged the most crashes (499.7 per date) and Sunday the fewest (379.9).",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "python_prefix": "/Users/yubo/.poppy/venv",
+  "python_executable": "/Users/yubo/Downloads/Anaconda/anaconda3/bin/python3.13",
+  "git_commit": "5d90fc7",
+  "prompt_sha": {
+   "D_enumerate.v2.md": "bde1fd02f5b3e576"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "profile": null,
+ "rendered_prompt_sha": "9d9ab9349251f948",
+ "jit": null,
+ "first_step_prompt_tokens": 5400,
+ "opencode_env": {
+  "OPENCODE_DISABLE_EXTERNAL_SKILLS": "1",
+  "OPENCODE_DISABLE_CLAUDE_CODE": "1"
+ },
+ "step_cap": 35,
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

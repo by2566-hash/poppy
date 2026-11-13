@@ -1,0 +1,15 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of pedestrians killed, calculated as the sum of number_of_pedestrians_killed for crashes in each calendar year.",
+      "denominator": "None; this is an absolute count, not a rate or share.",
+      "grouping": "Calendar year of crash_date, 2013–2025 inclusive.",
+      "chart_type": "bar chart",
+      "reason": "Summing the pedestrian fatality count measures people killed directly and preserves multiple deaths in a single crash.",
+      "probability": 1.0,
+      "answer": "The annual counts were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This framing directly answers the requested year-by-year number of pedestrians killed: the plotted annual counts range from 101 in 2020 to 176 in 2013, and the 2025 count is 119. It is defensible because the metric sums number_of_pedestrians_killed (people) rather than counting crashes, uses crashes dated in each calendar year from 2013 through 2025, and has no denominator because it is an absolute count. It does not establish totals for crashes that were not police-reported or explain why the annual counts change. The data check covers 2,132,218 in-range crash rows, found no missing pedestrian fatality counts in any year, and found observed date bounds spanning Jan 1–Dec 31 in all 13 years; all in-range rows were retained, while crashes without a usable date cannot be assigned to a year and the date bounds do not establish complete reporting between dates."
+    }
+  ]
+}

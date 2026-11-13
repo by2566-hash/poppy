@@ -1,0 +1,17 @@
+{
+  "id": 1,
+  "stage": "final plan",
+  "can_answer_question": "partly: this data has no miles-driven exposure, so it cannot measure deaths per mile or whether per-mile risk declined; it can show annual counts of motorist deaths in reported crashes as a non-rate trend.",
+  "metric": "Annual number of motorist deaths reported in NYC motor vehicle crashes, summed from number_of_motorist_killed.",
+  "denominator": "None; this is a count, not a rate.",
+  "population": "Police-reported NYC motor vehicle crash records dated 2013 through 2025, inclusive; the metric sums the reported motorist deaths in those records.",
+  "filters": ["crash_date year is 2013 through 2025 inclusive"],
+  "years": "2013-2025 inclusive; check whether either endpoint year is only partially covered.",
+  "grouping": "Calendar year derived from crash_date.",
+  "data_check": {
+    "facts": "The planned period contains 2,132,218 source crash rows. Each year 2013-2025 has observed dates from January 1 through December 31; no edge year is visibly partial by its observed date bounds. Within the planned population, crash_date is non-missing by the year filter, no checked sentinel date occurs, and number_of_motorist_killed is missing in 0 rows in every year.",
+    "decision": "No change to the plan. Keep all crashes in the year range and sum the motorist-deaths field; there are no rows to drop or count differently for a missing outcome. The year endpoints are fully represented at the observed date bounds.",
+    "plan_change": "None."
+  },
+  "limitations": "The crash file has no vehicle-miles-traveled or other mileage exposure, so this is an annual fatality count, not a per-mile risk or rate. Full-year observed date bounds do not establish that every record is complete or that no dates are missing within the year."
+}

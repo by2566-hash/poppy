@@ -1,0 +1,13 @@
+{
+  "framing": "Annual reported death counts by road-user type",
+  "can_answer": "yes — the file has crash-level counts of motorist and cyclist deaths and crash dates for 2013–2025.",
+  "metric": "Sum of number_of_motorist_killed and number_of_cyclist_killed separately for each calendar year.",
+  "denominator": "None; these are annual reported death counts, not rates.",
+  "population": "All crash records in NYC with crash_date in calendar years 2013–2025; each crash contributes its recorded count for each type.",
+  "filters": "Keep crash_date years 2013 through 2025 inclusive; no borough filter because the file is NYC crashes.",
+  "years": "Calendar years 2013–2025, grouped by year.",
+  "grouping": "Calendar year and road-user type (motorist, cyclist).",
+  "chart_type": "Two-series line chart of annual counts.",
+  "data_check_meaning_and_decisions": "The checked population contains 2,132,218 crash rows across 2013–2025. Each of the 13 years has observed dates from Jan 1 through Dec 31; this confirms boundary coverage but not that every record is present. In the selected population, crash_date has 0 missing/impossible/default dates and number_of_motorist_killed and number_of_cyclist_killed each have 0 missing values. Missing dates cannot be assigned to the requested years and are excluded by the year filter; no selected rows are dropped or assigned differently for missing death values. Decision: keep all selected rows and sum the recorded death counts; disclose that these are reported totals, not exposure-adjusted rates, and date boundaries do not prove complete reporting.",
+  "limitations": "The measures are totals of reported crash-level death counts, not population or traffic-exposure rates. The date range spans each full calendar year's boundaries, but the check cannot establish completeness within those years."
+}

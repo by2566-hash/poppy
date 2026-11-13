@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual deaths recorded for motorists and cyclists",
+      "denominator": "None; raw annual death counts",
+      "grouping": "Year and road-user group",
+      "chart_type": "Two-series line chart",
+      "reason": "It directly compares the annual levels and trends for both road-user groups.",
+      "probability": 0.75,
+      "answer": "Recorded motorist deaths exceeded cyclist deaths in every year from 2013 to 2025; in 2025 the counts were 81 and 23, respectively.",
+      "interpretation": "This compares the two groups' annual death counts directly, which answers how their levels and trends compare year by year. The plotted counts show motorist deaths were higher in all 13 years. It does not adjust for travel exposure or show fatality rates."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths minus cyclist deaths per year",
+      "denominator": "None; absolute difference in annual death counts",
+      "grouping": "Year",
+      "chart_type": "Bar chart of annual differences",
+      "reason": "The annual difference makes the size of the gap between the groups easy to compare over time.",
+      "probability": 0.25,
+      "answer": "The motorist\u2013cyclist gap was 51 deaths at its smallest (2019) and 115 at its largest (2021); it was positive every year.",
+      "interpretation": "This frames the comparison as the annual excess of motorist over cyclist deaths, showing how the gap changes by year. It is defensible because the question asks how the two counts compare, and subtraction directly measures that difference. It does not show either group's underlying count separately or compare risk per trip or person."
+    }
+  ]
+}

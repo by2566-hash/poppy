@@ -1,0 +1,115 @@
+{
+  "data_check": {
+    "facts_file": "check_2.csv",
+    "population_rows_total": 483501,
+    "population_rows_per_year": {
+      "2013": 47024,
+      "2014": 47761,
+      "2015": 50851,
+      "2016": 47464,
+      "2017": 44915,
+      "2018": 47313,
+      "2019": 44479,
+      "2020": 25473,
+      "2021": 25174,
+      "2022": 23369,
+      "2023": 22890,
+      "2024": 22785,
+      "2025": 24303,
+      "2026": 9700
+    },
+    "file_date_coverage": "2012-07-01 through 2026-06-11",
+    "partial_years": [
+      2026
+    ],
+    "rows_with_unusable_borough_in_dated_2013_on_records": 668406,
+    "Brooklyn_rows_missing_date": 0,
+    "outcome_missing_counts": {
+      "number_of_pedestrians_killed": {
+        "2013": 0,
+        "2014": 0,
+        "2015": 0,
+        "2016": 0,
+        "2017": 0,
+        "2018": 0,
+        "2019": 0,
+        "2020": 0,
+        "2021": 0,
+        "2022": 0,
+        "2023": 0,
+        "2024": 0,
+        "2025": 0,
+        "2026": 0
+      }
+    },
+    "rows_excluded_for_missing_metric_component": {
+      "2013": 0,
+      "2014": 0,
+      "2015": 0,
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 0,
+      "2020": 0,
+      "2021": 0,
+      "2022": 0,
+      "2023": 0,
+      "2024": 0,
+      "2025": 0,
+      "2026": 0
+    }
+  },
+  "decisions": {
+    "borough_filter": "Normalize borough labels with upper(trim(borough)) = BROOKLYN; missing or unknown borough rows cannot be assigned to Brooklyn and are excluded. The initial exact-case filter was changed because the file stores the label as BROOKLYN.",
+    "date": "Use dated rows from 2013 onward; Brooklyn rows with missing dates cannot be assigned to a year and are excluded.",
+    "outcomes": "Exclude rows missing any outcome component used by the metric so annual totals are not silently understated; disclose the count in the interpretation.",
+    "partial_years": "Use partial years as observed, label them clearly, and avoid comparing them as full-year totals."
+  },
+  "limitations": "Annual counts are not exposure-adjusted risk rates; the source covers police-reported crashes only. The data check found 668,406 dated 2013-on records with missing/unknown borough, zero Brooklyn rows with missing dates, and zero missing fatality outcome values in the selected years. 2026 is partial through June 11 and is labeled separately.",
+  "initial_plan": {
+    "can_answer": "partly: the data can show annual pedestrian deaths in police-reported crashes, but it cannot establish exposure-adjusted risk or explain why safety changed",
+    "metric": "annual number of pedestrians killed",
+    "denominator": "none; annual count, not a rate",
+    "population": "pedestrians recorded as killed in police-reported crashes in Brooklyn during each calendar year from 2013 onward",
+    "filters": [
+      "borough = Brooklyn",
+      "crash_date year >= 2013"
+    ],
+    "years": "2013 onward through 2026; partial file years retained and labeled",
+    "grouping": "calendar year of crash_date",
+    "columns_checked": [
+      "borough",
+      "crash_date",
+      "number_of_pedestrians_killed"
+    ],
+    "data_check": null,
+    "decisions": null,
+    "limitations": null
+  },
+  "final_plan": {
+    "can_answer": "partly: the data can show annual pedestrian deaths in police-reported crashes, but it cannot establish exposure-adjusted risk or explain why safety changed",
+    "metric": "annual number of pedestrians killed",
+    "denominator": "none; annual count, not a rate",
+    "population": "pedestrians recorded as killed in police-reported crashes in Brooklyn during each calendar year from 2013 onward",
+    "filters": [
+      "upper(trim(borough)) = BROOKLYN",
+      "crash_date year >= 2013"
+    ],
+    "years": "2013 onward through 2026; partial file years retained and labeled",
+    "grouping": "calendar year of crash_date",
+    "columns_checked": [
+      "borough",
+      "crash_date",
+      "number_of_pedestrians_killed"
+    ],
+    "limitations": "Annual counts are not exposure-adjusted risk rates; the source covers police-reported crashes only. The data check found 668,406 dated 2013-on records with missing/unknown borough, zero Brooklyn rows with missing dates, and zero missing pedestrian-death values in the selected years. 2026 is partial through June 11 and is labeled separately.",
+    "plan_change_from_initial": "Normalize borough casing and surrounding spaces after the data check found the stored category is BROOKLYN, not Brooklyn.",
+    "missing_outcome_rule": "Drop rows missing any outcome component included in the metric.",
+    "data_check_decisions": {
+      "borough_filter": "Normalize borough labels with upper(trim(borough)) = BROOKLYN; missing or unknown borough rows cannot be assigned to Brooklyn and are excluded. The initial exact-case filter was changed because the file stores the label as BROOKLYN.",
+      "date": "Use dated rows from 2013 onward; Brooklyn rows with missing dates cannot be assigned to a year and are excluded.",
+      "outcomes": "Exclude rows missing any outcome component used by the metric so annual totals are not silently understated; disclose the count in the interpretation.",
+      "partial_years": "Use partial years as observed, label them clearly, and avoid comparing them as full-year totals."
+    }
+  }
+}

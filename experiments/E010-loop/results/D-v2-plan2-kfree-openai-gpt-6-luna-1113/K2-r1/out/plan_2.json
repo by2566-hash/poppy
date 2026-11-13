@@ -1,0 +1,23 @@
+{
+  "id": 2,
+  "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+  "can_answer": "yes",
+  "metric": "Within-year share of police-reported crashes for each day of the week",
+  "denominator": "All in-scope crashes with a valid crash_date in the same calendar year",
+  "population": "All rows representing police-reported NYC crashes whose crash_date falls from 2013-01-01 through 2025-12-31, inclusive",
+  "filters": ["Include crash_date years 2013 through 2025 inclusive; exclude rows with a missing crash_date and dates outside this interval"],
+  "years": "Each calendar year, 2013-2025 inclusive",
+  "grouping": "Calendar year and day of week derived from crash_date, Monday through Sunday",
+  "chart_type": "Year-by-weekday line chart of annual shares",
+  "data_check": {
+    "file": "check_2.csv",
+    "plan_population_rows": 2132218,
+    "date_quality": "0 missing crash_date values; 0 sentinel/default dates in scope; 0 missing or invalid derived weekdays or years.",
+    "year_coverage": "Every year from 2013 through 2025 has rows, with observed dates from January 1 through December 31; this endpoint check does not establish reporting completeness within each year.",
+    "excluded_rows": "100545 rows dated before 2013-01-01 and 36424 rows dated after 2025-12-31 are excluded; no source rows have a missing crash_date.",
+    "decision": "Keep every in-range row and show each year separately. Exclude the 137969 dated rows outside the requested period. No rows are dropped for missing or invalid year or weekday values. The population therefore counts in-range police-reported crash records, with within-year shares using that year's records as the denominator."
+  },
+  "plan_changes": "None; the date, year, and derived weekday checks did not require a change to the initial plan.",
+  "limitations": "Annual shares describe the mix of police-reported crashes, not exposure-adjusted crash risk, and do not show absolute annual crash volume. Observed date endpoints alone do not prove complete reporting throughout each year.",
+  "plan_stage": "final"
+}

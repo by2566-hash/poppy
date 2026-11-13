@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "count of police-reported crash records",
+      "denominator": "none; total count by weekday",
+      "grouping": "weekday of crash_date in Monday-to-Sunday order",
+      "chart_type": "bar chart",
+      "reason": "A raw count directly shows the volume of recorded crashes assigned to each weekday over the requested period.",
+      "probability": 0.55,
+      "answer": "Friday had the most recorded crashes (338,800) and Sunday the fewest (257,544) from 2013 through 2025.",
+      "interpretation": "For NYC police-reported crash records dated 2013-01-01 through 2025-12-31, this counts records by the weekday of crash_date in Monday-to-Sunday order; Friday is highest at 338,800 and Sunday lowest at 257,544. Raw counts directly answer where recorded crash volume fell, while pooling all 13 years. This does not show within-year changes or adjust for travel exposure, so it cannot establish crash risk per trip or distance traveled. The scoped check found 2,132,218 selected records, 0 with missing or impossible dates and 0 at the checked sentinel dates, and full Jan 1–Dec 31 bounds in every year; all selected rows were kept, while missing/out-of-period dates cannot be assigned and were not counted in that scoped check."
+    },
+    {
+      "id": 2,
+      "metric": "mean number of police-reported crash records per calendar occurrence of each weekday",
+      "denominator": "number of calendar dates of each weekday from 2013-01-01 through 2025-12-31 inclusive",
+      "grouping": "weekday of crash_date in Monday-to-Sunday order",
+      "chart_type": "bar chart",
+      "reason": "Dividing by the number of calendar dates of each weekday makes the comparison account for the slight differences in weekday occurrences over the 13-year span.",
+      "probability": 0.45,
+      "answer": "On an average calendar date, Friday had the most recorded crashes (499.7) and Sunday the fewest (379.9) from 2013 through 2025.",
+      "interpretation": "For the same NYC police-reported crash records dated 2013-01-01 through 2025-12-31, this divides each weekday's count by the calendar dates of that weekday in the inclusive period (678 or 679 dates) and groups Monday through Sunday; Friday averages 499.7 records per date and Sunday 379.9. This is a defensible comparison of average recorded crash volume per occurrence of a weekday and adjusts for unequal counts of weekday dates. It does not adjust for traffic exposure or year-specific changes, so it cannot show risk per trip/distance or how the weekday pattern changed over time. The scoped check found 2,132,218 selected records, 0 with missing or impossible dates and 0 at the checked sentinel dates, and full Jan 1–Dec 31 bounds in every year; all selected rows were kept, while missing/out-of-period dates cannot be assigned and were not counted in that scoped check."
+    }
+  ]
+}

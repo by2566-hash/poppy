@@ -1,0 +1,8 @@
+weekday,crash_count,crash_share_percent,calendar_dates,avg_crashes_per_date
+Monday,304518,14.28,678,449.14
+Tuesday,313488,14.70,679,461.69
+Wednesday,311111,14.59,679,458.19
+Thursday,318376,14.93,678,469.58
+Friday,338800,15.89,678,499.71
+Saturday,288381,13.52,678,425.34
+Sunday,257544,12.08,678,379.86

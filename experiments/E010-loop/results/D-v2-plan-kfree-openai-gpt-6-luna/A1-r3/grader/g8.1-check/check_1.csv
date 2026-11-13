@@ -1,0 +1,28 @@
+fact,value
+Brooklyn crashes in 2013,47024
+Brooklyn crashes in 2014,47761
+Brooklyn crashes in 2015,50851
+Brooklyn crashes in 2016,47464
+Brooklyn crashes in 2017,44915
+Brooklyn crashes in 2018,47313
+Brooklyn crashes in 2019,44479
+Brooklyn crashes in 2020,25473
+Brooklyn crashes in 2021,25174
+Brooklyn crashes in 2022,23369
+Brooklyn crashes in 2023,22890
+Brooklyn crashes in 2024,22785
+Brooklyn crashes in 2025,24303
+Brooklyn crashes in 2026,9700
+Date-eligible crashes with missing/unknown borough (all boroughs),668406
+Date-eligible crash rows (all boroughs; borough-missing denominator),2168642
+Crashes with missing crash_date (cannot assign year),0
+number_of_pedestrians_injured: Brooklyn date-eligible crash rows,483501
+number_of_pedestrians_injured: NULL values in Brooklyn rows,0
+number_of_pedestrians_injured: empty/unknown text values (not applicable; integer column),0
+number_of_pedestrians_injured: impossible negative values in Brooklyn rows,0
+number_of_pedestrians_injured: zero/default values in Brooklyn rows,449006
+number_of_pedestrians_killed: Brooklyn date-eligible crash rows,483501
+number_of_pedestrians_killed: NULL values in Brooklyn rows,0
+number_of_pedestrians_killed: empty/unknown text values (not applicable; integer column),0
+number_of_pedestrians_killed: impossible negative values in Brooklyn rows,0
+number_of_pedestrians_killed: zero/default values in Brooklyn rows,483119

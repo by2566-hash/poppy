@@ -1,0 +1,33 @@
+fact,value
+"selected rows, all years 2013–2025",2132218
+rows in 2013,203742
+rows in 2014,206046
+rows in 2015,217708
+rows in 2016,229833
+rows in 2017,231007
+rows in 2018,231564
+rows in 2019,211486
+rows in 2020,112918
+rows in 2021,110558
+rows in 2022,103887
+rows in 2023,96607
+rows in 2024,91316
+rows in 2025,85546
+number_of_motorist_killed: missing rows among selected years,0
+number_of_cyclist_killed: missing rows among selected years,0
+rows with either summed killed field missing,0
+crash_date null among selected rows,0
+"crash_date rows at checked default dates 1900-01-01, 1970-01-01, 2000-01-01",0
+2013 date coverage,2013-01-01 through 2013-12-31
+2014 date coverage,2014-01-01 through 2014-12-31
+2015 date coverage,2015-01-01 through 2015-12-31
+2016 date coverage,2016-01-01 through 2016-12-31
+2017 date coverage,2017-01-01 through 2017-12-31
+2018 date coverage,2018-01-01 through 2018-12-31
+2019 date coverage,2019-01-01 through 2019-12-31
+2020 date coverage,2020-01-01 through 2020-12-31
+2021 date coverage,2021-01-01 through 2021-12-31
+2022 date coverage,2022-01-01 through 2022-12-31
+2023 date coverage,2023-01-01 through 2023-12-31
+2024 date coverage,2024-01-01 through 2024-12-31
+2025 date coverage,2025-01-01 through 2025-12-31

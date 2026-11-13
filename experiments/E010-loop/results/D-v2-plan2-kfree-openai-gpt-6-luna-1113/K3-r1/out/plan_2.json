@@ -1,0 +1,26 @@
+{
+  "framing_id": 2,
+  "initial_plan": {
+    "answerability": "partly: the data can compare each group's share of combined motorist-and-cyclist deaths per year, but this does not show absolute death counts or deaths among other road-user categories",
+    "metric": "annual share of combined reported motorist and cyclist deaths attributable to each category, calculated from the sums of number_of_motorist_killed and number_of_cyclist_killed",
+    "denominator": "for each year, the sum of reported motorist and cyclist deaths in that year",
+    "population": "all crash records with a crash_date in calendar years 2013 through 2025 inclusive; fatality totals include only motorist and cyclist categories",
+    "filters": ["crash_date is in 2013–2025"],
+    "years": "calendar year of crash_date, 2013–2025 inclusive",
+    "grouping": ["calendar year", "road-user category: motorist or cyclist"]
+  },
+  "data_check": {
+    "facts": "check_2.csv reports 2,132,218 in-scope crash rows. Neither summed death column has missing values in the population or any year; crash_date has no missing rows and no 1970-01-01 values within the population. The observed minimum and maximum dates span January 1 through December 31 in every year from 2013 to 2025.",
+    "implications_and_decisions": "No in-scope rows need to be excluded or counted differently for missing or default values. Keep all in-scope crash records. The year-boundary check finds no partial year by observed date bounds, though the share denominator is restricted to the two named categories."
+  },
+  "final_plan": {
+    "answerability": "partly: compare the annual composition of reported motorist and cyclist deaths, but not absolute counts, risk rates, or all road-user deaths",
+    "metric": "for each year and category, category deaths divided by combined motorist and cyclist deaths, expressed as a percentage",
+    "denominator": "within each calendar year, the sum of reported motorist deaths and reported cyclist deaths",
+    "population": "all police-reported crash records with crash_date in calendar years 2013–2025 inclusive; only reported motorist and cyclist deaths enter the category totals and denominator",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "calendar year of crash_date, 2013–2025 inclusive",
+    "grouping": ["calendar year", "category derived from the motorist or cyclist killed-count field"],
+    "limitations": "The shares describe composition among only motorist and cyclist deaths, not absolute counts, all road-user deaths, or per-trip/per-person risk. The check found no missing death-field values, no missing or 1970-01-01 crash dates within scope, and no partial years by observed date bounds, so all in-scope rows are retained; full-year bounds do not independently establish reporting completeness."
+  }
+}

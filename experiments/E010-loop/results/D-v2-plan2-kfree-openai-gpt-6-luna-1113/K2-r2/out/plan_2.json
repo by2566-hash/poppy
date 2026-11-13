@@ -1,0 +1,29 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "answerability": "yes; it can describe each weekday's share of dated, police-reported crashes, but not relative crash risk by weekday",
+    "metric": "Share of in-period police-reported crashes",
+    "denominator": "All police-reported crashes with a nonmissing crash_date from 2013-01-01 through 2025-12-31",
+    "population": "Crashes with a nonmissing crash_date from 2013-01-01 through 2025-12-31",
+    "filters": ["crash_date is within calendar years 2013–2025"],
+    "years": "2013–2025 inclusive",
+    "grouping": "Day of week derived from crash_date, Monday through Sunday",
+    "chart_type": "Bar chart (percentage of all in-period crashes)"
+  },
+  "data_check": {
+    "source": "check_2.csv",
+    "facts": "The in-period population is 2,132,218 crashes. Each year 2013–2025 has observed dates spanning January 1 through December 31. Within the filtered population, 0 crash_date values and 0 derived weekdays are missing, invalid, unknown, or defaulted; crash_date is a typed DATE.",
+    "meaning_and_decision": "No dated rows in 2013–2025 are dropped or assigned to an unknown weekday or excluded from the denominator. Rows outside those years, and rows without a usable date, are outside the planned population; the check is deliberately limited to the planned population and does not count them. Keep all in-period rows. Complete observed year boundaries do not establish that every crash was reported."
+  },
+  "final_plan": {
+    "answerability": "yes for the composition of dated, police-reported NYC crashes; no for weekday-specific crash risk or adjustment for traffic exposure",
+    "metric": "Percentage share of all in-period police-reported crashes",
+    "denominator": "All rows with crash_date from 2013-01-01 through 2025-12-31, inclusive",
+    "population": "All rows with crash_date from 2013-01-01 through 2025-12-31, inclusive",
+    "filters": ["crash_date between 2013-01-01 and 2025-12-31 inclusive"],
+    "years": "2013–2025 inclusive",
+    "grouping": "Weekday from crash_date, ordered Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+    "chart_type": "Bar chart",
+    "limitations": "Shares describe the composition of police-reported crash records, not the risk of crashing: traffic volume or person-trips by weekday are unavailable. Date values are usable for all rows in the target period and every year has observed start/end dates, but the file does not independently establish reporting completeness."
+  }
+}

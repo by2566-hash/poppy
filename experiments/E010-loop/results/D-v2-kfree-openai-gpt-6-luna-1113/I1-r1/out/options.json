@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of motorists killed",
+      "denominator": "None (annual count)",
+      "grouping": "Year",
+      "chart_type": "Line chart",
+      "reason": "The annual death count directly measures how many motorists were killed in reported NYC crashes each year.",
+      "probability": 0.55,
+      "answer": "Motorist deaths fell from 110 in 2013 to 81 in 2025 (26%), but this crash data has no miles-driven denominator and cannot show whether per-mile risk declined.",
+      "interpretation": "This framing shows whether the annual number of motorists killed fell: it decreased from 110 in 2013 to 81 in 2025, despite fluctuations in between. It is a defensible count of the outcome recorded here, but it leaves exposure miles unanswered and therefore cannot establish a change in risk per mile."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths per 100,000 reported crashes",
+      "denominator": "Police-reported crashes in the same year",
+      "grouping": "Year",
+      "chart_type": "Line chart",
+      "reason": "Normalizing deaths by reported crashes provides a relevant crash-level comparison when the dataset contains no mileage exposure.",
+      "probability": 0.45,
+      "answer": "Motorist deaths per 100,000 reported crashes rose from 54.0 in 2013 to 94.7 in 2025, so this crash-normalized measure did not decline; the data cannot determine per-mile risk.",
+      "interpretation": "This framing answers how motorist fatalities changed relative to the volume of police-reported crashes: the rate increased from 54.0 per 100,000 reports in 2013 to 94.7 in 2025. It is defensible as a crash-normalized fatality measure, but reported crashes are not miles driven, so it leaves the per-mile risk question unanswered."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "status": "final",
+  "can_answer_question": "partly: the file cannot measure risk per mile driven because it contains no vehicle-miles-traveled exposure; it can show annual counts of motorists killed in reported crashes as a related outcome trend",
+  "metric": "annual count of motorists killed in police-reported crashes, using the sum of number_of_motorist_killed",
+  "denominator": "none; an annual count, not an exposure-adjusted risk",
+  "population": "NYC police-reported crash rows dated in 2013-2025 with a nonmissing number_of_motorist_killed value",
+  "filters": [
+    "crash_date year from 2013 through 2025",
+    "number_of_motorist_killed is not NULL"
+  ],
+  "years": "2013-2025 inclusive, grouped by calendar year",
+  "grouping": "calendar year of crash_date",
+  "data_check": {
+    "source_rows": 2269187,
+    "rows_with_missing_crash_date_excluded_and_not_assignable_to_a_year": 0,
+    "dated_rows_in_2013_2025_before_outcome_filter": 2132218,
+    "rows_with_missing_number_of_motorist_killed_in_2013_2025": 0,
+    "usable_complete_case_rows_in_2013_2025": 2132218,
+    "annual_check": [
+      {
+        "year": 2013,
+        "dated_crash_rows_before_outcome_missingness_filter": 203742,
+        "missing_motorist_killed_rows": 0,
+        "usable_rows_after_complete_case_filter": 203742,
+        "observed_date_span": "2013-01-01 through 2013-12-31",
+        "calendar_year_partial_by_observed_date_span": false
+      },
+      {
+        "year": 2014,
+        "dated_crash_rows_before_outcome_missingness_filter": 206046,
+        "missing_motorist_killed_rows": 0,
+        "usable_rows_after_complete_case_filter": 206046,
+        "observed_date_span": "2014-01-01 through 2014-12-31",
+        "calendar_year_partial_by_observed_date_span": false
+      },
+      {
+        "year": 2015,
+        "dated_crash_rows_before_outcome_missingness_filter": 217708,
+        "missing_motorist_killed_rows": 0,
+        "usable_rows_after_complete_case_filter": 217708,
+        "observed_date_span": "2015-01-01 through 2015-12-31",
+        "calendar_year_partial_by_observed_date_span": false
+      },
+      {
+        "year": 2016,
+        "dated_crash_rows_before_outcome_missingness_filter": 229833,
+        "missing_motorist_killed_rows": 0,
+        "usable_rows_after_complete_case_filter": 229833,
+        "observed_date_span": "2016-01-01 through 2016-12-31",
+        "calendar_year_partial_by_observed_date_span": false
+      },
+      {
+        "year": 2017,
+        "dated_crash_rows_before_outcome_missingness_filter": 231007,
+        "missing_motorist_killed_rows": 0,
+        "usable_rows_after_complete_case_filter": 231007,
+        "observed_date_span": "2017-01-01 through 2017-12-31",
+        "calendar_year_partial_by_observed_date_span": false
+      },
+      {
+        "year": 2018,
+        "dated_crash_rows_before_outcome_missingness_filter": 231564,
+        "missing_motorist_killed_rows": 0,
+        "usable_rows_after_complete_case_filter": 231564,
+        "observed_date_span": "2018-01-01 through 2018-12-31",
+        "calendar_year_partial_by_observed_date_span": false
+      },
+      {
+        "year": 2019,
+        "dated_crash_rows_before_outcome_missingness_filter": 211486,
+        "missing_motorist_killed_rows": 0,
+        "usable_rows_after_complete_case_filter": 211486,
+        "observed_date_span": "2019-01-01 through 2019-12-31",
+        "calendar_year_partial_by_observed_date_span": false
+      },
+      {
+        "year": 2020,
+        "dated_crash_rows_before_outcome_missingness_filter": 112918,
+        "missing_motorist_killed_rows": 0,
+        "usable_rows_after_complete_case_filter": 112918,
+        "observed_date_span": "2020-01-01 through 2020-12-31",
+        "calendar_year_partial_by_observed_date_span": false
+      },
+      {
+        "year": 2021,
+        "dated_crash_rows_before_outcome_missingness_filter": 110558,
+        "missing_motorist_killed_rows": 0,
+        "usable_rows_after_complete_case_filter": 110558,
+        "observed_date_span": "2021-01-01 through 2021-12-31",
+        "calendar_year_partial_by_observed_date_span": false
+      },
+      {
+        "year": 2022,
+        "dated_crash_rows_before_outcome_missingness_filter": 103887,
+        "missing_motorist_killed_rows": 0,
+        "usable_rows_after_complete_case_filter": 103887,
+        "observed_date_span": "2022-01-01 through 2022-12-31",
+        "calendar_year_partial_by_observed_date_span": false
+      },
+      {
+        "year": 2023,
+        "dated_crash_rows_before_outcome_missingness_filter": 96607,
+        "missing_motorist_killed_rows": 0,
+        "usable_rows_after_complete_case_filter": 96607,
+        "observed_date_span": "2023-01-01 through 2023-12-31",
+        "calendar_year_partial_by_observed_date_span": false
+      },
+      {
+        "year": 2024,
+        "dated_crash_rows_before_outcome_missingness_filter": 91316,
+        "missing_motorist_killed_rows": 0,
+        "usable_rows_after_complete_case_filter": 91316,
+        "observed_date_span": "2024-01-01 through 2024-12-31",
+        "calendar_year_partial_by_observed_date_span": false
+      },
+      {
+        "year": 2025,
+        "dated_crash_rows_before_outcome_missingness_filter": 85546,
+        "missing_motorist_killed_rows": 0,
+        "usable_rows_after_complete_case_filter": 85546,
+        "observed_date_span": "2025-01-01 through 2025-12-31",
+        "calendar_year_partial_by_observed_date_span": false
+      }
+    ],
+    "date_field_note": "crash_date is typed DATE, so empty strings and text sentinels are not representable; observed min/max dates are checked by year"
+  },
+  "limitations": "The dataset has no vehicle-miles-traveled exposure, so none of these metrics is risk per mile. These are outcomes among police-reported crashes and can change with crash volume, traffic exposure, reporting, or the number of people in each crash. All requested years have Jan 1-Dec 31 observed date spans; date-span endpoints do not independently establish that reporting is complete on every day.",
+  "final_population_decision": "Use dated crashes in 2013-2025 with a nonmissing number_of_motorist_killed value; exclude rows missing the motorist-death count from each annual metric and, for rate/share metrics, from the denominator as well.",
+  "data_check_interpretation": "Among the 2132218 dated crashes in 2013-2025, 0 have a missing number_of_motorist_killed value, so the complete-case decision removes 0 rows; 0 rows have no crash_date and cannot be assigned to a year. All 13 years have observed dates from Jan 1 through Dec 31, so no requested year is partial by its observed endpoints. crash_date is a typed DATE, so empty strings and textual unknown sentinels are impossible; invalid dates cannot be represented."
+}

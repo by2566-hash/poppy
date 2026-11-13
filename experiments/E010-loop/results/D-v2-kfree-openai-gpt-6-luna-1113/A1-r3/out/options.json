@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of pedestrians injured or killed in Brooklyn crashes",
+      "denominator": "No exposure denominator; absolute reported counts",
+      "grouping": "Calendar year, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "Combining injuries and deaths gives a direct measure of the yearly reported pedestrian casualty burden.",
+      "probability": 0.45,
+      "answer": "Brooklyn reported 2,874 pedestrian injuries and deaths in 2025, 21.7% fewer than 3,671 in 2013, although the total rose from its 2020 low of 1,798.",
+      "interpretation": "This answers how the absolute annual burden of reported pedestrian casualties changed, with injuries and deaths combined; the total was lower in 2025 than in 2013 but has risen since 2020. The file has no measure of walking exposure, so this trend cannot establish whether risk per pedestrian trip or mile improved."
+    },
+    {
+      "id": 2,
+      "metric": "Annual count of pedestrians killed in Brooklyn crashes",
+      "denominator": "No exposure denominator; absolute reported fatality counts",
+      "grouping": "Calendar year, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "Deaths are the most severe pedestrian outcome and deserve separate visibility rather than being obscured in a combined injury total.",
+      "probability": 0.3,
+      "answer": "Pedestrian deaths rose from 30 in 2013 to 39 in 2025 (30% more), despite substantial year-to-year variation.",
+      "interpretation": "This isolates the most severe reported outcome and shows that annual pedestrian deaths were higher in 2025 than in 2013. It cannot show death risk per walking trip or explain why the yearly count changed, because exposure and causal factors are not measured here."
+    },
+    {
+      "id": 3,
+      "metric": "Share of Brooklyn crash reports with at least one pedestrian injured or killed",
+      "denominator": "All police-reported motor vehicle crashes in Brooklyn that year",
+      "grouping": "Calendar year, 2013\u20132025",
+      "chart_type": "Line chart",
+      "reason": "Comparing pedestrian-casualty crashes with all reported crashes shows whether pedestrian casualties form a larger or smaller part of the reported crash mix.",
+      "probability": 0.25,
+      "answer": "Pedestrian-casualty crashes rose from 7.44% of Brooklyn crash reports in 2013 to 11.38% in 2025, an increase of 3.94 percentage points.",
+      "interpretation": "This answers whether crashes involving pedestrian casualties became more or less common as a share of all reported Brooklyn crashes; that share was higher in 2025 than in 2013. Because the denominator is crashes rather than pedestrian trips or distance walked, it does not measure a pedestrian's risk of being hurt."
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+time_group,crashes,persons_injured,persons_killed,persons_killed_or_injured,persons_killed_or_injured_per_crash
+Night,500924,203447.000000,1611.000000,205058.000000,0.409360
+Daytime,1607466,496258.000000,1798.000000,498056.000000,0.309839
+00:00:00 recorded (potential default),23786,8542.000000,3.000000,8545.000000,0.359245

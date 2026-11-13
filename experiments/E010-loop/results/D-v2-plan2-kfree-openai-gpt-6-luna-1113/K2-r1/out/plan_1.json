@@ -1,0 +1,23 @@
+{
+  "id": 1,
+  "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+  "can_answer": "yes",
+  "metric": "Number of police-reported crashes",
+  "denominator": "None; a count of crashes",
+  "population": "All rows representing police-reported NYC crashes whose crash_date falls from 2013-01-01 through 2025-12-31, inclusive",
+  "filters": ["Include crash_date years 2013 through 2025 inclusive; exclude rows with a missing crash_date and dates outside this interval"],
+  "years": "2013-2025 inclusive, pooled",
+  "grouping": "Day of week derived from crash_date, Monday through Sunday",
+  "chart_type": "Bar chart",
+  "data_check": {
+    "file": "check_1.csv",
+    "plan_population_rows": 2132218,
+    "date_quality": "0 missing crash_date values; 0 sentinel/default dates in scope; 0 missing or invalid derived weekdays.",
+    "year_coverage": "Every year from 2013 through 2025 has rows, with observed dates from January 1 through December 31; this endpoint check does not establish reporting completeness within each year.",
+    "excluded_rows": "100545 rows dated before 2013-01-01 and 36424 rows dated after 2025-12-31 are excluded; no source rows have a missing crash_date.",
+    "decision": "Keep every in-range row. Exclude the 137969 dated rows outside the requested period. No rows are dropped for missing or invalid weekday values. The population therefore counts in-range police-reported crash records."
+  },
+  "plan_changes": "None; the date and derived weekday checks did not require a change to the initial plan.",
+  "limitations": "This is a count of police-reported crashes, not an exposure-adjusted crash risk. Pooling all 13 years can conceal year-to-year changes, and observed date endpoints alone do not prove complete reporting throughout each year.",
+  "plan_stage": "final"
+}

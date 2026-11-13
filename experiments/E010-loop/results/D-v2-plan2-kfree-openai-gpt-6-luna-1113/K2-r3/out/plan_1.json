@@ -1,0 +1,28 @@
+{
+  "id": 1,
+  "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+  "initial_plan": {
+    "answerability": "yes: crash_date supports assigning each recorded crash to a weekday and counting crashes in 2013–2025",
+    "metric": "number of crash records",
+    "denominator": "none; report the count of records in each weekday group",
+    "population": "police-reported crash records with crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date is in years 2013–2025"],
+    "years": "2013–2025 inclusive",
+    "grouping": "weekday of crash_date, Monday through Sunday"
+  },
+  "data_check_interpretation": {
+    "facts": "The selected population contains 2,132,218 crash records across 2013–2025. Every year has calendar bounds from January 1 through December 31. Within the selected rows crash_date is missing 0 times; impossible dates are 0, and the checked sentinel dates 1900-01-01, 1970-01-01 and 2000-01-01 each occur 0 times. Counts per year are in check_1.csv.",
+    "row_decisions": "Keep all in-range rows; no in-range rows are removed or separated by date quality. Rows with NULL or out-of-range crash_date cannot be assigned to this period or weekday and are not measured by the scoped check, so their number is not asserted.",
+    "plan_changes": "None. Complete year bounds mean no observed target year is only a partial calendar year; the check establishes bounds, not completeness of reporting on every individual date."
+  },
+  "final_plan": {
+    "answerability": "yes: the records support a weekday distribution of reported crash events",
+    "metric": "count of police-reported crash records",
+    "denominator": "none; total count by weekday",
+    "population": "all records with crash_date from 2013-01-01 through 2025-12-31 inclusive (2,132,218 records in the checked population)",
+    "filters": ["crash_date >= 2013-01-01", "crash_date <= 2025-12-31"],
+    "years": "2013–2025 inclusive; each year has observed date bounds Jan 1–Dec 31",
+    "grouping": "weekday of crash_date in Monday-to-Sunday order",
+    "limitations": "This is a count of police-reported crash records, not a measure of risk or crashes per trip/vehicle-mile, and combines all years. Complete Jan 1–Dec 31 bounds were found each year, but the check does not prove each date is equally covered. Records with missing or out-of-period dates are not assignable to the defined population; their number was not assessed by the in-population check."
+  }
+}

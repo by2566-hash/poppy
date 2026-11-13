@@ -1,0 +1,15 @@
+{
+  "status": "partly",
+  "answerable_part": "The file can show annual motorist deaths per police-reported crash, but has no miles-driven exposure and therefore cannot establish risk per mile or whether that risk declined.",
+  "metric": "Motorists killed per 1,000 police-reported crashes in each calendar year.",
+  "denominator": "Number of police-reported crashes with a usable motorist-death count in that calendar year; multiply deaths per crash by 1,000.",
+  "population": "Police-reported NYC crashes with a usable crash_date in 2013-2025 and a nonmissing number_of_motorist_killed value.",
+  "filters": ["crash_date year is 2013 through 2025 inclusive", "number_of_motorist_killed is present"],
+  "years": "Calendar years 2013-2025 inclusive; 2025 will be checked for partial coverage.",
+  "grouping": "Calendar year of crash_date.",
+  "data_check": {
+    "facts": "check_2.csv reports 2,132,218 dated crashes in 2013-2025 and zero null crash dates; each year has records dated Jan 1 through Dec 31, including 85,546 crashes in 2025; no 1900-01-01 or 1970-01-01 date placeholders were found. number_of_motorist_killed is INT, and no values are missing in any year.",
+    "meaning_and_decisions": "No selected crash rows need to be dropped for missing dates or motorist-death counts; thus all dated crashes contribute to the denominator. Keep the complete selected population. The full-year date endpoints show no year that is partial by recorded date range; this does not establish completeness of reporting or provide mileage exposure. Typed DATE and INT columns preclude empty-string or word-valued unknowns."
+  },
+  "limitations": "This is motorist deaths per police-reported crash, not risk per mile: vehicle-miles traveled are absent, and a crash-based denominator is not a measure of driving exposure. It describes recorded crash dates; the date span does not verify reporting completeness."
+}

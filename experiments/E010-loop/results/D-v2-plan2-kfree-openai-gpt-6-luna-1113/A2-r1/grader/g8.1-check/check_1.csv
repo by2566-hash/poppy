@@ -1,0 +1,89 @@
+fact,value
+rows with missing crash_date (cannot assign to a planned year),0
+rows with valid crash_date across all file years (pre-outcome completeness check),2269187
+dated rows with missing number_of_persons_injured,18
+dated rows with missing number_of_persons_killed,8913
+dated rows missing either person injury or death count,8919
+dated rows with missing crash_time (retained as Unknown),0
+"dated rows with crash_time at midnight 00:00 (valid time, possible default pile-up)",24566
+nonmissing crash_time values outside valid TIME range,0
+2012: dated rows before outcome completeness filter,100545
+2012: rows with both person outcome counts present (planned population),100545
+2012: rows with missing crash_time,0
+2012: rows with missing number_of_persons_injured,0
+2012: rows with missing number_of_persons_killed,0
+2013: dated rows before outcome completeness filter,203742
+2013: rows with both person outcome counts present (planned population),203742
+2013: rows with missing crash_time,0
+2013: rows with missing number_of_persons_injured,0
+2013: rows with missing number_of_persons_killed,0
+2014: dated rows before outcome completeness filter,206046
+2014: rows with both person outcome counts present (planned population),206046
+2014: rows with missing crash_time,0
+2014: rows with missing number_of_persons_injured,0
+2014: rows with missing number_of_persons_killed,0
+2015: dated rows before outcome completeness filter,217708
+2015: rows with both person outcome counts present (planned population),217708
+2015: rows with missing crash_time,0
+2015: rows with missing number_of_persons_injured,0
+2015: rows with missing number_of_persons_killed,0
+2016: dated rows before outcome completeness filter,229833
+2016: rows with both person outcome counts present (planned population),229831
+2016: rows with missing crash_time,0
+2016: rows with missing number_of_persons_injured,1
+2016: rows with missing number_of_persons_killed,2
+2017: dated rows before outcome completeness filter,231007
+2017: rows with both person outcome counts present (planned population),230988
+2017: rows with missing crash_time,0
+2017: rows with missing number_of_persons_injured,11
+2017: rows with missing number_of_persons_killed,16
+2018: dated rows before outcome completeness filter,231564
+2018: rows with both person outcome counts present (planned population),231548
+2018: rows with missing crash_time,0
+2018: rows with missing number_of_persons_injured,5
+2018: rows with missing number_of_persons_killed,14
+2019: dated rows before outcome completeness filter,211486
+2019: rows with both person outcome counts present (planned population),211486
+2019: rows with missing crash_time,0
+2019: rows with missing number_of_persons_injured,0
+2019: rows with missing number_of_persons_killed,0
+2020: dated rows before outcome completeness filter,112918
+2020: rows with both person outcome counts present (planned population),112917
+2020: rows with missing crash_time,0
+2020: rows with missing number_of_persons_injured,0
+2020: rows with missing number_of_persons_killed,1
+2021: dated rows before outcome completeness filter,110558
+2021: rows with both person outcome counts present (planned population),110557
+2021: rows with missing crash_time,0
+2021: rows with missing number_of_persons_injured,1
+2021: rows with missing number_of_persons_killed,0
+2022: dated rows before outcome completeness filter,103887
+2022: rows with both person outcome counts present (planned population),103887
+2022: rows with missing crash_time,0
+2022: rows with missing number_of_persons_injured,0
+2022: rows with missing number_of_persons_killed,0
+2023: dated rows before outcome completeness filter,96607
+2023: rows with both person outcome counts present (planned population),96607
+2023: rows with missing crash_time,0
+2023: rows with missing number_of_persons_injured,0
+2023: rows with missing number_of_persons_killed,0
+2024: dated rows before outcome completeness filter,91316
+2024: rows with both person outcome counts present (planned population),91316
+2024: rows with missing crash_time,0
+2024: rows with missing number_of_persons_injured,0
+2024: rows with missing number_of_persons_killed,0
+2025: dated rows before outcome completeness filter,85546
+2025: rows with both person outcome counts present (planned population),85543
+2025: rows with missing crash_time,0
+2025: rows with missing number_of_persons_injured,0
+2025: rows with missing number_of_persons_killed,3
+2026: dated rows before outcome completeness filter,36424
+2026: rows with both person outcome counts present (planned population),27547
+2026: rows with missing crash_time,0
+2026: rows with missing number_of_persons_injured,0
+2026: rows with missing number_of_persons_killed,8877
+2013-2025 dated rows before outcome completeness filter (full-year candidates),2132218
+2013-2025 rows with both person outcome counts present,2132176
+2013-2025 rows excluded for missing either person outcome count,42
+2013-2025 complete-outcome rows with missing crash_time,0
+2013-2025 complete-outcome rows at midnight 00:00,23786

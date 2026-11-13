@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual deaths",
+      "denominator": "None (counts)",
+      "grouping": "Year × road-user category",
+      "chart_type": "Grouped bar chart",
+      "reason": "Absolute annual counts show the direct difference in recorded motorist and cyclist fatalities year by year.",
+      "probability": 0.65,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year; 2025 had 81 motorist deaths and 23 cyclist deaths, while annual peaks were 139 motorist deaths in 2020 and 31 cyclist deaths in 2019 and 2023.",
+      "interpretation": "This framing answers the question in absolute annual counts: the paired bars show more motorist than cyclist deaths in every year, with both totals varying over time. Counts give a direct scale comparison, but leave unanswered how large cyclist deaths were relative to motorist deaths and do not adjust for travel exposure."
+    },
+    {
+      "id": 2,
+      "metric": "Cyclist deaths as a percentage of motorist deaths",
+      "denominator": "Motorist deaths in the same year",
+      "grouping": "Year",
+      "chart_type": "Line chart",
+      "reason": "A relative measure makes year-to-year changes in the size of the cyclist toll easier to compare despite different absolute counts.",
+      "probability": 0.35,
+      "answer": "Cyclist deaths ranged from 10.0% of motorist deaths in 2013 to 37.8% in 2019 and stood at 28.4% in 2025.",
+      "interpretation": "This framing answers how large cyclist deaths were relative to motorist deaths each year: the ratio peaked at 37.8% in 2019, fell to 14.2% in 2021, and was 28.4% in 2025. The ratio is a defensible comparison of relative scale, but it leaves out absolute death counts and does not measure risk per trip or person."
+    }
+  ]
+}

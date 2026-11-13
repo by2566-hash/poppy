@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Police-reported crashes per clock hour",
+      "denominator": "Clock hours in each period across 5,094 calendar days (14 daytime hours per day; 10 nighttime hours per day)",
+      "grouping": "Day (6:00 a.m.–7:59 p.m.) vs night (8:00 p.m.–5:59 a.m.)",
+      "chart_type": "Bar chart",
+      "reason": "A careful analyst may normalize by hours because the defined daytime and nighttime windows have different lengths.",
+      "probability": 0.25,
+      "answer": "This dataset cannot establish whether nighttime travel is riskier without traffic-exposure counts, but it records 11.0 crashes per nighttime clock-hour versus 24.0 per daytime clock-hour from July 2012 through June 2026.",
+      "interpretation": "This framing answers when police-reported crashes occur, and the chart shows a lower hourly crash count at night after accounting for the different lengths of the two time windows. It does not measure risk per trip, mile, or person-hour because traffic exposure is unavailable."
+    },
+    {
+      "id": 2,
+      "metric": "Share of reported crashes with at least one person injured or killed",
+      "denominator": "All police-reported crashes within each period",
+      "grouping": "Day (6:00 a.m.–7:59 p.m.) vs night (8:00 p.m.–5:59 a.m.)",
+      "chart_type": "Bar chart",
+      "reason": "A careful analyst may compare injury-or-fatality involvement per crash to assess whether nighttime crashes tend to have more severe reported outcomes.",
+      "probability": 0.45,
+      "answer": "This dataset cannot establish overall nighttime travel risk without traffic-exposure counts, but 28.5% of nighttime crashes involved an injury or death, compared with 23.5% of daytime crashes.",
+      "interpretation": "This framing addresses whether a reported crash is more likely to involve harm, and the chart shows a 5.0 percentage-point higher injury-or-fatality share at night. It is a defensible measure of crash severity conditional on a reported crash, but leaves risk per traveler or journey unanswered."
+    },
+    {
+      "id": 3,
+      "metric": "Share of reported crashes involving at least one death",
+      "denominator": "All police-reported crashes within each period",
+      "grouping": "Day (6:00 a.m.–7:59 p.m.) vs night (8:00 p.m.–5:59 a.m.)",
+      "chart_type": "Bar chart",
+      "reason": "A careful analyst may isolate fatal crashes to focus on the most severe recorded outcome rather than combining injuries and deaths.",
+      "probability": 0.3,
+      "answer": "This dataset cannot establish overall nighttime travel risk without traffic-exposure counts, but fatal crashes were 0.290% of nighttime crashes versus 0.108% of daytime crashes, about 2.7 times the share.",
+      "interpretation": "This framing answers whether reported crashes are more likely to be fatal, and the chart shows a substantially higher fatal-crash share at night. The conditional comparison is supported by the crash and fatality fields, but does not show death risk per trip, mile, or person-hour."
+    }
+  ]
+}

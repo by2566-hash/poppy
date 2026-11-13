@@ -1,0 +1,28 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "answerability": "partly: this dataset can compare annual pedestrian death counts in Brooklyn, but it cannot measure risk per walking trip, distance, or population exposure.",
+    "metric": "Annual number of pedestrians killed, calculated as the sum of number_of_pedestrians_killed across crashes.",
+    "denominator": "None; an absolute annual count, not a rate.",
+    "population": "Police-reported motor vehicle crashes in Brooklyn, with pedestrians killed represented by the per-crash count.",
+    "filters": ["borough = Brooklyn", "crash_date in calendar year 2013 or later", "use complete calendar years only if data checks identify partial boundary years"],
+    "years": "Calendar years from 2013 through the latest year present; assess whether boundary years are partial before analysis.",
+    "grouping": "Calendar year of crash_date."
+  },
+  "data_check_meaning_and_decisions": {
+    "population_and_coverage": "The normalized Brooklyn filter finds 483,501 crashes dated 2013-01-01 through 2026-06-11. Each year 2013-2025 has observed dates spanning January 1 through December 31; 2026 ends on June 11 and is partial. Exclude the 9,700 crashes in 2026 rather than compare a partial-year count with full years.",
+    "filter_and_group_columns": "Among rows matching the Brooklyn population and 2013+ date filter, borough and crash_date are not missing; there are no unknown/default borough labels, default 1900/1970 dates, or missing/impossible years. Match borough case-insensitively after trimming whitespace. Keep qualifying rows and disclose that unlabeled/non-Brooklyn records are outside this population.",
+    "summed_columns": "No rows in the checked population have a missing pedestrian-death count. Keep all rows in complete years; no outcome rows need to be dropped or imputed.",
+    "plan_changes": "Finalize the period as 2013-2025, excluding partial 2026, and make the Brooklyn text filter case/whitespace-insensitive."
+  },
+  "final_plan": {
+    "answerability": "Partly: compares annual pedestrian death counts in Brooklyn, but does not measure risk per walking trip, distance, or population exposure.",
+    "metric": "Annual pedestrians killed = sum of number_of_pedestrians_killed across Brooklyn crashes.",
+    "denominator": "None; absolute annual death count.",
+    "population": "Police-reported crashes dated in complete calendar years 2013-2025 whose borough, after trimming whitespace and ignoring case, is Brooklyn; the outcome counts pedestrians killed, not crashes.",
+    "filters": ["UPPER(TRIM(borough)) = BROOKLYN", "crash_date from 2013-01-01 through 2025-12-31 inclusive", "retain all eligible rows because the summed column is not missing in the checked population"],
+    "years": "2013-2025 inclusive; exclude 2026 because observed coverage ends 2026-06-11.",
+    "grouping": "Calendar year of crash_date.",
+    "limitations": "Absolute counts are not exposure-adjusted risk and can vary with walking activity, reporting, and other factors; the file contains partial 2026 data through June 11, excluded from the annual comparison. Borough labels are normalized for case and surrounding whitespace."
+  }
+}

@@ -1,0 +1,4 @@
+The dataset contains complete calendar years 2013–2025 and records motorist deaths and crash counts, but no vehicle-miles-traveled measure. I’ll chart annual motorist-fatality counts and fatalities per 100,000 reported crashes as two useful, clearly labeled proxies—not as per-mile risk.
+ANSWER:
+The data cannot establish whether motorist deaths per mile declined, but annual motorist fatalities fell from 110 in 2013 to 81 in 2025, a 26% decrease in the unadjusted count.
+Per-mile risk remains unanswerable, and the crash-denominated proxy rose from 53.99 to 94.69 motorist fatalities per 100,000 reported crashes between 2013 and 2025—about a 75% increase.

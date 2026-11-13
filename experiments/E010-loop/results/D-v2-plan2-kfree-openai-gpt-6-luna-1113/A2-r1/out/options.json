@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Mean reported casualties per crash, calculated as number_of_persons_injured + number_of_persons_killed",
+      "denominator": "Crashes with both person outcome counts present in the same time group",
+      "grouping": "Night: 21:00-05:59 inclusive; Day: 06:00-20:59; 2013-2025",
+      "chart_type": "bar chart",
+      "reason": "A casualty-per-crash mean directly describes how severe police-reported crashes were, conditional on a crash occurring.",
+      "probability": 0.56,
+      "answer": "NYC police-reported crashes averaged 0.409 injured or killed people at night versus 0.315 by day in 2013-2025, about 30% more per crash, but without traffic or travel exposure the data cannot establish whether NYC streets are more dangerous at night overall.",
+      "interpretation": "This framing addresses whether nighttime crashes were more severe by comparing injured plus killed people per crash, with Night defined as 21:00-05:59 and Day as 06:00-20:59 across 2013-2025; the denominator is crashes with both outcome counts present. Night averaged 0.409 reported casualties per crash versus 0.315 by day, so the chart indicates greater casualty burden conditional on a police-reported crash, a defensible measure of crash severity. It does not establish whether a person, trip, or mile of travel is riskier at night because traffic and travel exposure are not in the data. The check found partial coverage for 2012 (July-December) and 2026 (January-June; 8,877/36,424 or 24.37% missing death counts), so those years were excluded; 42/2,132,218 (0.001970%) 2013-2025 rows missing an outcome count were excluded, and 23,786 (1.115574%) selected records at valid 00:00 times were retained as night despite possible default coding (no selected crash times were missing)."
+    },
+    {
+      "id": 2,
+      "metric": "Percentage of crashes with at least one person injured or killed, using number_of_persons_injured + number_of_persons_killed > 0",
+      "denominator": "All crashes with both person outcome counts present in the same time group",
+      "grouping": "Night: 21:00-05:59 inclusive; Day: 06:00-20:59; 2013-2025",
+      "chart_type": "bar chart",
+      "reason": "The share of crashes involving any casualty focuses on how frequently a reported crash caused harm, rather than the number of casualties in a crash.",
+      "probability": 0.44,
+      "answer": "A higher share of NYC police-reported crashes involved injury or death at night than by day in 2013-2025 (28.3% versus 23.7%), but without traffic or travel exposure the data cannot establish whether NYC streets are more dangerous at night overall.",
+      "interpretation": "This framing addresses how often a police-reported crash involved harm by comparing the percentage with at least one injured or killed person, where Night is 21:00-05:59 and Day is 06:00-20:59 over 2013-2025; the denominator is all crashes with both person outcome counts present. The chart shows a casualty in 28.3% of nighttime crashes and 23.7% of daytime crashes, a 4.6 percentage-point difference; this is defensible as a measure of the frequency of harmful crashes conditional on a crash. It does not show whether a person, trip, or mile of travel faces more danger at night because the data have no traffic or travel-exposure denominator. The check found partial coverage for 2012 (July-December) and 2026 (January-June; 8,877/36,424 or 24.37% missing death counts), so those years were excluded; 42/2,132,218 (0.001970%) 2013-2025 rows missing an outcome count were excluded, and 23,786 (1.115574%) selected records at valid 00:00 times were retained as night despite possible default coding (no selected crash times were missing)."
+    }
+  ]
+}

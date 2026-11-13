@@ -1,0 +1,15 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "For each calendar year, the sum of number_of_pedestrians_killed across crash records",
+      "denominator": "None; report an absolute count, not a rate or share",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "Vertical bar chart",
+      "reason": "Summing the crash-level pedestrian death count by crash year directly answers the requested annual totals.",
+      "probability": 1.0,
+      "answer": "The recorded pedestrian-killed totals were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This answers the year-by-year count by summing the recorded number_of_pedestrians_killed across NYC police-reported motor vehicle crash records and assigning each count to its crash_date calendar year; the bars show the yearly totals for 2013–2025, with no borough or outcome-value filter. It is a defensible direct count because the data provide a pedestrian-death count per crash, and the metric is an absolute count with no denominator. It does not measure exposure-adjusted risk or deaths absent from police-reported crash records, and crash rows without an assignable date cannot be placed in a requested year. The scoped check covered 2,132,218 selected crash rows: 0 (0%) had a missing crash date within the selected population or a missing pedestrian-killed count, so all selected rows were kept without imputation or missing-value exclusion; observed dates span January 1–December 31 in each year, while unassignable-date rows were outside the scoped check."
+    }
+  ]
+}

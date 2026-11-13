@@ -1,0 +1,4 @@
+ANSWER:
+1. The crash data cannot establish whether motorist risk per mile declined; the annual count of motorists reported killed fell from 110 in 2013 to 81 in 2025, with sharp intervening fluctuations ([chart](./out/option_1.png)).
+2. The crash data cannot establish whether risk per mile declined; crashes with at least one motorist killed fell from 102 in 2013 to 75 in 2025, despite intervening increases ([chart](./out/option_2.png)).
+3. The crash data cannot establish whether risk per mile declined; the share of reported crashes involving a motorist death rose from 0.0501% in 2013 to 0.0877% in 2025 ([chart](./out/option_3.png)).

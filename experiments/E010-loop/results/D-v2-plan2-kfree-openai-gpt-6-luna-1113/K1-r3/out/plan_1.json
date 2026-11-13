@@ -1,0 +1,15 @@
+{
+  "status": "yes",
+  "answerability": "The data can answer how many pedestrians were killed in NYC police-reported motor vehicle crashes by summing the pedestrian fatality count for crashes dated 2013 through 2025 and grouping by calendar year.",
+  "metric": "Annual number of pedestrians killed, calculated as the sum of number_of_pedestrians_killed for crashes in each calendar year.",
+  "denominator": "None; this is an absolute count, not a rate or share.",
+  "population": "Rows representing NYC police-reported motor vehicle crashes with crash_date in calendar years 2013–2025; each row contributes its number_of_pedestrians_killed value.",
+  "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive"],
+  "years": "2013–2025 inclusive, grouped by the calendar year of crash_date.",
+  "grouping": "Calendar year of crash_date.",
+  "data_check": {
+    "scope": "The check used 2,132,218 crash rows dated 2013–2025. All 13 years have included rows, and each year's observed first and last crash dates span Jan 1 through Dec 31. Within the selected rows, crash_date has 0 missing values and number_of_pedestrians_killed has 0 missing values in every year.",
+    "decisions": "Keep all rows in the defined date interval; no included row is excluded or assigned a separate missing-value group. Rows without a usable date cannot be assigned to a year and are outside the planned population; the scoped check does not estimate their number. The observed calendar-date bounds support treating each year as temporally spanning the full year, but do not establish complete reporting on every day."
+  },
+  "limitations": "The population is police-reported NYC motor vehicle crashes with a crash date in 2013–2025, not necessarily every crash. The selected rows have no missing pedestrian fatality counts; observed crash-date bounds span each calendar year, but the data check cannot establish reporting completeness between those dates. Crashes without a usable date cannot be allocated to a year."
+}

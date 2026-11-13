@@ -1,0 +1,3 @@
+ANSWER:
+1. The [mean-casualties chart](out/option_1.png) shows 0.409 injured or killed people per nighttime crash versus 0.315 per daytime crash in 2013–2025, indicating greater severity per reported crash at night but not proving greater exposure-adjusted risk.
+2. The [injury-or-death share chart](out/option_2.png) shows casualties in 28.3% of nighttime crashes versus 23.7% of daytime crashes, but the data cannot establish whether NYC streets are more dangerous at night without traffic or travel exposure.

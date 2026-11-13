@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Reported crash frequency",
+      "denominator": "Observed clock-hours in each daypart (calendar days \u00d7 10 night hours or 14 day hours)",
+      "grouping": "Night (20:00\u201305:59) versus Day (06:00\u201319:59)",
+      "chart_type": "Bar chart",
+      "reason": "Dividing by the number of hours in each daypart makes the crash-count comparison fair despite the unequal day and night windows.",
+      "probability": 0.2,
+      "answer": "NYC recorded 10.97 reported crashes per clock-hour at night versus 23.98 by day, 54.2% fewer per hour at night.",
+      "interpretation": "This framing answers whether reported crash volume is higher at night after accounting for the different number of hours in the two periods; its chart shows a lower nighttime crash count per clock-hour. It is a defensible measure of event frequency, but it leaves unanswered how likely an individual road user is to crash because traffic exposure is not in the data."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crashes involving at least one person injured or killed",
+      "denominator": "Crashes with non-missing person-injured and person-killed counts",
+      "grouping": "Night (20:00\u201305:59) versus Day (06:00\u201319:59)",
+      "chart_type": "Bar chart",
+      "reason": "The share of crashes with an injury or death compares the likelihood of a harmful outcome conditional on a reported crash.",
+      "probability": 0.4,
+      "answer": "28.44% of nighttime crashes involved an injury or death, compared with 23.41% of daytime crashes.",
+      "interpretation": "This framing addresses whether a reported crash is more likely to harm someone at night; the chart shows a higher injury-or-death share for nighttime crashes. It is defensible because it compares crash severity rather than just totals, but it does not measure risk per trip or mile and excludes crashes missing either severity count."
+    },
+    {
+      "id": 3,
+      "metric": "Persons killed per 1,000 crashes",
+      "denominator": "Crashes with a non-missing person-killed count",
+      "grouping": "Night (20:00\u201305:59) versus Day (06:00\u201319:59)",
+      "chart_type": "Bar chart",
+      "reason": "Fatalities per crash highlight the most severe consequence and allow crashes with multiple deaths to contribute appropriately.",
+      "probability": 0.4,
+      "answer": "There were 3.09 persons killed per 1,000 nighttime crashes versus 1.11 per 1,000 daytime crashes, about 2.77 times as many per crash at night.",
+      "interpretation": "This framing answers whether crashes are associated with a higher fatal toll at night; the chart shows more recorded deaths per 1,000 nighttime crashes. It is defensible as a crash-consequence measure, but it does not tell whether driving at night is riskier per mile or trip, and crashes with missing killed counts are omitted."
+    }
+  ]
+}

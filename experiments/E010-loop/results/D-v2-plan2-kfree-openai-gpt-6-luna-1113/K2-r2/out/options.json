@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Count of police-reported crashes dated 2013-01-01 through 2025-12-31, inclusive",
+      "denominator": "None; raw crash count",
+      "grouping": "Weekday derived from crash_date, Monday through Sunday",
+      "chart_type": "Bar chart",
+      "reason": "Raw counts directly show how the number of reported crash records is distributed across weekdays.",
+      "probability": 0.5,
+      "answer": "Across 2013–2025, Friday had the most police-reported crashes (338,800) and Sunday the fewest (257,544).",
+      "interpretation": "For the question's 2013–2025 inclusive period, this chart counts each police-reported crash by the Monday-through-Sunday weekday derived from crash_date; Friday leads with 338,800 crashes, while Sunday has 257,544. Raw counts are a defensible description of the absolute distribution of the 2,132,218 dated crash records. This does not show weekday-specific crash risk because traffic exposure is unavailable. The check found 2,132,218 in-scope rows, zero missing/invalid/default crash dates or weekday groups, and observed January 1–December 31 dates in every year; we kept all in-period rows, while undated or out-of-period records are outside the target population and were not counted by this plan-specific check."
+    },
+    {
+      "id": 2,
+      "metric": "Percentage share of all police-reported crashes dated 2013-01-01 through 2025-12-31, inclusive",
+      "denominator": "All 2,132,218 police-reported crashes with crash_date from 2013-01-01 through 2025-12-31, inclusive",
+      "grouping": "Weekday derived from crash_date, Monday through Sunday",
+      "chart_type": "Bar chart",
+      "reason": "Weekday shares express each day's portion of all in-period crash records on a common 100% scale.",
+      "probability": 0.5,
+      "answer": "Friday accounts for the largest share of in-period crashes (15.9%), while Sunday accounts for the smallest (12.1%).",
+      "interpretation": "For the question's 2013–2025 inclusive period, this chart groups each police-reported crash by the Monday-through-Sunday weekday derived from crash_date and divides each weekday's count by all 2,132,218 dated crash records; Friday is 15.9% and Sunday 12.1%. Shares are a defensible way to describe how the whole in-period crash-record population is distributed across weekdays. This does not show weekday-specific crash risk because traffic exposure is unavailable. The check found 2,132,218 in-scope rows, zero missing/invalid/default crash dates or weekday groups, and observed January 1–December 31 dates in every year; we kept all in-period rows in the denominator, while undated or out-of-period records are outside the target population and were not counted by this plan-specific check."
+    }
+  ]
+}

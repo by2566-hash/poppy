@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crash records",
+      "denominator": "None; total counts in the requested 2013–2025 date range",
+      "grouping": "Day of week",
+      "chart_type": "Vertical bar chart",
+      "reason": "Raw totals directly describe how the observed crash records are distributed across weekdays.",
+      "probability": 0.5,
+      "answer": "Of 2,132,218 crash records from 2013 through 2025, Friday had the most (338,800; 15.89%) and Sunday the fewest (257,544; 12.08%).",
+      "interpretation": "This framing answers which weekdays account for the largest and smallest portions of the recorded crashes over the full period. Raw totals represent the observed distribution and are a straightforward summary of the question. It does not adjust for the number of dates of each weekday or for how much people traveled."
+    },
+    {
+      "id": 2,
+      "metric": "Average number of police-reported crash records per calendar date",
+      "denominator": "Calendar dates of each weekday during 2013–2025 (678 or 679 dates)",
+      "grouping": "Day of week",
+      "chart_type": "Vertical bar chart",
+      "reason": "Dividing by the number of occurrences of each weekday makes the weekday comparison comparable per date.",
+      "probability": 0.5,
+      "answer": "A Friday averaged 499.7 crash records, the highest daily average, while a Sunday averaged 379.9, the lowest, across 2013–2025.",
+      "interpretation": "This framing answers how the average number of recorded crashes on a date differs by weekday, while accounting for the slight differences in weekday-date counts in the 13-year period. Fridays remain highest and Sundays lowest on this per-date measure. It does not measure crash risk per trip or explain whether the pattern reflects differences in travel volume."
+    }
+  ]
+}
