@@ -42,7 +42,7 @@ DATA_FACTS = """- The file covers 2012-07-01 to 2026-06-11; 2013-2025 are comple
 - crash_time has no NULL rows. Reported crash counts (the number of crash records) fall sharply in 2020 (TR01), so a per-reported-crash rate (deaths or injuries divided by reported crashes) compared across years spanning 2020 needs a caveat. Counts of deaths or injuries by year do NOT need it (they are not affected by the reporting change), and a comparison between groups within one pooled window (e.g. day vs night) does not either (decided 2026-11-04; g5 wording after g4 failed c6 on plain death counts).
 - No exposure measure exists (no traffic volume, trips, miles): counts and per-crash rates are not risk (TR11)."""
 SANDBOX = ROOT.parent / "poppy-sandbox" / "_score"
-GRADER_VERSION = "g8"   # bump on any change to grader_prompt / items / standard; recorded in the sheet and in each run's grader/<version>-p<pass>/
+GRADER_VERSION = "g8.1"   # g8.1 (2026-11-13, Bo): SCORING §4 decisions 8 (TR01 wording) and 9 (check file as a source); bump on any change to grader_prompt / items / standard; recorded in the sheet and in each run's grader/<version>-p<pass>/
 CRITERIA = {"c1": "question answered: the output answers the question that was asked (not a neighbouring one)",
             "c2": "appropriate measure: the metric and denominator fit the question",
             "c3": "appropriate chart type for the data and the comparison",
@@ -224,6 +224,49 @@ def numbers_in_text(text):
             continue
         found.append((raw, n, suf))
     return found
+
+
+REUSE_FROM = "g8"   # g8.1 reuses a g8 verdict when the rendered grader prompt is byte-identical
+_NUM_TRACE = re.compile(r"-?\d[\d,]*\.?\d*")
+
+
+def grounded_check(u):
+    """SCORING §4 decision 9: the option's check_<id>.csv is a source for numbers in the written output, but only its rows
+    whose value was computed: the value appears in the output of a tool call in the run's trace, or it was never typed
+    into any tool input (the file was written by code). Small integers (<= 12) are kept (the provenance check ignores them).
+    Writes the grounded rows to grader/<version>-check/check_<id>.csv and returns [that path] (or [])."""
+    chk = u["dir"] / "out" / f"check_{u['option']}.csv"
+    ev = u["dir"] / "events.jsonl"
+    if not chk.exists() or not ev.exists():
+        return []
+    outs, ins = [], []
+    for line in ev.read_text(errors="ignore").splitlines():
+        try:
+            e = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if e.get("type") == "tool_use":
+            st = e.get("part", {}).get("state", {}) or {}
+            outs.append(str(st.get("output", ""))); ins.append(json.dumps(st.get("input", {})))
+    tnum = {float(x.replace(",", "")) for x in _NUM_TRACE.findall(" ".join(outs)) if re.search(r"\d", x)}
+    typed = " ".join(ins)
+    rows = read_csv(chk)
+    if not rows or "value" not in rows[0]:
+        return []
+    keep = []
+    for r in rows:
+        v = str(r.get("value") or "").strip(); x = to_float(v)
+        if x is None:
+            continue
+        computed = any(abs(x - t) <= max(1e-9, 0.005 * abs(x)) for t in tnum)
+        hand = re.search(r"(?<![\d.])" + re.escape(v) + r"(?!\d)", typed) is not None
+        if abs(x) <= 12 or computed or not hand:
+            keep.append({"fact": r.get("fact", ""), "value": v})
+    out = u["dir"] / "grader" / f"{GRADER_VERSION}-check" / chk.name
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["fact", "value"]); w.writeheader(); w.writerows(keep)
+    return [out]
 
 
 def provenance(text, values_files):
@@ -408,19 +451,28 @@ def run_grader(unit, label, call_model, model=None, tag="", timeout=300):
             vt.append(f"[{vf.name}]\n" + "\n".join(txt[:61]) + ("\n... (truncated)" if len(txt) > 61 else ""))
     prompt = grader_prompt(unit, "\n".join(vt) or "(none)", code_for_grader(unit["code"]))
     (sb / "grader_prompt.md").write_text(prompt)
-    t0 = time.time(); got, text, r, attempt = {}, "", {}, 0
-    for attempt in (1, 2):   # one retry when nothing parses
+    t0 = time.time(); got, text, r, attempt, reused = {}, "", {}, 0, False
+    keep = unit["dir"] / "grader" / (f"{GRADER_VERSION}-p{os.environ.get('GRADER_PASS', '1')}" + (f"-{tag}" if tag else "")) / f"o{opt}"
+    prev = Path(str(keep).replace(f"/grader/{GRADER_VERSION}-", f"/grader/{REUSE_FROM}-"))
+    if REUSE_FROM and (prev / "prompt.md").exists() and (prev / "prompt.md").read_text() == prompt and parse_json((prev / "response.md").read_text()):
+        # g8.1: the grader prompt of this unit is byte-identical to its g8 prompt, so the g8 verdict is reused (no model call)
+        keep.mkdir(parents=True, exist_ok=True)
+        shutil.copy(prev / "prompt.md", keep / "prompt.md"); shutil.copy(prev / "response.md", keep / "response.md")
+        m = json.loads((prev / "meta.json").read_text()) if (prev / "meta.json").exists() else {}
+        (keep / "meta.json").write_text(json.dumps({**m, "grader_version": GRADER_VERSION, "reused_from": REUSE_FROM}, indent=1))
+        got, text, r, reused = parse_json((prev / "response.md").read_text()), "", {"tool_calls": m.get("tool_calls")}, True
+    for attempt in ((1, 2) if not got else ()):   # one retry when nothing parses
         r = call_model(sb, prompt, timeout=timeout, files=files, model=(model if "/" in (model or "") else (f"opencode/{model}" if model else None)))
         text = r.get("text", "")
         got = parse_json(text)
         if got:
             break
-    (sb / "grader_response.md").write_text(text)
-    keep = unit["dir"] / "grader" / (f"{GRADER_VERSION}-p{os.environ.get('GRADER_PASS', '1')}" + (f"-{tag}" if tag else "")) / f"o{opt}"   # record stays with the run
-    keep.mkdir(parents=True, exist_ok=True)
-    shutil.copy(sb / "grader_prompt.md", keep / "prompt.md"); shutil.copy(sb / "grader_response.md", keep / "response.md")
-    (keep / "meta.json").write_text(json.dumps({"grader_model": model or os.environ.get("POPPY_MODEL", ""), "grader_version": GRADER_VERSION, "attempts": attempt,
-                                                "secs": round(time.time() - t0, 1), "tool_calls": r.get("tool_calls"), "errors": r.get("errors")}, indent=1))
+    if not reused:   # a fresh model call (not a reused g8 record)
+        (sb / "grader_response.md").write_text(text)
+        keep.mkdir(parents=True, exist_ok=True)   # record stays with the run
+        shutil.copy(sb / "grader_prompt.md", keep / "prompt.md"); shutil.copy(sb / "grader_response.md", keep / "response.md")
+        (keep / "meta.json").write_text(json.dumps({"grader_model": model or os.environ.get("POPPY_MODEL", ""), "grader_version": GRADER_VERSION, "attempts": attempt,
+                                                    "secs": round(time.time() - t0, 1), "tool_calls": r.get("tool_calls"), "errors": r.get("errors")}, indent=1))
     res = {"grader_secs": round(time.time() - t0, 1), "grader_tools": r.get("tool_calls", "")}
     for k in grader_items(unit["base"]):
         v = got.get(k) if isinstance(got, dict) else None
@@ -602,7 +654,7 @@ def score(exp, label, only, use_grader, workers):
     rows = []
     for u in units:
         gm, gd = gold_match(u["base"], [v for v in u["values"] if v.exists()])
-        nn, uns = provenance(u["text"], [v for v in u["values"] if v.exists()])
+        nn, uns = provenance(u["text"], [v for v in u["values"] if v.exists()] + grounded_check(u))
         rows.append({"exp": exp, "label": label, "q": u["q"], "type": u["type"], "rep": u["rep"], "option": u["option"],
                      "complete": u["complete"], "n_options": u["n_options"], "n_distinct_analytic": u["n_distinct_analytic"], "steps": u["steps"],
                      "gold_match": gm, "gold_detail": gd, "n_numbers": nn, "unsourced_numbers": " | ".join(uns), "framing_flags": " | ".join(framing_flags(u["code"]))})

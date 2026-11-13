@@ -68,3 +68,14 @@ Candidate C5 = Bo's E010-v3 design (2026-11-08): per framing Plan → Data check
 | Prompt | SHA-256 | Change from D v2 |
 |---|---|---|
 | `D_enumerate.v2-plan.md` | `2b0aa0ecdebd5ae3b2e167fd1ad89a79971562f373efbdfe0b9ad7f2659ce32a` | Plan to `out/plan_<id>.json` without querying data; Data check by code on the planned columns and years only (rows, rows per year, missing in any form, default pile-ups, partial years) to `out/check_<id>.csv` (fact, value), with consequence and decision (keep and disclose / exclude / own group) and plan changes with reasons; Final plan with limitations from the check. No outcome numbers in the three steps. Analysis, chart title (metric and population) and subtitle (main limitation), options fields and self-review follow the final plan; the data-check conclusion is written in `interpretation`. Run with `PILOT_STEPS=50` (more steps; the other arms never exceeded 24). |
+
+## 2026-11-13: Bo's decisions after the E010 diagnosis (all four accepted: "全部同意")
+
+| File | SHA-256 | Change |
+|---|---|---|
+| `experiments/E006-mimo-screen/run_screen.py` | `a149c0d415065c7777adb63993bcb21c09301cdd8b661da79b3613942b65719e` | **hermetic context**: every `call_model` sets `OPENCODE_DISABLE_EXTERNAL_SKILLS=1` and `OPENCODE_DISABLE_CLAUDE_CODE=1` (agent and grader calls) |
+| `experiments/E007-pilot-prompts/run_pilot.py` | `3a1b722fc3cf0ffa8e56756a85b21a8271aff067609cbe3548777ba6d757fc47` | arm D meta records `first_step_prompt_tokens` and `opencode_env`; `POPPY_LABEL_TAG` suffix for same-day re-runs |
+| `experiments/E007-pilot-prompts/prompts/D_enumerate.v2-plan2.md` | `0404cb862dc10fd5561eea3638e06d01fa0d681d9ed181927417b4e9ce13a8a5` | **C5 v2** = C5 + (1) injury / death columns the plan sums: check missing only, never count rows by their value; (2) every definition of the final plan is also stated in the interpretation |
+| `scripts/score_runs.py` | `fe5e3fec2b3f2fc2e4acc214585f378e88fd38b96568d63f346a35ad05441ea6` | **g8.1** = SCORING §4 decisions 8 (TR01 wording, cause not required) and 9 (`check_<id>.csv` is a source when its value was computed: found in a tool output, or never typed into a tool input). A unit whose rendered grader prompt is byte-identical to its g8 prompt reuses the g8 verdict (`reused_from` in the record); only A1 / I1 units (TR01 item text) are re-graded. Machine regression: C5 unsourced 24 → 7 of 39, baseline 1 → 1 of 43 |
+
+Note: reused g8 verdicts were produced before the hermetic switch (grader context had the external skill description); re-graded units run hermetic. The agent-side test (H6) found no effect of that description.

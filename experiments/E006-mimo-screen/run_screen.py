@@ -70,7 +70,10 @@ def call_model(sb, prompt, timeout=300, max_attempts=3, backoff=(90, 240), files
     OpenCode retries 3 times, then waits, with an empty event stream), stops immediately, and retries with
     backoff when no step had started. Optional `stall` (seconds without an event) kills and retries once;
     off by default, see STALL. Returns the final attempt plus `rate_limited` / `stalled` / `attempts`."""
-    env = dict(os.environ, XDG_DATA_HOME=str(sb / ".ocdata"),
+    # Hermetic context (Bo, 2026-11-13, E010 H6): OpenCode otherwise auto-loads ~/.claude/skills/*/SKILL.md and Claude Code
+    # prompts from the user's machine into the agent's context (an external skill appeared 2026-11-07 and changed the first
+    # step from 5,401 to 5,638 tokens). Both switches are always on for every call.
+    env = dict(os.environ, XDG_DATA_HOME=str(sb / ".ocdata"), OPENCODE_DISABLE_EXTERNAL_SKILLS="1", OPENCODE_DISABLE_CLAUDE_CODE="1",
                PATH=os.pathsep.join([str(sandbox_shims(sb, protect)), os.environ.get("PATH", "")]))
     zero_output_retries = 0; t_first = time.time()
     for attempt in range(1, max_attempts + 2):

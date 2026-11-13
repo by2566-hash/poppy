@@ -236,7 +236,7 @@
    },
    {
     "id": "TR01",
-    "item": "If a per-crash rate spanning 2020 is shown, the output caveats the 2020 change in crash recording.",
+    "item": "If a per-reported-crash rate spanning 2020 is shown, the output says that the number of recorded crashes changes sharply around 2020 and that this affects comparing the per-crash rate across years (naming the cause, the 2020 recording change, is not required: it is not in the data or the dictionary).",
     "note": "per-crash denominators collapse after 2020"
    },
    {
@@ -594,7 +594,7 @@
   "traps": [
    {
     "id": "TR01",
-    "item": "If a per-reported-crash rate spanning 2020 is shown, the output caveats the 2020 change in crash recording (fewer minor crashes reported).",
+    "item": "If a per-reported-crash rate spanning 2020 is shown, the output says that the number of recorded crashes changes sharply around 2020 and that this affects comparing the per-crash rate across years (naming the cause, the 2020 recording change, is not required: it is not in the data or the dictionary).",
     "note": "per-crash denominators collapse after 2020"
    },
    {

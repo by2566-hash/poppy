@@ -11,6 +11,7 @@ Environment:
   POPPY_EXP           experiment folder for sandbox + results (default E007-pilot-prompts; e.g. E008-model-contrast)
   POPPY_QSET          pilot (6 pilot questions, default) or formal (P1-P10)
   PILOT_K             arm D: framings per run (default 3; 0 = the model chooses)
+  POPPY_LABEL_TAG     arm D: appended to the label (e.g. a date), so a same-day re-run never overwrites an earlier label
   POPPY_JIT=1         arm D: just-in-time data notes on the agent's DuckDB queries (E010 candidate C3), label gets -jit
   POPPY_PROFILE       arm D: repo-relative path of a data profile appended to the dictionary (E010-1), label gets -profile
   PILOT_STEPS         arm D: step cap override for a variant (recorded as meta.step_cap)
@@ -527,6 +528,12 @@ def run_enumerate(job):
             "rendered_prompt_sha": hashlib.sha256(prompt.encode()).hexdigest()[:16],
             "jit": ({"sitecustomize_sha": sha(JIT_DIR / "sitecustomize.py"), "facts_sha": sha(JIT_DIR / "facts.json"),
                      "notes_in_trace": (sb / "events.jsonl").read_text(errors="ignore").count("[data note]")} if JIT_DIR else None)}
+    try:   # hermeticity check (2026-11-13): the first step's prompt size; constant for a given prompt when the context is controlled
+        _t = next(json.loads(l) for l in (sb / "events.jsonl").read_text().splitlines() if '"step_finish"' in l)["part"]["tokens"]
+        meta["first_step_prompt_tokens"] = _t["input"] + _t["cache"]["write"] + _t["cache"]["read"]
+    except Exception:  # noqa: BLE001
+        meta["first_step_prompt_tokens"] = None
+    meta["opencode_env"] = {"OPENCODE_DISABLE_EXTERNAL_SKILLS": "1", "OPENCODE_DISABLE_CLAUDE_CODE": "1"}   # set by run_screen.call_model
     n_req = k if k else max(len(opts), 1)   # free k: every produced option must be complete and distinct
     meta["step_cap"] = json.loads((sb / "opencode.json").read_text())["agent"]["build"]["steps"]
     meta["hit_step_limit"] = steps >= meta["step_cap"]
@@ -559,7 +566,7 @@ if __name__ == "__main__":
             ver, reps = sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 1
             k = int(os.environ.get("PILOT_K", "3"))        # 0 = free: the model chooses how many framings
             pf = HERE / "prompts" / f"D_enumerate.{ver}.md"
-            label = f"D-{ver}-k{k if k else 'free'}{'-profile' if PROFILE_TEXT else ''}{'-jit' if JIT_DIR else ''}{SUFFIX}"
+            label = f"D-{ver}-k{k if k else 'free'}{'-profile' if PROFILE_TEXT else ''}{'-jit' if JIT_DIR else ''}{SUFFIX}{'-' + os.environ['POPPY_LABEL_TAG'] if os.environ.get('POPPY_LABEL_TAG') else ''}"
             res = list(ex.map(run_enumerate, [(label, q, r, pf, k) for q in qids for r in (only_reps or range(1, reps + 1))]))
         else:
             sys.exit("mode must be A, B, C or D")
