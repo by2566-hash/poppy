@@ -154,3 +154,8 @@ Process (`diagnosis/c5_process.py`):
 - (a) g8.1: `check_<id>.csv` is a provenance source, and its facts are recomputed from the data by a machine check;
 - (b) TR01 standard: pass when the option discloses the visible 2020 fall in recorded crashes and its effect on per-crash rates, or add the recording change to the dictionary;
 - (c) harness hermeticity flags.
+
+
+### Drift track update (2026-11-13)
+
+*Update 2026-11-13 (Bo, relayed from his branch session):* a teammate is trial-running the embedding method in the evaluation layer on the F3 results (round-trip distance). F3's reverse inference was made from the chart, and P13 found that chart titles leak the question, so F3 is the **leaky** condition, not §4's cleared-context `values.csv`-only condition. Distances from it are optimistic: good for getting the method working, not a result. The formal round-trip distance ratio waits for the `values.csv`-only reverse-inference runner. Probe conclusion unchanged (`experiments/E010-loop/probe/README.md`): embedding is for coarse drift and plainly off-topic options only; mpnet and MiniLM both reported; whether an option answers a different question is the judge's call.
