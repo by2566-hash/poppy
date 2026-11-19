@@ -79,3 +79,11 @@ Candidate C5 = Bo's E010-v3 design (2026-11-08): per framing Plan → Data check
 | `scripts/score_runs.py` | `fe5e3fec2b3f2fc2e4acc214585f378e88fd38b96568d63f346a35ad05441ea6` | **g8.1** = SCORING §4 decisions 8 (TR01 wording, cause not required) and 9 (`check_<id>.csv` is a source when its value was computed: found in a tool output, or never typed into a tool input). A unit whose rendered grader prompt is byte-identical to its g8 prompt reuses the g8 verdict (`reused_from` in the record); only A1 / I1 units (TR01 item text) are re-graded. Machine regression: C5 unsourced 24 → 7 of 39, baseline 1 → 1 of 43 |
 
 Note: reused g8 verdicts were produced before the hermetic switch (grader context had the external skill description); re-graded units run hermetic. The agent-side test (H6) found no effect of that description.
+
+## 2026-11-19: E010-v3 = C5 v2 (Bo, option a); candidate E010-v4
+
+`D_enumerate.v2-plan2.md` (C5 v2) is the base for every E010 comparison from 11-19.
+
+| Prompt | SHA-256 | Change from C5 v2 (one change: the final plan binds the conclusion) |
+|---|---|---|
+| `D_enumerate.v2-plan3.md` | `82291d5175f405c48caa889f52d3d205967164ad7f5637638538058e62daafd4` | if the final plan says the data answers the question only partly or not at all, the answer says so first, describes the measure in its own terms, and never says whether the asked quantity rose, fell or stayed the same (target: I1 PERMILE / decision 6); if the denominator is a count of rows, the interpretation states how rows per year change over the plan's years (from the check file) and what that does to cross-year comparison (target: TR01). No trap names, no years named. Self-review checks the answer against the final plan. |

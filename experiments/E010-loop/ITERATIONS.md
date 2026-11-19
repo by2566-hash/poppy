@@ -192,3 +192,16 @@ Bo accepted all four proposals on 2026-11-13: g8.1, TR01 wording, C5 v2, hermeti
 - So C5 v2 is **not kept as written**.
 - Read by hand, the unsourced and UC rises are machine or grader false positives, and the real cost is I1 PERMILE, about +2 options at n = 3–4.
 - Decision is Bo's: (a) keep C5 v2 as E010-v3, with I1 as the next target; or (b) first settle the "31" / unit-number provenance rule and the 2 UC review cells, then apply the rule.
+
+## 2026-11-19: Bo chose (a) — C5 v2 is E010-v3; E010-v4 targets I1
+
+Decision (Bo): C5 v2 becomes the base (E010-v3).
+- This is an exception to the letter of the keep rule. The rises in UC and unsourced numbers are machine and grader false positives (SUMMARY M7, M8); the real cost is I1.
+- One-page record of everything since 11-08: `SUMMARY.md`.
+
+**E010-v4 candidate** (`D_enumerate.v2-plan3.md`, hash in FROZEN.md). The final plan binds the conclusion:
+- if the plan says the data cannot fully answer the question, the answer may not state a direction for the asked quantity (targets I1 PERMILE and the decision-6 failures);
+- if the denominator is a row count, the change in rows per year must be stated together with its effect on cross-year comparison (targets TR01, the control that no earlier arm moved).
+
+**Run.** Paired, same day, hermetic: C5 v2 re-run (base) vs E010-v4, 18 runs each, label tag `1119`, g8.1 two Luna passes.
+**Keep rule.** PERMILE and TR01 fall on I1, and no other criterion rises against the same-day C5 v2. The M7 / M8 false positives are reported separately.
