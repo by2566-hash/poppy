@@ -87,3 +87,9 @@ Note: reused g8 verdicts were produced before the hermetic switch (grader contex
 | Prompt | SHA-256 | Change from C5 v2 (one change: the final plan binds the conclusion) |
 |---|---|---|
 | `D_enumerate.v2-plan3.md` | `82291d5175f405c48caa889f52d3d205967164ad7f5637638538058e62daafd4` | if the final plan says the data answers the question only partly or not at all, the answer says so first, describes the measure in its own terms, and never says whether the asked quantity rose, fell or stayed the same (target: I1 PERMILE / decision 6); if the denominator is a count of rows, the interpretation states how rows per year change over the plan's years (from the check file) and what that does to cross-year comparison (target: TR01). No trap names, no years named. Self-review checks the answer against the final plan. |
+
+## 2026-11-19: provenance rule m2 (Bo: "日历和单位数字不算无出处")
+
+| File | SHA-256 | Change |
+|---|---|---|
+| `scripts/score_runs.py` | `b5cd7896d5fb07ae65f53be218fcf8c374d873182ba959add94d7251de857369` | **m2** = SCORING §4 decision 10: calendar and unit numbers (date days, calendar lengths, rate scales) are read from context and not checked against the data; listed in `exempt_numbers`; `machine_version` column. `GRADER_VERSION` stays g8.1 (grader prompt unchanged). Unit tests: "9,700 rows", "1,000 crashes had a death", "crashes on 182 days", "365 deaths", "5.0-percentage-point" stay checked. Machine regression on the 10 E010 arms: only `n_numbers` / `unsourced_numbers` change; C5 v2 unsourced 8 → 0 of 37, same-day baseline 0 → 0 |

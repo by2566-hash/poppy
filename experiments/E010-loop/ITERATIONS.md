@@ -205,3 +205,30 @@ Decision (Bo): C5 v2 becomes the base (E010-v3).
 
 **Run.** Paired, same day, hermetic: C5 v2 re-run (base) vs E010-v4, 18 runs each, label tag `1119`, g8.1 two Luna passes.
 **Keep rule.** PERMILE and TR01 fall on I1, and no other criterion rises against the same-day C5 v2. The M7 / M8 false positives are reported separately.
+
+## 2026-11-19: provenance rule m2 — calendar and unit numbers are not unsourced (Bo)
+
+Decision (Bo): "日历和单位数字不算无出处" (closes SUMMARY M7). SCORING §4 decision (10); `score_runs.py` machine rule **m2** (hash in FROZEN.md). The LLM grader prompt is unchanged (g8.1), so no verdict was re-graded; only the machine columns were recomputed (`--no-grader`).
+
+**Rule (read from context, not from the value).** Exempt: a day in a written date ("December 31", "2025-12-31"); a length in calendar units ("13 years", "365 days", "14-hour window", "182 of 366 calendar days"); the scale of a rate ("per / by / to 1,000"). Days / weeks / months count only as a calendar length (7, 28–31, 365/366, 52/53, 12) or with "calendar / complete / full / whole". Still checked: "9,700 rows", "1,000 crashes had a death", "crashes on 182 days", "365 deaths", "5.0-percentage-point". Every exempt number is listed per option in `exempt_numbers` for audit.
+
+**Audit before the change.** All 221 unsourced entries across the 10 E010 arms were listed, and every value that could be calendar or unit was read in context. Those were dates (31: 17 entries), calendar lengths (13, 14, 182 / 366, 203 / 365) and rate scales (1,000, 10,000). After the change 106 numbers are exempt across the 10 arms (31 date ×52, 13 years ×31, 365 / 366 ×12, 182 / 203 ×6, 14-hour ×2, rate scales ×3); most of them had been matched to a value by coincidence before and so were never flagged. Data numbers among them (9,700, 42, 36, 29, 24, 5.0, 5.06) stay unsourced.
+
+**Re-score (machine columns only; grader columns identical before and after).**
+
+| Arm | unsourced options | silent-error g8.1 → g8.1 + m2 |
+|---|---|---|
+| baseline 11-08 | 1 → 0 | 51% → **49%** |
+| hermetic 11-08 | 1 → 1 | 50% → 50% |
+| E010-1 profile | 2 → 0 | 55% → **50%** |
+| C1 cov | 30 → 29 | 80% → 78% |
+| C2 cov + profile | 23 → 23 | 71% → 71% |
+| C3 jit | 1 → 1 | 48% → 48% |
+| C4 cov + jit | 33 → 33 | 80% → 80% |
+| C5 plan | 7 → 5 | 44% → **38%** |
+| baseline 11-13 | 0 → 0 | 42% → 42% |
+| **C5 v2 11-13** | **8 → 0** | **41% → 22%** |
+
+Consequence for decision (a): C5 v2 against its same-day baseline is now 22% vs 42% on silent-error with no provenance cost, so it passes the keep rule on silent-error, all targeted traps and NIGHTDEF. The only remaining exception is `unsupported_claim` 5/37 vs 4/43, of which 2 are the grader errors in M8 (human review still open). C1 / C2 / C4 stay high because their unsourced numbers are real coverage counts typed without a check file (the reason decision 9 exists), not calendar or unit numbers.
+
+The 1119 pair (C5 v2 vs E010-v4) is scored with g8.1 + m2 from the start.

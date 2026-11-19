@@ -207,8 +207,41 @@ def gold_columns(r):
     return cols
 
 
-def numbers_in_text(text):
-    """Numbers a reader would check: skips years 2000–2030 and bare integers <= 12 (hours, counts of items)."""
+MACHINE_VERSION = "m2"   # machine provenance rules. m1 = SCORING §4 decision 9 (check file); m2 = decision 10 (calendar and unit numbers, Bo 2026-11-19). The LLM grader (GRADER_VERSION) is unchanged by these.
+_MONTH = r"(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\.?"
+_CAL_UNIT = r"(?:day|hour|week|month|year|minute)s?\b"
+
+
+def calendar_or_unit(text, s, e, n, suf):
+    """SCORING §4 decision 10 (Bo, 2026-11-19): calendar and unit numbers are not checked against the data. Decided from the
+    words around the number, never from its value alone, so the same value used as a data result stays checked:
+      date      a day in a written date: "December 31", "31 Dec", "2025-12-31"
+      calendar  a length in calendar units: "13 years", "365 days", "14-hour window", "182 of 366 calendar days"
+      unit      a scale of a rate: "per / by / to 1,000 (10,000, 100,000 ...)"
+    Returns the class name or None. Exempt numbers are listed in the sheet column exempt_numbers for audit."""
+    if suf:   # %, k, million, x: a measure, never calendar or unit
+        return None
+    before, after = text[max(0, s - 30):s], text[e:e + 40]
+    if n <= 31 and n == int(n) and (re.search(r"\b" + _MONTH + r"\s*$", before, re.I) or re.match(r"\s*" + _MONTH + r"\b", after, re.I)
+                                    or re.search(r"\b(?:19|20)\d{2}-\d{1,2}-$", before)):
+        return "date"
+    m = re.match(r"(\s*of\s+([\d,]+))?[\s-]*((?:(?:complete|full|whole|calendar)\s+){0,2})(day|hour|week|month|year|minute)s?\b", after, re.I)
+    if m:
+        unit, qual = m.group(4).lower(), m.group(3).strip()
+        tot = float(m.group(2).replace(",", "")) if m.group(2) else n
+        const = {"day": {7, 28, 29, 30, 31, 365, 366}, "week": {52, 53}, "month": {12}, "hour": {24}, "minute": {60}}.get(unit, set())
+        # years / hours / minutes: a span of the period or a definition ("13 years", "14-hour window"); days / weeks / months
+        # only as a calendar length, so "crashes on 40 days" stays checked
+        if unit in ("year", "hour", "minute") or qual or tot in const:
+            return "calendar"
+    if n in (100, 1e3, 1e4, 1e5, 1e6) and re.search(r"\b(?:per|by|to|every|each)\s*$", before, re.I):
+        return "unit"
+    return None
+
+
+def numbers_in_text(text, exempt=None):
+    """Numbers a reader would check: skips years 2000–2030 and bare integers <= 12 (hours, counts of items), and (decision 10)
+    calendar and unit numbers, which are appended to `exempt` as "raw (class)" when a list is given."""
     found = []
     for m in NUM_RE.finditer(text):
         raw = m.group(0).strip()
@@ -221,6 +254,11 @@ def numbers_in_text(text):
         if 2000 <= n <= 2030 and not m.group(2) and suf == "":
             continue
         if n <= 12 and not m.group(2) and suf == "":
+            continue
+        cls = calendar_or_unit(text, m.start(1), m.end(0), n, suf)
+        if cls:
+            if exempt is not None:
+                exempt.append(f"{raw} ({cls})")
             continue
         found.append((raw, n, suf))
     return found
@@ -269,7 +307,7 @@ def grounded_check(u):
     return [out]
 
 
-def provenance(text, values_files):
+def provenance(text, values_files, exempt=None):
     cells = []
     cols = []
     for vf in values_files:
@@ -318,7 +356,7 @@ def provenance(text, values_files):
                 if b:
                     cand.add(round(a / b, 6)); cand.add(round(a / b * 100, 6)); cand.add(round(a / b * 1000, 6)); cand.add(round(a / b * 100000, 6))
     cand_list = sorted(cand)
-    nums = numbers_in_text(text)
+    nums = numbers_in_text(text, exempt)
     unsourced = []
     for raw, n, suf in nums:
         tol = max(0.01 * abs(n), 0.05 if suf == "%" or "." in raw else 0.5)
@@ -489,7 +527,7 @@ def run_grader(unit, label, call_model, model=None, tag="", timeout=300):
 ALL_ITEMS = list(CRITERIA) + sorted({f"tr_{t['id']}" for g in GOLD.values() for t in g.get("traps", [])}) + ["unsupported_claim", "required_statement"]
 HUMAN = ["h_gold"] + [f"h_{k}" for k in ALL_ITEMS] + ["first_failure", "notes"]   # h_gold: wrong | new_reading | ok
 MACHINE = ["exp", "label", "q", "type", "rep", "option", "complete", "n_options", "n_distinct_analytic", "steps", "gold_match", "gold_detail",
-           "n_numbers", "unsourced_numbers", "framing_flags"]
+           "n_numbers", "unsourced_numbers", "exempt_numbers", "machine_version", "framing_flags"]
 GRADER = ["grader_model", "grader_secs", "grader_tools"] + [c for k in ALL_ITEMS for c in (f"m_{k}", f"ev_{k}")] + ["ev_raw"]
 # Second grader (plan §v0, accepted by Bo 2026-11-04): same prompt, another model; m2_/ev2_ per item; `disagree` lists the items
 # where the two graders differ. Cells where they agree are accepted; disagreements and a small random audit go to the human (--review).
@@ -654,10 +692,12 @@ def score(exp, label, only, use_grader, workers):
     rows = []
     for u in units:
         gm, gd = gold_match(u["base"], [v for v in u["values"] if v.exists()])
-        nn, uns = provenance(u["text"], [v for v in u["values"] if v.exists()] + grounded_check(u))
+        ex = []
+        nn, uns = provenance(u["text"], [v for v in u["values"] if v.exists()] + grounded_check(u), ex)
         rows.append({"exp": exp, "label": label, "q": u["q"], "type": u["type"], "rep": u["rep"], "option": u["option"],
                      "complete": u["complete"], "n_options": u["n_options"], "n_distinct_analytic": u["n_distinct_analytic"], "steps": u["steps"],
-                     "gold_match": gm, "gold_detail": gd, "n_numbers": nn, "unsourced_numbers": " | ".join(uns), "framing_flags": " | ".join(framing_flags(u["code"]))})
+                     "gold_match": gm, "gold_detail": gd, "n_numbers": nn, "unsourced_numbers": " | ".join(uns),
+                     "exempt_numbers": " | ".join(ex), "machine_version": MACHINE_VERSION, "framing_flags": " | ".join(framing_flags(u["code"]))})
     if use_grader:
         from common import MODEL  # noqa: E402
         from run_screen import call_model  # noqa: E402
