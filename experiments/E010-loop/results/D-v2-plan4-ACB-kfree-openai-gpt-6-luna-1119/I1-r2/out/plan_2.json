@@ -1,0 +1,26 @@
+{
+  "initial_plan": {
+    "can_answer": "partly: the file can show motorist deaths per police-reported crash, but it has no miles-driven denominator and cannot establish risk per mile",
+    "metric": "sum of number_of_motorist_killed divided by number of police-reported crash rows in each year (motorist deaths per crash)",
+    "denominator": "number of police-reported crash rows in that calendar year",
+    "population": "police-reported NYC crash rows with crash_date in calendar years 2013 through 2025 inclusive; numerator counts motorist deaths attributed to those crashes, including zero-death crashes in the denominator",
+    "filters": ["crash_date year is 2013–2025 inclusive"],
+    "years": "2013–2025 inclusive",
+    "grouping": "calendar year of crash_date"
+  },
+  "data_check_interpretation": {
+    "facts": "There are 0 NULL crash_date rows, 0 missing number_of_motorist_killed rows in every plan year, and observed dates range from 2013-01-01 through 2025-12-31; every plan year has records from January 1 to December 31. Yearly denominator crash-row counts range from 85,546 to 231,564.",
+    "impact": "All dated crash rows in the selected years can be assigned to a full calendar year, and no motorist-death outcome rows are missing. Annual crash-row denominators differ; the largest adjacent-year change is a decrease of 98,568 crash rows from 2019 (211,486) to 2020 (112,918). The check does not identify any supported default date value; DATE and INT types preclude blank strings or unknown words, and zero is a valid count rather than missingness.",
+    "decision": "Keep all selected-year crash rows, including crashes with zero motorist deaths, in the denominator and disclose varying annual row counts; no plan-year rows are excluded or specially grouped for missing dates or motorist-death counts."
+  },
+  "final_plan": {
+    "can_answer": "partly: motorist deaths per police-reported crash describe a crash-record outcome frequency, but without miles driven this data cannot say whether risk per mile declined",
+    "metric": "annual number_of_motorist_killed divided by annual police-reported crash rows, expressed as recorded motorist deaths per 100,000 crashes",
+    "denominator": "all police-reported crash rows in that calendar year, including rows with zero motorist deaths",
+    "population": "police-reported NYC crash rows dated in calendar years 2013 through 2025 inclusive; motorist deaths are summed over those crashes",
+    "filters": ["crash_date year is 2013–2025 inclusive"],
+    "years": "2013–2025 inclusive, each observed from January 1 through December 31",
+    "grouping": "calendar year of crash_date",
+    "limitations": "The file has no miles-driven or other travel-exposure denominator and cannot measure risk per mile. The ratio is deaths per crash-record, not a person's probability of death or risk while driving. Annual crash-row denominators differ: they changed by 98,568 rows from 2019 to 2020 (211,486 to 112,918), so changes in this ratio across those years can arise from the denominator change and are compared with that caution. The check found 0 NULL crash dates and 0 missing motorist-death counts in plan years; every selected year has full-year date coverage, so no plan-year rows are dropped for these missing fields."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "answerability": "partly: the file can compare the motorist-versus-cyclist composition of recorded deaths in these two categories, but it does not represent deaths among all road-user types",
+    "metric": "for each year, motorist deaths and cyclist deaths as percentages of their combined total, calculated from sums of the two killed-person columns",
+    "denominator": "the annual sum of reported motorist deaths plus reported cyclist deaths",
+    "population": "all police-reported NYC motor vehicle crashes dated 2013-01-01 through 2025-12-31",
+    "filters": ["crash_date is in calendar years 2013-2025"],
+    "years": "calendar years 2013 through 2025 inclusive",
+    "grouping": "calendar year, with shares for motorist and cyclist deaths",
+    "data_check": "See check_2.csv; final decisions below."
+  },
+  "data_check_facts_and_decisions": {
+    "crash_date": "No missing crash dates in the file (0); it is a DATE field, and all 13 requested years have full calendar coverage. Use all crashes dated within 2013-2025; no rows are excluded for missing dates within the requested period.",
+    "population_size": "There are 2,132,218 in-range crash rows total; yearly counts are recorded in check_2.csv (85,546 to 231,564). These are underlying crash population counts, not the share denominator.",
+    "number_of_motorist_killed": "0 missing values among in-range crash rows; keep all in-range rows when calculating category totals.",
+    "number_of_cyclist_killed": "0 missing values among in-range crash rows; keep all in-range rows when calculating category totals.",
+    "year_coverage": "2013-2025 each has records from January 1 through December 31; none is partial.",
+    "decisions": "No data-driven exclusions or missing-value groups are needed. Denominator includes only summed motorist and cyclist deaths, so interpret shares as composition within those two categories, not all traffic deaths."
+  },
+  "final_plan": {
+    "answerability": "partly: it compares the yearly composition of recorded motorist and cyclist deaths, but cannot show their shares of deaths across all road-user types",
+    "metric": "annual motorist deaths and cyclist deaths as percentages of their combined total, calculated from the respective sums of the killed-person columns",
+    "denominator": "within each year, the sum of recorded motorist deaths plus recorded cyclist deaths",
+    "population": "all police-reported NYC motor vehicle crashes with a crash_date in calendar years 2013-2025, counting only the motorist and cyclist killed-person fields",
+    "filters": ["crash_date is from 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "full calendar years 2013 through 2025 inclusive",
+    "grouping": "calendar year, with two shares: motorist and cyclist",
+    "limitations": "The denominator excludes pedestrian and any other road-user deaths, so the shares describe only the motorist-plus-cyclist subset. All requested years are full, crash_date has 0 missing values in the file, and neither killed-person field has missing values among in-range rows; no in-range rows are dropped for missingness."
+  }
+}

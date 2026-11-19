@@ -1,0 +1,19 @@
+{
+  "id": 2,
+  "status": "final plan",
+  "question_fit": "partly: the file can show how many Brooklyn police-reported crashes in each year recorded at least one pedestrian injury or death from 2013 onward, but it has no pedestrian travel or population exposure measure to establish risk per trip or whether safety itself improved.",
+  "metric": "Annual count of crashes with at least one recorded pedestrian injury or death (number_of_pedestrians_injured > 0 or number_of_pedestrians_killed > 0).",
+  "denominator": "No denominator; annual count of qualifying crashes.",
+  "population": "Brooklyn police-reported motor vehicle crashes in complete calendar years 2013–2025 where at least one pedestrian injury or death is recorded, counting each qualifying crash once.",
+  "filters": ["UPPER(TRIM(borough)) = BROOKLYN", "crash_date from 2013-01-01 through 2025-12-31", "both pedestrian injury and death fields are nonmissing", "number_of_pedestrians_injured > 0 or number_of_pedestrians_killed > 0"],
+  "years": "Complete calendar years 2013–2025; the partial 2026 year is excluded.",
+  "grouping": "Calendar year of crash_date.",
+  "outcome_columns_summed": [],
+  "outcome_columns_used_for_classification": ["number_of_pedestrians_injured", "number_of_pedestrians_killed"],
+  "data_check_findings": {
+    "population": "483,501 Brooklyn crash records from 2013 onward; 2026 has 9,700 rows but covers only 2026-01-01 through 2026-06-11, so 2026 is excluded. Each year 2013–2025 has dates spanning January 1 through December 31.",
+    "columns": "After trimming and case normalization, Brooklyn matches are uppercase in the file; among the planned Brooklyn records, borough, crash_date, number_of_pedestrians_injured, and number_of_pedestrians_killed have zero missing/empty/unknown/default cases. Both fields used to classify pedestrian-casualty crashes are nonmissing in all 483,501 eligible rows.",
+    "change": "Changed borough matching from a literal title-case comparison to case-insensitive trimmed matching after the initial literal check returned no rows. Excluded the 9,700 rows in partial 2026; no rows are dropped for missing outcome fields because none are missing."
+  },
+  "limitations": "This is a count of crash records with a recorded pedestrian casualty, not a pedestrian risk rate: the file has no pedestrian travel-volume or population denominator. It includes police-reported crashes only, and the partial 2026 data are excluded."
+}

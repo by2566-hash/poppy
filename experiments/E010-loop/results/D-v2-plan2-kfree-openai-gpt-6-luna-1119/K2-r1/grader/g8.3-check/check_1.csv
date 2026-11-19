@@ -1,0 +1,7 @@
+fact,value
+rows_in_population_2013_2025,2132218
+crash_date_missing_among_selected_rows,0
+crash_date_common_sentinel_values_among_selected_rows,0
+selected_rows_outside_year_filter,0
+date_values_impossible_among_selected_rows,0
+weekday_group_missing_among_selected_rows,0

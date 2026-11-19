@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual sum of number_of_motorist_killed, interpreted as the number of motorist deaths recorded in crash rows",
+      "denominator": "None; annual total count",
+      "grouping": "Calendar year of crash_date, complete years 2013–2025 inclusive",
+      "chart_type": "Line chart",
+      "reason": "Annual motorist-death totals are the most direct outcome count available in crash records and preserve multiple deaths from a single crash.",
+      "probability": 0.58,
+      "answer": "This crash file cannot determine whether per-mile motorist-death risk declined; recorded motorist deaths numbered 110 in 2013, peaked at 139 in 2020, and numbered 81 in 2025.",
+      "interpretation": "The crash file cannot answer whether risk per mile declined, but the chart shows annual recorded motorist-death counts. It sums number_of_motorist_killed across all police-reported NYC crash rows and groups by calendar crash year for complete years 2013–2025, with no denominator: the count was 110 in 2013, 139 in 2020, and 81 in 2025. This is a defensible description of recorded fatality burden, while leaving per-mile risk unanswered because the file contains no miles-driven exposure. Checks found 2,132,218 rows in the planned years, 0 missing crash dates, and 0 missing motorist-death values, so all planned-year rows were retained without differential counting; all planned years are full calendar years, and partial 2026 coverage is outside the selected period."
+    },
+    {
+      "id": 2,
+      "metric": "Annual count of crash rows where number_of_motorist_killed is greater than zero; each qualifying crash row counts once",
+      "denominator": "None; annual count of qualifying crash rows",
+      "grouping": "Calendar year of crash_date, complete years 2013–2025 inclusive",
+      "chart_type": "Line chart",
+      "reason": "Counting fatal crash events once gives a complementary view of how often reported crashes involved a motorist death, regardless of deaths per event.",
+      "probability": 0.42,
+      "answer": "This crash file cannot determine whether per-mile motorist-death risk declined; crashes with at least one recorded motorist death numbered 102 in 2013, peaked at 126 in both 2020 and 2021, and numbered 75 in 2025.",
+      "interpretation": "The crash file cannot answer whether risk per mile declined, but the chart shows annual counts of crash rows involving a motorist death. For police-reported NYC crashes with a known nonnegative motorist-death count in complete calendar years 2013–2025, it counts a row once when number_of_motorist_killed is greater than zero, regardless of how many motorists died in that crash; the count was 102 in 2013, 126 in both 2020 and 2021, and 75 in 2025. This is a defensible measure of fatal crash-event frequency, but it leaves per-mile risk unanswered because miles driven are not recorded. Checks found 2,132,218 rows in the planned years, 0 missing crash dates, and 0 missing or negative motorist-death values, so no rows were excluded for missing or invalid values; zero-death crashes do not qualify by definition, all planned years are full calendar years, and partial 2026 coverage is outside the selected period."
+    }
+  ]
+}

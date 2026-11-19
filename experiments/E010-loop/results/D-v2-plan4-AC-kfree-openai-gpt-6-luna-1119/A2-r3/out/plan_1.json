@@ -1,0 +1,26 @@
+{
+  "question": "Are NYC's streets more dangerous at night?",
+  "initial_plan": {
+    "can_answer": "partly: crash records can compare the share of recorded crashes involving injury or death by crash time, but cannot establish danger per trip, vehicle, pedestrian, or unit of exposure because exposure is not provided",
+    "metric": "Share of crashes with at least one person injured or killed",
+    "denominator": "Crashes with a valid crash_date, usable crash_time, and non-missing, nonnegative number_of_persons_injured and number_of_persons_killed",
+    "population": "Police-reported NYC motor vehicle crashes in every year present in the file",
+    "filters": ["Keep rows with a valid crash_date to assign a year", "Keep rows with a valid crash_time", "For the metric denominator, keep rows with valid person injury and death counts"],
+    "years": "All years present in the file; compare pooled years",
+    "grouping": "Night is 20:00–05:59; day is 06:00–19:59"
+  },
+  "data_check_interpretation": {
+    "facts": "The 2,269,187 dated crashes span 2012–2026; 2012 covers July 1–December 31 and 2026 covers January 1–June 11, while other years cover full calendar years. No crash dates or crash times are missing or invalid. There are 24,566 crashes at 00:00, which could be legitimate or a default. Person-injury counts are missing or impossible in 18 rows and person-death counts in 8,913 rows.",
+    "meaning_and_decisions": "Exclude rows without a usable date, time, or either outcome count from this complete-case comparison; the date/time checks show no such date/time exclusions, while outcome missingness means the denominator omits rows with an unknown injury/death count rather than treating unknown as zero. Retain 00:00 as a valid night time because the data cannot distinguish a true midnight crash from a default. Include the partial 2012 and 2026 calendar years in the pooled comparison and disclose them; no exposure measure or seasonally adjusted darkness measure is available."
+  },
+  "final_plan": {
+    "can_answer": "partly: compares injury-or-death involvement among police-reported crashes by clock-time category; it cannot measure danger per road user, trip, traffic volume, or exposure",
+    "metric": "Share of complete-case crashes with at least one person injured or killed",
+    "denominator": "Dated crashes with a valid crash_time and non-missing, nonnegative person injured and killed counts",
+    "population": "Police-reported NYC motor vehicle crashes with usable date, time, and both person outcome counts, pooled over 2012–2026",
+    "filters": ["Exclude rows missing/invalid crash_date or crash_time", "Exclude rows with missing or negative number_of_persons_injured or number_of_persons_killed", "Retain 00:00 as a valid time"],
+    "years": "All observed years pooled; 2012 and 2026 are partial calendar years (2012-07-01 through 2012-12-31; 2026-01-01 through 2026-06-11)",
+    "grouping": "Night is 20:00–05:59 inclusive across midnight; day is 06:00–19:59",
+    "limitations": "This is severity among reported crashes, not a per-trip or per-person danger rate: traffic and road-user exposure are absent. Clock-time categories are not actual darkness and ignore seasonal daylight. 24,566 midnight records are retained because they may be legitimate or default-coded. There are 18 missing/impossible injury counts and 8,913 missing/impossible death counts in dated rows, excluded from the complete-case denominator. The pooled years include partial 2012 and 2026."
+  }
+}

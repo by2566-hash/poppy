@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "status": "final",
+  "can_answer": "yes, for the distribution of recorded crash rows across weekdays in the requested years; not a population-adjusted crash risk comparison",
+  "metric": "Number of police-reported crash rows by weekday, pooled across 2013–2025",
+  "denominator": "Count of crash rows (no rate denominator)",
+  "population": "All crash rows whose crash_date falls from 2013-01-01 through 2025-12-31",
+  "filters": ["Include crash_date years 2013 through 2025 inclusive"],
+  "years": [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  "grouping": "Day of week derived from crash_date, Monday through Sunday",
+  "limitations": "Counts describe police-reported crash rows, not crash rates per day of exposure or traffic volume. All 13 requested years have complete calendar coverage; the date field is DATE-typed with 0 missing values across the source and therefore no invalid weekday derivations. The final population includes all 2,132,218 dated crash rows from 2013–2025 without exclusions. Annual row counts vary substantially: the largest neighboring-year change is a decrease of 98,568 rows, from 211,486 in 2019 to 112,918 in 2020, so pooled weekday counts combine years with different numbers of crash records.",
+  "data_check": {
+    "facts_file": "./out/check_1.csv",
+    "decision": "Keep all dated records and disclose the record-count variation; no rows are dropped or treated as a separate group. crash_date missing in source: 0; impossible values: 0 possible in a DATE-typed column; all requested years have full Jan 1–Dec 31 coverage. There are 2,132,218 rows in the final population.",
+    "final_population": "All crash rows with crash_date from 2013-01-01 through 2025-12-31; 2,132,218 rows, no date-based exclusions.",
+    "largest_neighboring_year_row_change": "2019 to 2020: decrease of 98,568 rows (211,486 to 112,918)."
+  }
+}

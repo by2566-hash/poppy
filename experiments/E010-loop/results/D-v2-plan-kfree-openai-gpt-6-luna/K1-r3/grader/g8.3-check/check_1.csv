@@ -1,0 +1,19 @@
+fact,value
+crashes with crash_date in 2013-2025,2132218
+rows with missing crash_date (cannot assign to a year),0
+2013 crash rows,203742
+2014 crash rows,206046
+2015 crash rows,217708
+2016 crash rows,229833
+2017 crash rows,231007
+2018 crash rows,231564
+2019 crash rows,211486
+2020 crash rows,112918
+2021 crash rows,110558
+2022 crash rows,103887
+2023 crash rows,96607
+2024 crash rows,91316
+2025 crash rows,85546
+2013-2025 rows with missing number_of_pedestrians_killed,0
+2013-2025 rows with impossible negative number_of_pedestrians_killed,0
+2013-2025 rows with number_of_pedestrians_killed equal to zero,2130554

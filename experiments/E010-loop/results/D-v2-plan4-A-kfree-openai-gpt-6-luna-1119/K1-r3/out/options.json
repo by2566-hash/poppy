@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "sum of number_of_pedestrians_killed by calendar year of crash_date; counts pedestrian deaths, not crashes",
+      "denominator": "not applicable; annual count, not a rate or share",
+      "grouping": "calendar year of crash_date",
+      "chart_type": "line chart",
+      "reason": "A line chart makes the progression of annual pedestrian death counts across calendar years easy to see.",
+      "probability": 0.45,
+      "answer": "The recorded annual pedestrian death counts were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This framing answers the requested annual counts by summing number_of_pedestrians_killed across all police-reported NYC motor vehicle crash rows dated in each calendar year from 2013 through 2025; the plotted values are deaths, not crash counts. The line chart displays the annual totals in sequence, with each year’s exact count listed in the answer. A line chart is defensible because it makes the progression across calendar years visible while preserving the requested count for each year; it cannot count deaths outside police-reported crashes or independently verify recorded deaths. The check covered 2,132,218 in-range crash rows and found 0 missing crash dates, 0 missing pedestrian-killed values, 0 candidate default dates, and observed date endpoints spanning January 1 to December 31 in every year; all in-range rows were kept, none were dropped or counted differently, and endpoint coverage does not establish complete reporting."
+    },
+    {
+      "id": 2,
+      "metric": "sum of number_of_pedestrians_killed by calendar year of crash_date; counts pedestrian deaths, not crashes",
+      "denominator": "not applicable; annual count, not a rate or share",
+      "grouping": "calendar year of crash_date",
+      "chart_type": "bar chart",
+      "reason": "Bars make the discrete annual death totals and their magnitudes easy to compare directly.",
+      "probability": 0.55,
+      "answer": "The recorded annual pedestrian death counts were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "This framing answers the requested annual counts by summing number_of_pedestrians_killed across all police-reported NYC motor vehicle crash rows dated in each calendar year from 2013 through 2025; each bar represents pedestrian deaths, not crashes. The bars show the exact annual totals listed in the answer and support direct comparison of one calendar year with another. A bar chart is defensible for these discrete yearly counts because bar heights emphasize the size of each separate annual total; it cannot count deaths outside police-reported crashes or independently verify recorded deaths. The check covered 2,132,218 in-range crash rows and found 0 missing crash dates, 0 missing pedestrian-killed values, 0 candidate default dates, and observed date endpoints spanning January 1 to December 31 in every year; all in-range rows were kept, none were dropped or counted differently, and endpoint coverage does not establish complete reporting."
+    }
+  ]
+}

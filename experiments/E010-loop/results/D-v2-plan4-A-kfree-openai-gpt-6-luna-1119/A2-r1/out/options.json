@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Count of police-reported crash records",
+      "denominator": "None; absolute record count over the observed period",
+      "grouping": "Night (20:00–05:59) versus daytime (06:00–19:59); missing/unclassifiable time is a separate group if present",
+      "chart_type": "bar chart",
+      "reason": "A news report may want to compare the absolute volume of reported crashes recorded at night and during daytime.",
+      "probability": 0.2,
+      "answer": "Partly: police reports recorded 559,004 crashes at night and 1,710,183 during daytime from July 2012 through June 2026, but unadjusted counts cannot establish nighttime risk per traveler.",
+      "interpretation": "This answers only the reported-crash-volume part: over July 1, 2012–June 11, 2026, night is 20:00–05:59 and daytime is 06:00–19:59, and the chart counts all police-reported crash records without a denominator (559,004 at night and 1,710,183 during daytime); missing/unclassifiable time would be a separate group, but no such rows occurred. This is a defensible view of crash-record volume by clock time, but it leaves per-traveler danger unanswered because the data have no measure of how many people or vehicles were traveling in either period. The check found 2,269,187 dated records, zero missing dates, zero at the checked sentinel dates, and no missing/unknown/unparseable times; it also found 24,566 records exactly at 00:00:00, which are kept in the night group because they could be real midnight crashes or defaults. Keep all observed years and disclose that 2012 begins July 1 and 2026 ends June 11; no rows are otherwise excluded or counted differently."
+    },
+    {
+      "id": 2,
+      "metric": "Share of eligible crash records with at least one person injured or killed, calculated as 100 × records where number_of_persons_injured + number_of_persons_killed ≥ 1 divided by eligible records",
+      "denominator": "Within each time group, crash records with both number_of_persons_injured and number_of_persons_killed present",
+      "grouping": "Night (20:00–05:59) versus daytime (06:00–19:59); missing/unclassifiable time is a separate group if present",
+      "chart_type": "bar chart",
+      "reason": "A share of crashes involving injury or death compares reported harm conditional on a crash rather than simply comparing crash totals.",
+      "probability": 0.5,
+      "answer": "Partly: among crash records with both outcome counts reported, 28.4% of nighttime reports and 23.4% of daytime reports involved at least one injury or death, a crash-level share rather than traveler risk.",
+      "interpretation": "This answers only the share-of-crashes-with-harm part: for July 1, 2012–June 11, 2026, night means 20:00–05:59 and daytime means 06:00–19:59; an injury-or-death crash has number_of_persons_injured + number_of_persons_killed ≥ 1, and the denominator in each group is records with both counts present (28.4% at night and 23.4% during daytime); missing/unclassifiable time would be a separate group, but no such rows occurred. This is a defensible crash-level severity comparison because it compares the fraction of reported crashes that involved a reported injury or death, rather than raw crash totals. It leaves risk per traveler unanswered because the dataset has no travel-exposure denominator. The check found zero missing dates, zero at the checked sentinel dates, and no missing/unknown/unparseable times; 18 injury counts and 8,913 death counts are missing, with 8,919 distinct records (0.39% of dated records) missing either field, so exclude those from numerator and denominator, while keeping the 24,566 exact-midnight records as night and disclosing possible defaults, and keeping the partial endpoint years (2012 starts July 1; 2026 ends June 11)."
+    },
+    {
+      "id": 3,
+      "metric": "Mean of number_of_persons_injured + number_of_persons_killed per eligible crash record",
+      "denominator": "Within each time group, crash records with both number_of_persons_injured and number_of_persons_killed present",
+      "grouping": "Night (20:00–05:59) versus daytime (06:00–19:59); missing/unclassifiable time is a separate group if present",
+      "chart_type": "bar chart",
+      "reason": "Average injured-plus-killed persons per crash describes the amount of recorded human harm conditional on a crash, including multiple people harmed in one crash.",
+      "probability": 0.3,
+      "answer": "Partly: eligible nighttime crash reports averaged 0.407 reported injured-or-killed people per crash, compared with 0.310 during daytime, which measures harm per recorded crash rather than traveler risk.",
+      "interpretation": "This answers only the reported-harm-per-crash part: from July 1, 2012 through June 11, 2026, night is 20:00–05:59 and daytime is 06:00–19:59, and the metric is the mean of number_of_persons_injured + number_of_persons_killed per record with both fields present (0.407 at night and 0.310 during daytime); missing/unclassifiable time would be a separate group, but no such rows occurred. This is a defensible way to describe the average number of reported injured or killed people associated with each eligible crash report, including more than one person per crash. It leaves per-traveler danger unanswered because travel volume by time is not in these data. The check found zero missing dates, zero at the checked sentinel dates, and no missing/unknown/unparseable times; 18 injury counts and 8,913 death counts are missing, with 8,919 distinct records (0.39% of dated records) missing either field, so exclude those from the mean, keep the 24,566 exact-midnight records in the night group while flagging possible defaults, and keep/disclose partial 2012 (from July 1) and 2026 (through June 11)."
+    }
+  ]
+}

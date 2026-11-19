@@ -1,0 +1,137 @@
+fact,value
+population_definition,Rows with nonmissing crash_date; counted before applying time and outcome completeness filters
+population_rows,2269187
+crash_date_missing_rows,0
+crash_date_sentinel_1900_rows,0
+rows_year_2012,100545
+date_range_year_2012,2012-07-01 to 2012-12-31
+missing_crash_time_year_2012,0
+midnight_crash_time_year_2012,12
+missing_number_of_persons_injured_year_2012,0
+missing_number_of_persons_killed_year_2012,0
+missing_either_person_count_year_2012,0
+year_2012_coverage_assessment,possible/indicated partial coverage: observed dates do not reach both calendar-year boundaries
+rows_year_2013,203742
+date_range_year_2013,2013-01-01 to 2013-12-31
+missing_crash_time_year_2013,0
+midnight_crash_time_year_2013,25
+missing_number_of_persons_injured_year_2013,0
+missing_number_of_persons_killed_year_2013,0
+missing_either_person_count_year_2013,0
+year_2013_coverage_assessment,no partial coverage indicated by observed date range (date presence alone cannot prove full source coverage)
+rows_year_2014,206046
+date_range_year_2014,2014-01-01 to 2014-12-31
+missing_crash_time_year_2014,0
+midnight_crash_time_year_2014,21
+missing_number_of_persons_injured_year_2014,0
+missing_number_of_persons_killed_year_2014,0
+missing_either_person_count_year_2014,0
+year_2014_coverage_assessment,no partial coverage indicated by observed date range (date presence alone cannot prove full source coverage)
+rows_year_2015,217708
+date_range_year_2015,2015-01-01 to 2015-12-31
+missing_crash_time_year_2015,0
+midnight_crash_time_year_2015,24
+missing_number_of_persons_injured_year_2015,0
+missing_number_of_persons_killed_year_2015,0
+missing_either_person_count_year_2015,0
+year_2015_coverage_assessment,no partial coverage indicated by observed date range (date presence alone cannot prove full source coverage)
+rows_year_2016,229833
+date_range_year_2016,2016-01-01 to 2016-12-31
+missing_crash_time_year_2016,0
+midnight_crash_time_year_2016,2895
+missing_number_of_persons_injured_year_2016,1
+missing_number_of_persons_killed_year_2016,2
+missing_either_person_count_year_2016,2
+year_2016_coverage_assessment,no partial coverage indicated by observed date range (date presence alone cannot prove full source coverage)
+rows_year_2017,231007
+date_range_year_2017,2017-01-01 to 2017-12-31
+missing_crash_time_year_2017,0
+midnight_crash_time_year_2017,3819
+missing_number_of_persons_injured_year_2017,11
+missing_number_of_persons_killed_year_2017,16
+missing_either_person_count_year_2017,19
+year_2017_coverage_assessment,no partial coverage indicated by observed date range (date presence alone cannot prove full source coverage)
+rows_year_2018,231564
+date_range_year_2018,2018-01-01 to 2018-12-31
+missing_crash_time_year_2018,0
+midnight_crash_time_year_2018,3490
+missing_number_of_persons_injured_year_2018,5
+missing_number_of_persons_killed_year_2018,14
+missing_either_person_count_year_2018,16
+year_2018_coverage_assessment,no partial coverage indicated by observed date range (date presence alone cannot prove full source coverage)
+rows_year_2019,211486
+date_range_year_2019,2019-01-01 to 2019-12-31
+missing_crash_time_year_2019,0
+midnight_crash_time_year_2019,3145
+missing_number_of_persons_injured_year_2019,0
+missing_number_of_persons_killed_year_2019,0
+missing_either_person_count_year_2019,0
+year_2019_coverage_assessment,no partial coverage indicated by observed date range (date presence alone cannot prove full source coverage)
+rows_year_2020,112918
+date_range_year_2020,2020-01-01 to 2020-12-31
+missing_crash_time_year_2020,0
+midnight_crash_time_year_2020,1841
+missing_number_of_persons_injured_year_2020,0
+missing_number_of_persons_killed_year_2020,1
+missing_either_person_count_year_2020,1
+year_2020_coverage_assessment,no partial coverage indicated by observed date range (date presence alone cannot prove full source coverage)
+rows_year_2021,110558
+date_range_year_2021,2021-01-01 to 2021-12-31
+missing_crash_time_year_2021,0
+midnight_crash_time_year_2021,1912
+missing_number_of_persons_injured_year_2021,1
+missing_number_of_persons_killed_year_2021,0
+missing_either_person_count_year_2021,1
+year_2021_coverage_assessment,no partial coverage indicated by observed date range (date presence alone cannot prove full source coverage)
+rows_year_2022,103887
+date_range_year_2022,2022-01-01 to 2022-12-31
+missing_crash_time_year_2022,0
+midnight_crash_time_year_2022,1615
+missing_number_of_persons_injured_year_2022,0
+missing_number_of_persons_killed_year_2022,0
+missing_either_person_count_year_2022,0
+year_2022_coverage_assessment,no partial coverage indicated by observed date range (date presence alone cannot prove full source coverage)
+rows_year_2023,96607
+date_range_year_2023,2023-01-01 to 2023-12-31
+missing_crash_time_year_2023,0
+midnight_crash_time_year_2023,1616
+missing_number_of_persons_injured_year_2023,0
+missing_number_of_persons_killed_year_2023,0
+missing_either_person_count_year_2023,0
+year_2023_coverage_assessment,no partial coverage indicated by observed date range (date presence alone cannot prove full source coverage)
+rows_year_2024,91316
+date_range_year_2024,2024-01-01 to 2024-12-31
+missing_crash_time_year_2024,0
+midnight_crash_time_year_2024,1642
+missing_number_of_persons_injured_year_2024,0
+missing_number_of_persons_killed_year_2024,0
+missing_either_person_count_year_2024,0
+year_2024_coverage_assessment,no partial coverage indicated by observed date range (date presence alone cannot prove full source coverage)
+rows_year_2025,85546
+date_range_year_2025,2025-01-01 to 2025-12-31
+missing_crash_time_year_2025,0
+midnight_crash_time_year_2025,1742
+missing_number_of_persons_injured_year_2025,0
+missing_number_of_persons_killed_year_2025,3
+missing_either_person_count_year_2025,3
+year_2025_coverage_assessment,no partial coverage indicated by observed date range (date presence alone cannot prove full source coverage)
+rows_year_2026,36424
+date_range_year_2026,2026-01-01 to 2026-06-11
+missing_crash_time_year_2026,0
+midnight_crash_time_year_2026,767
+missing_number_of_persons_injured_year_2026,0
+missing_number_of_persons_killed_year_2026,8877
+missing_either_person_count_year_2026,8877
+year_2026_coverage_assessment,possible/indicated partial coverage: observed dates do not reach both calendar-year boundaries
+missing_crash_time_all_years,0
+midnight_crash_time_all_years,24566
+missing_number_of_persons_injured_all_years,18
+missing_number_of_persons_killed_all_years,8913
+missing_either_person_count_all_years,8919
+rows_in_candidate_complete_years_2013_2025,2132218
+midnight_time_candidate_complete_years_2013_2025,23787
+missing_injured_candidate_complete_years_2013_2025,18
+missing_killed_candidate_complete_years_2013_2025,36
+missing_either_person_count_candidate_complete_years_2013_2025,42
+time_value_domain,crash_time has DuckDB TIME type; non-NULL malformed/impossible clock values are not representable in this typed column
+time_group_definitions,night 20:00–05:59; day 06:00–19:59

@@ -1,0 +1,3 @@
+The dataset has no vehicle-mile exposure field, so it cannot calculate per-mile risk. I’m keeping two defensible partial answers: annual counts of motorists killed and annual counts of crashes with at least one motorist killed. The year-by-year checks show complete date endpoints for 2013–2025 and no missing motorist-death values in the planned population.
+ANSWER: This crash data cannot establish whether per-mile motorist-death risk declined; it shows 110 motorists recorded killed in 2013 and 81 in 2025 (chart: `out/option_1.png`).
+This crash data cannot establish whether per-mile motorist-death risk declined; it shows 102 crashes with at least one motorist recorded killed in 2013 and 75 in 2025 (chart: `out/option_2.png`).

@@ -1,0 +1,3 @@
+The crash file spans both endpoint years in full, but contains no miles-driven exposure. I’m carrying forward two related annual crash-data measures: motorist deaths and crashes with at least one motorist death, both explicitly framed as counts rather than per-mile risk.
+ANSWER: This crash file cannot determine whether per-mile motorist-death risk declined; recorded motorist deaths numbered 110 in 2013, peaked at 139 in 2020, and numbered 81 in 2025 ([chart](./out/option_1.png)).
+This crash file cannot determine whether per-mile motorist-death risk declined; crashes with at least one recorded motorist death numbered 102 in 2013, peaked at 126 in both 2020 and 2021, and numbered 75 in 2025 ([chart](./out/option_2.png)).

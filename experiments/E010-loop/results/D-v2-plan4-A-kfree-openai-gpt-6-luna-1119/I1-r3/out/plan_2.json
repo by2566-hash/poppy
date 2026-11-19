@@ -1,0 +1,12 @@
+{
+  "status": "final plan",
+  "can_answer_question": "partly: the file cannot measure miles driven or motorist risk per mile; it can show motorists killed per 1,000 police-reported crashes with known motorist-killed values",
+  "metric": "Sum of motorists killed per 1,000 police-reported NYC crash rows with a nonmissing number_of_motorist_killed, by crash year",
+  "denominator": "Number of police-reported crash rows with nonmissing number_of_motorist_killed in that year, scaled to 1,000 crashes",
+  "population": "All police-reported crash rows in the file with crash_date in calendar years 2013 through 2025; numerator and denominator include only rows with a nonmissing number_of_motorist_killed",
+  "filters": ["crash_date year from 2013 through 2025 inclusive", "number_of_motorist_killed is nonmissing for numerator and denominator"],
+  "years": "Calendar years 2013-2025 inclusive; check whether any year is only partially covered",
+  "grouping": "Calendar year of crash_date",
+  "data_check_implications_and_decisions": "The scoped population contains 2,132,218 rows for 2013-2025, and number_of_motorist_killed is nonmissing in all of them, so every in-scope crash row enters both the numerator sum and crash denominator. Every year has observed dates at both Jan 1 and Dec 31; this supports full calendar-year date coverage but cannot establish source-record completeness. Jan 1 contains 188-485 rows per year (about 0.17%-0.22%), with no conspicuous date-default pileup. Keep all crash rows in the date range; use all of them as the denominator because the outcome field is observed for all. The metric and scope are unchanged from the initial plan.",
+  "limitations": "The rate is motorist deaths per 1,000 police-reported crashes, not per mile driven; it cannot establish the per-mile risk trend. It is sensitive to the number and mix of crashes. The data check found 2,132,218 in-scope rows and no missing motorist-killed values; all years span Jan 1-Dec 31, but observed endpoints do not prove complete reporting."
+}

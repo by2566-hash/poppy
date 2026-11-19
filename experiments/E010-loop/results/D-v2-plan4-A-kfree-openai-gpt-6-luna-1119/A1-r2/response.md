@@ -1,0 +1,4 @@
+The first check exposed a label-format mismatch: borough values are stored in uppercase, so an exact-case match found no Brooklyn rows. I’m correcting the borough match to be case-insensitive (and whitespace-trimmed), then regenerating the checks before proceeding.
+ANSWER:
+1. This only partly answers road safety: recorded Brooklyn pedestrian casualties (injuries plus deaths) numbered 3,671 in 2013, reached a low of 1,798 in 2020, and numbered 2,874 in 2025; without pedestrian exposure data, these counts cannot establish risk or overall safety. [Line chart](out/option_1.png)
+2. This only partly answers road safety: reported Brooklyn pedestrian deaths numbered 30 in 2013, peaked at 46 in 2015, reached a low of 17 in 2020, and numbered 39 in 2025; these counts do not establish risk per trip or overall safety. [Bar chart](out/option_2.png)

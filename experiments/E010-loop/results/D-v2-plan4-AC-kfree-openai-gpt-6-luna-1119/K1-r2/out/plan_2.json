@@ -1,0 +1,29 @@
+{
+  "initial_plan": {
+    "can_answer": "yes, if the file contains complete 2013–2025 coverage; it directly records pedestrian deaths per crash",
+    "metric": "Annual total pedestrians killed, calculated as the sum of number_of_pedestrians_killed across crash records",
+    "denominator": "None; this is a total count, not a rate",
+    "population": "Police-reported NYC motor vehicle crashes with a nonmissing crash_date in calendar years 2013 through 2025",
+    "filters": ["crash_date is in 2013–2025"],
+    "years": "2013–2025 inclusive, using calendar year of crash_date",
+    "grouping": "Calendar year of crash_date"
+  },
+  "data_check_interpretation": {
+    "rows": "There are 2,132,218 crash records in the 2013–2025 population. Each of the 13 years has observations spanning January 1 through December 31, so no requested year is partial.",
+    "date_quality": "No crash_date values are missing across the file (0 of 2,269,187), and none of the checked common sentinel dates occur. No year can be assigned to a missing date, so none are dropped for that reason.",
+    "outcome_quality": "number_of_pedestrians_killed is missing on 0 of 2,132,218 population rows; no rows are excluded or treated differently for outcome missingness.",
+    "decision": "Keep all records with crash_date in 2013–2025 and sum the recorded pedestrian-death count; exclude records outside the requested years. The file covers all requested years fully."
+  },
+  "final_plan": {
+    "can_answer": "yes",
+    "metric": "Annual total pedestrians killed, calculated by summing number_of_pedestrians_killed across police-reported NYC crash records in each calendar year",
+    "denominator": "None; a total count, not a rate",
+    "population": "Police-reported NYC motor vehicle crashes with crash_date in calendar years 2013 through 2025",
+    "filters": ["Keep records dated 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "2013–2025 inclusive; each year has observed records spanning the full calendar year",
+    "grouping": "Calendar year of crash_date",
+    "missingness_decision": "Keep every in-period crash row; the summed field is missing on 0 of 2,132,218 rows, so none are omitted for outcome missingness.",
+    "limitations": "The measure is based on police-reported crash records and is a count without a population or exposure denominator. Records outside 2013–2025 are outside scope; none of the requested years is partial, and the date and outcome fields have no missing values in the checked populations.",
+    "chart_type": "Line chart"
+  }
+}

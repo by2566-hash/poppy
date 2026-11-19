@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual totals of recorded motorist deaths and recorded cyclist deaths, calculated by summing the corresponding killed-count column across selected crash rows",
+      "denominator": "None; counts of deaths, not rates",
+      "grouping": "Calendar year and road-user group (motorist or cyclist)",
+      "chart_type": "Grouped bar chart",
+      "reason": "Separate annual counts make the magnitude for each road-user group directly comparable within every year.",
+      "probability": 0.65,
+      "answer": "In every year from 2013 through 2025, recorded motorist deaths exceeded cyclist deaths; motorist counts ranged from 72 to 139 and cyclist counts from 10 to 31.",
+      "interpretation": "This answers the year-by-year comparison for deaths recorded in police-reported NYC crashes: it sums each killed-count field over crash dates from 2013-01-01 through 2025-12-31 and groups the annual counts into motorist and cyclist, with no denominator. The bars show motorist counts of 72–139 per year versus cyclist counts of 10–31, with motorist counts higher in all 13 years. Separate annual counts directly compare the two groups, but do not show exposure-adjusted risk or independently verify death-registry totals. Checks found 2,132,218 selected rows (85,546 in 2025), complete January–December date coverage each year, no missing dates or checked sentinel dates among all 2,269,187 file rows, and zero missing values in either summed field; January 1 records numbered 188–485 per year, so all selected rows were kept and no separate default-date group was created."
+    },
+    {
+      "id": 2,
+      "metric": "Annual motorist-minus-cyclist difference, calculated as the sum of number_of_motorist_killed minus the sum of number_of_cyclist_killed among selected crash rows",
+      "denominator": "None; absolute difference in counts, not a rate",
+      "grouping": "Calendar year",
+      "chart_type": "Diverging bar chart centered on zero",
+      "reason": "An annual count difference summarizes the absolute gap between the two road-user groups and makes its direction explicit.",
+      "probability": 0.35,
+      "answer": "The motorist-minus-cyclist death-count difference was positive every year, ranging from 51 in 2019 to 115 in 2021.",
+      "interpretation": "This answers the comparison for recorded police-reported crash deaths as an annual absolute difference: for each calendar year from 2013 through 2025, it subtracts the sum of cyclist killed counts from the sum of motorist killed counts on crash rows dated 2013-01-01 inclusive through 2026-01-01 exclusive, with no denominator. All 13 differences are positive, from +51 in 2019 to +115 in 2021, meaning the recorded motorist count exceeded the cyclist count by that amount in each year. The signed gap is a defensible compact comparison of absolute counts, but it does not show exposure-adjusted risk or independently verify death-registry totals. Checks found 2,132,218 selected rows (85,546 in 2025), complete January–December date coverage each year, no missing dates or checked sentinel dates among all 2,269,187 file rows, and zero missing values in either summed field; January 1 records numbered 188–485 per year, so all selected rows were kept and no separate default-date group was created."
+    }
+  ]
+}

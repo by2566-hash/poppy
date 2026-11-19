@@ -1,0 +1,4 @@
+The checks show 2,132,218 crashes in the requested years, no missing crash dates or motorist/cyclist killed counts, and both calendar-year boundaries represented for every year. I’ll use the complete recorded counts for the direct comparison and a second view of each class’s share of motorist-plus-cyclist deaths; neither supports a risk comparison because exposure data are absent.
+ANSWER:
+1. In the annual recorded-death counts, motorist deaths exceeded cyclist deaths in every year from 2013–2025: 72–139 motorist deaths versus 10–31 cyclist deaths.
+2. As a share of combined motorist-and-cyclist deaths, motorists accounted for 72.6%–90.9% per year and cyclists 9.1%–27.4%, with the cyclist share highest in 2019.

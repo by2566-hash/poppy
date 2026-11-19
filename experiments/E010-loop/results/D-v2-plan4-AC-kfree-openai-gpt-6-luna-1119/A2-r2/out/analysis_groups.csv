@@ -1,0 +1,4 @@
+time_group,crash_count,crashes_with_injury_or_death,pct_crashes_with_injury_or_death,injured_persons,killed_persons,total_casualties,mean_casualties_per_crash
+Day,1607466,376361.0,23.41331014155198,496258.0,1798.0,498056.0,0.30983921277339616
+Night,500924,143039.0,28.555030303998212,203447.0,1611.0,205058.0,0.4093595036372783
+00:00 (possibly default),23786,6360.0,26.73841755654587,8542.0,3.0,8545.0,0.35924493399478685

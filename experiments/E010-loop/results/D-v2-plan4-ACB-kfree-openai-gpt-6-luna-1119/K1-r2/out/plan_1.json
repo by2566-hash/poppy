@@ -1,0 +1,27 @@
+{
+  "initial_plan": {
+    "can_answer": "yes: the data records the number of pedestrians killed in each crash, allowing annual counts to be summed; it cannot establish fatalities absent from police-reported crashes",
+    "metric": "sum of number_of_pedestrians_killed per crash, by calendar year of crash_date",
+    "denominator": "none; this is a count of pedestrian fatalities, not a rate",
+    "population": "all police-reported motor vehicle crashes in NYC with crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date calendar year is 2013–2025 inclusive"],
+    "years": "2013–2025 inclusive",
+    "grouping": "calendar year derived from crash_date",
+    "columns_to_check": ["crash_date", "number_of_pedestrians_killed"]
+  },
+  "data_check": {
+    "facts_file": "./out/check_1.csv",
+    "meaning_and_decisions": "The population has 2,132,218 crash rows, with annual row counts listed in check_1.csv. crash_date has 0 missing rows filewide and 0 occurrences of the checked default dates, so no planned-year rows are lost or misassigned for those reasons. Every year from 2013 through 2025 has observed dates from January 1 through December 31; no year is partial by the observed date span, although this does not establish source-record completeness. number_of_pedestrians_killed is missing on 0 population rows. Keep all rows; no relevant rows need exclusion or a separate unknown group. The result describes recorded counts for police-reported crashes, and source completeness or unreported deaths cannot be checked from these columns."
+  },
+  "final_plan": {
+    "can_answer": "yes for the recorded pedestrian-fatality counts in police-reported NYC motor vehicle crashes; not for any deaths absent from these records",
+    "metric": "annual sum of number_of_pedestrians_killed across crashes, by calendar year of crash_date",
+    "denominator": "none; report a count of pedestrian fatalities, not a rate",
+    "population": "all police-reported motor vehicle crashes in NYC dated in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date calendar year is 2013–2025 inclusive"],
+    "years": "2013–2025 inclusive; observed crash dates span January 1 to December 31 in every year",
+    "grouping": "calendar year derived from crash_date",
+    "missing_and_exclusion_decisions": "Keep all population rows. crash_date and number_of_pedestrians_killed have no missing values in the relevant checked scope; no rows are excluded or counted differently.",
+    "limitations": "Counts are limited to pedestrian deaths recorded in police-reported NYC motor vehicle crashes. Observed dates span each full calendar year, but the data check cannot verify source-record completeness or deaths in unreported crashes."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "initial_plan": {
+    "can_answer": "yes, for deaths recorded in police-reported crashes; it does not establish all deaths from independent death records",
+    "metric": "annual totals of recorded motorist deaths and recorded cyclist deaths",
+    "denominator": "none; counts of deaths, not rates",
+    "population": "police-reported NYC crash rows dated 2013 through 2025, with each death attributed to the crash's motorist or cyclist fatality count",
+    "filters": ["crash_date year from 2013 through 2025"],
+    "years": "calendar years 2013–2025 inclusive",
+    "grouping": ["calendar year", "road-user group (motorist, cyclist)"],
+    "outcomes_to_sum": ["number_of_motorist_killed", "number_of_cyclist_killed"],
+    "chart_type": "grouped bars"
+  },
+  "data_check": {
+    "population_and_years": "2,132,218 crash rows have crash_date in 2013–2025. Each year has records from January 1 through December 31, including 85,546 rows in 2025; no year in the requested period is partial by the dates present in the file.",
+    "filter_and_group_fields": "Before the year filter, all 2,269,187 rows have 0 missing crash_date values and 0 records at the checked sentinel dates 0001-01-01, 1900-01-01, or 1970-01-01. Within the selected period, DATE values cannot encode impossible calendar dates; January 1 records range from 188 to 485 per year and are retained as valid dates, with no evidence in this field alone that they are defaults.",
+    "summed_fields": "There are 0 missing number_of_motorist_killed values and 0 missing number_of_cyclist_killed values among selected rows.",
+    "row_decisions": "Keep all selected rows; exclude none and create no missing-value group. No rows have missing or checked sentinel crash_date values before the year filter. Dates on January 1 remain included in their calendar years.",
+    "plan_changes": "No change to the initial metric, population, years, filters, or grouping.",
+    "limitations": "These are sums of deaths recorded in police-reported NYC crash rows, not independently audited death-registry totals or rates. The file has full calendar-date coverage for 2013–2025; both summed fields are present on every selected row."
+  },
+  "final_plan": {
+    "can_answer": "yes, as a comparison of deaths recorded in police-reported crashes",
+    "metric": "annual totals of recorded motorist deaths and recorded cyclist deaths, calculated by summing the corresponding killed-count column across selected crash rows",
+    "denominator": "none; counts of deaths, not rates",
+    "population": "all police-reported NYC crash rows with crash_date in calendar years 2013–2025 inclusive",
+    "filters": ["crash_date from 2013-01-01 inclusive through 2026-01-01 exclusive"],
+    "years": "calendar years 2013–2025 inclusive; all have dates from January 1 through December 31 in the file",
+    "grouping": ["calendar year", "road-user group: motorist or cyclist"],
+    "outcomes_to_sum": ["number_of_motorist_killed", "number_of_cyclist_killed"],
+    "chart_type": "grouped bars",
+    "limitations": "The measure is restricted to deaths recorded in police-reported crash rows and is not an independently verified death-registry total or an exposure-adjusted rate. The selected period has 2,132,218 rows, complete date coverage in every year including 2025 (85,546 dated rows), and no missing values in either summed field. Across all 2,269,187 file rows there are no missing dates or checked sentinel dates; January 1 dates (188–485 records per year) are retained as valid dates because the date field alone does not establish a default-date error."
+  }
+}

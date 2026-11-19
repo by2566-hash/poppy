@@ -1,0 +1,4 @@
+I’ll create defensible weekday-distribution framings, document each data check before analyzing outcomes, then generate and review the charts and answer files.
+Both framings are supported by the crash-date field: the file has 2,132,218 dated crash rows in 2013–2025, no missing or common sentinel dates, and each year’s observed date range reaches both calendar boundaries. The date envelope alone cannot verify complete reporting on every day, so I’ll state that limitation in both plans.
+ANSWER: Of the 2,132,218 police-reported crashes dated 2013–2025, Friday had the most records (338,800) and Sunday the fewest (257,544).  
+By average records per calendar date of each weekday, Friday was highest at 499.7 and Sunday lowest at 379.9 over 2013–2025.

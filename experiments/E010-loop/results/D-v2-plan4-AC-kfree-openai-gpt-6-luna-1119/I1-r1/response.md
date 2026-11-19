@@ -1,0 +1,4 @@
+The crash file cannot calculate deaths per mile because it contains no vehicle-miles-traveled denominator. I’m using two supported alternatives: annual motorist-death counts and the share of crash reports involving a motorist death; the planned years have dated rows from Jan 1 through Dec 31, and the relevant death field has no missing values.
+ANSWER:
+1. This crash data cannot establish whether motorist-death risk per mile declined; reported motorists killed in NYC crashes totaled 110 in 2013 and 81 in 2025, with counts varying between years ([chart](out/option_1.png), [values](out/values_1.csv)).
+2. This crash data cannot establish per-mile risk; crash records involving at least one motorist death were 0.0501% in 2013 and 0.0877% in 2025, peaking at 0.1180% in 2023 ([chart](out/option_2.png), [values](out/values_2.csv)).

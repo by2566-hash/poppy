@@ -1,0 +1,29 @@
+{
+  "initial_plan": {
+    "can_answer_question": "partly: the file has no distance-travelled or exposure measure, so it cannot estimate deaths per mile; it can show motorist deaths per police-reported crash",
+    "metric": "annual number_of_motorist_killed divided by the number of police-reported crash rows",
+    "denominator": "all police-reported crash rows with crash_date in the same calendar year",
+    "population": "police-reported NYC crashes with crash_date in calendar years 2013 through 2025; recorded motorist deaths on those rows form the numerator",
+    "filters": ["crash_date is in 2013–2025"],
+    "years": "2013–2025 inclusive",
+    "grouping": "calendar year of crash_date",
+    "aggregation": "sum recorded motorist deaths divided by crash-row count within each year"
+  },
+  "data_check": {
+    "rows": "2,132,218 crash rows in 2013–2025; annual row counts are in check_2.csv",
+    "missing_or_invalid": "Among rows in the selected years, crash_date is missing/default/invalid in 0 rows and number_of_motorist_killed is missing in 0 rows.",
+    "coverage": "All years 2013–2025 have records from January 1 through December 31; no partial year was found.",
+    "implication_and_decision": "No selected rows need to be excluded or handled as a separate group for missing dates or motorist-death values. Use all dated crash rows as the denominator and all recorded motorist deaths as the numerator. This crash-normalized measure is not an exposure-adjusted per-mile risk measure."
+  },
+  "final_plan": {
+    "can_answer_question": "partly: the data cannot answer whether deaths per mile declined because it contains no miles-driven denominator; it can describe recorded motorist deaths per police-reported crash",
+    "metric": "annual sum of number_of_motorist_killed divided by the annual count of police-reported crash rows",
+    "denominator": "all police-reported NYC crash rows dated in the same calendar year",
+    "population": "all police-reported NYC crash rows dated within each full calendar year 2013–2025; recorded motorist deaths on those crashes form the numerator",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "2013–2025 inclusive; each year has records for all dates from January 1 to December 31",
+    "grouping": "calendar year of crash_date",
+    "aggregation": "sum number_of_motorist_killed divided by count of crash rows in the year",
+    "limitations": "No miles-driven exposure is present, so deaths per crash cannot establish per-mile risk. The data contains police-reported crashes only. No selected crash date or motorist-death value is missing, and no year is partial; all selected crash rows are retained."
+  }
+}

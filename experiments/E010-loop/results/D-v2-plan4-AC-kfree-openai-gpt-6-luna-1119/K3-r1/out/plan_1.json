@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "status": "final",
+  "can_answer": "yes: the file has annual motorist- and cyclist-fatality fields for police-reported crashes, so it can compare reported fatality counts by crash year.",
+  "metric": "Annual number of reported motorist deaths and cyclist deaths, each calculated as the sum of its corresponding death-count column.",
+  "denominator": "None; these are absolute counts, not rates.",
+  "population": "All police-reported NYC motor vehicle crash records dated from 2013 through 2025; the outcomes count reported motorist or cyclist deaths associated with those crashes.",
+  "filters": ["Crash date is in calendar years 2013–2025 inclusive.", "For comparable role-specific sums, omit crash rows where either number_of_motorist_killed or number_of_cyclist_killed is NULL; disclose the omission."],
+  "years": "2013–2025 inclusive, by calendar year of crash_date.",
+  "grouping": "Calendar year and road-user group (motorist, cyclist).",
+  "data_check": {
+    "facts": "There are 2,132,218 in-range crash records across 2013–2025. In every requested year the file's first and last crash dates are January 1 and December 31, respectively. Neither death-count column has NULL values in any in-range row, so 0 records are omitted by the common-completeness filter. The fields are typed counts and crash_date is DATE typed; no in-range crash_date missing, string-unknown, or impossible values were found/representable; the source description specifies no default date sentinel.",
+    "decision": "Keep records with both death-count values present and disclose the completeness check; this retains all 2,132,218 in-range crashes. Use the full 2013–2025 period because each year's date span includes both calendar boundaries. No plan change was needed."
+  },
+  "limitations": "These are absolute counts of deaths reported in police-reported NYC motor vehicle crashes, not population-, travel-, or exposure-adjusted risk rates. Crash records with dates that are NULL cannot be assigned to the requested years; the in-range file date span reaches both calendar boundaries in every requested year."
+}

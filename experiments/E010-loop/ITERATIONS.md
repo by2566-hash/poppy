@@ -267,3 +267,51 @@ What the evidence says:
 5. **Measurement note (M10, for Bo).** 2 of v3's 5 TR05 FAILs on 11-19 disclose an overall share ("30.8% … excluded") and fail only because the grader reads the reference range in the item ("19.9–38.1% per year") as required. Whether an overall share is enough is a standard question; no change made.
 
 Next (not started; the post-v4 plan is under discussion with Bo): the recorded rule is to split v4 into v4a (direction ban only; expected to keep the PERMILE gain) and v4b (rows-per-year, reworded to name the effect on cross-year comparison and to count rows before any population filter).
+
+## 2026-11-19 (T1): lock the version. Root cause of v4, g8.3, nested candidates A / AC / ACB
+
+Bo approved T1 (and T2–T5; T6 pending) and delegated the v3→v4 fix and the rule update.
+
+### What v4 taught (lock the problem)
+
+| Part of v4 | Verdict | Evidence |
+|---|---|---|
+| Direction ban when the plan says "partly / no" | **works, kept (A)** | PERMILE 0/5 in v4, 0/5 in A |
+| Rows-per-year rule | wording too weak, **reworded (B')** | v4 agents listed rows per year but did not tie the change to the comparison (TR01 6/7) |
+| TR05 "rise" | **not caused by v4: a flaw in v3's data check (fixed by C)** | The check counted missing values "in the plan's population", i.e. after `borough = BROOKLYN`, which is 0 by construction ("0 of 483,501 Brooklyn rows missing borough"). v3's TR05 was 2/7 and 3/8: partly luck. |
+
+### Ruler
+
+- **Grader hermetic check** (open caveat closed): 48 options of the 11-08 arms (not A1 / I1) re-graded hermetically; 536 cells, 17 differ, agreement **0.968** against the stored pre-hermetic verdicts. Two hermetic passes agree on 0.97–0.99, and the flips have no direction (trap / UC: 3 options towards FAIL, 2 towards PASS). No detectable effect of the skill text on the grader. `diagnosis/grader_hermetic_check.py`, `.json`.
+- **g8.3 = decision 11 (TR05 wording).** The grader was inconsistent on the same sentence type: of the options that mention the excluded no-borough rows without a per-year range, 23 passed and 10 failed, 4 solely as "an overall share, not the per-year range". Now: disclosure that no-borough crashes are left out passes; a number is optional; the range is a reference. A1 units re-graded in all 15 arms, everything else reused.
+- **Decision 10, extended contexts** (same rule, found on the new arms): the year of an ISO date ("1900-01-01"), the hour of a clock time ("20:00-23:59"), "1,000 times …". A check-file cell that holds several numbers ("0 of 2269187") now yields each number. Still unsourced by rule: a total that is in neither file (2,132,218 = sum of two check rows, 4 + 4 options in A / AC) and a share not in the values file (15.9%).
+
+### Candidates (nested, one change per step; frozen in FROZEN.md)
+
+A = v3 + direction ban. AC = A + a filter column is checked on the rows *before* that filter. ACB = AC + denominator rule reworded (name the largest change in rows per year between neighbouring years and say the measure's rise or fall across them can come from the denominator).
+
+### Result (same day 11-19, hermetic, 18 runs each, no infrastructure failures; g8.3; two-pass agreement 0.984–0.991)
+
+| | D v2 11-13 | v3 11-13 | **v3 11-19** | v4 11-19 | A | AC | **ACB** |
+|---|---|---|---|---|---|---|---|
+| options | 43 | 37 | 36 | 37 | 39 | 36 | 38 |
+| **silent-error** | 42% | 22% | **19%** | 38% | 36% | 22% | **11%** |
+| traps + UC only | 42% | 22% | 19% | 35% | 26% | 14% | 11% |
+| unsourced options | 0 | 0 | 0 | 1 | 4 | 4 | 0 |
+| PERMILE (A) | 1/3 | 3/4 | 1/2 | 0/5 | **0/5** | 0/2 | 0/2 |
+| TR05 (C) | 9/9 | 2/7 | 3/8 | 8/8 | 3/7 | **0/7** | 0/9 |
+| TR01 (B') | 5/5 | 4/4 | 3/3 | 6/7 | 5/5 | 2/2 | **0/5** |
+| TR08 / TR07 / NIGHTDEF | 3/7, 3/5, 0/10 | 0 | 0 | 0 | 0 | 0 | 0 |
+| TR15 (control) | 3/3 | 3/3 | 2/3 | 3/3 | 3/3 | 2/2 | 3/3 |
+| unsupported_claim | 4/43 | 4/37 | 1/36 | 1/37 | 1/39 | 1/36 | 1/38 |
+| SE A1 / I1 | 9/9, 3/6 | 4/7, 4/8 | 5/8, 2/6 | 8/8, 5/6 | 5/7, 5/7 | 4/7, 4/6 | **3/9, 0/6** |
+
+Each step moves its own target and only that:
+- **A** fixes PERMILE (0/5) but on its own makes I1 worse overall (SE 5/7): the agent now shows the per-crash rate more often, and every such option fails TR01. A needs B'.
+- **C** takes TR05 from 3/7 to 0/7 (0/9 with B'). Agents now write e.g. "borough NULL on 659,713 of 2,132,218 city rows in 2013–2025 (30.9%), so these rows could not be assigned".
+- **B'** takes TR01 from 5/5 to **0/5**, the control no arm had moved since E009. Agents find the break themselves: "the denominator fell from 211,486 in 2019 to 112,918 in 2020, so a rise or fall in this measure across those years can come from this denominator change and not the outcome". The prompt names no year.
+- What is left in ACB: TR15 3/3 (small counts, untargeted control) and 1 UC (K3-r3 o1, the M8 pattern: "zero missing" in 2013–2025 judged against the 2026 NULLs; for human review).
+
+**Decision (keep rule, same-day v3): ACB is kept and locked as E010-v4** (`D_enumerate.v2-plan4-ACB.md`). All three targets fall, nothing else rises (TR15 is 2–3 of 3 in every arm). The 11-19 `v2-plan3` arm is renamed "v4-draft" in the records. From here the prompt is frozen: no edits before the generalisation test (T2).
+
+Limits, stated plainly: one run of 18 per arm; TR01 0/5 and PERMILE 0/2 are small counts; the six pilot questions were used to design the changes, so this is a development-set result. T2 (held-out questions) is the test.

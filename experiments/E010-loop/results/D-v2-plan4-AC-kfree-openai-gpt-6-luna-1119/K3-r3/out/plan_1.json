@@ -1,0 +1,15 @@
+{
+  "status": "final",
+  "can_answer": "yes: the file records motorist and cyclist deaths per crash and crash dates for the requested years, allowing annual sums by road-user category",
+  "metric": "Annual count of people killed, shown separately for motorists and cyclists, summing the corresponding per-crash killed columns",
+  "denominator": "None; raw annual counts",
+  "population": "All police-reported NYC motor-vehicle crashes dated from 2013-01-01 through 2025-12-31; deaths are counted by the motorist/cyclist killed columns",
+  "filters": ["crash_date is within calendar years 2013-2025"],
+  "years": "Calendar years 2013 through 2025 inclusive",
+  "grouping": ["calendar year derived from crash_date", "road-user category: motorist or cyclist"],
+  "data_check": {
+    "facts": "The 2013-2025 period contains 2,132,218 crashes, with every requested calendar year present and date coverage from January 1 through December 31 in each year. There are 0 NULL crash dates in the file, 0 in-period sentinel dates among 1900-01-01, 1970-01-01, 0001-01-01 and 9999-12-31, and 0 missing values in either killed column in the selected population (0 in every year).",
+    "meaning_and_decisions": "No in-period crashes are dropped for a missing or default crash date, and no crash rows need to be excluded or separately grouped for missing motorist/cyclist death values. Keep all 2,132,218 crashes, sum both killed columns, and disclose the data's coverage and exposure limitation."
+  },
+  "limitations": "Counts describe deaths recorded in police-reported NYC motor-vehicle crashes, not per-trip or per-mile risk; all requested years have full calendar-date coverage, and neither killed column is missing in the selected population."
+}

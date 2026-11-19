@@ -1,0 +1,26 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer": "yes: the data records a date for each crash, so crashes can be grouped by weekday",
+    "metric": "number of police-reported crashes",
+    "denominator": "all crashes with a valid crash_date in 2013–2025 inclusive",
+    "population": "one row per police-reported motor vehicle crash in NYC",
+    "filters": ["crash_date is in calendar years 2013 through 2025 inclusive"],
+    "years": "2013–2025 inclusive",
+    "grouping": "weekday of crash_date, Monday through Sunday"
+  },
+  "data_check": {
+    "facts_file": "check_1.csv",
+    "meaning_and_decisions": "The selected population is 2,132,218 dated crash rows. There are 0 missing or impossible typed crash_date values in the file; 136,969 dated rows fall outside 2013–2025 and are excluded by the specified period filter. No date default value is identified within the selected years. Every year from 2013 through 2025 has date coverage from January 1 through December 31 and a distinct crash date for every calendar day, so no selected year is partial by date coverage. Keep all rows inside the period, group them by weekday, and disclose the out-of-period exclusions and that counts represent police-reported crashes rather than traffic exposure or crash risk. No data-driven plan change."
+  },
+  "final_plan": {
+    "can_answer": "yes",
+    "metric": "number of police-reported crashes",
+    "denominator": "all 2,132,218 crashes with a valid crash_date in 2013–2025 inclusive; each crash row contributes one count",
+    "population": "one row per police-reported motor vehicle crash in NYC",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "2013–2025 inclusive; all 13 calendar years have full date coverage",
+    "grouping": "weekday of crash_date, Monday through Sunday",
+    "limitations": "136,969 dated rows outside 2013–2025 are excluded; no crash_date is missing or impossible. Counts describe police-reported crash volume, not risk adjusted for traffic or travel exposure."
+  }
+}

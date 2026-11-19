@@ -1,0 +1,22 @@
+fact,value
+Rows in requested date range (2013-01-01 through 2025-12-31),2132218
+Rows with missing crash_date in entire file (excluded; year cannot be assigned),0
+Rows with usable crash_date outside requested date range (excluded),136969
+crash_date missing among eligible population rows,0
+crash_date count at candidate default 1900-01-01 in range,0
+crash_date count at candidate default 1970-01-01 in range,0
+crash_date count at candidate default 2000-01-01 in range,0
+crash_date count at candidate default 2013-01-01 in range,381
+Rows in 2013,203742
+Rows in 2014,206046
+Rows in 2015,217708
+Rows in 2016,229833
+Rows in 2017,231007
+Rows in 2018,231564
+Rows in 2019,211486
+Rows in 2020,112918
+Rows in 2021,110558
+Rows in 2022,103887
+Rows in 2023,96607
+Rows in 2024,91316
+Rows in 2025,85546

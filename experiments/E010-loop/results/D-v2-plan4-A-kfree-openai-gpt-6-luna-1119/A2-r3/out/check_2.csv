@@ -1,0 +1,83 @@
+fact,value
+Rows in initial population across all file years,2269187
+Rows in year 2012,100545
+Observed date bounds in year 2012,2012-07-01 through 2012-12-31
+Year 2012 is partial by observed date bounds,True
+Rows in year 2013,203742
+Observed date bounds in year 2013,2013-01-01 through 2013-12-31
+Year 2013 is partial by observed date bounds,False
+Rows in year 2014,206046
+Observed date bounds in year 2014,2014-01-01 through 2014-12-31
+Year 2014 is partial by observed date bounds,False
+Rows in year 2015,217708
+Observed date bounds in year 2015,2015-01-01 through 2015-12-31
+Year 2015 is partial by observed date bounds,False
+Rows in year 2016,229833
+Observed date bounds in year 2016,2016-01-01 through 2016-12-31
+Year 2016 is partial by observed date bounds,False
+Rows in year 2017,231007
+Observed date bounds in year 2017,2017-01-01 through 2017-12-31
+Year 2017 is partial by observed date bounds,False
+Rows in year 2018,231564
+Observed date bounds in year 2018,2018-01-01 through 2018-12-31
+Year 2018 is partial by observed date bounds,False
+Rows in year 2019,211486
+Observed date bounds in year 2019,2019-01-01 through 2019-12-31
+Year 2019 is partial by observed date bounds,False
+Rows in year 2020,112918
+Observed date bounds in year 2020,2020-01-01 through 2020-12-31
+Year 2020 is partial by observed date bounds,False
+Rows in year 2021,110558
+Observed date bounds in year 2021,2021-01-01 through 2021-12-31
+Year 2021 is partial by observed date bounds,False
+Rows in year 2022,103887
+Observed date bounds in year 2022,2022-01-01 through 2022-12-31
+Year 2022 is partial by observed date bounds,False
+Rows in year 2023,96607
+Observed date bounds in year 2023,2023-01-01 through 2023-12-31
+Year 2023 is partial by observed date bounds,False
+Rows in year 2024,91316
+Observed date bounds in year 2024,2024-01-01 through 2024-12-31
+Year 2024 is partial by observed date bounds,False
+Rows in year 2025,85546
+Observed date bounds in year 2025,2025-01-01 through 2025-12-31
+Year 2025 is partial by observed date bounds,False
+Rows in year 2026,36424
+Observed date bounds in year 2026,2026-01-01 through 2026-06-11
+Year 2026 is partial by observed date bounds,True
+Candidate rows in final complete years 2013-2025,2132218
+Rows in partial years excluded (2012 and 2026),136969
+Candidate rows in final year 2013,203742
+Candidate rows in final year 2014,206046
+Candidate rows in final year 2015,217708
+Candidate rows in final year 2016,229833
+Candidate rows in final year 2017,231007
+Candidate rows in final year 2018,231564
+Candidate rows in final year 2019,211486
+Candidate rows in final year 2020,112918
+Candidate rows in final year 2021,110558
+Candidate rows in final year 2022,103887
+Candidate rows in final year 2023,96607
+Candidate rows in final year 2024,91316
+Candidate rows in final year 2025,85546
+crash_date missing/unparseable (NULL) in final candidate years,0
+crash_date at sentinel dates 1900-01-01 or 1970-01-01 in final candidate years,0
+crash_time missing/unparseable (NULL; typed TIME excludes blank/unknown/impossible values) in final candidate years,0
+crash_time at midnight default candidate 00:00:00 in final candidate years,23787
+number_of_persons_injured missing (NULL) in final candidate years,18
+number_of_persons_killed missing (NULL) in final candidate years,36
+Final eligible metric-population rows after excluding any missing outcome total,2132176
+Rows excluded for missing one or more required outcome totals,42
+Final eligible metric-population rows in year 2013,203742
+Final eligible metric-population rows in year 2014,206046
+Final eligible metric-population rows in year 2015,217708
+Final eligible metric-population rows in year 2016,229831
+Final eligible metric-population rows in year 2017,230988
+Final eligible metric-population rows in year 2018,231548
+Final eligible metric-population rows in year 2019,211486
+Final eligible metric-population rows in year 2020,112917
+Final eligible metric-population rows in year 2021,110557
+Final eligible metric-population rows in year 2022,103887
+Final eligible metric-population rows in year 2023,96607
+Final eligible metric-population rows in year 2024,91316
+Final eligible metric-population rows in year 2025,85543

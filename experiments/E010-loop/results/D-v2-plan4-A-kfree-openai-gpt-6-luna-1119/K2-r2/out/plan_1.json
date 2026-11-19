@@ -1,0 +1,12 @@
+{
+  "status": "final plan",
+  "answerability": "yes: the file describes police-reported motor vehicle crashes and dates, so it can show how recorded crashes are distributed across weekdays in the specified years; it cannot represent crashes not reported to police.",
+  "metric": "Number of police-reported crashes by weekday, with each weekday's share of all included crashes.",
+  "denominator": "All included police-reported crashes dated in 2013–2025; shares use that total.",
+  "population": "One record per police-reported motor vehicle crash with a usable crash_date in calendar years 2013 through 2025 inclusive.",
+  "filters": ["crash_date is within 2013-01-01 through 2025-12-31"],
+  "years": "2013–2025 inclusive",
+  "grouping": "Day of week derived from crash_date (Monday through Sunday).",
+  "data_check_implications_and_decisions": "The check found 2,132,218 dated crashes in the planned years, zero missing or recognized default dates within this population, and complete Jan 1–Dec 31 date coverage in every year from 2013 through 2025. Keep every qualifying row; no qualifying row is dropped or assigned a different weekday. Records without a usable date are outside the date-defined population and cannot be assigned a weekday.",
+  "limitations": "This describes police-reported crashes with usable dates, not every crash that occurred. The check found no missing/default dates within the eligible population and complete calendar-year coverage for all 13 years."
+}

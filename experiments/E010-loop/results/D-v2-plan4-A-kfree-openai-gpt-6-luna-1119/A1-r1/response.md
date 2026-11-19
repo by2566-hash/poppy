@@ -1,0 +1,5 @@
+The Brooklyn records are stored with `BROOKLYN` uppercase, so I normalized borough matching in the check. The file runs through June 11, 2026; I’ll exclude that partial year and use complete calendar years 2013–2025. Both pedestrian outcome fields are complete on the eligible crash records.
+ANSWER:
+1. This only partly answers whether pedestrian safety improved: Brooklyn police-reported crashes recorded 3,671 pedestrian injuries and deaths in 2013, 1,798 in 2020, and 2,874 in 2025, but these counts have no pedestrian-exposure denominator; see [chart 1](out/option_1.png).
+2. This only partly answers whether pedestrian safety improved: crashes with at least one pedestrian injured or killed numbered 3,498 in 2013, 1,724 in 2020, and 2,766 in 2025, but these counts have no pedestrian-exposure denominator; see [chart 2](out/option_2.png).
+3. This only partly answers whether pedestrian safety improved: Brooklyn police-reported crashes recorded 30 pedestrian deaths in 2013, 17 in 2020, and 39 in 2025, but these counts have no pedestrian-exposure denominator; see [chart 3](out/option_3.png).

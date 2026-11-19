@@ -1,0 +1,28 @@
+{
+  "id": 2,
+  "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+  "initial_plan": {
+    "can_answer": "yes, the file has one record per police-reported crash and a crash date from which weekday can be derived",
+    "metric": "share of police-reported crash records by weekday",
+    "denominator": "all police-reported crash records with a nonmissing crash_date in calendar years 2013 through 2025 inclusive",
+    "population": "one record per police-reported NYC motor vehicle crash with a nonmissing crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date is within 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "2013-2025 inclusive",
+    "grouping": "day of week derived from crash_date, Monday through Sunday"
+  },
+  "data_check": {
+    "findings": "The selected population has 2,132,218 dated crash records. There are 0 missing or impossible crash_date values among included rows; crash_date is a DATE, so empty strings and text unknown codes are not representable. All years 2013-2025 run from January 1 through December 31 in the file.",
+    "decision": "Keep all in-range dated records. Records with no usable date or dates outside 2013-2025 cannot be assigned to the requested period and are not counted; missing-date rows cannot be assigned to a year."
+  },
+  "final_plan": {
+    "can_answer": "yes, for police-reported crash records with a usable crash_date in the requested period",
+    "metric": "share of police-reported crash records by weekday",
+    "denominator": "all police-reported crash records with a nonmissing crash_date in calendar years 2013 through 2025 inclusive (2,132,218 records)",
+    "population": "one record per police-reported NYC motor vehicle crash with a nonmissing crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date is within 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "2013-2025 inclusive; each calendar year is present from January 1 through December 31",
+    "grouping": "day of week derived from crash_date, Monday through Sunday",
+    "measure_definition": "weekday crash-record count divided by the total number of in-period crash records, expressed as a percentage",
+    "limitations": "Shares describe the distribution of police-reported crash records, not crash risk per day or exposure-adjusted rates; crashes with no usable date cannot be assigned to this period, and no date-missing rows occur in the included population."
+  }
+}

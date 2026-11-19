@@ -1,0 +1,3 @@
+The checks show 2,132,218 crashes across the requested years, with full calendar-year coverage through 2025 and no missing dates or motorist/cyclist killed counts within the included rows. I’m retaining all eligible rows; the two useful framings are absolute annual death totals and the annual split of deaths between the two road-user groups.
+ANSWER: Motorist deaths exceeded cyclist deaths in every year from 2013–2025: annual totals were 72–139 motorists and 10–31 cyclists, with the respective peaks of 139 in 2020 and 31 in 2019 and 2023.
+This framing answers only the relative-composition part: cyclists made up 9.1% of motorist-plus-cyclist deaths in 2013, 27.4% in 2019, and 22.1% in 2025, with motorists making up the remainder.

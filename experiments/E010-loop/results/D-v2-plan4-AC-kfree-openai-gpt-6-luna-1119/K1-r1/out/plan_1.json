@@ -1,0 +1,28 @@
+{
+  "initial_plan": {
+    "can_answer": "yes, subject to checking that the file covers the requested years",
+    "metric": "Annual number of pedestrians killed, calculated as the sum of number_of_pedestrians_killed across crash records in each calendar year.",
+    "denominator": "None; this is a count, not a rate or share.",
+    "population": "All police-reported NYC motor vehicle crash records with crash_date in calendar years 2013 through 2025, inclusive.",
+    "filters": ["crash_date year is between 2013 and 2025, inclusive"],
+    "years": "2013–2025, grouped by calendar year of crash_date.",
+    "grouping": "Calendar year of crash_date.",
+    "data_check_columns": ["crash_date", "number_of_pedestrians_killed"]
+  },
+  "data_check_interpretation_and_decisions": {
+    "facts": "There are 2,132,218 records in the requested years, with records in each year 2013–2025. Every year has observed dates from January 1 through December 31, and is therefore a complete calendar year by the file's observed date coverage. No crash_date values are missing (0); crash_date is a typed DATE, so empty strings, unknown words, and impossible calendar dates cannot be represented. There are 0 requested-year rows at common placeholder dates (0001-01-01, 1900-01-01, 1970-01-01, 9999-12-31). number_of_pedestrians_killed is missing on 0 records in each year and 0 records overall.",
+    "row_use_decisions": "Keep all crash records with dates in 2013–2025. Rows with missing crash_date cannot be assigned to a year and would be excluded by the year filter, but there are 0 such rows. No rows are dropped for missing outcome values; all 2,132,218 records in the requested population are retained for aggregation.",
+    "changes": "No changes to the initial metric, population, filters, years, or grouping. The requested years are all covered as complete calendar years in this file."
+  },
+  "final_plan": {
+    "can_answer": "yes: the file supports annual counts for each requested calendar year, for police-reported NYC motor vehicle crashes represented in this file",
+    "metric": "For each calendar year, sum number_of_pedestrians_killed over the year's crash records; this estimates the number of pedestrian fatalities recorded in the dataset, not a population-adjusted rate.",
+    "denominator": "None; count of fatalities, not a rate or share.",
+    "population": "All police-reported NYC motor vehicle crash records in the file with crash_date in 2013–2025, inclusive; the count is of pedestrian fatalities reported across those crashes.",
+    "filters": ["crash_date year is between 2013 and 2025, inclusive"],
+    "years": "Calendar years 2013–2025 inclusive; all years have observed records from January 1 to December 31.",
+    "grouping": "Calendar year of crash_date.",
+    "limitations": "This describes only police-reported crashes and pedestrian fatality counts recorded in this dataset. All requested years have complete observed calendar-year date coverage, and 0 records have missing crash_date or number_of_pedestrians_killed; no plan-population rows are excluded or counted differently.",
+    "data_check_file": "./out/check_1.csv"
+  }
+}

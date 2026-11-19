@@ -1,0 +1,2 @@
+ANSWER: Among 2,132,218 police-reported crashes dated 2013–2025, Friday had the largest share (338,800; 15.89%) and Sunday the smallest (257,544; 12.08%).  
+Averaged per calendar date, crashes were highest on Friday (499.7) and lowest on Sunday (379.9).

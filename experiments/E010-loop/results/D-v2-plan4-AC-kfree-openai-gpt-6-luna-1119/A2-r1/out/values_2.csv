@@ -1,0 +1,4 @@
+group,crashes_with_known_injury_count,persons_injured_sum,mean_persons_injured_per_crash,metric_value
+Day (06:00-19:59),1607484,496280,0.308731,0.308731
+"Night (20:00-23:59, 01:00-05:59)",500929,203453,0.406151,0.406151
+00:00 recorded,23787,8547,0.359314,0.359314

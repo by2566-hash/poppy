@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "For each calendar year, the total recorded motorist deaths (sum of number_of_motorist_killed) and cyclist deaths (sum of number_of_cyclist_killed) across qualifying crash records",
+      "denominator": "None; these are annual death counts, not rates",
+      "grouping": "Year, with separate motorist and cyclist series",
+      "chart_type": "Grouped bar chart",
+      "reason": "Annual counts directly answer how many recorded deaths occurred in each requested road-user category and preserve the absolute difference between the groups.",
+      "probability": 0.7,
+      "answer": "Recorded motorist deaths outnumber cyclist deaths in every year from 2013–2025, with annual counts ranging from 72–139 for motorists and 10–31 for cyclists.",
+      "interpretation": "This answers the year-by-year count comparison for calendar years 2013–2025: for each year, the chart sums the per-crash motorist and cyclist death fields among police-reported NYC crash records dated in that year, and motorist counts are larger in every year. Comparing absolute annual counts is defensible for a question about the number of deaths, but these counts do not compare risk per motorist or cyclist because there is no population, travel, or exposure denominator. The check covers 2,132,218 in-scope crash rows, found 0 missing values in each death field and observed dates spanning Jan 1–Dec 31 in every included year; we retained all qualifying rows, while records outside 2013–2025 or without a usable date are excluded by the date filter, and full boundary dates alone do not establish completeness of every source record."
+    },
+    {
+      "id": 2,
+      "metric": "For each year, motorist share = annual sum of number_of_motorist_killed divided by the sum of number_of_motorist_killed and number_of_cyclist_killed; cyclist share = annual sum of number_of_cyclist_killed divided by the same denominator",
+      "denominator": "For each year, combined recorded motorist and cyclist deaths only; no other road-user category is included",
+      "grouping": "Year, with motorist and cyclist shares of their combined recorded deaths",
+      "chart_type": "100% stacked bar chart",
+      "reason": "Annual shares provide a normalized comparison of how the two requested categories divide their combined recorded deaths, regardless of the combined count in a given year.",
+      "probability": 0.3,
+      "answer": "This dataset answers only the two-category composition part: motorists accounted for 72.6% in 2019 up to 90.9% in 2013 (cyclists accounted for 27.4% in 2019 and 9.1% in 2013).",
+      "interpretation": "This answers only the composition part of the question: for each calendar year 2013–2025, the annual sums of the two per-crash death fields are each divided by their combined motorist-plus-cyclist total, yielding motorist shares of 72.6%–90.9% and cyclist shares of 9.1%–27.4%. This is a defensible way to compare the relative makeup of these two requested categories, while it leaves the actual annual counts, comparative risk per road user, and shares among all road-user deaths unanswered. The check covers 2,132,218 in-scope crash rows, found 0 missing values in either death field and observed dates spanning Jan 1–Dec 31 in every included year; we retained all qualifying rows, while records outside the date range or without a usable date are excluded by the filter, and complete boundary dates alone do not establish completeness of every source record."
+    }
+  ]
+}

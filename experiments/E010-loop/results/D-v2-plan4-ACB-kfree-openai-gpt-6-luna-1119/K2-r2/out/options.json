@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of crash rows by weekday, summed over calendar years 2013–2025",
+      "denominator": "No denominator; raw number of included crash rows",
+      "grouping": "Weekday derived from crash_date (Monday–Sunday), pooled across 2013–2025",
+      "chart_type": "Vertical bar chart",
+      "reason": "Raw counts directly show how many police-reported crash records fall on each weekday over the requested period.",
+      "probability": 0.3,
+      "answer": "Friday has the most crash records (338,800) and Sunday the fewest (257,544) across 2013–2025.",
+      "interpretation": "The chart counts every crash row dated from 2013 through 2025 and assigns it to the Monday–Sunday weekday of crash_date; Friday has 338,800 rows and Sunday 257,544. Raw counts are a defensible description of the observed record distribution, though years with more records contribute more to the pooled totals. This answers the weekday distribution of reported crashes, but not the chance of a crash per trip or traffic exposure by weekday. The check found 0 NULL crash dates and date coverage from January 1 to December 31 in every year, so no in-range rows were dropped for date quality; row counts fell from 211,486 in 2019 to 112,918 in 2020, so pooled counts reflect unequal annual volumes."
+    },
+    {
+      "id": 2,
+      "metric": "Percentage of all crash rows in 2013–2025 assigned to each weekday",
+      "denominator": "All rows with crash_date in 2013–2025 inclusive",
+      "grouping": "Weekday derived from crash_date (Monday–Sunday), pooled across 2013–2025",
+      "chart_type": "Vertical bar chart",
+      "reason": "Percentages put weekday counts on a common whole-period scale and make each weekday's share immediately comparable.",
+      "probability": 0.4,
+      "answer": "Friday accounts for the largest share of all included crash records (15.9%), while Sunday accounts for the smallest (12.1%).",
+      "interpretation": "The chart gives each weekday's share of all crash rows dated 2013–2025, where weekday comes from crash_date; Friday accounts for 15.9% and Sunday 12.1%. A pooled percentage is a defensible way to describe the composition of the complete-period record count, with all seven weekday shares using the same denominator. It answers the weekday mix of police-reported crashes, but does not estimate exposure-adjusted risk or a per-trip crash probability. The check found 0 NULL crash dates and full January-to-December coverage in every year, so no in-range rows were dropped; annual row counts fell by 98,568 from 211,486 in 2019 to 112,918 in 2020, so the pooled denominator weights these years differently and a rise or fall in a cross-year share comparison can reflect that denominator change rather than the underlying crash outcome, so compare years with caution."
+    },
+    {
+      "id": 3,
+      "metric": "Percentage of each year's included crash rows assigned to each weekday",
+      "denominator": "All rows with crash_date in the same calendar year",
+      "grouping": "Year and weekday derived from crash_date (Monday–Sunday), separately within each year from 2013 to 2025",
+      "chart_type": "Annotated heatmap",
+      "reason": "Year-specific weekday shares show whether the distribution is consistent across years without letting the largest-volume years dominate the display.",
+      "probability": 0.3,
+      "answer": "Friday has the largest share in every year, ranging from 15.3% in 2023 to 16.3% in 2013.",
+      "interpretation": "Each heatmap row is one complete calendar year from 2013 through 2025, and its cells are the weekday shares of that year's crash rows; Friday is largest in every year, ranging from 15.3% in 2023 to 16.3% in 2013. Normalizing within year is a defensible way to compare annual weekday composition without pooling row counts across years. This answers how the reported-crash weekday mix varies by year, but not how weekday crash risk or traffic exposure varies. The check found 0 NULL crash dates and January 1–December 31 date coverage in every year, so no in-range rows were dropped; annual rows fell by 98,568 from 211,486 in 2019 to 112,918 in 2020, so a rise or fall in annual shares can come from the changed row-count denominator rather than the underlying crash outcome, and cross-year comparisons need that caution."
+    }
+  ]
+}

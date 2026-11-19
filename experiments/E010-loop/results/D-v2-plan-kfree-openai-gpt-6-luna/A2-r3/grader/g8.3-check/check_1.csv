@@ -1,0 +1,15 @@
+fact,value
+all crash rows in file,2269187
+rows with missing crash_date (cannot assign year),0
+rows with missing crash_time,0
+rows with date and time available in all years,2269187
+rows with date and time in complete years 2013–2025 (pre-outcome checks),2132218
+"rows with valid date, time, and both outcome counts in 2013–2025 (final population)",2132176
+date+time rows excluded for partial boundary years 2012 and 2026,136969
+number_of_persons_injured: missing among date/time-valid rows in 2013–2025,18
+number_of_persons_injured: negative/impossible among date/time-valid rows in 2013–2025,0
+"number_of_persons_injured: zero among date/time-valid rows in 2013–2025 (valid zero, not missing)",1608886
+number_of_persons_killed: missing among date/time-valid rows in 2013–2025,36
+number_of_persons_killed: negative/impossible among date/time-valid rows in 2013–2025,0
+"number_of_persons_killed: zero among date/time-valid rows in 2013–2025 (valid zero, not missing)",2128911
+crash_time: exact-midnight rows in 2013–2025 (valid hour; check for pileup),23787

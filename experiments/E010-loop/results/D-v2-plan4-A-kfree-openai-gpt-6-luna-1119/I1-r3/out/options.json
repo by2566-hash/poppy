@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of motorists killed in police-reported NYC crashes, summed from number_of_motorist_killed",
+      "denominator": "None; an annual count, not a rate",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "line chart",
+      "reason": "A direct annual fatality count is a clear description of the motorist deaths recorded in the crash file, even though it has no exposure denominator.",
+      "probability": 0.4,
+      "answer": "This file cannot establish a per-mile decline; the annual count proxy was 110 motorists killed in 2013 and 81 in 2025.",
+      "interpretation": "This crash file cannot determine whether motorist death risk per mile declined because miles driven are not recorded. This framing sums number_of_motorist_killed across dated police-reported NYC crash rows with an observed value for each calendar year; it records 110 deaths in 2013 and 81 in 2025, an annual count rather than a risk rate. The count is a defensible description of recorded fatality burden, but it leaves the exposure-adjusted per-mile question unanswered. The data check found 2,132,218 in-scope rows, with zero missing motorist-killed values and zero missing crash dates among them, so no selected rows were dropped for those reasons; each year spans Jan. 1-Dec. 31 and Jan. 1 accounts for about 0.17%-0.22% of rows, though boundary dates do not prove complete reporting."
+    },
+    {
+      "id": 2,
+      "metric": "Sum of motorists killed per 1,000 police-reported NYC crash rows with a nonmissing number_of_motorist_killed, by crash year",
+      "denominator": "Number of police-reported crash rows with nonmissing number_of_motorist_killed in that year, scaled to 1,000 crashes",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "line chart",
+      "reason": "Scaling motorist deaths by reported crash rows adjusts the count for changes in the number of crashes, while remaining explicit that miles driven are unavailable.",
+      "probability": 0.6,
+      "answer": "This file cannot establish a per-mile decline; motorists killed per 1,000 reported crashes were 0.540 in 2013 and 0.947 in 2025.",
+      "interpretation": "This crash file cannot determine whether motorist death risk per mile declined because miles driven are not recorded. This framing divides the annual sum of number_of_motorist_killed by the number of dated police-reported NYC crash rows with an observed value, then scales to 1,000 crashes; the metric is 0.540 in 2013 and 0.947 in 2025. It is a defensible crash-based severity measure that adjusts for annual crash-row totals, but it leaves deaths per mile and the per-mile risk question unanswered. The data check found 2,132,218 in-scope rows, with zero missing motorist-killed values and zero missing crash dates among them, so no selected rows were dropped from either numerator or denominator; each year spans Jan. 1-Dec. 31 and Jan. 1 accounts for about 0.17%-0.22% of rows, though boundary dates do not prove complete reporting."
+    }
+  ]
+}

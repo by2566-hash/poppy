@@ -1,0 +1,29 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "can_answer": "partly: the data can compare the composition of recorded motorist and cyclist deaths, but not their risk or rates among all road users",
+    "metric": "For each year, the share of combined recorded motorist-plus-cyclist deaths that were motorist deaths and the corresponding cyclist share",
+    "denominator": "For each year, the sum of recorded motorist deaths and recorded cyclist deaths; this denominator excludes other road-user types",
+    "population": "Police-reported NYC motor vehicle crashes dated from 2013-01-01 through 2025-12-31, using per-crash motorist and cyclist death counts",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "Calendar years 2013 through 2025, extracted from crash_date",
+    "grouping": "Calendar year, with two shares: motorist and cyclist proportions of their combined recorded deaths"
+  },
+  "data_check_and_decisions": {
+    "facts": "check_2.csv reports 2,132,218 in-scope crash rows; each year 2013-2025 has observed dates from January 1 through December 31; neither death field used in the numerator/denominator is missing on any in-scope row (0 missing rows for each). The date filter admits only valid typed dates in the planned range.",
+    "meaning": "No in-scope death field is missing, so none are dropped or treated as zero; there are no unknown outcome records to group separately. No year appears partial by its observed date boundaries. The filter excludes crashes outside the date interval, including rows without a usable date; those outside rows were not counted in the scoped checks.",
+    "decision": "Keep all qualifying rows. Define the denominator as the two death categories only and disclose that this describes their composition, not road-user risk or the composition of all road deaths.",
+    "changed": "No change to the initial plan."
+  },
+  "final_plan": {
+    "can_answer": "partly: it answers how recorded motorist and cyclist deaths divide between these two categories by year, but not how their risks compare or how they divide among all road-user deaths",
+    "metric": "For each year, motorist share = annual sum of number_of_motorist_killed divided by the sum of number_of_motorist_killed and number_of_cyclist_killed; cyclist share = annual sum of number_of_cyclist_killed divided by the same denominator",
+    "denominator": "For each year, combined recorded motorist and cyclist deaths only; no other road-user category is included",
+    "population": "All police-reported NYC motor vehicle crash records with a crash_date in calendar years 2013 through 2025, retaining all qualifying rows and summing the two death fields separately",
+    "filters": ["crash_date >= 2013-01-01 and crash_date < 2026-01-01"],
+    "years": "Calendar years 2013-2025 inclusive, derived from crash_date; observed date boundaries span each calendar year",
+    "grouping": "Year, with motorist and cyclist shares of their combined recorded deaths",
+    "missing_value_handling": "The scoped check found 0 missing values in either death field; retain all in-scope rows and sum the recorded integer values.",
+    "limitations": "This composition measure uses only motorist and cyclist deaths and has no road-user population, travel, or exposure denominator; it cannot establish comparative risk or represent the shares of all road deaths. The check found complete observed date boundaries in each included year and no missing values in either death field; boundary dates alone do not independently establish completeness of every record in the source."
+  }
+}

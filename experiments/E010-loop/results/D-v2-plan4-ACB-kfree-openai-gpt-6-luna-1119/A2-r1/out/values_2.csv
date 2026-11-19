@@ -1,0 +1,27 @@
+metric,year,time_period,numerator,denominator,metric_value
+Mean number of persons injured plus killed per reported crash,2013,Day,40119.00000000,158695,0.25280570
+Mean number of persons injured plus killed per reported crash,2013,Night,15306.00000000,45047,0.33977845
+Mean number of persons injured plus killed per reported crash,2014,Day,36840.00000000,160471,0.22957419
+Mean number of persons injured plus killed per reported crash,2014,Night,14652.00000000,45575,0.32149205
+Mean number of persons injured plus killed per reported crash,2015,Day,37176.00000000,169298,0.21958913
+Mean number of persons injured plus killed per reported crash,2015,Night,14436.00000000,48410,0.29820285
+Mean number of persons injured plus killed per reported crash,2016,Day,42924.00000000,176645,0.24299584
+Mean number of persons injured plus killed per reported crash,2016,Night,17639.00000000,53186,0.33164743
+Mean number of persons injured plus killed per reported crash,2017,Day,43187.00000000,177547,0.24324263
+Mean number of persons injured plus killed per reported crash,2017,Night,17706.00000000,53441,0.33131865
+Mean number of persons injured plus killed per reported crash,2018,Day,44397.00000000,179183,0.24777462
+Mean number of persons injured plus killed per reported crash,2018,Night,17765.00000000,52365,0.33925332
+Mean number of persons injured plus killed per reported crash,2019,Day,43333.00000000,162068,0.26737542
+Mean number of persons injured plus killed per reported crash,2019,Night,18302.00000000,49418,0.37035088
+Mean number of persons injured plus killed per reported crash,2020,Day,30682.00000000,82633,0.37130444
+Mean number of persons injured plus killed per reported crash,2020,Night,14201.00000000,30284,0.46892749
+Mean number of persons injured plus killed per reported crash,2021,Day,34680.00000000,77477,0.44761671
+Mean number of persons injured plus killed per reported crash,2021,Night,17402.00000000,33080,0.52605804
+Mean number of persons injured plus killed per reported crash,2022,Day,35540.00000000,72578,0.48968007
+Mean number of persons injured plus killed per reported crash,2022,Night,16683.00000000,31309,0.53284998
+Mean number of persons injured plus killed per reported crash,2023,Day,37385.00000000,67304,0.55546476
+Mean number of persons injured plus killed per reported crash,2023,Night,17147.00000000,29303,0.58516193
+Mean number of persons injured plus killed per reported crash,2024,Day,37314.00000000,63676,0.58599786
+Mean number of persons injured plus killed per reported crash,2024,Night,16984.00000000,27640,0.61447178
+Mean number of persons injured plus killed per reported crash,2025,Day,34479.00000000,59891,0.57569585
+Mean number of persons injured plus killed per reported crash,2025,Night,15380.00000000,25652,0.59956339

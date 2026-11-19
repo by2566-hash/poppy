@@ -1,0 +1,18 @@
+fact,value
+rows_by_year_and_date_coverage,"2012: 100545 dated rows, 2012-07-01 to 2012-12-31, partial, 100545 valid date/time, 0 missing time, 12 midnight time; 2013: 203742 dated rows, 2013-01-01 to 2013-12-31, full-boundary, 203742 valid date/time, 0 missing time, 25 midnight time; 2014: 206046 dated rows, 2014-01-01 to 2014-12-31, full-boundary, 206046 valid date/time, 0 missing time, 21 midnight time; 2015: 217708 dated rows, 2015-01-01 to 2015-12-31, full-boundary, 217708 valid date/time, 0 missing time, 24 midnight time; 2016: 229833 dated rows, 2016-01-01 to 2016-12-31, full-boundary, 229833 valid date/time, 0 missing time, 2895 midnight time; 2017: 231007 dated rows, 2017-01-01 to 2017-12-31, full-boundary, 231007 valid date/time, 0 missing time, 3819 midnight time; 2018: 231564 dated rows, 2018-01-01 to 2018-12-31, full-boundary, 231564 valid date/time, 0 missing time, 3490 midnight time; 2019: 211486 dated rows, 2019-01-01 to 2019-12-31, full-boundary, 211486 valid date/time, 0 missing time, 3145 midnight time; 2020: 112918 dated rows, 2020-01-01 to 2020-12-31, full-boundary, 112918 valid date/time, 0 missing time, 1841 midnight time; 2021: 110558 dated rows, 2021-01-01 to 2021-12-31, full-boundary, 110558 valid date/time, 0 missing time, 1912 midnight time; 2022: 103887 dated rows, 2022-01-01 to 2022-12-31, full-boundary, 103887 valid date/time, 0 missing time, 1615 midnight time; 2023: 96607 dated rows, 2023-01-01 to 2023-12-31, full-boundary, 96607 valid date/time, 0 missing time, 1616 midnight time; 2024: 91316 dated rows, 2024-01-01 to 2024-12-31, full-boundary, 91316 valid date/time, 0 missing time, 1642 midnight time; 2025: 85546 dated rows, 2025-01-01 to 2025-12-31, full-boundary, 85546 valid date/time, 0 missing time, 1742 midnight time; 2026: 36424 dated rows, 2026-01-01 to 2026-06-11, partial, 36424 valid date/time, 0 missing time, 767 midnight time"
+rows_with_missing_crash_date_any_year,0
+rows_with_missing_crash_time_in_dated_year_rows,0
+rows_with_midnight_crash_time_in_dated_year_rows,24566
+rows_with_midnight_crash_time_in_complete_boundary_years,23787
+share_of_valid_time_rows_at_midnight_in_complete_boundary_years,1.115599%
+rows_with_midnight_crash_time_any_date,24566
+rows_with_crash_date_1900_01_01,0
+rows_with_crash_date_1970_01_01,0
+date_and_time_storage_types,"DATE and TIME: blank strings, unknown-word values, and impossible calendar/time values cannot be represented; NULL is the missing-value form"
+date_rows_in_complete_boundary_years,2132218
+valid_date_time_rows_in_complete_boundary_years,2132218
+valid_date_time_rows_in_all_represented_years,2269187
+dataset_total_rows,2269187
+rows_missing_number_of_persons_injured_in_complete_boundary_years,18
+share_of_dated_rows_missing_number_of_persons_injured_in_complete_boundary_years,0.000844%
+rows_missing_number_of_persons_injured_by_year,2012: 0 missing of 100545 dated rows; 2013: 0 missing of 203742 dated rows; 2014: 0 missing of 206046 dated rows; 2015: 0 missing of 217708 dated rows; 2016: 1 missing of 229833 dated rows; 2017: 11 missing of 231007 dated rows; 2018: 5 missing of 231564 dated rows; 2019: 0 missing of 211486 dated rows; 2020: 0 missing of 112918 dated rows; 2021: 1 missing of 110558 dated rows; 2022: 0 missing of 103887 dated rows; 2023: 0 missing of 96607 dated rows; 2024: 0 missing of 91316 dated rows; 2025: 0 missing of 85546 dated rows; 2026: 0 missing of 36424 dated rows

@@ -1,0 +1,37 @@
+fact,value
+Rows in initial population across all file years,2269187
+Rows in year 2012,100545
+Rows in year 2013,203742
+Rows in year 2014,206046
+Rows in year 2015,217708
+Rows in year 2016,229833
+Rows in year 2017,231007
+Rows in year 2018,231564
+Rows in year 2019,211486
+Rows in year 2020,112918
+Rows in year 2021,110558
+Rows in year 2022,103887
+Rows in year 2023,96607
+Rows in year 2024,91316
+Rows in year 2025,85546
+Rows in year 2026,36424
+Candidate rows in final complete years 2013-2025,2132218
+Rows in partial years excluded (2012 and 2026),136969
+Candidate rows in final year 2013,203742
+Candidate rows in final year 2014,206046
+Candidate rows in final year 2015,217708
+Candidate rows in final year 2016,229833
+Candidate rows in final year 2017,231007
+Candidate rows in final year 2018,231564
+Candidate rows in final year 2019,211486
+Candidate rows in final year 2020,112918
+Candidate rows in final year 2021,110558
+Candidate rows in final year 2022,103887
+Candidate rows in final year 2023,96607
+Candidate rows in final year 2024,91316
+Candidate rows in final year 2025,85546
+crash_date missing/unparseable (NULL) in final candidate years,0
+crash_date at sentinel dates 1900-01-01 or 1970-01-01 in final candidate years,0
+crash_time missing/unparseable (NULL; typed TIME excludes blank/unknown/impossible values) in final candidate years,0
+crash_time at midnight default candidate 00:00:00 in final candidate years,23787
+Final metric-population rows after time classification,2132218

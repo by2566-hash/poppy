@@ -1,0 +1,30 @@
+{
+  "id": 2,
+  "stage": "final_plan",
+  "initial_plan": {
+    "years": "Calendar years from 2013 through the latest year represented in the file; whether boundary years are complete will be checked.",
+    "filters": ["borough is Brooklyn", "crash_date is in 2013 or later"]
+  },
+  "answerability": {
+    "status": "partly",
+    "part": "The data can show annual reported pedestrian death counts in Brooklyn, but cannot establish safety per amount walked or individual pedestrian risk because walking exposure and person-level records are not present."
+  },
+  "metric": "Annual number of reported pedestrian deaths in Brooklyn crashes.",
+  "denominator": "No denominator; this is an annual count, not an exposure-adjusted rate.",
+  "population": "Reported pedestrian deaths in police-reported crashes in Brooklyn in each calendar year; counts are crash-level totals, not deduplicated people.",
+  "filters": [
+    "borough is Brooklyn",
+    "crash_date is from 2013-01-01 through 2025-12-31"
+  ],
+  "years": "Full calendar years 2013 through 2025 inclusive. Exclude 2026 because the file ends on June 11, 2026, so that year is partial.",
+  "grouping": "Calendar year of crash_date.",
+  "data_check_decisions": "Keep crashes with a recorded Brooklyn borough and a crash date in 2013-2025; exclude rows with missing/placeholder borough because their borough cannot be assigned. Exclude 2026 because its date span is incomplete. Keep all qualifying Brooklyn rows and sum the supplied pedestrian death counts; this outcome field has no missing values in any checked Brooklyn year.",
+  "plan_change": "The initial plan ran from 2013 through the latest file year. After the data check, the endpoint was set to 2025 because 2026 is only recorded through June 11; all earlier years from 2013 through 2025 span a full calendar year.",
+  "data_check": {
+    "crash_date": "No missing crash dates in the file; 2013-2025 each have recorded dates spanning January 1 to December 31, while 2026 spans January 1 to June 11.",
+    "borough": "Among 2,132,218 dated crashes in 2013-2025, 659,713 (about 30.9%) have missing or placeholder borough values; there are zero impossible nonmissing values and zero values in the checked placeholder/default categories. Such records cannot be assigned to Brooklyn and are excluded, along with crashes assigned to other boroughs.",
+    "outcomes": "Among Brooklyn crashes in each year 2013-2025, zero rows have a missing pedestrian-death count; no rows are dropped or treated as zero for missing outcomes.",
+    "partial_year": "2026 has 9,700 Brooklyn crash rows through June 11 and is excluded rather than compared as a full year."
+  },
+  "limitations": "This is a count of reported pedestrian deaths in police-reported Brooklyn crashes, not an exposure-adjusted rate; it cannot establish safety per walking trip or distance, and the supplied crash totals do not identify unique people across crashes."
+}

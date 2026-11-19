@@ -1,0 +1,5 @@
+I’ll treat “night” as a clock-time proxy and compare it with daytime. The dataset has no traffic-volume or daylight exposure measure, so the charts can describe crash involvement and harm per reported crash, but not risk per trip or whether darkness itself caused a difference.
+The coverage check supports using complete years 2013–2025; 2012 and 2026 are partial. It also found a sharp pile-up at exactly 00:00 starting in 2016, unlike earlier years, so I’m separating midnight from the night/day comparison as a possible default-coded time rather than silently treating it as observed nighttime.
+ANSWER:
+1. [Injury-or-death crash share chart](./out/option_1.png) ([values](./out/values_1.csv)): The data answer only partly: this share was higher at night in 2013 (23.77% vs. 18.63% by day), while in 2025 the daytime share was higher (44.29% vs. 42.41% at night).
+2. [Casualties per 100 crashes chart](./out/option_2.png) ([values](./out/values_2.csv)): The data answer only partly: recorded injured-plus-killed people per 100 reported crashes were higher at night in every complete year, including 60.18 versus 57.57 in 2025.

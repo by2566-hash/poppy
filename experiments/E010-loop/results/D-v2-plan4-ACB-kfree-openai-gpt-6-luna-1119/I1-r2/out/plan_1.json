@@ -1,0 +1,26 @@
+{
+  "initial_plan": {
+    "can_answer": "partly: the file can show annual counts of recorded motorist deaths in crashes, but it has no miles-driven denominator and cannot establish risk per mile",
+    "metric": "annual sum of number_of_motorist_killed (recorded motorist deaths)",
+    "denominator": "none; annual death count",
+    "population": "police-reported NYC crash rows with crash_date in calendar years 2013 through 2025 inclusive; count motorist deaths attributed to those crashes",
+    "filters": ["crash_date year is 2013–2025 inclusive"],
+    "years": "2013–2025 inclusive",
+    "grouping": "calendar year of crash_date"
+  },
+  "data_check_interpretation": {
+    "facts": "There are 0 NULL crash_date rows, 0 missing number_of_motorist_killed rows in every plan year, and observed dates range from 2013-01-01 through 2025-12-31; every plan year has records from January 1 to December 31.",
+    "impact": "All dated crash rows in the selected years can be assigned to a full calendar year, and no motorist-death outcome rows are missing. The check does not identify any supported default date value; DATE and INT types preclude blank strings or unknown words, and zero is a valid count rather than missingness.",
+    "decision": "Keep the selected-year crash rows and disclose that rows outside 2013–2025 are not included; no plan-year rows are excluded or specially grouped for missing dates or motorist-death counts."
+  },
+  "final_plan": {
+    "can_answer": "partly: annual recorded motorist death counts describe the crash outcome burden, but without miles driven this data cannot say whether risk per mile declined",
+    "metric": "annual sum of number_of_motorist_killed (recorded motorist deaths)",
+    "denominator": "none; annual death count",
+    "population": "police-reported NYC crash rows dated in calendar years 2013 through 2025 inclusive; count motorist deaths attributed to the selected crashes",
+    "filters": ["crash_date year is 2013–2025 inclusive"],
+    "years": "2013–2025 inclusive, each observed from January 1 through December 31",
+    "grouping": "calendar year of crash_date",
+    "limitations": "The file has no miles-driven or other travel-exposure denominator and cannot measure risk per mile. It covers only police-reported crashes. The check found 0 NULL crash dates and 0 missing motorist-death counts in plan years; every selected year has full-year date coverage, so no plan-year rows are dropped for these missing fields."
+  }
+}

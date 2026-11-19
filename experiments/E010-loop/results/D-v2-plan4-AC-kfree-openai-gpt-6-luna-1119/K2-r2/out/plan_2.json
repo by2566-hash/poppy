@@ -1,0 +1,27 @@
+{
+  "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+  "initial_plan": {
+    "answerability": "yes — the file has one row per police-reported crash and crash_date from which both weekday and the available calendar-date span can be derived",
+    "metric": "Mean number of crash records per calendar date for each day of week",
+    "denominator": "Number of calendar dates of that weekday in the inclusive span from the earliest through latest valid crash_date in 2013–2025",
+    "population": "Police-reported crash records with a valid crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date is a valid date", "year is 2013 through 2025 inclusive"],
+    "years": "2013–2025 inclusive",
+    "grouping": "Day of week derived from crash_date, Monday through Sunday"
+  },
+  "data_check_interpretation": {
+    "rows_dropped_or_counted_differently": "The year filter excludes 136,969 dated rows outside 2013–2025; it retains 2,132,218 dated rows in scope. No rows are dropped for missing crash_date: there are 0 missing or checked sentinel crash_date values across 2,269,187 source rows. All 13 in-scope years have observed dates from January 1 through December 31. The inclusive span from 2013-01-01 through 2025-12-31 contains 678 Monday dates, 679 Tuesday dates, 679 Wednesday dates, and 678 dates for each of Thursday through Sunday.",
+    "decision": "Exclude the 136,969 out-of-period rows because they are outside the requested years; keep all in-scope rows and use the calendar weekday-date counts as the denominator. Do not exclude years because they reach both observed boundaries; state that these endpoints do not prove complete daily reporting.",
+    "plan_change": "No change to the population or filters. Define the denominator as weekday dates in the inclusive observed span and disclose that data completeness within the span is unverified."
+  },
+  "final_plan": {
+    "answerability": "yes — the file has one row per police-reported crash and crash_date supports weekday classification and counts per calendar weekday date",
+    "metric": "Mean police-reported crash records per calendar date of each weekday over the inclusive date span January 1, 2013 through December 31, 2025",
+    "denominator": "Calendar dates of the given weekday in the inclusive span January 1, 2013 through December 31, 2025: Monday 678; Tuesday 679; Wednesday 679; Thursday 678; Friday 678; Saturday 678; Sunday 678",
+    "population": "All 2,132,218 police-reported crash records with a valid crash_date in calendar years 2013–2025 inclusive",
+    "filters": ["crash_date year is 2013 through 2025 inclusive"],
+    "years": "2013–2025 inclusive; every year has an observed date range reaching January 1 and December 31",
+    "grouping": "Weekday derived from crash_date, ordered Monday through Sunday",
+    "limitations": "The average is crash records per calendar date in the full inclusive date span, not a rate per person, trip, or traffic volume. The 136,969 dated records outside 2013–2025 are excluded by the requested period filter. The file contains police-reported crashes; no missing or checked sentinel dates were found, but observed date endpoints do not establish complete reporting on every day."
+  }
+}

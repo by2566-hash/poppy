@@ -1,0 +1,5 @@
+I’m treating “road safety” as only partly measurable here: the file records reported crash harms, but has no pedestrian-exposure denominator. I’ve set up two useful views—injuries plus deaths, and deaths alone—and am checking their year coverage and missing fields before calculating either series.
+The checks show complete calendar-year coverage through 2025, with 2026 only through June 11, so I excluded 2026 from the annual comparisons. The count series has a clear 2020 low and higher counts by 2025, but because these are counts rather than exposure-adjusted rates, they can’t establish whether pedestrian risk itself changed. I’ve generated both the combined-casualty and fatality-only charts.
+ANSWER:
+1. This file cannot establish whether pedestrian road safety improved; reported pedestrian injuries plus deaths in Brooklyn crashes numbered 3,671 in 2013, reached a low of 1,798 in 2020, and numbered 2,874 in 2025 ([casualty chart](./out/option_1.png)).
+2. This file cannot establish whether pedestrian road safety improved; Brooklyn crashes recorded 30 pedestrian deaths in 2013, a low of 17 in 2020, and 39 in 2025 ([fatality chart](./out/option_2.png)).

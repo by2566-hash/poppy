@@ -1,0 +1,27 @@
+{
+  "status": "final plan after data check",
+  "initial_plan": {
+    "answerability": "partly: the file can describe reported pedestrian deaths in Brooklyn crashes since 2013, but has no walking-exposure or other risk denominator",
+    "metric": "annual reported pedestrian deaths, number_of_pedestrians_killed",
+    "denominator": "none for the count",
+    "population": "people reported killed as pedestrians in police-reported crashes assigned to Brooklyn",
+    "filters": ["crash year 2013 through latest year represented", "borough is Brooklyn"],
+    "years": "2013 through latest year represented in file",
+    "grouping": "calendar year of crash_date"
+  },
+  "answerability": "partly: the file can describe annual police-reported pedestrian deaths in Brooklyn crashes, but cannot establish overall pedestrian road safety because it contains no pedestrian-exposure denominator",
+  "metric": "annual reported pedestrian deaths, the sum of number_of_pedestrians_killed across Brooklyn crashes",
+  "denominator": "none; a count, not adjusted for population, pedestrian trips, or miles walked",
+  "population": "people reported killed as pedestrians in police-reported motor-vehicle crashes assigned to Brooklyn",
+  "filters": ["crash_date is from 2013-01-01 through 2025-12-31 inclusive", "borough, trimmed and case-insensitive, equals Brooklyn", "the outcome field is nonmissing; the data check found no missing values in the final Brooklyn population"],
+  "years": "calendar years 2013 through 2025 inclusive; exclude 2026 because the file covers only January 1 through June 11",
+  "grouping": "calendar year of crash_date",
+  "missing_value_handling_and_decisions": {
+    "crash_date": "No missing dates were found; exclude dates outside the final 2013-2025 period.",
+    "borough": "In the final period, 659,713 of 2,132,218 dated crash rows (about 30.9%) have borough missing, empty, or unknown and cannot be assigned to Brooklyn; exclude them from the Brooklyn population. No unrecognized borough values were found. Brooklyn is selected case-insensitively after trimming.",
+    "outcomes": "The pedestrian death field has no missing values among the 473,801 Brooklyn crash rows in the final period; no rows are excluded for outcome missingness and no missing value is treated as zero.",
+    "partial_year": "Exclude 2026 from annual comparisons: the file runs only through June 11, 2026 (36,424 dated crashes across the city, including 9,700 Brooklyn crashes), rather than a full calendar year."
+  },
+  "data_check_summary": "All years 2013-2025 have records spanning January 1 through December 31. This endpoint check does not prove that every day or every report is complete. Borough assignment is unavailable for about 30.9% of dated crashes in the final period; these cannot be allocated to Brooklyn.",
+  "plan_change_after_data_check": "The initial plan included every year through the latest year in the file. The check found 2026 covers only January 1-June 11, so the final plan excludes 2026 rather than plotting a partial year alongside full annual totals."
+}

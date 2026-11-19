@@ -1,0 +1,55 @@
+fact,value
+rows_with_missing_crash_date_in_file_unassignable_to_plan_years,0
+year_population_rows_before_borough_filter_2013_through_latest,2168642
+borough_missing_null_empty_or_unknown_rows_before_borough_filter,668406
+borough_impossible_or_unrecognized_rows_before_borough_filter,0
+borough_unknown_default_value_rows_before_borough_filter,0
+final_period_years_2013_through_2025_rows_before_borough_filter,2132218
+final_period_years_2013_through_2025_borough_missing_before_filter,659713
+final_period_years_2013_through_2025_borough_unrecognized_before_filter,0
+final_period_years_2013_through_2025_brooklyn_population_rows,473801
+brooklyn_population_rows_2013_through_latest,483501
+brooklyn_population_rows_2013,47024
+all_boroughs_date_span_2013,2013-01-01 to 2013-12-31 (203742 rows)
+calendar_boundary_coverage_2013,spans Jan 1 through Dec 31
+brooklyn_population_rows_2014,47761
+all_boroughs_date_span_2014,2014-01-01 to 2014-12-31 (206046 rows)
+calendar_boundary_coverage_2014,spans Jan 1 through Dec 31
+brooklyn_population_rows_2015,50851
+all_boroughs_date_span_2015,2015-01-01 to 2015-12-31 (217708 rows)
+calendar_boundary_coverage_2015,spans Jan 1 through Dec 31
+brooklyn_population_rows_2016,47464
+all_boroughs_date_span_2016,2016-01-01 to 2016-12-31 (229833 rows)
+calendar_boundary_coverage_2016,spans Jan 1 through Dec 31
+brooklyn_population_rows_2017,44915
+all_boroughs_date_span_2017,2017-01-01 to 2017-12-31 (231007 rows)
+calendar_boundary_coverage_2017,spans Jan 1 through Dec 31
+brooklyn_population_rows_2018,47313
+all_boroughs_date_span_2018,2018-01-01 to 2018-12-31 (231564 rows)
+calendar_boundary_coverage_2018,spans Jan 1 through Dec 31
+brooklyn_population_rows_2019,44479
+all_boroughs_date_span_2019,2019-01-01 to 2019-12-31 (211486 rows)
+calendar_boundary_coverage_2019,spans Jan 1 through Dec 31
+brooklyn_population_rows_2020,25473
+all_boroughs_date_span_2020,2020-01-01 to 2020-12-31 (112918 rows)
+calendar_boundary_coverage_2020,spans Jan 1 through Dec 31
+brooklyn_population_rows_2021,25174
+all_boroughs_date_span_2021,2021-01-01 to 2021-12-31 (110558 rows)
+calendar_boundary_coverage_2021,spans Jan 1 through Dec 31
+brooklyn_population_rows_2022,23369
+all_boroughs_date_span_2022,2022-01-01 to 2022-12-31 (103887 rows)
+calendar_boundary_coverage_2022,spans Jan 1 through Dec 31
+brooklyn_population_rows_2023,22890
+all_boroughs_date_span_2023,2023-01-01 to 2023-12-31 (96607 rows)
+calendar_boundary_coverage_2023,spans Jan 1 through Dec 31
+brooklyn_population_rows_2024,22785
+all_boroughs_date_span_2024,2024-01-01 to 2024-12-31 (91316 rows)
+calendar_boundary_coverage_2024,spans Jan 1 through Dec 31
+brooklyn_population_rows_2025,24303
+all_boroughs_date_span_2025,2025-01-01 to 2025-12-31 (85546 rows)
+calendar_boundary_coverage_2025,spans Jan 1 through Dec 31
+brooklyn_population_rows_2026,9700
+all_boroughs_date_span_2026,2026-01-01 to 2026-06-11 (36424 rows)
+calendar_boundary_coverage_2026,partial or absent
+number_of_pedestrians_killed_missing_rows_in_brooklyn_population,0
+number_of_pedestrians_killed_missing_rows_in_final_brooklyn_population_2013_through_2025,0

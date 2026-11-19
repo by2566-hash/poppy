@@ -1,0 +1,90 @@
+You are grading ONE output of a data-analysis agent against a written standard. The chart is attached as an image.
+Judge from the materials below only. Do not fix anything, do not redo the analysis. For each item answer PASS or FAIL
+(NA if the item does not apply to this output) and quote the sentence, number or chart element that decides it.
+Be strict: a limitation that matters but is not stated is a FAIL on the item that asks for it.
+If the QUESTION TYPE is "insufficient", the data cannot answer the question as asked; the appropriate output states that
+(required_statement) and shows a measure the data does support. Do not FAIL c1 or c2 merely because the measure is not the
+one the question named (e.g. not per mile); FAIL them only if the output pretends to answer the unanswerable question.
+Rules that follow from the written standard (SCORING.md section 4):
+- The DECLARED FRAMING fields are part of the output: a definition given there (e.g. which hours count as night) counts as stated.
+- c6 FAILs whenever a disclosure item below (TR.., NIGHTDEF, ...) FAILs: an undisclosed exclusion or an uncaveated denominator is a
+  limitation that matters, and an exposure disclaimer does not make up for it. c6 also FAILs when a superlative or comparison in the
+  prose (largest, smallest, peak, doubled) is contradicted by the values table.
+- Do not invent limitations: rely on DATA FACTS for what is partial, missing or NULL.
+- c5: a y-axis that does not start at zero is not a distortion on a line chart when the axis is labelled; on a bar chart it is a FAIL.
+- NA, not PASS, when the claim or element an item is about is absent from the output (e.g. no claim that deaths changed sharply);
+  PASS means the claim is present and handled.
+- A disclaimer whose wording can reasonably be read as a conclusion from the data is judged by that reading: "per-trip risk
+  is not greater", or a substitute measure offered as the answer ("so this crash-based proxy did not fall" under a per-mile
+  question), FAILS unsupported_claim (and PERMILE where it applies); "does not establish" or "this is not per-mile risk" passes.
+- Where an item asks for a qualification or disclosure, wording in the WRITTEN ANSWER or the DECLARED FRAMING counts, in any
+  phrasing (it need not say "in this dataset" literally); text that appears only inside the chart image (title, footnote, source
+  note) does not satisfy it on its own.
+- The official-count part of unsupported_claim concerns death counts presented as the official city toll: on a question with a
+  TR07 item it FAILs exactly when TR07 FAILs; elsewhere a count or share computed from this data is not an official-count claim.
+
+DATA FACTS (pinned snapshot):
+- The file covers 2012-07-01 to 2026-06-11; 2013-2025 are complete calendar years; 2026 is partial (to June 11).
+- borough is NULL for about 20-38% of crashes in every year (TR05): a borough filter silently drops them.
+- number_of_persons_killed is NULL in most May-2026 and all June-2026 rows (TR08); 2013-2025 killed counts have no NULLs.
+- crash_time has no NULL rows. Reported crash counts (the number of crash records) fall sharply in 2020 (TR01), so a per-reported-crash rate (deaths or injuries divided by reported crashes) compared across years spanning 2020 needs a caveat. Counts of deaths or injuries by year do NOT need it (they are not affected by the reporting change), and a comparison between groups within one pooled window (e.g. day vs night) does not either (decided 2026-11-04; g5 wording after g4 failed c6 on plain death counts).
+- No exposure measure exists (no traffic volume, trips, miles): counts and per-crash rates are not risk (TR11).
+
+QUESTION ASKED: How are NYC crashes distributed across the days of the week, 2013 to 2025?
+QUESTION TYPE: clear
+DECLARED FRAMING:
+metric: Number of crash rows grouped by weekday of crash_date
+denominator: No denominator; raw count of crash rows
+grouping: Weekday of crash_date, Monday through Sunday
+chart_type: Vertical bar chart of crash-row counts
+probability: 0.35
+WRITTEN ANSWER:
+Across 2,132,218 police-reported crash rows dated 2013–2025, Friday has the most (338,800) and Sunday the fewest (257,544). Each bar counts one police-reported NYC motor-vehicle-crash row with crash_date in 2013–2025, grouped Monday–Sunday, and there is no denominator; Friday has 338,800 rows (most) and Sunday 257,544 (fewest). This raw-total framing answers the overall recorded-crash volume by weekday, but not exposure-adjusted rates, people involved, or year-specific changes. Included annual row counts were 203,742 (2013), 206,046 (2014), 217,708 (2015), 229,833 (2016), 231,007 (2017), 231,564 (2018), 211,486 (2019), 112,918 (2020), 110,558 (2021), 103,887 (2022), 96,607 (2023), 91,316 (2024), and 85,546 (2025); the shift after 2018 means pooled raw weekday totals combine very different yearly volumes and cannot describe within-year weekday patterns. Checks found 136,969 dated rows outside the period excluded, no missing crash dates, no impossible or conventional-default dates among included records, and observed January 1–December 31 dates in every year; all in-period rows were kept, though boundary observations do not prove complete reporting.
+
+VALUES TABLE(S) BEHIND THE CHART:
+[values_1.csv]
+weekday,crash_rows
+Monday,304518
+Tuesday,313488
+Wednesday,311111
+Thursday,318376
+Friday,338800
+Saturday,288381
+Sunday,257544
+
+CODE LINES THE AGENT RAN (for filters, windows, denominators):
+# bash
+ls
+# bash
+python -c 'import duckdb, csv, os, datetime; path="data/crashes.parquet"; con=duckdb.connect(); q="SELECT CAST(crash_date AS DATE) AS crash_date FROM read_parquet(?)"; rows=con.execute(q,[path]).fetchall(); dates=[r[0] for r in rows]; target=[d for d in dates if d is not None and 2013 <= d.year <= 2025]; facts=[]; facts.append(("rows_in_population_2013_2025",len(target))); facts.append(("crash_date_missing_in_file (excluded; year cannot be assigned)",sum(d is None for d in dates))); facts.append(("crash_date_impossible_values_in_plan_population (DATE column)",0)); defaults=[datetime.date(1900,1,1),datetime.date(1970,1,1),datetime.date(1,1,1)]; facts.append(("crash_date_at_conventional_default_dates_in_plan_population (1900-01-01, 1970-01-01, 0001-01-01)",sum(d in defaults for d in target))); weekday_names=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]; counts={y:sum(d.year==y for d in target) for y in range(2013,2026)}; spans={y:[d for d in target if d.year==y] for y in range(2013,2026)}; [facts.append((f"rows_year_{y}",counts[y])) for y in range(2013,2026)]; [facts.extend([(f"year_{y}_first_observed_date",str(min(spans[y]) if spans[y] else "none")),(f"year_{y}_last_observed_date",str(max(spans[y]) if spans[y] else "none")),(f"year_{y}_partial_by_observed_calendar_boundaries",bool(not spans[y] or min(spans[y])>datetime.date(y,1,1) or max(spans[y])<datetime.date(y,12,31)))]) for y in range(2013,2026)]; [None for i in range(1,4)]; [open(f"out/check_{i}.csv","w",newline="").write("fact,value\n"+"".join("\""+str(k).replace("\"","\"\"")+"\",\""+str(v).replace("\"","\"\"")+"\"\n" for k,v in facts)) for i in range(1,4)]; print("\n".join(f"{k}: {v}" for k,v in facts))'
+# bash
+python -c 'import duckdb,csv,datetime; con=duckdb.connect(); dates=[x[0] for x in con.execute("SELECT CAST(crash_date AS DATE) FROM read_parquet(?)",["data/crashes.parquet"]).fetchall()]; target=[d for d in dates if d is not None and 2013<=d.year<=2025]; outside=[d for d in dates if d is not None and not (2013<=d.year<=2025)]; facts=[("rows_in_population_2013_2025",len(target)),("rows_with_crash_date_outside_2013_2025_excluded",len(outside)),("rows_with_missing_crash_date_excluded_year_unassignable",sum(d is None for d in dates)),("crash_date_impossible_values_in_plan_population_DATE_column",0),("crash_date_conventional_defaults_1900-01-01_1970-01-01_0001-01-01_in_plan_population",sum(d in {datetime.date(1900,1,1),datetime.date(1970,1,1),datetime.date(1,1,1)} for d in target))]; byyear={y:[d for d in target if d.year==y] for y in range(2013,2026)}; facts += [(f"rows_year_{y}",len(byyear[y])) for y in byyear]; facts += [(f"year_{y}_observed_date_span",f"{min(ds)} to {max(ds)}" if (ds:=byyear[y]) else "no rows") for y in byyear]; facts += [(f"year_{y}_partial_by_observed_calendar_boundaries",bool(not byyear[y] or min(byyear[y])>datetime.date(y,1,1) or max(byyear[y])<datetime.date(y,12,31))) for y in byyear];
+for i in range(1,4):
+ with open(f"out/check_{i}.csv","w",newline="") as f:
+  w=csv.writer(f); w.writerow(["fact","value"]); w.writerows(facts)
+print("\n".join(f"{k}: {v}" for k,v in facts))'
+# bash
+python out/analyze.py
+# bash
+python -c 'import json,csv,os; p=json.load(open("out/options.json")); assert len(p["options"])==3; assert abs(sum(x["probability"] for x in p["options"])-1)<1e-9; assert [x["id"] for x in p["options"]]==[1,2,3];
+for i in range(1,4):
+ json.load(open(f"out/plan_{i}.json"));
+ with open(f"out/check_{i}.csv",newline="") as f: rows=list(csv.DictReader(f)); assert rows and all(set(r)=={"fact","value"} for r in rows)
+ with open(f"out/values_{i}.csv",newline="") as f: values=list(csv.DictReader(f)); assert len(values)==7 and [r["weekday"] for r in values]==["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+ assert os.path.getsize(f"out/option_{i}.png")>0
+print("JSON valid; 3 plans, checks, 7 weekday values, and charts verified; probabilities sum to 1.")'
+
+ITEMS:
+- c1: question answered: the output answers the question that was asked (not a neighbouring one)
+- c2: appropriate measure: the metric and denominator fit the question
+- c3: appropriate chart type for the data and the comparison
+- c4: useful comparison: the chart makes the relevant comparison visible
+- c5: faithful visual encoding: the chart shows the numbers in the values table without distortion (axis, scale, labels)
+- c6: evidence-aware presentation: claims stay within what the data supports; limitations that matter are stated
+- c7: clear and readable: titles, axes, legend and text are understandable without the code
+- c8: visually well presented
+- tr_DAYCOUNT: If per-day averages or 'X% fewer on <day>' comparisons are given, the arithmetic is right (e.g. Sunday has 24% fewer than the mean weekday, Friday 32% more) and unequal day counts (678/679) are handled or noted.
+- unsupported_claim: PASS if no sentence makes a causal claim, a risk-per-exposure claim, an official-count claim, or uses a number from outside the data; FAIL otherwise, quoting the sentence
+
+Reply with exactly one JSON object and nothing else:
+{"<item>": {"verdict": "PASS|FAIL|NA", "evidence": "<short quote>"}, ...} with one entry per item above.

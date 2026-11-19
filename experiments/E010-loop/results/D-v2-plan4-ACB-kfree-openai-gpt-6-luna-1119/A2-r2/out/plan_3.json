@@ -1,0 +1,17 @@
+{
+  "status": "final",
+  "can_answer": "partly: the file can compare the share of recorded crashes involving a death by clock time, but cannot establish exposure-adjusted risk",
+  "metric": "annual percentage of eligible crashes with at least one person killed, by time of day",
+  "denominator": "eligible crash rows with a nonmissing, non-midnight crash_time and nonmissing number_of_persons_killed (count of rows)",
+  "population": "police-reported NYC motor-vehicle crashes in calendar years fully covered by the file, with non-ambiguous usable time and a complete person-killed total",
+  "filters": ["exclude calendar years not fully covered by the file", "exclude rows with NULL or 00:00 crash_time because midnight may be default-coded", "exclude rows missing number_of_persons_killed", "night is 20:00–23:59 and 00:01–05:59; day is 06:00–19:59"],
+  "years": "all fully covered calendar years in the file, determined from crash_date coverage in the data check",
+  "grouping": "calendar year and night/day",
+  "data_check": {
+    "coverage": "The file spans 2012-07-01 through 2026-06-11; 2012 (100,545 rows) and 2026 (36,424 rows) are partial calendar years and are excluded. Fully covered years are 2013–2025.",
+    "row_quality": "In 2013–2025 crash_time is NULL on 0 rows and number_of_persons_killed is missing on 36 rows; 23,787 rows have a midnight time that may be default-coded, with possible overlap between missing-death and midnight rows.",
+    "decision": "Exclude midnight-coded rows from night/day comparisons because the check finds a sharp increase from 24 in 2015 to 2,895 in 2016 and the field cannot establish whether these are true midnight times; exclude rows with missing death totals rather than imputing.",
+    "denominator_change": "Eligible denominator rows decline from 208,341 in 2019 to 111,076 in 2020, a decrease of 97,265; changes in a crash-row denominator can affect the measured fatal-crash share, so compare these years with caution."
+  },
+  "limitations": "The data check excludes partial years 2012 and 2026, 23,787 midnight-coded rows that may be default-coded, and 36 rows missing person-killed totals (with overlap possible); no NULL times were found. The largest neighboring eligible-denominator change is a 97,265-row decrease from 2019 to 2020. Fatal-crash prevalence is not exposure-adjusted risk, and crash records contain no traffic-volume denominator."
+}

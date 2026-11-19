@@ -1,0 +1,18 @@
+{
+  "id": 2,
+  "status": "final",
+  "can_answer": "yes, for a typical year's within-year distribution of recorded crash rows across weekdays; not a population-adjusted crash risk comparison",
+  "metric": "Mean annual percentage of crash rows assigned to each weekday, with each calendar year weighted equally",
+  "denominator": "For each year, all included crash rows in that year; annual weekday count divided by that year's total, then percentages averaged across years",
+  "population": "All crash rows whose crash_date falls from 2013-01-01 through 2025-12-31",
+  "filters": ["Include crash_date years 2013 through 2025 inclusive"],
+  "years": [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  "grouping": "Day of week derived from crash_date, Monday through Sunday; annual percentages averaged equally across available years",
+  "limitations": "This describes the mean annual distribution of police-reported crash records, not exposure-adjusted crash risk. All 13 requested years have complete calendar coverage; the date field is DATE-typed with 0 missing values across the source and therefore no invalid weekday derivations. The final population includes all 2,132,218 dated crash rows from 2013–2025 without exclusions; every year is included and receives equal weight. Annual row counts vary substantially: the largest neighboring-year change is a decrease of 98,568 rows, from 211,486 in 2019 to 112,918 in 2020, so annual shares across those years are based on different row-count denominators.",
+  "data_check": {
+    "facts_file": "./out/check_2.csv",
+    "decision": "Keep all dated records; no rows are dropped or treated as a separate group. crash_date missing in source: 0; impossible values: 0 possible in a DATE-typed column; all requested years have full Jan 1–Dec 31 coverage. There are 2,132,218 rows in the final population.",
+    "final_population": "All crash rows with crash_date from 2013-01-01 through 2025-12-31; 2,132,218 rows, no date-based exclusions.",
+    "largest_neighboring_year_row_change": "2019 to 2020: decrease of 98,568 rows (211,486 to 112,918)."
+  }
+}

@@ -1,0 +1,16 @@
+fact,value
+missing_crash_date_rows_in_file (cannot be assigned to a plan year; excluded),0
+"crash_date_sentinel_rows_in_file (0001-01-01, 1900-01-01, 1970-01-01, 9999-12-31)",0
+2013_population_rows,203742
+2014_population_rows,206046
+2015_population_rows,217708
+2016_population_rows,229833
+2017_population_rows,231007
+2018_population_rows,231564
+2019_population_rows,211486
+2020_population_rows,112918
+2021_population_rows,110558
+2022_population_rows,103887
+2023_population_rows,96607
+2024_population_rows,91316
+2025_population_rows,85546

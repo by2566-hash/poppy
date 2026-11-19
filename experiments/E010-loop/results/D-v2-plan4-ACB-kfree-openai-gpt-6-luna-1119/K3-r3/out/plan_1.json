@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "stage": "final plan",
+  "answerability": "partly: the data can compare reported motorist and cyclist death counts by crash year, but it has no exposure denominator for comparing death risk.",
+  "metric": "Annual total motorist deaths and annual total cyclist deaths, each calculated as the sum of its corresponding crash-level killed count.",
+  "denominator": "None; these are unstandardized counts of reported deaths, not rates.",
+  "population": "All police-reported NYC motor vehicle crashes dated 2013-01-01 through 2025-12-31; each fatality count contributes the number recorded for its road-user class.",
+  "filters": ["Keep crash_date years 2013 through 2025 inclusive."],
+  "years": "2013-2025 inclusive, grouped by calendar year of crash_date.",
+  "grouping": "Calendar year and road-user class (motorist, cyclist).",
+  "columns_to_check": ["crash_date", "number_of_motorist_killed", "number_of_cyclist_killed"],
+  "data_check_findings": "The plan population contains 2,132,218 crash rows; per-year row counts are in check_1.csv. There are 0 rows with missing crash_date before the year filter, 0 missing motorist killed values, and 0 missing cyclist killed values in 2013-2025. Each target year has rows spanning January 1 through December 31, and none of its rows have the candidate 1970-01-01 date sentinel.",
+  "data_check_decision": "No plan change. Keep all in-range rows; no rows are dropped or counted differently for missing date or killed-count values. The date range boundaries are represented, though boundary presence alone does not establish completeness of reporting on every date.",
+  "missing_outcome_handling": "Sum the recorded crash-level killed counts; no values are missing in the planned population, so no rows or outcome values are omitted.",
+  "limitations": "Counts describe deaths recorded in police-reported NYC motor vehicle crashes, not population-level death risk or rates; the file has no travel, population, or other exposure denominator. The checked date boundaries are present for every year, but that does not prove complete reporting on every date."
+}

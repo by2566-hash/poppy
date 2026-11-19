@@ -1,0 +1,71 @@
+fact,value
+rows_in_selected_population_and_years,2132218
+rows_with_missing_crash_date_before_date_filter_all_file_rows,0
+rows_with_impossible_crash_date_in_typed_DATE_column_all_file_rows,0
+rows_outside_2013_2025_or_missing_date_all_file_rows,136969
+crash_date_default_value_count_in_2013_2025,0
+rows_in_2013,203742
+date_coverage_2013_first_to_last,2013-01-01 to 2013-12-31
+distinct_crash_dates_in_2013,365
+calendar_days_in_2013,365
+year_2013_is_partial_by_date_coverage,false
+rows_in_2014,206046
+date_coverage_2014_first_to_last,2014-01-01 to 2014-12-31
+distinct_crash_dates_in_2014,365
+calendar_days_in_2014,365
+year_2014_is_partial_by_date_coverage,false
+rows_in_2015,217708
+date_coverage_2015_first_to_last,2015-01-01 to 2015-12-31
+distinct_crash_dates_in_2015,365
+calendar_days_in_2015,365
+year_2015_is_partial_by_date_coverage,false
+rows_in_2016,229833
+date_coverage_2016_first_to_last,2016-01-01 to 2016-12-31
+distinct_crash_dates_in_2016,366
+calendar_days_in_2016,366
+year_2016_is_partial_by_date_coverage,false
+rows_in_2017,231007
+date_coverage_2017_first_to_last,2017-01-01 to 2017-12-31
+distinct_crash_dates_in_2017,365
+calendar_days_in_2017,365
+year_2017_is_partial_by_date_coverage,false
+rows_in_2018,231564
+date_coverage_2018_first_to_last,2018-01-01 to 2018-12-31
+distinct_crash_dates_in_2018,365
+calendar_days_in_2018,365
+year_2018_is_partial_by_date_coverage,false
+rows_in_2019,211486
+date_coverage_2019_first_to_last,2019-01-01 to 2019-12-31
+distinct_crash_dates_in_2019,365
+calendar_days_in_2019,365
+year_2019_is_partial_by_date_coverage,false
+rows_in_2020,112918
+date_coverage_2020_first_to_last,2020-01-01 to 2020-12-31
+distinct_crash_dates_in_2020,366
+calendar_days_in_2020,366
+year_2020_is_partial_by_date_coverage,false
+rows_in_2021,110558
+date_coverage_2021_first_to_last,2021-01-01 to 2021-12-31
+distinct_crash_dates_in_2021,365
+calendar_days_in_2021,365
+year_2021_is_partial_by_date_coverage,false
+rows_in_2022,103887
+date_coverage_2022_first_to_last,2022-01-01 to 2022-12-31
+distinct_crash_dates_in_2022,365
+calendar_days_in_2022,365
+year_2022_is_partial_by_date_coverage,false
+rows_in_2023,96607
+date_coverage_2023_first_to_last,2023-01-01 to 2023-12-31
+distinct_crash_dates_in_2023,365
+calendar_days_in_2023,365
+year_2023_is_partial_by_date_coverage,false
+rows_in_2024,91316
+date_coverage_2024_first_to_last,2024-01-01 to 2024-12-31
+distinct_crash_dates_in_2024,366
+calendar_days_in_2024,366
+year_2024_is_partial_by_date_coverage,false
+rows_in_2025,85546
+date_coverage_2025_first_to_last,2025-01-01 to 2025-12-31
+distinct_crash_dates_in_2025,365
+calendar_days_in_2025,365
+year_2025_is_partial_by_date_coverage,false

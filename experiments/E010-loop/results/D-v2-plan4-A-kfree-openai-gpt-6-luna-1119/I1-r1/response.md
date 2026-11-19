@@ -1,0 +1,4 @@
+Both alternatives are now scoped to 2013–2025, and the checks show complete calendar-year coverage with no missing motorist-death values in the selected crashes. Neither can estimate deaths per mile, so the charts will present the crash data’s own measurable quantities.
+ANSWER:
+1. [Annual motorist deaths chart](out/option_1.png): This data cannot establish whether deaths per mile declined; it records 110 motorist deaths in 2013 and 81 in 2025.
+2. [Deaths per reported crash chart](out/option_2.png): This data cannot establish whether deaths per mile declined; recorded motorist deaths per crash row were 0.000540 in 2013 and 0.000947 in 2025.

@@ -1,0 +1,12 @@
+{
+  "status": "final plan",
+  "can_answer_question": "partly: the file cannot measure miles driven or motorist risk per mile; it can show annual counts of motorists killed in police-reported crashes",
+  "metric": "Annual number of motorists killed in police-reported NYC crashes, summed from number_of_motorist_killed",
+  "denominator": "None; an annual count, not a rate",
+  "population": "All police-reported crash rows in the file with crash_date in calendar years 2013 through 2025; outcome values are taken from rows with a nonmissing number_of_motorist_killed",
+  "filters": ["crash_date year from 2013 through 2025 inclusive"],
+  "years": "Calendar years 2013-2025 inclusive; check whether any year is only partially covered",
+  "grouping": "Calendar year of crash_date",
+  "data_check_implications_and_decisions": "The scoped population contains 2,132,218 rows for 2013-2025, and number_of_motorist_killed is nonmissing in all of them, so no rows are excluded for missing outcome values. Every year has observed dates at both Jan 1 and Dec 31; this supports full calendar-year date coverage but cannot establish source-record completeness. Jan 1 contains 188-485 rows per year (about 0.17%-0.22%), with no conspicuous date-default pileup. Keep all crash rows in the date range; use the summed observed killed counts. The metric and scope are unchanged from the initial plan.",
+  "limitations": "Miles driven and driving exposure are absent, so these annual counts cannot estimate deaths per mile or establish the per-mile risk trend. The data check found 2,132,218 in-scope rows and no missing motorist-killed values; all years span Jan 1-Dec 31, but observed endpoints do not prove complete reporting."
+}

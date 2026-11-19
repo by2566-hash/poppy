@@ -1,0 +1,26 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer": "partly: it can compare recorded crash frequency per clock hour at night versus daytime, but cannot establish per-trip or per-mile danger because traffic exposure is absent",
+    "metric": "number of police-reported crashes per observed clock hour",
+    "denominator": "the count of calendar dates in the included years multiplied by clock hours in the period (14 daytime hours: 06:00–19:59; 10 nighttime hours: 20:00–05:59); unknown-time crashes are not assigned to either period",
+    "population": "one row per police-reported NYC motor-vehicle crash, in complete calendar years available in the file, with a usable crash_date; group by crash_time into daytime, nighttime, or unknown",
+    "filters": ["exclude partial calendar years", "exclude rows with missing or unusable crash_date from yearly/date denominator", "retain crashes with missing/unusable crash_time as unknown time, not day or night"],
+    "years": "all complete calendar years represented in the file, to be identified by the data check",
+    "grouping": "daytime (06:00–19:59), nighttime (20:00–05:59), and unknown crash time"
+  },
+  "data_check": {
+    "facts": "See check_1.csv. The file covers 2012-07-01 through 2026-06-11; complete calendar years are 2013–2025. Among dated crashes in those years, there are no missing dates or times; because crash_date and crash_time are typed DATE and TIME columns, no empty, unknown-string, or impossible date/time values are represented. There are 23,787 midnight timestamps. There are 2,132,218 dated crashes in those years before the time-quality filter; 2,108,431 have non-midnight times and are the final population. The partial years 2012 and 2026 have 100,545 and 36,424 dated crashes, respectively.",
+    "meaning_and_decisions": "Exclude the partial years so they do not contribute fewer days to the comparison. Exclude the 23,787 midnight records from day/night classification because midnight is piled up at a potential default and assigning it to nighttime could distort that group; no crash_date or crash_time values are missing in the dated full-year candidate data. Change the grouping from an unknown-time group to day and night only, with the uncertain midnight records disclosed as excluded. Compare recorded crash frequency per clock-hour slot, using calendar days × 14 daytime hours or × 10 nighttime hours as the denominator."
+  },
+  "final_plan": {
+    "can_answer": "partly: compares reported crash frequency per clock-hour slot by time period, but not risk per trip, person, vehicle-mile, or traffic exposure",
+    "metric": "average number of police-reported crashes per clock-hour slot per calendar day",
+    "denominator": "sum of calendar days in 2013–2025 multiplied by 14 daytime clock-hour slots (06:00–19:59) or 10 nighttime clock-hour slots (20:00–05:59)",
+    "population": "one row per police-reported NYC motor-vehicle crash dated in full calendar years 2013–2025, with crash_time not equal to 00:00; 2,108,431 crashes",
+    "filters": ["exclude partial years 2012 and 2026", "exclude midnight timestamps (00:00) as potentially default/uncertain time", "no missing dates or times among the dated full-year candidate records"],
+    "years": "2013–2025 inclusive",
+    "grouping": "daytime (06:00–19:59) versus nighttime (20:00–05:59)",
+    "limitations": "Crash reports do not provide traffic exposure, so this describes recorded crashes per clock-hour slot rather than risk per trip or mile. The 23,787 midnight-timestamp crashes are excluded as potentially default time values; the partial years 2012 (100,545 dated crashes) and 2026 (36,424) are excluded."
+  }
+}

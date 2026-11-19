@@ -1,0 +1,2 @@
+ANSWER: Motorist deaths exceeded cyclist deaths in every year from 2013–2025; in 2025, the recorded counts were 81 and 23, respectively.  
+The per-1,000-crash framing answers only part of the question: in 2023, the rates were 1.273 motorist deaths and 0.321 cyclist deaths per 1,000 reported crashes, though rates can shift with crash-record volume.

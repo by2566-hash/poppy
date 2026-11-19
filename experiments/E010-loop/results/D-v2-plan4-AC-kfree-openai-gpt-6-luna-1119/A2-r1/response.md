@@ -1,0 +1,4 @@
+The check shows 23,787 complete-year crashes stamped exactly 00:00 (1.1158%), with a pronounced pileup starting in 2016. I’m keeping those reports visible as their own group rather than assigning them to night; the comparisons will still be limited to reported crashes and cannot measure traffic exposure or individual risk.
+ANSWER:
+1. This data cannot establish danger per traveler; in 2013–2025, reported crashes averaged 24.18 per clock-hour opportunity by day and 11.72 at night, with 5.01 in the separate 00:00 group ([chart](out/option_1.png)).
+2. This data cannot establish injury risk per traveler; mean recorded injuries per crash were 0.309 by day and 0.406 at night, with 0.359 in the separate 00:00 group ([chart](out/option_2.png)).

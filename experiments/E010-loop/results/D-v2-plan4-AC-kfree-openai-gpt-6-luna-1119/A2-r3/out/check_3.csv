@@ -1,0 +1,37 @@
+fact,value
+rows_in_file,2269187
+rows_with_missing_or_invalid_crash_date_excluded_from_year_population,0
+rows_in_plan_population_with_valid_crash_date,2269187
+rows_in_plan_population_year_2012,100545
+year_2012_observed_date_range,2012-07-01 through 2012-12-31; partial_calendar_year=true
+rows_in_plan_population_year_2013,203742
+year_2013_observed_date_range,2013-01-01 through 2013-12-31; partial_calendar_year=false
+rows_in_plan_population_year_2014,206046
+year_2014_observed_date_range,2014-01-01 through 2014-12-31; partial_calendar_year=false
+rows_in_plan_population_year_2015,217708
+year_2015_observed_date_range,2015-01-01 through 2015-12-31; partial_calendar_year=false
+rows_in_plan_population_year_2016,229833
+year_2016_observed_date_range,2016-01-01 through 2016-12-31; partial_calendar_year=false
+rows_in_plan_population_year_2017,231007
+year_2017_observed_date_range,2017-01-01 through 2017-12-31; partial_calendar_year=false
+rows_in_plan_population_year_2018,231564
+year_2018_observed_date_range,2018-01-01 through 2018-12-31; partial_calendar_year=false
+rows_in_plan_population_year_2019,211486
+year_2019_observed_date_range,2019-01-01 through 2019-12-31; partial_calendar_year=false
+rows_in_plan_population_year_2020,112918
+year_2020_observed_date_range,2020-01-01 through 2020-12-31; partial_calendar_year=false
+rows_in_plan_population_year_2021,110558
+year_2021_observed_date_range,2021-01-01 through 2021-12-31; partial_calendar_year=false
+rows_in_plan_population_year_2022,103887
+year_2022_observed_date_range,2022-01-01 through 2022-12-31; partial_calendar_year=false
+rows_in_plan_population_year_2023,96607
+year_2023_observed_date_range,2023-01-01 through 2023-12-31; partial_calendar_year=false
+rows_in_plan_population_year_2024,91316
+year_2024_observed_date_range,2024-01-01 through 2024-12-31; partial_calendar_year=false
+rows_in_plan_population_year_2025,85546
+year_2025_observed_date_range,2025-01-01 through 2025-12-31; partial_calendar_year=false
+rows_in_plan_population_year_2026,36424
+year_2026_observed_date_range,2026-01-01 through 2026-06-11; partial_calendar_year=true
+crash_time_missing_empty_unknown_or_impossible_in_plan_years_before_time_filter,0
+crash_time_midnight_rows_in_plan_years_possible_default_or_legitimate,24566
+number_of_persons_killed_missing_or_impossible_negative_in_plan_years,8913

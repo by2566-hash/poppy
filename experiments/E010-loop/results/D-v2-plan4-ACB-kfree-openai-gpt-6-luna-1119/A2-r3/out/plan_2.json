@@ -1,0 +1,26 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "can_answer": "partly: the data can compare recorded injured and killed people per police-reported crash by clock-time period, but cannot measure danger per trip, traffic exposure, or whether darkness caused any difference.",
+    "metric": "Recorded injured plus killed people per 100 eligible crashes (casualty burden per crash).",
+    "denominator": "Count of eligible police-reported crash rows in each year and clock-time group with nonmissing crash time and known injured/killed person counts; the numerator is the sum of number_of_persons_injured plus number_of_persons_killed.",
+    "population": "One row per police-reported NYC motor vehicle crash, restricted to complete calendar years represented in the file and rows with valid grouping/outcome fields.",
+    "filters": ["Complete calendar years represented in the file", "Nonmissing crash_time", "Nonmissing number_of_persons_injured and number_of_persons_killed"],
+    "years": "All calendar years represented in the file, excluding any first or last year that data coverage shows to be partial.",
+    "grouping": "Calendar year and clock-time period: night is 20:00–05:59; day is 06:00–19:59."
+  },
+  "data_check_and_decisions": {
+    "facts": "The file covers 2012-07-01 through 2026-06-11; 2012 (100,545 rows) and 2026 (36,424 rows) are partial boundary years, so use complete years 2013–2025 (2,132,218 rows). No crash_date or crash_time values are missing in the selected population; crash_time is TIME-typed, so blank, unknown-word, and out-of-range values cannot be represented. The injured count is missing in 18 rows and the killed count in 36 rows, with overlap; 42 distinct rows (0.001970% of the population) have either missing and are excluded. The time value 00:00:00 occurs in 23,787 selected-year rows, of which 23,786 have both outcome fields available, including a change from 24 rows in 2015 to 2,895 in 2016, so it may be default-coded.",
+    "decisions": "Exclude partial boundary years and the 42 rows with either missing outcome count. Keep all nonmissing times, but show exactly 00:00:00 as its own possible-default group rather than classifying it as night; this avoids treating a suspicious time pile-up as observed nighttime. Keep the remaining night and day definitions as clock-time proxies."
+  },
+  "final_plan": {
+    "can_answer": "partly: the data compare recorded injured-plus-killed people per police-reported crash by clock time, but do not measure per-trip danger, traffic exposure, actual darkness, or causation.",
+    "metric": "Annual sum of number_of_persons_injured plus number_of_persons_killed per 100 eligible crashes.",
+    "denominator": "Count of eligible police-reported crash rows in each year and time group; eligible means crash_time and both person outcome counts are nonmissing. Midnight rows are a separate group, and the night/day comparison uses the remaining clock times.",
+    "population": "One row per police-reported NYC motor vehicle crash during complete calendar years 2013–2025 with nonmissing crash time and nonmissing number_of_persons_injured and number_of_persons_killed.",
+    "filters": ["Calendar years 2013–2025", "Exclude rows missing crash_time", "Exclude rows missing number_of_persons_injured or number_of_persons_killed"],
+    "years": "2013–2025 inclusive; partial 2012 and 2026 excluded.",
+    "grouping": "Calendar year and three clock-time groups: night 20:00–23:59 and 00:01–05:59; day 06:00–19:59; exactly 00:00:00 is reported separately as midnight/possible default.",
+    "limitations": "This is a crash-level casualty burden among police-reported crashes, not a risk per trip or unit of traffic exposure; it cannot establish that darkness causes crashes. Clock time is only a proxy for darkness, and 23,786 eligible midnight records were isolated because 00:00:00 may be default-coded. The check found 42 of 2,132,218 complete-year rows (0.001970%) missing at least one outcome count and excluded them; 2012 and 2026 were partial and excluded."
+  }
+}

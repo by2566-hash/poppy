@@ -1,0 +1,29 @@
+fact,value
+Source rows checked for crash_date filter quality,2269187
+Rows with missing crash_date before year filter,0
+"Rows with common default/sentinel crash_date (0001-01-01, 1900-01-01, 1970-01-01, 9999-12-31)",0
+Impossible crash_date values,0
+Plan years,2013
+Plan years,-2025
+Valid dated crash rows in plan years,2132218
+Dated rows outside plan years,136969
+2013 crash rows,203742
+2014 crash rows,206046
+2015 crash rows,217708
+2016 crash rows,229833
+2017 crash rows,231007
+2018 crash rows,231564
+2019 crash rows,211486
+2020 crash rows,112918
+2021 crash rows,110558
+2022 crash rows,103887
+2023 crash rows,96607
+2024 crash rows,91316
+2025 crash rows,85546
+Calendar dates in denominator by weekday,678
+Calendar dates in denominator by weekday,679
+Calendar dates in denominator by weekday,679
+Calendar dates in denominator by weekday,678
+Calendar dates in denominator by weekday,678
+Calendar dates in denominator by weekday,678
+Calendar dates in denominator by weekday,678

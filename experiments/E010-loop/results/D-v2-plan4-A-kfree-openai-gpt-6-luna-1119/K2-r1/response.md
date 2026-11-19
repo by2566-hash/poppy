@@ -1,0 +1,2 @@
+ANSWER: Friday had the most police-reported crash records (338,800) and Sunday the fewest (257,544) from 2013 through 2025.
+Of in-period crash records, Friday accounted for the largest weekday share (15.9%) and Sunday the smallest (12.1%).

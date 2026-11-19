@@ -1,0 +1,34 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer": "yes, subject to checking date coverage and the completeness of the pedestrian-fatality field; this file describes NYC police-reported crashes and pedestrian fatalities in them",
+    "metric": "annual total of number_of_pedestrians_killed, interpreted as pedestrian deaths in police-reported motor vehicle crashes",
+    "denominator": "not applicable; this is a count, not a rate or share",
+    "population": "all crash rows in NYC with crash_date in calendar years 2013 through 2025 inclusive; sum pedestrian deaths, not crash records",
+    "filters": ["crash_date is in 2013-01-01 through 2025-12-31"],
+    "years": "calendar years 2013-2025 inclusive",
+    "grouping": "calendar year of crash_date",
+    "columns_used": ["crash_date", "number_of_pedestrians_killed"]
+  },
+  "data_check": {
+    "source": "out/check_1.csv",
+    "facts_meaning": "There are 2,132,218 crash rows dated in 2013-2025, with records in every year. The date endpoints in each year span January 1 through December 31, including 2025; this establishes observed endpoint coverage, not whether every report has been filed. No selected row has a missing crash_date or pedestrian-fatality value. No candidate default dates (0001-01-01, 1900-01-01, or 1970-01-01) occur in the selected population; DATE typing precludes non-date or impossible date strings. Thus the check identified no selected rows to exclude or reclassify, and all selected rows are retained. The population counts police-reported NYC motor vehicle crash records, with the pedestrian fatality field totaled across those records.",
+    "decisions": {
+      "crash_date": "Keep all rows in the requested date range; none of the selected rows has a missing date or candidate default date, and each year's observed endpoints span the calendar year.",
+      "number_of_pedestrians_killed": "Keep all rows; none of the selected rows has this field missing. Sum this field as recorded."
+    }
+  },
+  "final_plan": {
+    "can_answer": "yes, as counts recorded for police-reported NYC motor vehicle crashes",
+    "metric": "sum of number_of_pedestrians_killed by calendar year of crash_date; counts pedestrian deaths, not crashes",
+    "denominator": "not applicable; annual count, not a rate or share",
+    "population": "all police-reported NYC motor vehicle crash rows with crash_date in calendar years 2013 through 2025 inclusive; each row contributes its recorded pedestrian-killed count",
+    "filters": ["crash_date is from 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "calendar years 2013-2025 inclusive",
+    "grouping": "calendar year of crash_date",
+    "chart_type": "line chart",
+    "columns_used": ["crash_date", "number_of_pedestrians_killed"],
+    "row_handling": "Retain every in-range row; do not exclude rows, and sum the pedestrian-killed field as recorded.",
+    "limitations": "These are counts in police-reported crash records, not a count independently validated against person-level death records. Observed dates span January 1 to December 31 in every requested year, including 2025, and no selected row has a missing pedestrian-killed value; endpoint coverage does not independently establish complete reporting."
+  }
+}

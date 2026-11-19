@@ -1,0 +1,7 @@
+I’ll check the available crash-data years and the columns needed to assess whether this dataset can measure deaths per mile driven, then create the defensible chart framing(s) and their documented checks.
+The dataset has crash dates and motorist-death counts, but no vehicle-miles-traveled measure. I’ll treat each chart as a crash-record-based proxy and make clear that none estimates per-mile risk; I’m setting up three distinct proxies: annual deaths, deaths per reported crash, and the share of reported crashes with at least one motorist death.
+The selected years all have records on every calendar date, including all of 2025, and the motorist-death field is nonmissing for all 2,132,218 crashes. The initial data checks therefore support retaining every crash; I’m now comparing the three plotted summaries and their endpoint values against the saved files before finalizing the interpretations.
+ANSWER:
+1. This dataset cannot establish whether per-mile risk declined; the annual count of motorists killed fell from 110 in 2013 to 81 in 2025 ([chart 1](out/option_1.png)).
+2. This dataset cannot establish whether per-mile risk declined; crashes with at least one motorist death were 0.0501% of reported crashes in 2013 and 0.0877% in 2025 ([chart 2](out/option_2.png)).
+3. This dataset cannot establish whether per-mile risk declined; motorists killed per 1,000 reported crashes were 0.540 in 2013 and 0.947 in 2025 ([chart 3](out/option_3.png)).

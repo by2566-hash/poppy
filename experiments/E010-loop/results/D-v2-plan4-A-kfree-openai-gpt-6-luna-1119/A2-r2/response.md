@@ -1,0 +1,4 @@
+The file spans partial years 2012 and 2026, so I’m restricting comparisons to complete years 2013–2025. The checks also find 23,787 crashes timestamped exactly midnight; I’ll treat those as uncertain time values and leave them out of the day/night comparisons rather than assign them to night.
+ANSWER: This dataset can only partly answer whether NYC streets are more dangerous at night: for 2013–2025, reported crash frequency averaged 24.18 daytime versus 10.55 nighttime crashes per calendar-day clock-hour slot, but the data lack traffic exposure to measure risk per trip or mile.
+This dataset can only partly answer the question: 28.33% of nighttime crashes involved an injury, compared with 23.33% of daytime crashes, but these shares do not measure risk per trip or mile.
+This dataset can only partly answer the question: 0.303% of nighttime crashes involved a death, compared with 0.109% of daytime crashes, but these shares do not measure risk per trip or mile.

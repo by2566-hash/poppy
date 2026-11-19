@@ -1,0 +1,3 @@
+period,metric,numerator,denominator_crashes,value,unit
+Night,crashes_with_injury_or_death_share,158211,556333,28.43818361,Percent of crashes
+Day,crashes_with_injury_or_death_share,398867,1703935,23.40858073,Percent of crashes

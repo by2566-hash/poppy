@@ -1,0 +1,2 @@
+I’ll use the pedestrian-fatality column to measure annual numbers of people killed, first documenting the intended population and then checking only its coverage and data quality.
+ANSWER: Police-reported NYC crashes recorded 176 pedestrian deaths in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.

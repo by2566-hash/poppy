@@ -1,0 +1,38 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer": "partly: the file can show annual counts of reported pedestrian casualties in Brooklyn, but it cannot measure pedestrian exposure or individual risk, so it cannot establish whether the road network became safer per trip or per person.",
+    "metric": "Annual pedestrian casualties, calculated as the sum of number_of_pedestrians_injured plus number_of_pedestrians_killed in Brooklyn crash reports.",
+    "denominator": "No denominator; this is a count of reported pedestrian casualties per calendar year.",
+    "population": "Pedestrians reported injured or killed in police-reported crashes whose borough is Brooklyn.",
+    "filters": ["crash year is 2013 or later through the latest year present", "borough is Brooklyn"],
+    "years": "2013 through the latest year present in the file, inclusive; assess whether the first or last year is only partially covered.",
+    "grouping": "Calendar year of crash_date."
+  },
+  "data_check": {
+    "facts": {
+      "planned_years_found": "2013-2026; observed dates are 2013-01-01 through 2026-06-11.",
+      "year_coverage": "2013-2025 have observations from January 1 through December 31; 2026 is partial, January 1 through June 11.",
+      "rows": "Across 2013-2025 there are 2,132,218 crash rows, of which 473,801 have borough Brooklyn; in partial 2026, 36,424 rows total and 9,700 Brooklyn rows.",
+      "borough_quality": "659,713 of 2,132,218 rows (30.9%) in 2013-2025 have a missing, blank, unknown, or nonstandard borough label under the check's five-official-borough validation; 668,406 of 2,168,642 do over 2013-2026.",
+      "outcome_quality": "Among Brooklyn rows in 2013-2026, 0 have number_of_pedestrians_injured missing and 0 have number_of_pedestrians_killed missing; 0 rows have either missing.",
+      "date_quality": "0 Brooklyn rows have a missing grouping date; 0 rows in the planned date window have a missing date."
+    },
+    "decisions": {
+      "borough": "Exclude rows with missing, blank, unknown, or nonstandard borough labels because their Brooklyn location cannot be established; 659,713 rows (30.9%) of all crash rows in final years are thereby outside the identifiable borough population. Retain only Brooklyn rows; other valid boroughs are outside scope.",
+      "outcomes": "Keep all qualifying Brooklyn rows because neither pedestrian outcome field is missing; no rows are dropped for outcome missingness.",
+      "years": "Exclude 2026 because it ends on June 11 and is only partly covered; retain complete years 2013-2025.",
+      "grouping_date": "Keep all qualifying rows; no Brooklyn grouping dates are missing."
+    }
+  },
+  "final_plan": {
+    "can_answer": "partly: this measures reported pedestrian casualties, not pedestrian exposure or risk per trip/person, so it cannot establish whether the road network became safer for an individual pedestrian.",
+    "metric": "Annual count of reported pedestrian casualties in Brooklyn crash reports, calculated by summing number_of_pedestrians_injured and number_of_pedestrians_killed.",
+    "denominator": "No denominator; count of reported injured and killed pedestrians per calendar year.",
+    "population": "Pedestrian casualties in police-reported crashes with borough Brooklyn; rows with unidentifiable borough are excluded, and both pedestrian outcome fields are complete for all included Brooklyn rows.",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31", "borough is Brooklyn"],
+    "years": "Complete calendar years 2013-2025; exclude partial 2026 (data through June 11).",
+    "grouping": "Calendar year of crash_date.",
+    "limitations": "Police-reported casualties are not adjusted for pedestrian trips or population, so the series is not a per-person safety risk measure. 659,713 of 2,132,218 crash rows (30.9%) in 2013-2025 have missing, blank, unknown, or nonstandard borough labels and are excluded because their borough cannot be identified. The partial 2026 year is excluded; pedestrian outcome fields and Brooklyn grouping dates have no missing values in the checked years."
+  }
+}

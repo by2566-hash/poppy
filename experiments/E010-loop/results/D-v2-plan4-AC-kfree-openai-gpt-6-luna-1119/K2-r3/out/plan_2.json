@@ -1,0 +1,26 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "can_answer": "yes: the data records a date for each crash, so crashes can be grouped by weekday and year",
+    "metric": "percentage of each year's police-reported crashes occurring on each weekday",
+    "denominator": "all crashes with a valid crash_date in the same calendar year, 2013–2025 inclusive",
+    "population": "one row per police-reported motor vehicle crash in NYC",
+    "filters": ["crash_date is in calendar years 2013 through 2025 inclusive"],
+    "years": "2013–2025 inclusive, with incomplete years identified and disclosed",
+    "grouping": "calendar year and weekday of crash_date, Monday through Sunday"
+  },
+  "data_check": {
+    "facts_file": "check_2.csv",
+    "meaning_and_decisions": "The selected population is 2,132,218 dated crash rows. There are 0 missing or impossible typed crash_date values in the file; 136,969 dated rows fall outside 2013–2025 and are excluded by the specified period filter. No date default value is identified within the selected years. Every year from 2013 through 2025 has date coverage from January 1 through December 31 and a distinct crash date for every calendar day, so none of the annual percentages is based on a date-partial year. Keep all in-period rows in the within-year denominators, group by year and weekday, and disclose the out-of-period exclusions and that shares are crash-record composition, not risk adjusted for exposure. No data-driven plan change."
+  },
+  "final_plan": {
+    "can_answer": "yes",
+    "metric": "percentage of each year's police-reported crashes occurring on each weekday",
+    "denominator": "all crashes with a valid crash_date in the same calendar year; each year's weekday percentages sum to 100%",
+    "population": "one row per police-reported motor vehicle crash in NYC",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "2013–2025 inclusive; all 13 calendar years have full date coverage",
+    "grouping": "calendar year and weekday of crash_date, Monday through Sunday",
+    "limitations": "136,969 dated rows outside 2013–2025 are excluded; no crash_date is missing or impossible. Percentages describe the weekday composition of reported crashes, not risk adjusted for traffic or travel exposure; a full date span does not establish complete reporting."
+  }
+}

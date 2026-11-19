@@ -1,0 +1,69 @@
+fact,value
+rows_2013_2025_total,2132218
+rows_2013_2025_with_missing_number_of_motorist_killed,0
+rows_2013_2025_with_missing_crash_date,0
+rows_2013,203742
+year_2013_observed_date_range,2013-01-01 through 2013-12-31
+year_2013_coverage,both calendar boundaries observed
+rows_2013_missing_number_of_motorist_killed,0
+rows_2013_on_jan_1,381
+rows_2014,206046
+year_2014_observed_date_range,2014-01-01 through 2014-12-31
+year_2014_coverage,both calendar boundaries observed
+rows_2014_missing_number_of_motorist_killed,0
+rows_2014_on_jan_1,399
+rows_2015,217708
+year_2015_observed_date_range,2015-01-01 through 2015-12-31
+year_2015_coverage,both calendar boundaries observed
+rows_2015_missing_number_of_motorist_killed,0
+rows_2015_on_jan_1,395
+rows_2016,229833
+year_2016_observed_date_range,2016-01-01 through 2016-12-31
+year_2016_coverage,both calendar boundaries observed
+rows_2016_missing_number_of_motorist_killed,0
+rows_2016_on_jan_1,393
+rows_2017,231007
+year_2017_observed_date_range,2017-01-01 through 2017-12-31
+year_2017_coverage,both calendar boundaries observed
+rows_2017_missing_number_of_motorist_killed,0
+rows_2017_on_jan_1,485
+rows_2018,231564
+year_2018_observed_date_range,2018-01-01 through 2018-12-31
+year_2018_coverage,both calendar boundaries observed
+rows_2018_missing_number_of_motorist_killed,0
+rows_2018_on_jan_1,453
+rows_2019,211486
+year_2019_observed_date_range,2019-01-01 through 2019-12-31
+year_2019_coverage,both calendar boundaries observed
+rows_2019_missing_number_of_motorist_killed,0
+rows_2019_on_jan_1,430
+rows_2020,112918
+year_2020_observed_date_range,2020-01-01 through 2020-12-31
+year_2020_coverage,both calendar boundaries observed
+rows_2020_missing_number_of_motorist_killed,0
+rows_2020_on_jan_1,346
+rows_2021,110558
+year_2021_observed_date_range,2021-01-01 through 2021-12-31
+year_2021_coverage,both calendar boundaries observed
+rows_2021_missing_number_of_motorist_killed,0
+rows_2021_on_jan_1,257
+rows_2022,103887
+year_2022_observed_date_range,2022-01-01 through 2022-12-31
+year_2022_coverage,both calendar boundaries observed
+rows_2022_missing_number_of_motorist_killed,0
+rows_2022_on_jan_1,283
+rows_2023,96607
+year_2023_observed_date_range,2023-01-01 through 2023-12-31
+year_2023_coverage,both calendar boundaries observed
+rows_2023_missing_number_of_motorist_killed,0
+rows_2023_on_jan_1,275
+rows_2024,91316
+year_2024_observed_date_range,2024-01-01 through 2024-12-31
+year_2024_coverage,both calendar boundaries observed
+rows_2024_missing_number_of_motorist_killed,0
+rows_2024_on_jan_1,247
+rows_2025,85546
+year_2025_observed_date_range,2025-01-01 through 2025-12-31
+year_2025_coverage,both calendar boundaries observed
+rows_2025_missing_number_of_motorist_killed,0
+rows_2025_on_jan_1,188

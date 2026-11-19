@@ -1,0 +1,25 @@
+{
+  "initial_plan": {
+    "can_answer": "partly — compares the share of crash records with reported injury or death by time of day but cannot estimate risk per traveler or amount of travel",
+    "metric": "Share of eligible crash records with at least one person injured or killed",
+    "denominator": "Crash records with nonmissing number_of_persons_injured and number_of_persons_killed, within each time group",
+    "population": "All crash records in the file with a crash_date; records with either outcome count missing are ineligible for this share",
+    "filters": "Night = 20:00–05:59; daytime = 06:00–19:59; missing/unclassifiable crash_time is a separate group; no year filter",
+    "years": "Every calendar year represented in the file",
+    "grouping": "Night, daytime, and missing/unclassifiable time"
+  },
+  "data_check": {
+    "facts_file": "check_2.csv",
+    "meaning_and_decisions": "All 2,269,187 records have a crash_date. There are no crash_date values at the checked possible sentinels 1900-01-01, 1970-01-01, or 2000-01-01, and no unknown-text or unparseable date values (the field is typed DATE). The observed period is 2012-07-01 through 2026-06-11, so 2012 and 2026 are partial by observed date range; retain all years and disclose the partial endpoints. There are 0 missing, unknown-text, or unparseable crash_time values, so the missing/unclassifiable group has no rows. The 24,566 00:00:00 timestamps could be valid midnight times or defaults; retain them in the night group and disclose. number_of_persons_injured is missing on 18 rows and number_of_persons_killed on 8,913 rows; 8,919 distinct rows lack one or both. Exclude those 8,919 rows from both numerator and denominator because their injury/death status cannot be determined completely."
+  },
+  "final_plan": {
+    "can_answer": "partly — compares recorded injury-or-death crash shares by time but cannot establish relative danger per traveler or amount of travel",
+    "metric": "Share of eligible crash records with at least one person injured or killed, calculated as 100 × records where number_of_persons_injured + number_of_persons_killed ≥ 1 divided by eligible records",
+    "denominator": "Within each time group, crash records with both number_of_persons_injured and number_of_persons_killed present",
+    "population": "Crash records with a crash_date over 2012-07-01 through 2026-06-11; the share uses only records with both injury and death counts present",
+    "filters": "Night = 20:00–05:59; daytime = 06:00–19:59; include missing/unclassifiable time as a separate group if present; exclude records missing either outcome count from numerator and denominator; no crash or location filters",
+    "years": "All represented years, 2012–2026, including partial 2012 and 2026",
+    "grouping": "Night versus daytime; missing/unclassifiable time is a separate group if present",
+    "limitations": "There are no missing dates, no date values at the checked possible sentinels 1900-01-01, 1970-01-01, or 2000-01-01, and no unknown-text or unparseable date/time values. Keep the 24,566 00:00:00 timestamps in the night group but flag that this exact-time pileup may include default times. Exclude 8,919 records (0.39% of records with dates) from both numerator and denominator because at least one of the two outcome counts is missing (injured missing: 18; killed missing: 8,913). The date span includes partial 2012 and 2026. The measure is the share among crash records, not risk per traveler; no travel-exposure denominator is available."
+  }
+}

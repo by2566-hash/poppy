@@ -1,0 +1,4 @@
+The date and outcome checks cover 2,132,218 crash records across 2013–2025. Both death-count columns have zero missing values in every year, and each year has observations from January 1 through December 31; I’ll retain all in-range records and note that date-span coverage alone cannot establish reporting completeness.
+ANSWER:
+In recorded NYC crash deaths, motorists exceeded cyclists every year: annual totals ranged from 72 to 139 motorist deaths versus 10 to 31 cyclist deaths, and in 2025 the counts were 81 and 23, respectively.
+Among motorist-plus-cyclist deaths, the motorist share was 72.6%–90.9% by year and the cyclist share was 9.1%–27.4%; in 2025 the shares were 77.9% and 22.1%, respectively.

@@ -1,0 +1,13 @@
+{
+  "id": 3,
+  "can_answer": "partly: this measures how often a reported Brooklyn crash involved a pedestrian casualty, but cannot establish per-pedestrian risk or all aspects of road safety",
+  "metric": "Annual percentage of Brooklyn crash reports recording at least one pedestrian injured or killed",
+  "denominator": "All Brooklyn crash rows in each year with both pedestrian injury and death fields present",
+  "population": "Police-reported Brooklyn crashes; each report counts once in the numerator when the sum of its pedestrian injury and death counts is greater than zero",
+  "filters": ["borough is Brooklyn (case/whitespace normalized)", "crash year is 2013–2025 inclusive", "both pedestrian injury and death fields are present"],
+  "years": "Complete calendar years 2013 through 2025; exclude 2026 because coverage ends 2026-06-11",
+  "grouping": "Calendar year",
+  "data_check_findings": "Across final plan years 2013–2025, 659,713 of 2,132,218 city crash rows (30.9%) have a missing or unknown borough; these cannot be assigned to Brooklyn and are excluded. There are zero impossible borough values, zero null crash dates, and zero missing pedestrian injury/death values among Brooklyn rows in 2013–2025, so no Brooklyn rows are dropped for outcome missingness. 2026 is partial (2026-01-01 through 2026-06-11), so it is excluded; 2013–2025 are full calendar years. Among included years, denominator crash rows change most between neighboring years from 2019 to 2020: 44,479 to 25,473, a decrease of 19,006.",
+  "data_check_decisions": "Exclude rows without a usable Brooklyn borough assignment rather than assigning unknown locations to Brooklyn; exclude the partial 2026 year; retain all valid Brooklyn rows because neither outcome field is missing. Use all included Brooklyn crash rows as the annual denominator.",
+  "limitations": "This is the share of reported Brooklyn crash reports involving a recorded pedestrian casualty, not a pedestrian-exposure-adjusted risk measure; unlocated crashes are omitted and 2026 is excluded as partial. Changes in crash-report volume affect the row denominator, especially from 2019 to 2020."
+}

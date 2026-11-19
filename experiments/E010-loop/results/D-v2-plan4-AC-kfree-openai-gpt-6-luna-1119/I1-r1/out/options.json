@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual sum of number_of_motorist_killed, the reported number of motorists killed in crashes",
+      "denominator": "None; an annual count, not a rate",
+      "grouping": "Calendar year extracted from crash_date, 2013 through 2025 inclusive",
+      "chart_type": "Line chart",
+      "reason": "A careful analyst may choose the annual count to describe the total fatality burden in police-reported crashes without implying an exposure-adjusted rate.",
+      "probability": 0.55,
+      "answer": "This crash file cannot establish whether per-mile motorist-death risk declined; reported motorist deaths totaled 110 in 2013 and 81 in 2025, with annual counts varying in between.",
+      "interpretation": "The crash file cannot determine whether motorist-death risk per mile declined because it has no vehicle-miles-traveled measure; it shows reported motorists killed totaled 110 in 2013 and 81 in 2025, with annual counts varying over 2013–2025. The chart sums number_of_motorist_killed across NYC police-reported crash records and groups by calendar year of crash_date, with no denominator, so it describes fatality burden in reports and leaves the per-mile question unanswered. This is a defensible adjacent measure because it directly counts reported deaths, though the total can change with driving exposure and other conditions as well as risk. The check found 0 missing crash_date values among 2,269,187 source rows and 0 missing motorist-death values in every target year (85,546–231,564 crash records per year); dates outside 2013–2025 are excluded, no target-year rows are dropped for missingness, and January 1–December 31 endpoints do not establish complete reporting."
+    },
+    {
+      "id": 2,
+      "metric": "Annual share of crash records with number_of_motorist_killed greater than zero",
+      "denominator": "All police-reported NYC crash records with a nonmissing crash_date in that calendar year; a share of crash records, not of miles or trips",
+      "grouping": "Calendar year extracted from crash_date, 2013 through 2025 inclusive",
+      "chart_type": "Line chart",
+      "reason": "A careful analyst may choose this denominator to describe fatal-crash prevalence among reported crashes, a severity measure conditional on a crash being reported.",
+      "probability": 0.45,
+      "answer": "This crash file cannot establish whether per-mile motorist-death risk declined; crash records involving at least one motorist death were 0.0501% in 2013 and 0.0877% in 2025, with a 2013–2025 peak of 0.1180% in 2023.",
+      "interpretation": "The crash file cannot determine whether motorist-death risk per mile declined because vehicle-miles traveled are absent; it shows that records with at least one reported motorist death were 0.0501% of crash records in 2013 and 0.0877% in 2025, peaking at 0.1180% in 2023. Each annual share is records where number_of_motorist_killed is greater than zero divided by all police-reported NYC crash records with a 2013–2025 crash_date, grouped by crash year, so it describes fatal-crash prevalence rather than per-mile or per-trip risk. This is a defensible way to characterize severity conditional on a reported crash, while the per-mile question remains unanswered. The check found 0 missing dates among 2,269,187 source rows and 0 missing motorist-death values per target year (85,546–231,564 records per year); records outside target years are excluded, no in-scope records are lost to missingness, and January 1–December 31 endpoints do not prove complete reporting."
+    }
+  ]
+}

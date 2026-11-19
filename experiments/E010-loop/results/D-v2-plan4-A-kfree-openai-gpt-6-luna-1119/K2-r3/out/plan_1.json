@@ -1,0 +1,27 @@
+{
+  "initial_plan": {
+    "can_answer": "yes, for the distribution of police-reported crashes by weekday in records dated 2013-01-01 through 2025-12-31; not crash risk per trip or traffic exposure",
+    "metric": "crash count by weekday and each weekday's share of all included crashes",
+    "denominator": "all crashes with a nonmissing crash_date in 2013-2025",
+    "population": "one police-reported motor vehicle crash per row, with crash_date in calendar years 2013 through 2025",
+    "filters": ["crash_date in 2013-01-01 through 2025-12-31; missing crash_date excluded because it has no weekday"],
+    "years": "2013-2025 inclusive",
+    "grouping": "weekday derived from crash_date, Monday through Sunday"
+  },
+  "data_check_findings": {
+    "rows": "2,132,218 rows in the planned population; per-year row counts are in check_1.csv",
+    "crash_date_quality": "0 missing crash_date rows in the file and 0 rows at the checked sentinel dates 0001-01-01, 1900-01-01, 1970-01-01, and 9999-12-31",
+    "year_coverage": "Each year 2013-2025 has rows on both January 1 and December 31; endpoint presence does not establish that every intervening date is represented.",
+    "effect_and_decision": "No rows are excluded for a missing or sentinel date; all dated rows in the selected years receive a weekday and count once. Keep all planned rows; no separate missing-date group is needed."
+  },
+  "final_plan": {
+    "can_answer": "yes, for the distribution of police-reported crashes by weekday in the available records dated 2013-01-01 through 2025-12-31; the data do not measure traffic exposure or crashes per trip",
+    "metric": "number of crashes by weekday and weekday share = that weekday's crashes divided by all included crashes",
+    "denominator": "2,132,218 included crashes with crash_date in 2013-2025",
+    "population": "one police-reported motor vehicle crash per row with a nonmissing crash_date in calendar years 2013 through 2025",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive; no other filters"],
+    "years": "2013-2025 inclusive; all have observed records at both calendar-year endpoints, though internal date coverage is not verified",
+    "grouping": "weekday derived from crash_date, ordered Monday through Sunday",
+    "limitations": "Police-reported crash records are counts, not exposure-adjusted risk. There are no missing dates or checked sentinel dates; all selected years span their first and last calendar days, but the check does not prove complete reporting on every intervening date."
+  }
+}

@@ -1,0 +1,4 @@
+ANSWER:
+1. [Chart](out/option_1.png): Only partly—the annual total of pedestrians injured or killed in reported Brooklyn crashes was 3,671 in 2013 and 2,874 in 2025, with a low of 1,798 in 2020; this does not measure risk per walking trip.
+2. [Chart](out/option_2.png): Only partly—reported pedestrian deaths numbered 30 in 2013 and 39 in 2025, peaking at 46 in 2015 and reaching a low of 17 in 2020; this is not a pedestrian-risk rate.
+3. [Chart](out/option_3.png): Only partly—the share of Brooklyn crash reports recording a pedestrian injury or death was 7.44% in 2013 and 11.38% in 2025, a report-level measure rather than risk per walking trip.

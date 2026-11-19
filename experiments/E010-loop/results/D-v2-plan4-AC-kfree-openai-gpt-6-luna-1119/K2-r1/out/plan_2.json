@@ -1,0 +1,25 @@
+{
+  "initial_plan": {
+    "can_answer": "yes: crash-record frequency per occurrence of each weekday describes how often a crash was reported on a typical calendar occurrence of that weekday, but does not measure risk or traffic-adjusted rates",
+    "metric": "mean number of police-reported crash records per calendar occurrence of each weekday",
+    "denominator": "number of dates in 2013-2025 on which each weekday occurs",
+    "population": "crash records with crash_date in calendar years 2013 through 2025 inclusive; calendar dates supply exposure denominators",
+    "filters": ["crash_date is in 2013-01-01 through 2025-12-31"],
+    "years": "2013-2025 inclusive",
+    "grouping": "day of week derived from crash_date, Monday through Sunday"
+  },
+  "data_check": {
+    "facts": "check_2.csv: 2,132,218 eligible records; each target year has observed dates from January 1 through December 31; zero source rows have NULL crash_date; zero rows use the checked sentinel dates; weekday is derivable for all eligible rows.",
+    "meaning_and_decisions": "The date filter excludes no rows for a missing date within the target period; rows outside 2013-2025 are not in the planned population. All eligible rows are kept. crash_date is a DATE, so empty strings, unknown words, and impossible dates are not representable. No rows are reclassified or counted differently. Calendar-date denominator includes every date in the target interval, whether or not a crash was reported."
+  },
+  "final_plan": {
+    "can_answer": "yes, as the mean number of police-reported crash records per calendar occurrence of each weekday",
+    "metric": "mean number of police-reported crash records per calendar occurrence of each weekday",
+    "denominator": "number of calendar dates in 2013-2025 inclusive on which that weekday occurs",
+    "population": "all crash records with crash_date in calendar years 2013 through 2025 inclusive; denominator is all calendar dates in this same interval",
+    "filters": ["crash_date >= 2013-01-01 and crash_date < 2026-01-01"],
+    "years": "2013-2025 inclusive",
+    "grouping": "day of week derived from crash_date, Monday through Sunday",
+    "limitations": "The data check found no missing crash dates and full-year observed date endpoints in every target year. Calendar dates, not vehicle miles, traffic volume, or person-trips, form the denominator, so these are average reported-crash counts per weekday date and not crash risks."
+  }
+}

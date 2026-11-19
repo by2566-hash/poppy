@@ -1,0 +1,3 @@
+The file has full date coverage for every year from 2013 through 2025. The requested measure is directly available as the annual sum of `number_of_pedestrians_killed`; I’ll present it as both a year-by-year bar chart and a time-series line chart, since both chart types are defensible for annual counts.
+ANSWER: The bar chart shows annual pedestrian deaths of 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).
+The line chart shows the same annual totals: 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).

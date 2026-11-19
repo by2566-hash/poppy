@@ -1,0 +1,18 @@
+{
+  "status": "final",
+  "can_answer": "partly: this can compare injury-or-death crash prevalence among reported crashes at night and during the day, but it cannot establish travel-level danger because traffic or pedestrian exposure is unavailable",
+  "metric": "Annual share of eligible reported crashes with at least one person injured or killed",
+  "denominator": "Count of eligible police-reported crash rows in each calendar year and time-of-day group; eligible rows have nonmissing crash_date, crash_time, number_of_persons_injured, and number_of_persons_killed",
+  "population": "One row per police-reported NYC motor-vehicle crash in 2013–2025, with usable time and both person outcome counts observed",
+  "filters": ["Keep only 2013–2025, the years whose observed date ranges include Jan 1 and Dec 31", "Exclude rows with missing crash_date, crash_time, number_of_persons_injured, or number_of_persons_killed", "Keep 00:00 timestamps within the night group and disclose possible default-time concentration"],
+  "years": "2013–2025 inclusive",
+  "grouping": "Calendar year and time of day: night is 20:00–05:59; day is 06:00–19:59",
+  "limitations": "The file has no traffic, trip, or time-at-risk exposure denominator, so this is injury-or-death prevalence per reported crash, not the risk of a crash or injury for a person traveling at night. The observed year bounds support full-calendar-year coverage for 2013–2025 but cannot prove full source completeness; 00:00 timestamps may include defaults and are retained in night.",
+  "data_check_interpretation": "The dated population contains 2,269,187 rows: 2012 is observed only July–December (100,545 rows) and 2026 only January–June (36,424 rows), so both partial endpoint years are excluded. The candidate complete-year population, 2013–2025, has 2,132,218 rows. Within it, crash_time is nonmissing in all rows, but 23,787 records have time 00:00; this may be a default, but it is also a valid time, so these rows are retained in night and this concentration is disclosed. Among 2013–2025 rows, 18 have missing injury counts and 36 have missing death counts; 42 distinct rows have either missing, so these 42 are excluded from the eligible population. No missing crash dates or 1900 sentinel dates were found.",
+  "decisions": {
+    "partial_years": "Exclude 2012 and 2026 because observed dates do not span both calendar-year boundaries.",
+    "missing_time": "Exclude missing time values; none occur in the candidate complete years.",
+    "midnight_time": "Keep 00:00 in night and disclose the potential default artifact because midnight is valid and the file cannot distinguish an actual midnight crash from a default timestamp.",
+    "missing_outcomes": "Exclude the 42 candidate complete-year rows missing either count so the injury-or-death classification is known."
+  }
+}

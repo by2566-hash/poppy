@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Share (percentage) of usable reported crash rows with at least one person injured or killed, defined as number_of_persons_injured > 0 or number_of_persons_killed > 0.",
+      "denominator": "Usable reported crash rows in each time group with nonmissing values for both person outcome fields; rows are counted once per crash.",
+      "grouping": "Night (20:00–23:59 and 00:01–05:59), day (06:00–19:59), and exactly 00:00 (possibly default), pooled over complete calendar years 2013–2025.",
+      "chart_type": "Bar chart",
+      "reason": "A per-crash share shows how often a reported collision involved human harm without conflating the measure with the number of crashes in each time group.",
+      "probability": 0.55,
+      "answer": "This file cannot establish whether NYC streets are more dangerous at night; among the compared reported crashes, 28.56% of nighttime crashes involved injury or death versus 23.41% of daytime crashes.",
+      "interpretation": "This partly answers the question as crash severity: in complete calendar years 2013–2025, 28.56% of nighttime crashes (20:00–23:59 and 00:01–05:59) versus 23.41% of daytime crashes (06:00–19:59) involved at least one injured or killed person, while exact 00:00 is separate at 26.74%. A per-crash share is defensible because it compares the proportion of reported crashes with recorded human harm rather than raw time-period crash counts. It leaves relative risk per trip or person exposed unanswered because the file has no traffic, trip, or pedestrian exposure denominator. The checks found 2,132,218 crashes in complete years and 2,132,176 usable rows after 42 rows (0.002%) with a missing injury or killed field were excluded (18 injury and 36 killed entries missing, with overlap); 136,969 rows from partial 2012/2026 were excluded, no crash times were missing, and 23,787 exact-midnight rows (1.12%) were kept as their own possibly-default group (23,786 remained after outcome exclusions)."
+    },
+    {
+      "id": 2,
+      "metric": "Mean number of persons injured or killed per usable reported crash, calculated as the sum of number_of_persons_injured plus number_of_persons_killed divided by usable crash rows in each time group.",
+      "denominator": "Usable reported crash rows in each time group with nonmissing values for both person outcome fields; each crash is one denominator unit.",
+      "grouping": "Night (20:00–23:59 and 00:01–05:59), day (06:00–19:59), and exactly 00:00 (possibly default), pooled over complete calendar years 2013–2025.",
+      "chart_type": "Bar chart",
+      "reason": "The average casualty count per crash captures the recorded human-harm burden and distinguishes one-person incidents from crashes with multiple casualties.",
+      "probability": 0.45,
+      "answer": "This file cannot establish whether NYC streets are more dangerous at night; the mean was 0.409 injured or killed persons per nighttime crash versus 0.310 per daytime crash.",
+      "interpretation": "This partly answers the question as recorded casualty burden: in complete calendar years 2013–2025, the mean of injured plus killed persons per usable crash was 0.409 at night (20:00–23:59 and 00:01–05:59) and 0.310 by day (06:00–19:59), with exact 00:00 separate at 0.359. This mean is defensible because it divides total recorded injured and killed persons by crash rows, so crashes with multiple casualties contribute more than crashes with one. It leaves relative risk per trip or person exposed unanswered because the file has no traffic, trip, or pedestrian exposure denominator. The checks found 2,132,218 crashes in complete years and 2,132,176 usable rows after 42 rows (0.002%) with a missing injury or killed field were excluded (18 injury and 36 killed entries missing, with overlap); 136,969 rows from partial 2012/2026 were excluded, no crash times were missing, and 23,787 exact-midnight rows (1.12%) were kept as their own possibly-default group (23,786 remained after outcome exclusions)."
+    }
+  ]
+}

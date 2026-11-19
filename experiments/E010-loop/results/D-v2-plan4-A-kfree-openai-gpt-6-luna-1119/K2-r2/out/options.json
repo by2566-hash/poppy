@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crashes by weekday, with each weekday's share of all included crashes.",
+      "denominator": "All included police-reported crashes dated in 2013–2025; shares use that total.",
+      "grouping": "Day of week derived from crash_date (Monday through Sunday).",
+      "chart_type": "bar chart",
+      "reason": "A direct count and share across weekdays is the most literal way to describe the distribution of recorded crashes.",
+      "probability": 0.65,
+      "answer": "Among 2,132,218 police-reported crashes dated 2013–2025, Friday had the largest share (338,800; 15.89%) and Sunday the smallest (257,544; 12.08%).",
+      "interpretation": "For crashes dated in 2013–2025 inclusive, the bars count one police-reported crash record per crash by Monday–Sunday derived from crash_date; each weekday's share uses all 2,132,218 included records as its denominator, with Friday highest at 338,800 (15.89%) and Sunday lowest at 257,544 (12.08%). This directly answers the recorded-crash distribution and is defensible because it reports each weekday's contribution to all crashes in the defined population. It does not adjust for the slightly different number of calendar dates for each weekday, so it leaves unanswered the per-calendar-occurrence comparison. The check found 0 missing and 0 recognized default dates within the eligible population and complete Jan 1–Dec 31 coverage for all 13 years; all 2,132,218 qualifying rows were retained, while records without a usable date are outside the population because they cannot be assigned a weekday."
+    },
+    {
+      "id": 2,
+      "metric": "Average number of police-reported crashes per calendar occurrence of each weekday, 2013–2025.",
+      "denominator": "Number of calendar dates of each weekday in 2013–2025; the numerator is the number of included crashes on that weekday.",
+      "grouping": "Day of week derived from crash_date (Monday through Sunday).",
+      "chart_type": "bar chart",
+      "reason": "Normalizing by the number of dates of each weekday gives a like-for-like average when comparing weekday frequencies.",
+      "probability": 0.35,
+      "answer": "Average recorded crashes per calendar date were highest on Friday (499.7) and lowest on Sunday (379.9) across 2013–2025.",
+      "interpretation": "For police-reported crashes dated in 2013–2025 inclusive, each bar is the weekday's crash-record count divided by its number of calendar dates in that period (678 for Monday, Thursday, Friday, Saturday and Sunday; 679 for Tuesday and Wednesday); Friday averages 499.7 crashes per date and Sunday 379.9. This is a defensible comparison because it accounts for the one-date difference in weekday occurrences across the complete 13 calendar years. It leaves unanswered each weekday's share of all crash records and is not adjusted for traffic volume or other exposure. The check found 0 missing and 0 recognized default dates within the eligible population and complete Jan 1–Dec 31 coverage for all 13 years; all 2,132,218 qualifying rows were retained, while records without a usable date are outside the population because they cannot be assigned a weekday."
+    }
+  ]
+}

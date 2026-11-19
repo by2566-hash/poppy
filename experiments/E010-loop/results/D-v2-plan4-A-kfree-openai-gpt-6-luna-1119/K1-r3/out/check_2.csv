@@ -1,0 +1,96 @@
+fact,value
+population_rows_2013_2025,2132218
+rows_with_missing_crash_date_2013_2025,0
+rows_with_missing_number_of_pedestrians_killed_2013_2025,0
+rows_with_candidate_default_crash_date_0001-01-01_1900-01-01_or_1970-01-01_in_population,0
+rows_2013,203742
+first_observed_crash_date_2013,2013-01-01
+last_observed_crash_date_2013,2013-12-31
+rows_with_missing_crash_date_2013,0
+rows_with_missing_number_of_pedestrians_killed_2013,0
+candidate_default_crash_date_rows_2013,0
+coverage_status_2013,spans Jan 1 through Dec 31 by observed min/max date
+rows_2014,206046
+first_observed_crash_date_2014,2014-01-01
+last_observed_crash_date_2014,2014-12-31
+rows_with_missing_crash_date_2014,0
+rows_with_missing_number_of_pedestrians_killed_2014,0
+candidate_default_crash_date_rows_2014,0
+coverage_status_2014,spans Jan 1 through Dec 31 by observed min/max date
+rows_2015,217708
+first_observed_crash_date_2015,2015-01-01
+last_observed_crash_date_2015,2015-12-31
+rows_with_missing_crash_date_2015,0
+rows_with_missing_number_of_pedestrians_killed_2015,0
+candidate_default_crash_date_rows_2015,0
+coverage_status_2015,spans Jan 1 through Dec 31 by observed min/max date
+rows_2016,229833
+first_observed_crash_date_2016,2016-01-01
+last_observed_crash_date_2016,2016-12-31
+rows_with_missing_crash_date_2016,0
+rows_with_missing_number_of_pedestrians_killed_2016,0
+candidate_default_crash_date_rows_2016,0
+coverage_status_2016,spans Jan 1 through Dec 31 by observed min/max date
+rows_2017,231007
+first_observed_crash_date_2017,2017-01-01
+last_observed_crash_date_2017,2017-12-31
+rows_with_missing_crash_date_2017,0
+rows_with_missing_number_of_pedestrians_killed_2017,0
+candidate_default_crash_date_rows_2017,0
+coverage_status_2017,spans Jan 1 through Dec 31 by observed min/max date
+rows_2018,231564
+first_observed_crash_date_2018,2018-01-01
+last_observed_crash_date_2018,2018-12-31
+rows_with_missing_crash_date_2018,0
+rows_with_missing_number_of_pedestrians_killed_2018,0
+candidate_default_crash_date_rows_2018,0
+coverage_status_2018,spans Jan 1 through Dec 31 by observed min/max date
+rows_2019,211486
+first_observed_crash_date_2019,2019-01-01
+last_observed_crash_date_2019,2019-12-31
+rows_with_missing_crash_date_2019,0
+rows_with_missing_number_of_pedestrians_killed_2019,0
+candidate_default_crash_date_rows_2019,0
+coverage_status_2019,spans Jan 1 through Dec 31 by observed min/max date
+rows_2020,112918
+first_observed_crash_date_2020,2020-01-01
+last_observed_crash_date_2020,2020-12-31
+rows_with_missing_crash_date_2020,0
+rows_with_missing_number_of_pedestrians_killed_2020,0
+candidate_default_crash_date_rows_2020,0
+coverage_status_2020,spans Jan 1 through Dec 31 by observed min/max date
+rows_2021,110558
+first_observed_crash_date_2021,2021-01-01
+last_observed_crash_date_2021,2021-12-31
+rows_with_missing_crash_date_2021,0
+rows_with_missing_number_of_pedestrians_killed_2021,0
+candidate_default_crash_date_rows_2021,0
+coverage_status_2021,spans Jan 1 through Dec 31 by observed min/max date
+rows_2022,103887
+first_observed_crash_date_2022,2022-01-01
+last_observed_crash_date_2022,2022-12-31
+rows_with_missing_crash_date_2022,0
+rows_with_missing_number_of_pedestrians_killed_2022,0
+candidate_default_crash_date_rows_2022,0
+coverage_status_2022,spans Jan 1 through Dec 31 by observed min/max date
+rows_2023,96607
+first_observed_crash_date_2023,2023-01-01
+last_observed_crash_date_2023,2023-12-31
+rows_with_missing_crash_date_2023,0
+rows_with_missing_number_of_pedestrians_killed_2023,0
+candidate_default_crash_date_rows_2023,0
+coverage_status_2023,spans Jan 1 through Dec 31 by observed min/max date
+rows_2024,91316
+first_observed_crash_date_2024,2024-01-01
+last_observed_crash_date_2024,2024-12-31
+rows_with_missing_crash_date_2024,0
+rows_with_missing_number_of_pedestrians_killed_2024,0
+candidate_default_crash_date_rows_2024,0
+coverage_status_2024,spans Jan 1 through Dec 31 by observed min/max date
+rows_2025,85546
+first_observed_crash_date_2025,2025-01-01
+last_observed_crash_date_2025,2025-12-31
+rows_with_missing_crash_date_2025,0
+rows_with_missing_number_of_pedestrians_killed_2025,0
+candidate_default_crash_date_rows_2025,0
+coverage_status_2025,spans Jan 1 through Dec 31 by observed min/max date

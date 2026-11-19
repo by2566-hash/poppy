@@ -1,0 +1,14 @@
+{
+  "id": 3,
+  "stage": "final_plan",
+  "can_answer": "partly: the file can show annual pedestrian injury counts in Brooklyn crashes, but has no pedestrian, walking-trip, or traffic exposure denominator to measure individual risk or establish overall road safety",
+  "metric": "Annual number of pedestrians injured, calculated as the sum of number_of_pedestrians_injured",
+  "denominator": "None; a count, not a rate",
+  "population": "Pedestrian injuries recorded in police-reported crash rows with borough Brooklyn",
+  "filters": ["crash_date from 2013-01-01 through 2025-12-31", "borough = Brooklyn, case-insensitive after trimming", "retain rows with number_of_pedestrians_injured present for the sum"],
+  "years": "Complete calendar years 2013-2025; exclude 2026 because the file ends June 11, 2026",
+  "grouping": "Calendar year of crash_date",
+  "data_check_columns": ["crash_date", "borough", "number_of_pedestrians_injured"],
+  "data_check_findings_and_decisions": "The check showed that 2026 is partial (the latest crash_date is 2026-06-11), so the period was revised to complete years 2013-2025. In 2013-2025, borough is NULL on 659,713 city rows (30.9% of 2,132,218 rows); those rows cannot be assigned to Brooklyn and are excluded under the borough filter. There are no empty, placeholder, or unrecognized borough values; Brooklyn is stored as BROOKLYN. No Brooklyn rows have missing dates or common default dates 1900-01-01/1970-01-01. The pedestrian injury field has zero missing values in Brooklyn plan-year rows; retain all eligible rows.",
+  "limitations": "Police-reported crash records lack pedestrian, walking-trip, or traffic exposure denominators, so these are absolute pedestrian injury counts, not individual risk rates; borough is NULL on 659,713 city crash rows (30.9% of 2,132,218) in 2013-2025 and these are excluded from the Brooklyn filter, and 2026 is partial and omitted."
+}

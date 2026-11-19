@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crash records, grouped by crash time: night is 20:00–05:59, day is 06:00–19:59, and unknown/invalid time is a separate group.",
+      "denominator": "None; displayed values are raw crash counts, not rates.",
+      "grouping": "Night (20:00–05:59), day (06:00–19:59), and unknown/invalid time.",
+      "chart_type": "bar chart",
+      "reason": "Crash frequency is the most direct measure of how many police-reported crashes occur at each time of day.",
+      "probability": 0.25,
+      "answer": "This dataset cannot establish whether streets are more dangerous at night per traveler; it records 1,607,499 daytime crashes (06:00–19:59) and 524,719 nighttime crashes (20:00–05:59) in complete years 2013–2025, with zero records in the unknown-time group.",
+      "interpretation": "The data only partly answer the question: this chart counts police-reported crashes in complete calendar years 2013–2025, defining night as 20:00–05:59, day as 06:00–19:59, and unknown/invalid time as a separate group; it shows 1,607,499 day crashes, 524,719 night crashes, and zero unknown-time crashes. Raw crash counts are a defensible measure of recorded crash frequency, but without traffic, trip, or mileage exposure—and with unequal-length day and night periods—they do not measure danger per traveler. The check found 136,969 records in partial 2012 and 2026 and excluded them; among the remaining 2,132,218 records, crash_time was missing/unparseable in 0 rows, while 23,787 midnight values (about 1.12%) were retained as night because the check could not distinguish valid midnight crashes from a default value."
+    },
+    {
+      "id": 2,
+      "metric": "Percentage of eligible police-reported crashes with at least one person injured or killed, computed as 100 × crashes where number_of_persons_injured > 0 or number_of_persons_killed > 0 divided by eligible crash records.",
+      "denominator": "Within each time group, eligible police-reported crashes with complete values for number_of_persons_injured and number_of_persons_killed.",
+      "grouping": "Night (20:00–05:59) versus day (06:00–19:59).",
+      "chart_type": "bar chart",
+      "reason": "The share of crashes involving injury or death compares crash severity while normalizing for the number of reported crashes in each time group.",
+      "probability": 0.4,
+      "answer": "This does not establish danger per traveler, but 28.47% of eligible nighttime crashes versus 23.41% of eligible daytime crashes involved at least one reported injury or death in 2013–2025.",
+      "interpretation": "The data only partly answer the question: for complete calendar years 2013–2025, this is 100 times the number of crashes with number_of_persons_injured > 0 or number_of_persons_killed > 0 divided by crashes with both totals present, with night defined as 20:00–05:59 and day as 06:00–19:59; the eligible-crash shares are 28.47% at night (149,399/524,710) and 23.41% by day (376,361/1,607,466). This severity share is defensible because it compares the fraction of crashes involving a casualty rather than raw counts, but without traffic, trip, or mileage exposure it leaves danger per traveler unanswered. The check found 136,969 partial-year records in 2012 and 2026 and excluded them; among complete-year candidates, 18 records lacked the injured total and 36 lacked the killed total, with 42 unique records missing at least one, so those were excluded rather than treated as zero, leaving 2,132,176 eligible crashes. Crash time was missing/unparseable in 0 rows; 23,787 midnight values (about 1.12%) were retained as night despite possible default-value ambiguity."
+    },
+    {
+      "id": 3,
+      "metric": "Mean reported person casualties per eligible crash, where casualties are number_of_persons_injured plus number_of_persons_killed, summed across the eligible records in each time group and divided by the number of eligible records in that group.",
+      "denominator": "Within each time group, eligible police-reported crashes with complete values for number_of_persons_injured and number_of_persons_killed.",
+      "grouping": "Night (20:00–05:59) versus day (06:00–19:59).",
+      "chart_type": "bar chart",
+      "reason": "Average reported casualties per crash captures how many people are injured or killed in crashes, not just whether a crash has any casualty.",
+      "probability": 0.35,
+      "answer": "This does not establish danger per traveler, but eligible nighttime crashes averaged 0.407 reported injured-plus-killed people each, compared with 0.310 per eligible daytime crash in 2013–2025.",
+      "interpretation": "The data only partly answer the question: for complete calendar years 2013–2025, this metric sums number_of_persons_injured plus number_of_persons_killed and divides by crashes with both totals present, defining night as 20:00–05:59 and day as 06:00–19:59; the means are 0.407 reported casualties per night crash (213,603/524,710) and 0.310 per day crash (498,056/1,607,466). This mean is a defensible way to describe casualty burden conditional on a reported crash, but it does not estimate danger per traveler because traffic, trip, and mileage exposure are absent. The check found 136,969 partial-year records in 2012 and 2026 and excluded them; among complete-year candidates, 18 records lacked the injured total and 36 lacked the killed total, with 42 unique records missing at least one, so those were excluded rather than treated as zero, leaving 2,132,176 eligible crashes. Crash time was missing/unparseable in 0 rows; 23,787 midnight values (about 1.12%) were retained as night despite possible default-value ambiguity."
+    }
+  ]
+}

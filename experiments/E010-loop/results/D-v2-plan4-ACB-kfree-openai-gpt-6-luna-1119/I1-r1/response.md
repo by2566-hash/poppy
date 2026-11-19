@@ -1,0 +1,4 @@
+The dataset includes all years 2013–2025 by observed date range and has no missing motorist-death counts in those years. It still cannot measure deaths per mile because it contains no miles-driven exposure; I’m preparing two partial views—annual deaths and deaths per 1,000 crash records—with that limitation explicit.
+ANSWER:
+The crash data cannot establish whether motorist-death risk per mile declined; reported motorist deaths numbered 110 in 2013 and 81 in 2025, with annual counts varying in between ([bar chart](out/option_1.png)).
+The crash data cannot establish the per-mile trend; reported motorist deaths per 1,000 crash records were 0.54 in 2013 and 0.95 in 2025 ([line chart](out/option_2.png)).

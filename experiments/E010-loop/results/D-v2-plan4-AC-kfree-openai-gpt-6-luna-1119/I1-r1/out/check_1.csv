@@ -1,0 +1,42 @@
+fact,value
+source_rows_checked_for_crash_date_filter,2269187
+source_rows_with_missing_crash_date_excluded_from_year_grouping,0
+rows_in_2013_population_before_outcome_missingness,203742
+2013_date_coverage,2013-01-01 through 2013-12-31; full calendar-year endpoints observed
+missing_number_of_motorist_killed_in_2013_population,0
+rows_in_2014_population_before_outcome_missingness,206046
+2014_date_coverage,2014-01-01 through 2014-12-31; full calendar-year endpoints observed
+missing_number_of_motorist_killed_in_2014_population,0
+rows_in_2015_population_before_outcome_missingness,217708
+2015_date_coverage,2015-01-01 through 2015-12-31; full calendar-year endpoints observed
+missing_number_of_motorist_killed_in_2015_population,0
+rows_in_2016_population_before_outcome_missingness,229833
+2016_date_coverage,2016-01-01 through 2016-12-31; full calendar-year endpoints observed
+missing_number_of_motorist_killed_in_2016_population,0
+rows_in_2017_population_before_outcome_missingness,231007
+2017_date_coverage,2017-01-01 through 2017-12-31; full calendar-year endpoints observed
+missing_number_of_motorist_killed_in_2017_population,0
+rows_in_2018_population_before_outcome_missingness,231564
+2018_date_coverage,2018-01-01 through 2018-12-31; full calendar-year endpoints observed
+missing_number_of_motorist_killed_in_2018_population,0
+rows_in_2019_population_before_outcome_missingness,211486
+2019_date_coverage,2019-01-01 through 2019-12-31; full calendar-year endpoints observed
+missing_number_of_motorist_killed_in_2019_population,0
+rows_in_2020_population_before_outcome_missingness,112918
+2020_date_coverage,2020-01-01 through 2020-12-31; full calendar-year endpoints observed
+missing_number_of_motorist_killed_in_2020_population,0
+rows_in_2021_population_before_outcome_missingness,110558
+2021_date_coverage,2021-01-01 through 2021-12-31; full calendar-year endpoints observed
+missing_number_of_motorist_killed_in_2021_population,0
+rows_in_2022_population_before_outcome_missingness,103887
+2022_date_coverage,2022-01-01 through 2022-12-31; full calendar-year endpoints observed
+missing_number_of_motorist_killed_in_2022_population,0
+rows_in_2023_population_before_outcome_missingness,96607
+2023_date_coverage,2023-01-01 through 2023-12-31; full calendar-year endpoints observed
+missing_number_of_motorist_killed_in_2023_population,0
+rows_in_2024_population_before_outcome_missingness,91316
+2024_date_coverage,2024-01-01 through 2024-12-31; full calendar-year endpoints observed
+missing_number_of_motorist_killed_in_2024_population,0
+rows_in_2025_population_before_outcome_missingness,85546
+2025_date_coverage,2025-01-01 through 2025-12-31; full calendar-year endpoints observed
+missing_number_of_motorist_killed_in_2025_population,0

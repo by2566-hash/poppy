@@ -1,0 +1,24 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "answerability": "partly: the data can compare the share of reported crashes involving injury or death by time of day, but cannot measure crash risk per trip or determine whether streets are more dangerous at night without traffic or pedestrian exposure data.",
+    "metric": "Percentage of reported crashes with at least one person injured or killed.",
+    "denominator": "Reported crash rows with a usable crash time and nonmissing values for both number_of_persons_injured and number_of_persons_killed.",
+    "population": "All police-reported motor vehicle crashes whose crash_date falls in a calendar year represented in the file; the analysis population is further restricted to complete calendar years and usable time and outcome fields.",
+    "filters": ["Keep complete calendar years represented in the file; determine partial-year coverage in the data check.", "Exclude rows with missing crash_time or missing number_of_persons_injured or number_of_persons_killed.", "Night is 20:00 through 05:59; day is 06:00 through 19:59."],
+    "years": "All calendar years represented by crash_date; exclude any partial edge years identified by the data check.",
+    "grouping": "Night versus day, pooling all included years.",
+    "data_check_decisions": "Pending data check."
+  },
+  "final_plan": {
+    "answerability": "partly: the share of reported crashes with injury or death can be compared across time groups, but this file has no traffic, trip, or pedestrian exposure denominator and therefore cannot establish relative street danger or crash risk.",
+    "metric": "Share (percentage) of usable reported crash rows with at least one person injured or killed, defined as number_of_persons_injured > 0 or number_of_persons_killed > 0.",
+    "denominator": "Usable reported crash rows in each time group with nonmissing values for both person outcome fields; rows are counted once per crash.",
+    "population": "Police-reported motor vehicle crashes dated in full calendar years 2013–2025; after excluding 42 rows with missing person outcomes, 2,132,176 rows have usable crash_time and nonmissing values for both number_of_persons_injured and number_of_persons_killed.",
+    "filters": ["Exclude partial edge years 2012 and 2026; full-year coverage is defined by having at least one dated record on January 1 and December 31.", "Exclude rows missing either person outcome field; 42 rows (0.002% of 2,132,218 full-year rows) have at least one missing field.", "No crash_time values are missing in the full-year population.", "Group exactly-midnight crash_time values (00:00) separately because the 23,787 such records may include default timestamps; do not attribute them to night or day.", "Night is 20:00–23:59 and 00:01–05:59; day is 06:00–19:59; 00:00 is its own possibly-default group."],
+    "years": "2013–2025 inclusive; the file has 2,132,218 rows in these complete years. Excluded partial years are 2012 (first date July 1) and 2026 (last date June 11), comprising 136,969 rows.",
+    "grouping": "Night (20:00–23:59 and 00:01–05:59), day (06:00–19:59), and exactly 00:00 (possibly default), pooled over 2013–2025.",
+    "limitations": "This is crash severity among police-reported crashes, not risk per trip or person exposed; no traffic volume or pedestrian exposure is available. Exact-midnight values may be defaults or actual times and are separated; records with missing outcomes are omitted. Full-year selection is based on date-edge coverage, not proof of complete reporting.",
+    "data_check_decisions": "Exclude 2012 and 2026 because their date coverage is partial; exclude 42 of 2,132,218 rows from 2013–2025 because at least one person outcome is missing (18 rows have injury missing and 36 have killed missing, with overlap); keep exact 00:00 records as their own possibly-default group. No crash_time values are missing."
+  }
+}

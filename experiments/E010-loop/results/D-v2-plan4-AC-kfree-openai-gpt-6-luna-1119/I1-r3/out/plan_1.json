@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "question": "Did the risk of a motorist being killed per mile driven in NYC decline from 2013 to 2025?",
+  "answerability": "partly: the file records motorist deaths in reported crashes, but has no miles-driven exposure denominator, so it cannot measure risk per mile or establish its trend",
+  "metric": "Annual count of motorist deaths recorded in police-reported crashes (sum of number_of_motorist_killed)",
+  "denominator": "None; this is a count, not an exposure-adjusted rate",
+  "population": "All crash records in the file dated from 2013 through 2025 inclusive, representing police-reported crashes in NYC",
+  "filters": ["crash_date is in calendar years 2013–2025"],
+  "years": "2013–2025 inclusive",
+  "grouping": "Calendar year of crash_date",
+  "columns_to_check": ["crash_date", "number_of_motorist_killed"],
+  "chart_type": "line chart",
+  "data_check_and_decisions": {
+    "facts": "The selected population contains 2,132,218 dated crash records; annual counts are recorded in check_1.csv. No crash_date values are missing in the full file or use the checked common defaults, and no number_of_motorist_killed values are missing in the selected population or any year. Each year's observed dates span January 1 through December 31, though date extrema cannot independently verify complete reporting.",
+    "effect": "No selected rows need to be dropped or treated as an unknown group for missing dates or motorist-death values. Dates with no year could not enter the 2013–2025 period, but the file has zero missing crash dates.",
+    "decisions": "Keep all crash records dated in 2013–2025; do not exclude rows or impute outcome values. Report the lack of an exposure denominator and that year coverage is not independently verifiable."
+  },
+  "limitations": "This file has no miles-driven measure, so annual motorist-death counts cannot answer whether risk per mile declined. All selected records have nonmissing motorist-death values; observed dates span each calendar year, but complete year coverage is not independently verifiable from date extrema."
+}

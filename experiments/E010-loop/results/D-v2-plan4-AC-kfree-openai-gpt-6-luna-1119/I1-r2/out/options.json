@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of motorists recorded killed in police-reported NYC crashes, summed from number_of_motorist_killed.",
+      "denominator": "No exposure denominator; this is a count, not a per-mile rate.",
+      "grouping": "Calendar year of crash_date, for calendar years 2013–2025 inclusive.",
+      "chart_type": "line chart",
+      "reason": "A careful analyst may choose this framing to describe the annual number of people killed while making the distinction from an exposure-adjusted risk rate explicit.",
+      "probability": 0.65,
+      "answer": "This crash data cannot show whether per-mile motorist-death risk declined; the annual count of motorists recorded killed was 110 in 2013 and 81 in 2025.",
+      "interpretation": "Because the records contain no vehicle-miles traveled, this framing cannot answer whether per-mile risk declined; it shows the annual sum of motorists recorded killed in police-reported NYC crashes dated 2013–2025, grouped by crash calendar year and without an exposure denominator. This is a defensible descriptive measure of the number of people killed, rather than the number of fatal crash events. It leaves per-mile risk unanswered and includes only records with crash dates in the specified years; the check found 2,132,218 in-scope crash rows, 0 missing motorist-death values, and observed date endpoints from January 1 through December 31 in every year, so no included rows were dropped for missing death counts and no partial year was detected by the endpoint check."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of police-reported NYC crashes with number_of_motorist_killed greater than zero.",
+      "denominator": "No exposure denominator; this is a crash-event count, not a per-mile rate.",
+      "grouping": "Calendar year of crash_date, for calendar years 2013–2025 inclusive.",
+      "chart_type": "bar chart",
+      "reason": "A careful analyst may prefer this framing when the intended outcome is fatal crash events, counting a crash once even if multiple motorists were killed.",
+      "probability": 0.35,
+      "answer": "This crash data cannot show whether per-mile motorist-death risk declined; crashes with at least one motorist recorded killed numbered 102 in 2013 and 75 in 2025.",
+      "interpretation": "Because the records contain no vehicle-miles traveled, this framing cannot answer whether per-mile risk declined; it counts each police-reported NYC crash dated 2013–2025 once when number_of_motorist_killed is greater than zero, grouped by crash calendar year and without an exposure denominator. This is a defensible event-frequency measure because crashes with multiple motorist deaths still count as one event. It leaves per-mile risk unanswered and includes only records with crash dates in the specified years; the check found 2,132,218 in-scope crash rows, 0 missing motorist-death values, and observed date endpoints from January 1 through December 31 in every year, so no included rows were dropped for missing death counts and no partial year was detected by the endpoint check."
+    }
+  ]
+}

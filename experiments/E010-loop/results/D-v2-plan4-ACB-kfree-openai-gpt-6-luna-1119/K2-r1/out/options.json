@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crash rows, counting each row once",
+      "denominator": "None; raw row counts",
+      "grouping": "Weekday derived from crash_date, Monday through Sunday, pooled over 2013–2025 inclusive",
+      "chart_type": "bar chart",
+      "reason": "A pooled count directly describes how the reported crash records are distributed across weekdays during the requested period.",
+      "probability": 0.55,
+      "answer": "Of the 2,132,218 NYC crash rows dated 2013–2025, Friday has the largest count (338,800) and Sunday the smallest (257,544).",
+      "interpretation": "This answers the pooled weekday distribution by counting each police-reported crash row dated in 2013–2025 once in the Monday–Sunday group determined by crash_date; Friday has 338,800 rows and Sunday 257,544. Raw counts are a direct description of reported records, but do not adjust for weekday calendar-day frequency, traffic exposure, or crash risk and do not show year-by-year mix. The check found 2,132,218 eligible rows and 136,969 dated rows outside 2013–2025 excluded; there were zero missing dates, zero common 0001-01-01/1900-01-01/1970-01-01/2000-01-01 sentinel dates, and zero ungroupable rows, while observed date bounds span Jan 1–Dec 31 in each year without proving complete reporting; DATE typing rules out impossible dates and non-NULL empty or unknown values."
+    },
+    {
+      "id": 2,
+      "metric": "Percentage of each year's eligible police-reported crash rows assigned to each weekday",
+      "denominator": "All crash rows with a valid, nonmissing crash_date in that calendar year, separately for each year 2013–2025",
+      "grouping": "Year and weekday derived from crash_date, Monday through Sunday",
+      "chart_type": "multi-series line chart",
+      "reason": "Annual weekday shares make the weekday composition comparable across years with different total numbers of crash records.",
+      "probability": 0.45,
+      "answer": "In every year from 2013 through 2025, Friday has the largest weekday share (15.3%–16.3%) and Sunday the smallest (11.5%–13.6%).",
+      "interpretation": "This answers the annual weekday composition by grouping each police-reported crash row with a nonmissing crash_date in 2013–2025 by calendar year and Monday–Sunday weekday, and dividing that weekday's rows by that year's total; Friday is the largest share (15.3%–16.3%) and Sunday the smallest (11.5%–13.6%) each year. This normalization is a defensible way to compare the composition of reported crash records across years, but it does not show absolute crash volume or estimate traffic exposure or risk. The check found 2,132,218 eligible rows and 136,969 dated rows outside the requested years excluded, with zero missing dates, common sentinel dates, or ungroupable rows; each year has observed Jan 1–Dec 31 bounds, though completeness is unverified, and DATE typing rules out impossible dates and non-NULL empty or unknown values. The largest neighboring-year row-count change was a decrease of 98,568 from 2019 (211,486) to 2020 (112,918); across those years a rise or fall in the share can come from this denominator change and not from the outcome, so compare that interval with caution."
+    }
+  ]
+}

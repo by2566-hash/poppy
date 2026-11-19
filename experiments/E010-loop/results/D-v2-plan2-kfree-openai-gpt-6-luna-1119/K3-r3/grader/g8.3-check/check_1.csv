@@ -1,0 +1,81 @@
+fact,value
+plan population rows dated 2013-2025,2132218
+crash rows in 2013,203742
+year coverage status 2013,1
+year coverage status 2013,31
+"crash_date missing/invalid encodings in selected population, 2013",0
+motorist deaths: rows with missing value in 2013,0
+cyclist deaths: rows with missing value in 2013,0
+crash rows in 2014,206046
+year coverage status 2014,1
+year coverage status 2014,31
+"crash_date missing/invalid encodings in selected population, 2014",0
+motorist deaths: rows with missing value in 2014,0
+cyclist deaths: rows with missing value in 2014,0
+crash rows in 2015,217708
+year coverage status 2015,1
+year coverage status 2015,31
+"crash_date missing/invalid encodings in selected population, 2015",0
+motorist deaths: rows with missing value in 2015,0
+cyclist deaths: rows with missing value in 2015,0
+crash rows in 2016,229833
+year coverage status 2016,1
+year coverage status 2016,31
+"crash_date missing/invalid encodings in selected population, 2016",0
+motorist deaths: rows with missing value in 2016,0
+cyclist deaths: rows with missing value in 2016,0
+crash rows in 2017,231007
+year coverage status 2017,1
+year coverage status 2017,31
+"crash_date missing/invalid encodings in selected population, 2017",0
+motorist deaths: rows with missing value in 2017,0
+cyclist deaths: rows with missing value in 2017,0
+crash rows in 2018,231564
+year coverage status 2018,1
+year coverage status 2018,31
+"crash_date missing/invalid encodings in selected population, 2018",0
+motorist deaths: rows with missing value in 2018,0
+cyclist deaths: rows with missing value in 2018,0
+crash rows in 2019,211486
+year coverage status 2019,1
+year coverage status 2019,31
+"crash_date missing/invalid encodings in selected population, 2019",0
+motorist deaths: rows with missing value in 2019,0
+cyclist deaths: rows with missing value in 2019,0
+crash rows in 2020,112918
+year coverage status 2020,1
+year coverage status 2020,31
+"crash_date missing/invalid encodings in selected population, 2020",0
+motorist deaths: rows with missing value in 2020,0
+cyclist deaths: rows with missing value in 2020,0
+crash rows in 2021,110558
+year coverage status 2021,1
+year coverage status 2021,31
+"crash_date missing/invalid encodings in selected population, 2021",0
+motorist deaths: rows with missing value in 2021,0
+cyclist deaths: rows with missing value in 2021,0
+crash rows in 2022,103887
+year coverage status 2022,1
+year coverage status 2022,31
+"crash_date missing/invalid encodings in selected population, 2022",0
+motorist deaths: rows with missing value in 2022,0
+cyclist deaths: rows with missing value in 2022,0
+crash rows in 2023,96607
+year coverage status 2023,1
+year coverage status 2023,31
+"crash_date missing/invalid encodings in selected population, 2023",0
+motorist deaths: rows with missing value in 2023,0
+cyclist deaths: rows with missing value in 2023,0
+crash rows in 2024,91316
+year coverage status 2024,1
+year coverage status 2024,31
+"crash_date missing/invalid encodings in selected population, 2024",0
+motorist deaths: rows with missing value in 2024,0
+cyclist deaths: rows with missing value in 2024,0
+crash rows in 2025,85546
+year coverage status 2025,1
+year coverage status 2025,31
+"crash_date missing/invalid encodings in selected population, 2025",0
+motorist deaths: rows with missing value in 2025,0
+cyclist deaths: rows with missing value in 2025,0
+crash_date missing rows inside selected population,0

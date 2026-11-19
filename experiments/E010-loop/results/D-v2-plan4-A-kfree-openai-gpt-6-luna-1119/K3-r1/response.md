@@ -1,0 +1,5 @@
+I’ll compare annual death counts using the crash record’s motorist and cyclist fatality fields, then check year coverage and missing/default values before deciding whether any additional framing is warranted.
+The scoped checks cover 2,132,218 crashes dated in 2013–2025; both fatality fields are present on every in-scope row, and each year’s observed dates span Jan 1–Dec 31. I’m keeping all in-scope rows; the count view and the two-category share view will make different comparisons, with the latter explicitly limited to motorist/cyclist composition.
+ANSWER:
+1. Recorded motorist deaths outnumbered cyclist deaths in every year from 2013–2025; annual counts ranged from 72–139 for motorists and 10–31 for cyclists.
+2. This dataset answers only the two-category composition part: motorists accounted for 72.6% in 2019 up to 90.9% in 2013; cyclists accounted for 27.4% in 2019 and 9.1% in 2013.

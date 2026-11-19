@@ -1,0 +1,49 @@
+fact,value
+Source rows checked for crash_date filter quality,2269187
+Rows with missing crash_date before year filter,0
+"Rows with common default/sentinel crash_date (0001-01-01, 1900-01-01, 1970-01-01, 9999-12-31)",0
+Impossible crash_date values,0 representable as DuckDB DATE; source column is typed DATE
+Plan years,2013-2025 inclusive
+Valid dated crash rows in plan years,2132218
+Dated rows outside plan years,136969
+2013 crash rows,203742
+2013 observed date coverage,2013-01-01 through 2013-12-31
+2013 partial-year flag,no (observed date range reaches both year boundaries)
+2014 crash rows,206046
+2014 observed date coverage,2014-01-01 through 2014-12-31
+2014 partial-year flag,no (observed date range reaches both year boundaries)
+2015 crash rows,217708
+2015 observed date coverage,2015-01-01 through 2015-12-31
+2015 partial-year flag,no (observed date range reaches both year boundaries)
+2016 crash rows,229833
+2016 observed date coverage,2016-01-01 through 2016-12-31
+2016 partial-year flag,no (observed date range reaches both year boundaries)
+2017 crash rows,231007
+2017 observed date coverage,2017-01-01 through 2017-12-31
+2017 partial-year flag,no (observed date range reaches both year boundaries)
+2018 crash rows,231564
+2018 observed date coverage,2018-01-01 through 2018-12-31
+2018 partial-year flag,no (observed date range reaches both year boundaries)
+2019 crash rows,211486
+2019 observed date coverage,2019-01-01 through 2019-12-31
+2019 partial-year flag,no (observed date range reaches both year boundaries)
+2020 crash rows,112918
+2020 observed date coverage,2020-01-01 through 2020-12-31
+2020 partial-year flag,no (observed date range reaches both year boundaries)
+2021 crash rows,110558
+2021 observed date coverage,2021-01-01 through 2021-12-31
+2021 partial-year flag,no (observed date range reaches both year boundaries)
+2022 crash rows,103887
+2022 observed date coverage,2022-01-01 through 2022-12-31
+2022 partial-year flag,no (observed date range reaches both year boundaries)
+2023 crash rows,96607
+2023 observed date coverage,2023-01-01 through 2023-12-31
+2023 partial-year flag,no (observed date range reaches both year boundaries)
+2024 crash rows,91316
+2024 observed date coverage,2024-01-01 through 2024-12-31
+2024 partial-year flag,no (observed date range reaches both year boundaries)
+2025 crash rows,85546
+2025 observed date coverage,2025-01-01 through 2025-12-31
+2025 partial-year flag,no (observed date range reaches both year boundaries)
+Inclusive observed date span for calendar-date denominator,2013-01-01 00:00:00 through 2025-12-31 00:00:00
+Calendar dates in denominator by weekday,Monday: 678; Tuesday: 679; Wednesday: 679; Thursday: 678; Friday: 678; Saturday: 678; Sunday: 678

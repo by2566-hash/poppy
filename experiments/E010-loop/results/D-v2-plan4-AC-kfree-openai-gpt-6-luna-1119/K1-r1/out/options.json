@@ -1,0 +1,15 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "For each calendar year, sum number_of_pedestrians_killed over the year's crash records; this estimates the number of pedestrian fatalities recorded in the dataset, not a population-adjusted rate.",
+      "denominator": "None; count of fatalities, not a rate or share.",
+      "grouping": "Calendar year of crash_date, 2013–2025 inclusive.",
+      "chart_type": "bar chart",
+      "reason": "A direct annual total most closely matches the question's request for how many pedestrians were killed each year.",
+      "probability": 1.0,
+      "answer": "The sums are 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.",
+      "interpretation": "This directly answers how many pedestrians were killed each year by summing number_of_pedestrians_killed across all crash records dated in each calendar year from 2013 through 2025; it is a count with no denominator. The chart shows annual totals ranging from 101 in 2020 to 176 in 2013, with the individual year totals listed in the answer and values file. A direct annual count is defensible because it uses the dataset's pedestrian-fatality measure for the requested years rather than substituting a rate or a count of fatal crashes. It describes fatalities recorded in police-reported crashes rather than unreported events or population-adjusted risk; the check found 2,132,218 records across the requested years, complete Jan 1–Dec 31 date coverage in every year, and 0 missing crash dates or fatality values, so no population rows are excluded or counted differently."
+    }
+  ]
+}

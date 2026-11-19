@@ -1,0 +1,3 @@
+ANSWER:
+1. This file cannot determine whether motorist-death risk per mile declined; the annual count of motorist deaths in NYC police-reported crashes is 110 in 2013 and 81 in 2025 ([chart](out/option_1.png)).
+2. This file cannot determine whether motorist-death risk per mile declined; its per-crash measure is 0.540 deaths per 1,000 NYC police-reported crashes in 2013 and 0.947 in 2025 ([chart](out/option_2.png)).

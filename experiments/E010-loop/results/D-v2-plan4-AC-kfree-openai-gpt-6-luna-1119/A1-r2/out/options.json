@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of pedestrian casualties, calculated as the sum of number_of_pedestrians_injured and number_of_pedestrians_killed",
+      "denominator": "None; a count, not a rate",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "Line chart",
+      "reason": "Combining pedestrian injuries and deaths gives a broad annual measure of the recorded pedestrian casualty burden.",
+      "probability": 0.5,
+      "answer": "This data can answer only part of the question: Brooklyn police-reported crashes recorded 3,671 pedestrian casualties in 2013, 1,798 in 2020, and 2,874 in 2025; these absolute counts cannot establish pedestrian risk without exposure data.",
+      "interpretation": "This framing captures annual pedestrian casualties in recorded Brooklyn crashes but cannot determine safety risk per pedestrian; the chart shows 3,671 casualties in 2013, 1,798 in 2020, and 2,874 in 2025. It sums number_of_pedestrians_injured and number_of_pedestrians_killed across police-reported crash rows with borough Brooklyn, grouped by calendar year for complete years 2013–2025, with no denominator; combining injuries and deaths is a defensible measure of recorded burden, but it leaves risk per pedestrian or trip unanswered. The check found borough NULL on 659,713 of 2,132,218 city rows in 2013–2025 (30.9%), so these rows could not be assigned to Brooklyn and were excluded; there were zero empty, placeholder, or unrecognized borough values, and zero missing values in either summed field among the 473,801 Brooklyn rows, which were retained. Brooklyn crash dates had no NULL or common-default dates (1900-01-01 or 1970-01-01), and observed dates span 2013-01-01 to 2025-12-31; the file ends 2026-06-11, so partial 2026 was omitted."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of pedestrians killed, calculated as the sum of number_of_pedestrians_killed",
+      "denominator": "None; a count, not a rate",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "Line chart",
+      "reason": "Deaths are the most severe pedestrian outcome and provide a focused view of fatal crash harm.",
+      "probability": 0.3,
+      "answer": "This data can answer only part of the question: Brooklyn police-reported crashes recorded 30 pedestrian deaths in 2013, 17 in 2020, and 39 in 2025; death counts alone cannot establish pedestrian risk without exposure data.",
+      "interpretation": "This framing describes annual pedestrian deaths in recorded Brooklyn crashes but cannot determine safety risk per pedestrian; the chart shows 30 deaths in 2013, a low of 17 in 2020, and 39 in 2025. It sums number_of_pedestrians_killed across police-reported crash rows with borough Brooklyn, grouped by calendar year for complete years 2013–2025, with no denominator; fatality counts are defensible for focusing on the most severe outcome, but they leave risk per pedestrian or trip unanswered. The check found borough NULL on 659,713 of 2,132,218 city rows in 2013–2025 (30.9%), so these rows could not be assigned to Brooklyn and were excluded; there were zero empty, placeholder, or unrecognized borough values, and zero missing values in the death field among the 473,801 Brooklyn rows, which were retained. Brooklyn crash dates had no NULL or common-default dates (1900-01-01 or 1970-01-01), and observed dates span 2013-01-01 to 2025-12-31; the file ends 2026-06-11, so partial 2026 was omitted."
+    },
+    {
+      "id": 3,
+      "metric": "Annual number of pedestrians injured, calculated as the sum of number_of_pedestrians_injured",
+      "denominator": "None; a count, not a rate",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "Line chart",
+      "reason": "Nonfatal injuries capture a substantial part of pedestrian crash harm that a fatality-only chart omits.",
+      "probability": 0.2,
+      "answer": "This data can answer only part of the question: Brooklyn police-reported crashes recorded 3,641 pedestrian injuries in 2013, 1,781 in 2020, and 2,835 in 2025; injury counts alone cannot establish pedestrian risk without exposure data.",
+      "interpretation": "This framing describes annual pedestrian injuries in recorded Brooklyn crashes but cannot determine safety risk per pedestrian; the chart shows 3,641 injuries in 2013, a low of 1,781 in 2020, and 2,835 in 2025. It sums number_of_pedestrians_injured across police-reported crash rows with borough Brooklyn, grouped by calendar year for complete years 2013–2025, with no denominator; injury counts are defensible for tracking the nonfatal burden, but they leave risk per pedestrian or trip unanswered. The check found borough NULL on 659,713 of 2,132,218 city rows in 2013–2025 (30.9%), so these rows could not be assigned to Brooklyn and were excluded; there were zero empty, placeholder, or unrecognized borough values, and zero missing values in the injury field among the 473,801 Brooklyn rows, which were retained. Brooklyn crash dates had no NULL or common-default dates (1900-01-01 or 1970-01-01), and observed dates span 2013-01-01 to 2025-12-31; the file ends 2026-06-11, so partial 2026 was omitted."
+    }
+  ]
+}

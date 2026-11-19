@@ -1,0 +1,30 @@
+fact,value
+source crash rows in planned years (before outcome classification),2132218
+year 2013: rows in source population,203742
+year 2013: motorist-deaths field missing rows in source population,0
+year 2014: rows in source population,206046
+year 2014: motorist-deaths field missing rows in source population,0
+year 2015: rows in source population,217708
+year 2015: motorist-deaths field missing rows in source population,0
+year 2016: rows in source population,229833
+year 2016: motorist-deaths field missing rows in source population,0
+year 2017: rows in source population,231007
+year 2017: motorist-deaths field missing rows in source population,0
+year 2018: rows in source population,231564
+year 2018: motorist-deaths field missing rows in source population,0
+year 2019: rows in source population,211486
+year 2019: motorist-deaths field missing rows in source population,0
+year 2020: rows in source population,112918
+year 2020: motorist-deaths field missing rows in source population,0
+year 2021: rows in source population,110558
+year 2021: motorist-deaths field missing rows in source population,0
+year 2022: rows in source population,103887
+year 2022: motorist-deaths field missing rows in source population,0
+year 2023: rows in source population,96607
+year 2023: motorist-deaths field missing rows in source population,0
+year 2024: rows in source population,91316
+year 2024: motorist-deaths field missing rows in source population,0
+year 2025: rows in source population,85546
+year 2025: motorist-deaths field missing rows in source population,0
+crash_date missing rows in planned-year population,0
+crash_date rows at checked sentinel dates in planned years,0

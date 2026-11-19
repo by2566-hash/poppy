@@ -1,0 +1,16 @@
+{
+  "status": "final",
+  "can_answer": "partly: the file can show how recorded crash counts are distributed by clock time, but it has no traffic-volume or travel-exposure denominator for comparing crash risk",
+  "metric": "annual share of recorded crashes by time-of-day group",
+  "denominator": "all recorded crashes in that calendar year (count of rows)",
+  "population": "police-reported NYC motor-vehicle crashes in calendar years fully covered by the file",
+  "filters": ["exclude calendar years not fully covered by the file", "classify crash_time 20:00–23:59 and 00:01–05:59 as night; 06:00–19:59 as day; show 00:00 and missing crash_time in a separate ambiguous/unclassified group"],
+  "years": "all fully covered calendar years in the file, determined from crash_date coverage in the data check",
+  "grouping": "calendar year and night/day/ambiguous-or-unclassified time group",
+  "data_check": {
+    "coverage": "The file spans 2012-07-01 through 2026-06-11; 2012 (100,545 rows) and 2026 (36,424 rows) are partial calendar years and are excluded. Fully covered years are 2013–2025.",
+    "time_quality": "In 2013–2025, crash_time is NULL on 0 rows. Midnight is recorded 23,787 times in those years, including a sharp increase from 24 in 2015 to 2,895 in 2016; the typed TIME column cannot distinguish actual midnight crashes from possible default-coded times.",
+    "decision": "Retain all crashes in the annual denominator and show midnight and missing times as a separate ambiguous/unclassified group rather than assigning possible defaults to night."
+  },
+  "limitations": "The data check excludes partial years 2012 and 2026 and finds no NULL crash_time values in 2013–2025, but midnight occurs 23,787 times and may include default-coded values, so it is shown separately. Crash records contain no traffic-volume or trip-exposure denominator, so the chart describes recorded crash distribution rather than comparative crash risk."
+}

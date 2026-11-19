@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "number of police-reported crash records",
+      "denominator": "not applicable; absolute crash-record count",
+      "grouping": "day of week derived from crash_date, Monday through Sunday",
+      "chart_type": "bar chart",
+      "reason": "Absolute counts directly show the volume of reported crashes assigned to each weekday over the full period.",
+      "probability": 0.55,
+      "answer": "From 2013 through 2025, Friday had the most police-reported crash records (338,800) and Sunday the fewest (257,544).",
+      "interpretation": "This answers the weekday distribution by counting one police-reported crash record per NYC crash with a nonmissing crash_date from January 1, 2013 through December 31, 2025, grouped by the date-derived weekday from Monday through Sunday; Friday has the highest count (338,800) and Sunday the lowest (257,544). Absolute crash-record counts are a defensible view of how many reported crashes fall on each weekday, and the data include all 13 calendar years from January 1 through December 31. This does not measure crash risk per day or adjust for travel exposure, and it combines the years rather than showing their separate weekday patterns. The check found 2,132,218 in-period records and 0 missing, impossible, or common-sentinel dates among them; crash_date is a DATE so text unknowns are not representable, while records without a usable date cannot be assigned to the period and were excluded."
+    },
+    {
+      "id": 2,
+      "metric": "share of police-reported crash records by weekday",
+      "denominator": "all police-reported crash records with a nonmissing crash_date in calendar years 2013 through 2025 inclusive (2,132,218 records)",
+      "grouping": "day of week derived from crash_date, Monday through Sunday",
+      "chart_type": "bar chart",
+      "reason": "Weekday shares express each day's contribution to the total in-period crash-record distribution on a common percentage scale.",
+      "probability": 0.45,
+      "answer": "Of the in-period crash records, Friday accounted for the largest weekday share (15.9%) and Sunday the smallest (12.1%).",
+      "interpretation": "This answers the weekday distribution as each weekday's count divided by the 2,132,218 police-reported NYC crash records with a nonmissing crash_date from January 1, 2013 through December 31, 2025, expressed as a percentage and grouped by date-derived weekday from Monday through Sunday; Friday represents 15.9% and Sunday 12.1%. Shares are a defensible normalized view because they show each weekday's portion of the same all-period total, and the data include all 13 calendar years from January 1 through December 31. This does not measure crash risk per day or adjust for travel exposure, and it combines the years rather than showing their separate weekday patterns. The check found 2,132,218 in-period records and 0 missing, impossible, or common-sentinel dates among them; crash_date is a DATE so text unknowns are not representable, while records without a usable date cannot be assigned to the period and were excluded."
+    }
+  ]
+}

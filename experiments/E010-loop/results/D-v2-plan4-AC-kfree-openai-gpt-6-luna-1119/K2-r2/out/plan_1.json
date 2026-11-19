@@ -1,0 +1,27 @@
+{
+  "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+  "initial_plan": {
+    "answerability": "yes — the file has one row per police-reported crash and a crash_date from which day of week can be derived",
+    "metric": "Number of crash records by day of week",
+    "denominator": "No denominator; count of crash records",
+    "population": "Police-reported crash records with a valid crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date is a valid date", "year is 2013 through 2025 inclusive"],
+    "years": "2013–2025 inclusive",
+    "grouping": "Day of week derived from crash_date, Monday through Sunday"
+  },
+  "data_check_interpretation": {
+    "rows_dropped_or_counted_differently": "The year filter excludes 136,969 dated rows outside 2013–2025; it retains 2,132,218 dated rows in scope. No rows are dropped for missing crash_date: there are 0 missing crash_date values and 0 values at the checked common date sentinels across 2,269,187 source rows. All 13 in-scope years have observed dates from January 1 through December 31.",
+    "decision": "Exclude the 136,969 out-of-period rows because they are outside the requested years; keep all in-scope rows. The source date type prevents impossible calendar dates from being represented. Treat complete daily reporting as unverified: observing both year boundaries does not prove that every day is represented.",
+    "plan_change": "No change to the population or filters. State that results describe police-reported crashes in the file and that daily source completeness cannot be confirmed from date endpoints alone."
+  },
+  "final_plan": {
+    "answerability": "yes — the file has one row per police-reported crash and crash_date supports weekday classification",
+    "metric": "Total number of police-reported crash records in 2013–2025 by weekday",
+    "denominator": "No denominator; each row is one crash record",
+    "population": "All 2,132,218 police-reported crash records with a valid crash_date from January 1, 2013 through December 31, 2025",
+    "filters": ["crash_date year is 2013 through 2025 inclusive"],
+    "years": "2013–2025 inclusive; each year has an observed date range reaching January 1 and December 31",
+    "grouping": "Weekday derived from crash_date, ordered Monday through Sunday",
+    "limitations": "Counts describe police-reported crash records in this file. The 136,969 dated records outside 2013–2025 are excluded by the requested period filter. There are no missing or checked sentinel crash dates, but observed dates reaching each year's boundaries do not establish that the source includes every crash or every day."
+  }
+}

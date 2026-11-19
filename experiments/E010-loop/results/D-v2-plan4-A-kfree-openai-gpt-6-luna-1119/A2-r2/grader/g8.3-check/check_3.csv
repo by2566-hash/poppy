@@ -1,0 +1,37 @@
+fact,value
+complete calendar years selected,2013
+complete calendar years selected,2014
+complete calendar years selected,2015
+complete calendar years selected,2016
+complete calendar years selected,2017
+complete calendar years selected,2018
+complete calendar years selected,2019
+complete calendar years selected,2020
+complete calendar years selected,2021
+complete calendar years selected,2022
+complete calendar years selected,2023
+complete calendar years selected,2024
+complete calendar years selected,2025
+rows in final-plan population and selected years,2108396
+rows with missing crash_date in file,0
+rows with non-date/empty/unknown crash_date values,0
+rows with missing crash_time among dated crashes in selected years,0
+rows with non-time/empty/unknown crash_time values,0
+rows at midnight crash_time among dated crashes in selected years,23787
+rows with missing number_of_persons_killed in time-eligible population and selected years,35
+rows with impossible negative number_of_persons_killed in time-eligible population and selected years,0
+final-plan population rows in 2013,203717
+final-plan population rows in 2014,206025
+final-plan population rows in 2015,217684
+final-plan population rows in 2016,226936
+final-plan population rows in 2017,227173
+final-plan population rows in 2018,228060
+final-plan population rows in 2019,208341
+final-plan population rows in 2020,111076
+final-plan population rows in 2021,108646
+final-plan population rows in 2022,102272
+final-plan population rows in 2023,94991
+final-plan population rows in 2024,89674
+final-plan population rows in 2025,83801
+partial-year dated crash rows in 2012,100545
+partial-year dated crash rows in 2026,36424

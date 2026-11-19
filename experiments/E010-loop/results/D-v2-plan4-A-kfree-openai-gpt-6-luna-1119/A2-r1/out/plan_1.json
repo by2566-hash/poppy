@@ -1,0 +1,25 @@
+{
+  "initial_plan": {
+    "can_answer": "partly — compares police-reported crash record counts by time of day but cannot estimate risk per traveler or amount of travel",
+    "metric": "Count of police-reported crash records",
+    "denominator": "None; absolute record count over the observed period",
+    "population": "All crash records in the file with a crash_date",
+    "filters": "Night = 20:00–05:59; daytime = 06:00–19:59; missing/unclassifiable crash_time is a separate group; no year filter",
+    "years": "Every calendar year represented in the file",
+    "grouping": "Night, daytime, and missing/unclassifiable time"
+  },
+  "data_check": {
+    "facts_file": "check_1.csv",
+    "meaning_and_decisions": "All 2,269,187 records have a crash_date and can be assigned to a year. There are no crash_date values at the checked possible sentinels 1900-01-01, 1970-01-01, or 2000-01-01, and no unknown-text or unparseable date values (the field is typed DATE). The observed period is 2012-07-01 through 2026-06-11: 2012 and 2026 are partial by observed date range, while 2013–2025 have records from January 1 through December 31; keep all years and disclose the partial endpoints rather than dropping those records. There are 0 missing, unknown-text, or unparseable crash_time values, so the missing/unclassifiable group has no rows. The 24,566 records at exactly 00:00:00 could reflect legitimate midnight crashes or a default; keep and count them in the night group, and disclose this uncertainty. No rows are excluded or otherwise counted differently for this metric."
+  },
+  "final_plan": {
+    "can_answer": "partly — describes the volume of reported crashes by recorded time of day but cannot establish relative danger per traveler or amount of travel",
+    "metric": "Count of police-reported crash records",
+    "denominator": "None; absolute record count over the observed period",
+    "population": "All 2,269,187 crash records with a crash_date, spanning 2012-07-01 through 2026-06-11",
+    "filters": "Night = 20:00–05:59; daytime = 06:00–19:59; include missing/unclassifiable time as a separate group if present; no crash or location filters",
+    "years": "All represented years, 2012–2026, including partial 2012 and 2026",
+    "grouping": "Night versus daytime; missing/unclassifiable time is a separate group if present",
+    "limitations": "There are no missing dates, no date values at the checked possible sentinels 1900-01-01, 1970-01-01, or 2000-01-01, and no unknown-text or unparseable date/time values. Keep the 24,566 00:00:00 timestamps in the night group but flag that this exact-time pileup may include default times. The date span starts July 1, 2012 and ends June 11, 2026, so endpoint years are partial. Counts are not adjusted for how many people or vehicles travel at each time and cannot establish per-traveler risk."
+  }
+}

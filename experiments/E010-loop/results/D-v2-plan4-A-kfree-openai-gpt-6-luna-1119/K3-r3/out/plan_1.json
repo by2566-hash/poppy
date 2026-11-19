@@ -1,0 +1,29 @@
+{
+  "initial_plan": {
+    "can_answer": "yes: the data records annual motorist and cyclist death counts, allowing a direct comparison of the recorded counts",
+    "metric": "Annual total number of people killed in crashes, shown separately for motorists and cyclists; for each group, sum its corresponding crash-level killed count",
+    "denominator": "No denominator; report totals",
+    "population": "People recorded as motorists or cyclists killed in police-reported NYC motor vehicle crashes whose crash_date falls from 2013-01-01 through 2025-12-31, represented by summing crash-level counts",
+    "filters": "crash_date in calendar years 2013 through 2025; no borough or location filter",
+    "years": "Calendar years derived from crash_date, 2013-2025 inclusive",
+    "grouping": "Calendar year and road-user group (motorist, cyclist)"
+  },
+  "data_check": {
+    "population_rows": 2132218,
+    "rows_by_year": {"2013":203742,"2014":206046,"2015":217708,"2016":229833,"2017":231007,"2018":231564,"2019":211486,"2020":112918,"2021":110558,"2022":103887,"2023":96607,"2024":91316,"2025":85546},
+    "crash_date": "0 missing and 0 known sentinel dates (1900-01-01, 1970-01-01, 0001-01-01) among eligible rows; DATE type cannot represent invalid calendar dates; each year 2013-2025 has observed dates from January 1 through December 31",
+    "number_of_motorist_killed": "0 missing among eligible rows",
+    "number_of_cyclist_killed": "0 missing among eligible rows",
+    "decision": "Keep all eligible rows. No rows within the planned dates are dropped or counted differently due to missing/default filter/group values or missing summed death counts; all 13 requested years have full observed calendar coverage. The population remains police-reported NYC motor vehicle crashes, not all deaths from all causes or a population/exposure-adjusted measure."
+  },
+  "final_plan": {
+    "can_answer": "yes: compare the recorded annual totals of motorist and cyclist deaths directly",
+    "metric": "For each calendar year, the total number of motorist deaths and the total number of cyclist deaths, calculated by summing number_of_motorist_killed and number_of_cyclist_killed respectively across eligible crashes",
+    "denominator": "No denominator; annual counts",
+    "population": "People recorded as motorists or cyclists killed in police-reported NYC motor vehicle crashes with crash_date in 2013-2025; all eligible crash rows retained",
+    "filters": "crash_date >= 2013-01-01 and < 2026-01-01; no borough or other location filter",
+    "years": "Complete calendar years 2013 through 2025, derived from crash_date",
+    "grouping": "Calendar year, with separate series for motorist and cyclist",
+    "limitations": "The data check found 2,132,218 eligible crash rows, all years 2013-2025 observed from January 1 to December 31, 0 missing crash dates within the selected population, and 0 missing values in either killed-count column. Counts describe deaths recorded in police-reported NYC motor vehicle crashes and are not exposure-adjusted; crashes with missing crash_date cannot be assigned to a requested year and fall outside the date filter."
+  }
+}

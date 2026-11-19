@@ -1,0 +1,63 @@
+fact,value
+planned_years,calendar years 2013-2025 inclusive
+planned_population,NYC police-reported crash records dated 2013-01-01 through 2025-12-31 with a non-NULL number_of_motorist_killed value
+rows_in_planned_years_before_outcome_filter,2132218
+population_rows_after_nonmissing_outcome_filter,2132218
+outcome_missing_rows_before_outcome_filter,0
+outcome_missing_value_types,number_of_motorist_killed is numeric; NULL is the only representable missing form; empty strings/unknown words/impossible numeric strings cannot occur in this typed column
+crash_date_missing_or_impossible_in_planned_date_range,0
+crash_date_check_note,DATE-typed crash_date values satisfying the inclusive 2013-2025 year filter are valid dates; NULL dates cannot be assigned to a planned year
+2013_rows_before_outcome_filter,203742
+2013_population_rows,203742
+2013_outcome_missing_rows,0
+2013_observed_date_range,2013-01-01 through 2013-12-31
+2014_rows_before_outcome_filter,206046
+2014_population_rows,206046
+2014_outcome_missing_rows,0
+2014_observed_date_range,2014-01-01 through 2014-12-31
+2015_rows_before_outcome_filter,217708
+2015_population_rows,217708
+2015_outcome_missing_rows,0
+2015_observed_date_range,2015-01-01 through 2015-12-31
+2016_rows_before_outcome_filter,229833
+2016_population_rows,229833
+2016_outcome_missing_rows,0
+2016_observed_date_range,2016-01-01 through 2016-12-31
+2017_rows_before_outcome_filter,231007
+2017_population_rows,231007
+2017_outcome_missing_rows,0
+2017_observed_date_range,2017-01-01 through 2017-12-31
+2018_rows_before_outcome_filter,231564
+2018_population_rows,231564
+2018_outcome_missing_rows,0
+2018_observed_date_range,2018-01-01 through 2018-12-31
+2019_rows_before_outcome_filter,211486
+2019_population_rows,211486
+2019_outcome_missing_rows,0
+2019_observed_date_range,2019-01-01 through 2019-12-31
+2020_rows_before_outcome_filter,112918
+2020_population_rows,112918
+2020_outcome_missing_rows,0
+2020_observed_date_range,2020-01-01 through 2020-12-31
+2021_rows_before_outcome_filter,110558
+2021_population_rows,110558
+2021_outcome_missing_rows,0
+2021_observed_date_range,2021-01-01 through 2021-12-31
+2022_rows_before_outcome_filter,103887
+2022_population_rows,103887
+2022_outcome_missing_rows,0
+2022_observed_date_range,2022-01-01 through 2022-12-31
+2023_rows_before_outcome_filter,96607
+2023_population_rows,96607
+2023_outcome_missing_rows,0
+2023_observed_date_range,2023-01-01 through 2023-12-31
+2024_rows_before_outcome_filter,91316
+2024_population_rows,91316
+2024_outcome_missing_rows,0
+2024_observed_date_range,2024-01-01 through 2024-12-31
+2025_rows_before_outcome_filter,85546
+2025_population_rows,85546
+2025_outcome_missing_rows,0
+2025_observed_date_range,2025-01-01 through 2025-12-31
+years_with_observed_dates_not_spanning_jan1_through_dec31,none
+partial_year_interpretation,An observed date range that does not span Jan 1 through Dec 31 is treated as a partial year; endpoint dates do not establish that every day in between is represented.

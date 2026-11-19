@@ -1,0 +1,12 @@
+{
+  "status": "final",
+  "can_answer": "yes for annual recorded death counts; the file directly records motorist and cyclist deaths in the specified years",
+  "metric": "For each calendar year, sum number_of_motorist_killed and number_of_cyclist_killed separately, giving annual death counts for the two road-user groups",
+  "denominator": "None; this is a count, not a rate",
+  "population": "Police-reported NYC motor vehicle crashes dated 2013-01-01 through 2025-12-31; count motorist deaths from number_of_motorist_killed and cyclist deaths from number_of_cyclist_killed",
+  "filters": "crash_date year from 2013 through 2025 inclusive; no borough or location filter",
+  "years": "Calendar years 2013-2025 inclusive",
+  "grouping": "Calendar year and road-user group (motorist, cyclist)",
+  "data_check_interpretation": "The selected population contains 2,132,218 crash records (per-year row counts are in check_1.csv). The crash_date range is 2013-01-01 through 2025-12-31, with observed date extents covering Jan 1-Dec 31 in every included year. Within this filtered population, crash_date missing/default/out-of-range counts are all zero; because the year filter itself requires a valid in-range date, rows with missing or out-of-range dates are not part of this population and cannot be counted by this check. Both summed death columns have zero missing values overall and in every year. Keep all rows; no data-check-based exclusions or imputations are needed, so the measured population remains all in-range police-reported crashes. Full observed date extents do not prove reporting completeness.",
+  "limitations": "These are recorded death counts, not population- or exposure-adjusted risks; the file describes police-reported crashes, and full observed date extents do not establish that reporting is complete."
+}

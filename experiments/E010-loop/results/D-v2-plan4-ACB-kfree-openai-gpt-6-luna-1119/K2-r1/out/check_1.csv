@@ -1,0 +1,56 @@
+fact,value
+rows_in_file,2269187
+missing_crash_date_rows_in_file,0
+crash_date_1970-01-01_rows_in_file,0
+crash_date_1900-01-01_rows_in_file,0
+crash_date_2000-01-01_rows_in_file,0
+crash_date_0001-01-01_rows_in_file,0
+impossible_crash_date_rows,0 (DATE type; impossible calendar dates cannot be stored)
+empty_or_unknown_crash_date_values,0 (DATE type; only NULL can represent missing)
+population_rows_2013-2025,2132218
+dated_rows_outside_2013-2025_excluded,136969
+rows_2013,203742
+date_bounds_2013,2013-01-01 through 2013-12-31
+year_coverage_2013,observed bounds span Jan 1–Dec 31; completeness cannot be verified from crash rows alone
+rows_2014,206046
+date_bounds_2014,2014-01-01 through 2014-12-31
+year_coverage_2014,observed bounds span Jan 1–Dec 31; completeness cannot be verified from crash rows alone
+rows_2015,217708
+date_bounds_2015,2015-01-01 through 2015-12-31
+year_coverage_2015,observed bounds span Jan 1–Dec 31; completeness cannot be verified from crash rows alone
+rows_2016,229833
+date_bounds_2016,2016-01-01 through 2016-12-31
+year_coverage_2016,observed bounds span Jan 1–Dec 31; completeness cannot be verified from crash rows alone
+rows_2017,231007
+date_bounds_2017,2017-01-01 through 2017-12-31
+year_coverage_2017,observed bounds span Jan 1–Dec 31; completeness cannot be verified from crash rows alone
+rows_2018,231564
+date_bounds_2018,2018-01-01 through 2018-12-31
+year_coverage_2018,observed bounds span Jan 1–Dec 31; completeness cannot be verified from crash rows alone
+rows_2019,211486
+date_bounds_2019,2019-01-01 through 2019-12-31
+year_coverage_2019,observed bounds span Jan 1–Dec 31; completeness cannot be verified from crash rows alone
+rows_2020,112918
+date_bounds_2020,2020-01-01 through 2020-12-31
+year_coverage_2020,observed bounds span Jan 1–Dec 31; completeness cannot be verified from crash rows alone
+rows_2021,110558
+date_bounds_2021,2021-01-01 through 2021-12-31
+year_coverage_2021,observed bounds span Jan 1–Dec 31; completeness cannot be verified from crash rows alone
+rows_2022,103887
+date_bounds_2022,2022-01-01 through 2022-12-31
+year_coverage_2022,observed bounds span Jan 1–Dec 31; completeness cannot be verified from crash rows alone
+rows_2023,96607
+date_bounds_2023,2023-01-01 through 2023-12-31
+year_coverage_2023,observed bounds span Jan 1–Dec 31; completeness cannot be verified from crash rows alone
+rows_2024,91316
+date_bounds_2024,2024-01-01 through 2024-12-31
+year_coverage_2024,observed bounds span Jan 1–Dec 31; completeness cannot be verified from crash rows alone
+rows_2025,85546
+date_bounds_2025,2025-01-01 through 2025-12-31
+year_coverage_2025,observed bounds span Jan 1–Dec 31; completeness cannot be verified from crash rows alone
+crash_date_1970-01-01_rows_in_plan_years,0
+crash_date_1900-01-01_rows_in_plan_years,0
+crash_date_2000-01-01_rows_in_plan_years,0
+crash_date_0001-01-01_rows_in_plan_years,0
+missing_crash_date_rows_in_plan_years_before_filter,0
+weekday_group_missing_rows_in_population,0; every population row has a valid DATE for weekday derivation

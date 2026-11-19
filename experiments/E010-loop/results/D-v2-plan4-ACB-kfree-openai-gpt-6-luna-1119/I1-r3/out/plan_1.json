@@ -1,0 +1,27 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer_question": "partly: crash data has no miles-driven exposure denominator, so it cannot measure deaths per mile; it can show annual recorded motorist-death counts",
+    "metric": "annual sum of number_of_motorist_killed",
+    "denominator": "none; an annual count, not a rate",
+    "population": "police-reported NYC crash rows dated from 2013 through 2025 inclusive",
+    "filters": ["crash_date year is 2013–2025"],
+    "years": "2013–2025 inclusive",
+    "grouping": "calendar year of crash_date"
+  },
+  "data_check_interpretation": {
+    "facts_file": "./out/check_1.csv",
+    "findings": "The planned period contains 2,132,218 crash rows; every year from 2013 through 2025 has records spanning January 1 through December 31. There are no NULL crash dates in the file, and no missing number_of_motorist_killed values on the planned rows. The file extends from 2012-07-01 to 2026-06-11, so the later partial 2026 coverage is outside the plan.",
+    "row_decisions": "Keep all planned-year crash rows. No rows are excluded or counted differently due to missing dates or missing motorist-death counts; annual groupings are full calendar years. No miles-driven exposure rows exist in this dataset."
+  },
+  "final_plan": {
+    "can_answer_question": "partly: cannot answer whether the risk per mile declined because the dataset contains no miles-driven exposure; it can describe annual recorded motorist-death counts",
+    "metric": "annual sum of number_of_motorist_killed, interpreted as the number of motorist deaths recorded in crash rows",
+    "denominator": "none; annual total count",
+    "population": "all police-reported NYC crash rows with crash_date in calendar years 2013–2025 inclusive",
+    "filters": ["crash_date year is 2013–2025"],
+    "years": "complete calendar years 2013–2025 inclusive",
+    "grouping": "calendar year of crash_date",
+    "limitations": "The crash file has no miles driven, so annual death counts do not measure per-mile risk. The count includes motorist deaths recorded in reported crashes and does not account for changes in driving exposure. Data checks found 0 missing dates and 0 missing motorist-death counts among 2,132,218 planned-year rows; each planned year spans the full calendar year."
+  }
+}

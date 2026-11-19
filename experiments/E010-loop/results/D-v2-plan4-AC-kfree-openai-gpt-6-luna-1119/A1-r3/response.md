@@ -1,0 +1,4 @@
+The checks found complete year coverage for 2013–2025, but 2026 stops on June 11, so I’m excluding that partial year from both comparisons. The pedestrian injury and death fields have no missing values in the checked Brooklyn records; borough labels are missing or unknown on 668,406 records, which cannot be assigned to Brooklyn.
+ANSWER:
+1. This data can answer only part of the question: reported pedestrian casualties in Brooklyn numbered 3,671 in 2013, reached a low of 1,798 in 2020, and numbered 2,874 in 2025 after increasing each year since 2020 ([chart](out/option_1.png)).
+2. This data can answer only part of the question: Brooklyn had 3,498 reported crashes involving pedestrian injury or death in 2013, a low of 1,724 in 2020, and 2,766 in 2025 after annual increases since 2020 ([chart](out/option_2.png)).

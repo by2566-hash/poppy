@@ -1,0 +1,26 @@
+{
+  "initial_plan": {
+    "can_answer": "partly: the data can show the weekday mix of police-reported crashes within each year, but not crash risk by weekday or a full-year 2025 distribution if 2025 is partial",
+    "metric": "percentage of each year's included crash rows on each weekday",
+    "denominator": "all included crash rows in the same year",
+    "population": "crashes with a usable crash_date in calendar years 2013 through 2025",
+    "filters": ["crash_date is in 2013–2025"],
+    "years": "2013–2025 inclusive; whether endpoints are complete will be checked",
+    "grouping": "year and weekday derived from crash_date; Monday through Sunday within each year"
+  },
+  "data_check": {
+    "facts": "check_3.csv records rows in each calendar year from 2013 to 2025, date coverage from January 1 through December 31 in every year, and zero NULL crash_date rows in the source. crash_date is typed DATE, so empty/unknown text and impossible calendar dates are not representable; no default date or unknown marker is documented for this column.",
+    "meaning_and_decisions": "All 13 years are complete calendar years, including 2025. No included rows are dropped for missing crash_date. Keep every year and show each year's weekday shares separately. The count of rows falls by 98,568 from 2019 (211,486) to 2020 (112,918), the largest absolute adjacent-year change in the plan period; annual share denominators therefore change substantially and a shift in a share need not reflect a change in crash risk. No plan change.",
+    "largest_adjacent_year_row_count_change": {"years": "2019 to 2020", "change": -98568, "rows_2019": 211486, "rows_2020": 112918}
+  },
+  "final_plan": {
+    "can_answer": "yes: shows the weekday composition of police-reported crash records within each year; it does not estimate weekday crash risk or traffic exposure",
+    "metric": "percentage of each year's included crash rows assigned to each weekday",
+    "denominator": "all rows with crash_date in that same calendar year",
+    "population": "all rows with crash_date in 2013–2025 inclusive, shown separately by year",
+    "filters": ["crash_date >= 2013-01-01 and crash_date < 2026-01-01"],
+    "years": "all complete calendar years 2013 through 2025 inclusive",
+    "grouping": "year and weekday derived from crash_date, Monday through Sunday within each year",
+    "limitations": "Zero source rows have NULL crash_date; DATE values cannot encode empty/unknown text or impossible dates, and no default or unknown marker is documented. No rows are excluded for the checked field. The denominator is the annual count of reported crash rows; that count falls by 98,568 from 2019 (211,486) to 2020 (112,918), so cross-year share changes can reflect changing row totals and do not measure crash risk."
+  }
+}

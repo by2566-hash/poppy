@@ -1,0 +1,27 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "can_answer_question": "partly: crash data has no miles-driven exposure denominator, so it cannot measure deaths per mile; it can show annual counts of crashes with at least one motorist death",
+    "metric": "annual count of crash rows where number_of_motorist_killed is greater than zero",
+    "denominator": "none; an annual crash count, not a rate",
+    "population": "police-reported NYC crash rows dated from 2013 through 2025 inclusive",
+    "filters": ["crash_date year is 2013–2025", "number_of_motorist_killed is greater than zero"],
+    "years": "2013–2025 inclusive",
+    "grouping": "calendar year of crash_date"
+  },
+  "data_check_interpretation": {
+    "facts_file": "./out/check_2.csv",
+    "findings": "The baseline planned period contains 2,132,218 crash rows; every year from 2013 through 2025 has records spanning January 1 through December 31. There are no NULL crash dates in the file, and no missing or negative number_of_motorist_killed values on the planned rows. The file extends from 2012-07-01 to 2026-06-11, so the later partial 2026 coverage is outside the plan.",
+    "row_decisions": "Keep the planned-year records with known nonnegative motorist-death counts; there are no such rows to exclude for missing/impossible counts. For the metric, count only rows with at least one recorded motorist death, and do not give multiple-death crashes extra weight. No miles-driven exposure rows exist in this dataset."
+  },
+  "final_plan": {
+    "can_answer_question": "partly: cannot answer whether the risk per mile declined because the dataset contains no miles-driven exposure; it can describe annual counts of crashes with motorist deaths",
+    "metric": "annual count of crash rows where number_of_motorist_killed is greater than zero; each qualifying crash row counts once",
+    "denominator": "none; annual count of qualifying crash rows",
+    "population": "police-reported NYC crash rows with a known, nonnegative number_of_motorist_killed and crash_date in calendar years 2013–2025 inclusive",
+    "filters": ["crash_date year is 2013–2025", "number_of_motorist_killed is greater than zero"],
+    "years": "complete calendar years 2013–2025 inclusive",
+    "grouping": "calendar year of crash_date",
+    "limitations": "The crash file has no miles driven, so crash counts do not measure per-mile risk. This metric counts a crash once regardless of how many motorists died in it. Data checks found 0 missing or negative motorist-death counts among 2,132,218 planned-year rows and no missing crash dates; each planned year spans the full calendar year."
+  }
+}

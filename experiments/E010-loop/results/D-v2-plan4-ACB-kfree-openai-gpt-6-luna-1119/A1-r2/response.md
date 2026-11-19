@@ -1,0 +1,4 @@
+The checks cover complete calendar years 2013–2025 plus a partial 2026. I’ll exclude partial 2026 from the comparisons; the Brooklyn field also leaves 668,406 city crash rows unassignable to a borough, while the planned Brooklyn rows have no missing pedestrian injury/death values.
+ANSWER: Only partly: reported pedestrian casualties in Brooklyn crashes totaled 3,671 in 2013 and 2,874 in 2025, after reaching 1,798 in 2020 and then rising each year through 2025 ([chart](out/option_1.png)).
+Only partly: Brooklyn pedestrian deaths were 30 in 2013 and 39 in 2025, with the period’s highest annual count—46—in 2015 ([chart](out/option_2.png)).
+Only partly: crashes involving a pedestrian casualty made up 7.4% of Brooklyn crash reports in 2013 and 11.4% in 2025, with the share rising after 2019 ([chart](out/option_3.png)).

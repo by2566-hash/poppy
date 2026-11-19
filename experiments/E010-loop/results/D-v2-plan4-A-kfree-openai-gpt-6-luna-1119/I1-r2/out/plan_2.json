@@ -1,0 +1,27 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "can_answer": "partly — crash data can show the share of reported crashes with a motorist death, but without vehicle miles driven it cannot establish a per-mile risk trend.",
+    "metric": "Share of police-reported NYC crashes in which at least one motorist was killed, by calendar year.",
+    "denominator": "Police-reported NYC crashes in the year; final treatment of missing motorist-death counts will be decided after the data check.",
+    "population": "NYC police-reported crash records dated 2013–2025; a crash is counted in the numerator if its motorist-death count is at least one, subject to missing-data handling decided after the data check.",
+    "filters": "crash_date from 2013-01-01 through 2025-12-31.",
+    "years": "2013 through 2025 inclusive.",
+    "grouping": "Calendar year of crash_date."
+  },
+  "data_check": {
+    "cohort": "2,132,218 crash rows dated 2013–2025; per-year counts and date spans are in check_2.csv.",
+    "missing_and_date_quality": "crash_date and number_of_motorist_killed are missing on 0 of the 2,132,218 selected rows. crash_date is a typed DATE, and the selected cohort spans every calendar day from January 1 through December 31 in each year, 2013–2025. No in-range default date can be distinguished from a true crash date; numeric outcome values were not counted, so zero pileups or impossible numeric values were not assessed.",
+    "decision": "Retain all crashes in the denominator; no crashes are excluded for a missing death count, and no rows are counted differently due to missingness. No year is partial by observed date span."
+  },
+  "final_plan": {
+    "can_answer": "partly — this dataset cannot measure motorists killed per mile driven because it has no vehicle-miles-traveled denominator; it can describe the fraction of police-reported crashes involving a motorist death.",
+    "metric": "For each calendar year, 100 times the number of police-reported crash rows with number_of_motorist_killed at least 1 divided by all police-reported crash rows.",
+    "denominator": "All NYC police-reported crashes in the year; the data check found no missing motorist-death counts, so no denominator rows are removed.",
+    "population": "All NYC police-reported motor vehicle crashes dated 2013–2025; each crash with one or more motorists killed contributes once to the numerator, regardless of the number killed.",
+    "filters": "crash_date from 2013-01-01 through 2025-12-31; retain all rows. A row is classified as involving a motorist death when number_of_motorist_killed is at least 1.",
+    "years": "Calendar years 2013–2025 inclusive; every year has crash-date rows on all calendar dates.",
+    "grouping": "Calendar year of crash_date.",
+    "limitations": "This is a crash-level fraction, not a per-mile risk or a person-level probability; the data contains no miles-driven denominator. The data check found 0 missing crash dates or motorist-death counts among 2,132,218 selected crashes and no partial calendar years by observed date span; zero/default pileups and impossible numeric outcomes were not assessed in the data check."
+  }
+}

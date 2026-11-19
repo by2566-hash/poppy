@@ -1,0 +1,44 @@
+fact,value
+planned-year crash rows total,2132218
+crash rows in 2013,203742
+number_of_pedestrians_killed missing rows in 2013,0
+crash_date coverage in 2013,2013-01-01 through 2013-12-31
+crash rows in 2014,206046
+number_of_pedestrians_killed missing rows in 2014,0
+crash_date coverage in 2014,2014-01-01 through 2014-12-31
+crash rows in 2015,217708
+number_of_pedestrians_killed missing rows in 2015,0
+crash_date coverage in 2015,2015-01-01 through 2015-12-31
+crash rows in 2016,229833
+number_of_pedestrians_killed missing rows in 2016,0
+crash_date coverage in 2016,2016-01-01 through 2016-12-31
+crash rows in 2017,231007
+number_of_pedestrians_killed missing rows in 2017,0
+crash_date coverage in 2017,2017-01-01 through 2017-12-31
+crash rows in 2018,231564
+number_of_pedestrians_killed missing rows in 2018,0
+crash_date coverage in 2018,2018-01-01 through 2018-12-31
+crash rows in 2019,211486
+number_of_pedestrians_killed missing rows in 2019,0
+crash_date coverage in 2019,2019-01-01 through 2019-12-31
+crash rows in 2020,112918
+number_of_pedestrians_killed missing rows in 2020,0
+crash_date coverage in 2020,2020-01-01 through 2020-12-31
+crash rows in 2021,110558
+number_of_pedestrians_killed missing rows in 2021,0
+crash_date coverage in 2021,2021-01-01 through 2021-12-31
+crash rows in 2022,103887
+number_of_pedestrians_killed missing rows in 2022,0
+crash_date coverage in 2022,2022-01-01 through 2022-12-31
+crash rows in 2023,96607
+number_of_pedestrians_killed missing rows in 2023,0
+crash_date coverage in 2023,2023-01-01 through 2023-12-31
+crash rows in 2024,91316
+number_of_pedestrians_killed missing rows in 2024,0
+crash_date coverage in 2024,2024-01-01 through 2024-12-31
+crash rows in 2025,85546
+number_of_pedestrians_killed missing rows in 2025,0
+crash_date coverage in 2025,2025-01-01 through 2025-12-31
+crash_date missing/impossible/default within planned date range,0 missing; DATE type excludes impossible values; no date default falls within the specified year range
+crash_date missing rows in file,0
+crash_date default values 1900-01-01 or 1970-01-01 in file,0

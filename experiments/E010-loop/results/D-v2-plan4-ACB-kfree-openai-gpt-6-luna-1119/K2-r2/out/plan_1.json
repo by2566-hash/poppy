@@ -1,0 +1,25 @@
+{
+  "initial_plan": {
+    "can_answer": "yes: the data can describe the weekday distribution of police-reported crashes, but not crash risk by weekday",
+    "metric": "number of crash rows by weekday",
+    "denominator": "no denominator; raw count",
+    "population": "crashes with a usable crash_date in calendar years 2013 through 2025",
+    "filters": ["crash_date is in 2013–2025"],
+    "years": "2013–2025 inclusive; whether endpoints are complete will be checked",
+    "grouping": "weekday derived from crash_date, Monday through Sunday"
+  },
+  "data_check": {
+    "facts": "check_1.csv records rows in each calendar year from 2013 to 2025, date coverage from January 1 through December 31 in every year, and zero NULL crash_date rows in the source. crash_date is typed DATE, so empty/unknown text and impossible calendar dates are not representable; no default date or unknown marker is documented for this column.",
+    "meaning_and_decisions": "All 13 requested years are complete calendar years. No included crash rows are dropped for missing crash_date, and every included row maps to one weekday. Keep all rows and disclose that the records represent police-reported crashes, not exposure-adjusted risk. No plan change."
+  },
+  "final_plan": {
+    "can_answer": "yes: describes the weekday distribution of police-reported crash records, not crash risk",
+    "metric": "number of crash rows by weekday, summed over calendar years 2013–2025",
+    "denominator": "no denominator; raw number of included crash rows",
+    "population": "all rows with crash_date in 2013–2025 inclusive",
+    "filters": ["crash_date >= 2013-01-01 and crash_date < 2026-01-01"],
+    "years": "all complete calendar years 2013 through 2025 inclusive",
+    "grouping": "weekday derived from crash_date, Monday through Sunday",
+    "limitations": "Zero source rows have NULL crash_date; DATE values cannot encode empty/unknown text or impossible dates, and no default or unknown marker is documented. No rows are excluded for the checked field. Counts reflect police-reported records, not traffic exposure or per-trip risk, and pooled counts weight years by their observed row totals."
+  }
+}

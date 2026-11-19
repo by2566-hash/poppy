@@ -1,0 +1,13 @@
+{
+  "id": 2,
+  "can_answer": "partly: pedestrian deaths in reported Brooklyn crashes are a severe, specific safety outcome, but this cannot establish per-pedestrian fatality risk or all aspects of road safety",
+  "metric": "Annual number of pedestrians killed in Brooklyn crashes",
+  "denominator": "No denominator; an annual count summed across qualifying crash rows",
+  "population": "Pedestrians killed in police-reported Brooklyn crashes in the years counted",
+  "filters": ["borough is Brooklyn (case/whitespace normalized)", "crash year is 2013–2025 inclusive"],
+  "years": "Complete calendar years 2013 through 2025; exclude 2026 because coverage ends 2026-06-11",
+  "grouping": "Calendar year",
+  "data_check_findings": "Across final plan years 2013–2025, 659,713 of 2,132,218 city crash rows (30.9%) have a missing or unknown borough; these cannot be assigned to Brooklyn and are excluded. There are zero impossible borough values, zero null crash dates, and zero missing pedestrian-death values among Brooklyn rows in 2013–2025. 2026 is partial (2026-01-01 through 2026-06-11), so it is excluded; 2013–2025 are full calendar years.",
+  "data_check_decisions": "Exclude rows without a usable Brooklyn borough assignment rather than assigning unknown locations to Brooklyn; exclude the partial 2026 year; retain all valid Brooklyn rows because the pedestrian-death field has no missing values.",
+  "limitations": "This is a count of reported pedestrian deaths, not a pedestrian-exposure-adjusted fatality risk measure; it omits nonfatal injury and other safety conditions. Unlocated crashes are omitted, and 2026 is excluded as partial."
+}

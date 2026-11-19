@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of motorist deaths recorded in police-reported crashes (sum of number_of_motorist_killed)",
+      "denominator": "None; this is a count, not an exposure-adjusted rate",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "line chart",
+      "reason": "The annual death count uses the most direct fatality outcome available without inventing an exposure denominator.",
+      "probability": 0.5,
+      "answer": "This crash file cannot determine whether motorist-death risk per mile declined; it records 110 motorist deaths in 2013 and 81 in 2025 in NYC police-reported crashes.",
+      "interpretation": "The file cannot answer whether a motorist's risk per mile declined because it has no miles-driven exposure measure. Its chart counts motorist deaths recorded in all NYC police-reported crash records dated 2013–2025, grouped by crash year, and shows 110 in 2013 versus 81 in 2025; this is an un-denominated annual count. This is a defensible description of recorded annual motorist-death counts, but it leaves the per-mile risk trend unanswered. The check found 0 missing crash dates in the file and 0 missing motorist-death values among 2,132,218 selected crashes; no rows were dropped, and although observed dates span every calendar year, full reporting completeness cannot be verified."
+    },
+    {
+      "id": 2,
+      "metric": "Motorist deaths recorded per 1,000 police-reported crashes (sum of number_of_motorist_killed divided by the number of crash records, multiplied by 1,000)",
+      "denominator": "All police-reported crash records in the same calendar year; 1,000 crashes",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "line chart",
+      "reason": "Normalizing recorded motorist deaths by reported-crash volume offers a crash-volume-adjusted comparison the file supports.",
+      "probability": 0.5,
+      "answer": "This crash file cannot determine whether motorist-death risk per mile declined; it shows 0.540 motorist deaths per 1,000 reported crashes in 2013 and 0.947 in 2025.",
+      "interpretation": "The file cannot answer whether a motorist's risk per mile declined because it contains no miles-driven denominator. It instead shows motorist deaths summed across all NYC police-reported crash records dated 2013–2025 per 1,000 crash records in each crash year: 0.540 in 2013 and 0.947 in 2025. This is a defensible crash-volume-normalized descriptor, but the number of crashes is not miles traveled and leaves the requested per-mile risk unanswered. The check found 0 missing crash dates and 0 missing motorist-death values among 2,132,218 selected crashes; we kept all rows, and observed dates span each calendar year although reporting completeness is unverified."
+    }
+  ]
+}

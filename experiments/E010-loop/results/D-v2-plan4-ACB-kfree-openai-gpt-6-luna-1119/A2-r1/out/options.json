@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual share of eligible reported crashes with at least one person injured or killed",
+      "denominator": "Count of eligible police-reported crash rows in each calendar year and time-of-day group; rows have nonmissing crash_date, crash_time, number_of_persons_injured, and number_of_persons_killed",
+      "grouping": "Calendar year 2013–2025 and time of day: night 20:00–05:59; day 06:00–19:59",
+      "chart_type": "line chart",
+      "reason": "A within-period share expresses how often a reported crash involved harm while accounting for the number of reported crashes in that time group.",
+      "probability": 0.55,
+      "answer": "This answers only part of whether NYC streets are more dangerous at night: in 2025, 42.5% of eligible night crashes and 44.3% of eligible day crashes involved at least one person injured or killed, but the data cannot determine travel-level danger.",
+      "interpretation": "This answers only part of the question: for each year from 2013–2025, the chart gives the share of police-reported crash rows with nonmissing date, time, injury count and death count that had at least one person injured or killed; night is 20:00–05:59 and day is 06:00–19:59, with 2025 values of 42.5% and 44.3%, respectively. This per-crash injury-or-death share is a defensible severity-prevalence measure because it uses the reported crash count in each year/time group as its denominator. It leaves unanswered whether an individual trip or street user faces more danger at night because traffic and other exposure denominators are absent. The check found 2012 (100,545 dated rows) and 2026 (36,424) partial by observed dates and excluded them; of 2,132,218 rows in candidate full years, 18 lacked injury counts and 36 lacked death counts (42 distinct rows excluded), no crash times were missing, and 23,787 00:00 records were retained in night though they may be defaults; date bounds cannot prove source completeness, and annual dated rows fell by 98,568 from 211,486 in 2019 to 112,918 in 2020, so any change in this share across those years could come from the denominator shift rather than outcome counts."
+    },
+    {
+      "id": 2,
+      "metric": "Annual mean number of persons injured plus killed per eligible reported crash",
+      "denominator": "Count of eligible police-reported crash rows in each calendar year and time-of-day group; rows have nonmissing crash_date, crash_time, number_of_persons_injured, and number_of_persons_killed",
+      "grouping": "Calendar year 2013–2025 and time of day: night 20:00–05:59; day 06:00–19:59",
+      "chart_type": "line chart",
+      "reason": "The per-crash mean captures the number of people harmed, including crashes with multiple injured or killed people.",
+      "probability": 0.45,
+      "answer": "This answers only part of whether NYC streets are more dangerous at night: in 2025, the mean was 0.600 injured-or-killed persons per eligible night crash and 0.576 per eligible day crash, but the data cannot determine travel-level danger.",
+      "interpretation": "This answers only part of the question: for each year from 2013–2025, the chart shows the sum of persons injured and killed divided by police-reported crash rows with nonmissing date, time and both person counts; night is 20:00–05:59 and day is 06:00–19:59, with 2025 means of 0.600 and 0.576 persons per crash, respectively. This mean-harm-per-crash framing is defensible because it includes the number of people injured or killed, including multiple people in one crash, rather than counting each crash as only harmed or not harmed. It leaves unanswered whether an individual trip or street user faces more danger at night because traffic and other exposure denominators are absent. The check found 2012 (100,545 dated rows) and 2026 (36,424) partial by observed dates and excluded them; of 2,132,218 rows in candidate full years, 18 lacked injury counts and 36 lacked death counts (42 distinct rows excluded), no crash times were missing, and 23,787 00:00 records were retained in night though they may be defaults; date bounds cannot prove source completeness, and annual dated rows fell by 98,568 from 211,486 in 2019 to 112,918 in 2020, so any change in this row-denominator mean across those years could come from the denominator shift rather than outcome counts."
+    }
+  ]
+}

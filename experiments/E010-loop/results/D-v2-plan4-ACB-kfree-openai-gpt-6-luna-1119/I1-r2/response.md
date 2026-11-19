@@ -1,0 +1,5 @@
+I’m using two supported views of the crash file: annual counts of recorded motorist deaths and recorded motorist deaths per police-reported crash. Both can describe crash-record outcomes, but neither can measure risk per mile without vehicle-distance data.
+The checks show complete calendar-year date coverage for 2013–2025 and no missing crash dates or motorist-death values in those years. I’ve generated both charts and am finishing the written interpretations with the denominator changes called out for the per-crash view.
+ANSWER:
+1. The crash file cannot establish whether risk per mile declined; it records 110 motorist deaths in 2013 and 81 in 2025 ([annual-count chart](out/option_1.png)).
+2. The crash file cannot establish whether risk per mile declined; it records 53.99 motorist deaths per 100,000 crash rows in 2013 and 94.69 in 2025 ([per-crash chart](out/option_2.png)).

@@ -1,0 +1,39 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer": "partly: the data can compare counts of police-reported crashes by night and day, but cannot establish relative danger per trip, mile, or amount of traffic because exposure is not recorded.",
+    "metric": "Number of police-reported crashes in each time-of-day group.",
+    "denominator": "None; this is a count of crash records, not a rate.",
+    "population": "All crash records dated in years represented in the file.",
+    "filters": ["None initially; inspect dates and crash_time values before deciding how to treat partial years and unclassifiable times."],
+    "years": "All years represented in the file, to be checked for incomplete calendar years.",
+    "grouping": "Night (20:00–05:59), day (06:00–19:59), and a separate unknown/invalid-time group.",
+    "check_notes": null,
+    "limitations": null
+  },
+  "data_check": {
+    "facts": {
+      "all_file_years": 2269187,
+      "partial_2012_rows": 100545,
+      "partial_2012_bounds": "2012-07-01 through 2012-12-31",
+      "partial_2026_rows": 36424,
+      "partial_2026_bounds": "2026-01-01 through 2026-06-11",
+      "complete_year_candidate_rows_2013_2025": 2132218,
+      "missing_or_unparseable_crash_date_in_final_years": 0,
+      "sentinel_crash_dates_in_final_years": 0,
+      "missing_or_unparseable_crash_time_in_final_years": 0,
+      "midnight_times_in_final_years": 23787
+    },
+    "meaning_and_decisions": "2012 and 2026 are partial by observed date bounds, so exclude their 136,969 records to avoid comparing incomplete calendar years with complete years. Among the 2,132,218 records from 2013–2025, date and time have no NULL/unparseable values and there are no sentinel crash dates, so the final population retains those rows. The typed TIME field cannot contain blank, unknown-word, or impossible clock values after parsing. Midnight occurs 23,787 times and may be a valid crash time or a default; with no evidence to distinguish, retain it in the night group and disclose it. Keep an unknown/invalid-time group in the definition for transparency; the check found no such rows."
+  },
+  "final_plan": {
+    "can_answer": "partly: this measures police-reported crash frequency by time, not relative danger per trip, mile, or amount of traffic.",
+    "metric": "Number of police-reported crash records, grouped by crash time: night is 20:00–05:59, day is 06:00–19:59, and unknown/invalid time is a separate group.",
+    "denominator": "None; displayed values are raw crash counts, not rates.",
+    "population": "All police-reported crash records dated in complete calendar years 2013–2025; all valid times are included, with unclassifiable times assigned to a separate group.",
+    "filters": ["Exclude partial years 2012 and 2026.", "Retain midnight values as night; report their possible default-value concern."],
+    "years": "2013–2025 inclusive.",
+    "grouping": "Night (20:00–05:59), day (06:00–19:59), and unknown/invalid time.",
+    "limitations": "Counts are not adjusted for travel volume, road-user exposure, or the unequal lengths of the day and night time bands. The dataset contains police-reported crashes only. The date-range check identified partial 2012 and 2026, which are excluded. There are 23,787 midnight records (possible default values) retained as night; crash_time has zero missing/unparseable values in the final years."
+  }
+}

@@ -108,6 +108,8 @@ Base = `D_enumerate.v2-plan2.md` (v3). Each candidate adds one change to the one
 
 | File | SHA-256 | Change |
 |---|---|---|
-| `scripts/score_runs.py` | `0a324e517f72f822b47160c1c357460c77b3e0ca0b3780670d4916bed19c19d4` | **g8.3** = g8.2 + SCORING §4 decision 11 (TR05 wording); `REUSE_FROM = ("g8.2", "g8.1", "g8")`; only A1 units get a new grader prompt |
+| `scripts/score_runs.py` | `97503507e415ece4456a21ce4a8a332ceacd6fc95475f113779e82e7dda8a016` | **g8.3** = g8.2 + SCORING §4 decision 11 (TR05 wording) + decision-10 contexts (ISO-date year, clock hour, "N times") and multi-number check cells (hash updated the same day, before any g8.3 result was committed); `REUSE_FROM = ("g8.2", "g8.1", "g8")`; only A1 units get a new grader prompt |
 | `experiments/E007-pilot-prompts/gold_readings.json` | `99e81bab0cdc5292068a5166d253ba0fad7d0d36a4621bff9b32501af25f5e0f` | A1 TR05 item: disclosure that no-borough crashes are left out; number optional; overall or per-year share both count; range is reference only |
 | `experiments/E010-loop/roundtrip/reverse_prompt.md` | `7f659893f3fcde5541175fcb6aa4c77eb93062d6b08ee92d14ca3b9393a6ec4b` | T3 reverse-inference prompt (table only; structured guess) |
+
+**2026-11-19 lock (T1): E010-v4 = `D_enumerate.v2-plan4-ACB.md`** (hash above). Kept by the keep rule against same-day v3 (silent-error 11% vs 19%; PERMILE 0/2, TR05 0/9, TR01 0/5; nothing else up). `v2-plan3` (v4-draft), `v2-plan4-A` and `v2-plan4-AC` are diagnostic arms only. **The prompt is frozen from here**: no edits before the generalisation test (T2). Standing rules: same-day paired baselines only; any change of the standard re-scores every arm.

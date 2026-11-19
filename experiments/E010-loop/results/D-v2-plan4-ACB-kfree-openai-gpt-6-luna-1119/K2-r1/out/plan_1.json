@@ -1,0 +1,60 @@
+{
+  "id": 1,
+  "framing": "Crash-record counts by weekday",
+  "initial_plan": {
+    "answerability": "yes; the crash date supports assigning each crash record to a weekday and counting records in 2013–2025",
+    "metric": "number of police-reported crash rows",
+    "denominator": "none; raw row counts",
+    "population": "crash rows with a nonmissing crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date year is 2013 through 2025 inclusive"],
+    "years": "2013–2025 inclusive",
+    "grouping": "weekday of crash_date, Monday through Sunday"
+  },
+  "data_check_findings": {
+    "facts": {
+      "rows_in_file": 2269187,
+      "population_rows_2013-2025": 2132218,
+      "dated_rows_outside_2013-2025_excluded": 136969,
+      "missing_crash_date_rows_in_file": 0,
+      "missing_crash_date_rows_in_plan_years_before_filter": 0,
+      "crash_date_1970-01-01_rows_in_file": 0,
+      "crash_date_1900-01-01_rows_in_file": 0,
+      "crash_date_2000-01-01_rows_in_file": 0,
+      "crash_date_0001-01-01_rows_in_file": 0,
+      "crash_date_1970-01-01_rows_in_plan_years": 0,
+      "crash_date_1900-01-01_rows_in_plan_years": 0,
+      "crash_date_2000-01-01_rows_in_plan_years": 0,
+      "crash_date_0001-01-01_rows_in_plan_years": 0,
+      "impossible_crash_date_rows": "0; DATE-typed values cannot encode impossible calendar dates",
+      "empty_or_unknown_crash_date_values": "0; DATE-typed values can only represent missingness as NULL",
+      "weekday_group_missing_rows_in_population": 0,
+      "yearly_rows": {
+        "2013": 203742,
+        "2014": 206046,
+        "2015": 217708,
+        "2016": 229833,
+        "2017": 231007,
+        "2018": 231564,
+        "2019": 211486,
+        "2020": 112918,
+        "2021": 110558,
+        "2022": 103887,
+        "2023": 96607,
+        "2024": 91316,
+        "2025": 85546
+      },
+      "year_coverage": "Each year 2013–2025 has observed crash-date bounds from January 1 through December 31; bounds alone cannot verify data completeness."
+    },
+    "implications_and_decisions": "Use 2,132,218 rows with dates in 2013–2025; exclude 136,969 dated rows outside the requested years. There are no missing dates, common 0001-01-01, 1900-01-01, 1970-01-01, or 2000-01-01 sentinel dates, or missing weekday derivations, so none are dropped or shown as separate groups. DATE typing rules out impossible calendar dates and non-NULL empty/unknown values. Keep all eligible records; disclose that observed bounds span each year but do not prove complete reporting."
+  },
+  "final_plan": {
+    "answerability": "yes for the distribution of police-reported crash records by weekday; this does not estimate traffic exposure or crash risk",
+    "metric": "number of police-reported crash rows",
+    "denominator": "none; raw row counts",
+    "population": "each crash row with a valid, nonmissing crash_date in calendar years 2013 through 2025 inclusive; each row counted once",
+    "filters": ["crash_date is in 2013–2025 inclusive"],
+    "years": "2013–2025 inclusive",
+    "grouping": "weekday derived from crash_date, Monday through Sunday",
+    "limitations": "The file has 2,132,218 eligible rows and no missing dates or common 0001-01-01, 1900-01-01, 1970-01-01, or 2000-01-01 sentinel dates; 136,969 dated rows outside the requested years are excluded. Observed crash-date bounds span January 1 through December 31 in every year, but this does not verify complete reporting. Counts are not adjusted for weekday calendar-day frequency, traffic exposure, or risk."
+  }
+}

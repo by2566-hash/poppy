@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Share of complete-case crashes with at least one person injured or killed",
+      "denominator": "Dated crashes with a valid crash_time and non-missing, nonnegative number_of_persons_injured and number_of_persons_killed",
+      "grouping": "Night is 20:00–05:59 inclusive across midnight; day is 06:00–19:59; pool observed 2012–2026",
+      "chart_type": "Bar chart",
+      "reason": "A binary injury-or-death outcome directly compares how often recorded crashes involve harm, while not being dominated by a small number of multi-casualty events.",
+      "probability": 0.42,
+      "answer": "The data can answer this only partly: 28.44% of complete-case crashes in the 20:00–05:59 night period involved an injury or death, compared with 23.41% of complete-case crashes in the 06:00–19:59 day period.",
+      "interpretation": "This answers only the crash-severity part of the question: records from 2012–2026 are pooled, night means 20:00–05:59 and day means 06:00–19:59, and crashes are included only when date, time, and both person injury/death counts are valid. The share with at least one person injured or killed is 28.44% at night (158,211 of 556,333 crashes) and 23.41% by day (398,867 of 1,703,935 crashes). This binary crash outcome is a defensible measure of injury involvement, but cannot establish danger per trip, road user, or actual darkness because traffic exposure is absent and clock-time bins do not reflect seasonal light. Checks found no missing or invalid dates/times; 18 injury-count and 8,913 death-count rows with missing/impossible values were excluded rather than treated as zero, 24,566 midnight records were retained as potentially valid or default-coded, and partial 2012 (July–December) and 2026 (January–June) years were retained in the pooled comparison."
+    },
+    {
+      "id": 2,
+      "metric": "Mean number of people injured plus killed per complete-case crash",
+      "denominator": "Dated crashes with a valid crash_time and non-missing, nonnegative number_of_persons_injured and number_of_persons_killed",
+      "grouping": "Night is 20:00–05:59 inclusive across midnight; day is 06:00–19:59; pool observed 2012–2026",
+      "chart_type": "Bar chart",
+      "reason": "Casualties per crash captures both the frequency and multiplicity of harm in one crash-level severity measure.",
+      "probability": 0.38,
+      "answer": "The data can answer this only partly: complete-case crashes averaged 0.407 people injured or killed in the 20:00–05:59 night period and 0.310 in the 06:00–19:59 day period.",
+      "interpretation": "This answers only the crash-severity part of the question: records from 2012–2026 are pooled, night means 20:00–05:59 and day means 06:00–19:59, and crashes are included only when date, time, and both person injury/death counts are valid. The mean number of people injured plus killed per crash is 0.407 at night (226,163 people across 556,333 crashes) and 0.310 by day (528,162 people across 1,703,935 crashes). Casualties per crash is a defensible measure of harm intensity, but cannot establish danger per trip, road user, or actual darkness because traffic exposure is absent and clock-time bins do not reflect seasonal light. Checks found no missing or invalid dates/times; 18 injury-count and 8,913 death-count rows with missing/impossible values were excluded rather than treated as zero, 24,566 midnight records were retained as potentially valid or default-coded, and partial 2012 (July–December) and 2026 (January–June) years were retained in the pooled comparison."
+    },
+    {
+      "id": 3,
+      "metric": "Share of complete-case crashes with at least one person killed",
+      "denominator": "Dated crashes with a valid crash_time and non-missing, nonnegative number_of_persons_killed",
+      "grouping": "Night is 20:00–05:59 inclusive across midnight; day is 06:00–19:59; pool observed 2012–2026",
+      "chart_type": "Bar chart",
+      "reason": "Fatal-crash involvement isolates the most severe recorded outcome for a news audience, though it measures a narrower form of harm.",
+      "probability": 0.20,
+      "answer": "The data can answer this only partly: 0.292% of crashes with a valid death count in the 20:00–05:59 night period involved a death, compared with 0.108% in the 06:00–19:59 day period.",
+      "interpretation": "This answers only the fatal-crash-severity part of the question: records from 2012–2026 are pooled, night means 20:00–05:59 and day means 06:00–19:59, and crashes are included only when date, time, and the person death count are valid. The share with at least one person killed is 0.292% at night (1,622 of 556,334 crashes) and 0.108% by day (1,847 of 1,703,940 crashes). Fatal-crash involvement is a defensible high-severity indicator, but cannot establish danger per trip, road user, or actual darkness because traffic exposure is absent and clock-time bins do not reflect seasonal light. Checks found no missing or invalid dates/times; 8,913 death-count rows with missing/impossible values were excluded rather than treated as no deaths, 24,566 midnight records were retained as potentially valid or default-coded, and partial 2012 (July–December) and 2026 (January–June) years were retained in the pooled comparison."
+    }
+  ]
+}

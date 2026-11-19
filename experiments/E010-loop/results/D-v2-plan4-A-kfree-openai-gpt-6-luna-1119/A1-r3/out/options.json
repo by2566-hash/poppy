@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of reported pedestrian casualties, calculated as the sum of pedestrian injuries plus pedestrian deaths in Brooklyn crashes.",
+      "denominator": "No denominator; this is an annual count, not an exposure-adjusted rate.",
+      "grouping": "Calendar year of crash_date.",
+      "chart_type": "line chart",
+      "reason": "Combining injuries and deaths gives a broad direct measure of annual reported pedestrian harm.",
+      "probability": 0.65,
+      "answer": "Only partly: Brooklyn police-reported crashes recorded 3,671 pedestrian injury-and-death outcomes in 2013 and 2,874 in 2025, but these annual counts do not measure risk per walking trip or distance.",
+      "interpretation": "This answers only part of whether pedestrian safety improved: for each full calendar year 2013–2025, it sums the crash-level pedestrian-injury and pedestrian-death counts for police-reported Brooklyn crashes (an annual count with no denominator), showing 3,671 outcomes in 2013 and 2,874 in 2025. This is a defensible measure of reported harm, but it cannot show risk per walking trip or distance or deduplicate people across crashes. The check found 659,713 of 2,132,218 dated 2013–2025 crashes (30.9%) had missing or placeholder boroughs and were therefore unassignable to Brooklyn and excluded (zero impossible nonmissing borough values and zero values flagged in the default/placeholder checks); 2026's 9,700 Brooklyn crash rows through June 11 were excluded as a partial year. Among 473,801 Brooklyn crash rows in the selected years, no year had missing pedestrian-injury or pedestrian-death counts, so all qualifying rows were retained and the supplied values summed."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of reported pedestrian deaths in Brooklyn crashes.",
+      "denominator": "No denominator; this is an annual count, not an exposure-adjusted rate.",
+      "grouping": "Calendar year of crash_date.",
+      "chart_type": "bar chart",
+      "reason": "A death-only series isolates the most severe outcome and complements a broader injury-and-death count.",
+      "probability": 0.35,
+      "answer": "Only partly: Brooklyn police-reported crashes recorded 30 pedestrian deaths in 2013 and 39 in 2025; this severe-outcome count does not establish risk without walking-exposure data.",
+      "interpretation": "This answers only the reported-fatality part: for each full calendar year 2013–2025, it sums pedestrian-death counts from police-reported Brooklyn crashes (an annual count with no denominator), with 30 deaths in 2013 and 39 in 2025. Deaths are a distinct severe-outcome measure, but the series cannot show risk per walking trip or distance or deduplicate people across crashes. The check found 659,713 of 2,132,218 dated 2013–2025 crashes (30.9%) had missing or placeholder boroughs and were therefore unassignable to Brooklyn and excluded (zero impossible nonmissing borough values and zero values flagged in the default/placeholder checks); 2026's 9,700 Brooklyn crash rows through June 11 were excluded as a partial year. Among 473,801 Brooklyn crash rows in the selected years, no year had missing pedestrian-death counts, so all qualifying rows were retained and the supplied values summed."
+    }
+  ]
+}

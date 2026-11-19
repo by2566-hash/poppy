@@ -1,0 +1,55 @@
+fact,value
+file_min_crash_date,2012-07-01
+file_max_crash_date,2026-06-11
+analysis_years,2013-2026
+year_2013_date_extent_and_rows,2013-01-01 to 2013-12-31; 203742 rows
+year_2013_boundary_coverage_partial,no
+year_2014_date_extent_and_rows,2014-01-01 to 2014-12-31; 206046 rows
+year_2014_boundary_coverage_partial,no
+year_2015_date_extent_and_rows,2015-01-01 to 2015-12-31; 217708 rows
+year_2015_boundary_coverage_partial,no
+year_2016_date_extent_and_rows,2016-01-01 to 2016-12-31; 229833 rows
+year_2016_boundary_coverage_partial,no
+year_2017_date_extent_and_rows,2017-01-01 to 2017-12-31; 231007 rows
+year_2017_boundary_coverage_partial,no
+year_2018_date_extent_and_rows,2018-01-01 to 2018-12-31; 231564 rows
+year_2018_boundary_coverage_partial,no
+year_2019_date_extent_and_rows,2019-01-01 to 2019-12-31; 211486 rows
+year_2019_boundary_coverage_partial,no
+year_2020_date_extent_and_rows,2020-01-01 to 2020-12-31; 112918 rows
+year_2020_boundary_coverage_partial,no
+year_2021_date_extent_and_rows,2021-01-01 to 2021-12-31; 110558 rows
+year_2021_boundary_coverage_partial,no
+year_2022_date_extent_and_rows,2022-01-01 to 2022-12-31; 103887 rows
+year_2022_boundary_coverage_partial,no
+year_2023_date_extent_and_rows,2023-01-01 to 2023-12-31; 96607 rows
+year_2023_boundary_coverage_partial,no
+year_2024_date_extent_and_rows,2024-01-01 to 2024-12-31; 91316 rows
+year_2024_boundary_coverage_partial,no
+year_2025_date_extent_and_rows,2025-01-01 to 2025-12-31; 85546 rows
+year_2025_boundary_coverage_partial,no
+year_2026_date_extent_and_rows,2026-01-01 to 2026-06-11; 36424 rows
+year_2026_boundary_coverage_partial,yes
+dated_rows_in_analysis_years_before_borough_filter,2168642
+borough_missing_or_unknown_rows_before_filter,668406
+borough_impossible_or_unrecognized_rows_before_filter,0
+borough_brooklyn_rows_before_filter,483501
+brooklyn_rows_with_missing_crash_date_year_unassignable,0
+population_rows_in_analysis_years,483501
+population_rows_year_2013,47024
+population_rows_year_2014,47761
+population_rows_year_2015,50851
+population_rows_year_2016,47464
+population_rows_year_2017,44915
+population_rows_year_2018,47313
+population_rows_year_2019,44479
+population_rows_year_2020,25473
+population_rows_year_2021,25174
+population_rows_year_2022,23369
+population_rows_year_2023,22890
+population_rows_year_2024,22785
+population_rows_year_2025,24303
+population_rows_year_2026,9700
+number_of_pedestrians_injured_missing_rows_in_brooklyn_years_before_outcome_use,0
+number_of_pedestrians_killed_missing_rows_in_brooklyn_years_before_outcome_use,0
+rows_with_either_pedestrian_outcome_missing_before_outcome_use,0

@@ -1,0 +1,29 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer": "yes for annual counts of recorded motorist and cyclist deaths; the data do not provide exposure denominators for comparing risk",
+    "metric": "Annual number of recorded motorist deaths and annual number of recorded cyclist deaths, summed from the respective per-crash death columns",
+    "denominator": "No rate denominator; totals are counts of recorded deaths",
+    "population": "Police-reported NYC motor vehicle crashes dated from 2013-01-01 through 2025-12-31, with per-crash motorist and cyclist death counts aggregated separately",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "Calendar years 2013 through 2025, extracted from crash_date",
+    "grouping": "Calendar year, with two series: motorist deaths and cyclist deaths"
+  },
+  "data_check_and_decisions": {
+    "facts": "check_1.csv reports 2,132,218 in-scope crash rows; each year 2013-2025 has observed dates from January 1 through December 31; neither summed death column is missing on any in-scope row (0 missing rows for each). The date filter admits only valid typed dates in the planned range.",
+    "meaning": "There are no missing outcome values to drop or treat as zero, and no year appears partial by its observed date boundaries. The analysis keeps all in-scope rows. Crashes outside the date interval, including rows without a usable date, are excluded by the planned filter; those outside rows were not counted in the scoped checks.",
+    "decision": "Keep all qualifying rows and disclose that totals are recorded death counts, not exposure-adjusted rates; do not create an unknown group or exclude in-scope records.",
+    "changed": "No change to the initial plan."
+  },
+  "final_plan": {
+    "can_answer": "yes for the requested year-by-year comparison of recorded counts; this dataset cannot compare risk per motorist or cyclist because it has no exposure denominators",
+    "metric": "For each calendar year, the total recorded motorist deaths (sum of number_of_motorist_killed) and cyclist deaths (sum of number_of_cyclist_killed) across qualifying crash records",
+    "denominator": "None; these are annual death counts, not rates",
+    "population": "All police-reported NYC motor vehicle crash records with a crash_date in calendar years 2013 through 2025; all qualifying rows are retained and the two death fields are summed separately",
+    "filters": ["crash_date >= 2013-01-01 and crash_date < 2026-01-01"],
+    "years": "Calendar years 2013-2025 inclusive, derived from crash_date; observed date boundaries span each calendar year",
+    "grouping": "Year, with separate motorist and cyclist series",
+    "missing_value_handling": "The scoped check found 0 missing values in each death field; retain all in-scope rows and sum the recorded integer values.",
+    "limitations": "Annual counts do not measure comparative risk because the data contain no motorist or cyclist population, travel, or exposure denominator. The check found complete observed date boundaries in each included year and no missing values in either summed field; boundary dates alone do not independently establish completeness of every record in the source."
+  }
+}

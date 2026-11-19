@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual sum of number_of_motorist_killed (recorded motorist deaths) in police-reported NYC crashes dated 2013–2025.",
+      "denominator": "None; annual death count.",
+      "grouping": "Calendar year of crash_date, 2013–2025 inclusive.",
+      "chart_type": "Line chart",
+      "reason": "It directly shows the annual recorded fatality burden without implying an exposure-adjusted risk.",
+      "probability": 0.55,
+      "answer": "This dataset cannot establish whether per-mile risk declined; annual recorded motorist deaths numbered 110 in 2013 and 81 in 2025.",
+      "interpretation": "This file cannot answer whether risk per mile declined because it contains no miles-driven denominator. The chart sums number_of_motorist_killed across police-reported NYC crashes by crash calendar year (2013–2025), showing 110 recorded motorist deaths in 2013 and 81 in 2025; annual counts are a defensible measure of recorded fatality burden but do not adjust for travel exposure. It leaves deaths per mile unanswered. The check found 0 NULL crash dates and 0 missing motorist-death values, with January 1–December 31 coverage in every selected year, so I kept all plan-year rows (excluding years outside 2013–2025) and neither excluded nor separately grouped rows for those missing fields."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number_of_motorist_killed divided by annual police-reported crash rows, expressed as recorded motorist deaths per 100,000 crashes.",
+      "denominator": "All police-reported crash rows in that calendar year, including rows with zero motorist deaths.",
+      "grouping": "Calendar year of crash_date, 2013–2025 inclusive.",
+      "chart_type": "Line chart",
+      "reason": "It normalizes the annual death count by the volume of crash records and reports an outcome frequency per recorded crash.",
+      "probability": 0.45,
+      "answer": "This dataset cannot establish whether per-mile risk declined; recorded motorist deaths per 100,000 crash rows were 53.99 in 2013 and 94.69 in 2025.",
+      "interpretation": "This file cannot answer whether risk per mile declined because it contains no miles-driven denominator. The chart sums number_of_motorist_killed in each crash year and divides by all police-reported crash rows that year (including zero-death crashes), expressing the result per 100,000 crashes; this is a defensible crash-record-normalized outcome frequency, not personal or travel-exposure risk. It leaves deaths per mile unanswered, and annual denominators changed by 98,568 rows between 2019 (211,486) and 2020 (112,918), so a change in this measure across those years can come from the denominator change and is compared with that caution. Checks found 0 NULL crash dates, 0 missing motorist-death values, and full calendar-year date coverage; I retained all 2013–2025 crash rows without missing-value exclusions."
+    }
+  ]
+}

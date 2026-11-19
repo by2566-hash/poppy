@@ -1,0 +1,26 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "can_answer": "partly: it can compare the share of reported crashes with at least one person injured by time of day, but cannot establish per-trip or per-mile danger because traffic exposure is absent",
+    "metric": "crashes with one or more persons injured as a share of crashes with a known injury count",
+    "denominator": "crashes with a nonmissing number_of_persons_injured, by time period",
+    "population": "one row per police-reported NYC motor-vehicle crash, in complete calendar years available in the file, with a usable crash_date and crash_time classifiable as day or night",
+    "filters": ["exclude partial calendar years", "exclude rows with missing/unusable crash_date or crash_time", "exclude rows with missing number_of_persons_injured from the rate denominator"],
+    "years": "all complete calendar years represented in the file, to be identified by the data check",
+    "grouping": "daytime (06:00–19:59) versus nighttime (20:00–05:59)"
+  },
+  "data_check": {
+    "facts": "See check_2.csv. The file covers 2012-07-01 through 2026-06-11; complete calendar years are 2013–2025. Among dated crashes in those years, there are no missing dates or times; because crash_date and crash_time are typed DATE and TIME columns, no empty, unknown-string, or impossible date/time values are represented. There are 23,787 midnight timestamps. There are 2,132,218 dated crashes in those years before the time-quality filter; 2,108,431 have non-midnight times, 18 of those have a missing number_of_persons_injured, and none has an impossible negative injury count. The partial years 2012 and 2026 have 100,545 and 36,424 dated crashes, respectively.",
+    "meaning_and_decisions": "Exclude partial years and midnight timestamps for the same comparability and uncertain-time reasons as option 1. Exclude the 18 crashes with missing number_of_persons_injured from the injury-share denominator, which then counts only crashes with a known injury count. Date and time completeness are otherwise good within the selected years, and no negative injury counts were found."
+  },
+  "final_plan": {
+    "can_answer": "partly: compares injury-involved crash share by time period, but not risk per trip, person, vehicle-mile, or traffic exposure",
+    "metric": "crashes with at least one person injured as a share of crashes with a known number_of_persons_injured",
+    "denominator": "crashes in each time period with a nonmissing number_of_persons_injured",
+    "population": "one row per police-reported NYC motor-vehicle crash dated in 2013–2025, with crash_time not equal to 00:00 and a known number_of_persons_injured",
+    "filters": ["exclude partial years 2012 and 2026", "exclude midnight timestamps (00:00) as potentially default/uncertain time", "exclude 18 crashes with missing number_of_persons_injured"],
+    "years": "2013–2025 inclusive",
+    "grouping": "daytime (06:00–19:59) versus nighttime (20:00–05:59)",
+    "limitations": "Crash reports do not provide traffic exposure, so an injury-involved crash share does not measure risk per trip or mile. The 23,787 midnight-timestamp crashes are excluded as potentially default time values, as are 18 crashes with missing injury counts; partial years 2012 (100,545 dated crashes) and 2026 (36,424) are excluded."
+  }
+}

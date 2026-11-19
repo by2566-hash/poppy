@@ -1,0 +1,90 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer": "partly: the file can show the annual number of recorded pedestrian injury and death cases in Brooklyn, but it has no pedestrian travel/exposure denominator and cannot establish risk per trip or general road safety",
+    "metric": "Annual count of recorded pedestrian casualties, calculated as the sum of number_of_pedestrians_injured and number_of_pedestrians_killed",
+    "denominator": "None; this is an absolute count, not an exposure-adjusted rate",
+    "population": "Crashes reported in Brooklyn with a crash date in calendar year 2013 or later, with nonmissing values for both pedestrian injury and pedestrian death counts; count the recorded injured and killed pedestrian casualties from those crashes",
+    "filters": [
+      "borough is Brooklyn",
+      "crash_date is in 2013 or later",
+      "both pedestrian outcome fields are nonmissing"
+    ],
+    "years": "Calendar years from 2013 through the latest year represented in the file; assess edge-year completeness in the data check",
+    "grouping": "Calendar year of crash_date",
+    "data_check_decisions": "Pending data check",
+    "limitations": "Pending data check"
+  },
+  "data_check_decisions": {
+    "facts_file": "check_1.csv",
+    "observed_years": [
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "partial_calendar_years": [
+      2026
+    ],
+    "borough_decision": "Keep borough labels that match Brooklyn after trimming whitespace and ignoring case. The dated NYC candidate population has 668406 missing/blank/unknown borough labels (30.82%) and 0 unsupported borough labels; those rows are not assigned to Brooklyn. See check file.",
+    "outcome_decision": "Use only rows with both pedestrian injury and death counts present. The data check found no missing values in either field among Brooklyn rows in any checked year, so no Brooklyn rows are dropped for outcome missingness.",
+    "year_decision": "Retain complete years 2013\u20132025; exclude the 9700 Brooklyn crash rows in partial 2026 because observed coverage is 2026-01-01 through 2026-06-11.",
+    "date_value_decision": "Crash_date is a DATE, with 0 missing values. The checked sentinel date 2013-01-01 has 102 Brooklyn rows (102 of 47024 Brooklyn crashes in 2013, below the annual average daily Brooklyn count); retain these valid in-period dates and disclose them rather than treating them as a pile-up.",
+    "population_after_checks": "Brooklyn crashes in complete calendar years from 2013 onward with both pedestrian injury and pedestrian death fields present.",
+    "changes_from_initial_plan": "Normalized borough matching by trimming whitespace and ignoring case after an exact-case Brooklyn match yielded no rows; excluded 2026 because date coverage ends on 2026-06-11 and it is partial. No outcome-missing rows were found among Brooklyn crashes, so the planned outcome completeness restriction removes none."
+  },
+  "limitations": "The file reports crash counts, not pedestrian exposure or population, so absolute annual counts do not measure risk per trip or establish overall road safety. Of 2168642 NYC crash rows with dates from 2013 onward, 668406 (30.82%) have missing/blank/unknown borough labels and cannot be assigned to Brooklyn; 0 have unsupported nonblank borough labels. There are 0 missing crash dates and no Brooklyn rows with missing outcome counts used by this framing. The checked date 2013-01-01 has 102 Brooklyn rows (102 of 47024 Brooklyn crashes in 2013), which are retained as valid in-period dates rather than treated as a pile-up. The 9700 Brooklyn crashes in partial 2026 are excluded because file coverage ends 2026-06-11.",
+  "final_plan": {
+    "can_answer": "partly: the file can show the annual number of recorded pedestrian injury and death cases in Brooklyn, but it has no pedestrian travel/exposure denominator and cannot establish risk per trip or general road safety",
+    "metric": "Annual count of recorded pedestrian casualties, calculated as the sum of number_of_pedestrians_injured and number_of_pedestrians_killed",
+    "denominator": "None; this is an absolute count, not an exposure-adjusted rate",
+    "population": "Brooklyn crashes in the final complete calendar years with nonmissing values for both pedestrian injury and pedestrian death counts; count recorded pedestrian casualties from those crashes.",
+    "filters": [
+      "borough label equals Brooklyn after trimming whitespace and ignoring case",
+      "crash_date is in a retained complete calendar year from 2013 through 2025",
+      "both pedestrian injury and pedestrian death counts are nonmissing"
+    ],
+    "years": "Complete calendar years from 2013 through 2025; exclude partial years [2026].",
+    "grouping": "Calendar year of crash_date",
+    "data_check_decisions": {
+      "facts_file": "check_1.csv",
+      "observed_years": [
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "partial_calendar_years": [
+        2026
+      ],
+      "borough_decision": "Keep borough labels that match Brooklyn after trimming whitespace and ignoring case. The dated NYC candidate population has 668406 missing/blank/unknown borough labels (30.82%) and 0 unsupported borough labels; those rows are not assigned to Brooklyn. See check file.",
+      "outcome_decision": "Use only rows with both pedestrian injury and death counts present. The data check found no missing values in either field among Brooklyn rows in any checked year, so no Brooklyn rows are dropped for outcome missingness.",
+      "year_decision": "Retain complete years 2013\u20132025; exclude the 9700 Brooklyn crash rows in partial 2026 because observed coverage is 2026-01-01 through 2026-06-11.",
+      "date_value_decision": "Crash_date is a DATE, with 0 missing values. The checked sentinel date 2013-01-01 has 102 Brooklyn rows (102 of 47024 Brooklyn crashes in 2013, below the annual average daily Brooklyn count); retain these valid in-period dates and disclose them rather than treating them as a pile-up.",
+      "population_after_checks": "Brooklyn crashes in complete calendar years from 2013 onward with both pedestrian injury and pedestrian death fields present.",
+      "changes_from_initial_plan": "Normalized borough matching by trimming whitespace and ignoring case after an exact-case Brooklyn match yielded no rows; excluded 2026 because date coverage ends on 2026-06-11 and it is partial. No outcome-missing rows were found among Brooklyn crashes, so the planned outcome completeness restriction removes none."
+    },
+    "limitations": "The file reports crash counts, not pedestrian exposure or population, so absolute annual counts do not measure risk per trip or establish overall road safety. Of 2168642 NYC crash rows with dates from 2013 onward, 668406 (30.82%) have missing/blank/unknown borough labels and cannot be assigned to Brooklyn; 0 have unsupported nonblank borough labels. There are 0 missing crash dates and no Brooklyn rows with missing outcome counts used by this framing. The checked date 2013-01-01 has 102 Brooklyn rows (102 of 47024 Brooklyn crashes in 2013), which are retained as valid in-period dates rather than treated as a pile-up. The 9700 Brooklyn crashes in partial 2026 are excluded because file coverage ends 2026-06-11.",
+    "changes_from_initial_plan": "Normalized borough matching by trimming whitespace and ignoring case after an exact-case Brooklyn match yielded no rows; excluded 2026 because date coverage ends on 2026-06-11 and it is partial. No outcome-missing rows were found among Brooklyn crashes, so the planned outcome completeness restriction removes none."
+  }
+}

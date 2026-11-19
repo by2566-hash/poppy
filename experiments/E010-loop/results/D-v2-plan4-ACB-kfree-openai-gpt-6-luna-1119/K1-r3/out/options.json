@@ -1,0 +1,15 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual sum of number_of_pedestrians_killed across crash records",
+      "denominator": "None (absolute total, not a rate); all in-scope crash rows contribute their nonmissing recorded pedestrian-killed count",
+      "grouping": "Calendar year derived from crash_date, 2013 through 2025",
+      "chart_type": "Vertical bar chart",
+      "reason": "An annual absolute total directly answers how many recorded pedestrian deaths occurred and preserves the requested year-by-year comparison.",
+      "probability": 1.0,
+      "answer": "In NYC's supplied police-reported crash file, pedestrian deaths recorded by year were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "For 2013–2025, the chart gives the requested annual totals by summing each crash row's number_of_pedestrians_killed and assigning the crash to the calendar year of crash_date; the plotted totals range from 101 in 2020 to 176 in 2013. An absolute sum of people killed is a direct measure of how many pedestrian deaths were recorded, rather than a crash-normalized rate. It cannot establish whether every pedestrian death is represented beyond the supplied police-reported NYC crash file. The checks found 0 missing crash_date values before the year filter, 0 missing pedestrian-killed values in every target year, and full Jan–Dec date coverage in all years, so no target rows were dropped or counted differently."
+    }
+  ]
+}

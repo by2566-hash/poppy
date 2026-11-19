@@ -224,6 +224,10 @@ def calendar_or_unit(text, s, e, n, suf):
     if n <= 31 and n == int(n) and (re.search(r"\b" + _MONTH + r"\s*$", before, re.I) or re.match(r"\s*" + _MONTH + r"\b", after, re.I)
                                     or re.search(r"\b(?:19|20)\d{2}-\d{1,2}-$", before)):
         return "date"
+    if n == int(n) and 1900 <= n <= 2100 and re.match(r"-\d{1,2}-\d{1,2}\b", after):   # the year of a written ISO date ("1900-01-01")
+        return "date"
+    if n == int(n) and n <= 24 and re.match(r":[0-5]\d\b", after):   # the hour of a clock time ("20:00-23:59")
+        return "date"
     m = re.match(r"(\s*of\s+([\d,]+))?[\s-]*((?:(?:complete|full|whole|calendar)\s+){0,2})(day|hour|week|month|year|minute)s?\b", after, re.I)
     if m:
         unit, qual = m.group(4).lower(), m.group(3).strip()
@@ -233,7 +237,8 @@ def calendar_or_unit(text, s, e, n, suf):
         # only as a calendar length, so "crashes on 40 days" stays checked
         if unit in ("year", "hour", "minute") or qual or tot in const:
             return "calendar"
-    if n in (100, 1e3, 1e4, 1e5, 1e6) and re.search(r"(?:\b(?:per|by|to|every|each|times)|×)\s*$", before, re.I):
+    if n in (100, 1e3, 1e4, 1e5, 1e6) and (re.search(r"(?:\b(?:per|by|to|every|each|times)|×)\s*$", before, re.I)
+                                             or re.match(r"\s*(?:times\b|×)", after, re.I)):
         return "unit"
     return None
 
@@ -291,8 +296,15 @@ def grounded_check(u):
     if not rows or "value" not in rows[0]:
         return []
     keep = []
-    for r in rows:
-        v = str(r.get("value") or "").strip(); x = to_float(v)
+    cells = []
+    for r in rows:   # a cell holding several numbers ("0 of 2269187") gives one row per number
+        v = str(r.get("value") or "").strip()
+        if to_float(v) is not None:
+            cells.append((r, v))
+        elif not re.search(r"\d{4}-\d{1,2}-\d{1,2}", v):
+            cells += [(r, t.rstrip(".,")) for t in _NUM_TRACE.findall(v)]
+    for r, v in cells:
+        x = to_float(v)
         if x is None:
             continue
         computed = any(abs(x - t) <= max(1e-9, 0.005 * abs(x)) for t in tnum)

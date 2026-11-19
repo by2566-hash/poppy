@@ -1,0 +1,3 @@
+ANSWER:
+1. Only partly: Brooklyn police-reported crashes recorded 3,671 pedestrian injury-and-death outcomes in 2013 and 2,874 in 2025, but these annual counts do not measure risk per walking trip or distance ([chart](out/option_1.png), [values](out/values_1.csv)).
+2. Only partly: Brooklyn police-reported crashes recorded 30 pedestrian deaths in 2013 and 39 in 2025; this severe-outcome count does not establish risk without walking-exposure data ([chart](out/option_2.png), [values](out/values_2.csv)).

@@ -1,0 +1,29 @@
+fact,value
+Brooklyn crash rows in plan years before outcome missing-value filter,473801
+Brooklyn crash rows in 2013 before outcome missing-value filter,47024
+Brooklyn crash rows in 2014 before outcome missing-value filter,47761
+Brooklyn crash rows in 2015 before outcome missing-value filter,50851
+Brooklyn crash rows in 2016 before outcome missing-value filter,47464
+Brooklyn crash rows in 2017 before outcome missing-value filter,44915
+Brooklyn crash rows in 2018 before outcome missing-value filter,47313
+Brooklyn crash rows in 2019 before outcome missing-value filter,44479
+Brooklyn crash rows in 2020 before outcome missing-value filter,25473
+Brooklyn crash rows in 2021 before outcome missing-value filter,25174
+Brooklyn crash rows in 2022 before outcome missing-value filter,23369
+Brooklyn crash rows in 2023 before outcome missing-value filter,22890
+Brooklyn crash rows in 2024 before outcome missing-value filter,22785
+Brooklyn crash rows in 2025 before outcome missing-value filter,24303
+"borough missing: NULL, in plan years before borough filter",659713
+"borough missing: empty or whitespace, in plan years before borough filter",0
+"borough missing/unknown placeholder words, in plan years before borough filter",0
+"borough invalid/unrecognized values, in plan years before borough filter",0
+borough most common value '<NULL/blank>' (default/pile-up check; pre-filter),659713
+borough most common value 'BROOKLYN' (default/pile-up check; pre-filter),473801
+borough most common value 'QUEENS' (default/pile-up check; pre-filter),396201
+borough most common value 'MANHATTAN' (default/pile-up check; pre-filter),322466
+borough most common value 'BRONX' (default/pile-up check; pre-filter),220044
+borough most common value 'STATEN ISLAND' (default/pile-up check; pre-filter),59993
+Brooklyn population rows with missing crash_date (cannot assign year),0
+"crash_date rows exactly at common default date 1900-01-01, among Brooklyn plan-year population",0
+"crash_date rows exactly at common default date 1970-01-01, among Brooklyn plan-year population",0
+number_of_pedestrians_killed missing (NULL) in Brooklyn plan-year rows,0

@@ -1,0 +1,83 @@
+fact,value
+rows in population and years (2013-2025),2132218
+2013 rows in population,203742
+2013 rows missing number_of_motorist_killed,0
+2013 rows missing number_of_cyclist_killed,0
+2013 rows missing either death count (excluded by complete-pair rule),0
+2013 rows missing crash_date,0
+2013 rows with default-like crash_date (1900-01-01 or 1970-01-01),0
+2014 rows in population,206046
+2014 rows missing number_of_motorist_killed,0
+2014 rows missing number_of_cyclist_killed,0
+2014 rows missing either death count (excluded by complete-pair rule),0
+2014 rows missing crash_date,0
+2014 rows with default-like crash_date (1900-01-01 or 1970-01-01),0
+2015 rows in population,217708
+2015 rows missing number_of_motorist_killed,0
+2015 rows missing number_of_cyclist_killed,0
+2015 rows missing either death count (excluded by complete-pair rule),0
+2015 rows missing crash_date,0
+2015 rows with default-like crash_date (1900-01-01 or 1970-01-01),0
+2016 rows in population,229833
+2016 rows missing number_of_motorist_killed,0
+2016 rows missing number_of_cyclist_killed,0
+2016 rows missing either death count (excluded by complete-pair rule),0
+2016 rows missing crash_date,0
+2016 rows with default-like crash_date (1900-01-01 or 1970-01-01),0
+2017 rows in population,231007
+2017 rows missing number_of_motorist_killed,0
+2017 rows missing number_of_cyclist_killed,0
+2017 rows missing either death count (excluded by complete-pair rule),0
+2017 rows missing crash_date,0
+2017 rows with default-like crash_date (1900-01-01 or 1970-01-01),0
+2018 rows in population,231564
+2018 rows missing number_of_motorist_killed,0
+2018 rows missing number_of_cyclist_killed,0
+2018 rows missing either death count (excluded by complete-pair rule),0
+2018 rows missing crash_date,0
+2018 rows with default-like crash_date (1900-01-01 or 1970-01-01),0
+2019 rows in population,211486
+2019 rows missing number_of_motorist_killed,0
+2019 rows missing number_of_cyclist_killed,0
+2019 rows missing either death count (excluded by complete-pair rule),0
+2019 rows missing crash_date,0
+2019 rows with default-like crash_date (1900-01-01 or 1970-01-01),0
+2020 rows in population,112918
+2020 rows missing number_of_motorist_killed,0
+2020 rows missing number_of_cyclist_killed,0
+2020 rows missing either death count (excluded by complete-pair rule),0
+2020 rows missing crash_date,0
+2020 rows with default-like crash_date (1900-01-01 or 1970-01-01),0
+2021 rows in population,110558
+2021 rows missing number_of_motorist_killed,0
+2021 rows missing number_of_cyclist_killed,0
+2021 rows missing either death count (excluded by complete-pair rule),0
+2021 rows missing crash_date,0
+2021 rows with default-like crash_date (1900-01-01 or 1970-01-01),0
+2022 rows in population,103887
+2022 rows missing number_of_motorist_killed,0
+2022 rows missing number_of_cyclist_killed,0
+2022 rows missing either death count (excluded by complete-pair rule),0
+2022 rows missing crash_date,0
+2022 rows with default-like crash_date (1900-01-01 or 1970-01-01),0
+2023 rows in population,96607
+2023 rows missing number_of_motorist_killed,0
+2023 rows missing number_of_cyclist_killed,0
+2023 rows missing either death count (excluded by complete-pair rule),0
+2023 rows missing crash_date,0
+2023 rows with default-like crash_date (1900-01-01 or 1970-01-01),0
+2024 rows in population,91316
+2024 rows missing number_of_motorist_killed,0
+2024 rows missing number_of_cyclist_killed,0
+2024 rows missing either death count (excluded by complete-pair rule),0
+2024 rows missing crash_date,0
+2024 rows with default-like crash_date (1900-01-01 or 1970-01-01),0
+2025 rows in population,85546
+2025 rows missing number_of_motorist_killed,0
+2025 rows missing number_of_cyclist_killed,0
+2025 rows missing either death count (excluded by complete-pair rule),0
+2025 rows missing crash_date,0
+2025 rows with default-like crash_date (1900-01-01 or 1970-01-01),0
+rows with both death counts present (eligible for analysis),2132218
+year coverage note,1
+year coverage note,31

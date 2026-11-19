@@ -1,0 +1,36 @@
+fact,value
+Crash rows in plan population (2013–2025),2132218
+Crash rows in 2013,203742
+Crash rows in 2014,206046
+Crash rows in 2015,217708
+Crash rows in 2016,229833
+Crash rows in 2017,231007
+Crash rows in 2018,231564
+Crash rows in 2019,211486
+Crash rows in 2020,112918
+Crash rows in 2021,110558
+Crash rows in 2022,103887
+Crash rows in 2023,96607
+Crash rows in 2024,91316
+Crash rows in 2025,85546
+Rows in file with missing crash_date (cannot be assigned to a year),0
+Rows in file with missing crash_date (cannot be assigned to a year),2269187
+Rows with possible default crash_date 0001-01-01,0
+Rows with possible default crash_date 1900-01-01,0
+Rows with possible default crash_date 1970-01-01,0
+Rows with possible default crash_date 2099-12-31,0
+Plan-population rows with missing number_of_pedestrians_killed,0
+Plan-population rows with missing number_of_pedestrians_killed,2132218
+Rows with missing number_of_pedestrians_killed in 2013,0
+Rows with missing number_of_pedestrians_killed in 2014,0
+Rows with missing number_of_pedestrians_killed in 2015,0
+Rows with missing number_of_pedestrians_killed in 2016,0
+Rows with missing number_of_pedestrians_killed in 2017,0
+Rows with missing number_of_pedestrians_killed in 2018,0
+Rows with missing number_of_pedestrians_killed in 2019,0
+Rows with missing number_of_pedestrians_killed in 2020,0
+Rows with missing number_of_pedestrians_killed in 2021,0
+Rows with missing number_of_pedestrians_killed in 2022,0
+Rows with missing number_of_pedestrians_killed in 2023,0
+Rows with missing number_of_pedestrians_killed in 2024,0
+Rows with missing number_of_pedestrians_killed in 2025,0

@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "can_answer": "yes: annual recorded counts of motorist and cyclist deaths can be compared directly; this does not measure an individual's or road user's risk of death",
+  "metric": "Annual number of recorded motorist deaths and cyclist deaths, each calculated as the sum of its corresponding *_killed column",
+  "denominator": "None; these are counts of recorded people killed, not rates",
+  "population": "All police-reported NYC motor vehicle crash rows with crash_date in calendar years 2013 through 2025 inclusive; the two death measures include nonmissing values of their respective killed columns",
+  "filters": ["crash_date year is 2013–2025 inclusive"],
+  "years": "Calendar years 2013–2025 inclusive",
+  "grouping": "Calendar year, with two series: motorist deaths and cyclist deaths",
+  "data_check": {
+    "population_rows": 2132218,
+    "population_rows_by_year": "Recorded in check_1.csv; every year 2013–2025 has dates from January 1 through December 31.",
+    "filter_and_group_column": "crash_date is a DATE, so empty strings and unknown words cannot occur as values; no rows have NULL dates, and no rows use 1900-01-01 or 1970-01-01 defaults. No impossible date values can be represented by the DATE type.",
+    "outcome_missing_rows": "number_of_motorist_killed and number_of_cyclist_killed each have zero missing rows in every included year."
+  },
+  "missing_data_decisions": "Keep all in-range crash rows and count their nonmissing killed-column values; no in-range rows are dropped or outcomes omitted due to missingness. All years are complete calendar years in the file.",
+  "plan_adjustment": "No change to the initial framing; the check supports retaining all eligible rows and outcomes.",
+  "limitations": "These are police-reported death counts, not individual risk or exposure-adjusted rates; conclusions are limited to recorded NYC crash deaths."
+}

@@ -1,5 +1,4 @@
 kind,q,rep,option,item,g1,g1_evidence,g2,g2_evidence,h,note
-disagree,A1,2,2,tr_TR05,PASS,“records without an exact BROOKLYN borough value were outside the population.”,FAIL,“Records without an exact BROOKLYN borough value were outside the population” omits the missing-borough exclusion and its 19.9–38.1% yearly scale.,,
 disagree,I1,3,2,required_statement,PASS,“The data cannot determine whether motorist-death risk per mile declined”; the answer also says the measure “does not account for miles driven.”,FAIL,"The answer says “does not account for miles driven,” but does not state in the written answer that the data has no vehicle-miles or traffic volume.",,
 disagree,K3,1,2,tr_TR03,NA,“recorded motorist and cyclist deaths”,PASS,"The answer refers to “combined motorist-and-cyclist deaths,” not all deaths.",,
 disagree,K3,2,1,tr_TR03,PASS,The answer discusses motorist and cyclist deaths separately and does not claim they constitute all deaths.,NA,No claim that motorist and cyclist deaths are all deaths.,,

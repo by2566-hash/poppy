@@ -1,5 +1,7 @@
 kind,q,rep,option,item,g1,g1_evidence,g2,g2_evidence,h,note
-disagree,A1,2,2,unsupported_claim,FAIL,“zero missing pedestrian-death values in the selected population” conflicts with the stated May- and June-2026 NULL outcome data.,PASS,“Exposure-adjusted risk is unavailable”; the answer describes recorded fatality counts without making a causal or exposure-risk claim.,,
+disagree,A1,2,1,c6,PASS,"“The check found 668,406 dated 2013-on rows with borough missing or unknown, excluded because they cannot be placed in Brooklyn”; “it cannot show exposure-adjusted risk”; “2026 is 1,104 through June 11 only.”",FAIL,“zero missing injury/death components in the planned rows”,,
+disagree,A1,2,1,unsupported_claim,PASS,"“these counts cannot establish whether risk per walking trip improved”; no causal, official-count, or unsupported numerical claim.",FAIL,“zero missing injury/death components in the planned rows”,,
+disagree,A1,3,1,unsupported_claim,PASS,“it does not answer whether risk per walking trip or distance improved because the file has no pedestrian-exposure denominator.”,FAIL,"“among the checked population, 0 borough/date values and 0 injury/death values were missing” conflicts with the supplied facts about NULL values in partial 2026.",,
 disagree,I1,3,3,unsupported_claim,FAIL,"“Checks found 0 missing motorist-deaths values among 2,132,218 source crash rows” contradicts the stated NULL values in May and June 2026.",PASS,“This file cannot establish whether risk per mile declined”,,
 audit,A1,3,1,c1,,,,,,
 audit,A1,3,1,c2,,,,,,

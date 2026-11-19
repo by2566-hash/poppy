@@ -1,0 +1,26 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer": "yes, for the number of pedestrians recorded as killed in police-reported NYC motor vehicle crashes in each requested calendar year",
+    "metric": "sum of number_of_pedestrians_killed",
+    "denominator": "none; annual count total across eligible crash rows",
+    "population": "police-reported motor vehicle crashes with crash_date in calendar years 2013 through 2025",
+    "filters": ["crash_date is in 2013-01-01 through 2025-12-31"],
+    "years": "2013-2025 inclusive",
+    "grouping": "calendar year of crash_date"
+  },
+  "data_check": {
+    "facts_file": "./out/check_1.csv",
+    "meaning_and_decisions": "The 2,132,218 police-reported crash rows with a crash_date in 2013-2025 are included, with no additional row filters. Each requested year has recorded dates spanning January 1 through December 31; the file does not appear to cover any requested year only in part based on its observed date range. crash_date is not missing in the file, is typed as DATE, and neither checked default date occurs. number_of_pedestrians_killed is missing on 0 rows in every requested year, so no outcome rows are excluded and no totals require imputation. The population remains the recorded police-reported crashes dated in each requested calendar year; this does not establish completeness beyond the file's reporting scope."
+  },
+  "final_plan": {
+    "can_answer": "yes, the dataset supports annual recorded pedestrian-fatality counts for the requested years",
+    "metric": "annual total of number_of_pedestrians_killed, summed across eligible crashes",
+    "denominator": "none; this is a count total, not a rate or share",
+    "population": "all police-reported motor vehicle crashes in the file with crash_date in calendar years 2013 through 2025",
+    "filters": ["crash_date from 2013-01-01 inclusive to 2026-01-01 exclusive; no other filters"],
+    "years": "2013-2025 inclusive; observed crash_date spans January 1 through December 31 in each year",
+    "grouping": "calendar year of crash_date",
+    "limitations": "Counts represent pedestrian deaths recorded in this police-reported crash file, not independently verified citywide totals. The outcome column has no missing rows in the requested years, and observed dates span each full calendar year; this check cannot verify completeness outside the file's reporting scope."
+  }
+}

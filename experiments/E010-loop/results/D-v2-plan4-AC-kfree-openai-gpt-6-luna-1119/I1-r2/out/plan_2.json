@@ -1,0 +1,32 @@
+{
+  "status": "partly",
+  "answerability": "Crash records do not contain vehicle-miles traveled, so they cannot establish the risk of motorist death per mile or whether that risk declined. They can show annual counts of reported crashes in which at least one motorist was recorded killed.",
+  "metric": "Annual number of police-reported NYC crashes with number_of_motorist_killed greater than zero.",
+  "denominator": "No exposure denominator; this is a crash-event count, not a per-mile rate.",
+  "population": "All crash records with crash_date in calendar years 2013 through 2025 inclusive; each crash contributes one event if at least one motorist was recorded killed.",
+  "filters": ["crash_date from 2013-01-01 inclusive through 2026-01-01 exclusive"],
+  "years": "Calendar years 2013–2025 inclusive, derived from crash_date.",
+  "grouping": "Calendar year of crash_date.",
+  "data_check": {
+    "population_rows": 2132218,
+    "per_year_rows": {
+      "2013": 203742,
+      "2014": 206046,
+      "2015": 217708,
+      "2016": 229833,
+      "2017": 231007,
+      "2018": 231564,
+      "2019": 211486,
+      "2020": 112918,
+      "2021": 110558,
+      "2022": 103887,
+      "2023": 96607,
+      "2024": 91316,
+      "2025": 85546
+    },
+    "missingness": "For the planned population, crash_date is missing in 0 rows and number_of_motorist_killed is missing in 0 rows. Each planned year has observed dates from January 1 through December 31.",
+    "limitations": "The data contain no vehicle-miles traveled, so per-mile risk and its change cannot be estimated. No planned rows are dropped for missing crash date or motorist-death count. The annual date endpoints span each calendar year, with no partially covered year detected by the endpoint check."
+  },
+  "decisions": "Keep all dated crash records in 2013–2025 and disclose that the measure is a crash-event count without mileage exposure; count a crash once if at least one motorist was recorded killed. Do not exclude any records for missing motorist-death counts because none are missing. Records outside the date window are outside the defined population.",
+  "final_plan": true
+}

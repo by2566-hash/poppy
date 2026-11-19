@@ -1,0 +1,39 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "can_answer": "partly: crash records include reported injuries and deaths, so they can compare injury-crash frequency by time group, but cannot establish risk per trip, mile, or amount of traffic.",
+    "metric": "Share of eligible police-reported crashes with at least one reported person injured or killed.",
+    "denominator": "Crash records with complete values in all four total-person injury/death columns and a classifiable crash_time, within complete calendar years.",
+    "population": "Police-reported crashes dated in complete years in the file, with a valid time and complete injury/death totals.",
+    "filters": ["Exclude incomplete calendar years if found.", "Exclude crash records with missing, empty, unknown, default, or impossible crash_time values from day/night groups.", "Exclude records missing number_of_persons_injured or number_of_persons_killed."],
+    "years": "All complete calendar years represented in the file, determined in the data check.",
+    "grouping": "Night (20:00–05:59) versus day (06:00–19:59).",
+    "check_notes": null,
+    "limitations": null
+  },
+  "data_check": {
+    "facts": {
+      "all_file_years": 2269187,
+      "partial_2012_rows": 100545,
+      "partial_2026_rows": 36424,
+      "complete_year_candidate_rows_2013_2025": 2132218,
+      "missing_or_unparseable_crash_time_in_final_years": 0,
+      "midnight_times_in_final_years": 23787,
+      "number_of_persons_injured_missing_in_final_years": 18,
+      "number_of_persons_killed_missing_in_final_years": 36,
+      "rows_missing_either_required_outcome_total": 42,
+      "eligible_complete_case_rows": 2132176
+    },
+    "meaning_and_decisions": "The first and last years are partial (2012 and 2026), so exclude their 136,969 records and use complete years 2013–2025. Crash time is complete; midnight appears 23,787 times and may be actual or default, so retain it as night and disclose the ambiguity. In complete years, 18 rows lack the injured total and 36 lack the killed total; 42 unique rows lack at least one required value. Exclude those 42 from both numerator eligibility and the denominator rather than treating missing outcomes as zero; the resulting eligible population is 2,132,176 crashes."
+  },
+  "final_plan": {
+    "can_answer": "partly: this compares the proportion of crashes with reported injury or death by time group, but cannot establish relative danger per trip, mile, or amount of traffic.",
+    "metric": "Percentage of eligible police-reported crashes with at least one person injured or killed, computed as 100 × crashes where number_of_persons_injured > 0 or number_of_persons_killed > 0 divided by eligible crash records.",
+    "denominator": "Within each time group, eligible police-reported crashes with complete values for number_of_persons_injured and number_of_persons_killed.",
+    "population": "Police-reported crashes dated in complete calendar years 2013–2025, with a classifiable crash time and complete all-person injury and death totals.",
+    "filters": ["Exclude partial years 2012 and 2026.", "Exclude rows missing either all-person injury/death total.", "Retain midnight values as night; report their possible default-value concern."],
+    "years": "2013–2025 inclusive.",
+    "grouping": "Night (20:00–05:59) versus day (06:00–19:59).",
+    "limitations": "This is the share of reported crashes involving injury or death, not a risk per trip, mile, or amount of traffic. The dataset contains police-reported crashes only. The date-range check identified partial 2012 and 2026, which are excluded. Crash time has zero missing/unparseable values in the final years; 23,787 midnight records are retained as night despite possible default-value ambiguity. Forty-two complete-year records with missing outcome totals are excluded (18 missing injured, 36 missing killed; categories overlap)."
+  }
+}
