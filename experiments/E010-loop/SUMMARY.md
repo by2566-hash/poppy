@@ -78,4 +78,4 @@ Trap counts (FAIL / applicable) for the arms that matter:
 - 19 neighbour questions: teammate check.
 - `values.csv`-only reverse-inference runner for the formal round-trip distance.
 - E010-v4: the I1 target (`ITERATIONS.md`, 11-19). It bundles two changes: keep only if both PERMILE and TR01 fall and nothing rises; if mixed, split into two arms.
-- After v4 (proposed by Bo's other session, Bo to confirm): held-out P1–P10, E010-v3 vs D v2 same day hermetic; F2 phrasing robustness; `values.csv`-only reverse-inference runner + judge v0 validated on human labels; the four numbers on D v2 vs E010-v3.
+- After v4: **under discussion** (Bo). Nothing after v4 is started.
