@@ -1,0 +1,20 @@
+{
+  "id": 1,
+  "status": "yes",
+  "answerable_part": "The file supports the weekday distribution of police-reported crash rows across the requested calendar years.",
+  "metric": "Number of police-reported crash rows per weekday, plus each weekday's share of all qualifying crash rows in 2013–2025.",
+  "denominator": "For the share, all crash rows with a nonmissing crash_date from 2013-01-01 through 2025-12-31.",
+  "population": "One row per police-reported NYC motor vehicle crash whose crash_date falls in calendar years 2013–2025.",
+  "filters": ["crash_date is within 2013-01-01 to 2025-12-31 inclusive"],
+  "years": [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  "grouping": "Weekday of crash_date, Monday through Sunday.",
+  "initial_plan": "Show total qualifying crash-row counts and shares by weekday across the requested span.",
+  "data_check": {
+    "population_rows": 2132218,
+    "rows_by_year": {"2013": 203742, "2014": 206046, "2015": 217708, "2016": 229833, "2017": 231007, "2018": 231564, "2019": 211486, "2020": 112918, "2021": 110558, "2022": 103887, "2023": 96607, "2024": 91316, "2025": 85546},
+    "date_missing_within_population": 0,
+    "year_coverage": "Every requested year has an observed date range from January 1 through December 31; the DATE type cannot contain empty strings, unknown words, or impossible calendar dates. Boundary coverage does not independently prove reporting on every day."
+  },
+  "data_check_decisions": "Keep all qualifying rows. No date is missing within the selected population, and no date conversion or exclusion is needed. The annual row count ranges from 231564 in 2018 to 85546 in 2025; pooled shares consequently weight years in proportion to their crash-row totals. No change to the initial plan.",
+  "limitations": "Counts describe police-reported crash rows in this file, not all crashes; observed year boundaries span each calendar year but do not prove that reporting is complete on every intervening date. Pooled shares weight years by their crash-row totals, which vary substantially."
+}

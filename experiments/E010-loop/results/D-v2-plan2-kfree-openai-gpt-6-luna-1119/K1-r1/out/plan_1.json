@@ -1,0 +1,20 @@
+{
+  "id": 1,
+  "question": "How many pedestrians were killed in NYC motor vehicle crashes each year from 2013 to 2025?",
+  "answerability": "yes: the file has a crash-level count of pedestrians killed that can be summed by crash year; the data description does not specify a geographic subset filter, so NYC is taken as the dataset's stated population.",
+  "metric": "Annual number of pedestrians killed, calculated as the sum of number_of_pedestrians_killed across crashes.",
+  "denominator": "None; this is an absolute annual count, not a rate or share.",
+  "population": "Police-reported motor vehicle crashes in the NYC crash file with crash_date in calendar years 2013 through 2025, inclusive.",
+  "filters": ["crash_date >= 2013-01-01", "crash_date < 2026-01-01"],
+  "years": "Calendar year extracted from crash_date, 2013–2025 inclusive.",
+  "grouping": "Calendar year of crash_date.",
+  "chart_type": "Line chart.",
+  "data_check": {
+    "population_rows": 2132218,
+    "per_year": "All 13 requested years are present; each year's observed first and last crash dates are January 1 and December 31.",
+    "missingness": "No crash_date is missing in the in-scope population and number_of_pedestrians_killed is missing on 0 rows in every year.",
+    "default_values": "No in-scope crash_date equals 1970-01-01; crash_date is a date used for temporal filtering/grouping, not a categorical measure with a relevant default pile-up.",
+    "decisions": "Retain all in-scope crashes; none are dropped or treated differently due to date or pedestrian-death-count missingness. Sum the recorded pedestrian-death counts as planned."
+  },
+  "limitations": "These are counts recorded in police-reported crash rows; the data check found no missing pedestrian-death counts within the target years and observed dates span January 1 through December 31 in each year. This is an absolute count, not an exposure-adjusted risk or rate."
+}

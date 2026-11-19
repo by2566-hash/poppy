@@ -1,0 +1,4 @@
+ANSWER:
+1. The file cannot establish whether pedestrian safety improved, but reported pedestrian injuries plus deaths totaled 3,671 in 2013, 1,798 in 2020, and 2,874 in 2025 ([chart](out/option_1.png)).
+2. The file cannot establish whether pedestrian safety improved, but it records 30 pedestrian deaths in 2013, a peak of 46 in 2015, and 39 in 2025 ([chart](out/option_2.png)).
+3. The file cannot establish whether pedestrian safety improved, but crash reports with a pedestrian injury or death made up 7.4% of Brooklyn crash records in 2013, a low of 5.7% in 2017, and 11.4% in 2025 ([chart](out/option_3.png)).

@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of crash records",
+      "denominator": "None; absolute crash-record count for each weekday",
+      "grouping": "Day of week of crash_date, Monday through Sunday",
+      "chart_type": "Vertical bar chart of crash-record counts",
+      "reason": "Absolute counts directly answer how the total number of recorded NYC crashes is distributed across weekdays.",
+      "probability": 0.55,
+      "answer": "Friday had the most recorded crashes (338,800) and Sunday the fewest (257,544) among 2,132,218 crashes from 2013 through 2025.",
+      "interpretation": "For 2013–2025 inclusive, this counts each police-reported crash row with an in-range typed crash_date once and groups rows by the date's calendar weekday; Friday has the most (338,800) and Sunday the fewest (257,544) of 2,132,218. Absolute counts directly describe recorded volume across the requested period, a defensible reading of “distributed,” but they do not show weekday-specific risk adjusted for traffic exposure or changes within the period. The data check found 0 missing or invalid dates among the 2,132,218 in-scope rows and crash records on every calendar date in all 13 years, so all in-scope rows are retained. Missing dates cannot be assigned a weekday and dates outside 2013–2025 are out of scope."
+    },
+    {
+      "id": 2,
+      "metric": "Share of crash records, as a percentage of all included crash records",
+      "denominator": "All police-reported crash rows with a typed crash_date in calendar years 2013 through 2025 inclusive (2,132,218 rows)",
+      "grouping": "Day of week of crash_date, Monday through Sunday",
+      "chart_type": "Vertical bar chart of each weekday's share of all crash records",
+      "reason": "Weekday shares express the distribution as portions of one common total, independent of the total number of records.",
+      "probability": 0.45,
+      "answer": "Friday accounted for the largest share of crashes (15.89%) and Sunday the smallest (12.08%) from 2013 through 2025.",
+      "interpretation": "For 2013–2025 inclusive, each bar is a weekday's crash-record count divided by all 2,132,218 police-reported crash rows with an in-range typed crash_date; Friday accounts for 15.89% and Sunday 12.08%. This common-total denominator directly describes the composition of recorded crashes by calendar weekday, but does not estimate weekday-specific crash risk adjusted for traffic exposure or changes within the period. The data check found 0 missing or invalid dates among the 2,132,218 in-scope rows and crash records on every calendar date in all 13 years, so all in-scope rows are retained. Missing dates cannot be assigned a weekday and dates outside 2013–2025 are out of scope."
+    }
+  ]
+}

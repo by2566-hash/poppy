@@ -1,0 +1,2 @@
+ANSWER: By annual reported death counts, motorist deaths exceeded cyclist deaths every year from 2013–2025; in 2025 the counts were 81 and 23, respectively.
+By each group’s share of the combined motorist and cyclist deaths, motorists had the larger share every year, while the cyclist share ranged from 9.1% in 2013 to 27.4% in 2019 and was 22.1% in 2025.

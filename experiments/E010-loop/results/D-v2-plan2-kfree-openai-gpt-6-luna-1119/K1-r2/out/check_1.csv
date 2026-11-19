@@ -1,0 +1,45 @@
+fact,value
+"included crash rows, 2013–2025",2132218
+2013 included crash rows,203742
+"2013 date coverage, first–last",2013-01-01–2013-12-31
+2013 year coverage,both calendar endpoints represented; interior-day completeness not established
+2014 included crash rows,206046
+"2014 date coverage, first–last",2014-01-01–2014-12-31
+2014 year coverage,both calendar endpoints represented; interior-day completeness not established
+2015 included crash rows,217708
+"2015 date coverage, first–last",2015-01-01–2015-12-31
+2015 year coverage,both calendar endpoints represented; interior-day completeness not established
+2016 included crash rows,229833
+"2016 date coverage, first–last",2016-01-01–2016-12-31
+2016 year coverage,both calendar endpoints represented; interior-day completeness not established
+2017 included crash rows,231007
+"2017 date coverage, first–last",2017-01-01–2017-12-31
+2017 year coverage,both calendar endpoints represented; interior-day completeness not established
+2018 included crash rows,231564
+"2018 date coverage, first–last",2018-01-01–2018-12-31
+2018 year coverage,both calendar endpoints represented; interior-day completeness not established
+2019 included crash rows,211486
+"2019 date coverage, first–last",2019-01-01–2019-12-31
+2019 year coverage,both calendar endpoints represented; interior-day completeness not established
+2020 included crash rows,112918
+"2020 date coverage, first–last",2020-01-01–2020-12-31
+2020 year coverage,both calendar endpoints represented; interior-day completeness not established
+2021 included crash rows,110558
+"2021 date coverage, first–last",2021-01-01–2021-12-31
+2021 year coverage,both calendar endpoints represented; interior-day completeness not established
+2022 included crash rows,103887
+"2022 date coverage, first–last",2022-01-01–2022-12-31
+2022 year coverage,both calendar endpoints represented; interior-day completeness not established
+2023 included crash rows,96607
+"2023 date coverage, first–last",2023-01-01–2023-12-31
+2023 year coverage,both calendar endpoints represented; interior-day completeness not established
+2024 included crash rows,91316
+"2024 date coverage, first–last",2024-01-01–2024-12-31
+2024 year coverage,both calendar endpoints represented; interior-day completeness not established
+2025 included crash rows,85546
+"2025 date coverage, first–last",2025-01-01–2025-12-31
+2025 year coverage,both calendar endpoints represented; interior-day completeness not established
+crash_date missing among included rows,0
+crash_date invalid calendar dates among included rows,0
+crash_date known placeholder date within included years,none identified; conventional placeholder dates lie outside the planned years
+number_of_pedestrians_killed missing among included rows,0

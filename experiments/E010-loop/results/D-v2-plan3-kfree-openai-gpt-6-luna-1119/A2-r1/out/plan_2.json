@@ -1,0 +1,26 @@
+{
+  "initial_plan": {
+    "answerability": "partly: the file can compare the share of reported crashes involving recorded injury or death by time of day, a crash-severity measure, but cannot establish crash risk per trip or per person because exposure denominators are absent",
+    "metric": "share of classifiable police-reported crashes with at least one person injured or killed",
+    "denominator": "number of police-reported crash rows with both number_of_persons_injured and number_of_persons_killed present, within each year and time group",
+    "population": "all crashes with a nonmissing crash_date in the years selected after the data check; missing/unclassifiable crash_time is retained as Unknown; crashes missing either total injury or total death count are not classifiable and excluded from the denominator",
+    "filters": ["nonmissing crash_date", "both number_of_persons_injured and number_of_persons_killed nonmissing", "include all available calendar years; final handling of partial years pending data check"],
+    "years": "all calendar years represented by nonmissing crash_date; identify exact range and partial years in the data check",
+    "grouping": ["calendar year of crash_date", "Night (20:00–05:59), Day (06:00–19:59), or Unknown time if crash_time is missing/unclassifiable"]
+  },
+  "data_check_and_decisions": {
+    "facts": "There are 2,269,187 dated rows and no missing crash_date; the first date is 2012-07-01 and the last is 2026-06-11. The recorded date spans identify 2012 (100,545 rows) and 2026 (36,424 rows) as partial endpoint years; 2013–2025 each have recorded dates spanning Jan 1 through Dec 31. In the final years there are 2,132,218 rows and no missing crash_time; 23,787 have typed time 00:00:00. Of the two total outcome fields, number_of_persons_injured is missing in 18 rows and number_of_persons_killed in 36; 42 rows are missing at least one, leaving 2,132,176 with both fields present. DATE and TIME are typed fields, and no selected-year dates equal the checked 1900-01-01 or 1970-01-01 defaults.",
+    "meaning_and_decisions": "Exclude partial endpoint years 2012 and 2026. Exclude the 42 selected-year crashes missing either total outcome field, because the presence of injury or death cannot be classified for them; use only the total persons injured and killed fields, not the pedestrian/cyclist/motorist subsets. Retain 00:00:00 as a valid time and assign it to Night; there are no missing/unclassifiable crash times, so no Unknown group is needed.",
+    "change": "Restrict the years to 2013–2025 after the check showed partial first and last calendar years; apply the planned complete-outcome filter, which excludes 42 rows."
+  },
+  "final_plan": {
+    "answerability": "partly: the data can compare the share of reported crashes involving at least one recorded injury or death at night and during the day, but without traffic, travel, or person-exposure denominators it cannot establish whether a street user is more likely to crash at night",
+    "metric": "share of classifiable police-reported crashes with number_of_persons_injured greater than zero or number_of_persons_killed greater than zero",
+    "denominator": "crash rows in the same time group and 2013–2025 period with both total injury and total death fields present",
+    "population": "police-reported crash rows dated from 2013-01-01 through 2025-12-31 with a valid typed crash_time and both total injury/death counts present, pooled across 13 complete calendar years",
+    "filters": ["crash_date from 2013-01-01 inclusive to 2026-01-01 exclusive", "crash_time nonmissing", "number_of_persons_injured and number_of_persons_killed both nonmissing", "exclude partial endpoint years 2012 and 2026"],
+    "years": "2013–2025 inclusive",
+    "grouping": ["Night: 20:00–05:59", "Day: 06:00–19:59"],
+    "limitations": "This measures injury/fatality conditional on a police-reported crash, not the risk of crashing per trip or person; traffic exposure is unavailable. It uses only the total person injury and death fields, excludes crashes missing either field, and treats midnight as a valid Night time. Partial endpoint years are excluded; year-to-year report counts vary, so pooled shares weight years by their classifiable crash counts."
+  }
+}

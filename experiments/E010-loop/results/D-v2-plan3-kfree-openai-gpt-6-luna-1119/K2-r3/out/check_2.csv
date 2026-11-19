@@ -1,0 +1,69 @@
+fact,value
+Population rows with crash_date from 2013-01-01 through 2025-12-31,2132218
+Missing crash_date values within selected population,0
+crash_date storage type,"DATE: empty strings, unknown words, and impossible calendar dates cannot be represented"
+2013 population rows,203742
+2013 first observed crash_date,2013-01-01
+2013 last observed crash_date,2013-12-31
+2013 missing crash_date values,0
+2013 covers only part of calendar year by observed date bounds,false
+2014 population rows,206046
+2014 first observed crash_date,2014-01-01
+2014 last observed crash_date,2014-12-31
+2014 missing crash_date values,0
+2014 covers only part of calendar year by observed date bounds,false
+2015 population rows,217708
+2015 first observed crash_date,2015-01-01
+2015 last observed crash_date,2015-12-31
+2015 missing crash_date values,0
+2015 covers only part of calendar year by observed date bounds,false
+2016 population rows,229833
+2016 first observed crash_date,2016-01-01
+2016 last observed crash_date,2016-12-31
+2016 missing crash_date values,0
+2016 covers only part of calendar year by observed date bounds,false
+2017 population rows,231007
+2017 first observed crash_date,2017-01-01
+2017 last observed crash_date,2017-12-31
+2017 missing crash_date values,0
+2017 covers only part of calendar year by observed date bounds,false
+2018 population rows,231564
+2018 first observed crash_date,2018-01-01
+2018 last observed crash_date,2018-12-31
+2018 missing crash_date values,0
+2018 covers only part of calendar year by observed date bounds,false
+2019 population rows,211486
+2019 first observed crash_date,2019-01-01
+2019 last observed crash_date,2019-12-31
+2019 missing crash_date values,0
+2019 covers only part of calendar year by observed date bounds,false
+2020 population rows,112918
+2020 first observed crash_date,2020-01-01
+2020 last observed crash_date,2020-12-31
+2020 missing crash_date values,0
+2020 covers only part of calendar year by observed date bounds,false
+2021 population rows,110558
+2021 first observed crash_date,2021-01-01
+2021 last observed crash_date,2021-12-31
+2021 missing crash_date values,0
+2021 covers only part of calendar year by observed date bounds,false
+2022 population rows,103887
+2022 first observed crash_date,2022-01-01
+2022 last observed crash_date,2022-12-31
+2022 missing crash_date values,0
+2022 covers only part of calendar year by observed date bounds,false
+2023 population rows,96607
+2023 first observed crash_date,2023-01-01
+2023 last observed crash_date,2023-12-31
+2023 missing crash_date values,0
+2023 covers only part of calendar year by observed date bounds,false
+2024 population rows,91316
+2024 first observed crash_date,2024-01-01
+2024 last observed crash_date,2024-12-31
+2024 missing crash_date values,0
+2024 covers only part of calendar year by observed date bounds,false
+2025 population rows,85546
+2025 first observed crash_date,2025-01-01
+2025 last observed crash_date,2025-12-31
+2025 missing crash_date values,0
+2025 covers only part of calendar year by observed date bounds,false

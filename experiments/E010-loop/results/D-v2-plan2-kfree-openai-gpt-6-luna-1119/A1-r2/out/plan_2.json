@@ -1,0 +1,13 @@
+{
+  "status": "final",
+  "can_answer": "partly: the data can show annual counts of pedestrians killed in police-reported Brooklyn crashes from 2013 onward, but not fatality risk per pedestrian trip or population because exposure denominators are absent",
+  "metric": "annual total number of pedestrians killed, summed from number_of_pedestrians_killed",
+  "denominator": "none; an annual count across Brooklyn crash records",
+  "population": "pedestrians recorded as killed in police-reported crashes whose borough is Brooklyn",
+  "filters": ["upper(trim(borough)) = BROOKLYN", "crash_date in complete calendar years 2013–2025", "rows with a missing death count are not included in the death sum; none are missing in the checked population"],
+  "years": "calendar years 2013–2025 inclusive",
+  "grouping": "calendar year of crash_date",
+  "plan_changes": "The initial 2013-onward period was restricted to complete years 2013–2025 because 2026 is observed only through June 11; the literal case-sensitive borough filter was normalized because the stored borough label is uppercase BROOKLYN.",
+  "data_check": "The final 2013–2025 population has 473,801 Brooklyn crash rows. The death field is nonmissing in all 473,801. Each year 2013–2025 has observations from January 1 through December 31. Brooklyn appears uppercase, so the original exact-case filter would return no rows; the final filter normalizes case and whitespace. The check also found 9,700 candidate rows in partial 2026, observed only through June 11, and these are excluded.",
+  "limitations": "These are annual fatality counts from police-reported crashes, not pedestrian exposure-adjusted risk; the file has no pedestrian-trip or population denominator. Counts can also change with the volume of reported crashes. The partial 2026 year is excluded."
+}

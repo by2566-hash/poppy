@@ -1,0 +1,54 @@
+fact,value
+2013 candidate dated crash rows,203742
+2013 plan-population rows with recorded motorist-killed field,203742
+2013 rows with missing motorist-killed field among candidate dated crashes,0
+2014 candidate dated crash rows,206046
+2014 plan-population rows with recorded motorist-killed field,206046
+2014 rows with missing motorist-killed field among candidate dated crashes,0
+2015 candidate dated crash rows,217708
+2015 plan-population rows with recorded motorist-killed field,217708
+2015 rows with missing motorist-killed field among candidate dated crashes,0
+2016 candidate dated crash rows,229833
+2016 plan-population rows with recorded motorist-killed field,229833
+2016 rows with missing motorist-killed field among candidate dated crashes,0
+2017 candidate dated crash rows,231007
+2017 plan-population rows with recorded motorist-killed field,231007
+2017 rows with missing motorist-killed field among candidate dated crashes,0
+2018 candidate dated crash rows,231564
+2018 plan-population rows with recorded motorist-killed field,231564
+2018 rows with missing motorist-killed field among candidate dated crashes,0
+2019 candidate dated crash rows,211486
+2019 plan-population rows with recorded motorist-killed field,211486
+2019 rows with missing motorist-killed field among candidate dated crashes,0
+2020 candidate dated crash rows,112918
+2020 plan-population rows with recorded motorist-killed field,112918
+2020 rows with missing motorist-killed field among candidate dated crashes,0
+2021 candidate dated crash rows,110558
+2021 plan-population rows with recorded motorist-killed field,110558
+2021 rows with missing motorist-killed field among candidate dated crashes,0
+2022 candidate dated crash rows,103887
+2022 plan-population rows with recorded motorist-killed field,103887
+2022 rows with missing motorist-killed field among candidate dated crashes,0
+2023 candidate dated crash rows,96607
+2023 plan-population rows with recorded motorist-killed field,96607
+2023 rows with missing motorist-killed field among candidate dated crashes,0
+2024 candidate dated crash rows,91316
+2024 plan-population rows with recorded motorist-killed field,91316
+2024 rows with missing motorist-killed field among candidate dated crashes,0
+2025 candidate dated crash rows,85546
+2025 plan-population rows with recorded motorist-killed field,85546
+2025 rows with missing motorist-killed field among candidate dated crashes,0
+crash_date missing among rows assignable to plan years,0
+2013 plan-column impossible negative motorist-killed counts,0
+2014 plan-column impossible negative motorist-killed counts,0
+2015 plan-column impossible negative motorist-killed counts,0
+2016 plan-column impossible negative motorist-killed counts,0
+2017 plan-column impossible negative motorist-killed counts,0
+2018 plan-column impossible negative motorist-killed counts,0
+2019 plan-column impossible negative motorist-killed counts,0
+2020 plan-column impossible negative motorist-killed counts,0
+2021 plan-column impossible negative motorist-killed counts,0
+2022 plan-column impossible negative motorist-killed counts,0
+2023 plan-column impossible negative motorist-killed counts,0
+2024 plan-column impossible negative motorist-killed counts,0
+2025 plan-column impossible negative motorist-killed counts,0

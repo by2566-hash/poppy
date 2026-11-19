@@ -1,0 +1,26 @@
+{
+  "initial_plan": {
+    "can_answer": "partly: describes the annual number of Brooklyn crash records with at least one reported pedestrian injury or death, but not an exposure-adjusted safety risk or the cause of any change",
+    "metric": "Annual count of crash rows with number_of_pedestrians_injured > 0 or number_of_pedestrians_killed > 0, counting each crash once",
+    "denominator": "None; an annual crash-record count, not a rate",
+    "population": "Police-reported crash rows with borough Brooklyn and a non-null crash_date in 2013 or later; a crash is counted once if it reports at least one pedestrian injured or killed",
+    "filters": ["borough = Brooklyn", "crash_date year >= 2013", "number_of_pedestrians_injured > 0 or number_of_pedestrians_killed > 0"],
+    "years": "Every calendar year from 2013 through the latest year represented by the file, subject to file coverage",
+    "grouping": "Calendar year of crash_date",
+    "data_check": "Pending; inspect row coverage and missingness in the two injury/death columns used to identify pedestrian-injury crashes before deciding how to treat unknown outcomes."
+  },
+  "data_check_interpretation": {
+    "facts": "The initial case-sensitive borough comparison returned no matching rows; normalizing borough with lower(trim()) produced 483,501 Brooklyn crash rows for 2013-2026. Among those rows, 0 had a missing/unknown borough or missing crash_date, and 0 had a null or negative value in either pedestrian injury/death field. Each full year from 2013 through 2025 had date coverage from January 1 through December 31; 2026 had 9,700 rows from January 1 through June 11 and is partial. Included full-year row counts range from 47,024 in 2013 and a peak of 50,851 in 2015 to 22,785 in 2024 and 24,303 in 2025.",
+    "decisions": "Changed the borough filter to case- and whitespace-normalized Brooklyn because the literal initial filter matched no rows. Keep all eligible 2013-2025 rows and classify them using the two pedestrian outcome fields; neither field is missing or impossible in the check population, so no crash has unknown pedestrian-involvement status from these fields. Exclude all 2026 rows (9,700) from the plotted trend because the file only covers that year through June 11; this changes the initial through-latest-year range to complete calendar years only."
+  },
+  "final_plan": {
+    "can_answer": "partly: describes the annual share of Brooklyn police-reported crash records that include a reported pedestrian injury or death, but not a pedestrian-exposure-adjusted safety risk or its cause",
+    "metric": "For each calendar year, count each selected crash row once if number_of_pedestrians_injured > 0 or number_of_pedestrians_killed > 0, then divide by all selected Brooklyn crash rows in that year and report as a percentage",
+    "denominator": "All police-reported Brooklyn crash rows with valid crash_date in that calendar year; each row is one crash record, not a pedestrian or travel-exposure unit",
+    "population": "All police-reported crash rows with lower(trim(borough)) = 'brooklyn' and crash_date in calendar years 2013-2025, inclusive; only complete calendar years are included",
+    "filters": ["lower(trim(borough)) = 'brooklyn'", "crash_date >= 2013-01-01", "calendar year <= 2025"],
+    "years": "2013-2025 inclusive; the partial 2026 year is excluded",
+    "grouping": "Calendar year of crash_date",
+    "limitations": "This measures the fraction of crash reports with a pedestrian casualty, not the risk per pedestrian, trip, or distance walked. Checks found 0 missing or negative values in either classification field among the 2013-2026 Brooklyn check population; 2026 was only covered through June 11 (9,700 rows), so it is excluded. The crash-record denominator ranges from 50,851 in 2015 to 22,785 in 2024, so the percentage describes composition in a changing crash-record pool rather than a constant exposure base."
+  }
+}

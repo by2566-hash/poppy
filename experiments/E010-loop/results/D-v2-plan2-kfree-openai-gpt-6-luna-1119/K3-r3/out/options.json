@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual sum of number_of_motorist_killed and annual sum of number_of_cyclist_killed, reported as separate raw counts",
+      "denominator": "None; raw fatality counts",
+      "grouping": "Calendar year of crash_date and fatality category: motorist or cyclist",
+      "chart_type": "Line chart",
+      "reason": "Raw yearly counts directly compare the recorded number of deaths in the two requested road-user categories.",
+      "probability": 0.65,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year; motorist deaths ranged from 72 to 139 (peaking at 139 in 2020), while cyclist deaths ranged from 10 to 31 (peaking at 31 in 2019 and 2023).",
+      "interpretation": "This answers the year-by-year comparison with separate annual sums of the motorist-killed and cyclist-killed fields for all police-reported NYC crash rows dated 2013-2025 inclusive; plotted values are deaths, not crashes. Motorist death counts exceeded cyclist counts in every year, with the respective ranges 72-139 and 10-31, making raw totals a direct and defensible comparison of recorded fatalities. This framing does not compare risk per trip or person, explain changes, or include pedestrian deaths in either series. The date filter leaves out crashes outside 2013-2025 or without an in-range date; within the selected 2,132,218 rows (85,546-231,564 per year), the check found zero missing values in either death field each year and observed Jan 1-Dec 31 dates in every year, so all selected rows are retained, although full reporting completeness cannot be verified."
+    },
+    {
+      "id": 2,
+      "metric": "Annual cyclist share and complementary motorist share of combined motorist and cyclist deaths",
+      "denominator": "For each year, summed motorist deaths plus summed cyclist deaths",
+      "grouping": "Calendar year of crash_date and fatality category: motorist or cyclist",
+      "chart_type": "100% stacked bar chart",
+      "reason": "A yearly composition view shows how the balance between the two requested fatality categories changes independently of their combined count.",
+      "probability": 0.35,
+      "answer": "Cyclists made up 9.1%-27.4% of the combined motorist-and-cyclist deaths each year, with the highest share in 2019; motorists remained the larger share in every year.",
+      "interpretation": "This answers how the year-by-year balance compares by showing each group's share of the combined annual sums of motorist-killed and cyclist-killed fields for police-reported NYC crashes dated 2013-2025 inclusive; each 100% bar uses only those two fatality categories. Cyclists' share ranged from 9.1% in 2013 to 27.4% in 2019, while the motorist share was larger each year, so this is a defensible view of changing composition. It leaves the absolute annual burden, deaths among pedestrians, and exposure-adjusted risk unanswered because shares normalize only by the combined motorist-and-cyclist total. The date filter leaves out crashes outside 2013-2025 or without an in-range date; within the selected 2,132,218 rows (85,546-231,564 per year), the check found zero missing values in either death field each year and observed Jan 1-Dec 31 dates in every year, so all selected rows are retained, although full reporting completeness cannot be verified."
+    }
+  ]
+}

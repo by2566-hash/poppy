@@ -1,0 +1,4 @@
+I’ll treat this as crash counts by weekday, while checking how complete the requested 2013–2025 span is and whether weekday assignment requires any data exclusions. I’ll save the checks, chart data, chart, and final interpretations under `./out`.
+The checks show 2,132,218 dated crash rows across the requested period, with each year represented from January 1 through December 31 and no missing dates within the selected rows. Annual row totals vary substantially, so I’m using a pooled count/share framing and a separate equal-year-weighted annual-share framing; the latter avoids presenting an unverified per-calendar-day average.
+ANSWER: Across 2,132,218 police-reported crash rows dated 2013–2025, Friday had the largest share (338,800; 15.89%) and Sunday the smallest (257,544; 12.08%).
+When each year’s weekday shares are averaged equally across 2013–2025, Friday had the highest mean share (15.82%) and Sunday the lowest (12.33%).

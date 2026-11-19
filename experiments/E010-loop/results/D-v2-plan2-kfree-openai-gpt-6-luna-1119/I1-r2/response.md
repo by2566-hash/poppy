@@ -1,0 +1,4 @@
+I’ll check whether the file contains a miles-driven denominator. Since it does not appear in the supplied columns, I’ll also produce defensible crash-based annual comparisons and clearly label them as unable to establish risk per mile.
+The selected period has 2,132,218 crash records, with observed dates spanning Jan 1–Dec 31 in every year from 2013 through 2025. The checked motorist-fatality field and in-period crash dates have no missing entries; I’ll retain all eligible rows and treat Jan. 1 dates as valid, since the check alone doesn’t establish they’re defaults.
+ANSWER: Recorded motorist deaths fell from 110 in 2013 to 81 in 2025, but this unadjusted count cannot show whether deaths per mile driven declined ([chart](out/option_1.png)).
+Motorist-fatality crashes rose from 0.501 to 0.877 per 1,000 reported crashes over the same period, but this crash-based measure cannot establish the per-mile trend ([chart](out/option_2.png)).

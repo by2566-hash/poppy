@@ -1,0 +1,26 @@
+{
+  "initial_plan": {
+    "can_answer": "partly: describes the annual reported number of pedestrians killed in Brooklyn crashes, but not an exposure-adjusted fatality risk or the cause of any change",
+    "metric": "Annual pedestrian deaths, calculated as the sum of number_of_pedestrians_killed across included Brooklyn crash rows",
+    "denominator": "None; an annual count, not a rate",
+    "population": "Police-reported crash rows with borough Brooklyn and a non-null crash_date in 2013 or later; each reported pedestrian death contributes one death",
+    "filters": ["borough = Brooklyn", "crash_date year >= 2013"],
+    "years": "Every calendar year from 2013 through the latest year represented by the file, subject to file coverage",
+    "grouping": "Calendar year of crash_date",
+    "data_check": "Pending; inspect row coverage and missingness in the summed outcome column before deciding how to treat missing outcomes."
+  },
+  "data_check_interpretation": {
+    "facts": "The initial case-sensitive borough comparison returned no matching rows; normalizing borough with lower(trim()) produced 483,501 Brooklyn crash rows for 2013-2026. Among those rows, 0 had a missing/unknown borough or missing crash_date, and 0 had a null or negative number_of_pedestrians_killed. Each full year from 2013 through 2025 had date coverage from January 1 through December 31; 2026 had 9,700 rows from January 1 through June 11 and is partial. Included full-year row counts range from 47,024 (2013) to 50,851 (2015) early in the series and 22,785 (2024) to 24,303 (2025) near its end.",
+    "decisions": "Changed the borough filter to case- and whitespace-normalized Brooklyn because the literal initial filter matched no rows. Keep all eligible 2013-2025 rows because the summed death field has no missing or impossible values in them. Exclude all 2026 rows (9,700) from the plotted trend because the file only covers that year through June 11; this changes the initial through-latest-year range to complete calendar years only."
+  },
+  "final_plan": {
+    "can_answer": "partly: describes annual reported pedestrian deaths in Brooklyn crashes, but this crash file has no pedestrian, walking, traffic, or distance exposure denominator and cannot establish a change in pedestrian fatality risk or its cause",
+    "metric": "For each calendar year, sum number_of_pedestrians_killed across the selected crash rows; each reported pedestrian death contributes one death",
+    "denominator": "None; annual reported death count, not a rate",
+    "population": "Police-reported crash rows with lower(trim(borough)) = 'brooklyn' and crash_date in calendar years 2013-2025, inclusive; only complete calendar years are included",
+    "filters": ["lower(trim(borough)) = 'brooklyn'", "crash_date >= 2013-01-01", "calendar year <= 2025"],
+    "years": "2013-2025 inclusive; the partial 2026 year is excluded",
+    "grouping": "Calendar year of crash_date",
+    "limitations": "This is an absolute fatality count from police-reported crashes, not an exposure-adjusted risk. Checks found 0 missing or negative values in the summed outcome field among the 2013-2026 Brooklyn check population; 2026 was only covered through June 11 (9,700 rows), so it is excluded. Crash-row counts vary from 47,024 in 2013 and 50,851 in 2015 to 22,785 in 2024 and 24,303 in 2025, so the fatality count is not adjusted for changes in the number of crash records."
+  }
+}

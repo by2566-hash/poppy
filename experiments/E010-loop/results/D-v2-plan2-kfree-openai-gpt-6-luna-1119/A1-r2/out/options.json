@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "annual total number of pedestrians injured, summed from number_of_pedestrians_injured",
+      "denominator": "none; an annual count across Brooklyn crash records",
+      "grouping": "calendar year of crash_date",
+      "chart_type": "annual line chart with markers",
+      "reason": "Annual injury counts directly show the total pedestrian harm recorded in Brooklyn and are straightforward to interpret.",
+      "probability": 0.5,
+      "answer": "Pedestrian injuries in Brooklyn police-reported crashes fell from 3,641 in 2013 to 2,835 in 2025 (22.1%), but have risen for five consecutive years since the 2020 low of 1,781.",
+      "interpretation": "This framing answers whether the recorded annual injury burden improved by summing number_of_pedestrians_injured across police-reported crash records whose borough is normalized to Brooklyn, grouped by crash calendar year for complete years 2013–2025; the total fell from 3,641 to 2,835. An absolute count is a defensible measure of how many pedestrians were hurt, but it has no pedestrian-exposure denominator. It cannot establish risk per walking trip or resident, and the rise from the 2020 low means the endpoint drop is not an uninterrupted improvement. The check found 0 missing injury counts among 473,801 final-population Brooklyn records; 2013–2025 cover Jan 1–Dec 31, while 9,700 candidate records in 2026 extend only through June 11 and were excluded, and uppercase BROOKLYN labels were matched using case-normalization."
+    },
+    {
+      "id": 2,
+      "metric": "annual total number of pedestrians killed, summed from number_of_pedestrians_killed",
+      "denominator": "none; an annual count across Brooklyn crash records",
+      "grouping": "calendar year of crash_date",
+      "chart_type": "annual line chart with markers",
+      "reason": "Fatalities are the most severe pedestrian outcome and provide an important separate test of whether safety improved.",
+      "probability": 0.3,
+      "answer": "Pedestrian deaths rose from 30 in 2013 to 39 in 2025 (30.0%), with substantial year-to-year swings rather than a sustained decline.",
+      "interpretation": "This framing answers whether the most severe recorded pedestrian outcome improved by summing number_of_pedestrians_killed across police-reported crash records whose borough is normalized to Brooklyn, grouped by crash calendar year for complete years 2013–2025; deaths rose from 30 to 39. Fatality counts are a defensible severity-focused measure, but small annual counts fluctuate and have no pedestrian-exposure denominator. This does not establish fatality risk per walking trip or resident, nor does it describe nonfatal injuries. The check found 0 missing death counts among 473,801 final-population Brooklyn records; 2013–2025 cover Jan 1–Dec 31, while 9,700 candidate records in 2026 extend only through June 11 and were excluded, and uppercase BROOKLYN labels were matched using case-normalization."
+    },
+    {
+      "id": 3,
+      "metric": "annual number of pedestrians injured per 1,000 eligible Brooklyn crash records",
+      "denominator": "Brooklyn crash records in that year with nonmissing number_of_pedestrians_injured, multiplied by 1,000",
+      "grouping": "calendar year of crash_date",
+      "chart_type": "annual line chart with markers",
+      "reason": "Scaling injury counts by Brooklyn crash-record volume helps show how pedestrian injury burden changed relative to reported crashes.",
+      "probability": 0.2,
+      "answer": "Pedestrian injuries per 1,000 Brooklyn crash records rose from 77.4 in 2013 to 116.7 in 2025 (50.7%), despite the lower absolute injury count.",
+      "interpretation": "This framing answers whether injury burden relative to recorded crash volume improved by summing pedestrian injuries and dividing by Brooklyn crash records with a nonmissing injury count, then multiplying by 1,000 and grouping complete calendar years 2013–2025; the measure increased from 77.4 to 116.7. It is defensible as a normalization for changes in the number of reported crash records, but it is injuries per crash record rather than risk per pedestrian. It leaves unanswered whether an individual pedestrian's risk per trip or resident changed because the data contain no walking-exposure denominator. The check found 0 of 473,801 records in the final 2013–2025 population (0.0%) excluded for missing injury counts; 2013–2025 cover Jan 1–Dec 31, while 9,700 candidate records in 2026 extend only through June 11 and were excluded, and uppercase BROOKLYN labels were matched using case-normalization."
+    }
+  ]
+}

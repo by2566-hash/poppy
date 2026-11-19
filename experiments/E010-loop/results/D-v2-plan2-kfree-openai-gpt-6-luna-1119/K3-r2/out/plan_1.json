@@ -1,0 +1,17 @@
+{
+  "id": 1,
+  "stage": "final plan",
+  "answerability": "yes: the file records counts of motorist and cyclist deaths for each reported crash and crash date, so these counts can be summed by year; it does not describe all road deaths beyond police-reported crashes",
+  "metric": "annual count of motorist deaths and annual count of cyclist deaths, each summed across crashes",
+  "denominator": "none; annual counts",
+  "population": "police-reported NYC crash records dated 2013-01-01 through 2025-12-31 with both motorist and cyclist death counts present; each count represents fatalities in those crashes",
+  "filters": ["crash_date from 2013-01-01 through 2025-12-31", "retain rows only when both number_of_motorist_killed and number_of_cyclist_killed are present"],
+  "years": "calendar years 2013 through 2025, grouped by year of crash_date",
+  "grouping": "year, with separate series for motorist and cyclist deaths",
+  "data_check": {
+    "source": "check_1.csv",
+    "facts": "There are 2,132,218 crash records in 2013-2025. In each year both death columns and crash_date have zero missing values, so the complete-pair rule excludes zero rows; all years have records and observed dates span January 1 through December 31. No selected row has crash_date 1900-01-01 or 1970-01-01.",
+    "decision": "Keep all eligible rows and disclose that counts describe only police-reported crashes. There are no rows dropped or differently counted because of missing death counts, and no partial calendar years."
+  },
+  "limitations": "Counts cover fatalities recorded in police-reported NYC crashes, not necessarily every road death; the file contains no exposure denominator such as population, trips, or distance traveled."
+}

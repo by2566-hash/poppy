@@ -1,0 +1,18 @@
+{
+  "status": "partly",
+  "answerable_part": "This data can show recorded motorist deaths per 1,000 police-reported crashes in NYC, but not risk per mile driven.",
+  "metric": "Annual sum of number_of_motorist_killed divided by the number of police-reported crash rows, multiplied by 1,000.",
+  "denominator": "All police-reported crash rows dated in the same calendar year; 1,000 crash rows as the displayed scale.",
+  "population": "All police-reported motor vehicle crash records in NYC whose crash_date is in 2013-2025; numerator sums recorded motorist deaths and denominator counts these rows.",
+  "filters": "Include crash_date from 2013-01-01 through 2025-12-31 inclusive; no other filters.",
+  "years": "Calendar years 2013-2025 inclusive.",
+  "grouping": "Calendar year of crash_date.",
+  "initial_plan": false,
+  "data_check_meaning_and_decisions": {
+    "population_rows": "2,132,218 crash records are dated in 2013-2025. Annual denominator counts are in check_2.csv.",
+    "date": "Within the planned population there are no missing dates and no 1970-01-01 date default; DATE cannot contain empty strings or textual unknowns. Each year has an observed first date of January 1 and last date of December 31, so no endpoint year is partial by its observed date span. This does not verify that every in-year date or crash is captured. Keep all eligible date rows; exclude records outside the years by plan definition.",
+    "number_of_motorist_killed": "0 of 2,132,218 planned rows are missing this field; the typed INTEGER cannot contain empty strings or textual unknowns. Keep all planned rows in the numerator; no outcome rows are dropped or reclassified for missingness.",
+    "change": "The year range was retained after the check because 2013 and 2025 both span their full calendar dates in the file."
+  },
+  "limitations": "This is recorded deaths per reported crash, not risk per mile or per journey. The data has no miles-driven exposure, and annual crash-row denominators vary substantially; min/max dates establish full calendar spans but do not establish complete capture of every crash or date."
+}

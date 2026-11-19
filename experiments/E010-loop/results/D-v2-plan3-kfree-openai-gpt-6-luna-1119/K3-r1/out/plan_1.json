@@ -1,0 +1,29 @@
+{
+  "initial_plan": {
+    "can_answer": "yes, for the recorded annual counts of motorist and cyclist deaths in crashes in this file; it cannot establish exposure-adjusted risk or deaths outside the file's police-reported crash records",
+    "metric": "Annual number of motorist deaths and annual number of cyclist deaths, each calculated as the sum of its corresponding killed-person column",
+    "denominator": "No rate denominator; counts are summed over crash records in each calendar year",
+    "population": "Police-reported NYC motor vehicle crashes dated 2013-01-01 through 2025-12-31, with motorist and cyclist deaths as recorded in their respective columns",
+    "filters": ["crash_date calendar year is 2013 through 2025"],
+    "years": "2013-2025 inclusive, grouped by calendar year",
+    "grouping": "Calendar year and road-user category (motorist or cyclist)",
+    "chart_type": "Grouped bars"
+  },
+  "data_check": {
+    "facts_file": "check_1.csv",
+    "implications": "Within the selected 2013-2025 population, crash_date has 0 missing values and 0 standard sentinel dates (1900-01-01, 1970-01-01, 9999-12-31); because it is typed DATE, text sentinels and impossible date strings are not applicable. Both killed-person columns have 0 missing rows, so no rows need to be dropped or imputed for either series. Every year has min/max dates from January 1 to December 31, so none is flagged as a partial year by the available date-boundary check. The annual crash-row population varies substantially, from 203,742 in 2013 to 85,546 in 2025, so counts are totals rather than rates and changes in crash volume can affect cross-year totals.",
+    "decisions": "Keep all crashes in the selected years; sum each complete killed-person column without imputation. Disclose annual crash-row counts and the absence of a rate denominator; do not interpret totals as exposure-adjusted risk."
+  },
+  "final_plan": {
+    "can_answer": "yes, for recorded annual motorist and cyclist death counts in this crash file",
+    "metric": "Annual number of motorist deaths and annual number of cyclist deaths, each calculated as the sum of the corresponding killed-person column",
+    "denominator": "No rate denominator; the metric is a sum over crash records in each calendar year",
+    "population": "All police-reported NYC motor vehicle crash records with crash_date in calendar years 2013-2025; the two category-specific totals count recorded deaths",
+    "filters": ["crash_date calendar year is 2013 through 2025; no other row filters"],
+    "years": "2013-2025 inclusive, by calendar year",
+    "grouping": "Calendar year and road-user category: motorist or cyclist",
+    "missing_data_decision": "No missing values in either killed-person column among selected rows; retain all rows and sum the columns without imputation.",
+    "limitations": "The data describe police-reported crash records, not exposure-adjusted risk or all deaths beyond these records. The check found 0 missing crash dates within selected years and 0 missing values in either killed-person column; observed date minima/maxima cover January 1 through December 31 in every year. Annual crash rows range from 203,742 (2013) to 85,546 (2025), so totals compare years with substantially different numbers of crash records and are not rates.",
+    "chart_type": "Grouped bars"
+  }
+}

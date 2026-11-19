@@ -1,0 +1,20 @@
+{
+  "id": 1,
+  "status": "final",
+  "can_answer": "yes: the distribution of recorded police-reported crashes by weekday can be calculated for 2013–2025; it does not measure crash risk per trip or per day of exposure",
+  "metric": "Number of police-reported crashes, grouped by weekday across the full period",
+  "denominator": "All qualifying crashes with a valid crash_date in calendar years 2013 through 2025 inclusive; also report each weekday's percentage of that total",
+  "population": "One record per police-reported motor vehicle crash dated 2013-01-01 through 2025-12-31",
+  "filters": ["crash_date year is 2013–2025 inclusive"],
+  "years": "2013 through 2025 inclusive",
+  "grouping": "Day of week derived from crash_date, Monday through Sunday",
+  "data_check": {
+    "facts_file": "check_1.csv",
+    "population_rows": 2132218,
+    "rows_by_year": {"2013": 203742, "2014": 206046, "2015": 217708, "2016": 229833, "2017": 231007, "2018": 231564, "2019": 211486, "2020": 112918, "2021": 110558, "2022": 103887, "2023": 96607, "2024": 91316, "2025": 85546},
+    "date_quality": "Zero missing crash_date values among selected rows; crash_date is a native DATE, so invalid calendar values and empty/unknown words cannot be stored. No default or sentinel date is specified in the supplied schema. Every year's observed date span includes January 1 and December 31.",
+    "decision": "Keep all rows in the date range. The date filter excludes rows without a date or outside 2013–2025, but there are no missing dates among the 2,132,218 selected rows and every selected date determines one weekday. Show all seven weekday groups; no selected rows are dropped or assigned an unknown group.",
+    "change": "None. The observed year endpoints show no year with a partial date span, but event rows alone cannot establish complete reporting on every date between those endpoints."
+  },
+  "limitations": "Counts and shares describe records in the supplied crash file, not crash risk or exposure. Though each year's observed crash-date span reaches both calendar-year boundaries, this event-only file cannot verify reporting completeness on every intervening date; pooled counts also weight years according to their number of recorded crashes."
+}

@@ -1,0 +1,26 @@
+{
+  "initial_plan": {
+    "can_answer_question": "partly: the data cannot measure motorist fatality risk per mile because it contains no miles-driven or vehicle-miles-traveled exposure; it can show the share of reported crash deaths that were motorists",
+    "metric": "annual share of all reported crash deaths that were motorist deaths: sum(number_of_motorist_killed) / sum(number_of_persons_killed)",
+    "denominator": "sum of number_of_persons_killed in the same year among records with both death fields nonmissing",
+    "population": "police-reported NYC crash records with a usable crash_date year and nonmissing number_of_motorist_killed and number_of_persons_killed; count the reported deaths in those records",
+    "filters": ["crash_date year is 2013 through 2025", "crash_date is nonmissing", "number_of_motorist_killed and number_of_persons_killed are both nonmissing"],
+    "years": "calendar years 2013-2025 inclusive, assigned from crash_date",
+    "grouping": "crash_date calendar year"
+  },
+  "data_check": {
+    "facts_file": "./out/check_2.csv",
+    "meaning_and_decisions": "Among 2,132,218 dated crash rows in 2013-2025, number_of_motorist_killed is complete, but number_of_persons_killed is missing on 36 rows (2 in 2016, 16 in 2017, 14 in 2018, 1 in 2020, and 3 in 2025), or about 0.0017% of dated rows. Exclude these 36 records from both numerator and denominator so the share uses a matched population; the final population has 2,132,182 rows. There are 0 crash rows with missing crash_date in the file, which are unassignable to a year. Every selected year, including 2025, has date endpoints of Jan 1 and Dec 31, but this does not establish daily reporting completeness; retain and disclose the limitation. The two death columns are integer counts; for summed columns the check is limited to missingness, as planned.",
+    "changed_from_initial_plan": "No metric change; the data check confirms the planned complete-case rule excludes 36 rows with missing total deaths, and adds the date-coverage caveat."
+  },
+  "final_plan": {
+    "can_answer_question": "no for risk per mile: vehicle-miles-traveled is absent; partly for the different outcome mix proxy of motorist deaths as a share of reported deaths",
+    "metric": "annual motorist-death share = sum(number_of_motorist_killed) / sum(number_of_persons_killed)",
+    "denominator": "all reported persons killed in the same year, summed over crash records where both death fields are nonmissing",
+    "population": "police-reported NYC crashes dated in calendar years 2013-2025 with nonmissing values in both number_of_motorist_killed and number_of_persons_killed; numerator and denominator use this same complete-case population",
+    "filters": ["crash_date is nonmissing and its calendar year is 2013-2025", "number_of_motorist_killed is nonmissing", "number_of_persons_killed is nonmissing"],
+    "years": "calendar years 2013-2025 inclusive",
+    "grouping": "crash_date calendar year",
+    "limitations": "The data has no vehicle-miles-traveled or other miles-driven exposure, so a motorist-death share is not risk per mile and cannot establish whether that risk declined. The final population excludes 36 of 2,132,218 dated crash rows (about 0.0017%) because number_of_persons_killed is missing; number_of_motorist_killed is complete. The 2025 date endpoints span Jan 1 through Dec 31, as do the other years, but date endpoints do not establish complete reporting on every day; police-reported crashes only are represented. There are 0 records with missing crash_date in the file."
+  }
+}

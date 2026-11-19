@@ -1,0 +1,26 @@
+{
+  "initial_plan": {
+    "answerability": "partly: the file can show counts of police-reported crashes by time of day, but without traffic, travel, or person-exposure denominators it cannot establish whether a street user is more likely to crash at night",
+    "metric": "number of police-reported crashes",
+    "denominator": "none; counts crash rows",
+    "population": "all crashes with a nonmissing crash_date, assigned to its calendar year; crashes with an unclassifiable crash_time remain in an Unknown time group",
+    "filters": ["nonmissing crash_date", "include all available calendar years; final handling of partial years pending data check"],
+    "years": "all calendar years represented by nonmissing crash_date; identify exact range and partial years in the data check",
+    "grouping": ["calendar year of crash_date", "Night (20:00–05:59), Day (06:00–19:59), or Unknown time if crash_time is missing/unclassifiable"]
+  },
+  "data_check_and_decisions": {
+    "facts": "There are 2,269,187 dated rows and no missing crash_date; the first date is 2012-07-01 and the last is 2026-06-11. The recorded date spans identify 2012 (100,545 rows) and 2026 (36,424 rows) as partial endpoint years; 2013–2025 each have recorded dates spanning Jan 1 through Dec 31. In 2013–2025 there are 2,132,218 rows, no missing crash_time, 23,787 values at 00:00:00, and no dates at the checked 1900-01-01 or 1970-01-01 defaults; DATE and TIME types cannot hold blank/unknown text or impossible encoded values.",
+    "meaning_and_decisions": "Exclude partial endpoint years 2012 and 2026 so unequal calendar coverage does not distort the comparison. Retain 00:00:00 in Night: it is a valid typed time, and there is no evidence these rows are a default rather than actual midnight crashes. Although the initial plan was to compare raw counts, Night is 10 hours per date and Day is 14, so change the final metric to reported crashes per scheduled clock-hour; this adjusts for the unequal duration of the two periods but not for traffic exposure. There are no missing/unclassifiable times in the selected years, so no Unknown group is needed.",
+    "change": "Final years are restricted to 2013–2025, and raw counts are normalized by scheduled clock-hours because the Night and Day bins have unequal durations."
+  },
+  "final_plan": {
+    "answerability": "partly: the data can compare police-reported crash frequency per scheduled clock-hour at night and day, but without traffic, travel, or person-exposure denominators it cannot establish whether a street user is more likely to crash at night",
+    "metric": "number of police-reported motor-vehicle crash rows per scheduled clock-hour",
+    "denominator": "scheduled clock-hours in the period across all calendar dates from 2013 through 2025: Night is 10 hours per date (20:00–05:59), Day is 14 hours per date (06:00–19:59); denominator is hours, not trips or road users",
+    "population": "all police-reported crash rows dated from 2013-01-01 through 2025-12-31 with a valid typed crash_time, pooled across 13 complete calendar years",
+    "filters": ["crash_date from 2013-01-01 inclusive to 2026-01-01 exclusive", "crash_time nonmissing", "exclude partial endpoint years 2012 and 2026"],
+    "years": "2013–2025 inclusive",
+    "grouping": ["Night: 20:00–05:59", "Day: 06:00–19:59"],
+    "limitations": "This is crash-report frequency per clock-hour, not risk per trip or person; traffic volume and other exposure measures are unavailable. Midnight is treated as a valid Night time. Partial endpoint years are excluded. Annual report-row counts vary, so pooling weights the summary by crashes recorded across the years and cannot isolate year-to-year changes in risk."
+  }
+}

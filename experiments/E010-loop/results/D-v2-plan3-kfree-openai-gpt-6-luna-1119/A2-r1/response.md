@@ -1,0 +1,3 @@
+ANSWER:
+1. The [per-clock-hour chart](out/option_1.png) shows 11.05 police-reported crashes per clock-hour at night versus 24.18 during the day, but the data cannot establish whether NYC’s streets are more dangerous at night.
+2. The [injury-or-death chart](out/option_2.png) shows that 28.47% of classifiable night crash reports versus 23.41% of day reports involved injury or death, but this does not establish risk per traveler.

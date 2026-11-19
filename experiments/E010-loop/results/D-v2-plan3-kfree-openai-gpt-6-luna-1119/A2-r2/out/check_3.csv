@@ -1,0 +1,37 @@
+fact,value
+file_year_coverage_and_partial_years,2012: 2012-07-01 to 2012-12-31 (100545 dated rows; partial by date extent); 2013: 2013-01-01 to 2013-12-31 (203742 dated rows; complete by date extent); 2014: 2014-01-01 to 2014-12-31 (206046 dated rows; complete by date extent); 2015: 2015-01-01 to 2015-12-31 (217708 dated rows; complete by date extent); 2016: 2016-01-01 to 2016-12-31 (229833 dated rows; complete by date extent); 2017: 2017-01-01 to 2017-12-31 (231007 dated rows; complete by date extent); 2018: 2018-01-01 to 2018-12-31 (231564 dated rows; complete by date extent); 2019: 2019-01-01 to 2019-12-31 (211486 dated rows; complete by date extent); 2020: 2020-01-01 to 2020-12-31 (112918 dated rows; complete by date extent); 2021: 2021-01-01 to 2021-12-31 (110558 dated rows; complete by date extent); 2022: 2022-01-01 to 2022-12-31 (103887 dated rows; complete by date extent); 2023: 2023-01-01 to 2023-12-31 (96607 dated rows; complete by date extent); 2024: 2024-01-01 to 2024-12-31 (91316 dated rows; complete by date extent); 2025: 2025-01-01 to 2025-12-31 (85546 dated rows; complete by date extent); 2026: 2026-01-01 to 2026-06-11 (36424 dated rows; partial by date extent)
+crash_date_missing_null_rows_excluded_no_year,0
+complete_calendar_years_used,"2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025"
+population_rows_all_complete_years_with_nonnull_crash_date,2132218
+population_rows_year_2013,203742
+population_rows_year_2014,206046
+population_rows_year_2015,217708
+population_rows_year_2016,229833
+population_rows_year_2017,231007
+population_rows_year_2018,231564
+population_rows_year_2019,211486
+population_rows_year_2020,112918
+population_rows_year_2021,110558
+population_rows_year_2022,103887
+population_rows_year_2023,96607
+population_rows_year_2024,91316
+population_rows_year_2025,85546
+final_eligible_population_rows_all_complete_years,2132200
+final_eligible_population_rows_year_2013,203742
+final_eligible_population_rows_year_2014,206046
+final_eligible_population_rows_year_2015,217708
+final_eligible_population_rows_year_2016,229832
+final_eligible_population_rows_year_2017,230996
+final_eligible_population_rows_year_2018,231559
+final_eligible_population_rows_year_2019,211486
+final_eligible_population_rows_year_2020,112918
+final_eligible_population_rows_year_2021,110557
+final_eligible_population_rows_year_2022,103887
+final_eligible_population_rows_year_2023,96607
+final_eligible_population_rows_year_2024,91316
+final_eligible_population_rows_year_2025,85546
+crash_time_missing_null_rows,0
+crash_time_placeholder_string_rows,0
+crash_time_invalid_nonnull_rows,0
+crash_time_midnight_rows_possible_default_review,23787
+number_of_persons_injured_missing_null_rows_only,18

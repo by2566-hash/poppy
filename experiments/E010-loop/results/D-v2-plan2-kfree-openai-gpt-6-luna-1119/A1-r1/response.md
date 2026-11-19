@@ -1,0 +1,3 @@
+ANSWER:
+1. Brooklyn’s recorded pedestrian injuries and deaths fell from 3,671 in 2013 to 2,874 in 2025 (21.7% lower), though they rose each year from 2020; this count alone cannot establish whether pedestrian risk improved (`./out/option_1.png`).
+2. Recorded pedestrian deaths rose from 30 in 2013 to 39 in 2025 (30% higher), so fatalities do not show improvement over the period, but the data cannot establish per-trip risk (`./out/option_2.png`).

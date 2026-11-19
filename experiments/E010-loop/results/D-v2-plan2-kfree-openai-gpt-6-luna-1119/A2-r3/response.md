@@ -1,0 +1,5 @@
+I’ll compare nighttime and daytime crash outcomes using defensible measures the file supports, while making clear that crash records alone cannot establish risk per trip or per mile. I’ll write each initial plan before checking its rows, then generate and review the charts and outputs.
+The first check found no NULL crash times, but 24,566 crashes are timestamped exactly midnight—a possible default that could otherwise inflate the night group. I’ll keep those as a separate uncertain-time group and limit the comparison to complete calendar years, excluding partial 2026; rows missing either injury or death counts will be left out of the outcome denominators.
+ANSWER:
+1. [Option 1 chart](out/option_1.png) shows that 28.1% of night crashes involved injury or death, compared with 22.8% of day crashes—a 5.3 percentage-point difference among reported crashes, not an exposure-adjusted risk.
+2. [Option 2 chart](out/option_2.png) shows 0.394 reported people injured or killed per night crash versus 0.301 per day crash, about 31% higher at night; crash data alone cannot establish risk per trip or mile.

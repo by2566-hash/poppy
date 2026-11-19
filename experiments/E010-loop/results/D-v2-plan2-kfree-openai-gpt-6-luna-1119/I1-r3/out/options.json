@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of reported motorist deaths, calculated as the sum of number_of_motorist_killed",
+      "denominator": "None",
+      "grouping": "crash_date calendar year, 2013-2025 inclusive",
+      "chart_type": "bar chart",
+      "reason": "A direct annual fatality count is the clearest available outcome proxy when asking whether motorist deaths have fallen over time.",
+      "probability": 0.65,
+      "answer": "Reported motorist deaths fell from 110 in 2013 to 81 in 2025 (26.4% lower), but this crash data cannot show whether risk per mile declined.",
+      "interpretation": "The question asks about risk per mile, which this option cannot measure because the crash file has no miles-driven exposure; instead, it plots the yearly sum of persons classified as motorists killed on police-reported NYC crash records with nonmissing number_of_motorist_killed, grouped by crash_date calendar year from 2013 through 2025, with no denominator. This is a defensible direct count of the fatal outcome, and the values show 110 deaths in 2013 versus 81 in 2025, a 26.4% lower count. The count does not establish a decline in risk per mile, because neither miles driven nor another exposure denominator is available. In the 2,132,218 dated crash rows in the selected years, none has a missing motorist-death field and no crash_date is missing in the file, so no such rows were excluded; all years, including 2025, have Jan 1-Dec 31 date endpoints, but daily reporting completeness is not established."
+    },
+    {
+      "id": 2,
+      "metric": "Annual motorist-death share = sum(number_of_motorist_killed) / sum(number_of_persons_killed)",
+      "denominator": "All reported persons killed in the same year, summed over crash records where both death fields are nonmissing",
+      "grouping": "crash_date calendar year, 2013-2025 inclusive",
+      "chart_type": "line chart",
+      "reason": "The motorist share of all crash deaths shows whether motorists made up a changing fraction of the reported fatality burden, a distinct question from the total count.",
+      "probability": 0.35,
+      "answer": "Motorists accounted for 37.0% of reported crash deaths in 2013 and 35.4% in 2025, but that change does not establish a decline in risk per mile.",
+      "interpretation": "This option cannot answer whether risk per mile fell because the data has no miles-driven exposure; it instead plots each year's sum of motorist deaths divided by the same year's sum of all reported deaths, among police-reported NYC crash records with nonmissing values in both death fields and crash dates in 2013-2025. The framing is defensible for showing the composition of reported crash fatalities: the motorist share was 37.0% in 2013 and 35.4% in 2025, with substantial year-to-year variation. A change in this share is not a change in motorists' risk per mile, which remains unmeasurable from this file. The check found 36 of 2,132,218 dated records (about 0.0017%) missing number_of_persons_killed—2 in 2016, 16 in 2017, 14 in 2018, 1 in 2020, and 3 in 2025—so these were excluded from both numerator and denominator; number_of_motorist_killed is complete, and all years have Jan 1-Dec 31 endpoints although daily reporting completeness is not established."
+    }
+  ]
+}

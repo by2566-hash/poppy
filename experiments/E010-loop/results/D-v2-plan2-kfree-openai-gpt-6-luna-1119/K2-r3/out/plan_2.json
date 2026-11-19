@@ -1,0 +1,20 @@
+{
+  "id": 2,
+  "status": "final",
+  "can_answer": "partly: the annual weekday composition of recorded crashes can be compared, but the dataset alone cannot establish full reporting coverage on dates with no crash records",
+  "metric": "Within-year percentage of police-reported crashes assigned to each weekday, compared across years",
+  "denominator": "All qualifying crashes with a valid crash_date in the same calendar year",
+  "population": "One record per police-reported motor vehicle crash dated in each of calendar years 2013 through 2025 inclusive",
+  "filters": ["crash_date year is 2013–2025 inclusive"],
+  "years": "2013 through 2025 inclusive, displayed separately by year",
+  "grouping": "Year and day of week derived from crash_date, Monday through Sunday",
+  "data_check": {
+    "facts_file": "check_2.csv",
+    "population_rows": 2132218,
+    "rows_by_year": {"2013": 203742, "2014": 206046, "2015": 217708, "2016": 229833, "2017": 231007, "2018": 231564, "2019": 211486, "2020": 112918, "2021": 110558, "2022": 103887, "2023": 96607, "2024": 91316, "2025": 85546},
+    "date_quality": "Zero missing crash_date values among selected rows; crash_date is a native DATE, so invalid calendar values and empty/unknown words cannot be stored. No default or sentinel date is specified in the supplied schema. Every year 2013–2025 has rows with observed dates spanning January 1 through December 31.",
+    "decision": "Keep all selected rows and calculate each year's weekday percentages using all dated crash records in that year as the denominator. The filter excludes rows without a date or outside the requested years; no missing dates occur within the 2,132,218 selected rows. Show all weekdays in every year; there are no selected rows to drop or place in an unknown-date group.",
+    "change": "None. All requested years are represented and their observed date ranges touch both year boundaries. This does not prove complete reporting of the period, including 2025, because days with no event rows cannot be distinguished from missing coverage."
+  },
+  "limitations": "Each annual percentage is the weekday's share of that year's recorded crashes, not a per-day or per-trip rate. The event-only file cannot verify complete reporting on every date, despite observed records at both year boundaries, and the annual percentages leave pooled 2013–2025 counts unanswered."
+}

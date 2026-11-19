@@ -1,0 +1,31 @@
+{
+  "initial_plan": {
+    "answerability": "yes",
+    "answerable_part": "The file records crash dates, so it can show each weekday's share of all police-reported crashes over 2013 through 2025.",
+    "metric": "Share of crash records, as a percentage of all included crash records",
+    "denominator": "All police-reported crash rows with a nonmissing crash_date in calendar years 2013 through 2025 inclusive",
+    "population": "All police-reported crash rows with a nonmissing crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": [
+      "crash_date is within 2013-01-01 through 2025-12-31"
+    ],
+    "years": "2013-2025 inclusive",
+    "grouping": "Day of week of crash_date, Monday through Sunday"
+  },
+  "data_check_interpretation": {
+    "population_and_coverage": "The plan population is 2,132,218 crash rows. Every year from 2013 through 2025 has observations from January 1 to December 31 and at least one row on each of its 365 or 366 calendar dates, so no partial year or uncovered date within the requested period was found.",
+    "value_quality": "Among the 2,132,218 population rows (100%), 0 have a missing crash_date, 0 have an impossible/unparseable or blank/unknown-string date, and 0 have one of the checked common sentinel dates. crash_date is a typed DATE; missing dates cannot be assigned a weekday and are outside the population definition.",
+    "decision": "Keep every row with a typed crash_date in 2013-2025 and group it by weekday. The check found no in-scope rows that need exclusion or a special unknown-date group; disclose that the data covers police-reported records, not crash risk adjusted for exposure.",
+    "changed": "No change to the initial plan."
+  },
+  "final_plan": {
+    "answerability": "yes",
+    "answerable_part": "The file supports each weekday's share of all police-reported crash records for the full 2013-2025 calendar period.",
+    "metric": "Share of crash records, as a percentage of all included crash records",
+    "denominator": "All police-reported crash rows with a typed crash_date in calendar years 2013 through 2025 inclusive (2,132,218 rows)",
+    "population": "All police-reported crash rows with a typed crash_date in calendar years 2013 through 2025 inclusive (2,132,218 rows)",
+    "filters": ["crash_date is within 2013-01-01 through 2025-12-31"],
+    "years": "2013-2025 inclusive; each year has observed crash records on every calendar date",
+    "grouping": "Day of week of crash_date, Monday through Sunday",
+    "limitations": "Shares describe the composition of police-reported crash records, not crash probability or risk per day, person, trip, or amount of traffic; they pool all years and cannot explain causes of weekday differences. The data check found 0 missing/invalid dates among 2,132,218 in-scope rows and crash records on all calendar dates in each year."
+  }
+}

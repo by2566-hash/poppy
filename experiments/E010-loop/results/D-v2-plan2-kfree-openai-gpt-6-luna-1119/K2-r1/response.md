@@ -1,0 +1,3 @@
+The date checks found 2,132,218 in-range crashes, with observed dates spanning Jan 1–Dec 31 in every year from 2013 through 2025. The weekday group is therefore usable for the full requested calendar span; I’m retaining all in-range records and preparing both total counts and average daily frequency by weekday.
+ANSWER: Across 2,132,218 police-reported crashes dated 2013–2025, Friday had the highest count (338,800; 15.9%) and Sunday the lowest (257,544; 12.1%).
+After dividing weekday totals by the number of calendar dates for each weekday, Friday averaged the most crashes (499.7 per Friday) and Sunday the fewest (379.9 per Sunday).

@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual sum of number_of_motorist_killed and annual sum of number_of_cyclist_killed, shown as two series",
+      "denominator": "None; these are counts, not rates",
+      "grouping": "Calendar year, with separate motorist and cyclist death series",
+      "chart_type": "Two-series line chart",
+      "reason": "Annual recorded-death counts directly compare the fatality burden for both road-user groups in the terms asked.",
+      "probability": 0.7,
+      "answer": "Motorist deaths exceeded cyclist deaths in every year from 2013–2025, with annual counts of 72–139 motorist deaths and 10–31 cyclist deaths.",
+      "interpretation": "The metric sums recorded motorist and cyclist deaths across all NYC police-reported crash rows dated within each calendar year, showing motorist deaths higher in all 13 years; motorist counts ranged from 72 in 2016 to 139 in 2020, while cyclist counts ranged from 10 in 2018 to 31 in both 2019 and 2023. This is a defensible direct comparison of annual recorded fatality counts, but it does not compare risk or rates because the data has no road-user exposure denominator. The plan uses all in-window dated rows and excludes undated or out-of-window crashes by its date filter; among the 2,132,218 included rows, both fatality columns have 0 missing values and there are 0 checked date sentinels, so no included rows are dropped or counted differently, and all 13 years have full observed calendar-year coverage. Included crash rows rose from 203,742 in 2013 to a peak of 231,564 in 2018 and then declined to 85,546 in 2025, so changes in absolute deaths are not adjusted for variation in crash volume or exposure."
+    },
+    {
+      "id": 2,
+      "metric": "Annual cyclist deaths divided by annual motorist deaths, expressed as cyclist deaths per 100 motorist deaths",
+      "denominator": "Annual sum of number_of_motorist_killed; the comparison is normalized to the motorist death count and is undefined if that count is zero",
+      "grouping": "Calendar year",
+      "chart_type": "Line chart",
+      "reason": "Expressing cyclist deaths relative to motorist deaths makes the year-by-year difference in scale easy to compare on one series.",
+      "probability": 0.3,
+      "answer": "Cyclist deaths ranged from 10.0 per 100 motorist deaths in 2013 to 37.8 in 2019, and were 28.4 per 100 in 2025.",
+      "interpretation": "The metric is the annual sum of recorded cyclist deaths divided by the annual sum of recorded motorist deaths, multiplied by 100, for all NYC police-reported crashes dated in each calendar year; it ranged from 10.0 in 2013 to 37.8 in 2019 and was 28.4 in 2025. This is a defensible relative-count comparison, but because its denominator is motorist deaths rather than cyclist or motorist exposure, it does not show either group's risk or death rate. The plan uses all in-window dated rows and excludes undated or out-of-window crashes by its date filter; among the 2,132,218 included rows, both fatality columns have 0 missing values and there are 0 checked date sentinels, so no included rows are dropped or counted differently, and all 13 years have full observed calendar-year coverage. The included crash-row count rose from 203,742 in 2013 to 231,564 in 2018, then declined to 85,546 in 2025; although this ratio is not divided by crash rows, those varying row totals and unknown road-user exposure prevent treating it as a risk rate."
+    }
+  ]
+}

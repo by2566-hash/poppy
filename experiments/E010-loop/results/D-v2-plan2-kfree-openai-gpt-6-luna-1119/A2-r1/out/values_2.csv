@@ -1,0 +1,4 @@
+time_group,eligible_crashes,reported_casualties,mean_casualties_per_crash
+Day,1607466,498056.000000,0.309839
+Night,500924,205058.000000,0.409360
+00:00 (possible default),23786,8545.000000,0.359245

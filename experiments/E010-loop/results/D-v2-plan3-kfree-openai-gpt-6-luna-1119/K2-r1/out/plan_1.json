@@ -1,0 +1,27 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer": "yes, for the weekday distribution of police-reported crashes recorded with a usable crash_date in 2013–2025",
+    "metric": "Number of crash rows grouped by weekday of crash_date",
+    "denominator": "No denominator; raw count of crash rows",
+    "population": "One row per police-reported NYC motor vehicle crash with crash_date in calendar years 2013 through 2025",
+    "filters": ["crash_date is non-NULL", "year(crash_date) is 2013 through 2025"],
+    "years": "2013–2025 inclusive",
+    "grouping": "Weekday of crash_date, Monday through Sunday"
+  },
+  "data_check_interpretation": {
+    "facts": "2,132,218 crash rows have crash_date in 2013–2025; 136,969 rows with dates outside that period are excluded; 0 rows have a missing crash_date; within-period crash_date has 0 impossible DATE values and 0 conventional default dates. Every target year has observed dates from January 1 through December 31.",
+    "decisions": "Keep every row with a date in 2013–2025. Exclude dated rows outside the requested years. No rows are excluded for missing, impossible, or conventional default dates. Reported boundary coverage does not prove complete reporting within each year.",
+    "yearly_rows": "2013: 203,742; 2014: 206,046; 2015: 217,708; 2016: 229,833; 2017: 231,007; 2018: 231,564; 2019: 211,486; 2020: 112,918; 2021: 110,558; 2022: 103,887; 2023: 96,607; 2024: 91,316; 2025: 85,546."
+  },
+  "final_plan": {
+    "can_answer": "yes, for the weekday distribution of police-reported crashes recorded with crash_date in 2013–2025",
+    "metric": "Number of crash rows grouped by weekday of crash_date",
+    "denominator": "No denominator; raw count of crash rows",
+    "population": "One row per police-reported NYC motor vehicle crash with non-NULL crash_date in calendar years 2013 through 2025",
+    "filters": ["crash_date is non-NULL", "year(crash_date) is 2013 through 2025"],
+    "years": "2013–2025 inclusive; each year has observed dates from January 1 through December 31, though boundary observations cannot establish completeness of reporting",
+    "grouping": "Weekday of crash_date, Monday through Sunday",
+    "limitations": "Counts are recorded crashes, not people, traffic exposure, or risk. The plan excludes 136,969 rows with crash dates outside 2013–2025; none of the rows has a missing date, and none of the included dates is impossible or a conventional default. Annual row counts rise from 203,742 in 2013 to a peak of 231,564 in 2018, then decline to 85,546 in 2025, so pooled weekday counts combine years with very different crash-row volumes."
+  }
+}

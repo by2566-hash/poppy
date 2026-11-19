@@ -1,0 +1,13 @@
+{
+  "status": "final",
+  "can_answer": "partly: the data can show pedestrian injuries per 1,000 Brooklyn police-reported crash records with a known pedestrian-injury count, but not risk per pedestrian trip or population because exposure denominators are absent",
+  "metric": "annual number of pedestrians injured per 1,000 eligible Brooklyn crash records",
+  "denominator": "Brooklyn crash records in that year with nonmissing number_of_pedestrians_injured, multiplied by 1,000",
+  "population": "pedestrians recorded as injured in police-reported Brooklyn crashes; denominator records are all Brooklyn crashes with observed pedestrian-injury counts",
+  "filters": ["upper(trim(borough)) = BROOKLYN", "crash_date in complete calendar years 2013–2025", "exclude rows with missing number_of_pedestrians_injured from numerator and denominator; none are missing in the checked population"],
+  "years": "calendar years 2013–2025 inclusive",
+  "grouping": "calendar year of crash_date",
+  "plan_changes": "The initial 2013-onward period was restricted to complete years 2013–2025 because 2026 is observed only through June 11; the literal case-sensitive borough filter was normalized because the stored borough label is uppercase BROOKLYN. The denominator is limited to nonmissing pedestrian-injury records; the check found no missing counts in complete years.",
+  "data_check": "The final 2013–2025 population has 473,801 eligible Brooklyn crash records; no rows (0, 0.0%) are excluded for a missing pedestrian-injury count. Each year 2013–2025 has observations from January 1 through December 31. Brooklyn appears uppercase, so the original exact-case filter would return no rows; the final filter normalizes case and whitespace. The check also found 9,700 candidate rows in partial 2026, observed only through June 11, and these are excluded.",
+  "limitations": "This is pedestrian injuries per 1,000 police-reported Brooklyn crash records, not risk per pedestrian trip or resident; exposure data are unavailable. It normalizes only for the number of recorded crashes, and the partial 2026 year is excluded."
+}

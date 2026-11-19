@@ -1,0 +1,4 @@
+The date checks show 2,132,218 eligible crash records across full calendar years 2013–2025, with 0 NULL crash dates in the source and 136,969 dated records outside the selected period. I’ll report both pooled weekday counts and shares; both are supported, while interpreting them as a period-wide mix rather than an annual trend.
+ANSWER: Across 2,132,218 eligible police-reported crash records from 2013–2025, weekday counts Monday through Sunday were 304,518, 313,488, 311,111, 318,376, 338,800, 288,381, and 257,544, respectively—Friday had the most and Sunday the fewest.
+
+As a share of all eligible records, Monday through Sunday accounted for 14.28%, 14.70%, 14.59%, 14.93%, 15.89%, 13.52%, and 12.08%, respectively—Friday had the largest share and Sunday the smallest.

@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual number of pedestrians killed, calculated as the sum of number_of_pedestrians_killed across crashes.",
+      "denominator": "None; this is an absolute annual count, not a rate or share.",
+      "grouping": "Calendar year of crash_date.",
+      "chart_type": "Line chart",
+      "reason": "A line chart makes the sequence of annual pedestrian fatality counts and year-to-year changes easy to follow.",
+      "probability": 0.55,
+      "answer": "The annual totals were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "The line chart answers the annual-count question by summing number_of_pedestrians_killed across police-reported NYC crash records and grouping by calendar crash year from 2013 through 2025; it shows a high of 176 in 2013, a low of 101 in 2020, and a fluctuating 107–135 per year from 2021 through 2025, ending at 119. This is a defensible framing because a line chart emphasizes the sequence of absolute year-to-year counts, with no denominator or exposure adjustment. It leaves unanswered rates relative to travel or population exposure and which crash characteristics explain these totals. The check found 0 missing pedestrian-death counts among the 2,132,218 in-scope crash rows, no missing crash dates in scope, and observed dates spanning January 1–December 31 in every requested year; all in-scope rows are retained, while records outside the requested years are excluded by the date filter."
+    },
+    {
+      "id": 2,
+      "metric": "Annual number of pedestrians killed, calculated as the sum of number_of_pedestrians_killed across crashes.",
+      "denominator": "None; this is an absolute annual count, not a rate or share.",
+      "grouping": "Calendar year of crash_date.",
+      "chart_type": "Vertical bar chart",
+      "reason": "A vertical bar chart makes the magnitude of each year's pedestrian fatality count straightforward to compare across discrete years.",
+      "probability": 0.45,
+      "answer": "The annual totals were 176 (2013), 133 (2014), 133 (2015), 149 (2016), 127 (2017), 123 (2018), 131 (2019), 101 (2020), 132 (2021), 135 (2022), 107 (2023), 124 (2024), and 119 (2025).",
+      "interpretation": "The bar chart answers the annual-count question by summing number_of_pedestrians_killed across police-reported NYC crash records and grouping by calendar crash year from 2013 through 2025; it shows 176 in 2013, the minimum of 101 in 2020, and 119 in 2025. This is a defensible framing because separate bars make the absolute total for each discrete calendar year easy to compare, without implying an exposure-adjusted rate. It leaves unanswered rates relative to travel or population exposure and which crash characteristics explain these totals. The check found 0 missing pedestrian-death counts among the 2,132,218 in-scope crash rows, no missing crash dates in scope, and observed dates spanning January 1–December 31 in every requested year; all in-scope rows are retained, while records outside the requested years are excluded by the date filter."
+    }
+  ]
+}

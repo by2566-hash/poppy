@@ -1,0 +1,14 @@
+{
+  "can_answer": "yes: the data has annual motorist- and cyclist-death count columns for police-reported NYC crashes, so it can compare recorded counts year by year",
+  "metric": "annual sum of number_of_motorist_killed and annual sum of number_of_cyclist_killed, shown as two series",
+  "denominator": "none; these are counts, not rates",
+  "population": "police-reported crash rows with crash_date in calendar years 2013 through 2025; the two fatality columns count the recorded motorist and cyclist deaths attributed to those crashes",
+  "filters": "crash_date from 2013-01-01 through 2025-12-31; no borough or other crash filters",
+  "years": "calendar years 2013–2025 inclusive",
+  "grouping": "calendar year, with separate motorist and cyclist death series",
+  "data_check": {
+    "facts": "The selected population contains 2,132,218 crash rows. Each year 2013–2025 is represented from January 1 through December 31. There are 0 missing crash dates within the selected population and 0 missing values in either fatality column, both overall and in every year; DATE and integer types do not permit text placeholders, and the checked 1900-01-01 and 1970-01-01 date sentinels have 0 rows in each selected year.",
+    "meaning_and_decision": "No selected rows are dropped or counted differently for missing values or the checked date sentinels; retain all rows. The population is all dated police-reported crashes in the thirteen complete calendar years. Annual crash-row counts are 203,742 (2013), 206,046 (2014), 217,708 (2015), 229,833 (2016), 231,007 (2017), 231,564 (2018), 211,486 (2019), 112,918 (2020), 110,558 (2021), 103,887 (2022), 96,607 (2023), 91,316 (2024), and 85,546 (2025); counts rise through 2018 then decline substantially, so raw death totals are not normalized for crash volume or road-user exposure. No plan change."
+  },
+  "limitations": "These are recorded death counts in police-reported crashes, not rates per population, distance traveled, or road-user exposure. All 2013–2025 calendar years have observed January 1–December 31 coverage; the crash-row population varies substantially by year (203,742 in 2013, peaking at 231,564 in 2018, then 85,546 in 2025), so raw counts do not adjust for changing crash volume."
+}

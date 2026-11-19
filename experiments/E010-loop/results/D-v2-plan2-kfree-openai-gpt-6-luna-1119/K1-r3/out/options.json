@@ -1,0 +1,15 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual sum of number_of_pedestrians_killed across police-reported NYC motor vehicle crashes",
+      "denominator": "Not applicable; absolute count, not a rate or share",
+      "grouping": "Calendar year derived from crash_date, 2013 through 2025 inclusive",
+      "chart_type": "Line chart",
+      "reason": "Summing the per-crash pedestrian fatality counts directly answers the requested annual number and a line chart makes year-to-year change easy to see.",
+      "probability": 1.0,
+      "answer": "Recorded pedestrian deaths ranged from 101 in 2020 to 176 in 2013, and the annual total was 119 in 2025.",
+      "interpretation": "This framing answers the annual-count question by summing number_of_pedestrians_killed for every police-reported NYC motor vehicle crash dated in each calendar year from 2013 through 2025, with calendar year derived from crash_date and no denominator. The plotted totals peak at 176 in 2013 and reach a low of 101 in 2020; the 2025 count is 119. This is a defensible direct count of recorded pedestrian deaths, but the data cannot establish whether the police-reported records are a complete, independently validated census of all deaths. The check found 0 missing crash dates in the file and 0 missing pedestrian-fatality values among 2,132,218 selected crashes, and full January-to-December date bounds in every requested year; all selected rows were kept, none were excluded or counted differently, and missing values were not made into a separate group."
+    }
+  ]
+}

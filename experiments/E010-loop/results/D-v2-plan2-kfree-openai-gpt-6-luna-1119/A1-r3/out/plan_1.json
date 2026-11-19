@@ -1,0 +1,23 @@
+{
+  "id": 1,
+  "stage": "final plan",
+  "answerability": {
+    "status": "partly",
+    "part": "Annual counts show whether the reported number of pedestrians injured in Brooklyn crashes changed since 2013, but without pedestrian exposure data they cannot determine whether individual road-user risk or overall road safety improved."
+  },
+  "metric": "Annual number of pedestrians injured in police-reported Brooklyn crashes, summed from number_of_pedestrians_injured.",
+  "denominator": "None; this is an absolute count, not a rate.",
+  "population": "Pedestrian injuries recorded in police-reported crashes assigned borough Brooklyn; each crash contributes its recorded number of pedestrians injured.",
+  "filters": [
+    "borough equals Brooklyn",
+    "crash_date calendar year is 2013 through 2025 inclusive",
+    "number_of_pedestrians_injured is present"
+  ],
+  "years": "Complete calendar years 2013 through 2025 inclusive. Exclude 2026 because the file runs only through June 11, 2026.",
+  "grouping": "Calendar year of crash_date.",
+  "data_check": {
+    "facts": "check_1.csv",
+    "implications_and_decisions": "There are 483,501 Brooklyn crash records dated 2013 onward. The injury field is missing on 0 Brooklyn rows, so no rows are dropped for the metric. The 2026 file is partial (January 1-June 11; 9,700 Brooklyn crash records) and is excluded rather than compared with full years. Of 2,168,642 dated NYC crash records from 2013 onward, 668,406 have borough missing/unknown/empty (30.8%); these cannot be assigned to Brooklyn and are excluded by the borough filter. There are 0 missing crash dates and 0 nonstandard borough values. Brooklyn rows in each complete year span January 1-December 31. No plan change beyond limiting the chart to completed years."
+  },
+  "limitations": "This is a count of reported pedestrian injuries, not a per-trip or per-person risk rate; borough-unassigned crashes are excluded, and the latest complete year shown is 2025."
+}

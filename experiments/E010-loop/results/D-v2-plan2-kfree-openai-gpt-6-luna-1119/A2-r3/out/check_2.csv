@@ -1,0 +1,134 @@
+fact,value
+Population rows with non-NULL crash_date,2269187
+Years represented (number),15
+2012: population rows,100545
+2012: observed date range,2012-07-01 to 2012-12-31
+2012: partial calendar year,true
+2012: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2012: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",12
+2012: number_of_persons_injured missing,0
+2012: number_of_persons_killed missing,0
+2012: rows missing either person outcome count,0
+2013: population rows,203742
+2013: observed date range,2013-01-01 to 2013-12-31
+2013: partial calendar year,false
+2013: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2013: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",25
+2013: number_of_persons_injured missing,0
+2013: number_of_persons_killed missing,0
+2013: rows missing either person outcome count,0
+2014: population rows,206046
+2014: observed date range,2014-01-01 to 2014-12-31
+2014: partial calendar year,false
+2014: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2014: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",21
+2014: number_of_persons_injured missing,0
+2014: number_of_persons_killed missing,0
+2014: rows missing either person outcome count,0
+2015: population rows,217708
+2015: observed date range,2015-01-01 to 2015-12-31
+2015: partial calendar year,false
+2015: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2015: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",24
+2015: number_of_persons_injured missing,0
+2015: number_of_persons_killed missing,0
+2015: rows missing either person outcome count,0
+2016: population rows,229833
+2016: observed date range,2016-01-01 to 2016-12-31
+2016: partial calendar year,false
+2016: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2016: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",2895
+2016: number_of_persons_injured missing,1
+2016: number_of_persons_killed missing,2
+2016: rows missing either person outcome count,2
+2017: population rows,231007
+2017: observed date range,2017-01-01 to 2017-12-31
+2017: partial calendar year,false
+2017: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2017: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",3819
+2017: number_of_persons_injured missing,11
+2017: number_of_persons_killed missing,16
+2017: rows missing either person outcome count,19
+2018: population rows,231564
+2018: observed date range,2018-01-01 to 2018-12-31
+2018: partial calendar year,false
+2018: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2018: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",3490
+2018: number_of_persons_injured missing,5
+2018: number_of_persons_killed missing,14
+2018: rows missing either person outcome count,16
+2019: population rows,211486
+2019: observed date range,2019-01-01 to 2019-12-31
+2019: partial calendar year,false
+2019: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2019: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",3145
+2019: number_of_persons_injured missing,0
+2019: number_of_persons_killed missing,0
+2019: rows missing either person outcome count,0
+2020: population rows,112918
+2020: observed date range,2020-01-01 to 2020-12-31
+2020: partial calendar year,false
+2020: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2020: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",1841
+2020: number_of_persons_injured missing,0
+2020: number_of_persons_killed missing,1
+2020: rows missing either person outcome count,1
+2021: population rows,110558
+2021: observed date range,2021-01-01 to 2021-12-31
+2021: partial calendar year,false
+2021: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2021: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",1912
+2021: number_of_persons_injured missing,1
+2021: number_of_persons_killed missing,0
+2021: rows missing either person outcome count,1
+2022: population rows,103887
+2022: observed date range,2022-01-01 to 2022-12-31
+2022: partial calendar year,false
+2022: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2022: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",1615
+2022: number_of_persons_injured missing,0
+2022: number_of_persons_killed missing,0
+2022: rows missing either person outcome count,0
+2023: population rows,96607
+2023: observed date range,2023-01-01 to 2023-12-31
+2023: partial calendar year,false
+2023: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2023: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",1616
+2023: number_of_persons_injured missing,0
+2023: number_of_persons_killed missing,0
+2023: rows missing either person outcome count,0
+2024: population rows,91316
+2024: observed date range,2024-01-01 to 2024-12-31
+2024: partial calendar year,false
+2024: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2024: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",1642
+2024: number_of_persons_injured missing,0
+2024: number_of_persons_killed missing,0
+2024: rows missing either person outcome count,0
+2025: population rows,85546
+2025: observed date range,2025-01-01 to 2025-12-31
+2025: partial calendar year,false
+2025: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2025: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",1742
+2025: number_of_persons_injured missing,0
+2025: number_of_persons_killed missing,3
+2025: rows missing either person outcome count,3
+2026: population rows,36424
+2026: observed date range,2026-01-01 to 2026-06-11
+2026: partial calendar year,true
+2026: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"2026: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",767
+2026: number_of_persons_injured missing,0
+2026: number_of_persons_killed missing,8877
+2026: rows missing either person outcome count,8877
+All years: crash_time missing/unclassifiable (NULL; TIME type makes blank/word/impossible values inapplicable),0
+"All years: crash_time piled at 00:00:00 (possible default; check only, not assumed invalid)",24566
+All years: number_of_persons_injured missing,18
+All years: number_of_persons_killed missing,8913
+All years: rows missing either person outcome count,8919
+Proposed final years 2013-2025: population rows,2132218
+Proposed final years 2013-2025: crash_time NULL,0
+Proposed final years 2013-2025: exact 00:00:00 timestamps (possible default),23787
+Proposed final years 2013-2025: number_of_persons_injured missing,18
+Proposed final years 2013-2025: number_of_persons_killed missing,36
+Proposed final years 2013-2025: rows missing either person outcome count,42

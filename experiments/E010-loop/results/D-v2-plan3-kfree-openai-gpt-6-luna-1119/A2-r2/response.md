@@ -1,0 +1,4 @@
+ANSWER:
+1. [Crash rate per clock-hour chart](out/option_1.png): The data answer this only partly; the daytime crash rate was higher in all 13 complete years, including 11,721 versus 7,028 crashes per 1,000 clock-hours in 2025, but the data lack road-user exposure.
+2. [Injury-or-death share chart](out/option_2.png): The data answer this only partly; the share of crashes involving injury or death was higher at night in 9 of 13 years, while in 2025 it was 42.46% at night versus 44.29% by day, and this does not measure risk per trip or mile.
+3. [Injured persons per crash chart](out/option_3.png): The data answer this only partly; night crashes averaged more reported injured persons per crash in all 13 years, including 0.595 versus 0.574 in 2025, but this is not traveler risk per trip or mile.

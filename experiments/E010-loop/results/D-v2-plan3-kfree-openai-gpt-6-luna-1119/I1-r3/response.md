@@ -1,0 +1,3 @@
+ANSWER:
+1. This file cannot establish whether motorist-death risk per mile declined; motorist deaths per 1,000 reported NYC crashes were 0.540 in 2013 and 0.947 in 2025, with a 2023 peak of 1.273 ([chart](out/option_1.png)).
+2. This file cannot establish whether motorist-death risk per mile declined; crashes with at least one motorist death were 0.050% of reported NYC crashes in 2013 and 0.088% in 2025, with a 2023 peak of 0.118% ([chart](out/option_2.png)).

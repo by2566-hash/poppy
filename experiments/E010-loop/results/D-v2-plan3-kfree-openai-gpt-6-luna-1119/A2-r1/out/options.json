@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "number of police-reported motor-vehicle crash rows per scheduled clock-hour",
+      "denominator": "scheduled clock-hours in the period across all calendar dates from 2013 through 2025: Night is 10 hours per date (20:00–05:59), Day is 14 hours per date (06:00–19:59); denominator is hours, not trips or road users",
+      "grouping": "Night (20:00–05:59) versus Day (06:00–19:59), pooled across 2013–2025",
+      "chart_type": "horizontal bar chart",
+      "reason": "A clock-hour rate accounts for the unequal lengths of the night and day time windows while making the lack of a traveler-exposure denominator explicit.",
+      "probability": 0.35,
+      "answer": "This dataset cannot establish whether NYC’s streets are more dangerous at night; it records 11.05 police-reported crashes per clock-hour at night versus 24.18 during the day.",
+      "interpretation": "The file can answer only how frequently crashes are reported per unit of clock time, not whether a traveler is more likely to crash at night. Pooling all reported motor-vehicle crashes dated 2013–2025, with Night defined as 20:00–05:59 (10 hours per date) and Day as 06:00–19:59 (14 hours per date), the rates were 11.05 per scheduled clock-hour at night and 24.18 by day. This is defensible because it adjusts report counts for the different lengths of the two periods, but its denominator is clock-hours rather than trips or road users, and traffic exposure is unavailable. The check found no missing dates or times in the selected years and 23,787 valid midnight times, which were retained as Night; it excludes partial 2012 (100,545 rows, July 1–December 31) and 2026 (36,424 rows, through June 11), while annual rows ranged from 203,742 in 2013 to a peak of 231,564 in 2018 and 85,546 in 2025, so the pooled rate reflects changing report volume and cannot establish year-to-year risk."
+    },
+    {
+      "id": 2,
+      "metric": "share of classifiable police-reported crashes with number_of_persons_injured greater than zero or number_of_persons_killed greater than zero",
+      "denominator": "crash rows in the same time group and 2013–2025 period with both total injury and total death fields present",
+      "grouping": "Night (20:00–05:59) versus Day (06:00–19:59), pooled across 2013–2025",
+      "chart_type": "horizontal bar chart",
+      "reason": "The share of reported crashes with any recorded injury or death compares crash severity by time while conditioning on a crash being reported.",
+      "probability": 0.65,
+      "answer": "This dataset cannot establish whether NYC’s streets are more dangerous per traveler at night; 28.47% of classifiable night crash reports versus 23.41% of day reports involved at least one recorded injury or death.",
+      "interpretation": "The file cannot establish risk per road user or trip, but it can show the share of reported crash records involving injury or death by time of day. For 2013–2025, Night (20:00–05:59) had 149,399 of 524,710 classifiable reports (28.47%) involving injury or death, compared with 376,361 of 1,607,466 Day reports (23.41%). This is a defensible measure of severity conditional on a police-reported crash, defining an injury/death crash as one with a positive total number_of_persons_injured or number_of_persons_killed count and requiring both fields in the denominator, but it leaves risk per traveler unanswered because traffic exposure is unavailable. The check found 18 missing injury counts and 36 missing death counts, with 42 rows missing either field excluded; no times were missing and 23,787 valid midnight times were kept as Night; partial 2012 (100,545 rows) and 2026 (36,424 rows) were excluded, while annual reports ranged from 203,742 in 2013 to a 231,564 peak in 2018 and 85,546 in 2025, so the pooled share weights years by reported-crash counts and annual shares would have different denominators."
+    }
+  ]
+}

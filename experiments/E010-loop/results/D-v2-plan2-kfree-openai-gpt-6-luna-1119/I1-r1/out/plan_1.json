@@ -1,0 +1,27 @@
+{
+  "initial_plan": {
+    "answerability": "partly: this data has crash-reported motorist deaths but no distance driven, so it cannot calculate deaths per mile or determine per-mile risk; it can show annual death counts.",
+    "metric": "Annual total number of motorists killed, summing number_of_motorist_killed over crashes.",
+    "denominator": "No exposure denominator; this is a count, not a rate.",
+    "population": "Police-reported NYC motor-vehicle crashes dated 2013 through 2025 with a recorded motorist-killed count.",
+    "filters": ["crash_date is in calendar years 2013–2025", "number_of_motorist_killed is recorded"],
+    "years": "2013–2025 inclusive, grouped by calendar year of crash_date.",
+    "grouping": "Calendar year.",
+    "data_check_decisions": "Pending data check; no outcome results will be computed during the check."
+  },
+  "data_check": {
+    "file": "check_1.csv",
+    "meaning": "All candidate year-dated crashes have a recorded motorist-killed field (0 missing in every year), so no crashes are dropped for missing outcome fields. Every year has observed dates from January 1 through December 31, including 2025, with no indication of partial-year coverage. The checks count eligible crash rows and field missingness only; they do not report the fatality outcome.",
+    "decision": "Keep all crashes in 2013–2025; no rows are excluded or assigned to an unknown group. No plan changes."
+  },
+  "final_plan": {
+    "answerability": "partly: this data cannot determine motorist deaths per mile driven because it contains no miles-driven exposure; it can show reported annual motorist fatality totals.",
+    "metric": "Sum of number_of_motorist_killed per calendar year.",
+    "denominator": "None; annual fatality count, not a rate.",
+    "population": "All police-reported NYC motor-vehicle crashes with crash_date in 2013–2025 inclusive; each recorded motorist death contributes to its crash year's total.",
+    "filters": ["crash_date from 2013-01-01 inclusive to 2026-01-01 exclusive"],
+    "years": "Complete calendar years 2013–2025.",
+    "grouping": "Calendar year of crash_date.",
+    "limitations": "The dataset does not include miles driven, so counts cannot establish per-mile risk. Data checks found 0 missing motorist-killed fields among eligible crashes in every year and date spans reaching both calendar-year boundaries, including 2025; all eligible crashes are retained."
+  }
+}

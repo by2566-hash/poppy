@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crash rows per weekday, plus each weekday's share of all qualifying crash rows in 2013–2025.",
+      "denominator": "For the share, all crash rows with a nonmissing crash_date from 2013-01-01 through 2025-12-31.",
+      "grouping": "Weekday of crash_date, Monday through Sunday.",
+      "chart_type": "Vertical bar chart of pooled weekday shares, with row counts in the values file.",
+      "reason": "A pooled weekday count and share gives the most direct summary of how all recorded crashes in the requested span are distributed.",
+      "probability": 0.65,
+      "answer": "Among the 2,132,218 police-reported crash rows dated 2013–2025, Friday had the largest share (338,800; 15.89%) and Sunday the smallest (257,544; 12.08%).",
+      "interpretation": "This framing answers the overall weekday mix for police-reported NYC crash rows dated January 1, 2013 through December 31, 2025: Friday accounts for 15.89% (338,800 rows) and Sunday for 12.08% (257,544 rows). It is a direct pooled distribution, with the denominator all 2,132,218 qualifying crash rows and groups Monday through Sunday based on crash_date. It does not show the mix in a typical year: annual row counts ranged from 203,742 in 2013 to 231,564 in 2018 and fell to 85,546 in 2025, so higher-volume years contribute more to the pooled shares. The check found zero missing dates among selected rows and observed January 1–December 31 bounds in every requested year; all selected rows were kept, while dates outside 2013–2025 are excluded by the date filter, and the bounds do not prove complete reporting on every intervening day."
+    },
+    {
+      "id": 2,
+      "metric": "For each weekday, the unweighted mean across 2013–2025 of that year's share of qualifying crash rows.",
+      "denominator": "For each year's weekday share, all crash rows with a nonmissing crash_date in that calendar year; the final metric averages the 13 annual shares with equal weight.",
+      "grouping": "Year and weekday for annual shares; the chart groups weekdays Monday through Sunday and displays the equal-weight mean of each weekday's annual share.",
+      "chart_type": "Vertical bar chart of equal-weight mean annual weekday shares.",
+      "reason": "Equal weighting of annual shares summarizes the weekday mix in an average calendar year without letting high-volume years dominate.",
+      "probability": 0.35,
+      "answer": "Averaging the within-year weekday shares equally across 2013–2025, Friday had the highest mean share (15.82%) and Sunday the lowest (12.33%).",
+      "interpretation": "This framing answers the weekday mix in an average calendar year by dividing each weekday's police-reported crash rows by that year's total, then averaging the 13 annual shares equally; the mean share is highest on Friday (15.82%) and lowest on Sunday (12.33%). It is defensible when each year should contribute equally rather than each crash row, and each weekday group is defined by the weekday of crash_date. It does not give the pooled 2013–2025 distribution or a daily crash rate: annual row totals rose from 203,742 in 2013 to 231,564 in 2018 and declined to 85,546 in 2025, so normalizing within each year prevents higher-volume years from dominating, while smaller totals can make annual shares less stable. The check found zero missing dates among 2,132,218 eligible rows and observed January 1–December 31 bounds in all 13 years; all selected rows were retained in annual denominators, and the observed bounds do not prove complete reporting on every intervening day."
+    }
+  ]
+}

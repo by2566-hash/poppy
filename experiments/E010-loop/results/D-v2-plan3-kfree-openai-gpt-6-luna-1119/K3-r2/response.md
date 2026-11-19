@@ -1,0 +1,4 @@
+I’ll build defensible year-by-year comparisons, check the planned populations and data quality first, then generate and review the charts and saved answers.
+The data covers the requested calendar-year endpoints, and both death-count fields are complete in the 2,132,218 in-scope crash rows. One date-quality issue needs disclosure: 381 records carry the possible sentinel date 2013-01-01; I’ll keep them assigned to their recorded year and note that choice in both framings.
+ANSWER: Motorist deaths exceeded cyclist deaths in every year from 2013 to 2025: 72–139 motorist deaths per year versus 10–31 cyclist deaths.
+As a share of combined motorist-plus-cyclist deaths, motorists accounted for 72.6%–90.9% and cyclists 9.1%–27.4%; the cyclist share was highest in 2019 and lowest in 2013.

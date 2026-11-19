@@ -1,0 +1,18 @@
+{
+  "status": "partly",
+  "answerable_part": "This data can show the annual count of motorist deaths recorded in NYC police-reported crashes, but not risk per mile driven.",
+  "metric": "Annual total number of motorist deaths recorded in NYC police-reported crashes; sum number_of_motorist_killed.",
+  "denominator": "None; an annual count, not a rate.",
+  "population": "All police-reported motor vehicle crash records in NYC whose crash_date is in 2013-2025; sum recorded motorist deaths on those rows.",
+  "filters": "Include crash_date from 2013-01-01 through 2025-12-31 inclusive; no other filters.",
+  "years": "Calendar years 2013-2025 inclusive.",
+  "grouping": "Calendar year of crash_date.",
+  "initial_plan": false,
+  "data_check_meaning_and_decisions": {
+    "population_rows": "2,132,218 crash records are dated in 2013-2025. Annual counts are in check_1.csv.",
+    "date": "Within the planned population there are no missing dates and no 1970-01-01 date default; DATE cannot contain empty strings or textual unknowns. Each year has an observed first date of January 1 and last date of December 31, so no endpoint year is partial by its observed date span. This does not verify that every in-year date or crash is captured. Keep all eligible date rows; exclude records outside the years by plan definition.",
+    "number_of_motorist_killed": "0 of 2,132,218 planned rows are missing this field; the typed INTEGER cannot contain empty strings or textual unknowns. Keep all planned rows in the annual sum; no outcome rows are dropped or reclassified for missingness.",
+    "change": "The year range was retained after the check because 2013 and 2025 both span their full calendar dates in the file."
+  },
+  "limitations": "This is a count of recorded deaths, not a risk measure. The data has no miles-driven exposure, and annual crash-row counts vary substantially; min/max dates establish full calendar spans but do not establish complete capture of every crash or date."
+}

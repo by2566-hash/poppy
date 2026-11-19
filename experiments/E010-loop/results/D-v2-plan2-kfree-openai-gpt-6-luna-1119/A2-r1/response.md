@@ -1,0 +1,2 @@
+ANSWER: In complete 2013–2025 records, 28.6% of reported night crashes involved injury or death, versus 23.4% of daytime crashes (the separate 00:00 group was 26.7%); this compares reported crashes, not exposure-adjusted street risk.
+Night crashes averaged 0.409 reported injured or killed people per crash, versus 0.310 by day (the separate 00:00 group averaged 0.359), but this does not establish higher per-trip or per-mile danger.

@@ -1,0 +1,14 @@
+{
+  "can_answer": "yes: the data has annual motorist- and cyclist-death count columns, allowing a direct annual relative-count comparison",
+  "metric": "annual cyclist deaths divided by annual motorist deaths, expressed as cyclist deaths per 100 motorist deaths",
+  "denominator": "annual sum of number_of_motorist_killed; the comparison is normalized to the motorist death count and is undefined if that count is zero",
+  "population": "police-reported crash rows with crash_date in calendar years 2013 through 2025; the numerator and denominator sum recorded cyclist and motorist deaths attributed to those crashes",
+  "filters": "crash_date from 2013-01-01 through 2025-12-31; no borough or other crash filters",
+  "years": "calendar years 2013–2025 inclusive",
+  "grouping": "calendar year",
+  "data_check": {
+    "facts": "The selected population contains 2,132,218 crash rows. Each year 2013–2025 is represented from January 1 through December 31. There are 0 missing crash dates within the selected population and 0 missing values in either fatality column, both overall and in every year; DATE and integer types do not permit text placeholders, and the checked 1900-01-01 and 1970-01-01 date sentinels have 0 rows in each selected year.",
+    "meaning_and_decision": "No selected rows are dropped or counted differently for missing values or the checked date sentinels; retain all rows. The population is all dated police-reported crashes in the thirteen complete calendar years. Annual crash-row counts are 203,742 (2013), 206,046 (2014), 217,708 (2015), 229,833 (2016), 231,007 (2017), 231,564 (2018), 211,486 (2019), 112,918 (2020), 110,558 (2021), 103,887 (2022), 96,607 (2023), 91,316 (2024), and 85,546 (2025); counts rise through 2018 then decline substantially, but the ratio's denominator is motorist deaths, not crashes or exposure. No plan change."
+  },
+  "limitations": "This is cyclist deaths per 100 recorded motorist deaths, not a crash-, population-, distance-, or exposure-based risk rate; a given ratio does not reveal either group's exposure. All 2013–2025 calendar years have observed January 1–December 31 coverage and neither fatality column has missing values. The annual crash-row population varies substantially (203,742 in 2013, peaking at 231,564 in 2018, then 85,546 in 2025), but the ratio is normalized to motorist deaths rather than crash rows."
+}

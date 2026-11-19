@@ -21,6 +21,8 @@ Setup common to every arm:
 | `D-v2-plan-kfree` (C5) | 11-08 | Bo's Plan → Data check → Final plan | `D_enumerate.v2-plan.md`, 50 steps | 39 | 38% | 31% |
 | `D-v2-kfree-1113` | 11-13 | none (same-day baseline, hermetic harness) | — | 43 | **42%** | 42% |
 | `D-v2-plan2-kfree-1113` (C5 v2) | 11-13 | C5 + outcome columns missing-only + definitions in text | `D_enumerate.v2-plan2.md` | 37 | **22%** | **22%** |
+| `D-v2-plan2-kfree-1119` (C5 v2 = v3) | 11-19 | same as above (same-day base for v4) | `D_enumerate.v2-plan2.md` | 36 | **22%** | 22% |
+| `D-v2-plan3-kfree-1119` (E010-v4) | 11-19 | v3 + final plan binds the conclusion (direction ban; rows-per-year) | `D_enumerate.v2-plan3.md` | 37 | 38% | 35% |
 
 Trap counts (FAIL / applicable) for the arms that matter:
 
@@ -71,11 +73,13 @@ Trap counts (FAIL / applicable) for the arms that matter:
 | 11-13 | All four accepted: g8.1, TR01 wording, C5 v2, hermetic harness. |
 | 11-19 | **Option (a): C5 v2 becomes E010-v3**, the new base. Next target: I1 (PERMILE, TR01). |
 | 11-19 | **Calendar and unit numbers are not unsourced** (decision 10, g8.2; all arms re-scored). With it C5 v2 passes the keep rule on silent-error (22% vs 42% same day); the only remaining exception is UC 5/37 vs 4/43 (M8). |
+| 11-19 | **E010-v4 reverted** by the keep rule: PERMILE fell (1/2 → 0/5) but TR01 did not (6/7) and TR05 rose (5/8 → 7/8); silent-error 22% → 38%. v3 stays the base and replicates (22% on 11-13 and 11-19). |
 
 ## 4. Open items
 
 - Human review: 2 UC cells (M8); `review.csv` disagreements per arm.
 - 19 neighbour questions: teammate check.
 - `values.csv`-only reverse-inference runner for the formal round-trip distance.
-- E010-v4: the I1 target (`ITERATIONS.md`, 11-19). It bundles two changes: keep only if both PERMILE and TR01 fall and nothing rises; if mixed, split into two arms.
+- E010-v4 reverted (ITERATIONS 11-19). Recorded next step if Bo continues the I1 track: split into v4a (direction ban) and v4b (rows-per-year, reworded).
+- M10: is an overall NULL-borough share enough for TR05, or is the per-year range required? (Bo's call.)
 - After v4: **under discussion** (Bo). Nothing after v4 is started.

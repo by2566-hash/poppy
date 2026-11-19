@@ -1,0 +1,4 @@
+The checks show that crash time is present throughout, while the file covers only part of 2012 and 2026. I’m excluding those partial years, and excluding the 42 complete-year crash rows with a missing injury or death total; midnight timestamps remain in the night group.
+ANSWER:
+- Crash records cannot establish exposure-adjusted street danger: the share of reported crashes involving injury or death was higher at night through 2021 but higher by day in 2022–2025 (2025: 42.46% at night versus 44.29% by day).
+- Crash records cannot establish exposure-adjusted street danger: in 2025 there were 59.96 injured or killed people per 100 night crashes versus 57.57 per 100 day crashes, with the night measure higher in every complete year from 2013–2025.

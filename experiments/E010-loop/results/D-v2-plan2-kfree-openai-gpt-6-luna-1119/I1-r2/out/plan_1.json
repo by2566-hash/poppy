@@ -1,0 +1,26 @@
+{
+  "initial_plan": {
+    "can_answer_question_under_framing": "partly: the data can show annual recorded motorist deaths in crashes, but it has no miles-driven denominator and cannot establish deaths per mile or whether that risk declined.",
+    "metric": "Sum of number_of_motorist_killed for crashes by calendar year",
+    "denominator": "None; annual counts are not exposure-adjusted rates",
+    "population": "Police-reported NYC motor vehicle crashes dated 2013 through 2025, counting recorded motorist deaths in those crashes",
+    "filters": "crash_date from 2013-01-01 through 2025-12-31; no borough or outcome filters",
+    "years": "2013-2025 inclusive",
+    "grouping": "Calendar year of crash_date"
+  },
+  "data_check": {
+    "file": "check_1.csv",
+    "facts_and_meaning": "The plan population is 2,132,218 dated crash rows. Each year 2013-2025 has observed dates from January 1 through December 31; yearly row counts are in check_1.csv. Within the selected population there are 0 missing crash dates and 0 missing number_of_motorist_killed values; the typed DATE and integer columns cannot contain empty strings, textual unknowns, or impossible typed values. There are 381 rows dated 2013-01-01 (a possible date-bunching check), and no 1970-01-01 or 1900-01-01 sentinel dates. The 2013-01-01 records are retained because the check does not establish they are defaults; all in-period rows and outcome values are retained.",
+    "decisions": "Keep all in-period rows and disclose that the outcomes are from reported crashes; do not exclude any rows for missingness or possible date defaults."
+  },
+  "final_plan": {
+    "can_answer_question_under_framing": "partly: the data can show annual recorded motorist-death counts but cannot answer whether deaths per mile driven declined, because miles driven are not measured.",
+    "metric": "Annual total of number_of_motorist_killed, including every recorded motorist death associated with eligible crashes",
+    "denominator": "None; this is a count, not a rate",
+    "population": "All police-reported NYC motor vehicle crash rows with crash_date in calendar years 2013-2025; the summed outcome is recorded motorist deaths",
+    "filters": "crash_date from 2013-01-01 inclusive to 2026-01-01 exclusive; no borough or outcome filter; retain all rows",
+    "years": "Calendar years 2013-2025 inclusive; each year has observed dates at both calendar-year endpoints in this file",
+    "grouping": "Calendar year derived from crash_date",
+    "limitations": "The file has no miles-driven exposure, so annual counts cannot measure deaths per mile or determine whether per-mile risk declined. It records police-reported crashes, not a census of driving exposure. The in-period population has 2,132,218 rows, with no missing dates or motorist-death values; 381 rows fall on 2013-01-01 and are retained because no evidence establishes these dates as defaults. Observed first and last dates span each calendar year, but these endpoints alone do not establish completeness of every date."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "can_answer": "partly: can compare reported injury and fatality burden per crash by clock-time category, but cannot establish per-trip or per-mile danger without traffic or exposure denominators",
+    "metric": "number of persons injured and number of persons killed per 1,000 complete-case crashes, shown as separate outcomes",
+    "denominator": "number of crashes with nonmissing number_of_persons_injured and number_of_persons_killed, within each time category",
+    "population": "rows with a valid crash_date and nonmissing values in both person injury/death columns, across every year represented by the file",
+    "filters": ["exclude rows with missing crash_date because their year cannot be assigned", "exclude rows missing either summed outcome column", "retain missing or unclassifiable crash_time in an Unknown time group"],
+    "years": "all years represented by valid crash_date values in the file",
+    "grouping": "Night (20:00–05:59), Day (06:00–19:59), and Unknown time (missing or unclassifiable crash_time)"
+  },
+  "data_check": {
+    "facts": "There are 2,269,187 rows with valid crash_date; none have missing/unassignable dates or the checked sentinel dates. The file contains partial 2012 (2012-07-01 through 2012-12-31) and 2026 (2026-01-01 through 2026-06-11), with 136,969 rows outside complete years 2013–2025. Among complete-year candidates, 18 lack number_of_persons_injured, 36 lack number_of_persons_killed, and 42 lack either column. The final complete-case population contains 2,132,176 rows; none have missing/unknown or unclassifiable crash_time, and 23,786 rows are exactly 00:00:00.",
+    "meaning_and_decisions": "Exclude rows outside complete years 2013–2025 (136,969 valid-date rows) and exclude the 42 complete-year rows missing either summed outcome, yielding 2,132,176 complete-case rows. The separate missing counts overlap, so the union of 42 is the number excluded. Keep and disclose the 23,786 midnight records in Night because midnight is valid but may include default-coded times. No missing or unclassifiable time rows require exclusion or their own group."
+  },
+  "final_plan": {
+    "can_answer": "partly: compares reported injury and death burden per crash across clock-time categories, but cannot estimate danger per trip, mile, or exposure without a traffic/exposure denominator",
+    "metric": "sum of number_of_persons_injured and sum of number_of_persons_killed separately, each per 1,000 complete-case crashes",
+    "denominator": "complete-case crash count in each time category (rows nonmissing on both person outcome columns)",
+    "population": "police-reported crash rows with valid crash_date in complete calendar years 2013–2025 and nonmissing number_of_persons_injured and number_of_persons_killed",
+    "filters": ["exclude rows outside 2013–2025, including partial years 2012 and 2026", "exclude rows with missing crash_date if any", "exclude rows missing either summed person outcome column (42 complete-year rows)", "keep missing or unclassifiable crash_time in Unknown time if any", "keep 00:00:00 in Night and disclose possible default-time coding"],
+    "years": "complete calendar years 2013–2025 inclusive",
+    "grouping": "Night (20:00–05:59), Day (06:00–19:59), and Unknown time (missing or unclassifiable crash_time)",
+    "limitations": "This is injury/death burden among reported crashes, not risk per trip, mile, or exposure. Partial 2012 and 2026 contribute 136,969 valid-date rows (6.0% of all valid-date rows) and are excluded; 42 of 2,132,218 complete-year candidates (0.002%) missing either outcome are also excluded. Time is complete and parseable in the included years, but 23,786 included records (1.1%) occur at 00:00:00 and may include default-coded times; they are retained as Night."
+  }
+}

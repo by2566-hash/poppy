@@ -239,3 +239,31 @@ The 1119 pair (C5 v2 vs E010-v4) is scored with g8.2 from the start; the M7 case
 - **Keep v4 only if both targets fall** (I1 PERMILE and TR01) **and no other criterion rises** against the same-day C5 v2, judged on g8.2 (no hand exclusions). M8 (2 UC grader errors) is still reported separately until the human review is done.
 - **If the result is mixed** (one target falls, the other does not, or something else rises): do not keep; split into two single-change arms (v4a direction ban, v4b rows-per-year) next round.
 - Infrastructure: 5 runs ended on OpenAI 503 "overloaded" (v3: A2-r3, I1-r1; v4: A2-r3, I1-r2, I1-r3). Rule: a run ending incomplete on a provider 5xx is re-run (up to 3 attempts, `diagnosis/rerun_infra.sh`); an incomplete run without a provider error is a model failure and is kept.
+
+### E010-v4 result (2026-11-19; g8.2; same day, hermetic; 18 + 18 runs; Luna two-pass agreement 0.988 / 0.984)
+
+All 5 runs interrupted by OpenAI 503 were re-run on the first attempt (`diagnosis/rerun_infra.sh`); no arm was scored with an infrastructure failure in it.
+
+| | C5 v2 (v3) 11-13 | **C5 v2 (v3) 11-19** | **E010-v4 11-19** |
+|---|---|---|---|
+| options | 37 | 36 | 37 |
+| silent-error | 22% | **22%** | **38%** |
+| traps + UC only | 22% | 22% | 35% |
+| PERMILE (target) | 3/4 | 1/2 | **0/5** ↓ |
+| TR01 (target) | 4/4 | 3/3 | **6/7** (not fixed) |
+| TR05 | 2/7 | 5/8 | **7/8** ↑ |
+| TR08 / TR07 / NIGHTDEF | 0/7 / 0/3 / 0/7 | 0/5 / 0/4 / 0/6 | 0/5 / 0/3 / 0/7 |
+| unsupported_claim | 5/37 | 1/36 | 1/37 |
+| SE A1 / I1 | 4/7 / 4/8 | 6/8 / 2/6 | 8/8 / 5/6 |
+| process: plan / check files, outcome-value rows in check | 36 / 36, 0 | | 36 / 36, 0 |
+
+**Decision by the keep rule: revert. v3 (C5 v2) stays the base.** Only one target fell; TR05 and silent-error rose.
+
+What the evidence says:
+1. **PERMILE fixed.** 5/5 applicable I1 options now say what the crash-based measure does not estimate ("does not estimate deaths per mile", "cannot establish whether … per mile declined"). The direction ban works as written.
+2. **TR01 moved behaviour, not to the standard.** v4 options now state rows per year ("denominator rose from 203,742 in 2013 to 231,564 in 2018, then reached 85,546 in 2025"; "ratios over changing crash-row totals"), but they do not say the change is sharp around 2020 *and* that it affects comparing the per-crash rate (decision 8). The prompt asked for "how rows per year change … and what that change does"; the agents gave the first part and a generic version of the second. Borderline cells (I1-r3 o2, I1-r1 o1) are candidates for the human review; even if both passed, TR01 would be 4/7.
+3. **TR05 rise is plausibly caused by v4 (hypothesis).** In v4 the A1 agents computed the denominator rows *after* the Brooklyn filter and checked missing borough inside that set ("0 of 483,501 Brooklyn rows missing/unknown borough"), which by construction finds none. The rows-per-year instruction appears to pull the data check onto the filtered population. Not proven on 8 A1 options.
+4. **v3 replicates.** C5 v2 gave 22% on 11-13 and 22% on 11-19 (D v2 baseline was 42% on 11-13). Its TR05 varies by day (2/7 vs 5/8).
+5. **Measurement note (M10, for Bo).** 2 of v3's 5 TR05 FAILs on 11-19 disclose an overall share ("30.8% … excluded") and fail only because the grader reads the reference range in the item ("19.9–38.1% per year") as required. Whether an overall share is enough is a standard question; no change made.
+
+Next (not started; the post-v4 plan is under discussion with Bo): the recorded rule is to split v4 into v4a (direction ban only; expected to keep the PERMILE gain) and v4b (rows-per-year, reworded to name the effect on cross-year comparison and to count rows before any population filter).

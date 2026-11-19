@@ -1,0 +1,29 @@
+{
+  "initial_plan": {
+    "can_answer": "yes",
+    "part_answered": "The annual number of pedestrians reported killed in NYC police-reported motor vehicle crashes from 2013 through 2025.",
+    "metric": "Sum of number_of_pedestrians_killed, interpreted as pedestrians killed in reported crashes per calendar year.",
+    "denominator": "No denominator; this is an annual count.",
+    "population": "All police-reported motor vehicle crash rows in NYC with crash_date in calendar years 2013–2025.",
+    "filters": ["crash_date year from 2013 through 2025; no borough or outcome filters"],
+    "years": "2013–2025 inclusive, grouped by the calendar year of crash_date.",
+    "grouping": "Calendar year of crash_date."
+  },
+  "data_check_implications_and_decisions": {
+    "rows_used": "2,132,218 crash rows across 2013–2025; all years are represented by a full Jan 1–Dec 31 date range.",
+    "date_column": "No missing or impossible crash dates in the selected population. Common date sentinels 1900-01-01 and 1970-01-01 are outside the selected years; no date rows are excluded or counted differently.",
+    "outcome_column": "number_of_pedestrians_killed is missing on 0 selected rows, so no rows are excluded or treated separately for a missing outcome.",
+    "decision": "Keep all rows in the planned population."
+  },
+  "final_plan": {
+    "can_answer": "yes",
+    "part_answered": "The annual number of pedestrians reported killed in NYC police-reported motor vehicle crashes from 2013 through 2025.",
+    "metric": "Annual count, calculated as the sum of number_of_pedestrians_killed across crash rows in each calendar year.",
+    "denominator": "No denominator; this is an annual count of people reported killed.",
+    "population": "All 2,132,218 NYC police-reported motor vehicle crash rows dated from 2013-01-01 through 2025-12-31; crash rows with no pedestrian fatalities remain in the population and contribute zero.",
+    "filters": ["crash_date from 2013-01-01 inclusive to 2026-01-01 exclusive; no borough or outcome filters; no rows excluded for missing crash_date or number_of_pedestrians_killed because neither is missing in the selected population"],
+    "years": "Full calendar years 2013–2025 inclusive, grouped by YEAR(crash_date).",
+    "grouping": "Calendar year of crash_date.",
+    "limitations": "This counts pedestrian deaths recorded in police-reported crash records, not necessarily all deaths outside those records. All selected years have complete date coverage, and the summed field has no missing values. The annual number of crash rows varies substantially (203,742 in 2013, peaking at 231,564 in 2018, then 85,546 in 2025), so raw annual counts should not be interpreted as per-crash risk or normalized for changes in crash-report volume."
+  }
+}

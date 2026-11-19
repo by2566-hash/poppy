@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "crash count by weekday",
+      "denominator": "all 2,132,218 selected crash rows; each row is counted once",
+      "grouping": "weekday derived from crash_date, ordered Monday through Sunday",
+      "chart_type": "bar chart",
+      "reason": "Raw weekday counts and their shares directly show how the total number of recorded crashes is distributed.",
+      "probability": 0.7,
+      "answer": "Friday had the most recorded crashes (338,800; 15.9% of the selected total), while Sunday had the fewest (257,544; 12.1%).",
+      "interpretation": "This framing answers how the total of police-reported NYC crashes in the file is distributed across weekdays by counting each crash row once according to the weekday of crash_date, for dates in 2013-2025 inclusive. Friday has the largest total (338,800, or 15.9% of the 2,132,218 selected rows), and Sunday the smallest (257,544, or 12.1%); the chart gives counts rather than a typical-day rate. Total counts are a defensible direct measure of the accumulated crash burden, but they do not adjust for the number of calendar occurrences of each weekday or describe crashes never police-reported. The check found 0 missing dates, 0 missing weekdays, 0 tested sentinel dates, and 0 impossible typed dates among the 2,132,218 in-range rows, whose observed date limits span Jan 1-Dec 31 in all 13 years; all in-range rows were kept, while missing-date or out-of-range records fall outside the selected population and were not counted."
+    },
+    {
+      "id": 2,
+      "metric": "mean number of police-reported crashes per calendar occurrence of each weekday over 2013-2025",
+      "denominator": "number of calendar dates of each weekday in the complete calendar years 2013 through 2025 inclusive",
+      "grouping": "weekday derived from crash_date, ordered Monday through Sunday",
+      "chart_type": "bar chart",
+      "reason": "A per-calendar-day average makes weekday frequencies directly comparable after accounting for how often each weekday occurred.",
+      "probability": 0.3,
+      "answer": "The average was highest on Fridays at 499.7 crashes per calendar Friday and lowest on Sundays at 379.9 per calendar Sunday.",
+      "interpretation": "This framing answers how frequently crashes occur on a typical calendar date of each weekday, by counting each police-reported crash row once and dividing each weekday's total by the number of those weekday dates in full calendar years 2013-2025. Friday averaged 499.7 crashes across 678 calendar Fridays, the highest rate, and Sunday averaged 379.9 across 678 calendar Sundays, the lowest; other weekday denominators were 678 Mondays, 679 Tuesdays, 679 Wednesdays, 678 Thursdays, and 678 Saturdays. This is defensible for comparing typical daily frequency because it accounts for weekday occurrence counts, but it does not show the cumulative crash burden or crashes never police-reported. The check found 0 missing dates, 0 missing weekdays, 0 tested sentinel dates, and 0 impossible typed dates among the 2,132,218 in-range rows, whose observed date limits span Jan 1-Dec 31 in all 13 years; all in-range rows were kept, while missing-date or out-of-range records fall outside the selected population and were not counted."
+    }
+  ]
+}

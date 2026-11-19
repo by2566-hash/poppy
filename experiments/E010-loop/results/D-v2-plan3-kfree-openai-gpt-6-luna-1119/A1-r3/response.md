@@ -1,0 +1,4 @@
+The file covers complete calendar years 2013–2025; 2026 only runs through June 11, so I’m excluding that partial year. The row and outcome-field checks show no missing values in the selected Brooklyn population.
+ANSWER:
+1. The data can only partly answer whether safety improved: recorded pedestrian casualties in Brooklyn crashes numbered 3,671 in 2013, reached a low of 1,798 in 2020, and numbered 2,874 in 2025; [chart](out/option_1.png).
+2. The data can only partly answer whether safety improved: recorded pedestrian deaths numbered 30 in 2013 and 39 in 2025, ranging from 17 to 46 across 2013–2025; [chart](out/option_2.png).

@@ -1,0 +1,98 @@
+{
+ "q": "K2",
+ "rep": 2,
+ "label": "D-v2-plan2-kfree-openai-gpt-6-luna-1119",
+ "type": "clear",
+ "base": "K2",
+ "question": "How are NYC crashes distributed across the days of the week, 2013 to 2025?",
+ "k": 0,
+ "call_ok": true,
+ "timed_out": false,
+ "answered_no_exit": false,
+ "rate_limited": false,
+ "stalled": false,
+ "attempts": 1,
+ "secs": 196.8,
+ "zero_output_retries": 0,
+ "secs_total": 196.8,
+ "steps": 24,
+ "hit_step_limit": false,
+ "tool_calls": 28,
+ "tokens": {
+  "input": 72,
+  "output": 7107,
+  "reasoning": 5865,
+  "cache_read": 376591,
+  "cache_write": 29783,
+  "total": 419418
+ },
+ "net_calls": 0,
+ "options_parsed": true,
+ "options_reason": null,
+ "n_options": 2,
+ "n_complete_options": 2,
+ "n_distinct_framings": 2,
+ "n_distinct_analytic": 2,
+ "recommended": null,
+ "options": [
+  {
+   "id": 1,
+   "metric": "Number of crash records",
+   "denominator": "None; absolute crash-record count for each weekday",
+   "grouping": "Day of week of crash_date, Monday through Sunday",
+   "chart_type": "Vertical bar chart of crash-record counts",
+   "reason": "Absolute counts directly answer how the total number of recorded NYC crashes is distributed across weekdays.",
+   "probability": 0.55,
+   "answer": "Friday had the most recorded crashes (338,800) and Sunday the fewest (257,544) among 2,132,218 crashes from 2013 through 2025.",
+   "interpretation": "For 2013\u20132025 inclusive, this counts each police-reported crash row with an in-range typed crash_date once and groups rows by the date's calendar weekday; Friday has the most (338,800) and Sunday the fewest (257,544) of 2,132,218. Absolute counts directly describe recorded volume across the requested period, a defensible reading of \u201cdistributed,\u201d but they do not show weekday-specific risk adjusted for traffic exposure or changes within the period. The data check found 0 missing or invalid dates among the 2,132,218 in-scope rows and crash records on every calendar date in all 13 years, so all in-scope rows are retained. Missing dates cannot be assigned a weekday and dates outside 2013\u20132025 are out of scope.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  },
+  {
+   "id": 2,
+   "metric": "Share of crash records, as a percentage of all included crash records",
+   "denominator": "All police-reported crash rows with a typed crash_date in calendar years 2013 through 2025 inclusive (2,132,218 rows)",
+   "grouping": "Day of week of crash_date, Monday through Sunday",
+   "chart_type": "Vertical bar chart of each weekday's share of all crash records",
+   "reason": "Weekday shares express the distribution as portions of one common total, independent of the total number of records.",
+   "probability": 0.45,
+   "answer": "Friday accounted for the largest share of crashes (15.89%) and Sunday the smallest (12.08%) from 2013 through 2025.",
+   "interpretation": "For 2013\u20132025 inclusive, each bar is a weekday's crash-record count divided by all 2,132,218 police-reported crash rows with an in-range typed crash_date; Friday accounts for 15.89% and Sunday 12.08%. This common-total denominator directly describes the composition of recorded crashes by calendar weekday, but does not estimate weekday-specific crash risk adjusted for traffic exposure or changes within the period. The data check found 0 missing or invalid dates among the 2,132,218 in-scope rows and crash records on every calendar date in all 13 years, so all in-scope rows are retained. Missing dates cannot be assigned a weekday and dates outside 2013\u20132025 are out of scope.",
+   "png": true,
+   "values": true,
+   "fields_ok": true,
+   "duplicate_framing": false
+  }
+ ],
+ "answer": "By crash-record count, Friday had the most (338,800) and Sunday the fewest (257,544) among 2,132,218 crashes from 2013\u20132025.\nBy share of all crash records, Friday accounted for the largest share (15.89%) and Sunday the smallest (12.08%) from 2013\u20132025.",
+ "answer_ok": true,
+ "errors": [],
+ "env": {
+  "model": "openai/gpt-6-luna",
+  "opencode": "1.18.34",
+  "python": "3.13.5",
+  "python_prefix": "/Users/yubo/.poppy/venv",
+  "python_executable": "/Users/yubo/Downloads/Anaconda/anaconda3/bin/python3.13",
+  "git_commit": "7bcf20d",
+  "prompt_sha": {
+   "D_enumerate.v2-plan2.md": "0404cb862dc10fd5"
+  },
+  "config_sha": {
+   "opencode.analysis.json": "51a2bdaf303e06c4",
+   "opencode.review.json": "beba3f25da37e6af"
+  }
+ },
+ "profile": null,
+ "rendered_prompt_sha": "7f2bd3be7d0bf270",
+ "jit": null,
+ "first_step_prompt_tokens": 5924,
+ "opencode_env": {
+  "OPENCODE_DISABLE_EXTERNAL_SKILLS": "1",
+  "OPENCODE_DISABLE_CLAUDE_CODE": "1"
+ },
+ "step_cap": 50,
+ "complete": true,
+ "collected_by": "by2566-hash"
+}

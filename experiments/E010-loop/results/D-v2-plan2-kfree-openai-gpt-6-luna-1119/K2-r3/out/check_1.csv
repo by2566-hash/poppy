@@ -1,0 +1,73 @@
+fact,value
+population_rows_2013_2025,2132218
+observed_min_date_in_population,2013-01-01
+observed_max_date_in_population,2025-12-31
+crash_date_missing_in_population,0
+crash_date_impossible_value_in_population,"0; crash_date is a native DATE, so invalid calendar dates cannot be stored"
+crash_date_empty_or_unknown_word_in_population,not representable in the native DATE column
+crash_date_default_value_pileup_in_population,no default or sentinel date is specified by the supplied schema
+rows_2013,203742
+observed_min_date_2013,2013-01-01
+observed_max_date_2013,2013-12-31
+crash_date_missing_in_population_2013,0
+year_coverage_note_2013,observed crash-date span touches both year boundaries; actual source coverage cannot be established from crash records alone
+rows_2014,206046
+observed_min_date_2014,2014-01-01
+observed_max_date_2014,2014-12-31
+crash_date_missing_in_population_2014,0
+year_coverage_note_2014,observed crash-date span touches both year boundaries; actual source coverage cannot be established from crash records alone
+rows_2015,217708
+observed_min_date_2015,2015-01-01
+observed_max_date_2015,2015-12-31
+crash_date_missing_in_population_2015,0
+year_coverage_note_2015,observed crash-date span touches both year boundaries; actual source coverage cannot be established from crash records alone
+rows_2016,229833
+observed_min_date_2016,2016-01-01
+observed_max_date_2016,2016-12-31
+crash_date_missing_in_population_2016,0
+year_coverage_note_2016,observed crash-date span touches both year boundaries; actual source coverage cannot be established from crash records alone
+rows_2017,231007
+observed_min_date_2017,2017-01-01
+observed_max_date_2017,2017-12-31
+crash_date_missing_in_population_2017,0
+year_coverage_note_2017,observed crash-date span touches both year boundaries; actual source coverage cannot be established from crash records alone
+rows_2018,231564
+observed_min_date_2018,2018-01-01
+observed_max_date_2018,2018-12-31
+crash_date_missing_in_population_2018,0
+year_coverage_note_2018,observed crash-date span touches both year boundaries; actual source coverage cannot be established from crash records alone
+rows_2019,211486
+observed_min_date_2019,2019-01-01
+observed_max_date_2019,2019-12-31
+crash_date_missing_in_population_2019,0
+year_coverage_note_2019,observed crash-date span touches both year boundaries; actual source coverage cannot be established from crash records alone
+rows_2020,112918
+observed_min_date_2020,2020-01-01
+observed_max_date_2020,2020-12-31
+crash_date_missing_in_population_2020,0
+year_coverage_note_2020,observed crash-date span touches both year boundaries; actual source coverage cannot be established from crash records alone
+rows_2021,110558
+observed_min_date_2021,2021-01-01
+observed_max_date_2021,2021-12-31
+crash_date_missing_in_population_2021,0
+year_coverage_note_2021,observed crash-date span touches both year boundaries; actual source coverage cannot be established from crash records alone
+rows_2022,103887
+observed_min_date_2022,2022-01-01
+observed_max_date_2022,2022-12-31
+crash_date_missing_in_population_2022,0
+year_coverage_note_2022,observed crash-date span touches both year boundaries; actual source coverage cannot be established from crash records alone
+rows_2023,96607
+observed_min_date_2023,2023-01-01
+observed_max_date_2023,2023-12-31
+crash_date_missing_in_population_2023,0
+year_coverage_note_2023,observed crash-date span touches both year boundaries; actual source coverage cannot be established from crash records alone
+rows_2024,91316
+observed_min_date_2024,2024-01-01
+observed_max_date_2024,2024-12-31
+crash_date_missing_in_population_2024,0
+year_coverage_note_2024,observed crash-date span touches both year boundaries; actual source coverage cannot be established from crash records alone
+rows_2025,85546
+observed_min_date_2025,2025-01-01
+observed_max_date_2025,2025-12-31
+crash_date_missing_in_population_2025,0
+year_coverage_note_2025,observed crash-date span touches both year boundaries; actual source coverage cannot be established from crash records alone

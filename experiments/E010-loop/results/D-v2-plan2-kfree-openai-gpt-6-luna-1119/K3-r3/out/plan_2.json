@@ -1,0 +1,26 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "answerability": "yes: the dataset supports a year-by-year comparison of the cyclist share versus the motorist share within these two recorded fatality categories, but not risk per trip or exposure",
+    "metric": "annual cyclist deaths as a share of combined motorist and cyclist deaths, with the complementary motorist share",
+    "denominator": "motorist deaths plus cyclist deaths in the same calendar year",
+    "population": "police-reported NYC crash rows dated from 2013-01-01 through 2025-12-31; fatalities are counted by the motorist and cyclist killed columns",
+    "filters": ["crash_date year is 2013 through 2025"],
+    "years": "2013-2025 inclusive",
+    "grouping": ["calendar year of crash_date", "road-user category: motorist or cyclist"],
+    "columns": ["crash_date", "number_of_motorist_killed", "number_of_cyclist_killed"]
+  },
+  "data_check_interpretation": "The selected 2013-2025 population contains 2,132,218 crash rows, with 85,546 to 231,564 rows per year. Every year has observed dates from January 1 through December 31, though the file alone cannot verify complete reporting. No selected crash_date values or summed death fields are missing; crash_date is DATE typed, so invalid string encodings are not possible, and no sentinel date is specified. No rows need to be excluded or counted differently; retain all crash rows in the selected years.",
+  "final_plan": {
+    "answerability": "yes for comparing the composition of recorded motorist and cyclist deaths by year; the data do not support exposure-adjusted risk or a comparison with pedestrian deaths",
+    "metric": "annual cyclist share and complementary motorist share of combined motorist and cyclist deaths",
+    "denominator": "for each year, summed motorist deaths plus summed cyclist deaths",
+    "population": "all police-reported NYC crash rows with crash_date from 2013-01-01 through 2025-12-31, including rows with zero deaths; the denominator includes only fatalities represented by the motorist and cyclist killed columns",
+    "filters": ["crash_date is within 2013-2025 inclusive"],
+    "years": "calendar years 2013-2025 inclusive",
+    "grouping": ["calendar year of crash_date", "fatality category: motorist or cyclist"],
+    "outcome_columns": ["number_of_motorist_killed", "number_of_cyclist_killed"],
+    "missing_value_decision": "retain all selected rows; the data check found no missing values in either summed death column",
+    "limitations": "The shares describe only the composition among motorist and cyclist deaths, not each group's risk per trip or relative population; pedestrian deaths are excluded from this denominator. The file spans January 1 through December 31 in each year, but that does not prove complete reporting."
+  }
+}

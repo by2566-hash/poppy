@@ -1,0 +1,45 @@
+fact,value
+rows_in_population_2013_2025,2132218
+rows_with_crash_date_outside_2013_2025_excluded,136969
+rows_with_missing_crash_date_excluded_year_unassignable,0
+crash_date_impossible_values_in_plan_population_DATE_column,0
+crash_date_conventional_defaults_1900-01-01_1970-01-01_0001-01-01_in_plan_population,0
+rows_year_2013,203742
+rows_year_2014,206046
+rows_year_2015,217708
+rows_year_2016,229833
+rows_year_2017,231007
+rows_year_2018,231564
+rows_year_2019,211486
+rows_year_2020,112918
+rows_year_2021,110558
+rows_year_2022,103887
+rows_year_2023,96607
+rows_year_2024,91316
+rows_year_2025,85546
+year_2013_observed_date_span,2013-01-01 to 2013-12-31
+year_2014_observed_date_span,2014-01-01 to 2014-12-31
+year_2015_observed_date_span,2015-01-01 to 2015-12-31
+year_2016_observed_date_span,2016-01-01 to 2016-12-31
+year_2017_observed_date_span,2017-01-01 to 2017-12-31
+year_2018_observed_date_span,2018-01-01 to 2018-12-31
+year_2019_observed_date_span,2019-01-01 to 2019-12-31
+year_2020_observed_date_span,2020-01-01 to 2020-12-31
+year_2021_observed_date_span,2021-01-01 to 2021-12-31
+year_2022_observed_date_span,2022-01-01 to 2022-12-31
+year_2023_observed_date_span,2023-01-01 to 2023-12-31
+year_2024_observed_date_span,2024-01-01 to 2024-12-31
+year_2025_observed_date_span,2025-01-01 to 2025-12-31
+year_2013_partial_by_observed_calendar_boundaries,False
+year_2014_partial_by_observed_calendar_boundaries,False
+year_2015_partial_by_observed_calendar_boundaries,False
+year_2016_partial_by_observed_calendar_boundaries,False
+year_2017_partial_by_observed_calendar_boundaries,False
+year_2018_partial_by_observed_calendar_boundaries,False
+year_2019_partial_by_observed_calendar_boundaries,False
+year_2020_partial_by_observed_calendar_boundaries,False
+year_2021_partial_by_observed_calendar_boundaries,False
+year_2022_partial_by_observed_calendar_boundaries,False
+year_2023_partial_by_observed_calendar_boundaries,False
+year_2024_partial_by_observed_calendar_boundaries,False
+year_2025_partial_by_observed_calendar_boundaries,False

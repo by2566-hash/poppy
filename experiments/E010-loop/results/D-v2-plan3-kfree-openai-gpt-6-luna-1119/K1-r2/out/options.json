@@ -1,0 +1,15 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count, calculated as the sum of number_of_pedestrians_killed across crash rows in each calendar year.",
+      "denominator": "No denominator; this is an annual count of people reported killed.",
+      "grouping": "Calendar year of crash_date, full years 2013–2025 inclusive.",
+      "chart_type": "Bar chart",
+      "reason": "Summing the per-crash pedestrian fatality count directly answers how many pedestrians were reported killed in each year.",
+      "probability": 1.0,
+      "answer": "The annual sums of pedestrians killed were 176 in 2013, 133 in 2014, 133 in 2015, 149 in 2016, 127 in 2017, 123 in 2018, 131 in 2019, 101 in 2020, 132 in 2021, 135 in 2022, 107 in 2023, 124 in 2024, and 119 in 2025.",
+      "interpretation": "This framing answers the annual count question by summing number_of_pedestrians_killed across all NYC police-reported crash rows, grouping crash_date into full calendar years 2013–2025; crashes with no pedestrian deaths contribute zero, and there is no denominator. It is a defensible direct measure of pedestrians recorded killed in the crash file, and the chart and values give 176, 133, 133, 149, 127, 123, 131, 101, 132, 135, 107, 124, and 119 for 2013–2025 respectively. It leaves unreported crashes or deaths outside this police-reported dataset unmeasured. The check found 0/2,132,218 missing crash dates and 0/2,132,218 missing pedestrian-killed values, with complete Jan 1–Dec 31 coverage in every year, so no selected rows were dropped or counted differently; crash-row counts by year were 203,742, 206,046, 217,708, 229,833, 231,007, 231,564, 211,486, 112,918, 110,558, 103,887, 96,607, 91,316, and 85,546, rising to a 2018 peak then declining, so the death totals are not adjusted for changing crash-report volume and do not measure per-crash risk."
+    }
+  ]
+}

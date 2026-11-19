@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Number of police-reported crashes, grouped by weekday across the full period",
+      "denominator": "All qualifying crashes with a valid crash_date in calendar years 2013 through 2025 inclusive; also report each weekday's percentage of that total",
+      "grouping": "Day of week derived from crash_date, Monday through Sunday",
+      "chart_type": "Vertical bar chart of pooled weekday crash counts, labeled with each weekday's share of the pooled total",
+      "reason": "A careful analyst may prefer pooled counts to see the total volume and composition of recorded crashes across the full requested period.",
+      "probability": 0.7,
+      "answer": "Of the 2,132,218 recorded crashes from 2013–2025, Friday had the most (338,800; 15.9%) and Sunday the fewest (257,544; 12.1%).",
+      "interpretation": "This answers the overall weekday distribution by counting each police-reported crash dated 2013–2025 once, assigning its weekday from crash_date (Monday through Sunday), and dividing weekday counts by all 2,132,218 selected records for the displayed shares; Friday is highest at 338,800 (15.9%) and Sunday lowest at 257,544 (12.1%). This pooled count-and-share framing is defensible for describing the full-period composition of the supplied records, but it does not measure crash risk per trip or per weekday of exposure and it masks annual variation. The check found zero missing crash dates among selected records, no invalid calendar dates (the column is a native DATE), no specified default/sentinel date, all 13 years had observed dates from January 1 through December 31, and annual row counts ranged from 85,546 to 231,564; therefore all in-range dated records were kept, with no selected rows dropped or put in an unknown-weekday group, while undated or out-of-period rows are not used. The event-only file cannot verify complete reporting on every date, and pooled totals weight each year according to its number of recorded crashes."
+    },
+    {
+      "id": 2,
+      "metric": "Within-year percentage of police-reported crashes assigned to each weekday, compared across years",
+      "denominator": "All qualifying crashes with a valid crash_date in the same calendar year",
+      "grouping": "Year and day of week derived from crash_date, Monday through Sunday",
+      "chart_type": "Multi-series line chart of each weekday's within-year crash share across calendar years",
+      "reason": "A careful analyst may choose annual shares to compare weekday composition across years without letting higher-volume years dominate the comparison.",
+      "probability": 0.3,
+      "answer": "Friday had the largest within-year share and Sunday the smallest in every year from 2013 through 2025.",
+      "interpretation": "This answers how weekday composition varies across years by calculating each weekday's share of all police-reported crashes dated in that same year from 2013 through 2025, with weekdays derived Monday through Sunday from crash_date; Friday has the largest share and Sunday the smallest in every year. Comparing within-year shares is defensible because every year uses its own total of dated crash records as the denominator, so annual volumes do not dominate the comparison; this framing leaves the pooled 2013–2025 weekday totals unanswered and is not a crash-risk rate. The check found zero missing crash dates among 2,132,218 selected records, no invalid calendar dates (the column is a native DATE), no specified default/sentinel date, all 13 years had observed dates spanning January 1–December 31, and annual populations ranged from 85,546 to 231,564; all in-range dated rows were retained in their year's denominator, none were assigned an unknown weekday, and undated or out-of-period rows are excluded. Although the observed endpoints span full calendar years, the event-only file cannot verify complete reporting on every date."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+The file spans partial years 2012 and 2026, so I’m tightening both comparisons to complete calendar years (2013–2025). The time field is parseable throughout; 24,566 records are exactly midnight, which I’ll keep in the night category and disclose as a possible default-time pile-up.
+On review, the first chart’s raw Day/Night totals used unequal time windows (14 daytime hours versus 10 nighttime hours). I’m revising that framing to compare reported crashes per nominal clock-hour; it still cannot measure risk per trip or mile, but avoids that avoidable denominator mismatch.
+ANSWER: In complete years 2013–2025, NYC averaged 11.05 reported crashes per nominal nighttime clock-hour versus 24.18 per daytime clock-hour, so reported crash frequency was higher by day; this is not exposure-adjusted risk (`out/option_1.png`).
+
+Among reported crashes, nighttime crashes involved 404.01 people injured and 3.08 killed per 1,000 crashes, versus 308.72 injured and 1.12 killed during the day, showing greater consequence burden per crash at night, not necessarily greater danger per trip (`out/option_2.png`).

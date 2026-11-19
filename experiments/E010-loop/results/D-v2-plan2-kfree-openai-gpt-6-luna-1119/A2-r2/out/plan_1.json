@@ -1,0 +1,26 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer": "partly: can compare reported crash counts by clock-time category, but cannot establish whether streets are riskier at night without traffic or exposure denominators",
+    "metric": "number of police-reported crashes",
+    "denominator": "none; raw crash counts",
+    "population": "all rows with a valid crash_date in every year represented by the file",
+    "filters": ["exclude rows with missing crash_date because their year cannot be assigned", "retain missing or unclassifiable crash_time in an Unknown time group"],
+    "years": "all years represented by valid crash_date values in the file",
+    "grouping": "Night (20:00–05:59), Day (06:00–19:59), and Unknown time (missing or unclassifiable crash_time)"
+  },
+  "data_check": {
+    "facts": "There are 2,269,187 rows with valid crash_date; none have missing/unassignable dates or the checked sentinel dates. The file contains partial 2012 (2012-07-01 through 2012-12-31) and 2026 (2026-01-01 through 2026-06-11), with 136,969 rows outside complete years 2013–2025. Among the 2,132,218 rows from complete years, crash_time is never missing/unknown or unclassifiable; 23,787 rows are exactly 00:00:00.",
+    "meaning_and_decisions": "Exclude the 136,969 rows from partial years so the count comparison covers complete calendar years only. Keep and disclose the 23,787 midnight records in Night: midnight is a valid time, although its pile-up could include default-coded times. There are no rows to drop or separately group for missing or unclassifiable time, and no date-missing rows to exclude. Changed the metric and denominator from raw category totals to crashes per nominal clock-hour because Day spans 14 hours and Night spans 10; the complete-year window provides 66,472 nominal Day hours and 47,480 nominal Night hours. This corrects the unequal clock-time opportunity but does not adjust for traffic exposure or daylight-saving-time clock changes."
+  },
+  "final_plan": {
+    "can_answer": "partly: compares the volume of reported crashes by clock-time category, not the risk per trip, mile, or exposure; the data have no traffic/exposure denominator",
+    "metric": "police-reported crashes per nominal clock-hour (crash count divided by calendar days in the included years times the hours in the time category)",
+    "denominator": "nominal clock-hours represented by 2013–2025: 66,472 Day hours (14 per calendar day) and 47,480 Night hours (10 per calendar day); no exposure-to-traffic denominator",
+    "population": "all police-reported crash rows with valid crash_date from complete calendar years 2013–2025",
+    "filters": ["exclude rows outside 2013–2025, including partial years 2012 and 2026", "exclude rows with missing crash_date if any", "keep missing or unclassifiable crash_time in Unknown time if any", "keep 00:00:00 in Night and disclose possible default-time coding"],
+    "years": "complete calendar years 2013–2025 inclusive",
+    "grouping": "Night (20:00–05:59), Day (06:00–19:59), and Unknown time (missing or unclassifiable crash_time)",
+    "limitations": "This is reported crash volume per nominal clock-hour, not a traffic-exposure-adjusted measure of danger. Day and Night denominators use 14 and 10 nominal hours per calendar day and do not account for daylight-saving clock changes. The source includes only 2012-07-01–2012-12-31 and 2026-01-01–2026-06-11 in those partial years, so they are excluded (136,969 rows, 6.0% of all valid-date rows). Time is complete and parseable in the included years, but 23,787 included records (1.1%) occur at 00:00:00 and may include default-coded times; they are retained as Night."
+  }
+}

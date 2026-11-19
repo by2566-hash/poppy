@@ -1,0 +1,29 @@
+{
+  "id": 1,
+  "question": "How many pedestrians were killed in NYC motor vehicle crashes each year from 2013 to 2025?",
+  "initial_plan": {
+    "answerability": "yes: the dataset includes crash year and the number of pedestrians killed per crash, so the recorded annual total can be summed",
+    "metric": "Sum of number_of_pedestrians_killed for crashes in each calendar year",
+    "denominator": "Not applicable; this is a count, not a rate or share",
+    "population": "All police-reported NYC motor vehicle crashes with a crash_date in calendar years 2013 through 2025, regardless of borough or crash characteristics",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31"],
+    "years": "2013-2025 inclusive, grouped by calendar year of crash_date",
+    "grouping": "Calendar year"
+  },
+  "data_check_implications_and_decisions": {
+    "findings": "The population has 2,132,218 crash rows across the requested years, with rows in every year. crash_date is not missing in the selected population, and no selected dates equal the checked default dates 0001-01-01, 1900-01-01, or 1970-01-01. No rows have missing crash_date anywhere in the file. number_of_pedestrians_killed is not missing on any selected row. Each year has date bounds from January 1 through December 31, including 2025.",
+    "row_handling": "Keep all rows in the requested date range. No rows are dropped or counted differently for missing dates, default-date values, or missing pedestrian-fatality counts; no separate missing group is needed.",
+    "changes": "No changes to the initial plan."
+  },
+  "final_plan": {
+    "answerability": "yes: sum the recorded number of pedestrians killed across all police-reported crashes in each requested calendar year",
+    "metric": "Annual sum of number_of_pedestrians_killed",
+    "denominator": "Not applicable; absolute count, not a rate or share",
+    "population": "All police-reported NYC motor vehicle crashes with nonmissing crash_date in calendar years 2013 through 2025, including all boroughs and crash characteristics",
+    "filters": ["crash_date >= 2013-01-01", "crash_date < 2026-01-01"],
+    "years": "2013-2025 inclusive; observed date bounds cover January 1 through December 31 in every year",
+    "grouping": "Calendar year derived from crash_date",
+    "missing_value_decision": "Keep all selected crash rows; all have nonmissing number_of_pedestrians_killed and crash_date, so none are excluded or separately grouped.",
+    "limitations": "These are recorded counts from police-reported crashes, not an independently validated census of all deaths. Date bounds span every calendar year, but the check cannot establish whether reporting or the dataset is otherwise complete."
+  }
+}

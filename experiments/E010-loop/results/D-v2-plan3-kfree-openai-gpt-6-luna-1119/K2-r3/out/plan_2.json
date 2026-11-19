@@ -1,0 +1,20 @@
+{
+  "id": 2,
+  "status": "yes",
+  "answerable_part": "The file supports weekday distributions separately within every requested calendar year, allowing a year-balanced summary.",
+  "metric": "For each weekday, the unweighted mean across 2013–2025 of that year's share of qualifying crash rows.",
+  "denominator": "For each year's weekday share, all crash rows with a nonmissing crash_date in that calendar year; the final metric averages the 13 annual shares with equal weight.",
+  "population": "One row per police-reported NYC motor vehicle crash whose crash_date falls in calendar years 2013–2025, summarized first by year and weekday.",
+  "filters": ["crash_date is within 2013-01-01 to 2025-12-31 inclusive"],
+  "years": [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  "grouping": "Year and weekday for annual shares; the chart groups weekdays Monday through Sunday and displays the equal-weight mean of each weekday's annual share.",
+  "initial_plan": "Initially planned average crash rows per calendar date of each weekday, but changed after the data check: the crash-row file cannot establish whether every date with zero recorded rows represents complete daily reporting, so this framing uses observed annual crash-row denominators instead.",
+  "data_check": {
+    "population_rows": 2132218,
+    "rows_by_year": {"2013": 203742, "2014": 206046, "2015": 217708, "2016": 229833, "2017": 231007, "2018": 231564, "2019": 211486, "2020": 112918, "2021": 110558, "2022": 103887, "2023": 96607, "2024": 91316, "2025": 85546},
+    "date_missing_within_population": 0,
+    "year_coverage": "Every requested year has an observed date range from January 1 through December 31; the DATE type cannot contain empty strings, unknown words, or impossible calendar dates. Boundary coverage does not independently prove reporting on every day."
+  },
+  "data_check_decisions": "Keep all qualifying rows in each annual denominator. No date is missing within the selected population, and no date conversion or exclusion is needed. The annual row count ranges from 231564 in 2018 to 85546 in 2025, so annual shares are computed within their own row totals and then each year receives equal weight; smaller row totals can make yearly shares less stable. Changed the initial daily-average plan because the data cannot verify all-date reporting needed to interpret dates without crash rows as zero-crash dates.",
+  "limitations": "The measure describes annual shares among police-reported crash rows and gives each of the 13 calendar years equal weight. Annual row totals vary substantially (231564 in 2018 to 85546 in 2025), affecting the stability of the smaller-year shares; observed year boundaries do not prove complete reporting on every intervening date."
+}

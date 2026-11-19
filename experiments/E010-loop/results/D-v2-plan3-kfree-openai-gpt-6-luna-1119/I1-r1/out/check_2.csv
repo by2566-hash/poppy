@@ -1,0 +1,44 @@
+fact,value
+candidate_population_rows_2013_2025,2132218
+source_schema_motorist_death_column,number_of_motorist_killed (singular; differs from the supplied description)
+crash_date_missing_rows_in_candidate_population,0
+number_of_motorist_killed_missing_rows_in_candidate_population,0
+candidate_crash_rows_2013,203742
+usable_crash_rows_2013_nonmissing_motorist_death_count,203742
+date_coverage_2013,2013-01-01 through 2013-12-31; partial_year=false
+candidate_crash_rows_2014,206046
+usable_crash_rows_2014_nonmissing_motorist_death_count,206046
+date_coverage_2014,2014-01-01 through 2014-12-31; partial_year=false
+candidate_crash_rows_2015,217708
+usable_crash_rows_2015_nonmissing_motorist_death_count,217708
+date_coverage_2015,2015-01-01 through 2015-12-31; partial_year=false
+candidate_crash_rows_2016,229833
+usable_crash_rows_2016_nonmissing_motorist_death_count,229833
+date_coverage_2016,2016-01-01 through 2016-12-31; partial_year=false
+candidate_crash_rows_2017,231007
+usable_crash_rows_2017_nonmissing_motorist_death_count,231007
+date_coverage_2017,2017-01-01 through 2017-12-31; partial_year=false
+candidate_crash_rows_2018,231564
+usable_crash_rows_2018_nonmissing_motorist_death_count,231564
+date_coverage_2018,2018-01-01 through 2018-12-31; partial_year=false
+candidate_crash_rows_2019,211486
+usable_crash_rows_2019_nonmissing_motorist_death_count,211486
+date_coverage_2019,2019-01-01 through 2019-12-31; partial_year=false
+candidate_crash_rows_2020,112918
+usable_crash_rows_2020_nonmissing_motorist_death_count,112918
+date_coverage_2020,2020-01-01 through 2020-12-31; partial_year=false
+candidate_crash_rows_2021,110558
+usable_crash_rows_2021_nonmissing_motorist_death_count,110558
+date_coverage_2021,2021-01-01 through 2021-12-31; partial_year=false
+candidate_crash_rows_2022,103887
+usable_crash_rows_2022_nonmissing_motorist_death_count,103887
+date_coverage_2022,2022-01-01 through 2022-12-31; partial_year=false
+candidate_crash_rows_2023,96607
+usable_crash_rows_2023_nonmissing_motorist_death_count,96607
+date_coverage_2023,2023-01-01 through 2023-12-31; partial_year=false
+candidate_crash_rows_2024,91316
+usable_crash_rows_2024_nonmissing_motorist_death_count,91316
+date_coverage_2024,2024-01-01 through 2024-12-31; partial_year=false
+candidate_crash_rows_2025,85546
+usable_crash_rows_2025_nonmissing_motorist_death_count,85546
+date_coverage_2025,2025-01-01 through 2025-12-31; partial_year=false

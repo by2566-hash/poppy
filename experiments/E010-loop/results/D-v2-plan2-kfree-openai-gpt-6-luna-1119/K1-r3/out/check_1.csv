@@ -1,0 +1,60 @@
+fact,value
+population_rows_2013_2025,2132218
+population_crash_date_missing,0
+population_crash_date_at_0001-01-01_default,0
+population_crash_date_at_1900-01-01_default,0
+population_crash_date_at_1970-01-01_default,0
+rows_unassignable_to_year_due_to_missing_crash_date_outside_population,0
+rows_2013,203742
+number_of_pedestrians_killed_missing_2013,0
+date_coverage_2013,2013-01-01 through 2013-12-31
+calendar_year_2013_complete_date_bounds,true
+rows_2014,206046
+number_of_pedestrians_killed_missing_2014,0
+date_coverage_2014,2014-01-01 through 2014-12-31
+calendar_year_2014_complete_date_bounds,true
+rows_2015,217708
+number_of_pedestrians_killed_missing_2015,0
+date_coverage_2015,2015-01-01 through 2015-12-31
+calendar_year_2015_complete_date_bounds,true
+rows_2016,229833
+number_of_pedestrians_killed_missing_2016,0
+date_coverage_2016,2016-01-01 through 2016-12-31
+calendar_year_2016_complete_date_bounds,true
+rows_2017,231007
+number_of_pedestrians_killed_missing_2017,0
+date_coverage_2017,2017-01-01 through 2017-12-31
+calendar_year_2017_complete_date_bounds,true
+rows_2018,231564
+number_of_pedestrians_killed_missing_2018,0
+date_coverage_2018,2018-01-01 through 2018-12-31
+calendar_year_2018_complete_date_bounds,true
+rows_2019,211486
+number_of_pedestrians_killed_missing_2019,0
+date_coverage_2019,2019-01-01 through 2019-12-31
+calendar_year_2019_complete_date_bounds,true
+rows_2020,112918
+number_of_pedestrians_killed_missing_2020,0
+date_coverage_2020,2020-01-01 through 2020-12-31
+calendar_year_2020_complete_date_bounds,true
+rows_2021,110558
+number_of_pedestrians_killed_missing_2021,0
+date_coverage_2021,2021-01-01 through 2021-12-31
+calendar_year_2021_complete_date_bounds,true
+rows_2022,103887
+number_of_pedestrians_killed_missing_2022,0
+date_coverage_2022,2022-01-01 through 2022-12-31
+calendar_year_2022_complete_date_bounds,true
+rows_2023,96607
+number_of_pedestrians_killed_missing_2023,0
+date_coverage_2023,2023-01-01 through 2023-12-31
+calendar_year_2023_complete_date_bounds,true
+rows_2024,91316
+number_of_pedestrians_killed_missing_2024,0
+date_coverage_2024,2024-01-01 through 2024-12-31
+calendar_year_2024_complete_date_bounds,true
+rows_2025,85546
+number_of_pedestrians_killed_missing_2025,0
+date_coverage_2025,2025-01-01 through 2025-12-31
+calendar_year_2025_complete_date_bounds,true
+number_of_pedestrians_killed_missing_2013_2025,0

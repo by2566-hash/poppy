@@ -1,0 +1,27 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "can_answer_question": "partly: the file has no miles-driven exposure, so it cannot measure deaths per mile; it can show the share of reported crashes with at least one motorist death",
+    "metric": "crash rows reporting at least one motorist death divided by crash rows with a nonmissing motorist-death count, by calendar year",
+    "denominator": "number of police-reported crash rows in the year with a nonmissing number_of_motorists_killed",
+    "population": "police-reported NYC motor vehicle crashes dated 2013 through 2025",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31", "retain rows with nonmissing number_of_motorists_killed; classify as fatal-to-motorist if the count is greater than zero"],
+    "years": "calendar years 2013-2025 inclusive",
+    "grouping": "crash_date calendar year"
+  },
+  "data_check_and_decisions": {
+    "source_schema_note": "The actual parquet field is number_of_motorist_killed (singular), differing from number_of_motorists_killed in the supplied description; the actual field is used.",
+    "findings": "The plan's candidate population has 2,132,218 rows. crash_date is missing for 0 candidate rows and the motorist-death count is missing for 0 candidate rows. Every year 2013-2025 is covered from January 1 through December 31. See check_2.csv for each year's candidate and usable crash-row counts.",
+    "meaning_and_decisions": "No rows are dropped due to a missing motorist-death count. Use all candidate crash rows as the denominator, and classify a row as fatal-to-motorist when its reported number_of_motorist_killed is greater than zero. No partial years need special handling. The schema name is corrected in the final plan."
+  },
+  "final_plan": {
+    "can_answer_question": "partly: this dataset cannot measure risk per mile driven because it contains no miles-driven exposure; it can measure the share of police-reported crashes that reported at least one motorist death",
+    "metric": "annual share of crashes with one or more reported motorist deaths = count of crash rows where number_of_motorist_killed > 0 / count of crashes",
+    "denominator": "count of all police-reported crash rows in that year; all 2,132,218 rows have a nonmissing motorist-death count",
+    "population": "police-reported NYC motor vehicle crash records dated 2013-01-01 through 2025-12-31",
+    "filters": ["calendar years 2013-2025 inclusive", "no missing outcome rows excluded; a crash is in the numerator when number_of_motorist_killed > 0"],
+    "years": "complete calendar years 2013-2025",
+    "grouping": "crash_date calendar year",
+    "limitations": "This crash share is not deaths per mile or individual motorist risk: miles driven, travel volume, and unreported crashes are not measured. Crash-row counts vary by year (see check_2.csv), affecting the denominator and comparability of a share of crashes."
+  }
+}

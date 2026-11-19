@@ -1,0 +1,34 @@
+{
+  "framing": "1",
+  "initial_plan": {
+    "answerability": "partly: the data can compare the share of reported crashes involving injury or death by time of day, but without traffic/exposure data it cannot establish the per-trip or per-mile risk of using NYC streets at night",
+    "metric": "percentage of crashes involving at least one reported person injured or killed",
+    "denominator": "crashes with a usable crash date, crash time, and nonmissing injury and death counts",
+    "population": "police-reported NYC motor vehicle crashes, counting one crash per row",
+    "filters": ["exclude rows missing crash_date", "exclude rows missing or unusable crash_time", "exclude rows missing number_of_persons_injured or number_of_persons_killed"],
+    "years": "all calendar years represented in the file; check for partial first and last years",
+    "grouping": "night (20:00–05:59) versus day (06:00–19:59)"
+  },
+  "data_check": {
+    "facts": "check_1.csv: 2,269,187 rows have nonmissing dates; coverage is 2012-07-01 through 2026-06-11, so 2012 (July 1–December 31) and 2026 (January 1–June 11) are partial. The 13 complete years 2013–2025 contain 2,132,218 rows; 2,132,176 have nonmissing time and both outcome fields. There are no missing times, no missing dates, no clock values outside the TIME range, and no date sentinel candidates. Across 2013–2025, 18 rows lack the injured count, 36 lack the killed count, and 42 rows lack at least one of those fields. There are 23,787 exact-00:00 times in those complete years, including one row with a missing outcome field; exact midnight values are concentrated from 2016 onward (the check file gives annual counts).",
+    "meaning_and_decisions": "Exclude partial years 2012 and 2026 so the comparison uses complete calendar years only. Exclude the 42 complete-year crashes with either outcome field missing; this is 42 of 2,132,218 rows, and leaves 2,132,176 crashes with both fields observed. Keep all nonmissing TIME values otherwise. Because exact 00:00 is a pronounced possible default-time pile-up (but could also be a genuine midnight crash), change the initial two-way grouping: keep exact-midnight records as a separate '00:00 (possible default)' group rather than assign them to night or drop them; 23,786 of those records have both outcome fields observed. No rows have missing dates or times or date sentinels. The final population is therefore complete-year reported crashes with a known time and both outcome fields, with eligible exact-midnight records disclosed separately.",
+    "decisions": {
+      "partial_years": "exclude 2012 and 2026",
+      "missing_outcome_rows": "exclude",
+      "missing_or_invalid_time_or_date": "exclude if present; check found none among date-valid rows and no missing dates",
+      "exact_midnight_times": "show as their own group; do not assume they are erroneous"
+    },
+    "plan_change": "Added an explicit 00:00 possible-default group after the check showed a concentration at that exact time; restricted the analysis to complete years after finding both endpoint years are partial."
+  },
+  "final_plan": {
+    "answerability": "partly: this measures how often reported crashes involved injury or death by recorded time category; it cannot establish per-trip or per-mile street danger because traffic exposure is absent",
+    "metric": "share of reported crashes involving at least one person injured or killed, calculated as crashes with (number_of_persons_injured > 0 or number_of_persons_killed > 0) divided by all eligible crashes in the same time group",
+    "denominator": "eligible crashes in the same time group",
+    "population": "one police-reported NYC motor vehicle crash per row, from complete calendar years 2013–2025, with nonmissing crash_time and nonmissing number_of_persons_injured and number_of_persons_killed",
+    "filters": ["crash_date year between 2013 and 2025 inclusive", "exclude missing crash_time", "exclude rows missing either person-injury or person-death count"],
+    "years": "2013–2025 inclusive; complete years only",
+    "grouping": "Day: 06:00–19:59; night: 20:00–23:59 and 00:01–05:59; exact 00:00 is a separate possible-default-time group",
+    "chart_type": "bar chart of percentage of crashes with injury or death by time group",
+    "limitations": "The dataset has no traffic-volume, trip, or distance-exposure denominator, so the chart describes injury/fatal involvement among reported crashes rather than a road user's per-trip or per-mile risk. The first and last covered years are partial (2012-07-01 to 2012-12-31 and 2026-01-01 to 2026-06-11) and are excluded. Forty-two rows in 2013–2025 have a missing injury or death field and are excluded. Of 23,787 exact-00:00 records in complete years, 23,786 have both outcome fields observed and are retained in their own group because the value may be a true time or a default."
+  }
+}

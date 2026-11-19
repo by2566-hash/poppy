@@ -1,0 +1,37 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual count of pedestrian casualties, calculated as number_of_pedestrians_injured plus number_of_pedestrians_killed across Brooklyn crash records",
+      "denominator": "No exposure denominator; count of reported pedestrian casualties",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "line chart",
+      "reason": "A combined injury-and-death count gives a direct annual measure of reported pedestrian harm in Brooklyn.",
+      "probability": 0.45,
+      "answer": "Partly: the annual count of reported pedestrian casualties in Brooklyn crashes was 3,671 in 2013, 1,798 in 2020, and 2,874 in 2025.",
+      "interpretation": "This partly answers the question by counting reported pedestrian casualties—injuries plus deaths, with each person counted—in Brooklyn crashes by calendar year for 2013–2025; the plotted totals are 3,671 in 2013, 1,798 in 2020, and 2,874 in 2025. It is a defensible direct measure of reported harm, but it cannot show exposure-adjusted pedestrian risk or all road-safety dimensions, so whether people were safer is unanswered. The check found 473,801 Brooklyn crash rows in those complete years, zero missing crash dates or pedestrian injury/death fields, and annual row counts from 22,785 in 2024 to 50,851 in 2015; all eligible rows were retained. The 9,700 Brooklyn records in partial 2026 (Jan 1–Jun 11) were excluded, and records without an exact BROOKLYN borough value were outside the population."
+    },
+    {
+      "id": 2,
+      "metric": "Annual percentage of eligible Brooklyn crash records with at least one pedestrian reported injured or killed",
+      "denominator": "All Brooklyn crash records in each year with both pedestrian injury and death fields present; these equal all Brooklyn records in the selected years because none are missing",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "line chart",
+      "reason": "A share of crash records puts pedestrian-casualty crashes in the context of the year's total recorded crash volume.",
+      "probability": 0.35,
+      "answer": "Partly: pedestrian-casualty crashes were 7.44% of Brooklyn crash records in 2013, 5.68% in 2017, and 11.38% in 2025.",
+      "interpretation": "This partly answers the question with the annual share of Brooklyn crash records that had one or more pedestrians injured or killed, using all records with both outcome fields present and grouping by crash year from 2013–2025; the shares include 7.44% in 2013, 5.68% in 2017, and 11.38% in 2025. This framing is defensible because it expresses casualty crashes as a fraction of that year's recorded Brooklyn crashes, but it leaves pedestrian exposure-adjusted risk and safety dimensions beyond reported crash outcomes unanswered. The check found 473,801 eligible Brooklyn crash rows and zero missing crash dates or outcome fields; yearly denominator sizes were 47,024 in 2013, ranged from 22,785 in 2024 to 50,851 in 2015, and were 24,303 in 2025, so a change in the share can reflect changes in casualty-crash records, total crash records, or both, and it is not a rate per pedestrian trip or distance. All 2013–2025 rows were retained, while 9,700 records from partial 2026 (Jan 1–Jun 11) were excluded and records without an exact BROOKLYN borough value were outside the population."
+    },
+    {
+      "id": 3,
+      "metric": "Annual count of pedestrians reported killed in Brooklyn crashes",
+      "denominator": "No exposure denominator; count of reported pedestrian deaths",
+      "grouping": "Calendar year of crash_date",
+      "chart_type": "bar chart",
+      "reason": "A separate fatality count isolates the most severe pedestrian outcome instead of combining deaths with nonfatal injuries.",
+      "probability": 0.2,
+      "answer": "Partly: the annual number of pedestrians reported killed in Brooklyn crashes was 30 in 2013, 17 in 2020, and 39 in 2025.",
+      "interpretation": "This partly answers the question by counting pedestrians reported killed in Brooklyn crashes in each complete calendar year from 2013–2025; the chart records 30 deaths in 2013, 17 in 2020, and 39 in 2025. A fatality-only count is a defensible focus on the most severe recorded outcome, but it does not capture nonfatal injury burden or exposure-adjusted risk, so it cannot establish whether overall pedestrian road safety improved. The check found 473,801 Brooklyn crash rows across the selected years and no missing killed counts or crash dates; all eligible rows were retained. The 9,700 records in partial 2026 (Jan 1–Jun 11) were excluded, and records without an exact BROOKLYN borough value were outside the population."
+    }
+  ]
+}

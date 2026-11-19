@@ -1,0 +1,93 @@
+fact,value
+Rows with crash_date missing (cannot be assigned to a planned year),0
+Crash rows with a dated crash in 2013+ before the borough filter,2168642
+Rows in 2013+ with borough missing/unknown/empty (excluded by Brooklyn filter),668406
+Rows in 2013+ with a nonstandard borough value (excluded by Brooklyn filter),0
+Rows in 2013+ assigned to Brooklyn,483501
+Brooklyn crash rows in 2013,47024
+Observed crash_date range in 2013 (all boroughs),2013-01-01 to 2013-12-31
+Observed crash_date range in 2013 (Brooklyn population),2013-01-01 to 2013-12-31
+Brooklyn rows with missing/empty/unknown borough in 2013,0
+Brooklyn crash rows in 2014,47761
+Observed crash_date range in 2014 (all boroughs),2014-01-01 to 2014-12-31
+Observed crash_date range in 2014 (Brooklyn population),2014-01-01 to 2014-12-31
+Brooklyn rows with missing/empty/unknown borough in 2014,0
+Brooklyn crash rows in 2015,50851
+Observed crash_date range in 2015 (all boroughs),2015-01-01 to 2015-12-31
+Observed crash_date range in 2015 (Brooklyn population),2015-01-01 to 2015-12-31
+Brooklyn rows with missing/empty/unknown borough in 2015,0
+Brooklyn crash rows in 2016,47464
+Observed crash_date range in 2016 (all boroughs),2016-01-01 to 2016-12-31
+Observed crash_date range in 2016 (Brooklyn population),2016-01-01 to 2016-12-31
+Brooklyn rows with missing/empty/unknown borough in 2016,0
+Brooklyn crash rows in 2017,44915
+Observed crash_date range in 2017 (all boroughs),2017-01-01 to 2017-12-31
+Observed crash_date range in 2017 (Brooklyn population),2017-01-01 to 2017-12-31
+Brooklyn rows with missing/empty/unknown borough in 2017,0
+Brooklyn crash rows in 2018,47313
+Observed crash_date range in 2018 (all boroughs),2018-01-01 to 2018-12-31
+Observed crash_date range in 2018 (Brooklyn population),2018-01-01 to 2018-12-31
+Brooklyn rows with missing/empty/unknown borough in 2018,0
+Brooklyn crash rows in 2019,44479
+Observed crash_date range in 2019 (all boroughs),2019-01-01 to 2019-12-31
+Observed crash_date range in 2019 (Brooklyn population),2019-01-01 to 2019-12-31
+Brooklyn rows with missing/empty/unknown borough in 2019,0
+Brooklyn crash rows in 2020,25473
+Observed crash_date range in 2020 (all boroughs),2020-01-01 to 2020-12-31
+Observed crash_date range in 2020 (Brooklyn population),2020-01-01 to 2020-12-31
+Brooklyn rows with missing/empty/unknown borough in 2020,0
+Brooklyn crash rows in 2021,25174
+Observed crash_date range in 2021 (all boroughs),2021-01-01 to 2021-12-31
+Observed crash_date range in 2021 (Brooklyn population),2021-01-01 to 2021-12-31
+Brooklyn rows with missing/empty/unknown borough in 2021,0
+Brooklyn crash rows in 2022,23369
+Observed crash_date range in 2022 (all boroughs),2022-01-01 to 2022-12-31
+Observed crash_date range in 2022 (Brooklyn population),2022-01-01 to 2022-12-31
+Brooklyn rows with missing/empty/unknown borough in 2022,0
+Brooklyn crash rows in 2023,22890
+Observed crash_date range in 2023 (all boroughs),2023-01-01 to 2023-12-31
+Observed crash_date range in 2023 (Brooklyn population),2023-01-01 to 2023-12-31
+Brooklyn rows with missing/empty/unknown borough in 2023,0
+Brooklyn crash rows in 2024,22785
+Observed crash_date range in 2024 (all boroughs),2024-01-01 to 2024-12-31
+Observed crash_date range in 2024 (Brooklyn population),2024-01-01 to 2024-12-31
+Brooklyn rows with missing/empty/unknown borough in 2024,0
+Brooklyn crash rows in 2025,24303
+Observed crash_date range in 2025 (all boroughs),2025-01-01 to 2025-12-31
+Observed crash_date range in 2025 (Brooklyn population),2025-01-01 to 2025-12-31
+Brooklyn rows with missing/empty/unknown borough in 2025,0
+Brooklyn crash rows in 2026,9700
+Observed crash_date range in 2026 (all boroughs),2026-01-01 to 2026-06-11
+Observed crash_date range in 2026 (Brooklyn population),2026-01-01 to 2026-06-11
+Brooklyn rows with missing/empty/unknown borough in 2026,0
+Rows in final metric population before outcome-missing exclusions,483501
+Brooklyn rows with number_of_pedestrians_injured missing,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2013,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2014,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2015,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2016,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2017,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2018,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2019,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2020,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2021,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2022,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2023,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2024,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2025,0
+Brooklyn rows with number_of_pedestrians_injured missing in 2026,0
+Brooklyn rows with number_of_pedestrians_killed missing,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2013,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2014,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2015,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2016,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2017,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2018,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2019,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2020,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2021,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2022,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2023,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2024,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2025,0
+Brooklyn rows with number_of_pedestrians_killed missing in 2026,0

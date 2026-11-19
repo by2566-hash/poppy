@@ -1,0 +1,17 @@
+{
+  "id": 2,
+  "stage": "final plan",
+  "answerability": "partly: the file supports comparing motorist and cyclist deaths as each group's share of their combined recorded deaths in police-reported NYC crashes, but it does not establish each group's share of all NYC road deaths",
+  "metric": "annual share of combined motorist-plus-cyclist deaths attributable to motorists and to cyclists",
+  "denominator": "for each calendar year, the sum of motorist and cyclist deaths across crashes with both death counts present",
+  "population": "police-reported NYC crash records dated 2013-01-01 through 2025-12-31 with both motorist and cyclist death counts present; denominator includes only these two recorded road-user categories",
+  "filters": ["crash_date from 2013-01-01 through 2025-12-31", "retain rows only when both number_of_motorist_killed and number_of_cyclist_killed are present"],
+  "years": "calendar years 2013 through 2025, grouped by year of crash_date",
+  "grouping": "year, with separate series for motorist and cyclist shares",
+  "data_check": {
+    "source": "check_2.csv",
+    "facts": "There are 2,132,218 crash records in 2013-2025. In each year both death columns and crash_date have zero missing values, so the complete-pair rule excludes zero rows; all years have records and observed dates span January 1 through December 31. No selected row has crash_date 1900-01-01 or 1970-01-01.",
+    "decision": "Keep all eligible rows and disclose that shares compare only these two road-user categories within police-reported crashes. There are no rows dropped or differently counted because of missing death counts, and no partial calendar years."
+  },
+  "limitations": "The denominator is only the recorded motorist and cyclist deaths, so the shares do not represent proportions of all road-user deaths; the file also has no exposure denominator such as population, trips, or distance traveled."
+}

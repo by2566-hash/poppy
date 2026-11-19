@@ -1,0 +1,26 @@
+{
+  "initial_plan": {
+    "answerability": "yes: the file records one row per police-reported motor vehicle crash with a crash date, so it can describe each weekday's share of recorded crashes for 2013–2025",
+    "metric": "percentage of all eligible crash rows assigned to each weekday of crash_date",
+    "denominator": "all police-reported NYC motor vehicle crash rows with a nonmissing crash_date in calendar years 2013 through 2025 inclusive",
+    "population": "all police-reported NYC motor vehicle crash rows with a nonmissing crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date is in calendar years 2013–2025"],
+    "years": "2013–2025 inclusive",
+    "grouping": "weekday of crash_date, Monday through Sunday; each count divided by all eligible rows in the period"
+  },
+  "data_check": {
+    "facts": "check_2.csv reports 2,132,218 eligible rows; each calendar year 2013–2025 has observed dates from January 1 through December 31; 0 source rows have a NULL crash_date; 136,969 dated rows lie outside 2013–2025; no missing/unknown/impossible or recognized sentinel dates occur within the selected population.",
+    "meaning_and_decisions": "No eligible rows are dropped or assigned an unknown weekday. Records outside the selected year range are excluded (136,969 rows); source rows with missing crash_date are also excluded by the date filter, but the check found none. crash_date is a DATE field, so empty strings and impossible calendar dates cannot occur in the stored population. Retain all eligible rows and divide weekday counts by all eligible rows; the observed boundary dates indicate all 13 years span the full calendar year, though boundary checks alone do not verify every intervening date has records.",
+    "changes": "None; retain the initial pooled share framing."
+  },
+  "final_plan": {
+    "answerability": "yes: the period-wide composition of reported crash records can be described as weekday shares for the selected years",
+    "metric": "weekday crash-row count divided by all eligible crash rows, expressed as a percentage",
+    "denominator": "all 2,132,218 police-reported NYC crash rows with crash_date in calendar years 2013–2025 inclusive",
+    "population": "all police-reported NYC crash rows with crash_date in calendar years 2013–2025 inclusive",
+    "filters": ["crash_date >= 2013-01-01 and crash_date < 2026-01-01"],
+    "years": "2013–2025 inclusive; each year has observed date boundaries spanning January 1–December 31",
+    "grouping": "weekday of crash_date in Monday-to-Sunday order; each weekday count divided by the pooled eligible total",
+    "limitations": "The percentages describe the pooled composition of police-reported crash rows, not a per-day rate or a measure of underlying travel/exposure. Annual eligible row totals vary from 203,742 in 2013 to 85,546 in 2025 (with a high of 231,564 in 2018), so higher-volume years contribute more to the pooled percentage. Date boundaries span all calendar years, but first/last dates do not prove every intervening day is represented; missing dates are not represented, although there were no NULL crash_date values."
+  }
+}

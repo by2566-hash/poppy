@@ -1,0 +1,47 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "can_answer": "yes: the data records a date for each police-reported crash, so crash counts can be grouped by weekday; it does not describe all crashes that were never police-reported",
+    "metric": "number of police-reported crashes",
+    "denominator": "all rows with a usable crash_date in calendar years 2013 through 2025 inclusive",
+    "population": "one row per police-reported motor vehicle crash, counted once",
+    "filters": ["crash_date is in 2013-01-01 through 2025-12-31"],
+    "years": "2013-2025 inclusive",
+    "grouping": "day of week derived from crash_date, Monday through Sunday",
+    "data_check": null,
+    "limitations": null
+  },
+  "data_check": {
+    "facts_file": "check_1.csv",
+    "population_rows": 2132218,
+    "per_year_rows": {
+      "2013": 203742,
+      "2014": 206046,
+      "2015": 217708,
+      "2016": 229833,
+      "2017": 231007,
+      "2018": 231564,
+      "2019": 211486,
+      "2020": 112918,
+      "2021": 110558,
+      "2022": 103887,
+      "2023": 96607,
+      "2024": 91316,
+      "2025": 85546
+    },
+    "selected_rows_date_findings": "No missing crash_date, tested common sentinel date, impossible typed DATE, or missing derived weekday among the selected in-range rows; observed min/max dates span Jan 1 through Dec 31 in every year.",
+    "decision": "Keep all in-range rows. The range filter defines the years and no selected row needs to be dropped or grouped separately. Rows without an in-range crash_date are outside the selected population; the check is limited to the in-range population."
+  },
+  "final_plan": {
+    "can_answer": "yes, for the weekday distribution of police-reported crashes recorded with crash_date in 2013-2025; not all crashes that were never police-reported",
+    "metric": "crash count by weekday",
+    "denominator": "all 2,132,218 selected crash rows; each row is counted once",
+    "population": "police-reported motor vehicle crashes with crash_date in calendar years 2013 through 2025 inclusive",
+    "filters": ["crash_date >= 2013-01-01 and crash_date < 2026-01-01"],
+    "years": "2013-2025 inclusive; every year has observed dates from Jan 1 through Dec 31",
+    "grouping": "weekday derived from crash_date, ordered Monday through Sunday",
+    "chart_type": "bar chart of crash counts",
+    "data_handling": "Keep all rows satisfying the date filter. No selected row has a missing date or weekday or a tested common sentinel date; the typed DATE cannot represent an impossible calendar date.",
+    "limitations": "This describes police-reported crashes present in the file, not all crashes. Full first-to-last date coverage in each year does not independently verify that every eligible record is present; records with missing or out-of-range crash_date are outside the selected population, and their number was not checked."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "status": "yes",
+  "question_part": "Compares the annual number of motorist deaths with the annual number of cyclist deaths in NYC crashes.",
+  "metric": "Annual reported motorist deaths and annual reported cyclist deaths, calculated by summing the respective killed-person columns across crash rows.",
+  "denominator": "No denominator; absolute reported death counts.",
+  "population": "All police-reported NYC motor vehicle crashes dated in calendar years 2013 through 2025; count the reported motorist/cyclist deaths on each crash row.",
+  "filters": ["crash_date in calendar years 2013-2025"],
+  "years": "Calendar years 2013-2025 inclusive.",
+  "grouping": "Calendar year and road-user type (motorist, cyclist).",
+  "initial_data_check": {
+    "facts": "The requested years each have crash rows; crash_date is missing on 0 rows in the file; each year has observed dates from January 1 through December 31; the two killed-person columns each have 0 missing values in the target population and in every year.",
+    "meaning_and_decisions": "No target-year crash rows or annual death entries are excluded for missingness. Keep all target-year rows and disclose that values are reported fatality counts. Full-year endpoints support treating each requested calendar year as covered, although endpoints alone do not establish that every date is represented. No columns in this plan are string-grouped, so empty/unknown category labels and default category values do not apply.",
+    "plan_changes": "None."
+  },
+  "limitations": "The chart compares reported counts, not per-capita, per-trip, or per-crash risk; no exposure denominator is available. Annual date endpoints span each full calendar year, but the check does not verify daily completeness or validate non-NULL death values."
+}

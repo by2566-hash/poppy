@@ -1,0 +1,26 @@
+{
+  "initial_plan": {
+    "can_answer": "yes: the file has a reported pedestrian-killed count per crash, so its annual totals can answer the question as recorded in this dataset",
+    "metric": "annual sum of number_of_pedestrians_killed across crashes",
+    "denominator": "none; a count of reported pedestrian deaths, not a rate",
+    "population": "all police-reported NYC motor vehicle crash records dated 2013-01-01 through 2025-12-31",
+    "filters": ["crash_date is in calendar years 2013 through 2025"],
+    "years": "calendar years 2013–2025 inclusive",
+    "grouping": "calendar year of crash_date"
+  },
+  "data_check": {
+    "check_file": "./out/check_1.csv",
+    "findings": "The selected population contains 2,132,218 crash rows across 2013–2025. Every year has coverage from January 1 through December 31. No selected row has a missing crash date/year or a missing number_of_pedestrians_killed value. January 1 dates occur 188–485 times per year and do not form a dominant/default-date pileup relative to annual row counts. Annual crash-row counts vary from 231,564 in 2018 to 85,546 in 2025.",
+    "decision": "Keep all rows in the selected years; no rows are excluded or reclassified. The outcome field is present for all selected rows, and each requested year has full calendar-date coverage."
+  },
+  "final_plan": {
+    "can_answer": "yes, as recorded in this dataset; the dataset cannot independently verify completeness of police reporting",
+    "metric": "For each calendar year, the sum of number_of_pedestrians_killed across all included crash records; each field value is the reported number of pedestrian deaths for that crash",
+    "denominator": "none; annual count of reported pedestrian deaths, not a rate",
+    "population": "All police-reported NYC motor vehicle crash records with crash_date in calendar years 2013–2025 inclusive",
+    "filters": ["crash_date is from 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "Calendar years 2013 through 2025 inclusive; every year is fully covered by dates in the file",
+    "grouping": "Calendar year derived from crash_date",
+    "limitations": "The total is limited to police-reported crashes and reported pedestrian-killed counts; full date coverage does not establish complete reporting. Annual crash-row counts vary substantially (231,564 in 2018 versus 85,546 in 2025), so annual totals are counts rather than exposure-adjusted rates and should not be read as rates of risk. The check found zero missing outcome values among the included rows."
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "initial_plan": {
+    "can_answer": "yes: this data records the number of pedestrians killed in each reported crash, so it can provide annual recorded counts",
+    "metric": "Sum of number_of_pedestrians_killed",
+    "denominator": "No rate denominator; total recorded pedestrian deaths across police-reported crashes in each calendar year",
+    "population": "Crash rows whose crash_date falls in 2013–2025 inclusive",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31"],
+    "years": "Calendar years 2013–2025 inclusive, grouped by year of crash_date",
+    "grouping": "Calendar year of crash_date"
+  },
+  "data_check": {
+    "facts_file": "./out/check_1.csv",
+    "findings": "The planned population contains 2,132,218 crash rows, with rows in each year and observed dates spanning January 1 through December 31 in all years 2013–2025. No planned crash_date values are missing or impossible, and none of the 2,132,218 rows has a missing number_of_pedestrians_killed value.",
+    "decisions": "Keep the planned crash rows; none are excluded or counted differently due to missing or invalid dates or missing pedestrian-death counts. Interpret the sum as recorded deaths in police-reported crashes, not as a population- or exposure-adjusted risk measure; observed full-year date bounds do not prove source completeness."
+  },
+  "final_plan": {
+    "can_answer": "yes, as annual recorded counts in police-reported motor vehicle crashes",
+    "metric": "For each calendar year, sum number_of_pedestrians_killed across all planned crash rows",
+    "denominator": "No rate denominator; a count of recorded pedestrian deaths",
+    "population": "All crash rows with crash_date from 2013-01-01 through 2025-12-31 inclusive",
+    "filters": ["crash_date from 2013-01-01 through 2025-12-31 inclusive"],
+    "years": "2013–2025 inclusive, assigned by calendar year of crash_date; observed date bounds cover January 1 through December 31 in every year",
+    "grouping": "Calendar year of crash_date",
+    "missing_and_invalid_handling": "Keep all planned rows; check found 0 missing or impossible crash_date values and 0 missing pedestrian-killed values.",
+    "limitations": "Counts describe pedestrian deaths recorded in police-reported crashes. Annual crash-row populations vary substantially (203,742 in 2013, peaking at 231,564 in 2018 and falling to 85,546 in 2025), so raw annual counts are not adjusted for crash volume or pedestrian exposure and should not be interpreted as a per-crash or per-person risk trend. Full observed date bounds do not establish that source reporting is complete."
+  }
+}

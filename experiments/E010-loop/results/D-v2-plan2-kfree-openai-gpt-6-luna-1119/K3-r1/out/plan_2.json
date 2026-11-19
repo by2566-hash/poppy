@@ -1,0 +1,16 @@
+{
+  "status": "yes",
+  "question_part": "Compares motorist versus cyclist deaths as a proportion of the combined reported deaths for these two road-user types in each year.",
+  "metric": "For each year, each type's share of the combined motorist and cyclist deaths reported in that year.",
+  "denominator": "The same year's reported motorist deaths plus reported cyclist deaths; does not include pedestrian deaths or other crash deaths.",
+  "population": "All police-reported NYC motor vehicle crashes dated in calendar years 2013 through 2025; count the reported motorist/cyclist deaths on each crash row, then compare the two types within year.",
+  "filters": ["crash_date in calendar years 2013-2025"],
+  "years": "Calendar years 2013-2025 inclusive.",
+  "grouping": "Calendar year and road-user type (motorist, cyclist), expressed as a share of the two-type annual total.",
+  "initial_data_check": {
+    "facts": "The requested years each have crash rows; crash_date is missing on 0 rows in the file; each year has observed dates from January 1 through December 31; the two killed-person columns each have 0 missing values in the target population and in every year.",
+    "meaning_and_decisions": "No target-year crash rows or annual death entries are excluded for missingness. Keep all target-year rows and disclose that values are reported fatality counts. Full-year endpoints support treating each requested calendar year as covered, although endpoints alone do not establish that every date is represented. No columns in this plan are string-grouped, so empty/unknown category labels and default category values do not apply.",
+    "plan_changes": "None."
+  },
+  "limitations": "Shares describe only the split between reported motorist and cyclist deaths, excluding pedestrians and any other road-user deaths. They are composition shares, not per-capita, per-trip, or per-crash risk; full-year endpoints do not prove daily completeness or validate non-NULL death values."
+}

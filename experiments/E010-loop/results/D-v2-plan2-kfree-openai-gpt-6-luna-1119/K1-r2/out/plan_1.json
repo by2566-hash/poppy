@@ -1,0 +1,50 @@
+{
+  "id": 1,
+  "initial_plan": {
+    "answerability": "yes: the dataset has a pedestrian deaths field and a crash date, so it can report the annual number of pedestrian deaths recorded in crashes dated 2013–2025",
+    "metric": "sum of number_of_pedestrians_killed",
+    "denominator": "none; this is an absolute count, not a rate or share",
+    "population": "all police-reported motor vehicle crash records with a non-null crash_date in calendar years 2013 through 2025; each pedestrian death recorded on a crash record contributes one person",
+    "filters": ["crash_date is in calendar years 2013 through 2025"],
+    "years": "2013–2025 inclusive, grouped by calendar year of crash_date",
+    "grouping": "calendar year",
+    "data_check_plan": "Count included crash records overall and for each year; check date coverage by year; check crash_date for missing, invalid, or default values in the scoped population; check number_of_pedestrians_killed for missing values only (do not inspect or count outcome values in the check)."
+  },
+  "data_check": {
+    "facts": {
+      "included crash rows, 2013–2025": 2132218,
+      "included crash rows by year": {
+        "2013": 203742,
+        "2014": 206046,
+        "2015": 217708,
+        "2016": 229833,
+        "2017": 231007,
+        "2018": 231564,
+        "2019": 211486,
+        "2020": 112918,
+        "2021": 110558,
+        "2022": 103887,
+        "2023": 96607,
+        "2024": 91316,
+        "2025": 85546
+      },
+      "date bounds by year": "Every year 2013–2025 has at least one record on January 1 and December 31; the data check does not establish completeness of dates between those endpoints.",
+      "crash_date missing or invalid among included rows": 0,
+      "known placeholder dates within included years": "none identified; conventional placeholder dates lie outside the planned years",
+      "number_of_pedestrians_killed missing among included rows": 0
+    },
+    "meaning_and_decisions": "The planned population contains 2,132,218 crash records. No rows in that population have a missing crash date or missing pedestrian-death field, so no included rows need to be dropped or counted differently for missingness; retain all planned rows. Every requested year has records at both calendar endpoints, but endpoint presence does not verify completeness throughout the year, so retain all years and disclose this coverage limitation. The year filter excludes crashes outside 2013–2025 by design, and rows without an assignable crash year cannot enter the annual groups."
+  },
+  "final_plan": {
+    "answerability": "yes: report the number of pedestrians killed, as recorded in police-reported crashes, for each requested crash year",
+    "metric": "annual sum of number_of_pedestrians_killed; count of pedestrian persons killed reported across crash records",
+    "denominator": "none; absolute annual count",
+    "population": "all police-reported motor vehicle crash records with crash_date in calendar years 2013–2025 inclusive; each recorded pedestrian death is counted once through the crash record field",
+    "filters": ["crash_date >= 2013-01-01", "crash_date < 2026-01-01"],
+    "years": "2013–2025 inclusive, calendar year determined from crash_date",
+    "grouping": "calendar year",
+    "missing_data_decision": "Keep all in-scope crash rows; there are 0 missing crash dates and 0 missing number_of_pedestrians_killed values among included rows.",
+    "chart_type": "bar chart, one bar per year",
+    "limitations": "The dataset covers police-reported crashes. Both January 1 and December 31 have records for every requested year, but this check cannot establish completeness of dates within those endpoints; the chart gives counts, not population- or exposure-adjusted risk."
+  }
+}

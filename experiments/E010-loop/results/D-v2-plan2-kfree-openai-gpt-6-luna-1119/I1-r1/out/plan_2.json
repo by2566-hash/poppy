@@ -1,0 +1,27 @@
+{
+  "initial_plan": {
+    "answerability": "partly: this data has crash records and motorist-killed counts but no distance driven, so it cannot calculate deaths per mile or determine per-mile risk; it can show the fraction of recorded crashes involving a motorist death.",
+    "metric": "Percentage of crashes with at least one motorist killed.",
+    "denominator": "Crashes with a recorded number_of_motorist_killed value in that year.",
+    "population": "Police-reported NYC motor-vehicle crashes dated 2013 through 2025 with a recorded motorist-killed count; each crash is counted once.",
+    "filters": ["crash_date is in calendar years 2013–2025", "number_of_motorist_killed is recorded"],
+    "years": "2013–2025 inclusive, grouped by calendar year of crash_date.",
+    "grouping": "Calendar year.",
+    "data_check_decisions": "Pending data check; no outcome results will be computed during the check."
+  },
+  "data_check": {
+    "file": "check_2.csv",
+    "meaning": "All candidate year-dated crashes have a recorded motorist-killed field (0 missing in every year), and no in-range row has an impossible negative motorist-killed count (0 in every year). Thus no crashes are dropped from annual denominators for missing or invalid outcome fields. Every year has observed dates from January 1 through December 31, including 2025, with no indication of partial-year coverage. The checks count eligible crash rows and field quality only; they do not report fatality outcomes.",
+    "decision": "Keep all crashes in 2013–2025 as denominators; no rows are excluded or assigned to an unknown group. No plan changes."
+  },
+  "final_plan": {
+    "answerability": "partly: this data cannot determine motorist deaths per mile driven because it contains no miles-driven exposure; it can show the share of reported crashes involving a motorist death.",
+    "metric": "100 times the number of crashes with number_of_motorist_killed greater than zero, divided by all eligible crashes in the calendar year.",
+    "denominator": "All police-reported NYC motor-vehicle crashes with crash_date in that calendar year; each crash counted once.",
+    "population": "All police-reported NYC motor-vehicle crashes with crash_date in 2013–2025 inclusive; a crash is classified as fatal to a motorist when at least one motorist death is recorded.",
+    "filters": ["crash_date from 2013-01-01 inclusive to 2026-01-01 exclusive"],
+    "years": "Complete calendar years 2013–2025.",
+    "grouping": "Calendar year of crash_date.",
+    "limitations": "This is the percentage of crashes involving motorist death, not deaths per mile and not the probability for an individual motorist. The dataset does not include miles driven. Data checks found 0 missing or impossible negative motorist-killed fields among eligible crashes in every year and date spans reaching both calendar-year boundaries, including 2025; all eligible crashes are retained."
+  }
+}

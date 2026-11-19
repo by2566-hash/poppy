@@ -1,0 +1,28 @@
+{
+  "initial_plan": {
+    "can_answer": "partly: can compare the share of recorded crashes with any reported injury or death, but cannot measure risk per trip or distance traveled",
+    "metric": "percentage of eligible crashes involving at least one reported injury or death",
+    "denominator": "crash records with nonmissing number_of_persons_injured and number_of_persons_killed",
+    "population": "police-reported NYC motor-vehicle crashes with a usable date and complete injury/death counts, grouped by clock-time period",
+    "filters": "use complete calendar years only; night is 20:00-05:59, day is 06:00-19:59, missing or invalid times are unknown; exclude records missing either outcome count",
+    "years": "all complete calendar years present in the file, determined by the data check",
+    "grouping": "calendar year and time period (night, day, unknown); injury-or-death crash means injured persons > 0 or killed persons > 0"
+  },
+  "data_check_decisions": {
+    "coverage": "The file spans 2012-07-01 through 2026-06-11. Exclude 2012 and 2026 because their observed date extents are partial; use 2013-2025, whose date extents run Jan 1-Dec 31. No rows have a NULL crash_date.",
+    "clock_time": "Among 2,132,218 dated crash rows in complete years, 0 have NULL, placeholder-string, or invalid crash_time. Keep all rows; 23,787 midnight times are retained as reported and classified as night, while disclosing that the data cannot confirm whether midnight is a default-coded time.",
+    "outcomes": "Within the population, number_of_persons_injured is NULL in 18 rows and number_of_persons_killed is NULL in 36 rows. Exclude any row missing either count from the denominator and event classification; these counts may overlap.",
+    "row_counts": "Annual dated population rows range from 203,742 in 2013 to 85,546 in 2025; these are crash-record denominators, not exposure measures.",
+    "changes": "Restrict to complete date-extent years, exclude rows with either outcome count missing, and retain midnight values as reported in the night group."
+  },
+  "final_plan": {
+    "can_answer": "partly: answers whether a larger share of recorded crashes involved injury or death at night, but not whether an individual trip or mile traveled is riskier at night",
+    "metric": "percentage of eligible crash records involving at least one reported injury or death",
+    "denominator": "crash records in each year and time period with nonmissing number_of_persons_injured and number_of_persons_killed",
+    "population": "police-reported NYC motor-vehicle crashes with a nonmissing crash date in 2013-2025 and both injury/death counts present",
+    "filters": "exclude partial date-extent years 2012 and 2026 and records missing either outcome count; night is 20:00-05:59, day is 06:00-19:59; missing/invalid times are an unknown group (none observed); retain midnight as reported in night",
+    "years": "2013-2025 inclusive",
+    "grouping": "calendar year and time period (night, day, unknown); event is number_of_persons_injured > 0 or number_of_persons_killed > 0",
+    "limitations": "The file has only partial date extents in 2012 (July 1-Dec 31) and 2026 (Jan 1-June 11), so those years are excluded. Among 2,132,218 dated rows in 2013-2025, injury count is NULL in 18 and death count in 36 (possibly overlapping); those records are excluded because event status cannot be determined. No crash_time values are missing, placeholder, or invalid; 23,787 exact-midnight times are retained in night, although possible default coding cannot be verified. Final eligible annual crash denominators range from 203,742 in 2013 to 85,543 in 2025, and no trip/traffic/distance exposure denominator is available, so this is severity conditional on a recorded crash, not road-user risk."
+  }
+}

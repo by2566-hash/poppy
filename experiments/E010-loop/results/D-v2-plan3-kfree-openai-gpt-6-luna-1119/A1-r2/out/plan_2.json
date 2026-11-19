@@ -1,0 +1,27 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "can_answer": "partly: the data can show the share of Brooklyn crash records with at least one reported pedestrian injury or death, but cannot measure pedestrian exposure-adjusted risk or all dimensions of road safety",
+    "metric": "Annual percentage of Brooklyn crash records with one or more pedestrians reported injured or killed",
+    "denominator": "Brooklyn crash records with non-missing pedestrian injury and death counts in each year",
+    "population": "One-row-per-crash records with borough Brooklyn and crash_date in a full calendar year from 2013 onward; numerator records have at least one reported pedestrian injury or death",
+    "filters": ["borough equals Brooklyn", "crash_date is in 2013 or later", "include only full calendar years after checking date coverage", "for this metric require both pedestrian injury and death counts to be present"],
+    "years": "2013 through the latest full calendar year represented in the file; determine the endpoint and any partial years during the data check",
+    "grouping": "Calendar year of crash_date"
+  },
+  "data_check": {
+    "facts": "2013-2025 are complete calendar years; 2026 is partial (2026-01-01 through 2026-06-11). There are 473801 Brooklyn crash rows in 2013-2025, with yearly row counts in check_2.csv. There are zero missing number_of_pedestrians_injured or number_of_pedestrians_killed values in the selected years, and zero Brooklyn rows with missing crash_date. The borough is an exact BROOKLYN match; missing/unknown borough values cannot enter the selected population.",
+    "meaning_and_decisions": "Exclude all 2026 records (9700 Brooklyn rows through 2026-06-11) because that calendar year is partial; keep 2013-2025. The planned complete-outcome denominator would otherwise drop rows with either pedestrian outcome field missing, but none are missing, so all eligible Brooklyn crash records remain in the denominator and can be classified. Missing crash dates cannot be assigned to a year, but none occur in Brooklyn. Keep the remaining records without special treatment.",
+    "changes": "The initial endpoint was set to the latest full year only after the check identified 2025 as complete and 2026 as partial; the planned missing-outcome exclusion removes no rows."
+  },
+  "final_plan": {
+    "can_answer": "partly: it measures the share of Brooklyn crash records with a reported pedestrian injury or death, but not exposure-adjusted risk or all dimensions of road safety",
+    "metric": "Annual percentage of eligible Brooklyn crash records with at least one pedestrian reported injured or killed",
+    "denominator": "All Brooklyn crash records in each year with both pedestrian injury and death fields present; these equal all Brooklyn records in the selected years because none are missing",
+    "population": "One-row-per-crash records with borough exactly BROOKLYN, a non-missing crash_date in calendar years 2013-2025, and non-missing pedestrian injury and death counts; numerator records have either count greater than zero",
+    "filters": ["borough equals BROOKLYN", "crash_date from 2013-01-01 through 2025-12-31", "both pedestrian outcome counts are present", "exclude records with missing crash_date (none in Brooklyn)"],
+    "years": "2013-2025, complete calendar years; exclude partial 2026",
+    "grouping": "Calendar year of crash_date",
+    "limitations": "The measure is a share of crash records, not a pedestrian injury rate per walking trip, distance, or population; crash records are not an exposure denominator. Total Brooklyn crash-record counts differ substantially by year, affecting the size of each year's denominator. The 2026 data only run through June 11 and are excluded. Borough is an exact recorded value and any unknown borough records are outside the Brooklyn population. No selected 2013-2025 Brooklyn records have missing pedestrian injury or death counts."
+  }
+}

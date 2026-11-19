@@ -1,0 +1,86 @@
+fact,value
+years_checked,2013-2025 inclusive; restricted to non-NULL crash_date in this interval
+candidate_rows_in_years,2132218
+final_population_rows_with_required_fields,2132218
+rows_removed_for_missing_required_death_field,0
+crash_date_missing_in_checked_rows,0
+crash_date_impossible_or_default_in_checked_rows,none observed; crash_date is a typed DATE and all selected dates fall within 2013-2025
+2013_candidate_rows,203742
+2013_final_population_rows_with_required_fields,203742
+2013_first_crash_date,2013-01-01
+2013_last_crash_date,2013-12-31
+2013_year_coverage,date endpoints span full calendar year; daily completeness is not established
+2013_number_of_motorist_killed_missing_rows,0
+2014_candidate_rows,206046
+2014_final_population_rows_with_required_fields,206046
+2014_first_crash_date,2014-01-01
+2014_last_crash_date,2014-12-31
+2014_year_coverage,date endpoints span full calendar year; daily completeness is not established
+2014_number_of_motorist_killed_missing_rows,0
+2015_candidate_rows,217708
+2015_final_population_rows_with_required_fields,217708
+2015_first_crash_date,2015-01-01
+2015_last_crash_date,2015-12-31
+2015_year_coverage,date endpoints span full calendar year; daily completeness is not established
+2015_number_of_motorist_killed_missing_rows,0
+2016_candidate_rows,229833
+2016_final_population_rows_with_required_fields,229833
+2016_first_crash_date,2016-01-01
+2016_last_crash_date,2016-12-31
+2016_year_coverage,date endpoints span full calendar year; daily completeness is not established
+2016_number_of_motorist_killed_missing_rows,0
+2017_candidate_rows,231007
+2017_final_population_rows_with_required_fields,231007
+2017_first_crash_date,2017-01-01
+2017_last_crash_date,2017-12-31
+2017_year_coverage,date endpoints span full calendar year; daily completeness is not established
+2017_number_of_motorist_killed_missing_rows,0
+2018_candidate_rows,231564
+2018_final_population_rows_with_required_fields,231564
+2018_first_crash_date,2018-01-01
+2018_last_crash_date,2018-12-31
+2018_year_coverage,date endpoints span full calendar year; daily completeness is not established
+2018_number_of_motorist_killed_missing_rows,0
+2019_candidate_rows,211486
+2019_final_population_rows_with_required_fields,211486
+2019_first_crash_date,2019-01-01
+2019_last_crash_date,2019-12-31
+2019_year_coverage,date endpoints span full calendar year; daily completeness is not established
+2019_number_of_motorist_killed_missing_rows,0
+2020_candidate_rows,112918
+2020_final_population_rows_with_required_fields,112918
+2020_first_crash_date,2020-01-01
+2020_last_crash_date,2020-12-31
+2020_year_coverage,date endpoints span full calendar year; daily completeness is not established
+2020_number_of_motorist_killed_missing_rows,0
+2021_candidate_rows,110558
+2021_final_population_rows_with_required_fields,110558
+2021_first_crash_date,2021-01-01
+2021_last_crash_date,2021-12-31
+2021_year_coverage,date endpoints span full calendar year; daily completeness is not established
+2021_number_of_motorist_killed_missing_rows,0
+2022_candidate_rows,103887
+2022_final_population_rows_with_required_fields,103887
+2022_first_crash_date,2022-01-01
+2022_last_crash_date,2022-12-31
+2022_year_coverage,date endpoints span full calendar year; daily completeness is not established
+2022_number_of_motorist_killed_missing_rows,0
+2023_candidate_rows,96607
+2023_final_population_rows_with_required_fields,96607
+2023_first_crash_date,2023-01-01
+2023_last_crash_date,2023-12-31
+2023_year_coverage,date endpoints span full calendar year; daily completeness is not established
+2023_number_of_motorist_killed_missing_rows,0
+2024_candidate_rows,91316
+2024_final_population_rows_with_required_fields,91316
+2024_first_crash_date,2024-01-01
+2024_last_crash_date,2024-12-31
+2024_year_coverage,date endpoints span full calendar year; daily completeness is not established
+2024_number_of_motorist_killed_missing_rows,0
+2025_candidate_rows,85546
+2025_final_population_rows_with_required_fields,85546
+2025_first_crash_date,2025-01-01
+2025_last_crash_date,2025-12-31
+2025_year_coverage,date endpoints span full calendar year; daily completeness is not established
+2025_number_of_motorist_killed_missing_rows,0
+crash_date_missing_rows_unassignable_to_any_year,0

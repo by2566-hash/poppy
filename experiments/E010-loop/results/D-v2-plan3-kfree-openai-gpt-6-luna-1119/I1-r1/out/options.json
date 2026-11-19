@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "Annual reported motorist deaths per 1,000 police-reported crashes = 1,000 × sum of number_of_motorist_killed / crash-row count, by crash_date calendar year.",
+      "denominator": "Police-reported NYC crash rows in each complete calendar year 2013-2025; all rows have a nonmissing motorist-death count.",
+      "grouping": "Crash_date calendar year, 2013-2025 inclusive.",
+      "chart_type": "Line chart",
+      "reason": "It normalizes the annual reported motorist death total by the number of crashes and captures more than one death when a crash reports multiple motorist fatalities.",
+      "probability": 0.6,
+      "answer": "Partly: the crash data cannot establish deaths per mile; reported motorist deaths per 1,000 police-reported crashes were 0.540 in 2013 and 0.947 in 2025.",
+      "interpretation": "These crash records cannot answer whether per-mile motorist-death risk declined because miles driven are not recorded. For police-reported NYC crash rows grouped by crash_date calendar year over complete 2013-2025 years, the chart measures reported motorist deaths per 1,000 crashes (1,000 × the annual motorist-death total divided by annual crash rows), showing 0.540 in 2013 and 0.947 in 2025. This is a defensible crash-based severity measure for the records, but it does not estimate deaths per mile or risk per motorist. The check found 0 missing motorist-death counts among 2,132,218 records and no partial years, so I kept all rows; the crash denominator was 203,742 in 2013, reached 231,564 in 2018, and was 85,546 in 2025, so annual values are ratios over changing crash-row totals."
+    },
+    {
+      "id": 2,
+      "metric": "Annual percentage of police-reported crash rows with at least one reported motorist death = 100 × count of rows where number_of_motorist_killed > 0 / crash-row count.",
+      "denominator": "All police-reported NYC crash rows in each complete calendar year 2013-2025; all rows have a nonmissing motorist-death count.",
+      "grouping": "Crash_date calendar year, 2013-2025 inclusive.",
+      "chart_type": "Line chart",
+      "reason": "It expresses how often a reported crash involved a motorist fatality, giving each crash equal weight rather than weighting multi-fatality crashes more heavily.",
+      "probability": 0.4,
+      "answer": "Partly: miles-driven risk is unavailable; crash rows with one or more reported motorist deaths were 0.050% in 2013 and 0.088% in 2025.",
+      "interpretation": "These crash records cannot answer whether per-mile motorist-death risk declined because miles driven are not recorded. For police-reported NYC crash rows grouped by crash_date calendar year over complete 2013-2025 years, the chart measures the percentage of crashes whose reported motorist-death count was greater than zero, from 0.050% in 2013 to 0.088% in 2025. This is a defensible measure of how often a reported crash involved a motorist fatality, but it does not estimate deaths per mile or a motorist's exposure-based risk. The check found 0 missing motorist-death counts among 2,132,218 records and no partial years, so I kept all rows; the denominator was 203,742 in 2013, reached 231,564 in 2018, and was 85,546 in 2025, so annual percentages use changing crash-row totals."
+    }
+  ]
+}

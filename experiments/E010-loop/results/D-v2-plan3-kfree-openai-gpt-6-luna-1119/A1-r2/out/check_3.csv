@@ -1,0 +1,95 @@
+fact,value
+Brooklyn rows with missing crash_date (excluded; no year can be assigned),0
+full calendar years represented in the source from 2013 onward,"2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025"
+partial calendar years represented in the source from 2013 onward (year: first date to last date),2026: 2026-01-01 to 2026-06-11
+Brooklyn population rows across full years used (2013 through latest full year),473801
+rows in that full-year population with number_of_pedestrians_killed missing,0
+rows in that full-year population with any planned pedestrian outcome field missing,0
+2013 Brooklyn candidate rows with crash_date in that year,47024
+2013 Brooklyn rows with missing borough among selected population,0
+2013 Brooklyn rows with missing crash_date among selected population,0
+2013 Brooklyn rows with number_of_pedestrians_killed missing,0
+2013 Brooklyn rows with any planned pedestrian outcome field missing,0
+2013 source date coverage,2013-01-01 to 2013-12-31
+2014 Brooklyn candidate rows with crash_date in that year,47761
+2014 Brooklyn rows with missing borough among selected population,0
+2014 Brooklyn rows with missing crash_date among selected population,0
+2014 Brooklyn rows with number_of_pedestrians_killed missing,0
+2014 Brooklyn rows with any planned pedestrian outcome field missing,0
+2014 source date coverage,2014-01-01 to 2014-12-31
+2015 Brooklyn candidate rows with crash_date in that year,50851
+2015 Brooklyn rows with missing borough among selected population,0
+2015 Brooklyn rows with missing crash_date among selected population,0
+2015 Brooklyn rows with number_of_pedestrians_killed missing,0
+2015 Brooklyn rows with any planned pedestrian outcome field missing,0
+2015 source date coverage,2015-01-01 to 2015-12-31
+2016 Brooklyn candidate rows with crash_date in that year,47464
+2016 Brooklyn rows with missing borough among selected population,0
+2016 Brooklyn rows with missing crash_date among selected population,0
+2016 Brooklyn rows with number_of_pedestrians_killed missing,0
+2016 Brooklyn rows with any planned pedestrian outcome field missing,0
+2016 source date coverage,2016-01-01 to 2016-12-31
+2017 Brooklyn candidate rows with crash_date in that year,44915
+2017 Brooklyn rows with missing borough among selected population,0
+2017 Brooklyn rows with missing crash_date among selected population,0
+2017 Brooklyn rows with number_of_pedestrians_killed missing,0
+2017 Brooklyn rows with any planned pedestrian outcome field missing,0
+2017 source date coverage,2017-01-01 to 2017-12-31
+2018 Brooklyn candidate rows with crash_date in that year,47313
+2018 Brooklyn rows with missing borough among selected population,0
+2018 Brooklyn rows with missing crash_date among selected population,0
+2018 Brooklyn rows with number_of_pedestrians_killed missing,0
+2018 Brooklyn rows with any planned pedestrian outcome field missing,0
+2018 source date coverage,2018-01-01 to 2018-12-31
+2019 Brooklyn candidate rows with crash_date in that year,44479
+2019 Brooklyn rows with missing borough among selected population,0
+2019 Brooklyn rows with missing crash_date among selected population,0
+2019 Brooklyn rows with number_of_pedestrians_killed missing,0
+2019 Brooklyn rows with any planned pedestrian outcome field missing,0
+2019 source date coverage,2019-01-01 to 2019-12-31
+2020 Brooklyn candidate rows with crash_date in that year,25473
+2020 Brooklyn rows with missing borough among selected population,0
+2020 Brooklyn rows with missing crash_date among selected population,0
+2020 Brooklyn rows with number_of_pedestrians_killed missing,0
+2020 Brooklyn rows with any planned pedestrian outcome field missing,0
+2020 source date coverage,2020-01-01 to 2020-12-31
+2021 Brooklyn candidate rows with crash_date in that year,25174
+2021 Brooklyn rows with missing borough among selected population,0
+2021 Brooklyn rows with missing crash_date among selected population,0
+2021 Brooklyn rows with number_of_pedestrians_killed missing,0
+2021 Brooklyn rows with any planned pedestrian outcome field missing,0
+2021 source date coverage,2021-01-01 to 2021-12-31
+2022 Brooklyn candidate rows with crash_date in that year,23369
+2022 Brooklyn rows with missing borough among selected population,0
+2022 Brooklyn rows with missing crash_date among selected population,0
+2022 Brooklyn rows with number_of_pedestrians_killed missing,0
+2022 Brooklyn rows with any planned pedestrian outcome field missing,0
+2022 source date coverage,2022-01-01 to 2022-12-31
+2023 Brooklyn candidate rows with crash_date in that year,22890
+2023 Brooklyn rows with missing borough among selected population,0
+2023 Brooklyn rows with missing crash_date among selected population,0
+2023 Brooklyn rows with number_of_pedestrians_killed missing,0
+2023 Brooklyn rows with any planned pedestrian outcome field missing,0
+2023 source date coverage,2023-01-01 to 2023-12-31
+2024 Brooklyn candidate rows with crash_date in that year,22785
+2024 Brooklyn rows with missing borough among selected population,0
+2024 Brooklyn rows with missing crash_date among selected population,0
+2024 Brooklyn rows with number_of_pedestrians_killed missing,0
+2024 Brooklyn rows with any planned pedestrian outcome field missing,0
+2024 source date coverage,2024-01-01 to 2024-12-31
+2025 Brooklyn candidate rows with crash_date in that year,24303
+2025 Brooklyn rows with missing borough among selected population,0
+2025 Brooklyn rows with missing crash_date among selected population,0
+2025 Brooklyn rows with number_of_pedestrians_killed missing,0
+2025 Brooklyn rows with any planned pedestrian outcome field missing,0
+2025 source date coverage,2025-01-01 to 2025-12-31
+2026 Brooklyn candidate rows with crash_date in that year,9700
+2026 Brooklyn rows with missing borough among selected population,0
+2026 Brooklyn rows with missing crash_date among selected population,0
+2026 Brooklyn rows with number_of_pedestrians_killed missing,0
+2026 Brooklyn rows with any planned pedestrian outcome field missing,0
+2026 source date coverage,2026-01-01 to 2026-06-11
+borough filter value,BROOKLYN; exact borough match
+borough missing/unknown/default-value rows inside Brooklyn population,0
+crash_date group value,calendar year; NULL dates excluded and counted above
+planned pedestrian outcome fields are numeric INT; missingness check is NULL count only,number_of_pedestrians_killed

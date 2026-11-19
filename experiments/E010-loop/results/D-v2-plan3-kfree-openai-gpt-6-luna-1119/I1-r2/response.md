@@ -1,0 +1,6 @@
+I’ll check what years and fields the crash file actually covers, then build only defensible crash-based measures. This dataset has no miles-driven exposure field, so it cannot directly establish a per-mile fatality risk.
+The file contains full calendar-date spans for every year from 2013 through 2025, with 2,132,218 crashes in that period. Motorist-death values are present on all included rows. Annual crash-row counts vary substantially—peaking at 231,564 in 2018 and then declining—so I’m including both raw annual death counts and deaths per 1,000 reported crashes as distinct proxies, while keeping the per-mile limitation explicit.
+ANSWER:
+
+1. This file cannot establish motorist fatality risk per mile because it has no miles-driven data; its annual-count proxy records 110 motorist deaths in 2013, 81 in 2025, and a peak of 139 in 2020 ([chart](out/option_1.png)).
+2. This file cannot establish per-mile risk; instead, recorded motorist deaths per 1,000 reported crash rows were 0.540 in 2013 and 0.947 in 2025, reaching 1.273 in 2023 ([chart](out/option_2.png)).

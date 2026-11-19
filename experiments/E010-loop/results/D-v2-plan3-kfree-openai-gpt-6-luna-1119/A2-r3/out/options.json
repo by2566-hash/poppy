@@ -1,0 +1,26 @@
+{
+  "options": [
+    {
+      "id": 1,
+      "metric": "percentage of eligible reported crashes with at least one person injured or killed, calculated as 100 × crashes where persons injured + persons killed > 0 / eligible crashes",
+      "denominator": "eligible reported crash rows in the same year and time-of-day group, with both total outcome fields present",
+      "grouping": "calendar year and crash-time period (night or day)",
+      "chart_type": "line chart",
+      "reason": "The share of crashes with any casualty directly describes how often a reported crash involved harm while distinguishing that from the number of casualties within each crash.",
+      "probability": 0.55,
+      "answer": "Crash records cannot establish exposure-adjusted street danger: the share of reported crashes involving injury or death was higher at night through 2021 but higher by day in 2022–2025 (2025: 42.46% night versus 44.29% day).",
+      "interpretation": "This answers only part of whether NYC streets are more dangerous at night: for complete calendar years 2013–2025, the chart compares the share of police-reported crashes with any injury or death, and that share is higher at night through 2021 but higher by day in 2022–2025; night means 20:00–05:59 and day means 06:00–19:59. The metric is 100 times crashes with at least one person injured or killed divided by eligible crash rows in that year and time group, a defensible measure of the likelihood of recorded harm conditional on a crash. It leaves unanswered danger per trip, mile, or pedestrian exposure because the file contains crash records but no traffic or travel-exposure denominator. The check found no missing dates or times; it excludes partial 2012 (100,545 dated rows) and 2026 (36,424) and 42 of 2,132,218 complete-year candidates missing either outcome total, keeps valid midnight times as night (3,819 in 2017, though possible default-coded values cannot be distinguished), and shows eligible rows increasing from 203,742 in 2013 to a 231,548 peak in 2018 before falling to 112,917 in 2020 and 85,543 in 2025, so annual percentages reflect changing crash-record volumes rather than stable exposure."
+    },
+    {
+      "id": 2,
+      "metric": "persons injured plus persons killed per 100 eligible reported crashes, calculated as 100 × total injuries and deaths / eligible crashes",
+      "denominator": "eligible reported crash rows in the same year and time-of-day group, with both total outcome fields present",
+      "grouping": "calendar year and crash-time period (night or day)",
+      "chart_type": "line chart",
+      "reason": "Casualties per crash captures the total recorded injury-and-death burden, including crashes that harm multiple people, which an any-casualty share does not.",
+      "probability": 0.45,
+      "answer": "Crash records cannot establish exposure-adjusted street danger: there were 59.96 injured or killed people per 100 night crashes versus 57.57 per 100 day crashes in 2025, with the night measure higher in every complete year from 2013–2025.",
+      "interpretation": "This answers only part of whether NYC streets are more dangerous at night: for complete calendar years 2013–2025, the chart shows the number of injured and killed people per 100 crashes was higher at night in every year; night means 20:00–05:59 and day means 06:00–19:59. The metric adds persons injured and persons killed, then divides by eligible police-reported crash rows in the same year and time group and multiplies by 100; it is defensible when the concern is casualty burden, including multiple people harmed in one crash. It leaves unanswered danger per trip, mile, or pedestrian exposure because the file contains crash records but no traffic or travel-exposure denominator. The check found no missing dates or times; it excludes partial 2012 (100,545 dated rows) and 2026 (36,424) and 42 of 2,132,218 complete-year candidates missing either outcome total, keeps valid midnight times as night (3,819 in 2017, though possible default-coded values cannot be distinguished), and shows eligible rows increasing from 203,742 in 2013 to a 231,548 peak in 2018 before falling to 112,917 in 2020 and 85,543 in 2025, so annual rates reflect changing crash-record volumes rather than stable exposure."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "initial_plan": {
+    "can_answer": "partly: can compare police-reported crash frequency per clock-hour, but cannot measure risk per trip or distance traveled",
+    "metric": "police-reported crash records per 1,000 elapsed clock-hours in each time period and year",
+    "denominator": "elapsed clock-hours in the period for that complete calendar year (10 hours/day at night; 14 hours/day by day; 24 hours/day unknown-time category)",
+    "population": "all police-reported NYC motor-vehicle crashes with a nonmissing crash date, grouped by the clock-time period",
+    "filters": "use complete calendar years only; night is 20:00-05:59, day is 06:00-19:59, and missing or invalid times are unknown",
+    "years": "2013-2025, selected as complete calendar years by the data check",
+    "grouping": "calendar year and time period (night, day, unknown)"
+  },
+  "data_check_decisions": {
+    "coverage": "The file spans 2012-07-01 through 2026-06-11. Exclude 2012 and 2026 because their observed date extents are partial; use 2013-2025, whose date extents run Jan 1-Dec 31. No rows have a NULL crash_date.",
+    "clock_time": "Among the 2,132,218 dated crash rows in complete years, 0 have NULL, placeholder-string, or invalid crash_time. Keep all rows; 23,787 midnight times are retained as reported times and classified as night, while disclosing that the data cannot confirm whether midnight is a default-coded time.",
+    "row_counts": "Annual population rows range from 203,742 in 2013 to 85,546 in 2025; they are counts of reported crashes, not exposure measures.",
+    "changes": "Restrict the years to complete date extents and retain midnight values in the night group; no other row-selection change."
+  },
+  "final_plan": {
+    "can_answer": "partly: answers which clock-time period has more police-reported crashes per elapsed clock-hour, but not which has greater risk per trip or distance traveled",
+    "metric": "police-reported crash records per 1,000 elapsed clock-hours in each time period and year",
+    "denominator": "elapsed clock-hours in the period for that complete calendar year; night comprises 10 hours/day, day 14 hours/day, unknown time 24 hours/day",
+    "population": "all police-reported NYC motor-vehicle crashes with a nonmissing crash date in complete calendar years 2013-2025",
+    "filters": "exclude partial date-extent years 2012 and 2026; night is 20:00-05:59, day is 06:00-19:59; keep missing/invalid time rows in an unknown-time category (none observed); keep midnight as reported and classify it as night",
+    "years": "2013-2025 inclusive",
+    "grouping": "calendar year and time period (night, day, unknown)",
+    "limitations": "The file has only partial date extents in 2012 (July 1-Dec 31) and 2026 (Jan 1-June 11), so those years are excluded. Of 2,132,218 dated rows in 2013-2025, no crash_time values are missing, placeholder, or invalid; 23,787 are exactly midnight and retained as reported, though possible default coding cannot be verified. Annual dated crash rows fall from 203,742 in 2013 to 85,546 in 2025, and the file contains no trip, traffic-volume, or distance-traveled denominator, so rates per clock-hour compare reported crash frequency rather than road-user risk."
+  }
+}

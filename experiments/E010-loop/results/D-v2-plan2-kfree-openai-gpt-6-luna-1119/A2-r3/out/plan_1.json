@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "status": "final plan",
+  "answerability": "partly: the data can compare the share of reported crashes involving a reported injury or death by crash time, but it cannot compare danger per trip, mile, or person exposed",
+  "metric": "Percentage of crashes with at least one person injured or killed",
+  "denominator": "Crashes with nonmissing values for both number_of_persons_injured and number_of_persons_killed",
+  "population": "Police-reported crashes in complete calendar years 2013 through 2025 with a non-NULL crash_date; each crash is counted once",
+  "filters": "Exclude 2012 and 2026 because those years are represented only partially. Exclude records missing either number_of_persons_injured or number_of_persons_killed from numerator and denominator. Classify crash_time 18:00:00–23:59:59 and 00:00:01–05:59:59 as Night, and 06:00:00–17:59:59 as Day. Show 00:00:00 and NULL crash_time together as Uncertain time.",
+  "years": "Complete calendar years 2013–2025; partial 2012 and 2026 are excluded",
+  "grouping": "Night, Day, and Uncertain time; Uncertain time contains exact 00:00:00 timestamps (possible default) and missing times. Night/day boundaries are 18:00 and 06:00.",
+  "data_check": {
+    "facts": "The file contains 2,269,187 dated crashes in 2012–2026. 2012 covers 2012-07-01–2012-12-31 (100,545 crashes) and 2026 covers 2026-01-01–2026-06-11 (36,424 crashes); the final plan excludes both partial years, leaving 2,132,218 population rows in complete years 2013–2025. In those retained years, crash_time is NULL in 0 rows and exactly 00:00:00 in 23,787 rows; the TIME-typed column cannot contain blank, word, or impossible clock values. number_of_persons_injured is missing in 18 rows, number_of_persons_killed in 36 rows, and at least one of those counts is missing in 42 rows.",
+    "decisions": "Exclude partial 2012 and 2026 so incomplete calendar-year seasonal coverage does not enter the comparison; 2026 also has 8,877 missing killed counts, concentrated in the excluded partial year. Exclude the 42 retained-year crashes missing either harm count because the outcome cannot be classified. Keep exact-midnight timestamps as their own Uncertain time group because their concentration may indicate default times; this avoids counting them as known night crashes while preserving those records. No change to the measured outcome."
+  },
+  "limitations": "This is the share of police-reported crashes with reported harm, not risk per trip, mile, or person exposed; the data have no traffic-volume denominator. It excludes partial 2012 and 2026 and 42 retained-year crashes with missing injury/death counts, and exact-midnight timestamps are separated because they may be defaults."
+}

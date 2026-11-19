@@ -1,0 +1,41 @@
+fact,value
+source rows read from planned columns,2269187
+candidate rows with missing/unassignable crash_date,0
+candidate rows at default/sentinel crash_date 1900-01-01 or 1970-01-01,0
+candidate rows with valid crash_date,2269187
+valid-date rows outside final complete-year window 2013-2025,136969
+candidate rows in 2012,100545
+candidate rows in 2013,203742
+candidate rows in 2014,206046
+candidate rows in 2015,217708
+candidate rows in 2016,229833
+candidate rows in 2017,231007
+candidate rows in 2018,231564
+candidate rows in 2019,211486
+candidate rows in 2020,112918
+candidate rows in 2021,110558
+candidate rows in 2022,103887
+candidate rows in 2023,96607
+candidate rows in 2024,91316
+candidate rows in 2025,85546
+candidate rows in 2026,36424
+complete-year candidate rows with missing number_of_persons_injured,18
+complete-year candidate rows with missing number_of_persons_killed,36
+complete-year candidate rows missing either summed outcome column,42
+final-plan complete-case population rows,2132176
+plan-population rows with missing/unknown crash_time,0
+plan-population rows with unclassifiable/impossible crash_time,0
+plan-population rows at default/sentinel time 00:00:00,23786
+final-plan population rows in 2013,203742
+final-plan population rows in 2014,206046
+final-plan population rows in 2015,217708
+final-plan population rows in 2016,229831
+final-plan population rows in 2017,230988
+final-plan population rows in 2018,231548
+final-plan population rows in 2019,211486
+final-plan population rows in 2020,112917
+final-plan population rows in 2021,110557
+final-plan population rows in 2022,103887
+final-plan population rows in 2023,96607
+final-plan population rows in 2024,91316
+final-plan population rows in 2025,85543

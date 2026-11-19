@@ -1,0 +1,27 @@
+{
+  "id": 2,
+  "initial_plan": {
+    "can_answer": "partly: crash records can compare recorded casualty burden per crash by time of day, but cannot establish traffic-exposure-adjusted street danger",
+    "metric": "number of persons injured plus persons killed per 100 eligible reported crashes",
+    "denominator": "eligible reported crash rows with nonmissing persons-injured and persons-killed fields",
+    "population": "one row per police-reported NYC motor vehicle crash with a usable crash date, crash time, and both outcome fields",
+    "filters": ["crash date and time are present and valid", "both total persons injured and total persons killed are present", "night is 20:00–05:59; day is 06:00–19:59"],
+    "years": "all calendar years represented in the file; inspect endpoint coverage and finalize eligible years after the data check",
+    "grouping": "calendar year and crash-time period (night or day)"
+  },
+  "data_check_decisions": {
+    "facts": "The file has 2,269,187 dated rows, from 2012-07-01 through 2026-06-11, with no missing crash dates or crash times. 2012 is partial (2012-07-01 through 2012-12-31) and 2026 is partial (2026-01-01 through 2026-06-11); complete calendar years are 2013–2025. In those complete years there are 2,132,218 dated candidate rows and 2,132,176 rows with both outcome fields present; 42 rows lack at least one of the two totals. The integer outcome columns can be missing only as NULL; date and time are typed DATE/TIME fields. Midnight timestamps occur in each year (25 in 2013, rising to 3,819 in 2017, and 1,742 in 2025) and are valid time values.",
+    "decisions": "Exclude partial calendar years 2012 and 2026 so annual comparisons use complete years. Exclude rows missing either injury or death total because their casualty count is unknown; this removes 42 of 2,132,218 candidate rows (about 0.002%) in 2013–2025. Keep all present timestamps, including midnight, as night; disclose that any default-coded midnight times cannot be distinguished from true midnight in these typed data.",
+    "changes": "The initial all-years range is narrowed to complete calendar years 2013–2025, and the explicit complete-outcome filter is retained."
+  },
+  "final_plan": {
+    "can_answer": "partly: this measures recorded casualties per crash by crash time, not danger per mile, trip, pedestrian, or other traffic exposure",
+    "metric": "persons injured plus persons killed per 100 eligible reported crashes, calculated as 100 × total injuries and deaths / eligible crashes",
+    "denominator": "eligible reported crash rows in the same year and time-of-day group, with both total outcome fields present",
+    "population": "one row per police-reported NYC motor vehicle crash dated in 2013–2025 with a nonmissing crash time and nonmissing total persons-injured and persons-killed fields",
+    "filters": ["exclude partial years 2012 and 2026", "exclude rows with either total persons-injured or total persons-killed field missing", "night is 20:00–05:59 and day is 06:00–19:59; retain midnight timestamps as night"],
+    "years": "complete calendar years 2013–2025",
+    "grouping": "calendar year and crash-time period (night or day)",
+    "limitations": "There are no missing dates or times; 42 of 2,132,218 dated candidate rows in 2013–2025 are excluded for missing at least one outcome field. Partial 2012 and 2026 are excluded (file dates span 2012-07-01 to 2026-06-11). Midnight values are valid TIME values and retained in night, but possible default-coded times cannot be identified. Annual eligible denominators vary (203,742 rows in 2013 versus 85,543 in 2025), and crashes per year are not a measure of traffic exposure, so the measure describes casualty burden per recorded crash, not street danger per trip or distance."
+  }
+}

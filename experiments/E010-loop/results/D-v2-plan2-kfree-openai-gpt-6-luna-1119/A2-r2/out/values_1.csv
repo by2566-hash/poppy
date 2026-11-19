@@ -1,0 +1,4 @@
+time_group,crash_count,nominal_clock_hours,crashes_per_nominal_clock_hour
+Day,1607499,66472,24.183099650980864
+Night,524719,47480,11.05136899747262
+Unknown time,0,0,

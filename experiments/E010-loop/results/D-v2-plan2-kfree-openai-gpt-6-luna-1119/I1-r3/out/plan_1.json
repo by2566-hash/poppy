@@ -1,0 +1,26 @@
+{
+  "initial_plan": {
+    "can_answer_question": "partly: the data cannot measure motorist fatality risk per mile because it contains no miles-driven or vehicle-miles-traveled exposure; it can show annual counts of reported motorist deaths as an outcome-only proxy",
+    "metric": "annual number of motorist deaths (sum of number_of_motorist_killed)",
+    "denominator": "none; this is a count, not a per-mile rate",
+    "population": "police-reported NYC crash records with a usable crash_date year and nonmissing number_of_motorist_killed; count motorist deaths reported on those crashes",
+    "filters": ["crash_date year is 2013 through 2025", "crash_date is nonmissing", "number_of_motorist_killed is nonmissing"],
+    "years": "calendar years 2013-2025 inclusive, assigned from crash_date",
+    "grouping": "crash_date calendar year"
+  },
+  "data_check": {
+    "facts_file": "./out/check_1.csv",
+    "meaning_and_decisions": "Among nonmissing crash dates in 2013-2025, all 2,132,218 crash rows have a nonmissing number_of_motorist_killed, so no in-window rows are removed for the measure. There are 0 crash rows with missing crash_date in the file, which are unassignable to a year. Each year from 2013 through 2025 has crash-date endpoints of Jan 1 and Dec 31; this does not establish daily reporting completeness, so retain all years and disclose this caveat (including for 2025). Date is a typed DATE, and no impossible/default date value appears in the selected interval. Keep the eligible rows; do not impute or exclude any based on unobserved exposure.",
+    "changed_from_initial_plan": "No metric or population change; the data check confirms no missing motorist-death values in the selected window and adds the date-coverage caveat."
+  },
+  "final_plan": {
+    "can_answer_question": "no for risk per mile: vehicle-miles-traveled is absent; partly for the outcome-only proxy of annual motorist deaths",
+    "metric": "annual count of reported motorist deaths, calculated as the sum of number_of_motorist_killed",
+    "denominator": "none",
+    "population": "police-reported NYC crashes dated in calendar years 2013-2025 with a nonmissing number_of_motorist_killed value; the count is of persons classified as motorists killed on those crash records",
+    "filters": ["crash_date is nonmissing and its calendar year is 2013-2025", "number_of_motorist_killed is nonmissing"],
+    "years": "calendar years 2013-2025 inclusive",
+    "grouping": "crash_date calendar year",
+    "limitations": "The data has no vehicle-miles-traveled or other miles-driven exposure, so the plotted fatality counts cannot establish whether risk per mile declined. The 2025 date endpoints span Jan 1 through Dec 31, as do the other years, but date endpoints do not establish complete reporting on every day; police-reported crashes only are represented. No crash-date or motorist-death values are missing among the 2,132,218 dated rows in the selected years; 0 records have missing crash_date in the file."
+  }
+}
