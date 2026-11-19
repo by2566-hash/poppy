@@ -42,7 +42,7 @@ DATA_FACTS = """- The file covers 2012-07-01 to 2026-06-11; 2013-2025 are comple
 - crash_time has no NULL rows. Reported crash counts (the number of crash records) fall sharply in 2020 (TR01), so a per-reported-crash rate (deaths or injuries divided by reported crashes) compared across years spanning 2020 needs a caveat. Counts of deaths or injuries by year do NOT need it (they are not affected by the reporting change), and a comparison between groups within one pooled window (e.g. day vs night) does not either (decided 2026-11-04; g5 wording after g4 failed c6 on plain death counts).
 - No exposure measure exists (no traffic volume, trips, miles): counts and per-crash rates are not risk (TR11)."""
 SANDBOX = ROOT.parent / "poppy-sandbox" / "_score"
-GRADER_VERSION = "g8.1"   # g8.1 (2026-11-13, Bo): SCORING §4 decisions 8 (TR01 wording) and 9 (check file as a source); bump on any change to grader_prompt / items / standard; recorded in the sheet and in each run's grader/<version>-p<pass>/
+GRADER_VERSION = "g8.2"   # g8.2 (2026-11-19, Bo): + decision 10 (calendar and unit numbers need no provenance; machine rule, grader prompt identical to g8.1). g8.1 (2026-11-13, Bo): SCORING §4 decisions 8 (TR01 wording) and 9 (check file as a source); bump on any change to grader_prompt / items / standard; recorded in the sheet and in each run's grader/<version>-p<pass>/
 CRITERIA = {"c1": "question answered: the output answers the question that was asked (not a neighbouring one)",
             "c2": "appropriate measure: the metric and denominator fit the question",
             "c3": "appropriate chart type for the data and the comparison",
@@ -207,7 +207,6 @@ def gold_columns(r):
     return cols
 
 
-MACHINE_VERSION = "m2"   # machine provenance rules. m1 = SCORING §4 decision 9 (check file); m2 = decision 10 (calendar and unit numbers, Bo 2026-11-19). The LLM grader (GRADER_VERSION) is unchanged by these.
 _MONTH = r"(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\.?"
 _CAL_UNIT = r"(?:day|hour|week|month|year|minute)s?\b"
 
@@ -234,7 +233,7 @@ def calendar_or_unit(text, s, e, n, suf):
         # only as a calendar length, so "crashes on 40 days" stays checked
         if unit in ("year", "hour", "minute") or qual or tot in const:
             return "calendar"
-    if n in (100, 1e3, 1e4, 1e5, 1e6) and re.search(r"\b(?:per|by|to|every|each)\s*$", before, re.I):
+    if n in (100, 1e3, 1e4, 1e5, 1e6) and re.search(r"(?:\b(?:per|by|to|every|each|times)|×)\s*$", before, re.I):
         return "unit"
     return None
 
@@ -264,7 +263,7 @@ def numbers_in_text(text, exempt=None):
     return found
 
 
-REUSE_FROM = "g8"   # g8.1 reuses a g8 verdict when the rendered grader prompt is byte-identical
+REUSE_FROM = ("g8.1", "g8")   # a verdict of an earlier version is reused when the rendered grader prompt is byte-identical (first match wins)
 _NUM_TRACE = re.compile(r"-?\d[\d,]*\.?\d*")
 
 
@@ -491,13 +490,15 @@ def run_grader(unit, label, call_model, model=None, tag="", timeout=300):
     (sb / "grader_prompt.md").write_text(prompt)
     t0 = time.time(); got, text, r, attempt, reused = {}, "", {}, 0, False
     keep = unit["dir"] / "grader" / (f"{GRADER_VERSION}-p{os.environ.get('GRADER_PASS', '1')}" + (f"-{tag}" if tag else "")) / f"o{opt}"
-    prev = Path(str(keep).replace(f"/grader/{GRADER_VERSION}-", f"/grader/{REUSE_FROM}-"))
-    if REUSE_FROM and (prev / "prompt.md").exists() and (prev / "prompt.md").read_text() == prompt and parse_json((prev / "response.md").read_text()):
+    prevs = [(v, Path(str(keep).replace(f"/grader/{GRADER_VERSION}-", f"/grader/{v}-"))) for v in REUSE_FROM]
+    src, prev = next(((v, pv) for v, pv in prevs if (pv / "prompt.md").exists() and (pv / "prompt.md").read_text() == prompt
+                      and parse_json((pv / "response.md").read_text())), (None, None))
+    if prev:
         # g8.1: the grader prompt of this unit is byte-identical to its g8 prompt, so the g8 verdict is reused (no model call)
         keep.mkdir(parents=True, exist_ok=True)
         shutil.copy(prev / "prompt.md", keep / "prompt.md"); shutil.copy(prev / "response.md", keep / "response.md")
         m = json.loads((prev / "meta.json").read_text()) if (prev / "meta.json").exists() else {}
-        (keep / "meta.json").write_text(json.dumps({**m, "grader_version": GRADER_VERSION, "reused_from": REUSE_FROM}, indent=1))
+        (keep / "meta.json").write_text(json.dumps({**m, "grader_version": GRADER_VERSION, "reused_from": src}, indent=1))
         got, text, r, reused = parse_json((prev / "response.md").read_text()), "", {"tool_calls": m.get("tool_calls")}, True
     for attempt in ((1, 2) if not got else ()):   # one retry when nothing parses
         r = call_model(sb, prompt, timeout=timeout, files=files, model=(model if "/" in (model or "") else (f"opencode/{model}" if model else None)))
@@ -527,7 +528,7 @@ def run_grader(unit, label, call_model, model=None, tag="", timeout=300):
 ALL_ITEMS = list(CRITERIA) + sorted({f"tr_{t['id']}" for g in GOLD.values() for t in g.get("traps", [])}) + ["unsupported_claim", "required_statement"]
 HUMAN = ["h_gold"] + [f"h_{k}" for k in ALL_ITEMS] + ["first_failure", "notes"]   # h_gold: wrong | new_reading | ok
 MACHINE = ["exp", "label", "q", "type", "rep", "option", "complete", "n_options", "n_distinct_analytic", "steps", "gold_match", "gold_detail",
-           "n_numbers", "unsourced_numbers", "exempt_numbers", "machine_version", "framing_flags"]
+           "n_numbers", "unsourced_numbers", "exempt_numbers", "scoring_version", "framing_flags"]
 GRADER = ["grader_model", "grader_secs", "grader_tools"] + [c for k in ALL_ITEMS for c in (f"m_{k}", f"ev_{k}")] + ["ev_raw"]
 # Second grader (plan §v0, accepted by Bo 2026-11-04): same prompt, another model; m2_/ev2_ per item; `disagree` lists the items
 # where the two graders differ. Cells where they agree are accepted; disagreements and a small random audit go to the human (--review).
@@ -697,7 +698,7 @@ def score(exp, label, only, use_grader, workers):
         rows.append({"exp": exp, "label": label, "q": u["q"], "type": u["type"], "rep": u["rep"], "option": u["option"],
                      "complete": u["complete"], "n_options": u["n_options"], "n_distinct_analytic": u["n_distinct_analytic"], "steps": u["steps"],
                      "gold_match": gm, "gold_detail": gd, "n_numbers": nn, "unsourced_numbers": " | ".join(uns),
-                     "exempt_numbers": " | ".join(ex), "machine_version": MACHINE_VERSION, "framing_flags": " | ".join(framing_flags(u["code"]))})
+                     "exempt_numbers": " | ".join(ex), "scoring_version": GRADER_VERSION, "framing_flags": " | ".join(framing_flags(u["code"]))})
     if use_grader:
         from common import MODEL  # noqa: E402
         from run_screen import call_model  # noqa: E402
