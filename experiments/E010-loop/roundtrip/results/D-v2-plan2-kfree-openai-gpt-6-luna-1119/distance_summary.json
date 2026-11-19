@@ -1,0 +1,30 @@
+{
+ "mpnet": {
+  "options": 2,
+  "guesses": 4,
+  "asked_guess_mean": 0.52595,
+  "core_guess_mean": 0.53245,
+  "repeat_floor_mean": 0.0928153395652771,
+  "ratio": 5.666627978342944,
+  "between_option_mean": 0.10096582770347595,
+  "paraphrase_reference_mean": 0.06852399971750048,
+  "paraphrase_reference_max": 0.14146995544433594,
+  "per_question_asked_guess": {
+   "A1": 0.526
+  }
+ },
+ "minilm": {
+  "options": 2,
+  "guesses": 4,
+  "asked_guess_mean": 0.590025,
+  "core_guess_mean": 0.5878749999999999,
+  "repeat_floor_mean": 0.101421058177948,
+  "ratio": 5.817578820413937,
+  "between_option_mean": 0.10786157846450806,
+  "paraphrase_reference_mean": 0.0567536453406016,
+  "paraphrase_reference_max": 0.15313124656677246,
+  "per_question_asked_guess": {
+   "A1": 0.59
+  }
+ }
+}

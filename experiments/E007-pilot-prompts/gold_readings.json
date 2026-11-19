@@ -226,7 +226,7 @@
   "traps": [
    {
     "id": "TR05",
-    "item": "If a borough filter (borough = 'BROOKLYN') is used, the output discloses that crashes with no borough recorded (19.9\u201338.1% per year) are excluded.",
+    "item": "If a borough filter (borough = 'BROOKLYN') is used, the output discloses that crashes with no borough recorded are left out of the borough figure. Saying that such rows exist and are excluded is enough; a number is not required, and an overall share or a per-year share both count (for reference only: 19.9\u201338.1% of rows per year have no borough). Saying only that other boroughs or non-matching rows are excluded, or that no borough values are missing among the Brooklyn rows, does not count.",
     "note": "undisclosed borough filter fails"
    },
    {

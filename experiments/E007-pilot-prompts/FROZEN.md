@@ -95,3 +95,19 @@ Note: reused g8 verdicts were produced before the hermetic switch (grader contex
 | `scripts/score_runs.py` | `86bbab056bc9dc81b05587395ad1a8f02e604acfd06e9511455d8d1136051582` | **g8.2** = g8.1 + SCORING §4 decision 10: calendar and unit numbers (date days, calendar lengths, rate scales incl. "per / by / to / times / × 100…") are read from context and not checked against the data; listed in `exempt_numbers`; `scoring_version` column. Grader prompt byte-identical to g8.1, so `REUSE_FROM = ("g8.1", "g8")` reuses earlier verdicts. Unit tests: "9,700 rows", "1,000 crashes had a death", "100 crashes were fatal", "crashes on 182 days", "365 deaths", "5.0-percentage-point" stay checked. All 10 E010 arms re-scored (machine columns only): only `n_numbers` / `unsourced_numbers` change; C5 v2 unsourced 8 → 0 of 37, same-day baseline 0 → 0. (First committed in `7dfc033` as "m2"; renamed to g8.2 the same day so every arm is on one named instrument.) |
 
 **2026-11-19 result:** `D_enumerate.v2-plan3.md` (E010-v4) was **rejected** by the keep rule (PERMILE fixed, TR01 not, TR05 up; ITERATIONS 11-19). `D_enumerate.v2-plan2.md` stays the E010 base (v3).
+
+## 2026-11-19 (T1): v4 split into nested single-step candidates; g8.3
+
+Base = `D_enumerate.v2-plan2.md` (v3). Each candidate adds one change to the one before, so each step is attributable by difference; no trap name, place or year in any of them.
+
+| Prompt | SHA-256 | Adds |
+|---|---|---|
+| `D_enumerate.v2-plan4-A.md` | `ef2706a5c8b5290e8ac1aa191425820f2241e82afea9c89d0a65538973c9ba44` | **A** (the part of v4 that worked): if the final plan says the data answers the question only partly or not at all, the answer says so first, describes the measure in its own terms, and never says whether the asked quantity rose, fell or stayed the same. Self-review also checks the answer. Target: PERMILE |
+| `D_enumerate.v2-plan4-AC.md` | `dc43e12223ea4b74f57fcbcc5785948c7e5e7613acbc846dca282220d191d8f5` | A + **C**: in the data check, a column the plan *filters on* is checked for missing values on the rows of the plan's years *before that filter is applied* (after the filter the missing rows cannot be seen); a grouping column is checked on the population's rows. Target: TR05. Fixes a flaw present in v3 and v4 ("0 of 483,501 Brooklyn rows missing borough") |
+| `D_enumerate.v2-plan4-ACB.md` | `80677c7899499bc1ad6cb42831fcb8d19958ea5a65741e7d300deab93d42beae` | A + C + **B'** (v4's rows-per-year rule reworded): with a row-count denominator, the interpretation names the largest change in rows per year between two neighbouring years (which years, how large, from the check file) and says a rise or fall of the measure across them can come from the denominator, not the outcome. Target: TR01 |
+
+| File | SHA-256 | Change |
+|---|---|---|
+| `scripts/score_runs.py` | `0a324e517f72f822b47160c1c357460c77b3e0ca0b3780670d4916bed19c19d4` | **g8.3** = g8.2 + SCORING §4 decision 11 (TR05 wording); `REUSE_FROM = ("g8.2", "g8.1", "g8")`; only A1 units get a new grader prompt |
+| `experiments/E007-pilot-prompts/gold_readings.json` | `99e81bab0cdc5292068a5166d253ba0fad7d0d36a4621bff9b32501af25f5e0f` | A1 TR05 item: disclosure that no-borough crashes are left out; number optional; overall or per-year share both count; range is reference only |
+| `experiments/E010-loop/roundtrip/reverse_prompt.md` | `7f659893f3fcde5541175fcb6aa4c77eb93062d6b08ee92d14ca3b9393a6ec4b` | T3 reverse-inference prompt (table only; structured guess) |

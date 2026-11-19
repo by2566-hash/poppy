@@ -1,5 +1,5 @@
 #!/bin/zsh
-# usage: score_when_done.sh <run log | -> <label>   (waits for "saved", collects, g8.1 two Luna passes, review sheet)
+# usage: score_when_done.sh <run log | -> <label>   (waits for "saved", collects, current GRADER_VERSION, two Luna passes, review sheet)
 cd /Users/yubo/Documents/Honda/poppy
 set -a; source .env; set +a
 export POPPY_MODEL=openai/gpt-6-luna POPPY_EXP=E010-loop

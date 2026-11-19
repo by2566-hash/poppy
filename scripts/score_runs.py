@@ -42,7 +42,7 @@ DATA_FACTS = """- The file covers 2012-07-01 to 2026-06-11; 2013-2025 are comple
 - crash_time has no NULL rows. Reported crash counts (the number of crash records) fall sharply in 2020 (TR01), so a per-reported-crash rate (deaths or injuries divided by reported crashes) compared across years spanning 2020 needs a caveat. Counts of deaths or injuries by year do NOT need it (they are not affected by the reporting change), and a comparison between groups within one pooled window (e.g. day vs night) does not either (decided 2026-11-04; g5 wording after g4 failed c6 on plain death counts).
 - No exposure measure exists (no traffic volume, trips, miles): counts and per-crash rates are not risk (TR11)."""
 SANDBOX = ROOT.parent / "poppy-sandbox" / "_score"
-GRADER_VERSION = "g8.2"   # g8.2 (2026-11-19, Bo): + decision 10 (calendar and unit numbers need no provenance; machine rule, grader prompt identical to g8.1). g8.1 (2026-11-13, Bo): SCORING §4 decisions 8 (TR01 wording) and 9 (check file as a source); bump on any change to grader_prompt / items / standard; recorded in the sheet and in each run's grader/<version>-p<pass>/
+GRADER_VERSION = "g8.3"   # g8.3 (2026-11-19): decision 11, TR05 wording (the per-year range is a reference, not a requirement; A1 units re-graded). g8.2 (2026-11-19, Bo): + decision 10 (calendar and unit numbers need no provenance; machine rule, grader prompt identical to g8.1). g8.1 (2026-11-13, Bo): SCORING §4 decisions 8 (TR01 wording) and 9 (check file as a source); bump on any change to grader_prompt / items / standard; recorded in the sheet and in each run's grader/<version>-p<pass>/
 CRITERIA = {"c1": "question answered: the output answers the question that was asked (not a neighbouring one)",
             "c2": "appropriate measure: the metric and denominator fit the question",
             "c3": "appropriate chart type for the data and the comparison",
@@ -263,7 +263,7 @@ def numbers_in_text(text, exempt=None):
     return found
 
 
-REUSE_FROM = ("g8.1", "g8")   # a verdict of an earlier version is reused when the rendered grader prompt is byte-identical (first match wins)
+REUSE_FROM = ("g8.2", "g8.1", "g8")   # a verdict of an earlier version is reused when the rendered grader prompt is byte-identical (first match wins)
 _NUM_TRACE = re.compile(r"-?\d[\d,]*\.?\d*")
 
 
